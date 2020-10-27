@@ -1,0 +1,24 @@
+$viewports-tiny: (
+    "min-width": 0px,
+    "max-width": 599px,
+);
+
+$viewports-small: (
+    "min-width": 600px,
+    "max-width": 899px,
+);
+
+$viewports-medium: (
+    "min-width": 900px,
+    "max-width": 1199px,
+);
+
+$viewports-large: (
+    "min-width": 1200px,
+    "max-width": 999999px,
+);
+
+@custom-media --viewports-tiny screen and (max-width: #{map-get($viewports-tiny, "max-width")});
+@custom-media --viewports-small screen and (min-width: #{map-get($viewports-small, "min-width")}) and (max-width: #{map-get($viewports-small, "max-width")});
+@custom-media --viewports-medium screen and (min-width: #{map-get($viewports-medium, "min-width")}) and (max-width: #{map-get($viewports-medium, "max-width")});
+@custom-media --viewports-large screen and (min-width: #{map-get($viewports-large, "min-width")});

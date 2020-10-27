@@ -1,0 +1,76 @@
+:root {
+    /**
+     * Menu Tokens
+     */
+
+    --menu-border: var(--sizing-border) solid;
+    --menu-border-radius: var(--radius-text);
+
+    --menu-margin-icon: var(--spacing-text-medium);
+
+    --menu-transition: var(--animation-visual);
+
+    /**
+     * Menu Palette
+     */
+
+    --menu-default-background: var(--palette-default-base);
+    --menu-default-color: var(--palette-light-base);
+
+    --menu-accent-background: var(--palette-accent-base);
+    --menu-accent-color: var(--palette-light-base);
+
+    --menu-dark-background: var(--palette-dark-base);
+    --menu-dark-color: var(--palette-light-base);
+
+    --menu-light-background: var(--palette-light-base);
+    --menu-light-color: var(--palette-dark-base);
+
+    --menu-alert-background: var(--palette-alert-base);
+    --menu-alert-color: var(--palette-light-base);
+
+    --menu-affirmative-background: var(--palette-affirmative-base);
+    --menu-affirmative-color: var(--palette-light-base);
+
+    --menu-negative-background: var(--palette-negative-base);
+    --menu-negative-color: var(--palette-light-base);
+
+    --menu-opacity-enabled: var(--opacity-visible);
+
+    --menu-opacity-muted: var(--opacity-muted);
+
+    --menu-opacity-translucent: var(--opacity-translucent);
+    --menu-opacity-transparent: var(--opacity-transparent);
+
+    /**
+     * Menu Anchor Tokens
+     */
+
+    --menu-anchor-border: var(--sizing-text-medium) solid;
+    --menu-anchor-padding: var(--spacing-text-tiny) var(--spacing-text-medium);
+
+    /**
+     * Menu Heading Tokens
+     */
+
+    --menu-heading-color: var(--menu-default-background);
+
+    --menu-heading-font-size: var(--font-size-text-small);
+    --menu-heading-font-weight: var(--font-weight-bold);
+    --menu-heading-letter-spacing: 0.1em;
+
+    /**
+     * Menu List Tokens
+     */
+
+    --menu-list-border: var(--sizing-divider) solid;
+    --menu-list-border-color: var(--menu-default-background);
+
+    --menu-list-padding: 0 0 0 var(--spacing-block-medium);
+
+    /**
+     * Menu Separator Tokens
+     */
+
+    --menu-separator-flex-grow: 0.025;
+}

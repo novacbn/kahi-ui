@@ -1,0 +1,20 @@
+:root {
+    /**
+     * Lists Tokens
+     */
+
+    --lists-margin: var(--spacing-block-medium) 0 var(--spacing-block-medium)
+        var(--spacing-block-medium);
+    --lists-margin-item: var(--spacing-block-small) 0;
+
+    --lists-font-size-heading: var(--font-size-text-medium);
+    --lists-font-weight-heading: var(--font-weight-bold);
+
+    /**
+     * Lists Definition Tokens
+     */
+
+    --lists-definition-margin: var(--spacing-block-medium) 0;
+    --lists-definition-margin-item: var(--spacing-block-small) 0 var(--spacing-block-small)
+        var(--spacing-block-medium);
+}

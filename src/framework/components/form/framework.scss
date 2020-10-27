@@ -1,0 +1,215 @@
+$check: "input[type='checkbox']:not([role])";
+$label: "label";
+$radio: "input[type='radio']";
+$switch: "input[type='checkbox'][role='switch']";
+$text: ":is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea)";
+
+$form-disabled: ":disabled";
+
+$form-toggle-active: ":checked";
+$form-toggle-hover: ":is(:focus, :hover)";
+
+/**
+ * TODO: `<fieldset>`, `<legend>` and any other stragglers
+ */
+
+@mixin form-base() {
+    @include use-palette(--form);
+
+    appearance: none;
+
+    display: inline-block;
+    position: relative;
+
+    margin: 0;
+
+    font-family: var(--form-font-family);
+    font-weight: var(--form-font-weight);
+
+    outline: none;
+
+    opacity: var(--form-opacity-enabled);
+    transition: background var(--form-transition-visual), border-color var(--form-transition-visual),
+        color var(--form-transition-visual), opacity var(--form-transition-visual);
+
+    &#{$form-disabled} {
+        cursor: not-allowed;
+        opacity: var(--form-opacity-disabled);
+    }
+}
+
+@mixin form-field-base() {
+    @include form-base();
+
+    padding: var(--form-field-padding);
+
+    background-color: transparent;
+    color: currentColor;
+
+    border: var(--form-field-border) vhsla(--background, --form-opacity-muted);
+    border-radius: var(--form-radius);
+
+    font-size: var(--form-field-font-size);
+    line-height: 1;
+
+    cursor: text;
+
+    &#{$form-disabled} {
+        user-select: none;
+    }
+
+    &::placeholder {
+        color: currentColor;
+
+        font-size: inherit;
+        opacity: var(--form-opacity-muted);
+    }
+
+    &::selection {
+        background-color: vhsl(--background);
+        color: vhsl(--color);
+    }
+
+    &:not(#{$form-disabled}) {
+        &:hover {
+            border-color: vhsla(--background, --form-opacity-dull);
+        }
+
+        &:focus {
+            border-color: vhsl(--background);
+        }
+    }
+
+    &[data-shape="pill"] {
+        border-radius: var(--form-radius-pill);
+        padding: var(--form-field-padding-pill);
+    }
+}
+
+@mixin form-toggle-base() {
+    @include form-base();
+
+    padding: var(--form-toggle-padding);
+
+    background-color: transparent;
+    color: transparent;
+
+    border: var(--form-toggle-border) vhsla(--form-default-background, --form-opacity-muted);
+
+    font-size: var(--form-toggle-font-size);
+
+    cursor: pointer;
+    user-select: none;
+
+    &:not(#{$form-toggle-active}, #{$form-disabled}) {
+        &#{$form-toggle-hover} {
+            border-color: vhsla(--background, --form-opacity-dull);
+            color: vhsla(--background, --form-opacity-muted);
+        }
+    }
+
+    &#{$form-toggle-active} {
+        background-color: vhsla(--background, --form-opacity-muted);
+        border-color: vhsl(--background);
+        color: vhsl(--color);
+    }
+}
+
+#{$check} {
+    @include form-toggle-base();
+
+    border-radius: var(--form-radius);
+
+    &::before,
+    &::after {
+        display: block;
+        content: "";
+
+        width: 1em;
+        height: 1em;
+
+        background: currentColor;
+        border-radius: var(--form-radius);
+
+        transform: rotate(45deg);
+        transition: background var(--form-transition-visual);
+    }
+
+    &::before {
+        clip-path: var(--form-check-default-clip-path-before);
+    }
+
+    &::after {
+        position: absolute;
+        top: calc(50% - 0.5em);
+        left: calc(50% - 0.5em);
+
+        clip-path: var(--form-check-default-clip-path-after);
+    }
+
+    &[data-variation="cross"] {
+        &::before {
+            clip-path: var(--form-check-cross-clip-path-before);
+        }
+
+        &::after {
+            clip-path: var(--form-check-cross-clip-path-after);
+        }
+    }
+}
+
+#{$radio} {
+    @include form-toggle-base();
+
+    border-radius: var(--form-radius-circle);
+
+    &::after {
+        display: block;
+        content: "";
+
+        width: 1em;
+        height: 1em;
+
+        background-color: currentColor;
+        clip-path: var(--form-radio-clip-path);
+    }
+}
+
+#{$switch} {
+    @include form-toggle-base();
+
+    border-radius: var(--form-radius);
+
+    &::after {
+        display: block;
+        content: "";
+
+        width: 2.5em;
+        height: 1em;
+
+        background: vhsla(--form-default-background, --form-opacity-muted);
+
+        clip-path: var(--form-switch-clip-path-enabled);
+        transition: background var(--form-transition-visual),
+            clip-path var(--form-transition-movement);
+    }
+
+    &:not(#{$form-toggle-active}, #{$form-disabled}) {
+        &#{$form-toggle-hover}::after {
+            background: currentColor;
+        }
+    }
+
+    &#{$form-toggle-active}::after {
+        background: currentColor;
+        clip-path: var(--form-switch-clip-path-active);
+    }
+}
+
+#{$text} {
+    @include form-field-base();
+}
+
+textarea {
+    display: block;
+}

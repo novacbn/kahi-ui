@@ -1,0 +1,96 @@
+:root {
+    /**
+     * Viewports Tokens
+     */
+
+    /**
+        NOTE: These should **NEVER** be customized, all themes should use the default values
+        for consistency. Even whenever `@custom-media` becomes widely supported, there
+        potentially might be some class or whatever that needs to do breakpoint calculations via `calc`.
+    */
+
+    @include define-viewport("tiny", $viewports-tiny);
+    @include define-viewport("small", $viewports-small);
+    @include define-viewport("medium", $viewports-medium);
+    @include define-viewport("large", $viewports-large);
+
+    /**
+     * Color Tokens
+     */
+
+    @include define-color(--color-default, 216, 11%, 55%, 10%);
+    @include define-color(--color-accent, 200, 31%, 50%, 5%);
+
+    @include define-color(--color-dark, 216, 11%, 15%, 10%);
+    @include define-color(--color-light, 0, 0%, 100%, -1%);
+
+    @include define-color(--color-alert, 42, 75%, 50%, 5%);
+    @include define-color(--color-affirmative, 146, 40%, 50%, 5%);
+    @include define-color(--color-negative, 7, 48%, 55%, 5%);
+
+    /**
+     * Opacity Tokens
+     */
+
+    @include define-mscale(--opacity, 1, 0.85);
+
+    /**
+     * Font Tokens
+     */
+
+    --font-family-heading: var(--font-family-text);
+    --font-family-monospace: monaco, "Consolas", "Lucida Console", monospace;
+    --font-family-text: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI",
+        "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+
+    --font-line-height: 1.6;
+    @include define-step(--font-weight, 500, 200);
+
+    @include define-mscale(--font-size-heading, 2em, 1.1);
+    @include define-mscale(--font-size-text, 1em, 1.1);
+
+    /**
+     * Sizing Tokens
+     */
+
+    @include define-step(--sizing-em, 0.125em, 0.02em);
+    @include define-step(--sizing-rem, 5rem, 0.25rem);
+    @include define-step(--sizing-pixels, 1px, 1px);
+
+    /**
+     * Spacing Tokens
+     */
+
+    @include define-mscale(--spacing-em, 0.6em, 1.05);
+    @include define-mscale(--spacing-rem, 0.8rem, 1.25);
+
+    /**
+     * Radius Tokens
+     */
+
+    @include define-mscale(--radius-small, 2px, 2);
+    @include define-mscale(--radius-medium, 4px, 2);
+
+    /**
+     * Animation Tokens
+     */
+
+    /** Represents multiplier on duration for all animations */
+    --animation-scale: 1;
+
+    /** Represents transition for movement-based animations, e.g. a switch toggle */
+    --animation-movement: calc(0.3s * var(--animation-scale)) easeInOutQuint;
+
+    /** Represents transition for visual-based animations, e.g. opacity fade */
+    --animation-visual: calc(0.2s * var(--animation-scale)) easeOutQuad;
+
+    /** Represents transition for movement animations that need to capture the user's focus */
+    --animation-capture-movement: calc(1.25s * var(--animation-scale)) infinite easeOutQuad;
+
+    /** Represents transition for visual animations that need to capture the user's focus */
+    --animation-capture-visual: calc(1.5s * var(--animation-scale)) infinite easeOutQuad;
+
+    /** Represents transition for threshold to show previously hidden animations, e.g. popovers */
+    --animation-threshold: calc(0.25s * var(--animation-scale));
+}

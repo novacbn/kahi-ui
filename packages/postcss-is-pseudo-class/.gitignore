@@ -1,0 +1,11 @@
+.*
+!.editorconfig
+!.gitignore
+!.rollup.js
+!.tape.js
+!.travis.yml
+*.log*
+*.result.css
+/index.*
+node_modules
+package-lock.json

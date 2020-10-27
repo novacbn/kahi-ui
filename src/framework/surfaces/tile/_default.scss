@@ -1,0 +1,72 @@
+:root {
+    /**
+     * Tile Tokens
+     */
+
+    --tile-border: var(--sizing-border) solid;
+    --tile-border-color: var(--palette-light-translucent);
+
+    --tile-margin: 0 0 var(--spacing-block-large) 0;
+    --tile-padding: var(--spacing-block-large);
+    --tile-radius: var(--radius-block);
+
+    --tile-transition: var(--animation-visual);
+
+    /**
+     * Tile Palette Tokens
+     */
+
+    --tile-default-background: var(--palette-light-base);
+    --tile-default-color: var(--palette-dark-base);
+
+    --tile-accent-background: var(--palette-accent-base);
+    --tile-accent-color: var(--palette-light-base);
+
+    --tile-dark-background: var(--palette-dark-base);
+    --tile-dark-color: var(--palette-light-base);
+
+    --tile-light-background: var(--palette-light-base);
+    --tile-light-color: var(--palette-dark-base);
+
+    --tile-alert-background: var(--palette-alert-base);
+    --tile-alert-color: var(--palette-light-base);
+
+    --tile-affirmative-background: var(--palette-affirmative-base);
+    --tile-affirmative-color: var(--palette-light-base);
+
+    --tile-negative-background: var(--palette-negative-base);
+    --tile-negative-color: var(--palette-light-base);
+
+    --tile-opacity-visible: var(--opacity-visible);
+
+    --tile-opacity-dull: var(--opacity-dull);
+    --tile-opacity-muted: var(--opacity-muted);
+
+    --tile-opacity-transparent: var(--opacity-transparent);
+
+    /**
+     * Tile Body Tokens
+     */
+
+    --tile-body-spacing: var(--spacing-block-large);
+
+    /**
+     * Tile Figure Tokens
+     */
+
+    --tile-figure-radius: var(--radius-shape-circle);
+    --tile-figure-size: var(--sizing-element-small);
+
+    /**
+     * Tile Heading Tokens
+     */
+
+    --tile-heading-font-weight: var(--font-weight-bold);
+
+    /**
+     * Tile Timestamp Tokens
+     */
+
+    --tile-timestamp-font-size: var(--font-size-text-small);
+    --tile-timestamp-opacity: var(--opacity-dull);
+}

@@ -1,0 +1,53 @@
+:root {
+    /**
+     * Aside Tokens
+     */
+
+    --aside-padding: var(--spacing-block-large);
+
+    /**
+     * Aside Palette Tokens
+     */
+
+    --aside-default-background: var(--palette-default-base);
+    --aside-default-color: var(--palette-light-base);
+
+    --aside-accent-background: var(--palette-accent-base);
+    --aside-accent-color: var(--palette-light-base);
+
+    --aside-dark-background: var(--palette-dark-base);
+    --aside-dark-color: var(--palette-light-base);
+
+    --aside-light-background: var(--palette-light-base);
+    --aside-light-color: var(--palette-dark-base);
+
+    --aside-alert-background: var(--palette-alert-base);
+    --aside-alert-color: var(--palette-light-base);
+
+    --aside-affirmative-background: var(--palette-affirmative-base);
+    --aside-affirmative-color: var(--palette-light-base);
+
+    --aside-negative-background: var(--palette-negative-base);
+    --aside-negative-color: var(--palette-light-base);
+
+    --aside-opacity-muted: var(--opacity-muted);
+
+    --aside-opacity-translucent: var(--opacity-translucent);
+
+    /**
+     * Aside Heading Tokens
+     */
+
+    --aside-heading-letter-spacing: 0.1em;
+    --aside-heading-padding: var(--spacing-block-medium) var(--spacing-block-medium)
+        var(--spacing-block-huge);
+
+    --aside-heading-font-size: calc(var(--font-size-heading-huge) * 1.25);
+    --aside-heading-font-weight: var(--font-weight-heading);
+
+    /**
+     * Aside Separator Tokens
+     */
+
+    --aside-separator-flex-grow: 0.2;
+}

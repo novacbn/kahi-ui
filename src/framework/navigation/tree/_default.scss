@@ -1,0 +1,46 @@
+:root {
+    /**
+     * Tree Tokens
+     */
+
+    --tree-border-radius: var(--radius-text);
+
+    --tree-font-weight: var(--font-weight-text-bold);
+    --tree-margin-icon: var(--spacing-text-medium);
+
+    --tree-transition: var(--animation-visual);
+
+    /**
+     * Tree Palette
+     */
+
+    --tree-default-background: var(--palette-default-base);
+    --tree-default-color: var(--palette-light-base);
+
+    --tree-accent-background: var(--palette-accent-base);
+    --tree-accent-color: var(--palette-light-base);
+
+    --tree-dark-background: var(--palette-dark-base);
+    --tree-dark-color: var(--palette-light-base);
+
+    --tree-light-background: var(--palette-light-base);
+    --tree-light-color: var(--palette-dark-base);
+
+    --tree-alert-background: var(--palette-alert-base);
+    --tree-alert-color: var(--palette-light-base);
+
+    --tree-affirmative-background: var(--palette-affirmative-base);
+    --tree-affirmative-color: var(--palette-light-base);
+
+    --tree-negative-background: var(--palette-negative-base);
+    --tree-negative-color: var(--palette-light-base);
+
+    --tree-opacity-visible: var(--opacity-visible);
+    --tree-opacity-translucent: var(--opacity-translucent);
+
+    /**
+     * Tree Item Tokens
+     */
+
+    --tree-item-padding: var(--spacing-text-tiny) var(--spacing-text-medium);
+}

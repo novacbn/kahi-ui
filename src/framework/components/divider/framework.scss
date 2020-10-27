@@ -1,0 +1,60 @@
+$divider: "hr, [role='separator']";
+$divider-hr: "hr";
+$divider-separator: "[role='separator']";
+
+#{$divider} {
+    @include use-palette-single(--divider);
+
+    align-self: stretch;
+    width: 100%;
+
+    margin: var(--divider-margin-vertical);
+
+    user-select: none;
+
+    &:not([data-palette]) {
+        color: inherit;
+        opacity: var(--divider-opacity-muted);
+    }
+
+    &[data-palette] {
+        color: vhsl(--background);
+    }
+}
+
+#{$divider-hr} {
+    border: none;
+
+    border-top: currentColor var(--divider-border);
+    border-radius: var(--divider-radius);
+}
+
+#{$divider-separator} {
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    font-size: var(--divider-separator-font-size);
+    font-weight: var(--divider-separator-font-weight);
+
+    letter-spacing: var(--divider-separator-letter-spacing);
+    text-transform: uppercase;
+
+    &::before,
+    &::after {
+        display: block;
+        content: "";
+
+        flex-grow: 1;
+        border-top: currentColor var(--divider-border);
+    }
+
+    &::before {
+        margin-right: var(--divider-separator-margin);
+    }
+
+    &::after {
+        margin-left: var(--divider-separator-margin);
+    }
+}

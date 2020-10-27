@@ -1,0 +1,49 @@
+$group: ".group";
+
+$group-first: ":first-child";
+$group-last: ":last-child";
+
+#{$group} {
+    display: inline-flex;
+    align-items: stretch;
+
+    & > * {
+        margin: 0;
+    }
+
+    &:not([data-orientation]) > * {
+        &#{$group-first} {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &#{$group-last} {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(#{$group-first}, #{$group-last}) {
+            border-radius: 0;
+        }
+    }
+
+    &[data-orientation="vertical"] {
+        flex-direction: column;
+
+        & > * {
+            &#{$group-first} {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            &#{$group-last} {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            &:not(#{$group-first}, #{$group-last}) {
+                border-radius: 0;
+            }
+        }
+    }
+}

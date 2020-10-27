@@ -1,0 +1,132 @@
+$anchor: "a:not([role])";
+$anchor-hover: ":is(:hover, :focus)";
+
+$blockquote: "blockquote";
+$code: "code";
+$identifier: "#{$code}, kbd";
+$paragraph: "p";
+$pre: "pre";
+
+$small: "small";
+$strong: "b, strong";
+
+$heading-h6: "h6, .h6";
+$heading-h5: "h5, .h5";
+$heading-h4: "h4, .h4";
+$heading-h3: "h3, .h3";
+$heading-h2: "h2, .h2";
+$heading-h1: "h1, .h1";
+$heading: "#{$heading-h6}, #{$heading-h5}, #{$heading-h4}, #{$heading-h3}, #{$heading-h2}, #{$heading-h1}";
+
+#{$anchor} {
+    color: vhsl(--typography-accent-background);
+    opacity: 1;
+
+    transition: opacity var(--typography-transition);
+
+    &#{$anchor-hover} {
+        opacity: var(--typography-opacity-muted);
+    }
+}
+
+#{$blockquote} {
+    @include use-palette(--typography);
+
+    padding: var(--typography-blockquote-padding);
+    margin: var(--typography-margin);
+
+    background: vhsla(--background, --typography-opacity-translucent);
+    border-left: vhsl(--background) var(--typography-blockquote-border);
+
+    border-radius: var(--typography-radius);
+
+    & > *:first-child {
+        margin-top: 0;
+    }
+
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+#{$heading} {
+    font-family: var(--typography-heading-font-family);
+    margin: var(--typography-heading-margin);
+}
+
+#{$heading-h6} {
+    font-size: var(--typography-heading-6-font-size);
+    font-weight: var(--typography-heading-6-font-weight);
+}
+
+#{$heading-h5} {
+    font-size: var(--typography-heading-5-font-size);
+    font-weight: var(--typography-heading-5-font-weight);
+}
+
+#{$heading-h4} {
+    font-size: var(--typography-heading-4-font-size);
+    font-weight: var(--typography-heading-4-font-weight);
+}
+
+#{$heading-h3} {
+    font-size: var(--typography-heading-3-font-size);
+    font-weight: var(--typography-heading-3-font-weight);
+}
+
+#{$heading-h2} {
+    font-size: var(--typography-heading-2-font-size);
+    font-weight: var(--typography-heading-2-font-weight);
+}
+
+#{$heading-h1} {
+    font-size: var(--typography-heading-1-font-size);
+    font-weight: var(--typography-heading-1-font-weight);
+}
+
+#{$identifier},
+#{$pre} {
+    font-family: var(--typography-font-family-monospace);
+    font-weight: var(--typography-font-weight-monospace);
+}
+
+#{$identifier} {
+    padding: var(--typography-identifier-padding);
+
+    background: vhsla(--typography-default-background, --typography-opacity-translucent);
+    color: vhsl(--typography-identifier-color);
+
+    border-radius: var(--typography-radius);
+    font-size: var(--typography-font-size-small);
+
+    white-space: pre-wrap;
+
+    &::selection {
+        background-color: vhsl(--typography-identifier-color);
+        color: vhsl(--typography-default-color);
+    }
+}
+
+#{$paragraph} {
+    margin: var(--typography-margin);
+}
+
+#{$pre} {
+    background: vhsla(--typography-default-background, --typography-opacity-translucent);
+
+    padding: var(--typography-pre-padding);
+    overflow-x: auto;
+
+    & #{$code} {
+        background-color: transparent;
+        padding: 0;
+    }
+}
+
+#{$small} {
+    font-size: var(--typography-font-size-tiny);
+}
+
+#{$strong} {
+    font-weight: var(--typography-font-weight-bold);
+}

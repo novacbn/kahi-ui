@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    background-color: vhsl(--document-root-background);
+    color: vhsl(--document-root-color);
+
+    font-family: var(--document-root-font-family);
+    font-size: var(--document-root-font-size);
+    font-weight: var(--document-root-font-weight);
+
+    line-height: var(--document-root-line-height);
+}
+
+*::selection {
+    background-color: vhsl(--document-root-color);
+    color: vhsl(--document-root-background);
+}

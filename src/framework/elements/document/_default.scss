@@ -1,0 +1,14 @@
+:root {
+    /**
+     * Root Tokens
+     */
+
+    --document-root-background: var(--palette-light-dull);
+    --document-root-color: var(--palette-dark-base);
+
+    --document-root-font-family: var(--font-family-text);
+    --document-root-font-size: 16px;
+    --document-root-font-weight: var(--font-weight-text);
+
+    --document-root-line-height: var(--font-line-height);
+}

@@ -1,0 +1,111 @@
+$button: ":is(a[role='button'], button, input[type='button'], input[type='reset'], input[type='submit'])";
+
+$button-active: ":is(:active, [aria-pressed='true'])";
+$button-disabled: ":disabled, [aria-disabled='true']";
+$button-hover: ":is(:focus, :hover)";
+
+$button-block: ":not([data-variation])";
+$button-clear: "[data-variation='clear']";
+$button-outline: "[data-variation='outline']";
+
+#{$button} {
+    @include use-palette(--button);
+
+    appearance: none;
+
+    display: inline-flex;
+    position: relative;
+
+    align-content: center;
+    justify-content: center;
+
+    padding: var(--button-padding);
+    margin: 0;
+
+    border-radius: var(--button-radius);
+
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size-medium);
+    font-weight: var(--button-font-weight);
+
+    line-height: 1;
+
+    outline: none;
+
+    cursor: pointer;
+    user-select: none;
+
+    opacity: var(--button-opacity-enabled);
+    transition: background var(--button-transition), border-color var(--button-transition),
+        color var(--button-transition), opacity var(--button-transition);
+
+    &#{$button-disabled} {
+        cursor: not-allowed;
+        opacity: var(--button-opacity-disabled);
+    }
+
+    &#{$button-block} {
+        background: vhsl(--background);
+        border: var(--button-border) vhsl(--background);
+        color: vhsl(--color);
+
+        &:not(#{$button-disabled}) {
+            &#{$button-hover} {
+                background: vhsla(--background, --button-opacity-dull);
+                border-color: transparent;
+            }
+
+            &#{$button-active} {
+                background: vhsla(--background, --button-opacity-muted);
+                border-color: vhsla(--color, --button-opacity-muted);
+            }
+        }
+    }
+
+    &#{$button-clear} {
+        background: transparent;
+        border: var(--button-border) transparent;
+        color: vhsl(--background);
+
+        &:not(#{$button-disabled}) {
+            &#{$button-hover} {
+                background: vhsla(--background, --button-opacity-translucent);
+                border-color: vhsla(--background, --button-opacity-translucent);
+            }
+
+            &#{$button-active} {
+                background: vhsla(--background, --button-opacity-muted);
+                border-color: transparent;
+                color: vhsl(--color);
+            }
+        }
+    }
+
+    &#{$button-outline} {
+        background-color: transparent;
+        border: var(--button-border) vhsl(--background);
+        color: vhsl(--background);
+
+        &:not(#{$button-disabled}) {
+            &#{$button-hover} {
+                background-color: vhsla(--background, --button-opacity-translucent);
+            }
+
+            &#{$button-active} {
+                background-color: vhsl(--background);
+                color: vhsl(--color);
+            }
+        }
+    }
+
+    @each $size, $index in tiny, small, large, huge {
+        &[data-size="#{$size}"] {
+            font-size: var(--button-font-size-#{$size});
+        }
+    }
+
+    &[data-shape="pill"] {
+        padding: var(--button-padding-pill);
+        border-radius: var(--button-radius-pill);
+    }
+}

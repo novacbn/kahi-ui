@@ -1,0 +1,49 @@
+$box: ".box";
+
+#{$box} {
+    /**
+        TODO: Allow boxes to be `<label>` elements, which takes on stylings similar to a sibling
+        form component. Along with being able to be checked via the sibling element.
+
+        TODO: Allow boxes to be `<a>` elements, with appropriate overrides
+    */
+    @include use-palette(--box);
+
+    display: block;
+
+    margin: var(--box-margin);
+    padding: var(--box-padding);
+
+    background: vhsl(--box-background);
+
+    border: var(--box-border) vhsl(--box-block-border-color);
+    border-radius: var(--box-radius);
+
+    &[data-palette] {
+        background: vhsl(--background);
+        color: vhsl(--color);
+
+        &::selection,
+        & *::selection {
+            background-color: vhsl(--color);
+            color: vhsl(--background);
+        }
+    }
+
+    &[data-variation="outline"] {
+        background: vhsl(--color);
+        border-color: vhsl(--background);
+        color: vhsl(--background);
+
+        &::selection,
+        & *::selection {
+            background-color: vhsl(--background);
+            color: vhsl(--color);
+        }
+    }
+}
+
+#{$anchor}#{$box},
+#{$label}#{$box} {
+    @include use-linkable(--box);
+}

@@ -1,0 +1,55 @@
+:root {
+    /**
+     * Button Tokens
+     */
+
+    --button-font-family: inherit;
+    --button-font-weight: var(--font-weight-bold);
+
+    --button-font-size-tiny: var(--font-size-text-tiny);
+    --button-font-size-small: var(--font-size-text-small);
+    --button-font-size-medium: var(--font-size-text-medium);
+    --button-font-size-large: var(--font-size-text-large);
+    --button-font-size-huge: var(--font-size-text-huge);
+
+    --button-radius: var(--radius-text);
+    --button-radius-pill: var(--radius-shape-pill);
+
+    --button-border: var(--sizing-text-medium) solid;
+    --button-padding: var(--spacing-text-medium);
+    --button-padding-pill: var(--spacing-text-medium) calc(var(--spacing-text-medium) * 1.25);
+
+    --button-transition: var(--animation-visual);
+
+    /**
+     * Button Palette Tokens
+     */
+
+    --button-default-background: var(--palette-default-base);
+    --button-default-color: var(--palette-light-base);
+
+    --button-accent-background: var(--palette-accent-base);
+    --button-accent-color: var(--palette-light-base);
+
+    --button-dark-background: var(--palette-dark-base);
+    --button-dark-color: var(--palette-light-base);
+
+    --button-light-background: var(--palette-light-base);
+    --button-light-color: var(--palette-dark-base);
+
+    --button-alert-background: var(--palette-alert-base);
+    --button-alert-color: var(--palette-light-base);
+
+    --button-affirmative-background: var(--palette-affirmative-base);
+    --button-affirmative-color: var(--palette-light-base);
+
+    --button-negative-background: var(--palette-negative-base);
+    --button-negative-color: var(--palette-light-base);
+
+    --button-opacity-enabled: var(--opacity-visible);
+    --button-opacity-disabled: var(--opacity-translucent);
+
+    --button-opacity-dull: var(--opacity-dull);
+    --button-opacity-muted: var(--opacity-muted);
+    --button-opacity-translucent: var(--opacity-translucent);
+}

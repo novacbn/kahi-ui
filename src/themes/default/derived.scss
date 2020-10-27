@@ -1,0 +1,65 @@
+:root {
+    /**
+     * Palette Tokens
+     */
+
+    @include derive-palette(--palette-default, --color-default, 4, 8, 10);
+    @include derive-palette(--palette-accent, --color-accent, 4, 8, 10);
+
+    @include derive-palette(--palette-dark, --color-dark, 4, 8, 10);
+    @include derive-palette(--palette-light, --color-light, 2, 4, 8);
+
+    @include derive-palette(--palette-alert, --color-alert, 4, 8, 10);
+    @include derive-palette(--palette-affirmative, --color-affirmative, 4, 8, 10);
+    @include derive-palette(--palette-negative, --color-negative, 4, 8, 10);
+
+    --opacity-visible: 1;
+    --opacity-invisible: 0;
+
+    --opacity-dull: #{mscale(--opacity, 2)};
+    --opacity-muted: #{mscale(--opacity, 4)};
+
+    --opacity-translucent: #{mscale(--opacity, 14)};
+    --opacity-transparent: #{mscale(--opacity, 18)};
+
+    /**
+     * Font Tokens
+     */
+
+    @include derive-mscale(--font-size-heading, --font-size-heading, -4, -3, -2, -1, 1);
+    @include derive-mscale(--font-size-text, --font-size-text, -4, -2, 1, 2, 4);
+
+    --font-weight-bold: #{step(--font-weight, 2)};
+    --font-weight-heading: #{step(--font-weight, 2)};
+    --font-weight-text: #{step(--font-weight, 1)};
+
+    /**
+     * Sizing Tokens
+     */
+
+    --sizing-border: #{step(--sizing-pixels, 1)};
+    --sizing-divider: #{step(--sizing-pixels, 1)};
+
+    @include derive-step(--sizing-block, --sizing-rem, 12, 16, 32, 48, 64);
+    @include derive-step(--sizing-element, --sizing-rem, -4, -2, 1, 2, 4);
+    @include derive-step(--sizing-text, --sizing-em, -4, -2, 1, 2, 4);
+
+    /**
+     * Spacing Tokens
+     */
+
+    --spacing-divider: #{mscale(--spacing-rem, 1)};
+
+    @include derive-mscale(--spacing-block, --spacing-rem, -5, -2, 1, 2, 5);
+    @include derive-mscale(--spacing-text, --spacing-em, -5, -2, 1, 2, 5);
+
+    /**
+     * Radius Tokens
+     */
+
+    --radius-shape-circle: 50%;
+    --radius-shape-pill: 99999px;
+
+    --radius-block: #{mscale(--radius-small, 1)};
+    --radius-text: #{mscale(--radius-medium, 1)};
+}

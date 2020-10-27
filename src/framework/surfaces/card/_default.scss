@@ -1,0 +1,59 @@
+:root {
+    /**
+     * Card Tokens
+     */
+
+    --card-border: var(--sizing-border) solid;
+    --card-border-color: var(--palette-light-translucent);
+
+    --card-margin: 0 0 var(--spacing-block-large) 0;
+    --card-padding: var(--spacing-block-large);
+    --card-radius: var(--radius-block);
+
+    --card-transition: var(--animation-visual);
+
+    /**
+     * Card Palette Tokens
+     */
+
+    --card-default-background: var(--palette-light-base);
+    --card-default-color: var(--palette-dark-base);
+
+    --card-accent-background: var(--palette-accent-base);
+    --card-accent-color: var(--palette-light-base);
+
+    --card-dark-background: var(--palette-dark-base);
+    --card-dark-color: var(--palette-light-base);
+
+    --card-light-background: var(--palette-light-base);
+    --card-light-color: var(--palette-dark-base);
+
+    --card-alert-background: var(--palette-alert-base);
+    --card-alert-color: var(--palette-light-base);
+
+    --card-affirmative-background: var(--palette-affirmative-base);
+    --card-affirmative-color: var(--palette-light-base);
+
+    --card-negative-background: var(--palette-negative-base);
+    --card-negative-color: var(--palette-light-base);
+
+    --card-opacity-visible: var(--opacity-visible);
+
+    --card-opacity-dull: var(--opacity-dull);
+    --card-opacity-muted: var(--opacity-muted);
+
+    --card-opacity-transparent: var(--opacity-transparent);
+
+    /**
+     * Card Heading Tokens
+     */
+
+    --card-heading-font-weight: var(--font-weight-bold);
+
+    /**
+     * Card Timestamp Tokens
+     */
+
+    --card-timestamp-font-size: var(--font-size-text-small);
+    --card-timestamp-opacity: var(--opacity-dull);
+}

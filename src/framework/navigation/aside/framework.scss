@@ -1,0 +1,54 @@
+$navigation-aside: "nav.aside";
+
+$aside-heading: "header";
+
+#{$navigation-aside} {
+    @include use-palette(--aside);
+
+    --inherited-background: var(--background);
+    --inherited-color: var(--color);
+
+    display: block;
+
+    width: max-content;
+    height: 100vh;
+
+    padding: var(--aside-padding);
+
+    background: vhsl(--background);
+    color: vhsl(--color);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::selection,
+    & *::selection {
+        background-color: vhsl(--color);
+        color: vhsl(--background);
+    }
+
+    & #{$aside-heading} {
+        padding: var(--aside-heading-padding);
+
+        letter-spacing: var(--aside-heading-letter-spacing);
+
+        font-size: var(--aside-heading-font-size);
+        font-weight: var(--aside-heading-font-weight);
+
+        & > #{$anchor} {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    & #{$divider-separator} {
+        &::before {
+            flex-grow: var(--aside-separator-flex-grow);
+        }
+    }
+
+    & #{$menu}:not([data-palette]) {
+        --background: var(--inherited-color);
+        --color: var(--inherited-background);
+    }
+}

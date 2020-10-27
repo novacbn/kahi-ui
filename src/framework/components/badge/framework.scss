@@ -1,0 +1,64 @@
+$badge: ".badge";
+
+#{$badge} {
+    @include use-palette(--badge);
+    @include use-animation-palette();
+
+    display: inline-flex;
+    position: relative;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--badge-padding);
+
+    background: vhsl(--background);
+    color: vhsl(--color);
+
+    font-size: var(--badge-font-size-small);
+    font-weight: var(--badge-font-weight);
+
+    line-height: 1;
+
+    border-radius: var(--badge-radius);
+
+    user-select: none;
+
+    &[data-position="raised"] {
+        transform: var(--badge-transform-raised);
+    }
+
+    &[data-position="floated"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        pointer-events: none;
+
+        white-space: nowrap;
+        transform: var(--badge-transform-floated);
+    }
+
+    &[data-animation="pulse"] {
+        animation: var(--badge-attention);
+    }
+
+    @each $size, $index in tiny, medium, large, huge {
+        &[data-size="#{$size}"] {
+            font-size: var(--badge-font-size-#{$size});
+        }
+    }
+
+    &[data-shape="circle"] {
+        padding: 0;
+        width: var(--badge-size-circle);
+        height: var(--badge-size-circle);
+
+        border-radius: var(--badge-radius-circle);
+    }
+
+    &[data-shape="pill"] {
+        border-radius: var(--badge-radius-pill);
+        padding: var(--badge-padding-pill);
+    }
+}

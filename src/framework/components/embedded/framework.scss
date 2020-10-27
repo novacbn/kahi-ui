@@ -1,0 +1,10 @@
+$audio: "audio";
+$image: "img";
+$video: "video";
+
+#{$audio},
+#{$image},
+#{$video} {
+    max-width: 100%;
+    height: auto;
+}

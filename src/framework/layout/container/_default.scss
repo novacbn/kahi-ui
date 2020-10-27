@@ -1,0 +1,16 @@
+:root {
+    /**
+     * Container Tokens
+     */
+
+    --container-padding: var(--spacing-block-large) var(--spacing-block-medium);
+
+    /**
+     * Container Viewport Tokens
+     */
+
+    --container-viewports-tiny: var(--viewports-tiny-max);
+    --container-viewports-small: var(--viewports-small-max);
+    --container-viewports-medium: var(--viewports-medium-max);
+    --container-viewports-large: var(--viewports-large-max);
+}

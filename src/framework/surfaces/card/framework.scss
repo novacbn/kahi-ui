@@ -1,0 +1,102 @@
+$card: ".card";
+
+$card-body: "section";
+$card-figure: "figure";
+$card-heading: "header";
+$card-text: "p";
+$card-timestamp: "small";
+
+$card-footer: "footer";
+$card-footer-first: ":first-child";
+$card-footer-last: ":last-child";
+
+#{$card} {
+    @include use-palette(--card);
+
+    overflow: hidden;
+
+    &:not([data-variation]) {
+        margin: var(--card-margin);
+
+        background: vhsl(--background);
+        color: vhsl(--color);
+
+        border: var(--card-border) vhsl(--card-border-color);
+        border-radius: var(--card-radius);
+
+        &::selection,
+        & *::selection {
+            background-color: vhsl(--color);
+            color: vhsl(--background);
+        }
+
+        & #{$card-figure} > * {
+            border-top-left-radius: var(--card-radius);
+            border-top-right-radius: var(--card-radius);
+        }
+
+        & #{$card-footer} > * {
+            border-radius: 0;
+
+            &#{$card-footer-first} {
+                border-bottom-left-radius: var(--card-radius);
+            }
+
+            &#{$card-footer-last} {
+                border-bottom-right-radius: var(--card-radius);
+            }
+        }
+    }
+
+    & #{$card-body} {
+        padding: var(--card-padding);
+    }
+
+    & #{$card-figure} {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0;
+
+        & > * {
+            flex-grow: 1;
+            object-fit: cover;
+        }
+    }
+
+    & #{$card-footer} {
+        display: flex;
+        align-items: center;
+
+        & > * {
+            flex-grow: 1;
+        }
+    }
+
+    & #{$card-heading} {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-weight: var(--card-heading-font-weight);
+
+        & > * {
+            font-weight: initial;
+        }
+    }
+
+    & #{$card-text} {
+        margin: 0;
+    }
+
+    & #{$card-timestamp} {
+        font-size: var(--card-timestamp-font-size);
+        opacity: var(--card-timestamp-opacity);
+    }
+}
+
+#{$anchor}#{$card},
+#{$label}#{$card} {
+    @include use-linkable(--card);
+}

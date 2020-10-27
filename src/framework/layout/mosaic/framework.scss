@@ -1,0 +1,63 @@
+$mosaic: ".mosaic";
+
+@mixin mosaic-sizing($sizings, $viewport: false) {
+    @if ($viewport) {
+        @each $sizing, $index in $sizings {
+            @media (--viewports-#{$viewport}) {
+                &[data-sizing~="#{$sizing}-#{$viewport}"] {
+                    --sizing: var(--mosaic-sizing-#{$sizing}) !important;
+                }
+            }
+        }
+    } @else {
+        @each $sizing, $index in $sizings {
+            &[data-sizing~="#{$sizing}"] {
+                --sizing: var(--mosaic-sizing-#{$sizing});
+            }
+        }
+    }
+}
+
+@mixin mosaic-spacing($spacings, $viewport: false) {
+    @if ($viewport) {
+        @each $spacing, $index in $spacings {
+            @media (--viewports-#{$viewport}) {
+                &[data-spacing~="#{$spacing}-#{$viewport}"] {
+                    --spacing: var(--mosaic-spacing-#{$spacing}) !important;
+                }
+            }
+        }
+    } @else {
+        @each $spacing, $index in $spacings {
+            &[data-spacing~="#{$spacing}"] {
+                --spacing: var(--mosaic-spacing-#{$spacing});
+            }
+        }
+    }
+}
+
+#{$mosaic} {
+    --sizing: 0px;
+    --spacing: 0px;
+
+    display: grid;
+
+    gap: var(--spacing);
+    grid-template-columns: repeat(auto-fill, minmax(var(--sizing), 1fr));
+
+    @include mosaic-sizing((tiny, small, medium, huge, large));
+
+    @each $viewport, $index in tiny, small, medium, large {
+        @include mosaic-sizing((tiny, small, medium, huge, large), $viewport);
+    }
+
+    @include mosaic-spacing((tiny, small, medium, huge, large));
+
+    @each $viewport, $index in tiny, small, medium, large {
+        @include mosaic-spacing((tiny, small, medium, huge, large), $viewport);
+    }
+
+    & > * {
+        margin: 0;
+    }
+}

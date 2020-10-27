@@ -1,0 +1,52 @@
+$lists-definition: "dl";
+$lists-definition-description: "dd";
+$lists-definition-title: "dt";
+
+$lists-ordered: "ol";
+$lists-unordered: "ul";
+
+$lists-item: "li";
+
+#{$lists-ordered},
+#{$lists-unordered} {
+    list-style-position: inside;
+}
+
+#{$lists-ordered},
+#{$lists-unordered} {
+    display: block;
+
+    margin: var(--lists-margin);
+    padding: 0;
+}
+
+#{$lists-definition-title} {
+    font-size: var(--lists-font-size-heading);
+    font-weight: var(--lists-font-weight-heading);
+}
+
+#{$lists-definition} {
+    display: block;
+
+    margin: var(--lists-definition-margin);
+    padding: 0;
+}
+
+#{$lists-definition-description} {
+    margin: var(--lists-definition-margin-item);
+}
+
+#{$lists-item} {
+    margin: var(--lists-margin-item);
+}
+
+#{$lists-definition-description},
+#{$lists-item} {
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

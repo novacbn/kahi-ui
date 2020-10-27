@@ -1703,7 +1703,7 @@ a:not([role]).tile:active,label.tile:active{
   }
 }
 .mosaic>*{
-  margin:0;
+  margin:0 !important;
 }
 
 .stack{
@@ -1876,8 +1876,8 @@ a:not([role]).tile:active,label.tile:active{
   }
 }
 .stack>:not(:first-child){
-  margin:var(--margin);
+  margin:var(--margin) !important;
 }
 .stack>:first-child{
-  margin:0;
+  margin:0 !important;
 }

@@ -102,10 +102,10 @@ $stack-children-outer: ":is(:first-child)";
     }
 
     & > #{$stack-children-inner} {
-        margin: var(--margin);
+        margin: var(--margin) !important;
     }
 
     & > #{$stack-children-outer} {
-        margin: 0;
+        margin: 0 !important;
     }
 }

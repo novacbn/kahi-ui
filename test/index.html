@@ -584,37 +584,43 @@ p q r s t u v w x y z { | } ~
 
                 <h2>Box Palette</h2>
 
-                <div class="box" data-palette="accent">This is a <b>ACCENT</b> Box!</div>
-                <div class="box" data-palette="dark">This is a <b>DARK</b> Box!</div>
-                <div class="box" data-palette="light">This is a <b>LIGHT</b> Box!</div>
-                <div class="box" data-palette="alert">This is a <b>ALERT</b> Box!</div>
-                <div class="box" data-palette="affirmative">This is a <b>AFFIRMATIVE</b> Box!</div>
-                <div class="box" data-palette="negative">This is a <b>NEGATIVE</b> Box!</div>
+                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                    <div class="box" data-palette="accent">This is a <b>ACCENT</b> Box!</div>
+                    <div class="box" data-palette="dark">This is a <b>DARK</b> Box!</div>
+                    <div class="box" data-palette="light">This is a <b>LIGHT</b> Box!</div>
+                    <div class="box" data-palette="alert">This is a <b>ALERT</b> Box!</div>
+                    <div class="box" data-palette="affirmative">
+                        This is a <b>AFFIRMATIVE</b> Box!
+                    </div>
+                    <div class="box" data-palette="negative">This is a <b>NEGATIVE</b> Box!</div>
+                </div>
 
                 <h2>Outline Palette</h2>
 
-                <div class="box" data-palette="accent" data-variation="outline">
-                    This is a <b>ACCENT</b> Box!
-                </div>
+                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                    <div class="box" data-palette="accent" data-variation="outline">
+                        This is a <b>ACCENT</b> Box!
+                    </div>
 
-                <div class="box" data-palette="dark" data-variation="outline">
-                    This is a <b>DARK</b> Box!
-                </div>
+                    <div class="box" data-palette="dark" data-variation="outline">
+                        This is a <b>DARK</b> Box!
+                    </div>
 
-                <div class="box" data-palette="light" data-variation="outline">
-                    This is a <b>LIGHT</b> Box!
-                </div>
+                    <div class="box" data-palette="light" data-variation="outline">
+                        This is a <b>LIGHT</b> Box!
+                    </div>
 
-                <div class="box" data-palette="alert" data-variation="outline">
-                    This is a <b>ALERT</b> Box!
-                </div>
+                    <div class="box" data-palette="alert" data-variation="outline">
+                        This is a <b>ALERT</b> Box!
+                    </div>
 
-                <div class="box" data-palette="affirmative" data-variation="outline">
-                    This is a <b>AFFIRMATIVE</b> Box!
-                </div>
+                    <div class="box" data-palette="affirmative" data-variation="outline">
+                        This is a <b>AFFIRMATIVE</b> Box!
+                    </div>
 
-                <div class="box" data-palette="negative" data-variation="outline">
-                    This is a <b>NEGATIVE</b> Box!
+                    <div class="box" data-palette="negative" data-variation="outline">
+                        This is a <b>NEGATIVE</b> Box!
+                    </div>
                 </div>
             </article>
 
@@ -650,130 +656,132 @@ p q r s t u v w x y z { | } ~
 
                 <h2>Card Palette</h2>
 
-                <div class="card" style="max-width: 256px">
-                    <figure>
-                        <img src="/test/background.jpg" />
-                    </figure>
+                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                    <div class="card">
+                        <figure>
+                            <img src="/test/background.jpg" />
+                        </figure>
 
-                    <section>
-                        <header>Card<span>DEFAULT</span></header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Card<span>DEFAULT</span></header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
 
-                    <footer>
-                        <button data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
-                </div>
+                        <footer>
+                            <button data-variation="clear">Cancel</button>
+                            <button data-palette="accent">Edit</button>
+                        </footer>
+                    </div>
 
-                <div class="card" data-palette="accent" style="max-width: 256px">
-                    <figure>
-                        <img src="/test/background.jpg" />
-                    </figure>
+                    <div class="card" data-palette="accent">
+                        <figure>
+                            <img src="/test/background.jpg" />
+                        </figure>
 
-                    <section>
-                        <header>Card<span>ACCENT</span></header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Card<span>ACCENT</span></header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
 
-                    <footer>
-                        <button data-palette="light" data-variation="clear">Cancel</button>
-                        <button>Edit</button>
-                    </footer>
-                </div>
+                        <footer>
+                            <button data-palette="light" data-variation="clear">Cancel</button>
+                            <button>Edit</button>
+                        </footer>
+                    </div>
 
-                <div class="card" data-palette="dark" style="max-width: 256px">
-                    <figure>
-                        <img src="/test/background.jpg" />
-                    </figure>
+                    <div class="card" data-palette="dark">
+                        <figure>
+                            <img src="/test/background.jpg" />
+                        </figure>
 
-                    <section>
-                        <header>Card<span>DARK</span></header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Card<span>DARK</span></header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
 
-                    <footer>
-                        <button data-palette="light" data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
-                </div>
+                        <footer>
+                            <button data-palette="light" data-variation="clear">Cancel</button>
+                            <button data-palette="accent">Edit</button>
+                        </footer>
+                    </div>
 
-                <div class="card" data-palette="light" style="max-width: 256px">
-                    <figure>
-                        <img src="/test/background.jpg" />
-                    </figure>
+                    <div class="card" data-palette="light">
+                        <figure>
+                            <img src="/test/background.jpg" />
+                        </figure>
 
-                    <section>
-                        <header>Card<span>LIGHT</span></header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Card<span>LIGHT</span></header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
 
-                    <footer>
-                        <button data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
-                </div>
+                        <footer>
+                            <button data-variation="clear">Cancel</button>
+                            <button data-palette="accent">Edit</button>
+                        </footer>
+                    </div>
 
-                <div class="card" data-palette="alert" style="max-width: 256px">
-                    <figure>
-                        <img src="/test/background.jpg" />
-                    </figure>
+                    <div class="card" data-palette="alert">
+                        <figure>
+                            <img src="/test/background.jpg" />
+                        </figure>
 
-                    <section>
-                        <header>Card<span>ALERT</span></header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Card<span>ALERT</span></header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
 
-                    <footer>
-                        <button data-palette="light" data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
-                </div>
+                        <footer>
+                            <button data-palette="light" data-variation="clear">Cancel</button>
+                            <button data-palette="accent">Edit</button>
+                        </footer>
+                    </div>
 
-                <div class="card" data-palette="affirmative" style="max-width: 256px">
-                    <figure>
-                        <img src="/test/background.jpg" />
-                    </figure>
+                    <div class="card" data-palette="affirmative">
+                        <figure>
+                            <img src="/test/background.jpg" />
+                        </figure>
 
-                    <section>
-                        <header>Card<span>AFFIRMATIVE</span></header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Card<span>AFFIRMATIVE</span></header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
 
-                    <footer>
-                        <button data-palette="light" data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
-                </div>
+                        <footer>
+                            <button data-palette="light" data-variation="clear">Cancel</button>
+                            <button data-palette="accent">Edit</button>
+                        </footer>
+                    </div>
 
-                <div class="card" data-palette="negative" style="max-width: 256px">
-                    <figure>
-                        <img src="/test/background.jpg" />
-                    </figure>
+                    <div class="card" data-palette="negative">
+                        <figure>
+                            <img src="/test/background.jpg" />
+                        </figure>
 
-                    <section>
-                        <header>Card<span>NEGATIVE</span></header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Card<span>NEGATIVE</span></header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
 
-                    <footer>
-                        <button data-palette="light" data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
+                        <footer>
+                            <button data-palette="light" data-variation="clear">Cancel</button>
+                            <button data-palette="accent">Edit</button>
+                        </footer>
+                    </div>
                 </div>
 
                 <h2>Card Variations</h2>
@@ -839,95 +847,97 @@ p q r s t u v w x y z { | } ~
 
                 <h2>Tile Palette</h2>
 
-                <div class="tile">
-                    <figure>
-                        <img src="/test/avatar.png" />
-                    </figure>
+                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                    <div class="tile">
+                        <figure>
+                            <img src="/test/avatar.png" />
+                        </figure>
 
-                    <section>
-                        <header>Tile DEFAULT</header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Tile DEFAULT</header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-                </div>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
+                    </div>
 
-                <div class="tile" data-palette="accent">
-                    <figure>
-                        <img src="/test/avatar.png" />
-                    </figure>
+                    <div class="tile" data-palette="accent">
+                        <figure>
+                            <img src="/test/avatar.png" />
+                        </figure>
 
-                    <section>
-                        <header>Tile ACCENT</header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Tile ACCENT</header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-                </div>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
+                    </div>
 
-                <div class="tile" data-palette="dark">
-                    <figure>
-                        <img src="/test/avatar.png" />
-                    </figure>
+                    <div class="tile" data-palette="dark">
+                        <figure>
+                            <img src="/test/avatar.png" />
+                        </figure>
 
-                    <section>
-                        <header>Tile DARK</header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Tile DARK</header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-                </div>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
+                    </div>
 
-                <div class="tile" data-palette="light">
-                    <figure>
-                        <img src="/test/avatar.png" />
-                    </figure>
+                    <div class="tile" data-palette="light">
+                        <figure>
+                            <img src="/test/avatar.png" />
+                        </figure>
 
-                    <section>
-                        <header>Tile LIGHT</header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Tile LIGHT</header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-                </div>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
+                    </div>
 
-                <div class="tile" data-palette="alert">
-                    <figure>
-                        <img src="/test/avatar.png" />
-                    </figure>
+                    <div class="tile" data-palette="alert">
+                        <figure>
+                            <img src="/test/avatar.png" />
+                        </figure>
 
-                    <section>
-                        <header>Tile ALERT</header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Tile ALERT</header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-                </div>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
+                    </div>
 
-                <div class="tile" data-palette="affirmative">
-                    <figure>
-                        <img src="/test/avatar.png" />
-                    </figure>
+                    <div class="tile" data-palette="affirmative">
+                        <figure>
+                            <img src="/test/avatar.png" />
+                        </figure>
 
-                    <section>
-                        <header>Tile AFFIRMATIVE</header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Tile AFFIRMATIVE</header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-                </div>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
+                    </div>
 
-                <div class="tile" data-palette="negative">
-                    <figure>
-                        <img src="/test/avatar.png" />
-                    </figure>
+                    <div class="tile" data-palette="negative">
+                        <figure>
+                            <img src="/test/avatar.png" />
+                        </figure>
 
-                    <section>
-                        <header>Tile NEGATIVE</header>
-                        <p>I am some kind of description text!</p>
+                        <section>
+                            <header>Tile NEGATIVE</header>
+                            <p>I am some kind of description text!</p>
 
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
+                            <small>But I am a timestamp or some other!</small>
+                        </section>
+                    </div>
                 </div>
 
                 <h2>Tile Variations</h2>
@@ -975,46 +985,48 @@ p q r s t u v w x y z { | } ~
 
                 <h2>Hero Palette</h2>
 
-                <div class="hero">
-                    <header>Hero DEFAULT</header>
-                    <p>I am description text!</p>
-                    <footer>And I am optional helpful text!</footer>
-                </div>
+                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                    <div class="hero">
+                        <header>Hero DEFAULT</header>
+                        <p>I am description text!</p>
+                        <footer>And I am optional helpful text!</footer>
+                    </div>
 
-                <div class="hero" data-palette="accent">
-                    <header>Hero ACCENT</header>
-                    <p>I am description text!</p>
-                    <footer>And I am optional helpful text!</footer>
-                </div>
+                    <div class="hero" data-palette="accent">
+                        <header>Hero ACCENT</header>
+                        <p>I am description text!</p>
+                        <footer>And I am optional helpful text!</footer>
+                    </div>
 
-                <div class="hero" data-palette="dark">
-                    <header>Hero DARK</header>
-                    <p>I am description text!</p>
-                    <footer>And I am optional helpful text!</footer>
-                </div>
+                    <div class="hero" data-palette="dark">
+                        <header>Hero DARK</header>
+                        <p>I am description text!</p>
+                        <footer>And I am optional helpful text!</footer>
+                    </div>
 
-                <div class="hero" data-palette="light">
-                    <header>Hero LIGHT</header>
-                    <p>I am description text!</p>
-                    <footer>And I am optional helpful text!</footer>
-                </div>
+                    <div class="hero" data-palette="light">
+                        <header>Hero LIGHT</header>
+                        <p>I am description text!</p>
+                        <footer>And I am optional helpful text!</footer>
+                    </div>
 
-                <div class="hero" data-palette="alert">
-                    <header>Hero ALERT</header>
-                    <p>I am description text!</p>
-                    <footer>And I am optional helpful text!</footer>
-                </div>
+                    <div class="hero" data-palette="alert">
+                        <header>Hero ALERT</header>
+                        <p>I am description text!</p>
+                        <footer>And I am optional helpful text!</footer>
+                    </div>
 
-                <div class="hero" data-palette="affirmative">
-                    <header>Hero AFFIRMATIVE</header>
-                    <p>I am description text!</p>
-                    <footer>And I am optional helpful text!</footer>
-                </div>
+                    <div class="hero" data-palette="affirmative">
+                        <header>Hero AFFIRMATIVE</header>
+                        <p>I am description text!</p>
+                        <footer>And I am optional helpful text!</footer>
+                    </div>
 
-                <div class="hero" data-palette="negative">
-                    <header>Hero NEGATIVE</header>
-                    <p>I am description text!</p>
-                    <footer>And I am optional helpful text!</footer>
+                    <div class="hero" data-palette="negative">
+                        <header>Hero NEGATIVE</header>
+                        <p>I am description text!</p>
+                        <footer>And I am optional helpful text!</footer>
+                    </div>
                 </div>
             </article>
 
@@ -1023,13 +1035,15 @@ p q r s t u v w x y z { | } ~
 
         <div class="hero" data-size="viewport">
             <header>Hero VIEWPORT</header>
-            <p>I am description text!</p>
+            <p>My height matches the viewport's height.</p>
             <footer>And I am optional helpful text!</footer>
         </div>
 
         <div class="hero" data-palette="accent" data-size="parent">
             <header>Hero PARENT</header>
-            <p>I am description text!</p>
+            <p>
+                My height matches the parent element's height. <small><i>(if set)</i></small>
+            </p>
             <footer>And I am optional helpful text!</footer>
         </div>
 

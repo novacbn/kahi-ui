@@ -124,7 +124,7 @@ $heading: "#{$heading-h6}, #{$heading-h5}, #{$heading-h4}, #{$heading-h3}, #{$he
 }
 
 #{$small} {
-    font-size: var(--typography-font-size-tiny);
+    font-size: var(--typography-font-size-small);
 }
 
 #{$strong} {

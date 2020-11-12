@@ -15,31 +15,17 @@ $box: ".box";
     padding: var(--box-padding);
 
     background: vhsl(--box-background);
+    color: vhsl(--box-color);
 
     border: var(--box-border) vhsl(--box-block-border-color);
     border-radius: var(--box-radius);
 
-    &[data-palette] {
-        background: vhsl(--background);
-        color: vhsl(--color);
-
-        &::selection,
-        & *::selection {
-            background-color: vhsl(--color);
-            color: vhsl(--background);
-        }
+    &:not([data-variation])[data-palette] {
+        @include use-palette-block();
     }
 
     &[data-variation="outline"] {
-        background: vhsl(--color);
-        border-color: vhsl(--background);
-        color: vhsl(--background);
-
-        &::selection,
-        & *::selection {
-            background-color: vhsl(--background);
-            color: vhsl(--color);
-        }
+        @include use-palette-outline();
     }
 }
 

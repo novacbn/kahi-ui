@@ -1033,13 +1033,13 @@ p q r s t u v w x y z { | } ~
             <h2>Hero Sizes</h2>
         </main>
 
-        <div class="hero" data-size="viewport">
+        <div class="hero" data-palette="accent" data-size="viewport">
             <header>Hero VIEWPORT</header>
             <p>My height matches the viewport's height.</p>
             <footer>And I am optional helpful text!</footer>
         </div>
 
-        <div class="hero" data-palette="accent" data-size="parent">
+        <div class="hero" data-palette="dark" data-size="parent">
             <header>Hero PARENT</header>
             <p>
                 My height matches the parent element's height. <small><i>(if set)</i></small>
@@ -1212,14 +1212,89 @@ p q r s t u v w x y z { | } ~
             <hr />
 
             <article id="navigation-aside">
-                <h1>Navigation :: Aside</h1>
+                <h1>Navigation :: Omni</h1>
 
-                <nav class="aside" data-palette="dark">
+                <nav class="omni">
                     <header>
                         <a href="#">Kahi UI</a>
                     </header>
 
-                    <nav class="menu" data-palette="accent">
+                    <section>Omni Center</section>
+                    <section>Omni Right</section>
+                </nav>
+
+                <h2>Omni Palette</h2>
+
+                <div class="stack" data-alignment-x="stretch" data-spacing="small">
+                    <nav class="omni">
+                        <header>
+                            <a href="#">Omni</a>
+                        </header>
+
+                        <section>DEFAULT</section>
+                    </nav>
+
+                    <nav class="omni" data-palette="accent">
+                        <header>
+                            <a href="#">Omni</a>
+                        </header>
+
+                        <section>ACCENT</section>
+                    </nav>
+
+                    <nav class="omni" data-palette="dark">
+                        <header>
+                            <a href="#">Omni</a>
+                        </header>
+
+                        <section>DARK</section>
+                    </nav>
+
+                    <nav class="omni" data-palette="light">
+                        <header>
+                            <a href="#">Omni</a>
+                        </header>
+
+                        <section>LIGHT</section>
+                    </nav>
+
+                    <nav class="omni" data-palette="alert">
+                        <header>
+                            <a href="#">Omni</a>
+                        </header>
+
+                        <section>ALERT</section>
+                    </nav>
+
+                    <nav class="omni" data-palette="affirmative">
+                        <header>
+                            <a href="#">Omni</a>
+                        </header>
+
+                        <section>AFFIRMATIVE</section>
+                    </nav>
+
+                    <nav class="omni" data-palette="negative">
+                        <header>
+                            <a href="#">Omni</a>
+                        </header>
+
+                        <section>NEGATIVE</section>
+                    </nav>
+                </div>
+            </article>
+
+            <hr />
+
+            <article id="navigation-aside">
+                <h1>Navigation :: Aside</h1>
+
+                <nav class="aside">
+                    <header>
+                        <a href="#">Kahi UI</a>
+                    </header>
+
+                    <nav class="menu">
                         <ul>
                             <li role="separator">Framework</li>
                             <li>
@@ -1243,6 +1318,149 @@ p q r s t u v w x y z { | } ~
                         </ul>
                     </nav>
                 </nav>
+
+                <h2>Aside Palette</h2>
+
+                <style>
+                    #aside-mosaic > nav {
+                        width: initial;
+                    }
+                </style>
+
+                <div id="aside-mosaic" class="mosaic" data-spacing="tiny" data-sizing="huge">
+                    <nav class="aside">
+                        <header>
+                            <a href="#">DEFAULT</a>
+                        </header>
+
+                        <nav class="menu">
+                            <ul>
+                                <li role="separator">Components</li>
+
+                                <li>
+                                    <a href="#">Badge<span>ICON</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </nav>
+
+                    <nav class="aside" data-palette="accent">
+                        <header>
+                            <a href="#">ACCENT</a>
+                        </header>
+
+                        <nav class="menu">
+                            <ul>
+                                <li role="separator">Components</li>
+
+                                <li>
+                                    <a href="#">Badge<span>ICON</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </nav>
+
+                    <nav class="aside" data-palette="dark">
+                        <header>
+                            <a href="#">DARK</a>
+                        </header>
+
+                        <nav class="menu">
+                            <ul>
+                                <li role="separator">Components</li>
+
+                                <li>
+                                    <a href="#">Badge<span>ICON</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </nav>
+
+                    <nav class="aside" data-palette="light">
+                        <header>
+                            <a href="#">LIGHT</a>
+                        </header>
+
+                        <nav class="menu">
+                            <ul>
+                                <li role="separator">Components</li>
+
+                                <li>
+                                    <a href="#">Badge<span>ICON</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </nav>
+
+                    <nav class="aside" data-palette="alert">
+                        <header>
+                            <a href="#">ALERT</a>
+                        </header>
+
+                        <nav class="menu">
+                            <ul>
+                                <li role="separator">Components</li>
+
+                                <li>
+                                    <a href="#">Badge<span>ICON</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </nav>
+
+                    <nav class="aside" data-palette="affirmative">
+                        <header>
+                            <a href="#">AFFIRMATIVE</a>
+                        </header>
+
+                        <nav class="menu">
+                            <ul>
+                                <li role="separator">Components</li>
+
+                                <li>
+                                    <a href="#">Badge<span>ICON</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </nav>
+
+                    <nav class="aside" data-palette="negative">
+                        <header>
+                            <a href="#">NEGATIVE</a>
+                        </header>
+
+                        <nav class="menu">
+                            <ul>
+                                <li role="separator">Components</li>
+
+                                <li>
+                                    <a href="#">Badge<span>ICON</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </nav>
+                </div>
             </article>
 
             <hr />

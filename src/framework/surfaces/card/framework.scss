@@ -16,19 +16,12 @@ $card-footer-last: ":last-child";
     overflow: hidden;
 
     &:not([data-variation]) {
-        margin: var(--card-margin);
+        @include use-palette-block();
 
-        background: vhsl(--background);
-        color: vhsl(--color);
+        margin: var(--card-margin);
 
         border: var(--card-border) vhsl(--card-border-color);
         border-radius: var(--card-radius);
-
-        &::selection,
-        & *::selection {
-            background-color: vhsl(--color);
-            color: vhsl(--background);
-        }
 
         & #{$card-figure} > * {
             border-top-left-radius: var(--card-radius);

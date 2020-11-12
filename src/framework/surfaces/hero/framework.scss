@@ -16,13 +16,11 @@ $hero-help: "footer";
 
     padding: var(--hero-padding);
 
-    background: vhsl(--background);
-    color: vhsl(--color);
+    background: transparent;
+    color: currentColor;
 
-    &::selection,
-    & *::selection {
-        background-color: vhsl(--color);
-        color: vhsl(--background);
+    &[data-palette] {
+        @include use-palette-block();
     }
 
     & #{$hero-anchor} {

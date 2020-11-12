@@ -6,6 +6,9 @@ $text: ":is(input[type='email'], input[type='password'], input[type='text'], inp
 
 $form-disabled: ":disabled";
 
+$form-field-focus: ":focus";
+$form-field-hover: ":hover";
+
 $form-toggle-active: ":checked";
 $form-toggle-hover: ":is(:focus, :hover)";
 
@@ -46,7 +49,6 @@ $form-toggle-hover: ":is(:focus, :hover)";
     background-color: transparent;
     color: currentColor;
 
-    border: var(--form-field-border) vhsla(--background, --form-opacity-muted);
     border-radius: var(--form-radius);
 
     font-size: var(--form-field-font-size);
@@ -70,19 +72,48 @@ $form-toggle-hover: ":is(:focus, :hover)";
         color: vhsl(--color);
     }
 
-    &:not(#{$form-disabled}) {
-        &:hover {
+    &[data-shape="pill"] {
+        border-radius: var(--form-radius-pill);
+        padding: var(--form-field-padding-pill);
+    }
+
+    &:not(#{$form-disabled}, [data-validate]) {
+        border: var(--form-field-border) vhsla(--background, --form-opacity-muted);
+
+        &#{$form-field-hover} {
             border-color: vhsla(--background, --form-opacity-dull);
         }
 
-        &:focus {
+        &#{$form-field-focus} {
             border-color: vhsl(--background);
         }
     }
 
-    &[data-shape="pill"] {
-        border-radius: var(--form-radius-pill);
-        padding: var(--form-field-padding-pill);
+    &[data-validate]:not(#{$form-disabled}) {
+        &:invalid {
+            border: var(--form-field-border) vhsla(--form-negative-background, --form-opacity-muted);
+
+            &#{$form-field-hover} {
+                border-color: vhsla(--form-negative-background, --form-opacity-dull);
+            }
+
+            &#{$form-field-focus} {
+                border-color: vhsl(--form-negative-background);
+            }
+        }
+
+        &:valid {
+            border: var(--form-field-border)
+                vhsla(--form-affirmative-background, --form-opacity-muted);
+
+            &#{$form-field-hover} {
+                border-color: vhsla(--form-affirmative-background, --form-opacity-dull);
+            }
+
+            &#{$form-field-focus} {
+                border-color: vhsl(--form-affirmative-background);
+            }
+        }
     }
 }
 

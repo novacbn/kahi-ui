@@ -16,7 +16,7 @@ $button-outline: "[data-variation='outline']";
     display: inline-flex;
     position: relative;
 
-    align-content: center;
+    align-items: center;
     justify-content: center;
 
     padding: var(--button-padding);
@@ -29,6 +29,7 @@ $button-outline: "[data-variation='outline']";
     font-weight: var(--button-font-weight);
 
     line-height: 1;
+    text-decoration: none;
 
     outline: none;
 

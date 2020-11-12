@@ -62,7 +62,7 @@
     }
 }
 
-@mixin use-palette($namespace, $has-selection: false, $is-inherited: false) {
+@mixin use-palette($namespace, $is-inherited: false) {
     @if ($is-inherited) {
         --background: var(inherit, var(#{$namespace}-default-background));
         --color: var(inherit, var(#{$namespace}-default-color));
@@ -77,9 +77,29 @@
             --color: var(#{$namespace}-#{$palette}-color);
         }
     }
+}
+
+@mixin use-palette-block($has-selection: true) {
+    background: vhsl(--background);
+    color: vhsl(--color);
 
     @if ($has-selection) {
-        &::selection {
+        &::selection,
+        & *::selection {
+            background-color: vhsl(--color);
+            color: vhsl(--background);
+        }
+    }
+}
+
+@mixin use-palette-outline($has-selection: true) {
+    background: vhsl(--color);
+    border-color: vhsl(--background);
+    color: vhsl(--background);
+
+    @if ($has-selection) {
+        &::selection,
+        & *::selection {
             background-color: vhsl(--background);
             color: vhsl(--color);
         }

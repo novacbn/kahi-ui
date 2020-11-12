@@ -5,9 +5,6 @@ $aside-heading: "header";
 #{$navigation-aside} {
     @include use-palette(--aside);
 
-    --inherited-background: var(--background);
-    --inherited-color: var(--color);
-
     display: block;
 
     width: max-content;
@@ -15,16 +12,22 @@ $aside-heading: "header";
 
     padding: var(--aside-padding);
 
-    background: vhsl(--background);
-    color: vhsl(--color);
+    background: transparent;
+    color: currentColor;
 
     overflow-x: hidden;
     overflow-y: auto;
 
-    &::selection,
-    & *::selection {
-        background-color: vhsl(--color);
-        color: vhsl(--background);
+    &[data-palette] {
+        @include use-palette-block();
+
+        --inherited-background: var(--color);
+        --inherited-color: var(--background);
+
+        & #{$menu}:not([data-palette]) {
+            --background: var(--inherited-background);
+            --color: var(--inherited-color);
+        }
     }
 
     & #{$aside-heading} {
@@ -34,6 +37,8 @@ $aside-heading: "header";
 
         font-size: var(--aside-heading-font-size);
         font-weight: var(--aside-heading-font-weight);
+
+        text-align: center;
 
         & > #{$anchor} {
             color: inherit;
@@ -45,10 +50,5 @@ $aside-heading: "header";
         &::before {
             flex-grow: var(--aside-separator-flex-grow);
         }
-    }
-
-    & #{$menu}:not([data-palette]) {
-        --background: var(--inherited-color);
-        --color: var(--inherited-background);
     }
 }

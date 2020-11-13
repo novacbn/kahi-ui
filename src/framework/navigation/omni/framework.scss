@@ -42,6 +42,7 @@ $omni-footer: "footer";
     }
 
     & > #{$omni-heading} {
+        letter-spacing: var(--omni-heading-letter-spacing);
         font-size: var(--omni-heading-font-size);
         font-weight: var(--omni-heading-font-weight);
     }

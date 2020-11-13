@@ -31,25 +31,25 @@ $popover-state-active: ":checked";
     }
 
     &:not([data-position]) > #{$popover-label} + * {
-        top: calc(100% + var(--spacing-block-medium));
+        top: calc(100% + var(--popover-margin));
         right: 50%;
         transform: translateX(50%);
     }
 
     &[data-position="top"] > #{$popover-label} + * {
-        bottom: calc(100% + var(--spacing-block-medium));
+        bottom: calc(100% + var(--popover-margin));
         right: 50%;
         transform: translateX(50%);
     }
 
     &[data-position="left"] > #{$popover-label} + * {
-        right: calc(100% + var(--spacing-block-medium));
+        right: calc(100% + var(--popover-margin));
         bottom: 50%;
         transform: translateY(50%);
     }
 
     &[data-position="right"] > #{$popover-label} + * {
-        left: calc(100% + var(--spacing-block-medium));
+        left: calc(100% + var(--popover-margin));
         bottom: 50%;
         transform: translateY(50%);
     }

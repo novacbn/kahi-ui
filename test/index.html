@@ -645,7 +645,13 @@ p q r s t u v w x y z { | } ~
             <article id="surfaces-card">
                 <h1>Surfaces :: Card</h1>
 
-                <div class="card" data-palette="light" style="max-width: 256px">
+                <style>
+                    #surfaces-card-sample {
+                        max-width: var(--sizing-block-huge);
+                    }
+                </style>
+
+                <div class="card" id="surfaces-card-sample" data-palette="light">
                     <figure>
                         <img src="/test/assets/images/background.jpg" />
                     </figure>
@@ -1508,12 +1514,17 @@ p q r s t u v w x y z { | } ~
                 <h2>Aside Palette</h2>
 
                 <style>
-                    #aside-mosaic > nav {
+                    #navigation-aside-mosaic > nav {
                         width: initial;
                     }
                 </style>
 
-                <div id="aside-mosaic" class="mosaic" data-spacing="tiny" data-sizing="huge">
+                <div
+                    id="navigation-aside-mosaic"
+                    class="mosaic"
+                    data-spacing="tiny"
+                    data-sizing="huge"
+                >
                     <nav class="aside">
                         <header>
                             <a href="#navigation-aside">DEFAULT</a>

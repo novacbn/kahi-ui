@@ -1,11 +1,3 @@
-@function expand-value($value) {
-    @if (type-of($value) == "string" and str-slice($value, 1, 2) == "--") {
-        @return var(#{$value});
-    }
-
-    @return $value;
-}
-
 @function pow($value, $exponent: 1) {
     @if ($exponent == 0) {
         @return 1;
@@ -36,19 +28,6 @@
     @return calc(var(#{$namespace}-base) * (#{$expression}));
 }
 
-@function srepeat($string, $iterations: 1) {
-    @if ($iterations < 1) {
-        @return quote($string);
-    }
-
-    $result: "";
-    @for $i from 0 through $iterations {
-        $result: $result + $string;
-    }
-
-    @return quote($result);
-}
-
 @function step($namespace, $increments: 1) {
     @if ($increments == 1) {
         @return var(#{$namespace}-base);
@@ -57,21 +36,4 @@
     }
 
     @return calc(var(#{$namespace}-base) + (var(#{$namespace}-step) * #{$increments - 1}));
-}
-
-@function vcolor($color, $lightness: 1) {
-    @return var(#{$color}-huesat), step(#{$color}-lightness, $lightness);
-}
-
-@function vhsl($color) {
-    $color: expand-value($color);
-
-    @return hsl($color);
-}
-
-@function vhsla($color, $alpha) {
-    $alpha: expand-value($alpha);
-    $color: expand-value($color);
-
-    @return hsla($color, $alpha);
 }

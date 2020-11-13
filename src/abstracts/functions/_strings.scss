@@ -1,0 +1,12 @@
+@function srepeat($string, $iterations: 1) {
+    @if ($iterations < 1) {
+        @return quote($string);
+    }
+
+    $result: "";
+    @for $i from 0 through $iterations {
+        $result: $result + $string;
+    }
+
+    @return quote($result);
+}

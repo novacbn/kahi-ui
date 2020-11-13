@@ -1,0 +1,5 @@
+@mixin use-properties($properties: ()) {
+    @each $name, $value in $properties {
+        #{$name}: #{$value};
+    }
+}

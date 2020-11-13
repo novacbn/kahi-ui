@@ -1,0 +1,7 @@
+@function expand-value($value) {
+    @if (type-of($value) == "string" and str-slice($value, 1, 2) == "--") {
+        @return var(#{$value});
+    }
+
+    @return $value;
+}

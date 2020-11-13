@@ -1,0 +1,19 @@
+@mixin use-linkable($namespace) {
+    color: inherit;
+    opacity: var(#{$namespace}-opacity-visible);
+
+    cursor: pointer;
+    text-decoration: none;
+
+    user-select: none;
+    transition: opacity var(#{$namespace}-transition);
+
+    &:hover,
+    &:focus {
+        opacity: var(#{$namespace}-opacity-dull);
+    }
+
+    &:active {
+        opacity: var(#{$namespace}-opacity-muted);
+    }
+}

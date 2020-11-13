@@ -19,7 +19,8 @@
                 <a
                     href="https://github.com/novacbn/kahi-ui"
                     role="button"
-                    data-palette="dark"
+                    data-palette="light"
+                    data-variation="clear"
                     target="_blank"
                 >
                     GitHub
@@ -599,7 +600,7 @@ p q r s t u v w x y z { | } ~
 
                 <h2>Box Palette</h2>
 
-                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                <div class="mosaic" data-sizing="large" data-spacing="medium">
                     <div class="box" data-palette="accent">This is a <b>ACCENT</b> Box!</div>
                     <div class="box" data-palette="dark">This is a <b>DARK</b> Box!</div>
                     <div class="box" data-palette="light">This is a <b>LIGHT</b> Box!</div>
@@ -612,7 +613,7 @@ p q r s t u v w x y z { | } ~
 
                 <h2>Outline Palette</h2>
 
-                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                <div class="mosaic" data-sizing="large" data-spacing="medium">
                     <div class="box" data-palette="accent" data-variation="outline">
                         This is a <b>ACCENT</b> Box!
                     </div>
@@ -644,7 +645,13 @@ p q r s t u v w x y z { | } ~
             <article id="surfaces-card">
                 <h1>Surfaces :: Card</h1>
 
-                <div class="card" style="max-width: 256px">
+                <style>
+                    #surfaces-card-sample {
+                        max-width: var(--sizing-block-huge);
+                    }
+                </style>
+
+                <div class="card" id="surfaces-card-sample" data-palette="light">
                     <figure>
                         <img src="./assets/images/background.jpg" />
                     </figure>
@@ -671,7 +678,7 @@ p q r s t u v w x y z { | } ~
 
                 <h2>Card Palette</h2>
 
-                <div class="mosaic" data-sizing="huge" data-spacing="medium">
+                <div class="mosaic" data-sizing="large" data-spacing="medium">
                     <div class="card">
                         <figure>
                             <img src="./assets/images/background.jpg" />
@@ -798,44 +805,6 @@ p q r s t u v w x y z { | } ~
                         </footer>
                     </div>
                 </div>
-
-                <h2>Card Variations</h2>
-
-                <div class="card" style="max-width: 256px">
-                    <figure>
-                        <img src="./assets/images/background.jpg" />
-                    </figure>
-
-                    <section>
-                        <header>Card<span>DEFAULT</span></header>
-                        <p>I am some kind of description text!</p>
-
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-
-                    <footer>
-                        <button data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
-                </div>
-
-                <div class="card" data-variation="clear" style="max-width: 256px">
-                    <figure>
-                        <img src="./assets/images/background.jpg" />
-                    </figure>
-
-                    <section>
-                        <header>Card<span>CLEAR</span></header>
-                        <p>I am some kind of description text!</p>
-
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-
-                    <footer>
-                        <button data-variation="clear">Cancel</button>
-                        <button data-palette="accent">Edit</button>
-                    </footer>
-                </div>
             </article>
 
             <hr />
@@ -843,7 +812,7 @@ p q r s t u v w x y z { | } ~
             <article id="surfaces-tile">
                 <h1>Surfaces :: Tile</h1>
 
-                <label class="tile">
+                <label class="tile" data-palette="light">
                     <figure>
                         <img src="./assets/images/avatar.png" />
                     </figure>
@@ -953,34 +922,6 @@ p q r s t u v w x y z { | } ~
                             <small>But I am a timestamp or some other!</small>
                         </section>
                     </div>
-                </div>
-
-                <h2>Tile Variations</h2>
-
-                <div class="tile">
-                    <figure>
-                        <img src="./assets/images/avatar.png" />
-                    </figure>
-
-                    <section>
-                        <header>Tile DEFAULT</header>
-                        <p>I am some kind of description text!</p>
-
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
-                </div>
-
-                <div class="tile" data-variation="clear">
-                    <figure>
-                        <img src="./assets/images/avatar.png" />
-                    </figure>
-
-                    <section>
-                        <header>Tile CLEAR</header>
-                        <p>I am some kind of description text!</p>
-
-                        <small>But I am a timestamp or some other!</small>
-                    </section>
                 </div>
             </article>
 
@@ -1573,12 +1514,17 @@ p q r s t u v w x y z { | } ~
                 <h2>Aside Palette</h2>
 
                 <style>
-                    #aside-mosaic > nav {
+                    #navigation-aside-mosaic > nav {
                         width: initial;
                     }
                 </style>
 
-                <div id="aside-mosaic" class="mosaic" data-spacing="tiny" data-sizing="huge">
+                <div
+                    id="navigation-aside-mosaic"
+                    class="mosaic"
+                    data-spacing="tiny"
+                    data-sizing="huge"
+                >
                     <nav class="aside">
                         <header>
                             <a href="#navigation-aside">DEFAULT</a>

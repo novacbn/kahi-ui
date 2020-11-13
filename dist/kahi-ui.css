@@ -254,7 +254,7 @@ b,strong{
   padding:var(--badge-padding-pill);
 }
 
-a[role=button],button,input[type=button],input[type=reset],input[type=submit]{
+a[role=button],button,input[type=button],input[type=reset],input[type=submit],label[role=button]{
   --background:var(--button-default-background);
   --color:var(--button-default-color);
   -webkit-appearance:none;
@@ -278,86 +278,86 @@ a[role=button],button,input[type=button],input[type=reset],input[type=submit]{
   opacity:var(--button-opacity-enabled);
   transition:background var(--button-transition), border-color var(--button-transition), color var(--button-transition), opacity var(--button-transition);
 }
-a[role=button][data-palette=accent],button[data-palette=accent],input[type=button][data-palette=accent],input[type=reset][data-palette=accent],input[type=submit][data-palette=accent]{
+a[role=button][data-palette=accent],button[data-palette=accent],input[type=button][data-palette=accent],input[type=reset][data-palette=accent],input[type=submit][data-palette=accent],label[role=button][data-palette=accent]{
   --background:var(--button-accent-background);
   --color:var(--button-accent-color);
 }
-a[role=button][data-palette=dark],button[data-palette=dark],input[type=button][data-palette=dark],input[type=reset][data-palette=dark],input[type=submit][data-palette=dark]{
+a[role=button][data-palette=dark],button[data-palette=dark],input[type=button][data-palette=dark],input[type=reset][data-palette=dark],input[type=submit][data-palette=dark],label[role=button][data-palette=dark]{
   --background:var(--button-dark-background);
   --color:var(--button-dark-color);
 }
-a[role=button][data-palette=light],button[data-palette=light],input[type=button][data-palette=light],input[type=reset][data-palette=light],input[type=submit][data-palette=light]{
+a[role=button][data-palette=light],button[data-palette=light],input[type=button][data-palette=light],input[type=reset][data-palette=light],input[type=submit][data-palette=light],label[role=button][data-palette=light]{
   --background:var(--button-light-background);
   --color:var(--button-light-color);
 }
-a[role=button][data-palette=alert],button[data-palette=alert],input[type=button][data-palette=alert],input[type=reset][data-palette=alert],input[type=submit][data-palette=alert]{
+a[role=button][data-palette=alert],button[data-palette=alert],input[type=button][data-palette=alert],input[type=reset][data-palette=alert],input[type=submit][data-palette=alert],label[role=button][data-palette=alert]{
   --background:var(--button-alert-background);
   --color:var(--button-alert-color);
 }
-a[role=button][data-palette=affirmative],button[data-palette=affirmative],input[type=button][data-palette=affirmative],input[type=reset][data-palette=affirmative],input[type=submit][data-palette=affirmative]{
+a[role=button][data-palette=affirmative],button[data-palette=affirmative],input[type=button][data-palette=affirmative],input[type=reset][data-palette=affirmative],input[type=submit][data-palette=affirmative],label[role=button][data-palette=affirmative]{
   --background:var(--button-affirmative-background);
   --color:var(--button-affirmative-color);
 }
-a[role=button][data-palette=negative],button[data-palette=negative],input[type=button][data-palette=negative],input[type=reset][data-palette=negative],input[type=submit][data-palette=negative]{
+a[role=button][data-palette=negative],button[data-palette=negative],input[type=button][data-palette=negative],input[type=reset][data-palette=negative],input[type=submit][data-palette=negative],label[role=button][data-palette=negative]{
   --background:var(--button-negative-background);
   --color:var(--button-negative-color);
 }
-a[role=button]:disabled,a[role=button] [aria-disabled=true],button:disabled,button [aria-disabled=true],input[type=button]:disabled,input[type=button] [aria-disabled=true],input[type=reset]:disabled,input[type=reset] [aria-disabled=true],input[type=submit]:disabled,input[type=submit] [aria-disabled=true]{
+a[role=button]:disabled,a[role=button] [aria-disabled=true],button:disabled,button [aria-disabled=true],input[type=button]:disabled,input[type=button] [aria-disabled=true],input[type=reset]:disabled,input[type=reset] [aria-disabled=true],input[type=submit]:disabled,input[type=submit] [aria-disabled=true],label[role=button]:disabled,label[role=button] [aria-disabled=true]{
   cursor:not-allowed;
   opacity:var(--button-opacity-disabled);
 }
-a[role=button]:not([data-variation]),button:not([data-variation]),input[type=button]:not([data-variation]),input[type=reset]:not([data-variation]),input[type=submit]:not([data-variation]){
+a[role=button]:not([data-variation]),button:not([data-variation]),input[type=button]:not([data-variation]),input[type=reset]:not([data-variation]),input[type=submit]:not([data-variation]),label[role=button]:not([data-variation]){
   background:hsl(var(--background));
   border:var(--button-border) hsl(var(--background));
   color:hsl(var(--color));
 }
-a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,button:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,button:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover{
+a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,button:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,button:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover,label[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):focus,label[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):hover{
   background:hsla(var(--background), var(--button-opacity-dull));
   border-color:transparent;
 }
-a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],button:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,button:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true]{
+a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,a[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],button:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,button:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,input[type=button]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,input[type=reset]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,input[type=submit]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true],label[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true]):active,label[role=button]:not([data-variation]):not(:disabled):not([aria-disabled=true])[aria-pressed=true]{
   background:hsla(var(--background), var(--button-opacity-muted));
   border-color:hsla(var(--color), var(--button-opacity-muted));
 }
-a[role=button][data-variation=clear],button[data-variation=clear],input[type=button][data-variation=clear],input[type=reset][data-variation=clear],input[type=submit][data-variation=clear]{
+a[role=button][data-variation=clear],button[data-variation=clear],input[type=button][data-variation=clear],input[type=reset][data-variation=clear],input[type=submit][data-variation=clear],label[role=button][data-variation=clear]{
   background:transparent;
   border:var(--button-border) transparent;
   color:hsl(var(--background));
 }
-a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,button[data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,button[data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover{
+a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,button[data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,button[data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover,label[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):focus,label[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):hover{
   background:hsla(var(--background), var(--button-opacity-translucent));
   border-color:hsla(var(--background), var(--button-opacity-translucent));
 }
-a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],button[data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,button[data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true]{
+a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,a[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],button[data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,button[data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,input[type=button][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,input[type=reset][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,input[type=submit][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],label[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true]):active,label[role=button][data-variation=clear]:not(:disabled):not([aria-disabled=true])[aria-pressed=true]{
   background:hsla(var(--background), var(--button-opacity-muted));
   border-color:transparent;
   color:hsl(var(--color));
 }
-a[role=button][data-variation=outline],button[data-variation=outline],input[type=button][data-variation=outline],input[type=reset][data-variation=outline],input[type=submit][data-variation=outline]{
+a[role=button][data-variation=outline],button[data-variation=outline],input[type=button][data-variation=outline],input[type=reset][data-variation=outline],input[type=submit][data-variation=outline],label[role=button][data-variation=outline]{
   background-color:initial;
   border:var(--button-border) hsl(var(--background));
   color:hsl(var(--background));
 }
-a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,button[data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,button[data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover{
+a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,button[data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,button[data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover,label[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):focus,label[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):hover{
   background-color:hsla(var(--background), var(--button-opacity-translucent));
 }
-a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],button[data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,button[data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true]{
+a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,a[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],button[data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,button[data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,input[type=button][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,input[type=reset][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,input[type=submit][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true],label[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true]):active,label[role=button][data-variation=outline]:not(:disabled):not([aria-disabled=true])[aria-pressed=true]{
   background-color:hsl(var(--background));
   color:hsl(var(--color));
 }
-a[role=button][data-size=tiny],button[data-size=tiny],input[type=button][data-size=tiny],input[type=reset][data-size=tiny],input[type=submit][data-size=tiny]{
+a[role=button][data-size=tiny],button[data-size=tiny],input[type=button][data-size=tiny],input[type=reset][data-size=tiny],input[type=submit][data-size=tiny],label[role=button][data-size=tiny]{
   font-size:var(--button-font-size-tiny);
 }
-a[role=button][data-size=small],button[data-size=small],input[type=button][data-size=small],input[type=reset][data-size=small],input[type=submit][data-size=small]{
+a[role=button][data-size=small],button[data-size=small],input[type=button][data-size=small],input[type=reset][data-size=small],input[type=submit][data-size=small],label[role=button][data-size=small]{
   font-size:var(--button-font-size-small);
 }
-a[role=button][data-size=large],button[data-size=large],input[type=button][data-size=large],input[type=reset][data-size=large],input[type=submit][data-size=large]{
+a[role=button][data-size=large],button[data-size=large],input[type=button][data-size=large],input[type=reset][data-size=large],input[type=submit][data-size=large],label[role=button][data-size=large]{
   font-size:var(--button-font-size-large);
 }
-a[role=button][data-size=huge],button[data-size=huge],input[type=button][data-size=huge],input[type=reset][data-size=huge],input[type=submit][data-size=huge]{
+a[role=button][data-size=huge],button[data-size=huge],input[type=button][data-size=huge],input[type=reset][data-size=huge],input[type=submit][data-size=huge],label[role=button][data-size=huge]{
   font-size:var(--button-font-size-huge);
 }
-a[role=button][data-shape=pill],button[data-shape=pill],input[type=button][data-shape=pill],input[type=reset][data-shape=pill],input[type=submit][data-shape=pill]{
+a[role=button][data-shape=pill],button[data-shape=pill],input[type=button][data-shape=pill],input[type=reset][data-shape=pill],input[type=submit][data-shape=pill],label[role=button][data-shape=pill]{
   padding:var(--button-padding-pill);
   border-radius:var(--button-radius-pill);
 }
@@ -1155,15 +1155,15 @@ nav.omni[data-palette]::selection,nav.omni[data-palette] ::selection{
   background-color:hsl(var(--color));
   color:hsl(var(--background));
 }
-nav.omni>header,nav.omni>section{
+nav.omni>footer,nav.omni>header,nav.omni>section{
   display:flex;
   align-items:center;
 }
-nav.omni>header>a:not([role]),nav.omni>section>a:not([role]){
+nav.omni>footer>a:not([role]),nav.omni>header>a:not([role]),nav.omni>section>a:not([role]){
   color:inherit;
   text-decoration:none;
 }
-nav.omni>header>hr,nav.omni>section>hr{
+nav.omni>footer>hr,nav.omni>header>hr,nav.omni>section>hr{
   margin:var(--omni-divider-margin);
   border-top:none;
   border-left:currentColor var(--divider-border);
@@ -1172,6 +1172,12 @@ nav.omni>header{
   font-size:var(--omni-heading-font-size);
   font-weight:var(--omni-heading-font-weight);
 }
+nav.omni[data-position=top]{
+  position:sticky;
+  top:0;
+  z-index:2;
+}
+
 .box{
   --background:var(--box-default-background);
   --color:var(--box-default-color);
@@ -1507,6 +1513,58 @@ a:not([role]).tile:focus,a:not([role]).tile:hover,label.tile:focus,label.tile:ho
 }
 a:not([role]).tile:active,label.tile:active{
   opacity:var(--tile-opacity-muted);
+}
+.popover{
+  --sizing:initial;
+  display:inline-block;
+  position:relative;
+}
+.popover[data-sizing~=tiny]{
+  --sizing:var(--popover-sizing-tiny);
+}
+.popover[data-sizing~=small]{
+  --sizing:var(--popover-sizing-small);
+}
+.popover[data-sizing~=medium]{
+  --sizing:var(--popover-sizing-medium);
+}
+.popover[data-sizing~=large]{
+  --sizing:var(--popover-sizing-large);
+}
+.popover[data-sizing~=huge]{
+  --sizing:var(--popover-sizing-huge);
+}
+.popover>label+*{
+  position:absolute;
+  margin:0;
+  width:var(--sizing);
+  z-index:1;
+}
+.popover:not([data-sizing])>label+*{
+  white-space:nowrap;
+}
+.popover:not([data-position])>label+*{
+  top:calc(100% + var(--spacing-block-medium));
+  right:50%;
+  transform:translateX(50%);
+}
+.popover[data-position=top]>label+*{
+  bottom:calc(100% + var(--spacing-block-medium));
+  right:50%;
+  transform:translateX(50%);
+}
+.popover[data-position=left]>label+*{
+  right:calc(100% + var(--spacing-block-medium));
+  bottom:50%;
+  transform:translateY(50%);
+}
+.popover[data-position=right]>label+*{
+  left:calc(100% + var(--spacing-block-medium));
+  bottom:50%;
+  transform:translateY(50%);
+}
+.popover>input[type=checkbox],.popover>input[type=checkbox]:not(:checked)+label+*{
+  display:none;
 }
 .container{
   --viewport:var(--container-viewports-small);

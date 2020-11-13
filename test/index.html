@@ -12,6 +12,21 @@
     </head>
 
     <body>
+        <nav class="omni" data-position="top" data-palette="dark">
+            <header>Kahi UI</header>
+
+            <footer>
+                <a
+                    href="https://github.com/novacbn/kahi-ui"
+                    role="button"
+                    data-palette="dark"
+                    target="_blank"
+                >
+                    GitHub
+                </a>
+            </footer>
+        </nav>
+
         <main class="container">
             <article id="elements-lists">
                 <h1>Elements :: Lists</h1>
@@ -80,7 +95,7 @@
                         usually placed at the bottom.
                     </p>
 
-                    <cite><a href="#">Said no one, ever.</a></cite>
+                    <cite><a href="#elements-typography-blockquote">Said no one, ever.</a></cite>
                 </blockquote>
 
                 <blockquote data-palette="accent">
@@ -580,7 +595,7 @@ p q r s t u v w x y z { | } ~
                 <h1>Surfaces :: Box</h1>
 
                 <div class="box">This is a Box!</div>
-                <a class="box" href="#">This is an anchor Box!</a>
+                <a class="box" href="#surfaces-box">This is an anchor Box!</a>
 
                 <h2>Box Palette</h2>
 
@@ -979,7 +994,8 @@ p q r s t u v w x y z { | } ~
                     <p>Page Not Found</p>
                     <footer>
                         The page you were <strong>looking for</strong> was
-                        <strong>not found</strong>. Please go back <a href="#">to the homepage</a>.
+                        <strong>not found</strong>. Please go back
+                        <a href="#surfaces-hero">to the homepage</a>.
                     </footer>
                 </div>
 
@@ -1048,6 +1064,121 @@ p q r s t u v w x y z { | } ~
         </div>
 
         <main class="container">
+            <hr />
+
+            <article id="overlays-popover">
+                <h1>Overlays :: Popover</h1>
+
+                <div class="popover">
+                    <input id="popover-check" type="checkbox" />
+                    <label for="popover-check" role="button">Click me!</label>
+
+                    <div class="box">
+                        <nav class="menu" data-palette="accent">
+                            <ul>
+                                <li role="separator">Text Operations</li>
+
+                                <li>
+                                    <a href="#overlays-popover"
+                                        >Copy <small><code>CTRL+C</code></small></a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a href="#overlays-popover"
+                                        >Cut <small><code>CTRL+X</code></small></a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a href="#overlays-popover"
+                                        >Paste <small><code>CTRL+V</code></small></a
+                                    >
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <h2>Popover Positions</h2>
+
+                <div class="popover">
+                    <input id="popover-check-default" type="checkbox" />
+                    <label for="popover-check-default" role="button">Popover DEFAULT</label>
+
+                    <div class="box">
+                        <nav class="menu" data-palette="accent">
+                            <ul>
+                                <li role="separator">Text Operations</li>
+
+                                <li>
+                                    <a href="#overlays-popover"
+                                        >Copy <small><code>CTRL+C</code></small></a
+                                    >
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-position="top">
+                    <input id="popover-check-top" type="checkbox" />
+                    <label for="popover-check-top" role="button">Popover TOP</label>
+
+                    <div class="box">
+                        <nav class="menu" data-palette="accent">
+                            <ul>
+                                <li role="separator">Text Operations</li>
+
+                                <li>
+                                    <a href="#overlays-popover"
+                                        >Copy <small><code>CTRL+C</code></small></a
+                                    >
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-position="left">
+                    <input id="popover-check-left" type="checkbox" />
+                    <label for="popover-check-left" role="button">Popover LEFT</label>
+
+                    <div class="box">
+                        <nav class="menu" data-palette="accent">
+                            <ul>
+                                <li role="separator">Text Operations</li>
+
+                                <li>
+                                    <a href="#overlays-popover"
+                                        >Copy <small><code>CTRL+C</code></small></a
+                                    >
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-position="right">
+                    <input id="popover-check-right" type="checkbox" />
+                    <label for="popover-check-right" role="button">Popover RIGHT</label>
+
+                    <div class="box">
+                        <nav class="menu" data-palette="accent">
+                            <ul>
+                                <li role="separator">Text Operations</li>
+
+                                <li>
+                                    <a href="#overlays-popover"
+                                        >Copy <small><code>CTRL+C</code></small></a
+                                    >
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </article>
+
             <hr />
 
             <article id="layout-group">
@@ -1211,12 +1342,12 @@ p q r s t u v w x y z { | } ~
 
             <hr />
 
-            <article id="navigation-aside">
+            <article id="navigation-omni">
                 <h1>Navigation :: Omni</h1>
 
                 <nav class="omni">
                     <header>
-                        <a href="#">Kahi UI</a>
+                        <a href="#navigation-omni">Kahi UI</a>
                     </header>
 
                     <section>Omni Center</section>
@@ -1228,7 +1359,7 @@ p q r s t u v w x y z { | } ~
                 <div class="stack" data-alignment-x="stretch" data-spacing="small">
                     <nav class="omni">
                         <header>
-                            <a href="#">Omni</a>
+                            <a href="#navigation-omni">Omni</a>
                         </header>
 
                         <section>DEFAULT</section>
@@ -1236,7 +1367,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="omni" data-palette="accent">
                         <header>
-                            <a href="#">Omni</a>
+                            <a href="#navigation-omni">Omni</a>
                         </header>
 
                         <section>ACCENT</section>
@@ -1244,7 +1375,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="omni" data-palette="dark">
                         <header>
-                            <a href="#">Omni</a>
+                            <a href="#navigation-omni">Omni</a>
                         </header>
 
                         <section>DARK</section>
@@ -1252,7 +1383,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="omni" data-palette="light">
                         <header>
-                            <a href="#">Omni</a>
+                            <a href="#navigation-omni">Omni</a>
                         </header>
 
                         <section>LIGHT</section>
@@ -1260,7 +1391,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="omni" data-palette="alert">
                         <header>
-                            <a href="#">Omni</a>
+                            <a href="#navigation-omni">Omni</a>
                         </header>
 
                         <section>ALERT</section>
@@ -1268,7 +1399,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="omni" data-palette="affirmative">
                         <header>
-                            <a href="#">Omni</a>
+                            <a href="#navigation-omni">Omni</a>
                         </header>
 
                         <section>AFFIRMATIVE</section>
@@ -1276,7 +1407,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="omni" data-palette="negative">
                         <header>
-                            <a href="#">Omni</a>
+                            <a href="#navigation-omni">Omni</a>
                         </header>
 
                         <section>NEGATIVE</section>
@@ -1291,29 +1422,31 @@ p q r s t u v w x y z { | } ~
 
                 <nav class="aside">
                     <header>
-                        <a href="#">Kahi UI</a>
+                        <a href="#navigation-aside">Kahi UI</a>
                     </header>
 
                     <nav class="menu">
                         <ul>
                             <li role="separator">Framework</li>
                             <li>
-                                <a href="#">Getting Started<span>ICON</span></a>
+                                <a href="#navigation-aside">Getting Started<span>ICON</span></a>
                             </li>
 
                             <li role="separator">Components</li>
 
                             <li>
-                                <a href="#">Badge<span>ICON</span></a>
+                                <a href="#navigation-aside">Badge<span>ICON</span></a>
                             </li>
                             <li>
-                                <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                <a href="#navigation-aside" aria-current="page"
+                                    >Button<span>ICON</span></a
+                                >
                             </li>
                             <li>
-                                <a href="#">Form<span>ICON</span></a>
+                                <a href="#navigation-aside">Form<span>ICON</span></a>
                             </li>
                             <li>
-                                <a href="#">Tab<span>ICON</span></a>
+                                <a href="#navigation-aside">Tab<span>ICON</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -1330,7 +1463,7 @@ p q r s t u v w x y z { | } ~
                 <div id="aside-mosaic" class="mosaic" data-spacing="tiny" data-sizing="huge">
                     <nav class="aside">
                         <header>
-                            <a href="#">DEFAULT</a>
+                            <a href="#navigation-aside">DEFAULT</a>
                         </header>
 
                         <nav class="menu">
@@ -1338,10 +1471,12 @@ p q r s t u v w x y z { | } ~
                                 <li role="separator">Components</li>
 
                                 <li>
-                                    <a href="#">Badge<span>ICON</span></a>
+                                    <a href="#navigation-aside">Badge<span>ICON</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                    <a href="#navigation-aside" aria-current="page"
+                                        >Button<span>ICON</span></a
+                                    >
                                 </li>
                             </ul>
                         </nav>
@@ -1349,7 +1484,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="aside" data-palette="accent">
                         <header>
-                            <a href="#">ACCENT</a>
+                            <a href="#navigation-aside">ACCENT</a>
                         </header>
 
                         <nav class="menu">
@@ -1357,10 +1492,12 @@ p q r s t u v w x y z { | } ~
                                 <li role="separator">Components</li>
 
                                 <li>
-                                    <a href="#">Badge<span>ICON</span></a>
+                                    <a href="#navigation-aside">Badge<span>ICON</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                    <a href="#navigation-aside" aria-current="page"
+                                        >Button<span>ICON</span></a
+                                    >
                                 </li>
                             </ul>
                         </nav>
@@ -1368,7 +1505,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="aside" data-palette="dark">
                         <header>
-                            <a href="#">DARK</a>
+                            <a href="#navigation-aside">DARK</a>
                         </header>
 
                         <nav class="menu">
@@ -1376,10 +1513,12 @@ p q r s t u v w x y z { | } ~
                                 <li role="separator">Components</li>
 
                                 <li>
-                                    <a href="#">Badge<span>ICON</span></a>
+                                    <a href="#navigation-aside">Badge<span>ICON</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                    <a href="#navigation-aside" aria-current="page"
+                                        >Button<span>ICON</span></a
+                                    >
                                 </li>
                             </ul>
                         </nav>
@@ -1387,7 +1526,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="aside" data-palette="light">
                         <header>
-                            <a href="#">LIGHT</a>
+                            <a href="#navigation-aside">LIGHT</a>
                         </header>
 
                         <nav class="menu">
@@ -1395,10 +1534,12 @@ p q r s t u v w x y z { | } ~
                                 <li role="separator">Components</li>
 
                                 <li>
-                                    <a href="#">Badge<span>ICON</span></a>
+                                    <a href="#navigation-aside">Badge<span>ICON</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                    <a href="#navigation-aside" aria-current="page"
+                                        >Button<span>ICON</span></a
+                                    >
                                 </li>
                             </ul>
                         </nav>
@@ -1406,7 +1547,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="aside" data-palette="alert">
                         <header>
-                            <a href="#">ALERT</a>
+                            <a href="#navigation-aside">ALERT</a>
                         </header>
 
                         <nav class="menu">
@@ -1414,10 +1555,12 @@ p q r s t u v w x y z { | } ~
                                 <li role="separator">Components</li>
 
                                 <li>
-                                    <a href="#">Badge<span>ICON</span></a>
+                                    <a href="#navigation-aside">Badge<span>ICON</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                    <a href="#navigation-aside" aria-current="page"
+                                        >Button<span>ICON</span></a
+                                    >
                                 </li>
                             </ul>
                         </nav>
@@ -1425,7 +1568,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="aside" data-palette="affirmative">
                         <header>
-                            <a href="#">AFFIRMATIVE</a>
+                            <a href="#navigation-aside">AFFIRMATIVE</a>
                         </header>
 
                         <nav class="menu">
@@ -1433,10 +1576,12 @@ p q r s t u v w x y z { | } ~
                                 <li role="separator">Components</li>
 
                                 <li>
-                                    <a href="#">Badge<span>ICON</span></a>
+                                    <a href="#navigation-aside">Badge<span>ICON</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                    <a href="#navigation-aside" aria-current="page"
+                                        >Button<span>ICON</span></a
+                                    >
                                 </li>
                             </ul>
                         </nav>
@@ -1444,7 +1589,7 @@ p q r s t u v w x y z { | } ~
 
                     <nav class="aside" data-palette="negative">
                         <header>
-                            <a href="#">NEGATIVE</a>
+                            <a href="#navigation-aside">NEGATIVE</a>
                         </header>
 
                         <nav class="menu">
@@ -1452,10 +1597,12 @@ p q r s t u v w x y z { | } ~
                                 <li role="separator">Components</li>
 
                                 <li>
-                                    <a href="#">Badge<span>ICON</span></a>
+                                    <a href="#navigation-aside">Badge<span>ICON</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                    <a href="#navigation-aside" aria-current="page"
+                                        >Button<span>ICON</span></a
+                                    >
                                 </li>
                             </ul>
                         </nav>
@@ -1472,7 +1619,7 @@ p q r s t u v w x y z { | } ~
                     <nav class="menu" data-palette="accent">
                         <ul>
                             <li><label>Framework</label></li>
-                            <li><a href="#">Getting Started</a></li>
+                            <li><a href="#navigation-menu">Getting Started</a></li>
 
                             <li role="separator">Other Things</li>
 
@@ -1481,12 +1628,14 @@ p q r s t u v w x y z { | } ~
                                 <label for="menu-components">Components</label>
 
                                 <ul>
-                                    <li><a href="#">Badge</a></li>
+                                    <li><a href="#navigation-menu">Badge</a></li>
                                     <li>
-                                        <a href="#" aria-current="page">Button<span>ICON</span></a>
+                                        <a href="#navigation-menu" aria-current="page"
+                                            >Button<span>ICON</span></a
+                                        >
                                     </li>
-                                    <li><a href="#">Form</a></li>
-                                    <li><a href="#">Tab</a></li>
+                                    <li><a href="#navigation-menu">Form</a></li>
+                                    <li><a href="#navigation-menu">Tab</a></li>
                                 </ul>
                             </li>
 
@@ -1495,10 +1644,10 @@ p q r s t u v w x y z { | } ~
                                 <label for="menu-layout">Layout</label>
 
                                 <ul>
-                                    <li><a href="#">Container</a></li>
-                                    <li><a href="#">Group</a></li>
-                                    <li><a href="#">Mosiac</a></li>
-                                    <li><a href="#">Stack</a></li>
+                                    <li><a href="#navigation-menu">Container</a></li>
+                                    <li><a href="#navigation-menu">Group</a></li>
+                                    <li><a href="#navigation-menu">Mosiac</a></li>
+                                    <li><a href="#navigation-menu">Stack</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -1543,9 +1692,11 @@ p q r s t u v w x y z { | } ~
 
                                         <ul>
                                             <li role="treeitem" aria-selected="true">
-                                                <a href="#">all_da_doges.png</a>
+                                                <a href="#navigation-tree">all_da_doges.png</a>
                                             </li>
-                                            <li role="treeitem"><a href="#">rickroll.webm</a></li>
+                                            <li role="treeitem">
+                                                <a href="#navigation-tree">rickroll.webm</a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>

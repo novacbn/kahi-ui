@@ -648,6 +648,12 @@
   --tile-heading-font-weight:var(--font-weight-bold);
   --tile-timestamp-font-size:var(--font-size-text-small);
   --tile-timestamp-opacity:var(--opacity-dull);
+  --popover-margin:var(--spacing-block-medium);
+  --popover-sizing-tiny:var(--sizing-block-tiny);
+  --popover-sizing-small:var(--sizing-block-small);
+  --popover-sizing-medium:var(--sizing-block-medium);
+  --popover-sizing-large:var(--sizing-block-large);
+  --popover-sizing-huge:var(--sizing-block-huge);
   --container-padding:var(--spacing-block-large) var(--spacing-block-medium);
   --container-viewports-tiny:var(--viewports-tiny-max);
   --container-viewports-small:var(--viewports-small-max);

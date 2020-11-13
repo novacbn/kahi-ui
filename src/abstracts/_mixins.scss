@@ -120,6 +120,12 @@
     }
 }
 
+@mixin use-properties($properties: ()) {
+    @each $name, $value in $properties {
+        #{$name}: #{$value};
+    }
+}
+
 @mixin use-animation-palette($is-inverted: false) {
     @if ($is-inverted) {
         --animation-background: var(--color);

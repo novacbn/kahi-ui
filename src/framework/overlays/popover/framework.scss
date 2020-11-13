@@ -1,0 +1,64 @@
+$popover: ".popover";
+
+$popover-label: "label";
+
+$popover-state: "input[type='checkbox']";
+$popover-state-active: ":checked";
+
+#{$popover} {
+    --sizing: initial;
+
+    display: inline-block;
+    position: relative;
+
+    @each $sizing, $index in tiny, small, medium, large, huge {
+        &[data-sizing~="#{$sizing}"] {
+            --sizing: var(--popover-sizing-#{$sizing});
+        }
+    }
+
+    & > #{$popover-label} + * {
+        position: absolute;
+        margin: 0;
+
+        width: var(--sizing);
+
+        z-index: 1;
+    }
+
+    &:not([data-sizing]) > #{$popover-label} + * {
+        white-space: nowrap;
+    }
+
+    &:not([data-position]) > #{$popover-label} + * {
+        top: calc(100% + var(--spacing-block-medium));
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    &[data-position="top"] > #{$popover-label} + * {
+        bottom: calc(100% + var(--spacing-block-medium));
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    &[data-position="left"] > #{$popover-label} + * {
+        right: calc(100% + var(--spacing-block-medium));
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+
+    &[data-position="right"] > #{$popover-label} + * {
+        left: calc(100% + var(--spacing-block-medium));
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+
+    & > #{$popover-state} {
+        display: none;
+
+        &:not(#{$popover-state-active}) + #{$popover-label} + * {
+            display: none;
+        }
+    }
+}

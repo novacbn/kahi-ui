@@ -2,6 +2,7 @@ $navigation-omni: "nav.omni";
 
 $omni-heading: "header";
 $omni-content: "section";
+$omni-footer: "footer";
 
 #{$navigation-omni} {
     @include use-palette(--omni);
@@ -22,7 +23,8 @@ $omni-content: "section";
     }
 
     & > #{$omni-heading},
-    & > #{$omni-content} {
+    & > #{$omni-content},
+    & > #{$omni-footer} {
         display: flex;
         align-items: center;
 
@@ -42,5 +44,12 @@ $omni-content: "section";
     & > #{$omni-heading} {
         font-size: var(--omni-heading-font-size);
         font-weight: var(--omni-heading-font-weight);
+    }
+
+    &[data-position="top"] {
+        position: sticky;
+        top: 0;
+
+        z-index: 2;
     }
 }

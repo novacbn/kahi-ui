@@ -112,7 +112,8 @@ $menu-heading-linked: "[for]";
 
     & #{$divider-separator} {
         &::before {
-            flex-grow: var(--menu-separator-flex-grow);
+            flex-grow: unset;
+            width: var(--menu-separator-size);
         }
     }
 

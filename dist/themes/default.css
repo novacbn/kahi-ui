@@ -482,7 +482,7 @@
   --menu-list-border:var(--sizing-divider) solid;
   --menu-list-border-color:var(--menu-default-background);
   --menu-list-padding:0 0 0 var(--spacing-block-medium);
-  --menu-separator-flex-grow:0.025;
+  --menu-separator-size:var(--spacing-block-medium);
   --tree-border-radius:var(--radius-text);
   --tree-font-weight:var(--font-weight-text-bold);
   --tree-margin-icon:var(--spacing-text-medium);
@@ -526,7 +526,6 @@
       var(--spacing-block-huge);
   --aside-heading-font-size:calc(var(--font-size-heading-huge) * 1.25);
   --aside-heading-font-weight:var(--font-weight-heading);
-  --aside-separator-flex-grow:0.2;
   --omni-margin:0 0 var(--spacing-block-large) 0;
   --omni-padding:var(--spacing-block-large);
   --omni-default-background:var(--palette-default-base);

@@ -963,7 +963,8 @@ nav.menu ul ul:before{
   opacity:var(--menu-opacity-muted);
 }
 nav.menu [role=separator]:before{
-  flex-grow:var(--menu-separator-flex-grow);
+  flex-grow:unset;
+  width:var(--menu-separator-size);
 }
 nav.menu input[type=checkbox],nav.menu input[type=checkbox]:not(:checked)~ul{
   display:none;
@@ -1107,9 +1108,6 @@ nav.aside header{
 nav.aside header>a:not([role]){
   color:inherit;
   text-decoration:none;
-}
-nav.aside [role=separator]:before{
-  flex-grow:var(--aside-separator-flex-grow);
 }
 
 nav.omni{

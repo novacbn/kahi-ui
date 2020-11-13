@@ -45,10 +45,4 @@ $aside-heading: "header";
             text-decoration: none;
         }
     }
-
-    & #{$divider-separator} {
-        &::before {
-            flex-grow: var(--aside-separator-flex-grow);
-        }
-    }
 }

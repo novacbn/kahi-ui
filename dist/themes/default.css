@@ -273,7 +273,6 @@
   --divider-radius:var(--radius-block);
   --divider-margin-horizontal:0 var(--spacing-divider);
   --divider-margin-vertical:var(--spacing-divider) 0;
-  --divider-default:var(--palette-default-base);
   --divider-accent:var(--palette-accent-base);
   --divider-dark:var(--palette-dark-base);
   --divider-light:var(--palette-light-base);
@@ -482,7 +481,7 @@
   --menu-list-border:var(--sizing-divider) solid;
   --menu-list-border-color:var(--menu-default-background);
   --menu-list-padding:0 0 0 var(--spacing-block-medium);
-  --menu-separator-size:var(--spacing-block-medium);
+  --menu-separator-size:var(--spacing-block-small);
   --tree-border-radius:var(--radius-text);
   --tree-font-weight:var(--font-weight-text-bold);
   --tree-margin-icon:var(--spacing-text-medium);
@@ -546,6 +545,7 @@
   --omni-heading-letter-spacing:0.1em;
   --omni-heading-font-size:var(--font-size-heading-small);
   --omni-heading-font-weight:var(--font-weight-heading);
+  --omni-content-spacing:var(--spacing-block-small);
   --box-border:var(--sizing-border) solid;
   --box-background:var(--palette-light-base);
   --box-color:var(--palette-dark-base);
@@ -578,8 +578,6 @@
   --card-padding:var(--spacing-block-large);
   --card-radius:var(--radius-block);
   --card-transition:var(--animation-visual);
-  --card-default-background:var(--palette-light-base);
-  --card-default-color:var(--palette-dark-base);
   --card-accent-background:var(--palette-accent-base);
   --card-accent-color:var(--palette-light-base);
   --card-dark-background:var(--palette-dark-base);
@@ -624,8 +622,6 @@
   --tile-padding:var(--spacing-block-large);
   --tile-radius:var(--radius-block);
   --tile-transition:var(--animation-visual);
-  --tile-default-background:var(--palette-light-base);
-  --tile-default-color:var(--palette-dark-base);
   --tile-accent-background:var(--palette-accent-base);
   --tile-accent-color:var(--palette-light-base);
   --tile-dark-background:var(--palette-dark-base);

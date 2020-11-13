@@ -38,10 +38,16 @@
     --omni-divider-margin: var(--spacing-block-tiny) var(--spacing-divider);
 
     /**
-     * Omni Heading Toknes
+     * Omni Heading Tokens
      */
 
     --omni-heading-letter-spacing: 0.1em;
     --omni-heading-font-size: var(--font-size-heading-small);
     --omni-heading-font-weight: var(--font-weight-heading);
+
+    /**
+     * Omni Content Tokens
+     */
+
+    --omni-content-spacing: var(--spacing-block-small);
 }

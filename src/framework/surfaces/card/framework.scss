@@ -11,34 +11,20 @@ $card-footer-first: ":first-child";
 $card-footer-last: ":last-child";
 
 #{$card} {
-    @include use-palette(--card);
+    @include use-palette(--card, false);
+
+    background: transparent;
+    color: currentColor;
 
     overflow: hidden;
 
-    &:not([data-variation]) {
+    &[data-palette] {
         @include use-palette-block();
 
         margin: var(--card-margin);
 
         border: var(--card-border) vhsl(--card-border-color);
         border-radius: var(--card-radius);
-
-        & #{$card-figure} > * {
-            border-top-left-radius: var(--card-radius);
-            border-top-right-radius: var(--card-radius);
-        }
-
-        & #{$card-footer} > * {
-            border-radius: 0;
-
-            &#{$card-footer-first} {
-                border-bottom-left-radius: var(--card-radius);
-            }
-
-            &#{$card-footer-last} {
-                border-bottom-right-radius: var(--card-radius);
-            }
-        }
     }
 
     & #{$card-body} {
@@ -55,6 +41,9 @@ $card-footer-last: ":last-child";
         & > * {
             flex-grow: 1;
             object-fit: cover;
+
+            border-top-left-radius: var(--card-radius);
+            border-top-right-radius: var(--card-radius);
         }
     }
 
@@ -63,7 +52,16 @@ $card-footer-last: ":last-child";
         align-items: center;
 
         & > * {
+            border-radius: 0;
             flex-grow: 1;
+
+            &#{$card-footer-first} {
+                border-bottom-left-radius: var(--card-radius);
+            }
+
+            &#{$card-footer-last} {
+                border-bottom-right-radius: var(--card-radius);
+            }
         }
     }
 

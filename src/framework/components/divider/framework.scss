@@ -3,7 +3,7 @@ $divider-hr: "hr";
 $divider-separator: "[role='separator']";
 
 #{$divider} {
-    @include use-palette-single(--divider);
+    @include use-palette-single(--divider, false);
 
     align-self: stretch;
     width: 100%;

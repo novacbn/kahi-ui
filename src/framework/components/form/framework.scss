@@ -49,6 +49,7 @@ $form-toggle-hover: ":is(:focus, :hover)";
     background-color: transparent;
     color: currentColor;
 
+    border: var(--form-field-border);
     border-radius: var(--form-radius);
 
     font-size: var(--form-field-font-size);
@@ -78,7 +79,7 @@ $form-toggle-hover: ":is(:focus, :hover)";
     }
 
     &:not(#{$form-disabled}, [data-validate]) {
-        border: var(--form-field-border) vhsla(--background, --form-opacity-muted);
+        border-color: vhsla(--background, --form-opacity-muted);
 
         &#{$form-field-hover} {
             border-color: vhsla(--background, --form-opacity-dull);
@@ -91,7 +92,7 @@ $form-toggle-hover: ":is(:focus, :hover)";
 
     &[data-validate]:not(#{$form-disabled}) {
         &:invalid {
-            border: var(--form-field-border) vhsla(--form-negative-background, --form-opacity-muted);
+            border-color: vhsla(--form-negative-background, --form-opacity-muted);
 
             &#{$form-field-hover} {
                 border-color: vhsla(--form-negative-background, --form-opacity-dull);
@@ -103,8 +104,7 @@ $form-toggle-hover: ":is(:focus, :hover)";
         }
 
         &:valid {
-            border: var(--form-field-border)
-                vhsla(--form-affirmative-background, --form-opacity-muted);
+            border-color: vhsla(--form-affirmative-background, --form-opacity-muted);
 
             &#{$form-field-hover} {
                 border-color: vhsla(--form-affirmative-background, --form-opacity-dull);

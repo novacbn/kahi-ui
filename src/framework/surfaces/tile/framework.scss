@@ -11,26 +11,22 @@ $tile-body-first: ":not(:first-child)";
 $tile-body-last: ":not(:last-child)";
 
 #{$tile} {
-    @include use-palette(--tile);
+    @include use-palette(--tile, false);
 
     display: flex;
     align-items: center;
 
-    &:not([data-variation]) {
+    background: transparent;
+    color: currentColor;
+
+    &[data-palette] {
+        @include use-palette-block();
+
         margin: var(--tile-margin);
         padding: var(--tile-padding);
 
-        background: vhsl(--background);
-        color: vhsl(--color);
-
         border: var(--tile-border) vhsl(--tile-border-color);
         border-radius: var(--tile-radius);
-
-        &::selection,
-        & *::selection {
-            background-color: vhsl(--color);
-            color: vhsl(--background);
-        }
     }
 
     & #{$tile-body} {

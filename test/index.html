@@ -8,12 +8,159 @@
         <link rel="stylesheet" href="../dist/themes/default.css" />
         <link rel="stylesheet" href="../dist/kahi-ui.css" />
 
-        <title>Kahi UI Test Page</title>
+        <title>Kahi UI Test Render Page</title>
     </head>
 
     <body>
-        <nav class="omni" data-position="top" data-palette="dark">
+        <nav class="omni" id="test-render-navigation" data-position="top" data-palette="dark">
             <header>Kahi UI</header>
+
+            <section>
+                <div class="popover" data-sizing="medium">
+                    <input id="omni-popover-elements" type="checkbox" />
+                    <label
+                        for="omni-popover-elements"
+                        role="button"
+                        data-palette="light"
+                        data-variation="clear"
+                        >Elements</label
+                    >
+
+                    <div class="box">
+                        <nav class="menu" data-palette="dark">
+                            <ul>
+                                <li>
+                                    <a href="#elements-lists">Lists</a>
+                                    <a href="#elements-typography-heading">Heading</a>
+                                    <a href="#elements-typography-paragraph">Paragraph</a>
+                                    <a href="#elements-typography-blockquote">Blockquote</a>
+                                    <a href="#elements-typography-code">Code</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-sizing="medium">
+                    <input id="omni-popover-components" type="checkbox" />
+                    <label
+                        for="omni-popover-components"
+                        role="button"
+                        data-palette="light"
+                        data-variation="clear"
+                        >Components</label
+                    >
+
+                    <div class="box">
+                        <nav class="menu" data-palette="dark">
+                            <ul>
+                                <li>
+                                    <a href="#components-button">Button</a>
+                                    <a href="#components-badge">Badge</a>
+                                    <a href="#components-loader">Loader</a>
+                                    <a href="#components-check">Check</a>
+                                    <a href="#components-radio">Radio</a>
+                                    <a href="#components-switch">Switch</a>
+                                    <a href="#components-text">Text</a>
+                                    <a href="#components-dividers">Dividers</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-sizing="medium">
+                    <input id="omni-popover-surfaces" type="checkbox" />
+                    <label
+                        for="omni-popover-surfaces"
+                        role="button"
+                        data-palette="light"
+                        data-variation="clear"
+                        >Surfaces</label
+                    >
+
+                    <div class="box">
+                        <nav class="menu" data-palette="dark">
+                            <ul>
+                                <li>
+                                    <a href="#surfaces-box">Box</a>
+                                    <a href="#surfaces-card">Card</a>
+                                    <a href="#surfaces-tile">Tile</a>
+                                    <a href="#surfaces-hero">Hero</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-sizing="medium">
+                    <input id="omni-popover-overlays" type="checkbox" />
+                    <label
+                        for="omni-popover-overlays"
+                        role="button"
+                        data-palette="light"
+                        data-variation="clear"
+                        >Overlays</label
+                    >
+
+                    <div class="box">
+                        <nav class="menu" data-palette="dark">
+                            <ul>
+                                <li>
+                                    <a href="#overlays-popover">Popover</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-sizing="medium">
+                    <input id="omni-popover-layouts" type="checkbox" />
+                    <label
+                        for="omni-popover-layouts"
+                        role="button"
+                        data-palette="light"
+                        data-variation="clear"
+                        >Layouts</label
+                    >
+
+                    <div class="box">
+                        <nav class="menu" data-palette="dark">
+                            <ul>
+                                <li>
+                                    <a href="#layout-group">Group</a>
+                                    <a href="#layout-mosaic">Mosaic</a>
+                                    <a href="#layout-stack">Stack</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="popover" data-sizing="medium">
+                    <input id="omni-popover-navigation" type="checkbox" />
+                    <label
+                        for="omni-popover-navigation"
+                        role="button"
+                        data-palette="light"
+                        data-variation="clear"
+                        >Navigation</label
+                    >
+
+                    <div class="box">
+                        <nav class="menu" data-palette="dark">
+                            <ul>
+                                <li>
+                                    <a href="#navigation-omni">Omni</a>
+                                    <a href="#navigation-aside">Aside</a>
+                                    <a href="#navigation-menu">Menu</a>
+                                    <a href="#navigation-tree">Tree</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
 
             <footer>
                 <a
@@ -27,6 +174,27 @@
                 </a>
             </footer>
         </nav>
+
+        <script>
+            const NAVIGATION_POPOVER_BUTTONS = document.querySelectorAll(
+                "#test-render-navigation div.popover > label"
+            );
+
+            function add_popover_listener(button_element) {
+                const parent_element = button_element.parentElement;
+                const state_element = button_element.previousElementSibling;
+
+                document.addEventListener("click", (event) => {
+                    if (state_element.checked && !parent_element.contains(event.target)) {
+                        state_element.checked = false;
+                    }
+                });
+            }
+
+            for (const button_element of NAVIGATION_POPOVER_BUTTONS) {
+                add_popover_listener(button_element);
+            }
+        </script>
 
         <main class="container">
             <article id="elements-lists">
@@ -557,7 +725,7 @@ p q r s t u v w x y z { | } ~
 
             <hr />
 
-            <article class="components-divider">
+            <article id="components-dividers">
                 <h1>Components :: Dividers</h1>
 
                 <div class="box">
@@ -577,7 +745,7 @@ p q r s t u v w x y z { | } ~
                     <hr data-palette="negative" />
                 </div>
 
-                <h2>Text Divider</h2>
+                <h2>Text Separators</h2>
 
                 <div class="box">
                     <span role="separator">Divider DEFAULT</span>
@@ -1264,7 +1432,7 @@ p q r s t u v w x y z { | } ~
             <hr />
 
             <article id="layout-mosaic">
-                <h1>Layout :: Mosiac</h1>
+                <h1>Layout :: Mosaic</h1>
 
                 <div
                     class="mosaic"

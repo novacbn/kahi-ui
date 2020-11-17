@@ -62,4 +62,13 @@
 
     --radius-block: #{mscale(--radius-small, 1)};
     --radius-text: #{mscale(--radius-medium, 1)};
+
+    /**
+     * Z-Index Tokens
+     */
+
+    --z-index-backdrop: -1;
+    --z-index-content: 1;
+    --z-index-inline: 2;
+    --z-index-viewport: 3;
 }

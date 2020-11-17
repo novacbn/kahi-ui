@@ -1,0 +1,82 @@
+$sheet: "input[type='checkbox'].sheet";
+
+$sheet-active: ":checked";
+
+$sheet-container: "[role='dialog']";
+$sheet-content: "[role='document']";
+$sheet-backdrop: "label";
+
+#{$sheet} {
+    display: none;
+
+    &:not(#{$sheet-active}) + #{$sheet-container} {
+        display: none;
+    }
+
+    & + #{$sheet-container} {
+        @include use-palette(--sheet, false);
+
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100vh;
+
+        scroll-snap-type: y mandatory;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        z-index: var(--sheet-z-index);
+
+        &::before {
+            display: block;
+            position: absolute;
+
+            content: "";
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-color: vhsla(--sheet-backdrop-background, --sheet-opacity-muted);
+
+            z-index: var(--sheet-backdrop-z-index);
+        }
+
+        & > #{$sheet-backdrop} {
+            display: block;
+
+            width: 100%;
+            height: calc(100vh - var(--sheet-backdrop-margin));
+
+            scroll-snap-align: start;
+        }
+
+        & > #{$sheet-content} {
+            margin: 0;
+            max-height: 100vh;
+
+            scroll-snap-align: end;
+        }
+
+        &[data-palette] > #{$sheet-content} {
+            @include use-palette-block();
+
+            --inherited-background: var(--color);
+            --inherited-color: var(--background);
+
+            padding: var(--sheet-content-padding);
+            border-radius: var(--sheet-content-radius);
+
+            & #{$menu}:not([data-palette]) {
+                --background: var(--inherited-background);
+                --color: var(--inherited-color);
+            }
+        }
+    }
+}

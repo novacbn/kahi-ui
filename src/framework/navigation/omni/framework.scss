@@ -56,6 +56,6 @@ $omni-footer: "footer";
         position: sticky;
         top: 0;
 
-        z-index: 2;
+        z-index: var(--omni-z-index);
     }
 }

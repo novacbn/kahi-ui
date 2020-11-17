@@ -23,7 +23,7 @@ $popover-state-active: ":checked";
 
         width: var(--sizing);
 
-        z-index: 1;
+        z-index: var(--popover-z-index);
     }
 
     &:not([data-sizing]) > #{$popover-label} + * {

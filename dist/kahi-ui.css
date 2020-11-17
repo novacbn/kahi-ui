@@ -1177,7 +1177,7 @@ nav.omni>footer,nav.omni>section{
 nav.omni[data-position=top]{
   position:sticky;
   top:0;
-  z-index:2;
+  z-index:var(--omni-z-index);
 }
 
 .box{
@@ -1536,7 +1536,7 @@ a:not([role]).tile:active,label.tile:active{
   position:absolute;
   margin:0;
   width:var(--sizing);
-  z-index:1;
+  z-index:var(--popover-z-index);
 }
 .popover:not([data-sizing])>label+*{
   white-space:nowrap;
@@ -1561,8 +1561,81 @@ a:not([role]).tile:active,label.tile:active{
   bottom:50%;
   transform:translateY(50%);
 }
-.popover>input[type=checkbox],.popover>input[type=checkbox]:not(:checked)+label+*{
+.popover>input[type=checkbox],.popover>input[type=checkbox]:not(:checked)+label+*,input[type=checkbox].sheet,input[type=checkbox].sheet:not(:checked)+[role=dialog]{
   display:none;
+}
+input[type=checkbox].sheet+[role=dialog]{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  scroll-snap-type:y mandatory;
+  overflow-x:hidden;
+  overflow-y:auto;
+  z-index:var(--sheet-z-index);
+}
+input[type=checkbox].sheet+[role=dialog][data-palette=accent]{
+  --background:var(--sheet-accent-background);
+  --color:var(--sheet-accent-color);
+}
+input[type=checkbox].sheet+[role=dialog][data-palette=dark]{
+  --background:var(--sheet-dark-background);
+  --color:var(--sheet-dark-color);
+}
+input[type=checkbox].sheet+[role=dialog][data-palette=light]{
+  --background:var(--sheet-light-background);
+  --color:var(--sheet-light-color);
+}
+input[type=checkbox].sheet+[role=dialog][data-palette=alert]{
+  --background:var(--sheet-alert-background);
+  --color:var(--sheet-alert-color);
+}
+input[type=checkbox].sheet+[role=dialog][data-palette=affirmative]{
+  --background:var(--sheet-affirmative-background);
+  --color:var(--sheet-affirmative-color);
+}
+input[type=checkbox].sheet+[role=dialog][data-palette=negative]{
+  --background:var(--sheet-negative-background);
+  --color:var(--sheet-negative-color);
+}
+input[type=checkbox].sheet+[role=dialog]:before{
+  display:block;
+  position:absolute;
+  content:"";
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:hsla(var(--sheet-backdrop-background), var(--sheet-opacity-muted));
+  z-index:var(--sheet-backdrop-z-index);
+}
+input[type=checkbox].sheet+[role=dialog]>label{
+  display:block;
+  width:100%;
+  height:calc(100vh - var(--sheet-backdrop-margin));
+  scroll-snap-align:start;
+}
+input[type=checkbox].sheet+[role=dialog]>[role=document]{
+  margin:0;
+  max-height:100vh;
+  scroll-snap-align:end;
+}
+input[type=checkbox].sheet+[role=dialog][data-palette]>[role=document]{
+  background:hsl(var(--background));
+  color:hsl(var(--color));
+  --inherited-background:var(--color);
+  --inherited-color:var(--background);
+  padding:var(--sheet-content-padding);
+  border-radius:var(--sheet-content-radius);
+}
+input[type=checkbox].sheet+[role=dialog][data-palette]>[role=document]::selection,input[type=checkbox].sheet+[role=dialog][data-palette]>[role=document] ::selection{
+  background-color:hsl(var(--color));
+  color:hsl(var(--background));
+}
+input[type=checkbox].sheet+[role=dialog][data-palette]>[role=document] nav.menu:not([data-palette]){
+  --background:var(--inherited-background);
+  --color:var(--inherited-color);
 }
 .container{
   --viewport:var(--container-viewports-small);

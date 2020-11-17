@@ -108,6 +108,7 @@
                             <ul>
                                 <li>
                                     <a href="#overlays-popover">Popover</a>
+                                    <a href="#overlays-sheet">Sheet</a>
                                 </li>
                             </ul>
                         </nav>
@@ -1180,7 +1181,7 @@ p q r s t u v w x y z { | } ~
 
                 <div class="popover">
                     <input id="popover-check" type="checkbox" />
-                    <label for="popover-check" role="button">Click me!</label>
+                    <label for="popover-check" role="button">Show Popover DEFAULT</label>
 
                     <div class="box">
                         <nav class="menu" data-palette="accent">
@@ -1404,6 +1405,14 @@ p q r s t u v w x y z { | } ~
                         </nav>
                     </div>
                 </div>
+            </article>
+
+            <hr />
+
+            <article id="overlays-sheet">
+                <h1>Overlays :: Sheet</h1>
+
+                <label for="sheet-sample" role="button">Show Sheet DEFAULT</label>
             </article>
 
             <hr />
@@ -1938,5 +1947,46 @@ p q r s t u v w x y z { | } ~
                 </div>
             </article>
         </main>
+
+        <style>
+            #sheet-sample + [role="dialog"] h3 {
+                margin-top: 0;
+            }
+        </style>
+
+        <input id="sheet-sample" class="sheet" type="checkbox" />
+        <div role="dialog" data-palette="accent">
+            <label for="sheet-sample"></label>
+
+            <div role="document">
+                <h3>Navigation</h3>
+
+                <nav class="menu">
+                    <ul>
+                        <li role="separator">Framework</li>
+                        <li>
+                            <a href="#overlays-sheet">Getting Started<span>ICON</span></a>
+                        </li>
+
+                        <li role="separator">Components</li>
+
+                        <li>
+                            <a href="#overlays-sheet">Badge<span>ICON</span></a>
+                        </li>
+                        <li>
+                            <a href="#overlays-sheet" aria-current="page"
+                                >Button<span>ICON</span></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#overlays-sheet">Form<span>ICON</span></a>
+                        </li>
+                        <li>
+                            <a href="#overlays-sheet">Tab<span>ICON</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </body>
 </html>

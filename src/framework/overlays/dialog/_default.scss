@@ -47,6 +47,10 @@
      * Dialog Content Tokens
      */
 
+    --dialog-content-padding: 0 var(--spacing-block-large) 0 var(--spacing-block-large);
+    --dialog-content-margin: 0 0 var(--spacing-block-large) 0;
+    --dialog-content-spacing: var(--spacing-block-large);
+
     --dialog-content-max-height: 85vh;
     --dialog-content-max-width: 80vw;
 
@@ -59,11 +63,9 @@
     --dialog-content-body-padding: var(--spacing-block-large);
 
     /**
-     * Dialog Content Body Heading Tokens
+     * Dialog Content Heading Tokens
      */
 
-    --dialog-content-body-heading-margin: 0 0 var(--spacing-text-small) 0;
-
-    --dialog-content-body-heading-font-size: var(--font-size-heading-small);
-    --dialog-content-body-heading-font-weight: var(--font-weight-bold);
+    --dialog-content-heading-font-size: var(--font-size-heading-small);
+    --dialog-content-heading-font-weight: var(--font-weight-bold);
 }

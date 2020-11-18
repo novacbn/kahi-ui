@@ -1,29 +1,57 @@
 $card: ".card";
 
+$card-body: "section";
+$card-heading: "header";
 $card-figure: "figure";
 $card-footer: "footer";
 
-$card-body: "section";
-$card-body-heading: "header";
-$card-body-text: "p";
+@mixin card-container(
+    $namespace,
+    $body: $card-body,
+    $figure: $card-figure,
+    $footer: $card-footer,
+    $heading: $card-heading
+) {
+    display: flex;
+    flex-direction: column;
 
-@mixin card-body($namespace-body, $namespace-heading: $namespace-body + "-heading") {
-    padding: var(#{$namespace-body}-padding);
+    overflow: hidden;
 
-    & > #{$card-body-heading} {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    & > :not(#{$figure}, #{$footer}) {
+        padding: var(#{$namespace}-padding);
 
-        font-size: var(#{$namespace-heading}-font-size);
-        font-weight: var(#{$namespace-heading}-font-weight);
+        &:first-child {
+            margin-top: var(#{$namespace}-spacing);
+        }
 
-        & > * {
-            font-weight: initial;
+        &:last-child {
+            margin-bottom: var(#{$namespace}-spacing);
         }
     }
 
-    & > #{$card-body-text} {
+    & > * + * {
+        margin-top: var(#{$namespace}-spacing);
+    }
+
+    & > #{$body} {
+        @include card-body(#{$namespace}-body);
+    }
+
+    & > #{$heading} {
+        @include card-heading(#{$namespace}-heading);
+    }
+
+    & > #{$figure} {
+        @include card-figure(#{$namespace}-figure);
+    }
+
+    & > #{$footer} {
+        @include card-footer(#{$namespace}-footer);
+    }
+}
+
+@mixin card-body($namespace) {
+    & > * {
         margin: 0;
     }
 }
@@ -51,33 +79,33 @@ $card-body-text: "p";
     }
 }
 
+@mixin card-heading($namespace) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: var(#{$namespace}-font-size);
+    font-weight: var(#{$namespace}-font-weight);
+
+    & > * {
+        font-weight: initial;
+    }
+}
+
 #{$card} {
     @include use-palette(--card, false);
+    @include card-container(--card);
+
+    margin: var(--card-margin);
 
     background: transparent;
     color: currentColor;
 
-    overflow: hidden;
-
     &[data-palette] {
         @include use-palette-block();
 
-        margin: var(--card-margin);
-
         border: var(--card-border) vhsl(--card-border-color);
         border-radius: var(--card-radius);
-    }
-
-    & > #{$card-body} {
-        @include card-body(--card-body);
-    }
-
-    & > #{$card-figure} {
-        @include card-figure(--card-figure);
-    }
-
-    & > #{$card-footer} {
-        @include card-footer(--card-footer);
     }
 }
 

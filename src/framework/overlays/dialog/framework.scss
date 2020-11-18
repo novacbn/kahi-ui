@@ -9,6 +9,7 @@ $dialog-content: "[role='document']";
 $dialog-content-body: "section";
 $dialog-content-figure: "figure";
 $dialog-content-footer: "footer";
+$dialog-content-heading: "header";
 
 @mixin dialog-backdrop($namespace) {
     display: block;
@@ -25,6 +26,8 @@ $dialog-content-footer: "footer";
 }
 
 @mixin dialog-container($namespace) {
+    --viewport: var(--dialog-viewports-small);
+
     display: flex;
     position: fixed;
 
@@ -40,14 +43,48 @@ $dialog-content-footer: "footer";
     overflow: hidden;
 
     z-index: var(#{$namespace}-z-index);
+
+    @each $viewport in tiny, medium, large {
+        &[data-viewport="#{$viewport}"] {
+            --viewport: var(--dialog-viewports-#{$viewport});
+        }
+    }
+}
+
+@mixin dialog-content(
+    $namespace,
+    $body: $dialog-content-body,
+    $figure: $dialog-content-figure,
+    $footer: $dialog-content-footer,
+    $heading: $dialog-content-heading
+) {
+    @include card-container($namespace, $body, $figure, $footer, $heading);
+
+    max-width: min(var(--viewport), var(#{$namespace}-max-width), 100vw);
+    max-height: min(var(#{$namespace}-max-height), 100vw);
+
+    & > #{$body} {
+        @include dialog-content-body(#{$namespace}-body);
+    }
+
+    & > #{$figure} {
+        @include dialog-content-figure(#{$namespace}-figure);
+    }
+
+    & > #{$footer} {
+        @include dialog-content-footer(#{$namespace}-footer);
+    }
+
+    & > #{$heading} {
+        @include dialog-content-heading(#{$namespace}-heading);
+    }
 }
 
 @mixin dialog-content-body($namespace) {
     @include card-body($namespace);
 
-    & > #{$card-body-heading} {
-        margin: var(#{$namespace}-heading-margin);
-    }
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 @mixin dialog-content-figure($namespace) {
@@ -56,6 +93,10 @@ $dialog-content-footer: "footer";
 
 @mixin dialog-content-footer($namespace) {
     @include card-footer($namespace);
+}
+
+@mixin dialog-content-heading($namespace) {
+    @include card-heading($namespace);
 }
 
 #{$dialog} {
@@ -69,33 +110,12 @@ $dialog-content-footer: "footer";
         @include use-palette(--dialog, false);
         @include dialog-container(--dialog-container);
 
-        --viewport: var(--dialog-viewports-small);
-
-        @each $viewport in tiny, medium, large {
-            &[data-viewport="#{$viewport}"] {
-                --viewport: var(--dialog-viewports-#{$viewport});
-            }
-        }
-
         & > #{$dialog-backdrop} {
             @include dialog-backdrop(--dialog-backdrop);
         }
 
         & > #{$dialog-content} {
-            max-width: min(var(--viewport), var(--dialog-content-max-width), 100vw);
-            max-height: min(var(--dialog-content-max-height), 100vw);
-
-            & > #{$dialog-content-body} {
-                @include dialog-content-body(--dialog-content-body);
-            }
-
-            & > #{$dialog-content-figure} {
-                @include dialog-content-figure(--dialog-content-figure);
-            }
-
-            & > #{$dialog-content-footer} {
-                @include dialog-content-footer(--dialog-content-footer);
-            }
+            @include dialog-content(--dialog-content);
         }
 
         &[data-palette] > #{$dialog-content} {

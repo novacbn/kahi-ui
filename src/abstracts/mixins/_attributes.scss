@@ -1,0 +1,125 @@
+@mixin use-alignment-attribute($alignment, $value, $axis: false, $viewport: false) {
+    @if ($viewport) {
+        @media (--viewports-#{$viewport}) {
+            @if ($axis) {
+                &[data-alignment-#{$axis}~="#{$alignment}+#{$viewport}"] {
+                    --alignment-#{$axis}: #{$value};
+                }
+            } @else {
+                &[data-alignment~="#{$alignment}+#{$viewport}"] {
+                    --alignment-x: #{$value};
+                    --alignment-y: #{$value};
+                }
+            }
+        }
+    } @else {
+        @if ($axis) {
+            &[data-alignment-#{$axis}~="#{$alignment}"] {
+                --alignment-#{$axis}: #{$value};
+            }
+        } @else {
+            &[data-alignment~="#{$alignment}"] {
+                --alignment-x: #{$value};
+                --alignment-y: #{$value};
+            }
+        }
+    }
+}
+
+@mixin use-alignment(
+    $alignments,
+    $alignments-x,
+    $alignments-y,
+    $viewport: false,
+    $default-x: baseline,
+    $default-y: flex-start
+) {
+    --alignment-x: #{$default-x};
+    --alignment-y: #{$default-y};
+
+    @if ($viewport) {
+        @each $viewport, $index in tiny, small, medium, large {
+            @each $alignment, $value in $alignments {
+                @include use-alignment-attribute($alignment, $value, false, $viewport);
+            }
+
+            @each $alignment, $value in $alignments-x {
+                @include use-alignment-attribute($alignment, $value, x, $viewport);
+            }
+
+            @each $alignment, $value in $alignments-y {
+                @include use-alignment-attribute($alignment, $value, y, $viewport);
+            }
+        }
+    }
+
+    @each $alignment, $value in $alignments {
+        @include use-alignment-attribute($alignment, $value);
+    }
+
+    @each $alignment, $value in $alignments-x {
+        @include use-alignment-attribute($alignment, $value, x);
+    }
+
+    @each $alignment, $value in $alignments-y {
+        @include use-alignment-attribute($alignment, $value, y);
+    }
+}
+
+@mixin use-alignment-flex($viewport: false, $default-x: baseline, $default-y: flex-start) {
+    --alignment-x: #{$default-x};
+    --alignment-y: #{$default-y};
+
+    @include use-alignment(
+        (
+            center: center,
+        ),
+        (
+            baseline: baseline,
+            center: center,
+            stretch: stretch,
+            left: flex-start,
+            right: flex-end,
+        ),
+        (
+            baseline: baseline,
+            center: center,
+            stretch: stretch,
+            top: flex-start,
+            bottom: flex-end,
+        ),
+        $viewport,
+        $default-x,
+        $default-y
+    );
+}
+
+@mixin use-spacing-attribute($namespace, $spacing, $viewport: false) {
+    @if ($viewport) {
+        @media (--viewports-#{$viewport}) {
+            &[data-spacing~="#{$spacing}+#{$viewport}"] {
+                --spacing: var(#{$namespace}-#{$spacing}) !important;
+            }
+        }
+    } @else {
+        &[data-spacing~="#{$spacing}"] {
+            --spacing: var(#{$namespace}-#{$spacing});
+        }
+    }
+}
+
+@mixin use-spacing($namespace, $viewport: false, $spacings: (tiny, small, medium, large, huge)) {
+    --spacing: unset;
+
+    @if ($viewport) {
+        @each $viewport, $index in tiny, small, medium, large {
+            @each $spacing, $index in $spacings {
+                @include use-spacing-attribute($namespace, $spacing, $viewport);
+            }
+        }
+    }
+
+    @each $spacing, $index in $spacings {
+        @include use-spacing-attribute($namespace, $spacing);
+    }
+}

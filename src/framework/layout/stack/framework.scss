@@ -1,60 +1,19 @@
 $stack: ".stack";
 
-$stack-children-inner: ":not(:first-child)";
-$stack-children-outer: ":is(:first-child)";
-
-@mixin stack-alignment($axis, $alignments) {
-    @if ($axis == "both") {
-        @each $name, $value in $alignments {
-            &[data-alignment~="#{$name}"] {
-                --align-x: #{$value};
-                --align-y: #{$value};
-            }
-        }
-    } @else {
-        @each $name, $value in $alignments {
-            &[data-alignment#{$axis}~="#{$name}"] {
-                --align#{$axis}: #{$value};
-            }
-        }
-    }
-}
-
-@mixin stack-spacing($spacings, $viewport: false) {
-    @if ($viewport) {
-        @each $spacing, $index in $spacings {
-            @media (--viewports-#{$viewport}) {
-                &[data-spacing~="#{$spacing}-#{$viewport}"] {
-                    --spacing: var(--stack-spacing-#{$spacing}) !important;
-                }
-            }
-        }
-    } @else {
-        @each $spacing, $index in $spacings {
-            &[data-spacing~="#{$spacing}"] {
-                --spacing: var(--stack-spacing-#{$spacing});
-            }
-        }
-    }
-}
-
 #{$stack} {
-    --align-x: baseline;
-    --align-y: flex-start;
-
-    --margin: var(--spacing) 0px 0px 0px;
-    --spacing: 0px;
+    @include use-alignment-flex(true);
+    @include use-spacing(--stack-spacing, true);
 
     display: flex;
-
-    flex-direction: column;
     align-self: stretch;
 
     &:not([data-orientation]) {
+        --margin: var(--spacing) 0px 0px 0px;
+
         flex-direction: column;
 
-        align-items: var(--align-x);
-        justify-content: var(--align-y);
+        align-items: var(--alignment-x);
+        justify-content: var(--alignment-y);
     }
 
     &[data-orientation="horizontal"] {
@@ -62,50 +21,15 @@ $stack-children-outer: ":is(:first-child)";
 
         flex-direction: row;
 
-        align-items: var(--align-y);
-        justify-content: var(--align-x);
+        align-items: var(--alignment-y);
+        justify-content: var(--alignment-x);
     }
 
-    @include stack-alignment(
-        both,
-        (
-            center: center,
-        )
-    );
-
-    @include stack-alignment(
-        -x,
-        (
-            baseline: baseline,
-            center: center,
-            stretch: stretch,
-            left: flex-start,
-            right: flex-end,
-        )
-    );
-
-    @include stack-alignment(
-        -y,
-        (
-            baseline: baseline,
-            center: center,
-            stretch: stretch,
-            top: flex-start,
-            bottom: flex-end,
-        )
-    );
-
-    @include stack-spacing((tiny, small, medium, large, huge));
-
-    @each $viewport, $index in tiny, small, medium, large {
-        @include stack-spacing((tiny, small, medium, large, huge), $viewport);
-    }
-
-    & > #{$stack-children-inner} {
+    & > * + * {
         margin: var(--margin) !important;
     }
 
-    & > #{$stack-children-outer} {
+    & > :first-child {
         margin: 0 !important;
     }
 }

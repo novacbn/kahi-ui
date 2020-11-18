@@ -1,11 +1,5 @@
 :root {
     /**
-     * Sheet Tokens
-     */
-
-    --sheet-z-index: var(--z-index-viewport);
-
-    /**
      * Sheet Palette Tokens
      */
 
@@ -27,14 +21,17 @@
     --sheet-negative-background: var(--palette-negative-base);
     --sheet-negative-color: var(--palette-light-base);
 
-    --sheet-opacity-muted: var(--opacity-muted);
+    /**
+     * Sheet Container Tokens
+     */
+
+    --sheet-container-z-index: var(--z-index-viewport);
 
     /**
      * Sheet Backdrop Tokens
      */
 
-    --sheet-backdrop-background: var(--palette-dark-base);
-    --sheet-backdrop-margin: 5ex;
+    --sheet-backdrop-background: var(--palette-dark-base), var(--opacity-muted);
     --sheet-backdrop-z-index: var(--z-index-backdrop);
 
     /**
@@ -42,5 +39,7 @@
      */
 
     --sheet-content-padding: var(--spacing-block-large);
-    --sheet-content-radius: var(--radius-block) var(--radius-block) 0 0;
+    --sheet-content-margin: -5ex;
+
+    --sheet-content-radius: 8px 8px 0 0;
 }

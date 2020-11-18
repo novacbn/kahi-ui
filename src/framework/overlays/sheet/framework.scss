@@ -6,6 +6,50 @@ $sheet-backdrop: "label";
 $sheet-container: "[role='dialog']";
 $sheet-content: "[role='document']";
 
+@mixin sheet-backdrop($namespace) {
+    display: block;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: vhsl(#{$namespace}-background);
+    z-index: var(#{$namespace}-z-index);
+}
+
+@mixin sheet-container($namespace) {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    scroll-snap-type: y mandatory;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    z-index: var(#{$namespace}-z-index);
+
+    &::before {
+        display: block;
+        content: "";
+
+        scroll-snap-align: start;
+    }
+}
+
+@mixin sheet-content($namespace) {
+    max-height: 100vh;
+
+    margin-top: var(#{$namespace}-margin);
+    scroll-snap-align: end;
+}
+
 #{$sheet} {
     display: none;
 
@@ -15,52 +59,14 @@ $sheet-content: "[role='document']";
 
     & + #{$sheet-container} {
         @include use-palette(--sheet, false);
-
-        position: fixed;
-
-        top: 0;
-        left: 0;
-
-        width: 100vw;
-        height: 100vh;
-
-        scroll-snap-type: y mandatory;
-
-        overflow-x: hidden;
-        overflow-y: auto;
-
-        z-index: var(--sheet-z-index);
-
-        &::before {
-            display: block;
-            position: absolute;
-
-            content: "";
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            background-color: vhsla(--sheet-backdrop-background, --sheet-opacity-muted);
-
-            z-index: var(--sheet-backdrop-z-index);
-        }
+        @include sheet-container(--sheet-container);
 
         & > #{$sheet-backdrop} {
-            display: block;
-
-            width: 100%;
-            height: calc(100vh - var(--sheet-backdrop-margin));
-
-            scroll-snap-align: start;
+            @include sheet-backdrop(--sheet-backdrop);
         }
 
         & > #{$sheet-content} {
-            max-height: 100vh;
-
-            scroll-snap-align: end;
+            @include sheet-content(--sheet-content);
         }
 
         &[data-palette] > #{$sheet-content} {

@@ -2,13 +2,52 @@ $tile: ".tile";
 
 $tile-figure: "figure";
 $tile-footer: "footer";
-$tile-heading: "header";
-$tile-text: "p";
-$tile-timestamp: "small";
 
 $tile-body: "section";
-$tile-body-first: ":not(:first-child)";
-$tile-body-last: ":not(:last-child)";
+$tile-body-heading: "header";
+$tile-body-text: "p";
+
+@mixin tile-body($namespace) {
+    flex-grow: 1;
+
+    & > #{$tile-body-heading} {
+        font-size: var(#{$namespace}-heading-font-size);
+        font-weight: var(#{$namespace}-heading-font-weight);
+    }
+
+    & > #{$tile-body-text} {
+        margin: 0;
+    }
+}
+
+@mixin tile-figure($namespace) {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: var(#{$namespace}-margin);
+
+    width: var(#{$namespace}-size);
+    height: var(#{$namespace}-size);
+
+    line-height: 0;
+
+    & > * {
+        flex-grow: 1;
+        object-fit: fill;
+
+        border-radius: var(--tile-figure-radius);
+    }
+}
+
+@mixin tile-footer($namespace) {
+    display: flex;
+    align-items: center;
+
+    margin: var(#{$namespace}-margin);
+}
 
 #{$tile} {
     @include use-palette(--tile, false);
@@ -30,55 +69,15 @@ $tile-body-last: ":not(:last-child)";
     }
 
     & #{$tile-body} {
-        flex-grow: 1;
-
-        &#{$tile-body-first} {
-            margin-left: var(--tile-body-spacing);
-        }
-
-        &#{$tile-body-last} {
-            margin-right: var(--tile-body-spacing);
-        }
-    }
-
-    & #{$tile-heading} {
-        font-weight: var(--tile-heading-font-weight);
+        @include tile-body(--tile-body);
     }
 
     & #{$tile-figure} {
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-        justify-content: center;
-
-        margin: 0;
-
-        width: var(--tile-figure-size);
-        height: var(--tile-figure-size);
-
-        line-height: 0;
-
-        & > * {
-            flex-grow: 1;
-            object-fit: fill;
-
-            border-radius: var(--tile-figure-radius);
-        }
+        @include tile-figure(--tile-figure);
     }
 
     & #{$tile-footer} {
-        display: flex;
-        align-items: center;
-    }
-
-    & #{$tile-text} {
-        margin: 0;
-    }
-
-    & #{$tile-timestamp} {
-        font-size: var(--tile-timestamp-font-size);
-        opacity: var(--tile-timestamp-opacity);
+        @include tile-footer(--tile-footer);
     }
 }
 

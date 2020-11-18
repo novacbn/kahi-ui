@@ -1,0 +1,107 @@
+$dialog: "input[type='checkbox'].dialog";
+
+$dialog-active: ":checked";
+
+$dialog-backdrop: "label";
+$dialog-container: "[role='dialog']";
+
+$dialog-content: "[role='document']";
+$dialog-content-body: "section";
+$dialog-content-figure: "figure";
+$dialog-content-footer: "footer";
+
+@mixin dialog-backdrop($namespace) {
+    display: block;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: vhsl(#{$namespace}-background);
+    z-index: var(#{$namespace}-z-index);
+}
+
+@mixin dialog-container($namespace) {
+    display: flex;
+    position: fixed;
+
+    align-items: center;
+    justify-content: center;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    z-index: var(#{$namespace}-z-index);
+}
+
+@mixin dialog-content-body($namespace) {
+    @include card-body($namespace);
+
+    & > #{$card-body-heading} {
+        margin: var(#{$namespace}-heading-margin);
+    }
+}
+
+@mixin dialog-content-figure($namespace) {
+    @include card-figure($namespace);
+}
+
+@mixin dialog-content-footer($namespace) {
+    @include card-footer($namespace);
+}
+
+#{$dialog} {
+    display: none;
+
+    &:not(#{$dialog-active}) + #{$dialog-container} {
+        display: none;
+    }
+
+    & + #{$dialog-container} {
+        @include use-palette(--dialog, false);
+        @include dialog-container(--dialog-container);
+
+        --viewport: var(--dialog-viewports-small);
+
+        @each $viewport in tiny, medium, large {
+            &[data-viewport="#{$viewport}"] {
+                --viewport: var(--dialog-viewports-#{$viewport});
+            }
+        }
+
+        & > #{$dialog-backdrop} {
+            @include dialog-backdrop(--dialog-backdrop);
+        }
+
+        & > #{$dialog-content} {
+            max-width: min(var(--viewport), var(--dialog-content-max-width), 100vw);
+            max-height: min(var(--dialog-content-max-height), 100vw);
+
+            & > #{$dialog-content-body} {
+                @include dialog-content-body(--dialog-content-body);
+            }
+
+            & > #{$dialog-content-figure} {
+                @include dialog-content-figure(--dialog-content-figure);
+            }
+
+            & > #{$dialog-content-footer} {
+                @include dialog-content-footer(--dialog-content-footer);
+            }
+        }
+
+        &[data-palette] > #{$dialog-content} {
+            @include use-palette-block();
+
+            border-radius: var(--dialog-content-radius);
+        }
+    }
+}

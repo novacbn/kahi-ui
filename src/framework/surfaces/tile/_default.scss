@@ -48,22 +48,24 @@
     --tile-body-spacing: var(--spacing-block-large);
 
     /**
+     * Tile Body Heading Tokens
+     */
+
+    --tile-body-heading-font-size: inherit;
+    --tile-body-heading-font-weight: var(--font-weight-bold);
+
+    /**
      * Tile Figure Tokens
      */
+
+    --tile-figure-margin: 0 var(--spacing-block-large) 0 0;
 
     --tile-figure-radius: var(--radius-shape-circle);
     --tile-figure-size: var(--sizing-element-small);
 
     /**
-     * Tile Heading Tokens
+     * Tile Footer Tokens
      */
 
-    --tile-heading-font-weight: var(--font-weight-bold);
-
-    /**
-     * Tile Timestamp Tokens
-     */
-
-    --tile-timestamp-font-size: var(--font-size-text-small);
-    --tile-timestamp-opacity: var(--opacity-dull);
+    --tile-footer-margin: 0 0 0 var(--spacing-block-large);
 }

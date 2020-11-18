@@ -2,9 +2,9 @@ $sheet: "input[type='checkbox'].sheet";
 
 $sheet-active: ":checked";
 
+$sheet-backdrop: "label";
 $sheet-container: "[role='dialog']";
 $sheet-content: "[role='document']";
-$sheet-backdrop: "label";
 
 #{$sheet} {
     display: none;
@@ -21,7 +21,7 @@ $sheet-backdrop: "label";
         top: 0;
         left: 0;
 
-        width: 100%;
+        width: 100vw;
         height: 100vh;
 
         scroll-snap-type: y mandatory;
@@ -58,7 +58,6 @@ $sheet-backdrop: "label";
         }
 
         & > #{$sheet-content} {
-            margin: 0;
             max-height: 100vh;
 
             scroll-snap-align: end;

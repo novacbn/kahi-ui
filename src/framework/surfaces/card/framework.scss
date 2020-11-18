@@ -1,14 +1,55 @@
 $card: ".card";
 
-$card-body: "section";
 $card-figure: "figure";
-$card-heading: "header";
-$card-text: "p";
-$card-timestamp: "small";
-
 $card-footer: "footer";
-$card-footer-first: ":first-child";
-$card-footer-last: ":last-child";
+
+$card-body: "section";
+$card-body-heading: "header";
+$card-body-text: "p";
+
+@mixin card-body($namespace-body, $namespace-heading: $namespace-body + "-heading") {
+    padding: var(#{$namespace-body}-padding);
+
+    & > #{$card-body-heading} {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-size: var(#{$namespace-heading}-font-size);
+        font-weight: var(#{$namespace-heading}-font-weight);
+
+        & > * {
+            font-weight: initial;
+        }
+    }
+
+    & > #{$card-body-text} {
+        margin: 0;
+    }
+}
+
+@mixin card-figure($namespace) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: var(#{$namespace}-margin);
+
+    & > * {
+        flex-grow: 1;
+        object-fit: cover;
+    }
+}
+
+@mixin card-footer($namespace) {
+    display: flex;
+    align-items: center;
+
+    & > * {
+        border-radius: 0;
+        flex-grow: 1;
+    }
+}
 
 #{$card} {
     @include use-palette(--card, false);
@@ -27,63 +68,16 @@ $card-footer-last: ":last-child";
         border-radius: var(--card-radius);
     }
 
-    & #{$card-body} {
-        padding: var(--card-padding);
+    & > #{$card-body} {
+        @include card-body(--card-body);
     }
 
-    & #{$card-figure} {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        margin: 0;
-
-        & > * {
-            flex-grow: 1;
-            object-fit: cover;
-
-            border-top-left-radius: var(--card-radius);
-            border-top-right-radius: var(--card-radius);
-        }
+    & > #{$card-figure} {
+        @include card-figure(--card-figure);
     }
 
-    & #{$card-footer} {
-        display: flex;
-        align-items: center;
-
-        & > * {
-            border-radius: 0;
-            flex-grow: 1;
-
-            &#{$card-footer-first} {
-                border-bottom-left-radius: var(--card-radius);
-            }
-
-            &#{$card-footer-last} {
-                border-bottom-right-radius: var(--card-radius);
-            }
-        }
-    }
-
-    & #{$card-heading} {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        font-weight: var(--card-heading-font-weight);
-
-        & > * {
-            font-weight: initial;
-        }
-    }
-
-    & #{$card-text} {
-        margin: 0;
-    }
-
-    & #{$card-timestamp} {
-        font-size: var(--card-timestamp-font-size);
-        opacity: var(--card-timestamp-opacity);
+    & > #{$card-footer} {
+        @include card-footer(--card-footer);
     }
 }
 

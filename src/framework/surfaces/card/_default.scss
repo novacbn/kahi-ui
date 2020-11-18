@@ -7,7 +7,6 @@
     --card-border-color: var(--palette-light-translucent);
 
     --card-margin: 0 0 var(--spacing-block-large) 0;
-    --card-padding: var(--spacing-block-large);
     --card-radius: var(--radius-block);
 
     --card-transition: var(--animation-visual);
@@ -42,15 +41,15 @@
     --card-opacity-transparent: var(--opacity-transparent);
 
     /**
-     * Card Heading Tokens
+     * Card Body Tokens
      */
 
-    --card-heading-font-weight: var(--font-weight-bold);
+    --card-body-padding: var(--spacing-block-large);
 
     /**
-     * Card Timestamp Tokens
+     * Card Body Heading Tokens
      */
 
-    --card-timestamp-font-size: var(--font-size-text-small);
-    --card-timestamp-opacity: var(--opacity-dull);
+    --card-body-heading-font-size: inherit;
+    --card-body-heading-font-weight: var(--font-weight-bold);
 }

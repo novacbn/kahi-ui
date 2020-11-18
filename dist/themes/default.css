@@ -685,7 +685,6 @@
   --popover-sizing-medium:var(--sizing-block-medium);
   --popover-sizing-large:var(--sizing-block-large);
   --popover-sizing-huge:var(--sizing-block-huge);
-  --sheet-z-index:var(--z-index-viewport);
   --sheet-accent-background:var(--palette-accent-base);
   --sheet-accent-color:var(--palette-light-base);
   --sheet-dark-background:var(--palette-dark-base);
@@ -698,12 +697,12 @@
   --sheet-affirmative-color:var(--palette-light-base);
   --sheet-negative-background:var(--palette-negative-base);
   --sheet-negative-color:var(--palette-light-base);
-  --sheet-opacity-muted:var(--opacity-muted);
-  --sheet-backdrop-background:var(--palette-dark-base);
-  --sheet-backdrop-margin:5ex;
+  --sheet-container-z-index:var(--z-index-viewport);
+  --sheet-backdrop-background:var(--palette-dark-base), var(--opacity-muted);
   --sheet-backdrop-z-index:var(--z-index-backdrop);
   --sheet-content-padding:var(--spacing-block-large);
-  --sheet-content-radius:var(--radius-block) var(--radius-block) 0 0;
+  --sheet-content-margin:-5ex;
+  --sheet-content-radius:8px 8px 0 0;
   --container-padding:var(--spacing-block-large) var(--spacing-block-medium);
   --container-viewports-tiny:var(--viewports-tiny-max);
   --container-viewports-small:var(--viewports-small-max);

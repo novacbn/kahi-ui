@@ -1687,7 +1687,7 @@ input[type=checkbox].sheet+[role=dialog]{
   scroll-snap-type:y mandatory;
   overflow-x:hidden;
   overflow-y:auto;
-  z-index:var(--sheet-z-index);
+  z-index:var(--sheet-container-z-index);
 }
 input[type=checkbox].sheet+[role=dialog][data-palette=accent]{
   --background:var(--sheet-accent-background);
@@ -1715,23 +1715,21 @@ input[type=checkbox].sheet+[role=dialog][data-palette=negative]{
 }
 input[type=checkbox].sheet+[role=dialog]:before{
   display:block;
-  position:absolute;
   content:"";
+  scroll-snap-align:start;
+}
+input[type=checkbox].sheet+[role=dialog]>label{
+  display:block;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background-color:hsla(var(--sheet-backdrop-background), var(--sheet-opacity-muted));
+  background-color:hsl(var(--sheet-backdrop-background));
   z-index:var(--sheet-backdrop-z-index);
-}
-input[type=checkbox].sheet+[role=dialog]>label{
-  display:block;
-  width:100%;
-  height:calc(100vh - var(--sheet-backdrop-margin));
-  scroll-snap-align:start;
 }
 input[type=checkbox].sheet+[role=dialog]>[role=document]{
   max-height:100vh;
+  margin-top:var(--sheet-content-margin);
   scroll-snap-align:end;
 }
 input[type=checkbox].sheet+[role=dialog][data-palette]>[role=document]{

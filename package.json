@@ -26,7 +26,7 @@
         "watch:framework": "postcss ./src/framework.scss --output ./dist/kahi-ui.css --watch",
         "watch:themes": "postcss ./src/themes/**.scss --dir ./dist/themes/ --ext .css --watch",
         "prebuild:clean": "rimraf ./dist",
-        "test:http": "sirv ./ --port 3000 --dev"
+        "test:http": "sirv ./ --host 0.0.0.0 --port 3000 --dev"
     },
     "devDependencies": {
         "@csstools/postcss-sass": "^4.0.0",

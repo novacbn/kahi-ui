@@ -108,8 +108,13 @@
     }
 }
 
-@mixin use-spacing($namespace, $viewport: false, $spacings: (tiny, small, medium, large, huge)) {
-    --spacing: unset;
+@mixin use-spacing(
+    $namespace,
+    $viewport: false,
+    $default: unset,
+    $spacings: (tiny, small, medium, large, huge)
+) {
+    --spacing: #{$default};
 
     @if ($viewport) {
         @each $viewport, $index in tiny, small, medium, large {
@@ -121,5 +126,40 @@
 
     @each $spacing, $index in $spacings {
         @include use-spacing-attribute($namespace, $spacing);
+    }
+}
+
+@mixin use-sizing-attribute($namespace, $sizing, $viewport: false) {
+    @if ($viewport) {
+        @media (--viewports-#{$viewport}) {
+            &[data-sizing~="#{$sizing}+#{$viewport}"] {
+                --sizing: var(#{$namespace}-#{$sizing}) !important;
+            }
+        }
+    } @else {
+        &[data-sizing~="#{$sizing}"] {
+            --sizing: var(#{$namespace}-#{$sizing});
+        }
+    }
+}
+
+@mixin use-sizing(
+    $namespace,
+    $viewport: false,
+    $default: initial,
+    $sizings: (tiny, small, medium, large, huge)
+) {
+    --sizing: #{$default};
+
+    @if ($viewport) {
+        @each $viewport, $index in tiny, small, medium, large {
+            @each $sizing, $index in $sizings {
+                @include use-sizing-attribute($namespace, $sizing, $viewport);
+            }
+        }
+    }
+
+    @each $sizing, $index in $sizings {
+        @include use-sizing-attribute($namespace, $sizing);
     }
 }

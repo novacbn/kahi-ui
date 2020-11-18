@@ -6,16 +6,10 @@ $popover-state: "input[type='checkbox']";
 $popover-state-active: ":checked";
 
 #{$popover} {
-    --sizing: initial;
+    @include use-sizing(--popover-sizing, true);
 
     display: inline-block;
     position: relative;
-
-    @each $sizing, $index in tiny, small, medium, large, huge {
-        &[data-sizing~="#{$sizing}"] {
-            --sizing: var(--popover-sizing-#{$sizing});
-        }
-    }
 
     & > #{$popover-label} + * {
         position: absolute;

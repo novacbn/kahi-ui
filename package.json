@@ -1,5 +1,5 @@
 {
-    "name": "kahi-ui",
+    "name": "@kahi-ui/framework",
     "description": "Straight-forward UI for modern Web Applications",
     "author": "novacbn",
     "version": "0.0.1",

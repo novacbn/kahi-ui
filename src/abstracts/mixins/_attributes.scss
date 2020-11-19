@@ -94,6 +94,64 @@
     );
 }
 
+@mixin use-alignment-grid($viewport: false, $default-x: baseline, $default-y: start) {
+    --alignment-x: #{$default-x};
+    --alignment-y: #{$default-y};
+
+    @include use-alignment(
+        (
+            center: center,
+        ),
+        (
+            baseline: baseline,
+            center: center,
+            stretch: stretch,
+            left: start,
+            right: end,
+        ),
+        (
+            baseline: baseline,
+            center: center,
+            stretch: stretch,
+            top: start,
+            bottom: end,
+        ),
+        $viewport,
+        $default-x,
+        $default-y
+    );
+}
+
+@mixin use-grid-points-attribute($point, $viewport: false) {
+    @if ($viewport) {
+        @media (--viewports-#{$viewport}) {
+            &[data-points~="#{$point}+#{$viewport}"] {
+                --points: #{$point} !important;
+            }
+        }
+    } @else {
+        &[data-points~="#{$point}"] {
+            --points: #{$point};
+        }
+    }
+}
+
+@mixin use-grid-points($viewport: false, $default: unset, $minimum: 1, $maximum: 12) {
+    --points: #{$default};
+
+    @if ($viewport) {
+        @each $viewport, $index in tiny, small, medium, large {
+            @for $point from $minimum to $maximum {
+                @include use-grid-points-attribute($point, $viewport);
+            }
+        }
+    }
+
+    @for $point from $minimum to $maximum {
+        @include use-grid-points-attribute($point);
+    }
+}
+
 @mixin use-spacing-attribute($namespace, $spacing, $viewport: false) {
     @if ($viewport) {
         @media (--viewports-#{$viewport}) {

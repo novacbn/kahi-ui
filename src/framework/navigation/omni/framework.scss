@@ -49,7 +49,7 @@ $omni-footer: "footer";
 
     & > #{$omni-content},
     & > #{$omni-footer} {
-        grid-gap: var(--omni-content-spacing);
+        gap: var(--omni-content-spacing);
     }
 
     &[data-position="top"] {

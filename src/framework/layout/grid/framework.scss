@@ -1,14 +1,14 @@
-$mosaic: ".mosaic";
+$grid: ".grid";
 
-#{$mosaic} {
+#{$grid} {
     @include use-alignment-grid(true);
-    @include use-sizing(--mosaic-sizing, true);
+    @include use-grid-points(true);
     @include use-spacing(--mosaic-spacing, true);
 
     display: grid;
 
     gap: var(--spacing);
-    grid-template-columns: repeat(auto-fill, minmax(var(--sizing), 1fr));
+    grid-template-columns: repeat(var(--points), 1fr);
 
     align-items: var(--alignment-x);
     justify-content: var(--alignment-y);

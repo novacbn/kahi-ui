@@ -1,0 +1,11 @@
+:root {
+    /**
+     * Grid Spacing Tokens
+     */
+
+    --grid-spacing-tiny: var(--spacing-block-tiny);
+    --grid-spacing-small: var(--spacing-block-small);
+    --grid-spacing-medium: var(--spacing-block-medium);
+    --grid-spacing-large: var(--spacing-block-large);
+    --grid-spacing-huge: var(--spacing-block-huge);
+}

@@ -1,5 +1,5 @@
 @mixin use-linkable($namespace) {
-    color: inherit;
+    color: currentColor;
     opacity: var(#{$namespace}-opacity-visible);
 
     cursor: pointer;

@@ -1,20 +1,108 @@
 $menu: "nav.menu";
-$menu-list: "ul";
-
-$menu-state: "input[type='checkbox']";
-$menu-state-active: ":checked";
-$menu-state-unactive: ":not(:checked)";
 
 $menu-item: "li";
+$menu-submenu: "ul";
 
 $menu-anchor: "a";
-$menu-anchor-active: ":active";
-$menu-anchor-current: "[aria-current]";
-$menu-anchor-hover: ":hover";
-
 $menu-heading: "label";
-$menu-heading-hover: ":hover";
-$menu-heading-linked: "[for]";
+$menu-state: "input[type='checkbox']";
+
+@mixin menu-anchor($namespace) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: var(#{$namespace}-padding);
+
+    color: inherit;
+    background: transparent;
+
+    border: var(#{$namespace}-border) transparent;
+    border-radius: var(#{$namespace}-radius);
+
+    text-decoration: none;
+    transition: background var(#{$namespace}-transition), border-color var(#{$namespace}-transition),
+        color var(#{$namespace}-transition);
+
+    &:hover,
+    &[aria-current] {
+        color: vhsl(--color);
+        opacity: var(#{$namespace}-opacity-enabled);
+    }
+
+    &:hover {
+        background: vhsla(--color, #{$namespace}-opacity-transparent);
+        border-color: vhsla(--color, #{$namespace}-opacity-transparent);
+    }
+
+    &[aria-current] {
+        background: vhsla(--color, #{$namespace}-opacity-translucent);
+        border-color: vhsla(--color, #{$namespace}-opacity-translucent);
+    }
+}
+
+@mixin menu-heading($namespace) {
+    display: flex;
+    align-items: center;
+
+    font-size: var(#{$namespace}-font-size);
+    font-weight: var(#{$namespace}-font-weight);
+
+    letter-spacing: var(#{$namespace}-letter-spacing);
+    text-transform: uppercase;
+
+    opacity: var(#{$namespace}-opacity-dull);
+
+    &[for] {
+        cursor: pointer;
+
+        transition: color var(#{$namespace}-transition), opacity var(#{$namespace}-transition);
+
+        &:hover {
+            color: vhsl(--color);
+            opacity: var(#{$namespace}-opacity-muted);
+        }
+    }
+}
+
+@mixin menu-submenu($namespace) {
+    position: relative;
+
+    list-style: none;
+
+    & #{$menu-submenu} {
+        padding: var(#{$namespace}-padding);
+
+        &::before {
+            display: block;
+            content: "";
+
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            border-left: currentColor var(#{$namespace}-border);
+            opacity: var(#{$namespace}-opacity-dull);
+        }
+    }
+}
+
+@mixin menu-separator($namespace) {
+    &::before {
+        flex-grow: unset;
+        width: var(#{$namespace}-size);
+    }
+}
+
+@mixin menu-state() {
+    display: none;
+
+    &:not(:checked) ~ :last-child {
+        display: none;
+    }
+}
 
 #{$menu} {
     @include use-palette(--menu);
@@ -24,104 +112,36 @@ $menu-heading-linked: "[for]";
     font-weight: var(--menu-font-weight);
     user-select: none;
 
-    & #{$menu-anchor} {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &[data-palette] {
+        @include use-palette-block();
 
-        padding: var(--menu-anchor-padding);
+        padding: var(--menu-padding);
 
-        color: inherit;
-        background: transparent;
-
-        border: var(--menu-anchor-border) transparent;
-        border-radius: var(--menu-border-radius);
-
-        text-decoration: none;
-        transition: background var(--menu-transition), border-color var(--menu-transition),
-            color var(--menu-transition);
-
-        &#{$menu-anchor-hover} {
-            background: vhsla(--background, --menu-opacity-transparent);
-            border-color: vhsla(--background, --menu-opacity-transparent);
-            color: vhsl(--background);
-        }
-
-        &#{$menu-anchor-current} {
-            background: vhsla(--background, --menu-opacity-translucent);
-            border-color: vhsla(--background, --menu-opacity-translucent);
-            color: vhsl(--background);
-        }
-
-        &#{$menu-anchor-hover},
-        &#{$menu-anchor-current} {
-            opacity: var(--menu-opacity-enabled);
-        }
+        border: var(--menu-border) vhsl(--menu-border-color);
+        border-radius: var(--menu-radius);
     }
 
-    & #{$menu-heading} {
-        display: flex;
-        align-items: center;
-
-        font-size: var(--menu-heading-font-size);
-        font-weight: var(--menu-heading-font-weight);
-
-        letter-spacing: var(--menu-heading-letter-spacing);
-        text-transform: uppercase;
-
-        opacity: var(--menu-opacity-muted);
-
-        &#{$menu-heading-linked} {
-            cursor: pointer;
-
-            transition: color var(--menu-transition), opacity var(--menu-transition);
-
-            &#{$menu-heading-hover} {
-                color: vhsl(--background);
-            }
-        }
-    }
-
-    & > #{$menu-list} {
+    & > * {
         margin: 0;
     }
 
-    & #{$menu-list} {
-        position: relative;
+    & #{$menu-anchor} {
+        @include menu-anchor(--menu-anchor);
+    }
 
-        list-style: none;
+    & #{$menu-heading} {
+        @include menu-heading(--menu-heading);
+    }
 
-        & #{$menu-list} {
-            padding: var(--menu-list-padding);
-
-            &::before {
-                display: block;
-                content: "";
-
-                height: 100%;
-
-                position: absolute;
-                top: 0;
-                left: 0;
-
-                border-left: currentColor var(--menu-list-border);
-                opacity: var(--menu-opacity-muted);
-            }
-        }
+    & #{$menu-submenu} {
+        @include menu-submenu(--menu-submenu);
     }
 
     & #{$divider-separator} {
-        &::before {
-            flex-grow: unset;
-            width: var(--menu-separator-size);
-        }
+        @include menu-separator(--menu-separator);
     }
 
     & #{$menu-state} {
-        display: none;
-
-        &#{$menu-state-unactive} ~ #{$menu-list} {
-            display: none;
-        }
+        @include menu-state();
     }
 }

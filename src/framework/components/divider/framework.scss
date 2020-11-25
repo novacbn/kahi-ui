@@ -14,7 +14,7 @@ $divider-separator: "[role='separator']";
 
     &:not([data-palette]) {
         color: inherit;
-        opacity: var(--divider-opacity-muted);
+        opacity: var(--divider-opacity-dull);
     }
 
     &[data-palette] {

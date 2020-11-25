@@ -4,18 +4,17 @@
      */
 
     --menu-border: var(--sizing-border) solid;
-    --menu-border-radius: var(--radius-text);
+    --menu-border-color: var(--palette-light-translucent);
+    --menu-radius: var(--radius-text);
 
-    --menu-margin-icon: var(--spacing-text-medium);
-
-    --menu-transition: var(--animation-visual);
+    --menu-padding: var(--spacing-block-large);
 
     /**
      * Menu Palette
      */
 
     --menu-default-background: var(--palette-default-base);
-    --menu-default-color: var(--palette-light-base);
+    --menu-default-color: var(--palette-dark-base);
 
     --menu-accent-background: var(--palette-accent-base);
     --menu-accent-color: var(--palette-light-base);
@@ -35,38 +34,43 @@
     --menu-negative-background: var(--palette-negative-base);
     --menu-negative-color: var(--palette-light-base);
 
-    --menu-opacity-enabled: var(--opacity-visible);
-
-    --menu-opacity-muted: var(--opacity-muted);
-
-    --menu-opacity-translucent: var(--opacity-translucent);
-    --menu-opacity-transparent: var(--opacity-transparent);
-
     /**
      * Menu Anchor Tokens
      */
 
     --menu-anchor-border: var(--sizing-text-medium) solid;
+    --menu-anchor-radius: var(--radius-text);
+
     --menu-anchor-padding: var(--spacing-text-tiny) var(--spacing-text-medium);
+
+    --menu-anchor-opacity-enabled: var(--opacity-visible);
+
+    --menu-anchor-opacity-translucent: var(--opacity-translucent);
+    --menu-anchor-opacity-transparent: var(--opacity-transparent);
+
+    --menu-anchor-transition: var(--animation-visual);
 
     /**
      * Menu Heading Tokens
      */
 
-    --menu-heading-color: var(--menu-default-background);
-
     --menu-heading-font-size: var(--font-size-text-small);
     --menu-heading-font-weight: var(--font-weight-bold);
     --menu-heading-letter-spacing: 0.1em;
 
+    --menu-heading-opacity-dull: var(--opacity-dull);
+    --menu-heading-opacity-muted: var(--opacity-muted);
+
+    --menu-heading-transition: var(--animation-visual);
+
     /**
-     * Menu List Tokens
+     * Menu Submenu Tokens
      */
 
-    --menu-list-border: var(--sizing-divider) solid;
-    --menu-list-border-color: var(--menu-default-background);
+    --menu-submenu-border: var(--sizing-divider) solid;
+    --menu-submenu-padding: 0 0 0 var(--spacing-block-medium);
 
-    --menu-list-padding: 0 0 0 var(--spacing-block-medium);
+    --menu-submenu-opacity-dull: var(--opacity-dull);
 
     /**
      * Menu Separator Tokens

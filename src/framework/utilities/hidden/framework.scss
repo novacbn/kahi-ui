@@ -1,0 +1,20 @@
+@mixin hidden-viewport($viewport) {
+    @media (--viewports-#{$viewport}) {
+        [data-hidden~="#{$viewport}"] {
+            display: none !important;
+        }
+    }
+}
+
+/**
+ * HACK: Ideally we would just want to check for a blank attribute, e.g. `<div data-hidden>`, however
+ * CSS doesn't support a selector that can accomplish that
+ */
+
+[data-hidden]:not([data-hidden~="tiny"], [data-hidden~="small"], [data-hidden~="medium"], [data-hidden~="large"]) {
+    display: none !important;
+}
+
+@each $viewport in tiny, small, medium, large {
+    @include hidden-viewport($viewport);
+}

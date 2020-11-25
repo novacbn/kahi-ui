@@ -19,6 +19,8 @@ $hero-help: "footer";
     background: transparent;
     color: currentColor;
 
+    text-align: center;
+
     &[data-palette] {
         @include use-palette-block();
     }

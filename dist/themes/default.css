@@ -283,7 +283,7 @@
   --divider-alert:var(--palette-alert-base);
   --divider-affirmative:var(--palette-affirmative-base);
   --divider-negative:var(--palette-negative-base);
-  --divider-opacity-muted:var(--opacity-muted);
+  --divider-opacity-dull:var(--opacity-dull);
   --divider-separator-margin:var(--spacing-block-small);
   --divider-separator-font-size:var(--font-size-text-small);
   --divider-separator-font-weight:var(--font-weight-text-bold);
@@ -455,11 +455,11 @@
 }
 :root{
   --menu-border:var(--sizing-border) solid;
-  --menu-border-radius:var(--radius-text);
-  --menu-margin-icon:var(--spacing-text-medium);
-  --menu-transition:var(--animation-visual);
+  --menu-border-color:var(--palette-light-translucent);
+  --menu-radius:var(--radius-text);
+  --menu-padding:var(--spacing-block-large);
   --menu-default-background:var(--palette-default-base);
-  --menu-default-color:var(--palette-light-base);
+  --menu-default-color:var(--palette-dark-base);
   --menu-accent-background:var(--palette-accent-base);
   --menu-accent-color:var(--palette-light-base);
   --menu-dark-background:var(--palette-dark-base);
@@ -472,19 +472,22 @@
   --menu-affirmative-color:var(--palette-light-base);
   --menu-negative-background:var(--palette-negative-base);
   --menu-negative-color:var(--palette-light-base);
-  --menu-opacity-enabled:var(--opacity-visible);
-  --menu-opacity-muted:var(--opacity-muted);
-  --menu-opacity-translucent:var(--opacity-translucent);
-  --menu-opacity-transparent:var(--opacity-transparent);
   --menu-anchor-border:var(--sizing-text-medium) solid;
+  --menu-anchor-radius:var(--radius-text);
   --menu-anchor-padding:var(--spacing-text-tiny) var(--spacing-text-medium);
-  --menu-heading-color:var(--menu-default-background);
+  --menu-anchor-opacity-enabled:var(--opacity-visible);
+  --menu-anchor-opacity-translucent:var(--opacity-translucent);
+  --menu-anchor-opacity-transparent:var(--opacity-transparent);
+  --menu-anchor-transition:var(--animation-visual);
   --menu-heading-font-size:var(--font-size-text-small);
   --menu-heading-font-weight:var(--font-weight-bold);
   --menu-heading-letter-spacing:0.1em;
-  --menu-list-border:var(--sizing-divider) solid;
-  --menu-list-border-color:var(--menu-default-background);
-  --menu-list-padding:0 0 0 var(--spacing-block-medium);
+  --menu-heading-opacity-dull:var(--opacity-dull);
+  --menu-heading-opacity-muted:var(--opacity-muted);
+  --menu-heading-transition:var(--animation-visual);
+  --menu-submenu-border:var(--sizing-divider) solid;
+  --menu-submenu-padding:0 0 0 var(--spacing-block-medium);
+  --menu-submenu-opacity-dull:var(--opacity-dull);
   --menu-separator-size:var(--spacing-block-small);
   --tree-border-radius:var(--radius-text);
   --tree-font-weight:var(--font-weight-text-bold);

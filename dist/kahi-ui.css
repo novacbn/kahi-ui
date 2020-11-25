@@ -389,7 +389,7 @@ a[role=button][data-shape=pill],button[data-shape=pill],input[type=button][data-
 }
 [role=separator]:not([data-palette]),hr:not([data-palette]){
   color:inherit;
-  opacity:var(--divider-opacity-muted);
+  opacity:var(--divider-opacity-dull);
 }
 [role=separator][data-palette],hr[data-palette]{
   color:hsl(var(--background));
@@ -901,6 +901,20 @@ nav.menu[data-palette=negative]{
   --background:var(--menu-negative-background);
   --color:var(--menu-negative-color);
 }
+nav.menu[data-palette]{
+  background:hsl(var(--background));
+  color:hsl(var(--color));
+  padding:var(--menu-padding);
+  border:var(--menu-border) hsl(var(--menu-border-color));
+  border-radius:var(--menu-radius);
+}
+nav.menu[data-palette]::selection,nav.menu[data-palette] ::selection{
+  background-color:hsl(var(--color));
+  color:hsl(var(--background));
+}
+nav.menu>*{
+  margin:0;
+}
 nav.menu a{
   display:flex;
   align-items:center;
@@ -909,22 +923,21 @@ nav.menu a{
   color:inherit;
   background:transparent;
   border:var(--menu-anchor-border) transparent;
-  border-radius:var(--menu-border-radius);
+  border-radius:var(--menu-anchor-radius);
   text-decoration:none;
-  transition:background var(--menu-transition), border-color var(--menu-transition), color var(--menu-transition);
-}
-nav.menu a:hover{
-  background:hsla(var(--background), var(--menu-opacity-transparent));
-  border-color:hsla(var(--background), var(--menu-opacity-transparent));
-  color:hsl(var(--background));
-}
-nav.menu a[aria-current]{
-  background:hsla(var(--background), var(--menu-opacity-translucent));
-  border-color:hsla(var(--background), var(--menu-opacity-translucent));
-  color:hsl(var(--background));
+  transition:background var(--menu-anchor-transition), border-color var(--menu-anchor-transition), color var(--menu-anchor-transition);
 }
 nav.menu a:hover,nav.menu a[aria-current]{
-  opacity:var(--menu-opacity-enabled);
+  color:hsl(var(--color));
+  opacity:var(--menu-anchor-opacity-enabled);
+}
+nav.menu a:hover{
+  background:hsla(var(--color), var(--menu-anchor-opacity-transparent));
+  border-color:hsla(var(--color), var(--menu-anchor-opacity-transparent));
+}
+nav.menu a[aria-current]{
+  background:hsla(var(--color), var(--menu-anchor-opacity-translucent));
+  border-color:hsla(var(--color), var(--menu-anchor-opacity-translucent));
 }
 nav.menu label{
   display:flex;
@@ -933,24 +946,22 @@ nav.menu label{
   font-weight:var(--menu-heading-font-weight);
   letter-spacing:var(--menu-heading-letter-spacing);
   text-transform:uppercase;
-  opacity:var(--menu-opacity-muted);
+  opacity:var(--menu-heading-opacity-dull);
 }
 nav.menu label[for]{
   cursor:pointer;
-  transition:color var(--menu-transition), opacity var(--menu-transition);
+  transition:color var(--menu-heading-transition), opacity var(--menu-heading-transition);
 }
 nav.menu label[for]:hover{
-  color:hsl(var(--background));
-}
-nav.menu>ul{
-  margin:0;
+  color:hsl(var(--color));
+  opacity:var(--menu-heading-opacity-muted);
 }
 nav.menu ul{
   position:relative;
   list-style:none;
 }
 nav.menu ul ul{
-  padding:var(--menu-list-padding);
+  padding:var(--menu-submenu-padding);
 }
 nav.menu ul ul:before{
   display:block;
@@ -959,14 +970,14 @@ nav.menu ul ul:before{
   position:absolute;
   top:0;
   left:0;
-  border-left:currentColor var(--menu-list-border);
-  opacity:var(--menu-opacity-muted);
+  border-left:currentColor var(--menu-submenu-border);
+  opacity:var(--menu-submenu-opacity-dull);
 }
 nav.menu [role=separator]:before{
   flex-grow:unset;
   width:var(--menu-separator-size);
 }
-nav.menu input[type=checkbox],nav.menu input[type=checkbox]:not(:checked)~ul{
+nav.menu input[type=checkbox],nav.menu input[type=checkbox]:not(:checked)~:last-child{
   display:none;
 }
 nav[role=tree]{
@@ -1087,8 +1098,8 @@ nav.aside[data-palette=negative]{
 nav.aside[data-palette]{
   background:hsl(var(--background));
   color:hsl(var(--color));
-  --inherited-background:var(--color);
-  --inherited-color:var(--background);
+  --inherited-background:var(--background);
+  --inherited-color:var(--color);
 }
 nav.aside[data-palette]::selection,nav.aside[data-palette] ::selection{
   background-color:hsl(var(--color));
@@ -1170,6 +1181,7 @@ nav.omni>header{
   letter-spacing:var(--omni-heading-letter-spacing);
   font-size:var(--omni-heading-font-size);
   font-weight:var(--omni-heading-font-weight);
+  white-space:nowrap;
 }
 nav.omni>footer,nav.omni>section{
   gap:var(--omni-content-spacing);
@@ -1234,7 +1246,7 @@ nav.omni[data-position=top]{
 }
 
 a:not([role]).box,label.box{
-  color:inherit;
+  color:currentColor;
   opacity:var(--box-opacity-visible);
   cursor:pointer;
   text-decoration:none;
@@ -1336,7 +1348,7 @@ a:not([role]).box:active,label.box:active{
 }
 
 a:not([role]).card,label.card{
-  color:inherit;
+  color:currentColor;
   opacity:var(--card-opacity-visible);
   cursor:pointer;
   text-decoration:none;
@@ -1360,6 +1372,7 @@ a:not([role]).card:active,label.card:active{
   padding:var(--hero-padding);
   background:transparent;
   color:currentColor;
+  text-align:center;
 }
 .hero[data-palette=accent]{
   --background:var(--hero-accent-background);
@@ -1490,7 +1503,7 @@ a:not([role]).card:active,label.card:active{
 }
 
 a:not([role]).tile,label.tile{
-  color:inherit;
+  color:currentColor;
   opacity:var(--tile-opacity-visible);
   cursor:pointer;
   text-decoration:none;
@@ -3439,4 +3452,28 @@ input[type=checkbox].sheet+[role=dialog][data-palette]>[role=document] nav.menu:
 }
 .stack>:first-child{
   margin:0 !important;
+}
+[data-hidden]:not([data-hidden~=tiny]):not([data-hidden~=small]):not([data-hidden~=medium]):not([data-hidden~=large]){
+  display:none !important;
+}
+
+@media screen and (max-width:599px){
+  [data-hidden~=tiny]{
+    display:none !important;
+  }
+}
+@media screen and (min-width:600px) and (max-width:899px){
+  [data-hidden~=small]{
+    display:none !important;
+  }
+}
+@media screen and (min-width:900px) and (max-width:1199px){
+  [data-hidden~=medium]{
+    display:none !important;
+  }
+}
+@media screen and (min-width:1200px){
+  [data-hidden~=large]{
+    display:none !important;
+  }
 }

@@ -1,0 +1,11 @@
+$spacer: ".spacer";
+
+#{$spacer} {
+    @include use-spacing(--spacer-spacing, true, var(--spacer-spacing-medium));
+
+    margin: var(--spacing) 0;
+
+    [data-orientation="horizontal"] {
+        margin: 0 var(--spacing);
+    }
+}

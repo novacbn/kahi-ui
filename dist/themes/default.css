@@ -454,6 +454,11 @@
   }
 }
 :root{
+  --spacer-spacing-tiny:var(--spacing-block-tiny);
+  --spacer-spacing-small:var(--spacing-block-small);
+  --spacer-spacing-medium:var(--spacing-block-medium);
+  --spacer-spacing-large:var(--spacing-block-large);
+  --spacer-spacing-huge:var(--spacing-block-huge);
   --menu-border:var(--sizing-border) solid;
   --menu-border-color:var(--palette-light-translucent);
   --menu-radius:var(--radius-text);

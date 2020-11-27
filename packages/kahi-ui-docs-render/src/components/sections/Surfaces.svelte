@@ -22,7 +22,7 @@
         Tile,
     } from "@kahi-ui/svelte";
 
-    import * as Menus from "../../components/menus";
+    import * as Menus from "../menus";
 </script>
 
 <style>

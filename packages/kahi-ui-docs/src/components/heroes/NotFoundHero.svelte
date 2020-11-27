@@ -1,5 +1,5 @@
 <script>
-    import {Hero} from "@kahi-ui/svelte";
+    import {Anchor, Hero, Modifiers} from "@kahi-ui/svelte";
 </script>
 
 <Hero.Container size="viewport">
@@ -8,9 +8,9 @@
 
     <Hero.Footer>
         The page you were
-        <b>looking for</b>
+        <Modifiers.Bold>looking for</Modifiers.Bold>
         was
-        <b>not found</b>. Please go back
-        <a href="#/">to the homepage</a>.
+        <Modifiers.Bold>not found</Modifiers.Bold>. Please go back
+        <Anchor href="#/">to the homepage</Anchor>.
     </Hero.Footer>
 </Hero.Container>

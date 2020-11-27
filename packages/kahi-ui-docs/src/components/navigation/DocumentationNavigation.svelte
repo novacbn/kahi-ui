@@ -1,11 +1,11 @@
 <script>
-    import {Aside} from "@kahi-ui/svelte";
+    import {Anchor, Aside, Divider} from "@kahi-ui/svelte";
 </script>
 
 <Aside.Container palette="accent">
     <Aside.Heading>
-        <a href="#/documentation">Kahi UI</a>
+        <Anchor href="#/documentation">Kahi UI</Anchor>
 
-        <hr />
+        <Divider />
     </Aside.Heading>
 </Aside.Container>

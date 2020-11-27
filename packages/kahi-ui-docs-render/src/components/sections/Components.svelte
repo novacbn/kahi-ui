@@ -14,7 +14,7 @@
 <script>
     import {Box, Button, Divider, Heading} from "@kahi-ui/svelte";
 
-    import * as Menus from "../../components/menus";
+    import * as Menus from "../menus";
 </script>
 
 <article id="components">
@@ -31,9 +31,12 @@
     <Heading level="2">Block Palettes</Heading>
 
     <Button>Block DEFAULT</Button>
+
     <Button palette="accent">Block ACCENT</Button>
+
     <Button palette="dark">Block DARK</Button>
     <Button palette="light">Block LIGHT</Button>
+
     <Button palette="alert">Block ALERT</Button>
     <Button palette="affirmative">Block AFFIRMATIVE</Button>
     <Button palette="negative">Block NEGATIVE</Button>
@@ -41,9 +44,12 @@
     <Heading level="2">Clear Palettes</Heading>
 
     <Button variation="clear">Clear ACCENT</Button>
+
     <Button variation="clear" palette="accent">Clear DEFAULT</Button>
+
     <Button variation="clear" palette="dark">Clear DARK</Button>
     <Button variation="clear" palette="light">Clear LIGHT</Button>
+
     <Button variation="clear" palette="alert">Clear ALERT</Button>
     <Button variation="clear" palette="affirmative">Clear AFFIRMATIVE</Button>
     <Button variation="clear" palette="negative">Clear NEGATIVE</Button>
@@ -51,9 +57,12 @@
     <Heading level="2">Outline Palettes</Heading>
 
     <Button variation="outline">Outline DEFAULT</Button>
+
     <Button variation="outline" palette="accent">Outline ACCENT</Button>
+
     <Button variation="outline" palette="dark">Outline DARK</Button>
     <Button variation="outline" palette="light">Outline LIGHT</Button>
+
     <Button variation="outline" palette="alert">Outline ALERT</Button>
     <Button variation="outline" palette="affirmative">Outline AFFIRMATIVE</Button>
     <Button variation="outline" palette="negative">Outline NEGATIVE</Button>
@@ -78,7 +87,7 @@
 <Divider />
 
 <article id="components-badges">
-    <Heading>Components :: Badge</Heading>
+    <Heading>Components :: Badges</Heading>
 </article>
 
 <Divider />

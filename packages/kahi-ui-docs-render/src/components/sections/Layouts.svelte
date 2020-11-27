@@ -10,7 +10,7 @@
 <script>
     import {Box, Button, Divider, Grid, Group, Heading, Mosaic, Stack} from "@kahi-ui/svelte";
 
-    import * as Menus from "../../components/menus";
+    import * as Menus from "../menus";
 </script>
 
 <article id="layouts">

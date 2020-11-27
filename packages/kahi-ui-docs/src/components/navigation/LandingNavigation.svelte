@@ -1,15 +1,26 @@
-<script>
-    import {Button, Menu, Omni, Popover} from "@kahi-ui/svelte";
-
-    export let links_center = [
+<script context="module">
+    const LINKS_CENTER = [
         {href: "#/documentation", text: "Documentation"},
-        {href: "#/test", text: "Render Test"},
+        {href: "./render", text: "Render Test", target: "_blank"},
     ];
 
-    export let links_right = [
-        {href: "https://github.com/novacbn/kahi-ui", text: "GitHub"},
-        {href: "https://github.com/novacbn/kahi-ui/releases/latest", text: "Releases"},
+    const LINKS_RIGHT = [
+        {
+            href: "https://github.com/novacbn/kahi-ui",
+            text: "GitHub",
+            target: "_blank",
+        },
+
+        {
+            href: "https://github.com/novacbn/kahi-ui/releases/latest",
+            text: "Releases",
+            target: "_blank",
+        },
     ];
+</script>
+
+<script>
+    import {Anchor, Button, Menu, Omni, Popover} from "@kahi-ui/svelte";
 </script>
 
 <style>
@@ -19,15 +30,15 @@
 </style>
 
 <Omni.Container class="landing-navigation" palette="light" position="top">
-    <Omni.Heading><a href="#/">Kahi UI</a></Omni.Heading>
+    <Omni.Heading>
+        <Anchor href="#/">Kahi UI</Anchor>
+    </Omni.Heading>
 
     <Omni.Body hidden="tiny small">
-        {#each links_center as link (link.href)}
-            <a
-                href={link.href}
-                role="button"
-                data-palette="dark"
-                data-variation="clear">{link.text}</a>
+        {#each LINKS_CENTER as link (link.href)}
+            <Button href={link.href} target={link.target} palette="dark" variation="clear">
+                {link.text}
+            </Button>
         {/each}
     </Omni.Body>
 
@@ -37,14 +48,14 @@
 
             <Popover.Region>
                 <Menu.Container palette="light">
-                    {#each links_center as link (link.href)}
-                        <Menu.Anchor href={link.href}>{link.text}</Menu.Anchor>
+                    {#each LINKS_CENTER as link (link.href)}
+                        <Menu.Anchor href={link.href} target={link.target}>{link.text}</Menu.Anchor>
                     {/each}
 
                     <Menu.Divider />
 
-                    {#each links_right as link (link.href)}
-                        <Menu.Anchor href={link.href}>{link.text}</Menu.Anchor>
+                    {#each LINKS_RIGHT as link (link.href)}
+                        <Menu.Anchor href={link.href} target={link.target}>{link.text}</Menu.Anchor>
                     {/each}
                 </Menu.Container>
             </Popover.Region>
@@ -54,8 +65,10 @@
     <Omni.Footer hidden="medium large" />
 
     <Omni.Footer hidden="tiny small">
-        {#each links_right as link (link.href)}
-            <Button href={link.href} palette="dark" variation="clear">{link.text}</Button>
+        {#each LINKS_RIGHT as link (link.href)}
+            <Button href={link.href} target={link.target} palette="dark" variation="clear">
+                {link.text}
+            </Button>
         {/each}
     </Omni.Footer>
 </Omni.Container>

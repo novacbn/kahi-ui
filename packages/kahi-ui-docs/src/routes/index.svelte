@@ -1,5 +1,5 @@
 <script>
-    import {Grid} from "@kahi-ui/svelte";
+    import {Container, Grid} from "@kahi-ui/svelte";
 
     import * as Cards from "../components/cards";
     import * as Heroes from "../components/heroes";
@@ -7,14 +7,10 @@
     import Layout from "./$layout.svelte";
 </script>
 
-<svelte:head>
-    <title>Kahi UI :: Straight-forward UI for the Modern Web Application</title>
-</svelte:head>
-
 <Layout>
     <Heroes.Landing />
 
-    <main class="container" data-viewport="medium">
+    <Container as="main" viewport="medium">
         <Grid points="3 1+tiny 1+small" spacing="huge">
             <Cards.Landing heading="Minimal Markup">
                 Built with ease of remembering in-mind, Kahi UI strives for little as possible
@@ -34,5 +30,5 @@
                 possible. That you can progressively enhance with Javascript.
             </Cards.Landing>
         </Grid>
-    </main>
+    </Container>
 </Layout>

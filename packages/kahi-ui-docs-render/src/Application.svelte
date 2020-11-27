@@ -3,9 +3,6 @@
 
     import Layout from "./$layout.svelte";
 
-    // NOTE: Since this is a single purpose render test route, all the sub-views are
-    // co-located with the route. Instead of being deeply nested in the `components/` directory
-
     import Components from "./$Components.svelte";
     import Elements from "./$Elements.svelte";
     import Form from "./$Form.svelte";
@@ -15,10 +12,6 @@
     import Surfaces from "./$Surfaces.svelte";
     import Typography from "./$Typography.svelte";
 </script>
-
-<svelte:head>
-    <title>Render Test :: Kahi UI</title>
-</svelte:head>
 
 <Layout>
     <Typography />

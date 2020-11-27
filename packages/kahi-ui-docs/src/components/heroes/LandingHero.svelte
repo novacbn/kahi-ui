@@ -12,11 +12,11 @@
     <Hero.Heading>Straight-forward UI for the Modern Web Application</Hero.Heading>
 
     <Hero.Body class="landing-hero-body">
-        <Button href="#/documentation/getting-started" role="button" palette="accent" size="small">
+        <Button href="#/documentation/getting-started" palette="accent" size="small">
             Getting Started
         </Button>
 
-        <Button href="#/test" role="button" palette="dark" variation="outline" size="small">
+        <Button href="./test" target="_blank" palette="dark" variation="outline" size="small">
             Render Test
         </Button>
     </Hero.Body>

@@ -20,7 +20,7 @@ p q r s t u v w x y z { | } ~
 <script>
     import {Anchor, Divider, Formatting, Heading, Modifiers, Paragraph} from "@kahi-ui/svelte";
 
-    import * as Menus from "../../components/menus";
+    import * as Menus from "../menus";
 </script>
 
 <article id="typography">
@@ -38,6 +38,8 @@ p q r s t u v w x y z { | } ~
 
 <article id="typography-formatting">
     <Heading>Typography :: Formatting</Heading>
+
+    <Heading level={2}>Code</Heading>
 
     <Formatting.Code>&lt;div&gt;code&lt;/div&gt;</Formatting.Code>
 

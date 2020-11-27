@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "scripts": {
         "build:application": "snowpack build",
-        "serve:application": "snowpack dev --reload --port 3000 --open"
+        "serve:application": "snowpack dev --reload --port 3000"
     },
     "dependencies": {
         "@kahi-ui/svelte": "file:../../../kahi-ui-svelte",

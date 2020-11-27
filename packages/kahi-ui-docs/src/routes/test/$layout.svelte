@@ -26,6 +26,12 @@
     ];
 </script>
 
+<style>
+    div {
+        display: contents;
+    }
+</style>
+
 <Omni.Container palette="dark" position="top">
     <Omni.Heading><a href="#/">Kahi UI</a></Omni.Heading>
 
@@ -34,7 +40,9 @@
             <Popover.Button palette="light" variation="clear">Jump To...</Popover.Button>
 
             <Popover.Region>
-                <Menus.Contents links={RENDER_SECTIONS} palette="light" />
+                <div use:anchor_scroll_to>
+                    <Menus.Contents links={RENDER_SECTIONS} palette="light" />
+                </div>
             </Popover.Region>
         </Popover.Container>
     </Omni.Body>

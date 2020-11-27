@@ -1,6 +1,6 @@
 {
     "name": "@kahi-ui/framework",
-    "description": "Straight-forward UI for modern Web Applications",
+    "description": "Straight-forward UI for the modern Web Applications",
     "author": "novacbn",
     "version": "0.0.1",
     "keywords": [
@@ -12,35 +12,11 @@
         "scss",
         "sass"
     ],
+    "files": [
+        "dist"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/novacbn/kahi-ui"
-    },
-    "scripts": {
-        "build": "npm run build:framework;npm run build:themes",
-        "build:framework": "postcss ./src/framework.scss --output ./dist/kahi-ui.css",
-        "build:themes": "postcss ./src/themes/**.scss --dir ./dist/themes/ --ext .css",
-        "prettify": "npm run prettify:framework;npm run prettify:themes",
-        "prettify:framework": "prettier ./dist/kahi-ui.css --write",
-        "prettify:themes": "prettier ./dist/themes/*.css --write",
-        "watch:framework": "postcss ./src/framework.scss --output ./dist/kahi-ui.css --watch",
-        "watch:themes": "postcss ./src/themes/**.scss --dir ./dist/themes/ --ext .css --watch",
-        "prebuild:clean": "rimraf ./dist",
-        "test:http": "sirv ./ --host 0.0.0.0 --port 3000 --dev"
-    },
-    "devDependencies": {
-        "@csstools/postcss-sass": "^4.0.0",
-        "autoprefixer": "^9.8.6",
-        "cssnano": "^4.1.10",
-        "postcss-cli": "^7.1.2",
-        "postcss-custom-media": "^7.0.8",
-        "postcss-custom-selectors": "^5.1.2",
-        "postcss-easings": "^2.0.0",
-        "postcss-is-pseudo-class": "file:packages/postcss-is-pseudo-class",
-        "postcss-selector-not": "^4.0.0",
-        "prettier": "^2.1.2",
-        "rimraf": "^3.0.2",
-        "sirv-cli": "^1.0.6"
-    },
-    "dependencies": {}
+    }
 }

@@ -1,2 +1,7 @@
-/node_modules/
-/packages/postcss-is-pseudo-class/node_modules/
+/packages/kahi-ui-framework/node_modules/
+/packages/kahi-ui-framework/packages/postcss-is-pseudo-class/node_modules/
+
+/packages/kahi-ui-docs/.build/
+/packages/kahi-ui-docs/build/
+/packages/kahi-ui-docs/node_modules/
+/packages/kahi-ui-docs/web_modules/

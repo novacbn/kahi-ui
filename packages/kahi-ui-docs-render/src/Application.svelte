@@ -3,14 +3,14 @@
 
     import Layout from "./$layout.svelte";
 
-    import Components from "./$Components.svelte";
-    import Elements from "./$Elements.svelte";
-    import Form from "./$Form.svelte";
-    import Layouts from "./$Layouts.svelte";
-    import Navigation from "./$Navigation.svelte";
-    import Overlays from "./$Overlays.svelte";
-    import Surfaces from "./$Surfaces.svelte";
-    import Typography from "./$Typography.svelte";
+    import Components from "./components/sections/Components.svelte";
+    import Elements from "./components/sections/Elements.svelte";
+    import Form from "./components/sections/Form.svelte";
+    import Layouts from "./components/sections/Layouts.svelte";
+    import Navigation from "./components/sections/Navigation.svelte";
+    import Overlays from "./components/sections/Overlays.svelte";
+    import Surfaces from "./components/sections/Surfaces.svelte";
+    import Typography from "./components/sections/Typography.svelte";
 </script>
 
 <Layout>

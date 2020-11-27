@@ -1,4 +1,7 @@
 <script context="module">
+    import IMAGE_AVATAR from "../../../public/assets/images/avatar.png";
+    import IMAGE_BACKGROUND from "../../../public/assets/images/background.jpg";
+
     export const SURFACES_MANIFEST = [
         {id: "surfaces-boxes", text: "Boxes"},
         {id: "surfaces-cards", text: "Cards"},
@@ -128,7 +131,7 @@
     <Heading>Surfaces :: Cards</Heading>
 
     <Card.Container id="render-test-card-sample" palette="light">
-        <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+        <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
         <Card.Heading>
             Ocean Rockies<span class="badge" data-palette="accent" data-size="tiny">TROPICAL</span>
@@ -153,7 +156,7 @@
 
     <Grid points="3 2+small 1+tiny" spacing="medium">
         <Card.Container>
-            <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+            <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
             <Card.Heading>Card<span>DEFAULT</span></Card.Heading>
 
@@ -170,7 +173,7 @@
         </Card.Container>
 
         <Card.Container palette="accent">
-            <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+            <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
             <Card.Heading>Card<span>ACCENT</span></Card.Heading>
 
@@ -187,7 +190,7 @@
         </Card.Container>
 
         <Card.Container palette="dark">
-            <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+            <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
             <Card.Heading>Card<span>DARK</span></Card.Heading>
 
@@ -204,7 +207,7 @@
         </Card.Container>
 
         <Card.Container palette="light">
-            <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+            <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
             <Card.Heading>Card<span>LIGHT</span></Card.Heading>
 
@@ -221,7 +224,7 @@
         </Card.Container>
 
         <Card.Container palette="alert">
-            <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+            <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
             <Card.Heading>Card<span>ALERT</span></Card.Heading>
 
@@ -238,7 +241,7 @@
         </Card.Container>
 
         <Card.Container palette="affirmative">
-            <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+            <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
             <Card.Heading>Card<span>AFFIRMATIVE</span></Card.Heading>
 
@@ -255,7 +258,7 @@
         </Card.Container>
 
         <Card.Container palette="negative">
-            <Card.Figure><img src="/assets/images/background.jpg" /></Card.Figure>
+            <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
             <Card.Heading>Card<span>NEGATIVE</span></Card.Heading>
 
@@ -363,7 +366,7 @@
     <Heading>Surfaces :: Tiles</Heading>
 
     <Tile.Container palette="light" for>
-        <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+        <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
         <Tile.Body>
             <Tile.Heading>VirusBuster.EXE</Tile.Heading>
@@ -378,7 +381,7 @@
 
     <Grid points="2 1+tiny" spacing="medium">
         <Tile.Container>
-            <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+            <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
             <Tile.Body>
                 <Tile.Heading>Tile DEFAULT</Tile.Heading>
@@ -388,7 +391,7 @@
         </Tile.Container>
 
         <Tile.Container palette="accent">
-            <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+            <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
             <Tile.Body>
                 <Tile.Heading>Tile ACCENT</Tile.Heading>
@@ -398,7 +401,7 @@
         </Tile.Container>
 
         <Tile.Container palette="dark">
-            <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+            <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
             <Tile.Body>
                 <Tile.Heading>Tile DARK</Tile.Heading>
@@ -408,7 +411,7 @@
         </Tile.Container>
 
         <Tile.Container palette="light">
-            <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+            <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
             <Tile.Body>
                 <Tile.Heading>Tile LIGHT</Tile.Heading>
@@ -418,7 +421,7 @@
         </Tile.Container>
 
         <Tile.Container palette="alert">
-            <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+            <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
             <Tile.Body>
                 <Tile.Heading>Tile ALERT</Tile.Heading>
@@ -428,7 +431,7 @@
         </Tile.Container>
 
         <Tile.Container palette="affirmative">
-            <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+            <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
             <Tile.Body>
                 <Tile.Heading>Tile AFFIRMATIVE</Tile.Heading>
@@ -438,7 +441,7 @@
         </Tile.Container>
 
         <Tile.Container palette="negative">
-            <Tile.Figure><img src="/assets/images/avatar.png" /></Tile.Figure>
+            <Tile.Figure><img src={IMAGE_AVATAR} /></Tile.Figure>
 
             <Tile.Body>
                 <Tile.Heading>Tile NEGATIVE</Tile.Heading>

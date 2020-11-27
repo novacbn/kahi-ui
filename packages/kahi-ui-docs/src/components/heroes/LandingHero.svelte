@@ -16,7 +16,12 @@
             Getting Started
         </Button>
 
-        <Button href="./test" target="_blank" palette="dark" variation="outline" size="small">
+        <Button
+            href="/kahi-ui/render"
+            target="_blank"
+            palette="dark"
+            variation="outline"
+            size="small">
             Render Test
         </Button>
     </Hero.Body>

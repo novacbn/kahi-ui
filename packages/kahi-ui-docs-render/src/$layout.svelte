@@ -1,7 +1,7 @@
 <script>
-    import {Container, Omni, Popover} from "@kahi-ui/svelte";
+    import {Anchor, Container, Omni, Popover} from "@kahi-ui/svelte";
 
-    import * as Menus from "../../components/menus";
+    import * as Menus from "./components/menus";
 
     import {COMPONENTS_MANIFEST} from "./components/sections/Components.svelte";
     import {ELEMENTS_MANIFEST} from "./components/sections/Elements.svelte";
@@ -25,7 +25,9 @@
 </script>
 
 <Omni.Container palette="dark" position="top">
-    <Omni.Heading><a href="#/">Kahi UI</a></Omni.Heading>
+    <Omni.Heading>
+        <Anchor href="#">Kahi UI</Anchor>
+    </Omni.Heading>
 
     <Omni.Body>
         <Popover.Container id="render-omni" sizing="medium">

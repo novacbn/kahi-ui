@@ -1,3 +1,6 @@
+import "../public/assets/styles/kahi-ui.css";
+import "../public/assets/styles/default.css";
+
 import Application from "./Application.svelte";
 
 window._application = new Application({

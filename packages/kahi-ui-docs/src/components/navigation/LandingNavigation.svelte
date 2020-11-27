@@ -1,7 +1,7 @@
 <script context="module">
     const LINKS_CENTER = [
         {href: "#/documentation", text: "Documentation"},
-        {href: "./render", text: "Render Test", target: "_blank"},
+        {href: "/kahi-ui/render", text: "Render Test", target: "_blank"},
     ];
 
     const LINKS_RIGHT = [

@@ -852,6 +852,7 @@ var SveltePipeline = (() => {
   // src/index.ts
   var require_src = __commonJS((exports) => {
     __export(exports, {
+      PIPELINE_RESULT_TYPES: () => PIPELINE_RESULT_TYPES,
       evaluate_code: () => evaluate_code,
       make_require: () => make_require,
       pipeline_javascript: () => pipeline_javascript,

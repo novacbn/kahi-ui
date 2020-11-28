@@ -11,7 +11,7 @@ export type {
     IPipelineSuccess,
     IPipelineUpdater,
 } from "./stores/pipeline";
-export {evaluate_code, make_require, validate_code} from "./stores/pipeline";
+export {PIPELINE_RESULT_TYPES, evaluate_code, make_require, validate_code} from "./stores/pipeline";
 
 export type {
     IPipelineJavascriptModule,

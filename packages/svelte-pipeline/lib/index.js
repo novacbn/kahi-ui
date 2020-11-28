@@ -23,6 +23,7 @@ var __toModule = (module2) => {
   return __exportStar(__defineProperty({}, "default", {value: module2, enumerable: true}), module2);
 };
 __export(exports, {
+  PIPELINE_RESULT_TYPES: () => pipeline.PIPELINE_RESULT_TYPES,
   evaluate_code: () => pipeline.evaluate_code,
   make_require: () => pipeline.make_require,
   pipeline_javascript: () => javascript.pipeline_javascript,

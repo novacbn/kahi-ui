@@ -1,0 +1,24 @@
+{
+    "name": "kahi-ui-docs-playground",
+    "author": "novacbn",
+    "version": "0.0.1",
+    "scripts": {
+        "build:application": "snowpack build",
+        "serve:application": "snowpack dev --reload --port 3000 --polyfill-node"
+    },
+    "dependencies": {
+        "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git",
+        "svelte-commons": "git+https://github.com/novacbn/svelte-commons.git#0.1.2",
+        "svelte-pipeline": "file:../svelte-pipeline",
+        "uristorage": "git+https://github.com/novacbn/uristorage.git#0.0.1"
+    },
+    "devDependencies": {
+        "@snowpack/plugin-dotenv": "^2.0.4",
+        "@snowpack/plugin-svelte": "^3.3.0",
+        "mdsvex": "^0.8.8",
+        "prettier": "^2.2.0",
+        "snowpack": "^2.17.1",
+        "snowpack-plugin-mdsvex": "^0.2.2",
+        "svelte": "^3.30.0"
+    }
+}

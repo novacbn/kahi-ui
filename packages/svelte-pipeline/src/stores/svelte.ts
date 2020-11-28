@@ -80,6 +80,7 @@ function PipelineSvelteOptions(
         imports: {},
         compiler: {
             ...compiler,
+            css: false,
             format: "cjs",
         },
 
@@ -91,6 +92,20 @@ function PipelineSvelteOptions(
     };
 }
 
+export function validate_svelte(script: string): [boolean, string?] {
+    try {
+        compile(script, {
+            css: false,
+            format: "cjs",
+            generate: false,
+        });
+    } catch (err) {
+        return [false, err.message];
+    }
+
+    return [true];
+}
+
 export function pipeline_svelte(options?: Partial<IPipelineSvelteOptions>): IPipelineSvelteStore {
     const {compiler, context} = PipelineSvelteOptions(options);
     const writable_store = writable<string>("");
@@ -98,9 +113,12 @@ export function pipeline_svelte(options?: Partial<IPipelineSvelteOptions>): IPip
     const derived_store = derived(writable_store, (script: string) => {
         if (!script) return null;
 
+        let [validated, message] = validate_svelte(script);
+        if (!validated) return {message, type: PIPELINE_RESULT_TYPES.error} as IPipelineError;
+
         const {css, js} = compile(script, compiler);
 
-        const [validated, message] = validate_code(js.code);
+        [validated, message] = validate_code(js.code);
         if (!validated) return {message, type: PIPELINE_RESULT_TYPES.error} as IPipelineError;
 
         const module = evaluate_code(js.code, context);

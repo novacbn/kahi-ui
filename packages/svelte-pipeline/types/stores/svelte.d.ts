@@ -15,5 +15,6 @@ export interface IPipelineSvelteSuccess extends IPipelineSuccess<ISvelteExport> 
 }
 export interface IPipelineSvelteStore extends IPipelineStore<ISvelteExport> {
 }
+export declare function validate_svelte(script: string): [boolean, string?];
 export declare function pipeline_svelte(options?: Partial<IPipelineSvelteOptions>): IPipelineSvelteStore;
 export {};

@@ -42,6 +42,7 @@ function PipelineSvelteOptions(options = {}) {
     imports: {},
     compiler: {
       ...compiler2,
+      css: false,
       format: "cjs"
     },
     context: {
@@ -51,14 +52,29 @@ function PipelineSvelteOptions(options = {}) {
     }
   };
 }
+function validate_svelte(script) {
+  try {
+    compile(script, {
+      css: false,
+      format: "cjs",
+      generate: false
+    });
+  } catch (err) {
+    return [false, err.message];
+  }
+  return [true];
+}
 function pipeline_svelte(options) {
   const {compiler: compiler2, context} = PipelineSvelteOptions(options);
   const writable_store = writable("");
   const derived_store = derived(writable_store, (script) => {
     if (!script)
       return null;
+    let [validated, message] = validate_svelte(script);
+    if (!validated)
+      return {message, type: PIPELINE_RESULT_TYPES.error};
     const {css, js} = compile(script, compiler2);
-    const [validated, message] = validate_code(js.code);
+    [validated, message] = validate_code(js.code);
     if (!validated)
       return {message, type: PIPELINE_RESULT_TYPES.error};
     const module = evaluate_code(js.code, context);
@@ -75,6 +91,7 @@ function pipeline_svelte(options) {
   };
 }
 export {
-  pipeline_svelte
+  pipeline_svelte,
+  validate_svelte
 };
 //# sourceMappingURL=svelte.js.map

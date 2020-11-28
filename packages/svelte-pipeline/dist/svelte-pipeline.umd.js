@@ -26871,6 +26871,7 @@ ${frame}`
       imports: {},
       compiler: {
         ...compiler2,
+        css: false,
         format: "cjs"
       },
       context: {
@@ -26880,14 +26881,29 @@ ${frame}`
       }
     };
   }
+  function validate_svelte(script) {
+    try {
+      compile(script, {
+        css: false,
+        format: "cjs",
+        generate: false
+      });
+    } catch (err) {
+      return [false, err.message];
+    }
+    return [true];
+  }
   function pipeline_svelte(options) {
     const {compiler: compiler2, context: context2} = PipelineSvelteOptions(options);
     const writable_store = writable2("");
     const derived_store = derived2(writable_store, (script) => {
       if (!script)
         return null;
+      let [validated, message] = validate_svelte(script);
+      if (!validated)
+        return {message, type: PIPELINE_RESULT_TYPES.error};
       const {css, js} = compile(script, compiler2);
-      const [validated, message] = validate_code(js.code);
+      [validated, message] = validate_code(js.code);
       if (!validated)
         return {message, type: PIPELINE_RESULT_TYPES.error};
       const module = evaluate_code(js.code, context2);

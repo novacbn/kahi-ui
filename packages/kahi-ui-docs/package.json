@@ -7,7 +7,7 @@
         "serve:application": "snowpack dev --reload --port 3000"
     },
     "dependencies": {
-        "@kahi-ui/svelte": "file:../../../kahi-ui-svelte",
+        "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git",
         "svelte-commons": "git+https://github.com/novacbn/svelte-commons.git#0.1.2"
     },
     "devDependencies": {

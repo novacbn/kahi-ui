@@ -1,5 +1,5 @@
 module.exports = {
-    plugins: ["@snowpack/plugin-svelte", "snowpack-plugin-mdsvex", "@snowpack/plugin-dotenv"],
+    plugins: ["@snowpack/plugin-svelte", "@snowpack/plugin-dotenv"],
 
     mount: {
         public: "/kahi-ui",

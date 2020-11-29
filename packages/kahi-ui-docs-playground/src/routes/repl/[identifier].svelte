@@ -12,6 +12,8 @@
 
     import Layout from "../$layout.svelte";
 
+    import * as Editors from "../../components/editors";
+
     const store = pipeline();
     const filesystem = get_filesystem();
 
@@ -26,7 +28,6 @@
 
     async function read_script(path) {
         const script_path = join(path, "Application.svelte");
-        console.log({script_path});
 
         script = await filesystem.read_file_text(script_path);
     }
@@ -72,3 +73,5 @@
 {#if err}
     <Box palette="negative" variation="outline">{err}</Box>
 {/if}
+
+<Editors.Code />

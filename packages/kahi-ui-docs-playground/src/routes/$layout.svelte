@@ -1,7 +1,15 @@
 <script>
+    import {Container} from "@kahi-ui/svelte";
+
+    import * as Heroes from "../components/heroes";
     import * as Navigation from "../components/navigation";
+
+    export let resumable = false;
 </script>
 
-<Navigation.Playground />
+<Navigation.Landing />
+<Heroes.Landing {resumable} />
 
-<slot />
+<Container as="main">
+    <slot />
+</Container>

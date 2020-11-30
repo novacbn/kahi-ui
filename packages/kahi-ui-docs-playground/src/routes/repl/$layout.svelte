@@ -18,7 +18,7 @@
 
 <Stack class="repl-layout-stack" alignment-x="stretch">
     <Navigation.Application />
-    <Navigation.Playground bind:rotation bind:title bind:view on:title_change />
+    <Navigation.Playground bind:rotation bind:title bind:view on:change />
 
     <slot />
 </Stack>

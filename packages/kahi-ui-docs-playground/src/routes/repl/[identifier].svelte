@@ -39,12 +39,12 @@
     }
 
     async function on_title_change(event) {
-        const {title} = event.detail;
+        const {value} = event.detail;
 
         if (filesystem) {
             const data = await filesystem.read_file_json(WORKSPACE_DATA);
 
-            filesystem.write_file_json(WORKSPACE_DATA, {...data, title});
+            filesystem.write_file_json(WORKSPACE_DATA, {...data, title: value});
         }
     }
 
@@ -105,7 +105,7 @@
     <Editors.Stylesheet value={stylesheet} />
 {/if}
 
-<Layout bind:rotation bind:title bind:view on:title_change={on_title_change}>
+<Layout bind:rotation bind:view on:change={on_title_change} {title}>
     <Stack
         class="repl-editor-stack"
         alignment-x="stretch"

@@ -1,3 +1,14 @@
+<script context="module">
+    import hljs from "highlight.js/lib/core";
+    import css from "highlight.js/lib/languages/css";
+    import javascript from "highlight.js/lib/languages/javascript";
+    import xml from "highlight.js/lib/languages/xml";
+
+    hljs.registerLanguage("css", css);
+    hljs.registerLanguage("html", xml);
+    hljs.registerLanguage("javascript", javascript);
+</script>
+
 <script>
     import {CodeJar} from "codejar";
 
@@ -12,7 +23,7 @@
     let codejar = null;
 
     function mount(element) {
-        codejar = CodeJar(element, () => void 0, {addClosing, indentOn, spellcheck, tab});
+        codejar = CodeJar(element, hljs.highlightBlock, {addClosing, indentOn, spellcheck, tab});
 
         codejar.onUpdate((text) => {
             if (text !== value) value = text;
@@ -34,4 +45,4 @@
     }
 </style>
 
-<pre bind:this={container}><code>{value}</code></pre>
+<pre class="language-html" bind:this={container}><code>{value}</code></pre>

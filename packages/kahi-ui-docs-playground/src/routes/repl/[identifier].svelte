@@ -55,19 +55,19 @@
 
     $: if (script) $store = script;
 
-    let Component, err, stylesheet;
+    let Component, error, stylesheet;
     $: {
         const result = $store;
         if (result) {
             if (result.type === PIPELINE_RESULT_TYPES.error) {
                 Component = null;
-                err = result.message;
+                error = result.message;
             } else {
                 Component = result.module.exports.default;
-                err = null;
+                error = null;
                 stylesheet = result.stylesheet;
             }
-        } else (Component = null), (err = null);
+        } else (Component = null), (error = null);
     }
 </script>
 
@@ -105,7 +105,7 @@
     <Editors.Stylesheet value={stylesheet} />
 {/if}
 
-<Layout bind:rotation bind:view on:change={on_title_change} {title}>
+<Layout bind:rotation bind:view on:change={on_title_change} {error} {title}>
     <Stack
         class="repl-editor-stack"
         alignment-x="stretch"
@@ -123,8 +123,4 @@
             {/if}
         </div>
     </Stack>
-
-    {#if err}
-        <Box palette="negative" variation="outline">{err}</Box>
-    {/if}
 </Layout>

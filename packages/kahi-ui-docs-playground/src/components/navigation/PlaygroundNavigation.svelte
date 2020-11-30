@@ -6,6 +6,7 @@
 
     import * as Form from "../form";
 
+    export let error = null;
     export let rotation = PLAYGROUND_ROTATION.horizontal;
     export let title = "N/A";
     export let view = PLAYGROUND_VIEWS.split;
@@ -25,6 +26,12 @@
 <style>
     :global(.playground-navigation) {
         --omni-margin: 0;
+
+        height: var(--sizing-element-medium);
+    }
+
+    :global(.playground-navigation[data-palette="negative"] > :first-child) {
+        font-family: var(--font-family-monospace);
     }
 
     :global(.playground-navigation button > :first-child) {
@@ -32,44 +39,50 @@
     }
 </style>
 
-<Omni.Container class="playground-navigation" palette="dark">
-    <Omni.Heading>
-        <Form.EditableText palette="light" value={title} on:change />
-    </Omni.Heading>
+{#if error}
+    <Omni.Container class="playground-navigation" palette="negative">
+        <Omni.Body>{error}</Omni.Body>
+    </Omni.Container>
+{:else}
+    <Omni.Container class="playground-navigation" palette="dark">
+        <Omni.Heading>
+            <Form.EditableText palette="light" value={title} on:change />
+        </Omni.Heading>
 
-    <Omni.Footer>
-        <Group>
-            <Button
-                palette="light"
-                variation="clear"
-                active={view === PLAYGROUND_VIEWS.split}
-                on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.split)}>
-                <IconColumns size="1em" />
-                Split
+        <Omni.Footer>
+            <Group>
+                <Button
+                    palette="light"
+                    variation="clear"
+                    active={view === PLAYGROUND_VIEWS.split}
+                    on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.split)}>
+                    <IconColumns size="1em" />
+                    Split
+                </Button>
+
+                <Button
+                    palette="light"
+                    variation="clear"
+                    active={view === PLAYGROUND_VIEWS.code}
+                    on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.code)}>
+                    <IconCode size="1em" />
+                    Code
+                </Button>
+
+                <Button
+                    palette="light"
+                    variation="clear"
+                    active={view === PLAYGROUND_VIEWS.preview}
+                    on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.preview)}>
+                    <IconMaximize size="1em" />
+                    Preview
+                </Button>
+            </Group>
+
+            <Button palette="light" variation="clear" on:click={on_rotation_click}>
+                <IconRotateCw size="1em" />
+                Rotate
             </Button>
-
-            <Button
-                palette="light"
-                variation="clear"
-                active={view === PLAYGROUND_VIEWS.code}
-                on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.code)}>
-                <IconCode size="1em" />
-                Code
-            </Button>
-
-            <Button
-                palette="light"
-                variation="clear"
-                active={view === PLAYGROUND_VIEWS.preview}
-                on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.preview)}>
-                <IconMaximize size="1em" />
-                Preview
-            </Button>
-        </Group>
-
-        <Button palette="light" variation="clear" on:click={on_rotation_click}>
-            <IconRotateCw size="1em" />
-            Rotate
-        </Button>
-    </Omni.Footer>
-</Omni.Container>
+        </Omni.Footer>
+    </Omni.Container>
+{/if}

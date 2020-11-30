@@ -109,7 +109,7 @@ store_svelte.subscribe((result) => {
     // Which we can use programatically like any other Svelte Component
     const component = new Component({
         target: document.body,
-        data: {
+        props: {
             count: "42",
         },
     });

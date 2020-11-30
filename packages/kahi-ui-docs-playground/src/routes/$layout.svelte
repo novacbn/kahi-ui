@@ -7,7 +7,7 @@
     export let resumable = false;
 </script>
 
-<Navigation.Landing />
+<Navigation.Application position="top" />
 <Heroes.Landing {resumable} />
 
 <Container as="main">

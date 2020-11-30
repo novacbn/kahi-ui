@@ -1,6 +1,6 @@
 <script context="module">
     const LINKS_CENTER = [
-        {href: "/kahi-ui", text: "Home", target: "_blank"},
+        {href: "/kahi-ui/#/docs", text: "Documentation", target: "_blank"},
         {href: "/kahi-ui/render", text: "Render Test", target: "_blank"},
     ];
 
@@ -20,18 +20,29 @@
 </script>
 
 <script>
-    import {Anchor, Button, Menu, Omni, Popover} from "@kahi-ui/svelte";
+    import {Anchor, Button, Divider, Menu, Modifiers, Omni, Popover} from "@kahi-ui/svelte";
+
+    export let position = undefined;
 </script>
 
 <style>
-    :global(.landing-navigation) {
+    :global(.application-navigation) {
         --omni-margin: 0;
+    }
+
+    :global(.application-navigation a) {
+        display: inline-flex;
     }
 </style>
 
-<Omni.Container class="landing-navigation" palette="light" position="top">
+<Omni.Container class="application-navigation" palette="light" {position}>
     <Omni.Heading>
         <Anchor href="/kahi-ui">Kahi UI</Anchor>
+
+        <Divider />
+        <Anchor href="/kahi-ui/playground">
+            <Modifiers.Small>Playground</Modifiers.Small>
+        </Anchor>
     </Omni.Heading>
 
     <Omni.Body hidden="tiny small">
@@ -43,7 +54,7 @@
     </Omni.Body>
 
     <Omni.Body hidden="medium large">
-        <Popover.Container data-sizing="medium" id="landing-navigation-popover">
+        <Popover.Container data-sizing="medium" id="application-navigation-popover">
             <Popover.Button palette="dark" variation="clear">LINKS</Popover.Button>
 
             <Popover.Region>

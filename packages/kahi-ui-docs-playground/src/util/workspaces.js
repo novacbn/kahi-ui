@@ -1,4 +1,4 @@
-import {WORKSPACE_DIRECTORY, WORKSPACE_RECENT} from "./constants";
+import {WORKSPACE_DATA, WORKSPACE_DIRECTORY, WORKSPACE_RECENT} from "./constants";
 import {generate_id} from "./random";
 import {get_filesystem} from "./storage";
 
@@ -19,6 +19,8 @@ export async function create_workspace() {
     }
 
     const scoped_filesystem = filesystem.create_scope(path);
+
+    await scoped_filesystem.write_file_json(WORKSPACE_DATA, {title: "Untitled Workspace"});
     return {identifier, path, filesystem: scoped_filesystem};
 }
 
@@ -31,7 +33,9 @@ export async function get_workspace(identifier) {
     }
 
     const scoped_filesystem = filesystem.create_scope(path);
-    return {identifier, path, filesystem: scoped_filesystem};
+    const {title = "Untitled Workspace"} = await scoped_filesystem.read_file_json(WORKSPACE_DATA);
+
+    return {identifier, path, title, filesystem: scoped_filesystem};
 }
 
 export async function get_recent_workspace() {
@@ -51,18 +55,20 @@ export function has_workspace(identifier) {
 export async function list_workspaces() {
     const filesystem = get_filesystem();
 
-    const entries = await filesystem.read_directory({
+    let entries = await filesystem.read_directory({
         is_directory: true,
         glob: `${WORKSPACE_DIRECTORY}.*`,
     });
 
-    return entries.map((entry, index) => {
+    entries = entries.map(async (entry, index) => {
         const {path} = entry;
+        const identifier = path.slice(WORKSPACE_DIRECTORY.length + 2);
+        const {title = "Untitled Workspace"} = await get_workspace(identifier);
 
-        return {
-            identifier: path.slice(WORKSPACE_DIRECTORY.length + 2),
-        };
+        return {identifier, path, title};
     });
+
+    return Promise.all(entries);
 }
 
 export async function set_recent_workspace(identifier) {

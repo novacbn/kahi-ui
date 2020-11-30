@@ -1,15 +1,16 @@
 <script>
-    import {Tile} from "@kahi-ui/svelte";
+    import {Modifiers, Tile} from "@kahi-ui/svelte";
 
     export let workspace = {};
 
-    $: ({identifier} = workspace);
+    $: ({identifier, title} = workspace);
 </script>
 
 {#if identifier}
     <Tile.Container href="#/repl/{identifier}" palette="light">
         <Tile.Body>
-            <Tile.Heading>{identifier}</Tile.Heading>
+            <Tile.Heading>{title}</Tile.Heading>
+            <Modifiers.Small>{identifier}</Modifiers.Small>
         </Tile.Body>
     </Tile.Container>
 {:else}

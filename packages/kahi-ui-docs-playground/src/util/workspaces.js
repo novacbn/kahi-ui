@@ -18,7 +18,8 @@ export async function create_workspace() {
         break;
     }
 
-    return {identifier, path};
+    const scoped_filesystem = filesystem.create_scope(path);
+    return {identifier, path, filesystem: scoped_filesystem};
 }
 
 export async function get_workspace(identifier) {
@@ -29,7 +30,8 @@ export async function get_workspace(identifier) {
         throw new Error(`bad argument #0 to 'get_workspace' (workspace '${identifier}' not found)`);
     }
 
-    return {identifier, path};
+    const scoped_filesystem = filesystem.create_scope(path);
+    return {identifier, path, filesystem: scoped_filesystem};
 }
 
 export async function get_recent_workspace() {

@@ -12,7 +12,7 @@
         "svelte-commons": "git+https://github.com/novacbn/svelte-commons.git#0.1.2",
         "svelte-feather": "git+https://github.com/novacbn/svelte-feather.git#0.0.1",
         "svelte-pipeline": "file:../svelte-pipeline",
-        "uristorage": "git+https://github.com/novacbn/uristorage.git#0.0.1"
+        "uristorage": "git+https://github.com/novacbn/uristorage.git#0.0.2"
     },
     "devDependencies": {
         "@snowpack/plugin-dotenv": "^2.0.4",

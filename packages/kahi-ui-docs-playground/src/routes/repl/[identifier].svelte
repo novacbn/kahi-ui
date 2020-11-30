@@ -74,14 +74,14 @@
 <style>
     :global(.repl-editor-stack) {
         flex-grow: 1;
+
+        overflow: hidden;
     }
 
     :global(.repl-editor-stack > *) {
         flex-grow: 1;
 
-        border: none;
-        border-radius: 0;
-        resize: none;
+        overflow: auto;
     }
 
     :global(.repl-editor-stack:not([data-orientation])
@@ -111,16 +111,17 @@
         alignment-x="stretch"
         alignment-y="stretch"
         orientation={rotation === PLAYGROUND_ROTATION.horizontal ? 'horizontal' : undefined}>
-        <textarea
-            bind:value={script}
-            data-hidden={view === PLAYGROUND_VIEWS.code || view === PLAYGROUND_VIEWS.split ? undefined : true} />
+        <div
+            data-hidden={view === PLAYGROUND_VIEWS.code || view === PLAYGROUND_VIEWS.split ? undefined : true}>
+            <Editors.Code bind:value={script} />
+        </div>
 
-        {#if Component && script}
-            <div
-                data-hidden={view === PLAYGROUND_VIEWS.preview || view === PLAYGROUND_VIEWS.split ? undefined : true}>
+        <div
+            data-hidden={view === PLAYGROUND_VIEWS.preview || view === PLAYGROUND_VIEWS.split ? undefined : true}>
+            {#if Component && script}
                 <svelte:component this={Component} />
-            </div>
-        {/if}
+            {/if}
+        </div>
     </Stack>
 
     {#if err}

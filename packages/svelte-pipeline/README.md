@@ -37,8 +37,7 @@ const mymath = require("mymath");
 exports.sum = add(1, 2);
 
 // Then, use the imported module to also export a sum
-exports.sum_import = mymath.add(2, 2);
-`;
+exports.sum_import = mymath.add(2, 2);`;
 
 // Finally, we can use all the options we defined to create our pipeline as a Svelte Store
 const store_javascript = pipeline_javascript({
@@ -54,7 +53,7 @@ store_javascript.subscribe((result) => {
     if (result.type === PIPELINE_RESULT_TYPES.error) {
         // If we get the result and it turns out to be an error, we always get
         // back a descriptive error from the Javascript environment / Svelte Compiler
-        console.log(result.error);
+        console.log(result.message);
         return;
     }
 
@@ -97,7 +96,7 @@ const store_svelte = pipeline_svelte({
 
 store_svelte.subscribe((result) => {
     if (result.type === PIPELINE_RESULT_TYPES.error) {
-        console.log(result.error);
+        console.log(result.message);
         return;
     }
 

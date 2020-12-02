@@ -1,23 +1,16 @@
 <script>
-    import {Box, Stack} from "@kahi-ui/svelte";
-
-    import {PIPELINE_RESULT_TYPES} from "svelte-pipeline";
-
-    import {pipeline} from "../../stores/pipeline";
-
-    import {PLAYGROUND_ROTATION, PLAYGROUND_VIEWS, WORKSPACE_DATA} from "../../util/constants";
+    import {REPL_ROTATION, REPL_VIEWS, WORKSPACE_DATA} from "../../util/constants";
     import {get_workspace, set_recent_workspace} from "../../util/workspaces";
 
     import Layout from "./$layout.svelte";
 
-    import * as Editors from "../../components/editors";
+    import * as REPL from "../../components/repl";
 
-    const store = pipeline();
-
-    let rotation = PLAYGROUND_ROTATION.horizontal;
+    let rotation = REPL_ROTATION.horizontal;
     let title = "N/A";
-    let view = PLAYGROUND_VIEWS.split;
+    let view = REPL_VIEWS.split;
 
+    let error = null;
     let filesystem = null;
     let script = "";
 
@@ -48,79 +41,31 @@
         }
     }
 
+    function on_error(event) {
+        const {message} = event.detail;
+
+        error = message;
+    }
+
+    function on_evaluate(event) {
+        error = null;
+    }
+
     $: if (params.identifier) load_workspace(params.identifier);
     $: if (filesystem) set_recent_workspace(params.identifier);
     $: if (filesystem && !script) read_script();
     $: if (filesystem) write_script(script);
-
-    $: if (script) $store = script;
-
-    let Component, error, stylesheet;
-    $: {
-        const result = $store;
-        if (result) {
-            if (result.type === PIPELINE_RESULT_TYPES.error) {
-                Component = null;
-                error = result.message;
-            } else {
-                Component = result.module.exports.default;
-                error = null;
-                stylesheet = result.stylesheet;
-            }
-        } else (Component = null), (error = null);
-    }
 </script>
-
-<style>
-    :global(.repl-editor-stack) {
-        flex-grow: 1;
-
-        overflow: hidden;
-    }
-
-    :global(.repl-editor-stack > *) {
-        flex-grow: 1;
-
-        overflow: auto;
-    }
-
-    :global(.repl-editor-stack:not([data-orientation])
-            > :first-child:not([data-hidden])
-            + :last-child) {
-        border-top: 1px solid black;
-    }
-
-    :global(.repl-editor-stack[data-orientation="horizontal"]
-            > :first-child:not([data-hidden])
-            + :last-child) {
-        border-left: 1px solid black;
-    }
-</style>
 
 <svelte:head>
     <title>{title} — Playground :: Kahi UI</title>
 </svelte:head>
 
-{#if Component && stylesheet}
-    <Editors.Stylesheet value={stylesheet} />
-{/if}
-
 <Layout bind:rotation bind:view on:change={on_title_change} {error} {title}>
-    <Stack
-        class="repl-editor-stack"
-        alignment-x="stretch"
-        alignment-y="stretch"
-        orientation={rotation === PLAYGROUND_ROTATION.horizontal ? 'horizontal' : undefined}>
-        <div
-            data-hidden={view === PLAYGROUND_VIEWS.code || view === PLAYGROUND_VIEWS.split ? undefined : true}>
-            <Editors.Code bind:value={script} />
-        </div>
-
-        <div
-            data-hidden={view === PLAYGROUND_VIEWS.preview || view === PLAYGROUND_VIEWS.split ? undefined : true}>
-            {#if Component && script}
-                <svelte:component this={Component} />
-            {/if}
-        </div>
-    </Stack>
+    <REPL.REPLSplit
+        value={script}
+        on:error={on_error}
+        on:evaluate={on_evaluate}
+        {rotation}
+        {view} />
 </Layout>

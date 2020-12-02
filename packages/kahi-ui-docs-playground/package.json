@@ -9,7 +9,7 @@
     "dependencies": {
         "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git",
         "highlight.js": "^10.4.0",
-        "svelte-codejar": "git+https://github.com/novacbn/svelte-codejar.git",
+        "svelte-codejar": "git+https://github.com/novacbn/svelte-codejar.git#0.0.1",
         "svelte-commons": "git+https://github.com/novacbn/svelte-commons.git#0.1.2",
         "svelte-feather": "git+https://github.com/novacbn/svelte-feather.git#0.0.1",
         "svelte-pipeline": "git+https://github.com/novacbn/svelte-pipeline.git#0.0.1",

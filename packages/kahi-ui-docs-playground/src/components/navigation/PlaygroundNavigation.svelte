@@ -2,20 +2,20 @@
     import {Button, Group, Omni} from "@kahi-ui/svelte";
     import {IconCode, IconColumns, IconMaximize, IconRotateCw} from "svelte-feather";
 
-    import {PLAYGROUND_ROTATION, PLAYGROUND_VIEWS} from "../../util/constants";
+    import {REPL_ROTATION, REPL_VIEWS} from "../../util/constants";
 
     import * as Form from "../form";
 
     export let error = null;
-    export let rotation = PLAYGROUND_ROTATION.horizontal;
+    export let rotation = REPL_ROTATION.horizontal;
     export let title = "N/A";
-    export let view = PLAYGROUND_VIEWS.split;
+    export let view = REPL_VIEWS.split;
 
     function on_rotation_click(event) {
         rotation =
-            rotation === PLAYGROUND_ROTATION.horizontal
-                ? PLAYGROUND_ROTATION.vertical
-                : PLAYGROUND_ROTATION.horizontal;
+            rotation === REPL_ROTATION.horizontal
+                ? REPL_ROTATION.vertical
+                : REPL_ROTATION.horizontal;
     }
 
     function on_view_click(_view, event) {
@@ -54,8 +54,8 @@
                 <Button
                     palette="light"
                     variation="clear"
-                    active={view === PLAYGROUND_VIEWS.split}
-                    on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.split)}>
+                    active={view === REPL_VIEWS.split}
+                    on:click={on_view_click.bind(null, REPL_VIEWS.split)}>
                     <IconColumns size="1em" />
                     Split
                 </Button>
@@ -63,8 +63,8 @@
                 <Button
                     palette="light"
                     variation="clear"
-                    active={view === PLAYGROUND_VIEWS.code}
-                    on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.code)}>
+                    active={view === REPL_VIEWS.editor}
+                    on:click={on_view_click.bind(null, REPL_VIEWS.editor)}>
                     <IconCode size="1em" />
                     Code
                 </Button>
@@ -72,8 +72,8 @@
                 <Button
                     palette="light"
                     variation="clear"
-                    active={view === PLAYGROUND_VIEWS.preview}
-                    on:click={on_view_click.bind(null, PLAYGROUND_VIEWS.preview)}>
+                    active={view === REPL_VIEWS.render}
+                    on:click={on_view_click.bind(null, REPL_VIEWS.render)}>
                     <IconMaximize size="1em" />
                     Preview
                 </Button>

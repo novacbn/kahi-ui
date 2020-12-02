@@ -14,17 +14,39 @@
 <script>
     import {CodeJar} from "svelte-codejar";
 
+    let _class = "";
+    export let style = undefined;
+    export {_class as class};
+
     export let value = "";
 </script>
 
 <style>
-    :global(.simple-repl-container) {
+    :global(.repl-editor),
+    :global(.repl-editor > *) {
+        padding: 0;
         margin: 0;
+
+        width: max-content;
+        height: max-content;
+
+        min-width: 100%;
         min-height: 100%;
 
+        overflow: visible !important;
+    }
+
+    :global(.repl-editor) {
+        padding: var(--repl-editor-padding, 0.5em 1em);
+
+        font-size: var(--repl-editor-font-size, 0.95rem);
+
         resize: none !important;
-        overflow: visible;
+    }
+
+    :global(.repl-editor > *) {
+        font-family: var(--repl-editor-font-family, monospace);
     }
 </style>
 
-<CodeJar class="simple-repl-container" bind:value {highlightElement} />
+<CodeJar class="repl-editor {_class}" bind:value {highlightElement} {style} />

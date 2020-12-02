@@ -7,36 +7,18 @@
     hljs.registerLanguage("css", css);
     hljs.registerLanguage("html", xml);
     hljs.registerLanguage("javascript", javascript);
+
+    const highlightElement = (element, syntax) => hljs.highlightBlock(element);
 </script>
 
 <script>
-    import {CodeJar} from "codejar";
-
-    export let addClosing = true;
-    export let indentOn = /{$/;
-    export let spellcheck = false;
-    export let tab = "\t";
+    import {CodeJar} from "svelte-codejar";
 
     export let value = "";
-
-    let container = null;
-    let codejar = null;
-
-    function mount(element) {
-        codejar = CodeJar(element, hljs.highlightBlock, {addClosing, indentOn, spellcheck, tab});
-
-        codejar.onUpdate((text) => {
-            if (text !== value) value = text;
-        });
-    }
-
-    $: if (container) mount(container);
-    $: if (codejar) codejar.updateOptions({addClosing, indentOn, spellcheck, tab});
-    $: if (codejar && codejar.toString() !== value) codejar.updateCode(value);
 </script>
 
 <style>
-    pre {
+    :global(.simple-repl-container) {
         margin: 0;
         min-height: 100%;
 
@@ -45,4 +27,4 @@
     }
 </style>
 
-<pre class="language-html" bind:this={container}><code>{value}</code></pre>
+<CodeJar class="simple-repl-container" bind:value {highlightElement} />

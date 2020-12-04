@@ -2,7 +2,7 @@
 
 > **NOTE**: This framework is considered **`pre-alpha`**, utilize at your own risk!
 
-> Straight-forward UI for the modern Web Applications
+> Straight-forward UI for the modern Web Application
 
 ## Documentation
 

@@ -20,6 +20,7 @@
         "@snowpack/plugin-svelte": "^3.3.0",
         "prettier": "^2.2.0",
         "snowpack": "^2.17.1",
+        "snowpack-plugin-markdown": "git+https://github.com/novacbn/snowpack-plugin-markdown.git#0.0.1",
         "svelte": "^3.30.0"
     }
 }

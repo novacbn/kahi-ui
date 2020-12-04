@@ -1,7 +1,14 @@
+const {samples} = require("./plugins/samples");
+
 module.exports = {
     plugins: [
         "@snowpack/plugin-svelte",
-        ["snowpack-plugin-markdown", {}],
+        [
+            "snowpack-plugin-markdown",
+            {
+                remark: [samples],
+            },
+        ],
         "@snowpack/plugin-dotenv",
     ],
 

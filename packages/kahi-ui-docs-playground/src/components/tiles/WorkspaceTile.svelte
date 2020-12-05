@@ -7,7 +7,7 @@
 </script>
 
 {#if identifier}
-    <Tile.Container href="#/repl/{identifier}" palette="light">
+    <Tile.Container href="#/repl/workspace/{identifier}" palette="light">
         <Tile.Body>
             <Tile.Heading>{title}</Tile.Heading>
             <Modifiers.Small>{identifier}</Modifiers.Small>

@@ -19,7 +19,9 @@
                 <Button href="#/repl" palette="affirmative">Create new Workspace</Button>
             {/if}
 
-            <Button palette="light" variation="outline">Create from Template</Button>
+            <Button href="#/repl/create" palette="light" variation="outline">
+                Create from Template
+            </Button>
         </Stack>
     </Hero.Footer>
 </Hero.Container>

@@ -1,5 +1,5 @@
 <script>
-    import {APPLICATION_ROUTER} from "./util/router";
+    import APPLICATION_ROUTER from "./router.manifest";
     import {is_mounted, mount} from "./util/storage";
 
     import Error404 from "./routes/$404.svelte";

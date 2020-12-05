@@ -4,7 +4,8 @@ import {get_filesystem} from "./storage";
 
 // TODO: Update `uristorage` to allow creation of `FileSystemOverlay` instances of specific paths
 
-export async function create_workspace() {
+export async function create_workspace(workspace = {}) {
+    const {title = "Untitled Workspace"} = workspace;
     const filesystem = get_filesystem();
 
     let identifier, path;
@@ -20,8 +21,17 @@ export async function create_workspace() {
 
     const scoped_filesystem = filesystem.create_scope(path);
 
-    await scoped_filesystem.write_file_json(WORKSPACE_DATA, {title: "Untitled Workspace"});
+    await scoped_filesystem.write_file_json(WORKSPACE_DATA, {title});
     return {identifier, path, filesystem: scoped_filesystem};
+}
+
+export async function create_workspace_from_sample(sample = {}) {
+    const {script = "", title = "Untitled Sample"} = sample;
+    const {identifier, path, filesystem} = await create_workspace({title});
+
+    await filesystem.write_file_text("Application.svelte", script);
+
+    return {identifier, filesystem, path};
 }
 
 export async function get_workspace(identifier) {

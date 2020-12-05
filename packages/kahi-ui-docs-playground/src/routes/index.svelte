@@ -19,7 +19,17 @@
     init();
 </script>
 
-<Layout {resumable}>
+<style>
+    [slot="hero"] {
+        display: contents;
+    }
+</style>
+
+<Layout>
+    <div slot="hero">
+        <Heroes.Landing {resumable} />
+    </div>
+
     <Heading level={2}>Recent Workspaces</Heading>
 
     {#if workspaces}

@@ -13,7 +13,7 @@ module.exports = {
     ],
 
     alias: {
-        "@samples": "../../samples",
+        "@content": "../../samples",
     },
 
     mount: {

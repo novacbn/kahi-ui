@@ -8,7 +8,7 @@
 </script>
 
 {#if $component}
-    <svelte:component this={$component} params={$params} query={$query} />
+    <svelte:component this={$component} {...$query} {...$params} />
 {:else}
     <Error404 path={$path} />
 {/if}

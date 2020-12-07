@@ -1,20 +1,56 @@
 import DOCUMENTATION_MANIFEST from "../docs.manifest";
 
-const DOCUMENTATION_PAGES = Object.entries(DOCUMENTATION_MANIFEST).map((entry) => {
-    const [identifier, document] = entry;
-    const {frontmatter, html} = document;
-    const {title} = frontmatter;
+const DOCUMENTATION_CATEGORIES = Array.from(
+    new Set(
+        Object.entries(DOCUMENTATION_MANIFEST).map((entry, index) => {
+            const [identifier] = entry;
+            const last_index = identifier.indexOf("/");
 
-    return {
-        html,
-        title,
-        identifier: identifier.slice(1),
-        href: `#/documentation${identifier}`,
-    };
-});
+            return last_index > -1 ? identifier.slice(0, last_index) : identifier;
+        })
+    )
+);
 
-export function get_page(identifier) {
-    const page = DOCUMENTATION_PAGES.find((_page) => _page.identifier === identifier);
+const DOCUMENTATION_PAGES = Object.fromEntries(
+    Object.entries(DOCUMENTATION_MANIFEST).map((entry, index) => {
+        const [identifier, page] = entry;
+        const {FRONTMATTER, HTML} = page;
+        const {title = "Unknown Document"} = FRONTMATTER;
+
+        return [
+            identifier,
+            {
+                identifier,
+                title,
+                html: HTML,
+                href:
+                    identifier === "framework"
+                        ? "#/documentation"
+                        : `#/documentation/${identifier}`,
+            },
+        ];
+    })
+);
+
+const DOCUMENTATION_CATEGORIZED = (() => {
+    const pages = Object.values(DOCUMENTATION_PAGES);
+
+    return DOCUMENTATION_CATEGORIES.map((category, index) => {
+        return {
+            category,
+            pages: pages.filter((page) => page.identifier.startsWith(category)),
+        };
+    });
+})();
+
+export function get_categories() {
+    return [...DOCUMENTATION_CATEGORIES];
+}
+
+export function get_page(identifier = "") {
+    if (identifier === "") identifier = "framework";
+    const page = DOCUMENTATION_PAGES[identifier];
+
     if (!page) {
         throw new Error(
             `bad argument #0 to 'get_page' (documentation page '${identifier}' not found)`
@@ -24,4 +60,6 @@ export function get_page(identifier) {
     return page;
 }
 
-export function get_pages()
+export function get_pages() {
+    return [...DOCUMENTATION_CATEGORIZED];
+}

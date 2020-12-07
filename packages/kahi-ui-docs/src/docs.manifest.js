@@ -1,4 +1,4 @@
-import * as INDEX from "@content/index.md";
+import * as FRAMEWORK_INDEX from "@content/index.md";
 
 import * as COMPONENTS_INDEX from "@content/components/index.md";
 import * as COMPONENTS_BADGE from "@content/components/badge.md";
@@ -57,75 +57,75 @@ import * as TYPOGRAPHY_PARAGRAPH from "@content/typography/paragraph.md";
 export default {
     /** FRAMEWORK */
 
-    "/": INDEX,
+    framework: FRAMEWORK_INDEX,
 
     /** COMPONENTS */
 
-    "/components": COMPONENTS_INDEX,
-    "/components/badge": COMPONENTS_BADGE,
-    "/components/button": COMPONENTS_BUTTON,
-    "/components/divider": COMPONENTS_DIVIDER,
-    "/components/loader": COMPONENTS_LOADER,
-    "/components/placeholder": COMPONENTS_PLACEHOLDER,
-    "/components/spacer": COMPONENTS_SPACER,
-    "/components/tab": COMPONENTS_TAB,
+    components: COMPONENTS_INDEX,
+    "components/badge": COMPONENTS_BADGE,
+    "components/button": COMPONENTS_BUTTON,
+    "components/divider": COMPONENTS_DIVIDER,
+    "components/loader": COMPONENTS_LOADER,
+    "components/placeholder": COMPONENTS_PLACEHOLDER,
+    "components/spacer": COMPONENTS_SPACER,
+    "components/tab": COMPONENTS_TAB,
 
     /** ELEMENTS */
 
-    "/elements": ELEMENTS_INDEX,
-    "/elements/embedded": ELEMENTS_EMBEDDED,
-    "/elements/lists": ELEMENTS_LISTS,
-    "/elements/table": ELEMENTS_TABLE,
+    elements: ELEMENTS_INDEX,
+    "elements/embedded": ELEMENTS_EMBEDDED,
+    "elements/lists": ELEMENTS_LISTS,
+    "elements/table": ELEMENTS_TABLE,
 
     /** FORM */
 
-    "/form": FORM_INDEX,
-    "/form/field": FORM_FIELD,
-    "/form/toggle": FORM_TOGGLE,
+    form: FORM_INDEX,
+    "form/field": FORM_FIELD,
+    "form/toggle": FORM_TOGGLE,
 
     /** LAYOUT */
 
-    "/layout": LAYOUT_INDEX,
-    "/layout/container": LAYOUT_CONTAINER,
-    "/layout/grid": LAYOUT_GRID,
-    "/layout/group": LAYOUT_GROUP,
-    "/layout/mosaic": LAYOUT_MOSAIC,
-    "/layout/stack": LAYOUT_STACK,
+    layout: LAYOUT_INDEX,
+    "layout/container": LAYOUT_CONTAINER,
+    "layout/grid": LAYOUT_GRID,
+    "layout/group": LAYOUT_GROUP,
+    "layout/mosaic": LAYOUT_MOSAIC,
+    "layout/stack": LAYOUT_STACK,
 
     /** NAVIGATION */
 
-    "/navigation": NAVIGATION_INDEX,
-    "/navigation/aside": NAVIGATION_ASIDE,
-    "/navigation/breadcrumb": NAVIGATION_BREADCRUMB,
-    "/navigation/icon": NAVIGATION_ICON,
-    "/navigation/menu": NAVIGATION_MENU,
-    "/navigation/omni": NAVIGATION_OMNI,
-    "/navigation/pagination": NAVIGATION_PAGINATION,
-    "/navigation/tree": NAVIGATION_TREE,
+    navigation: NAVIGATION_INDEX,
+    "navigation/aside": NAVIGATION_ASIDE,
+    "navigation/breadcrumb": NAVIGATION_BREADCRUMB,
+    "navigation/icon": NAVIGATION_ICON,
+    "navigation/menu": NAVIGATION_MENU,
+    "navigation/omni": NAVIGATION_OMNI,
+    "navigation/pagination": NAVIGATION_PAGINATION,
+    "navigation/tree": NAVIGATION_TREE,
 
     /** OVERLAYS */
 
-    "/overlays": OVERLAYS_INDEX,
-    "/overlays/dialog": OVERLAYS_DIALOG,
-    "/overlays/popover": OVERLAYS_POPOVER,
-    "/overlays/sheet": OVERLAYS_SHEET,
-    "/overlays/toast": OVERLAYS_TOAST,
+    overlays: OVERLAYS_INDEX,
+    "overlays/dialog": OVERLAYS_DIALOG,
+    "overlays/popover": OVERLAYS_POPOVER,
+    "overlays/sheet": OVERLAYS_SHEET,
+    "overlays/toast": OVERLAYS_TOAST,
 
     /** SURFACES */
 
-    "/surfaces": SURFACES_INDEX,
-    "/surfaces/": SURFACES_BOX,
-    "/surfaces/": SURFACES_CARD,
-    "/surfaces/": SURFACES_COLLAPSE,
-    "/surfaces/": SURFACES_HERO,
-    "/surfaces/": SURFACES_TILE,
+    surfaces: SURFACES_INDEX,
+    "surfaces/": SURFACES_BOX,
+    "surfaces/": SURFACES_CARD,
+    "surfaces/": SURFACES_COLLAPSE,
+    "surfaces/": SURFACES_HERO,
+    "surfaces/": SURFACES_TILE,
 
     /** TYPOGRAPHY */
 
-    "/typography": TYPOGRAPHY_INDEX,
-    "/typography/anchor": TYPOGRAPHY_ANCHOR,
-    "/typography/formatting": TYPOGRAPHY_FORMATTING,
-    "/typography/heading": TYPOGRAPHY_HEADING,
-    "/typography/modifiers": TYPOGRAPHY_MODIFIERS,
-    "/typography/paragraph": TYPOGRAPHY_PARAGRAPH,
+    typography: TYPOGRAPHY_INDEX,
+    "typography/anchor": TYPOGRAPHY_ANCHOR,
+    "typography/formatting": TYPOGRAPHY_FORMATTING,
+    "typography/heading": TYPOGRAPHY_HEADING,
+    "typography/modifiers": TYPOGRAPHY_MODIFIERS,
+    "typography/paragraph": TYPOGRAPHY_PARAGRAPH,
 };

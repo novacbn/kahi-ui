@@ -89,8 +89,6 @@ export async function remove_workspace(identifier) {
         );
     }
 
-    console.log({filesystem, path});
-
     await filesystem.remove_directory(path, {
         recursive: true,
     });

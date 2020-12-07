@@ -55,6 +55,8 @@ import * as TYPOGRAPHY_MODIFIERS from "@content/typography/modifiers.md";
 import * as TYPOGRAPHY_PARAGRAPH from "@content/typography/paragraph.md";
 
 export default {
+    /** FRAMEWORK */
+
     "/": INDEX,
 
     /** COMPONENTS */

@@ -7,6 +7,10 @@
     import Layout from "./$layout.svelte";
 </script>
 
+<svelte:head>
+    <title>Kahi UI :: Straight-forward UI for the Modern Web Application</title>
+</svelte:head>
+
 <Layout>
     <Heroes.Landing />
 

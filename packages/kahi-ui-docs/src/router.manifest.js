@@ -13,6 +13,8 @@ export default router(
         /** Documentation Routes */
 
         "/documentation": DocumentationIndex,
+        "/documentation/:category": DocumentationIndex,
+        "/documentation/:category/:page": DocumentationIndex,
     },
     {hash: true}
 );

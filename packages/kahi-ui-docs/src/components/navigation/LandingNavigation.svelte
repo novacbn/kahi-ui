@@ -1,6 +1,7 @@
 <script context="module">
     const LINKS_CENTER = [
         {href: "#/documentation", text: "Documentation"},
+        {href: "/kahi-ui/playground", text: "Playground", target: "_blank"},
         {href: "/kahi-ui/render", text: "Render Test", target: "_blank"},
     ];
 

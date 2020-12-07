@@ -40,6 +40,7 @@
         <Anchor href="/kahi-ui">Kahi UI</Anchor>
 
         <Divider />
+
         <Anchor href="/kahi-ui/playground#/">
             <Modifiers.Small>Playground</Modifiers.Small>
         </Anchor>

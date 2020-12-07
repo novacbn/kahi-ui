@@ -18,5 +18,9 @@ module.exports.docs = function docs(options = {}) {
     const processor = this;
     const frontmatter = processor.data("frontmatter");
 
-    return (tree) => {};
+    return (tree) => {
+        child_visit(tree, NODE_TYPE_HEADING, NODE_TYPE_TEXT, (node) => {
+            if (!frontmatter.has("title")) frontmatter.set("title", node.value);
+        });
+    };
 };

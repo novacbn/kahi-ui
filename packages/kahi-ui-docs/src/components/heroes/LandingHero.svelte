@@ -1,28 +1,25 @@
 <script>
-    import {Button, Hero} from "@kahi-ui/svelte";
+    import {Button, Hero, Stack} from "@kahi-ui/svelte";
 </script>
 
 <style>
-    :global(.landing-hero-body) {
-        margin-top: var(--spacing-block-large);
+    :global(.landing-hero-heading) {
+        margin-bottom: var(--spacing-block-large);
     }
 </style>
 
 <Hero.Container palette="light" size="viewport">
-    <Hero.Heading>Straight-forward UI for the Modern Web Application</Hero.Heading>
+    <Hero.Heading class="landing-hero-heading">
+        Straight-forward UI for the Modern Web Application
+    </Hero.Heading>
 
-    <Hero.Body class="landing-hero-body">
-        <Button href="#/documentation/getting-started" palette="accent" size="small">
-            Getting Started
-        </Button>
+    <Hero.Footer>
+        <Stack orientation="horizontal" spacing="small">
+            <Button href="#/documentation" palette="accent">Getting Started</Button>
 
-        <Button
-            href="/kahi-ui/render"
-            target="_blank"
-            palette="dark"
-            variation="outline"
-            size="small">
-            Render Test
-        </Button>
-    </Hero.Body>
+            <Button href="/kahi-ui/playground" target="_blank" palette="dark" variation="outline">
+                Playground
+            </Button>
+        </Stack>
+    </Hero.Footer>
 </Hero.Container>

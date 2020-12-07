@@ -1,5 +1,16 @@
+const {docs} = require("./plugins/docs");
+
 module.exports = {
-    plugins: ["@snowpack/plugin-svelte", "snowpack-plugin-markdown", "@snowpack/plugin-dotenv"],
+    plugins: [
+        "@snowpack/plugin-svelte",
+        [
+            "snowpack-plugin-markdown",
+            {
+                remark: [docs],
+            },
+        ],
+        "@snowpack/plugin-dotenv",
+    ],
 
     alias: {
         "@content": "../../docs",

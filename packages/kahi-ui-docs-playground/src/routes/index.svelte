@@ -1,7 +1,7 @@
 <script>
     import {Heading, Stack} from "@kahi-ui/svelte";
 
-    import {get_recent_workspace, list_workspaces} from "../util/workspaces";
+    import {get_recent_workspace, list_workspaces, remove_workspace} from "../util/workspaces";
 
     import Layout from "./$layout.svelte";
 
@@ -16,6 +16,14 @@
         workspaces = await list_workspaces();
     }
 
+    async function on_delete_click(event) {
+        const {workspace} = event.detail;
+        const {identifier} = workspace;
+
+        await remove_workspace(identifier);
+        init();
+    }
+
     init();
 </script>
 
@@ -24,6 +32,10 @@
         display: contents;
     }
 </style>
+
+<svelte:head>
+    <title>Playground :: Kahi UI</title>
+</svelte:head>
 
 <Layout>
     <div slot="hero">
@@ -38,7 +50,7 @@
         {:else}
             <Stack alignment-x="stretch" spacing="medium">
                 {#each workspaces as workspace (workspace.identifier)}
-                    <Tiles.Workspace {workspace} />
+                    <Tiles.Workspace {workspace} on:delete={on_delete_click} />
                 {/each}
             </Stack>
         {/if}

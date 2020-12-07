@@ -2,8 +2,6 @@ import {WORKSPACE_DATA, WORKSPACE_DIRECTORY, WORKSPACE_RECENT} from "./constants
 import {generate_id} from "./random";
 import {get_filesystem} from "./storage";
 
-// TODO: Update `uristorage` to allow creation of `FileSystemOverlay` instances of specific paths
-
 export async function create_workspace(workspace = {}) {
     const {title = "Untitled Workspace"} = workspace;
     const filesystem = get_filesystem();
@@ -79,6 +77,29 @@ export async function list_workspaces() {
     });
 
     return Promise.all(entries);
+}
+
+export async function remove_workspace(identifier) {
+    const filesystem = get_filesystem();
+    const path = `${WORKSPACE_DIRECTORY}.${identifier}`;
+
+    if (!(await filesystem.exists(path))) {
+        throw new Error(
+            `bad argument #0 to 'remove_workspace' (workspace '${identifier}' not found)`
+        );
+    }
+
+    console.log({filesystem, path});
+
+    await filesystem.remove_directory(path, {
+        recursive: true,
+    });
+
+    const recent = await get_recent_workspace();
+    if (recent) {
+        const workspaces = await list_workspaces();
+        await set_recent_workspace(workspaces[0].identifier);
+    }
 }
 
 export async function set_recent_workspace(identifier) {

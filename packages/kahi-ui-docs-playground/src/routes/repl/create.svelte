@@ -25,6 +25,10 @@
     $: samples = get_samples(syntax);
 </script>
 
+<svelte:head>
+    <title>Templates — Playground :: Kahi UI</title>
+</svelte:head>
+
 <Layout>
     <Heading level={2}>Workspace Templates</Heading>
     <Boxes.Templates bind:syntax />

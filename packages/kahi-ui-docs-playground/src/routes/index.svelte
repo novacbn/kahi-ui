@@ -36,7 +36,7 @@
         {#if workspaces.length < 1}
             <Heroes.NoWorkspaces />
         {:else}
-            <Stack alignment-x="stretch" spacing="small">
+            <Stack alignment-x="stretch" spacing="medium">
                 {#each workspaces as workspace (workspace.identifier)}
                     <Tiles.Workspace {workspace} />
                 {/each}

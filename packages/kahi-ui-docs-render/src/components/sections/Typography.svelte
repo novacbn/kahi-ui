@@ -5,6 +5,7 @@
         {id: "typography-headings", text: "Headings"},
         {id: "typography-paragraphs", text: "Paragraphs"},
         {id: "typography-modifiers", text: "Modifiers"},
+        {id: "typography-quote", text: "Quote"},
     ];
 
     const TEXT_PRE_BLOCK = `P R E F O R M A T T E D T E X T
@@ -18,7 +19,15 @@ p q r s t u v w x y z { | } ~
 </script>
 
 <script>
-    import {Anchor, Divider, Formatting, Heading, Modifiers, Paragraph} from "@kahi-ui/svelte";
+    import {
+        Anchor,
+        Divider,
+        Formatting,
+        Heading,
+        Modifiers,
+        Paragraph,
+        Quote,
+    } from "@kahi-ui/svelte";
 
     import * as Menus from "../menus";
 </script>
@@ -87,4 +96,51 @@ p q r s t u v w x y z { | } ~
     <Modifiers.Bold>This is bold text!</Modifiers.Bold><br />
     <Modifiers.Italic>This is italicized text!</Modifiers.Italic><br />
     <Modifiers.Small>This is small text!</Modifiers.Small>
+</article>
+
+<article id="typography-quote">
+    <Heading>Typography :: Quote</Heading>
+
+    <Quote.Container>
+        <Paragraph>
+            A block quotation (also known as a long quotation or extract) is a quotation in a
+            written document, that is set off from the main text as a paragraph, or block of text.
+        </Paragraph>
+
+        <Paragraph>
+            It is typically distinguished visually using indentation and a different typeface or
+            smaller size quotation. It may or may not include a citation, usually placed at the
+            bottom.
+        </Paragraph>
+
+        <Quote.Cite>
+            <Anchor href="#typography-quote">Said no one, ever.</Anchor>
+        </Quote.Cite>
+    </Quote.Container>
+
+    <Heading level="2">Quote Palettes</Heading>
+
+    <Quote.Container palette="accent">
+        <Paragraph>Blockquote ACCENT</Paragraph>
+    </Quote.Container>
+
+    <Quote.Container palette="dark">
+        <Paragraph>Blockquote DARK</Paragraph>
+    </Quote.Container>
+
+    <Quote.Container palette="light">
+        <Paragraph>Blockquote LIGHT</Paragraph>
+    </Quote.Container>
+
+    <Quote.Container palette="alert">
+        <Paragraph>Blockquote ALERT</Paragraph>
+    </Quote.Container>
+
+    <Quote.Container palette="affirmative">
+        <Paragraph>Blockquote AFFIRMATIVE</Paragraph>
+    </Quote.Container>
+
+    <Quote.Container palette="negative">
+        <Paragraph>Blockquote NEGATIVE</Paragraph>
+    </Quote.Container>
 </article>

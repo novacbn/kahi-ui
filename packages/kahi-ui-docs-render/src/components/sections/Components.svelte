@@ -12,7 +12,7 @@
 </script>
 
 <script>
-    import {Box, Button, Divider, Heading} from "@kahi-ui/svelte";
+    import {Box, Badge, Button, Divider, Heading, Spacer} from "@kahi-ui/svelte";
 
     import * as Menus from "../menus";
 </script>
@@ -88,6 +88,79 @@
 
 <article id="components-badges">
     <Heading>Components :: Badges</Heading>
+
+    <Badge>Badge DEFAULT</Badge>
+    <Badge active>Badge ACTIVE</Badge>
+    <Badge disabled>Badge DISABLED</Badge>
+
+    <Heading level="2">Block Palettes</Heading>
+
+    <Badge>Block DEFAULT</Badge>
+
+    <Badge palette="accent">Block ACCENT</Badge>
+
+    <Badge palette="dark">Block DARK</Badge>
+    <Badge palette="light">Block LIGHT</Badge>
+
+    <Badge palette="alert">Block ALERT</Badge>
+    <Badge palette="affirmative">Block AFFIRMATIVE</Badge>
+    <Badge palette="negative">Block NEGATIVE</Badge>
+
+    <Heading level="2">Clear Palettes</Heading>
+
+    <Badge variation="clear">Clear ACCENT</Badge>
+
+    <Badge variation="clear" palette="accent">Clear DEFAULT</Badge>
+
+    <Badge variation="clear" palette="dark">Clear DARK</Badge>
+    <Badge variation="clear" palette="light">Clear LIGHT</Badge>
+
+    <Badge variation="clear" palette="alert">Clear ALERT</Badge>
+    <Badge variation="clear" palette="affirmative">Clear AFFIRMATIVE</Badge>
+    <Badge variation="clear" palette="negative">Clear NEGATIVE</Badge>
+
+    <Heading level="2">Outline Palettes</Heading>
+
+    <Badge variation="outline">Outline DEFAULT</Badge>
+
+    <Badge variation="outline" palette="accent">Outline ACCENT</Badge>
+
+    <Badge variation="outline" palette="dark">Outline DARK</Badge>
+    <Badge variation="outline" palette="light">Outline LIGHT</Badge>
+
+    <Badge variation="outline" palette="alert">Outline ALERT</Badge>
+    <Badge variation="outline" palette="affirmative">Outline AFFIRMATIVE</Badge>
+    <Badge variation="outline" palette="negative">Outline NEGATIVE</Badge>
+
+    <Heading level="2">Badge Sizes</Heading>
+
+    <Badge size="tiny">Badge TINY</Badge>
+    <Badge size="small">Badge SMALL</Badge>
+
+    <Badge>Badge DEFAULT</Badge>
+
+    <Badge size="large">Badge LARGE</Badge>
+    <Badge size="huge">Badge HUGE</Badge>
+
+    <Heading level="2">Badge Shapes</Heading>
+
+    <Badge shape="pill">Block PILL</Badge>
+    <Badge shape="pill" variation="clear">Clear PILL</Badge>
+    <Badge shape="pill" variation="outline">Outline PILL</Badge>
+
+    <Heading level="2">Badge Positioning</Heading>
+
+    <span>
+        This is sample text.
+        <Badge position="raised">Badge RAISED</Badge>
+    </span>
+
+    <Spacer spacing="small" />
+
+    <Button>
+        This is a sample Button
+        <Badge palette="accent" position="floated">Badge FLOATED</Badge>
+    </Button>
 </article>
 
 <Divider />

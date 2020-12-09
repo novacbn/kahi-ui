@@ -1,7 +1,9 @@
 <script>
     import * as Heroes from "../components/heroes";
-
-    export let path = "";
 </script>
+
+<svelte:head>
+    <title>404 :: Kahi UI</title>
+</svelte:head>
 
 <Heroes.NotFound />

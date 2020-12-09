@@ -14,11 +14,13 @@ module.exports = {
 
     alias: {
         "@content": "../../samples",
+        "@dist": "../../dist",
     },
 
     mount: {
         public: "/",
         src: "/_dist_",
+        "../../dist": "/dist",
         "../../samples": "/samples",
     },
 

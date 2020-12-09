@@ -1,7 +1,7 @@
 import "highlight.js/styles/github.css";
 
-import "../public/assets/styles/kahi-ui.css";
-import "../public/assets/styles/default.css";
+import "@dist/kahi-ui.css";
+import "@dist/themes/default.css";
 
 import Application from "./Application.svelte";
 

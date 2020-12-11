@@ -1,11 +1,43 @@
 $spacer: ".spacer";
 
+$spacer-block: "div.spacer";
+$spacer-inline: "span.spacer";
+
+@mixin spacer-block() {
+    width: var(--width);
+    height: var(--height);
+
+    &:not([data-orientation]) {
+        --height: var(--spacing);
+        --width: 0;
+    }
+
+    &[data-orientation="horizontal"] {
+        --height: 0;
+        --width: var(--spacing);
+    }
+}
+
+@mixin spacer-inline() {
+    margin: var(--margin);
+
+    &:not([data-orientation]) {
+        --margin: var(--spacing) 0 0 0;
+    }
+
+    &[data-orientation="horizontal"] {
+        --margin: 0 var(--spacing) 0 0;
+    }
+}
+
 #{$spacer} {
     @include use-spacing(--spacer-spacing, true, var(--spacer-spacing-medium));
+}
 
-    margin: var(--spacing) 0;
+#{$spacer-block} {
+    @include spacer-block();
+}
 
-    [data-orientation="horizontal"] {
-        margin: 0 var(--spacing);
-    }
+#{$spacer-inline} {
+    @include spacer-inline();
 }

@@ -22,24 +22,11 @@
     --sheet-negative-color: var(--palette-light-base);
 
     /**
-     * Sheet Container Tokens
+     * Sheet Region Tokens
      */
 
-    --sheet-container-z-index: var(--z-index-viewport);
+    --sheet-region-padding: var(--spacing-block-large);
+    --sheet-region-margin: -5ex 0 0 0;
 
-    /**
-     * Sheet Backdrop Tokens
-     */
-
-    --sheet-backdrop-background: var(--palette-dark-base), var(--opacity-muted);
-    --sheet-backdrop-z-index: var(--z-index-backdrop);
-
-    /**
-     * Sheet Content Tokens
-     */
-
-    --sheet-content-padding: var(--spacing-block-large);
-    --sheet-content-margin: -5ex;
-
-    --sheet-content-radius: 8px 8px 0 0;
+    --sheet-region-radius: 8px 8px 0 0;
 }

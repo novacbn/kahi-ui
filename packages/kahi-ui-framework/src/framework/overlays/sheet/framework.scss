@@ -1,39 +1,10 @@
-$sheet: "input[type='checkbox'].sheet";
+$sheet: "[role='dialog'].sheet";
 
-$sheet-active: ":checked";
+$sheet-region: "[role='document']";
 
-$sheet-backdrop: "label";
-$sheet-container: "[role='dialog']";
-$sheet-content: "[role='document']";
-
-@mixin sheet-backdrop($namespace) {
-    display: block;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: vhsl(#{$namespace}-background);
-    z-index: var(#{$namespace}-z-index);
-}
-
-@mixin sheet-container($namespace) {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-    height: 100vh;
-
+@mixin sheet-container() {
     scroll-snap-type: y mandatory;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    z-index: var(#{$namespace}-z-index);
+    overflow-y: auto !important;
 
     &::before {
         display: block;
@@ -43,45 +14,48 @@ $sheet-content: "[role='document']";
     }
 }
 
-@mixin sheet-content($namespace) {
+@mixin sheet-background() {
+    position: static !important;
+}
+
+@mixin sheet-region($namespace) {
     max-height: 100vh;
 
-    margin-top: var(#{$namespace}-margin);
+    margin: var(#{$namespace}-margin);
     scroll-snap-align: end;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+@mixin sheet-region-block($namespace) {
+    @include use-palette-block();
+
+    --inherited-background: var(--color);
+    --inherited-color: var(--background);
+
+    padding: var(#{$namespace}-padding);
+    border-radius: var(#{$namespace}-radius);
+
+    & #{$menu}:not([data-palette]) {
+        --background: var(--inherited-background);
+        --color: var(--inherited-color);
+    }
 }
 
 #{$sheet} {
-    display: none;
+    @include use-palette(--sheet, false);
+    @include sheet-container();
 
-    &:not(#{$sheet-active}) + #{$sheet-container} {
-        display: none;
+    & > #{$backdrop-background} {
+        @include sheet-background();
     }
 
-    & + #{$sheet-container} {
-        @include use-palette(--sheet, false);
-        @include sheet-container(--sheet-container);
+    & > #{$sheet-region} {
+        @include sheet-region(--sheet-region);
+    }
 
-        & > #{$sheet-backdrop} {
-            @include sheet-backdrop(--sheet-backdrop);
-        }
-
-        & > #{$sheet-content} {
-            @include sheet-content(--sheet-content);
-        }
-
-        &[data-palette] > #{$sheet-content} {
-            @include use-palette-block();
-
-            --inherited-background: var(--color);
-            --inherited-color: var(--background);
-
-            padding: var(--sheet-content-padding);
-            border-radius: var(--sheet-content-radius);
-
-            & #{$menu}:not([data-palette]) {
-                --background: var(--inherited-background);
-                --color: var(--inherited-color);
-            }
-        }
+    &[data-palette] > #{$sheet-region} {
+        @include sheet-region-block(--sheet-region);
     }
 }

@@ -44,6 +44,12 @@ $dialog-heading: "header";
     }
 }
 
+@mixin dialog-region-block($namespace) {
+    @include use-palette-block();
+
+    border-radius: var(#{$namespace}-radius);
+}
+
 @mixin dialog-body($namespace) {
     @include card-body($namespace);
 
@@ -72,9 +78,7 @@ $dialog-heading: "header";
     }
 
     &[data-palette] > #{$dialog-region} {
-        @include use-palette-block();
-
-        border-radius: var(--dialog-region-radius);
+        @include dialog-region-block(--dialog-region);
     }
 }
 

@@ -1,0 +1,14 @@
+:root {
+    /**
+     * Backdrop Background Tokens
+     */
+
+    --backdrop-background-background: var(--palette-dark-base), var(--opacity-muted);
+    --backdrop-background-z-index: var(--z-index-backdrop);
+
+    /**
+     * Backdrop Container Tokens
+     */
+
+    --backdrop-container-z-index: var(--z-index-viewport);
+}

@@ -1,127 +1,85 @@
-$dialog: "input[type='checkbox'].dialog";
+$dialog: "[role='dialog'].dialog";
 
-$dialog-active: ":checked";
+$dialog-region: "[role='document']";
 
-$dialog-backdrop: "label";
-$dialog-container: "[role='dialog']";
-
-$dialog-content: "[role='document']";
-$dialog-content-body: "section";
-$dialog-content-figure: "figure";
-$dialog-content-footer: "footer";
-$dialog-content-heading: "header";
-
-@mixin dialog-backdrop($namespace) {
-    display: block;
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: vhsl(#{$namespace}-background);
-    z-index: var(#{$namespace}-z-index);
-}
+$dialog-body: "section";
+$dialog-figure: "figure";
+$dialog-footer: "footer";
+$dialog-heading: "header";
 
 @mixin dialog-container($namespace) {
-    --viewport: var(--dialog-viewports-small);
-
-    display: flex;
-    position: fixed;
+    @include use-viewport(#{$namespace}-viewports, false, 100vw);
 
     align-items: center;
     justify-content: center;
-
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    overflow: hidden;
-
-    z-index: var(#{$namespace}-z-index);
-
-    @each $viewport in tiny, medium, large {
-        &[data-viewport="#{$viewport}"] {
-            --viewport: var(--dialog-viewports-#{$viewport});
-        }
-    }
 }
 
-@mixin dialog-content(
+@mixin dialog-region(
     $namespace,
-    $body: $dialog-content-body,
-    $figure: $dialog-content-figure,
-    $footer: $dialog-content-footer,
-    $heading: $dialog-content-heading
+    $namespace-parts,
+    $body: $dialog-body,
+    $figure: $dialog-figure,
+    $footer: $dialog-footer,
+    $heading: $dialog-heading
 ) {
     @include card-container($namespace, $body, $figure, $footer, $heading);
 
-    max-width: min(var(--viewport), var(#{$namespace}-max-width), 100vw);
-    max-height: min(var(#{$namespace}-max-height), 100vw);
+    max-width: min(var(--viewport), var(#{$namespace}-max-width));
+    max-height: min(var(#{$namespace}-max-height));
 
     & > #{$body} {
-        @include dialog-content-body(#{$namespace}-body);
+        @include dialog-body(#{$namespace-parts}-body);
     }
 
     & > #{$figure} {
-        @include dialog-content-figure(#{$namespace}-figure);
+        @include dialog-figure(#{$namespace-parts}-figure);
     }
 
     & > #{$footer} {
-        @include dialog-content-footer(#{$namespace}-footer);
+        @include dialog-footer(#{$namespace-parts}-footer);
     }
 
     & > #{$heading} {
-        @include dialog-content-heading(#{$namespace}-heading);
+        @include dialog-heading(#{$namespace-parts}-heading);
     }
 }
 
-@mixin dialog-content-body($namespace) {
+@mixin dialog-body($namespace) {
     @include card-body($namespace);
 
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-@mixin dialog-content-figure($namespace) {
+@mixin dialog-figure($namespace) {
     @include card-figure($namespace);
 }
 
-@mixin dialog-content-footer($namespace) {
+@mixin dialog-footer($namespace) {
     @include card-footer($namespace);
 }
 
-@mixin dialog-content-heading($namespace) {
+@mixin dialog-heading($namespace) {
     @include card-heading($namespace);
 }
 
 #{$dialog} {
-    display: none;
+    @include use-palette(--dialog, false);
+    @include dialog-container(--dialog);
 
-    &:not(#{$dialog-active}) + #{$dialog-container} {
-        display: none;
+    & > #{$dialog-region} {
+        @include dialog-region(--dialog-region, --dialog);
     }
 
-    & + #{$dialog-container} {
-        @include use-palette(--dialog, false);
-        @include dialog-container(--dialog-container);
+    &[data-palette] > #{$dialog-region} {
+        @include use-palette-block();
 
-        & > #{$dialog-backdrop} {
-            @include dialog-backdrop(--dialog-backdrop);
-        }
+        border-radius: var(--dialog-region-radius);
+    }
+}
 
-        & > #{$dialog-content} {
-            @include dialog-content(--dialog-content);
-        }
-
-        &[data-palette] > #{$dialog-content} {
-            @include use-palette-block();
-
-            border-radius: var(--dialog-content-radius);
-        }
+#{$backdrop} {
+    &:checked + #{$dialog} {
+        display: flex;
     }
 }

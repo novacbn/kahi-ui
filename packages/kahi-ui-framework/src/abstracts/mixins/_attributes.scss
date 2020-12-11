@@ -221,3 +221,38 @@
         @include use-sizing-attribute($namespace, $sizing);
     }
 }
+
+@mixin use-viewport-attribute($namespace, $viewport, $media: false) {
+    @if ($media) {
+        @media (--viewports-#{$media}) {
+            &[data-viewport~="#{$viewport}+#{$media}"] {
+                --viewport: var(#{$namespace}-#{$viewport}) !important;
+            }
+        }
+    } @else {
+        &[data-viewport~="#{$viewport}"] {
+            --viewport: var(#{$namespace}-#{$viewport});
+        }
+    }
+}
+
+@mixin use-viewport(
+    $namespace,
+    $constrain: false,
+    $default: initial,
+    $viewports: (tiny, small, medium, large)
+) {
+    --viewport: #{$default};
+
+    @if ($constrain) {
+        @each $media, $index in tiny, small, medium, large {
+            @each $viewport, $index in $viewports {
+                @include use-viewport-attribute($namespace, $viewport, $media);
+            }
+        }
+    }
+
+    @each $viewport, $index in $viewports {
+        @include use-viewport-attribute($namespace, $viewport);
+    }
+}

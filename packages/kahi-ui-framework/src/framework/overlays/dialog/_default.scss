@@ -31,41 +31,21 @@
     --dialog-viewports-large: var(--viewports-large-max);
 
     /**
-     * Dialog Backdrop Tokens
+     * Dialog Region
      */
 
-    --dialog-backdrop-background: var(--palette-dark-base), var(--opacity-muted);
-    --dialog-backdrop-z-index: var(--z-index-backdrop);
+    --dialog-region-padding: 0 var(--spacing-block-large) 0 var(--spacing-block-large);
+    --dialog-region-spacing: var(--spacing-block-large);
+
+    --dialog-region-max-height: 85vh;
+    --dialog-region-max-width: 80vw;
+
+    --dialog-region-radius: var(--radius-block);
 
     /**
-     * Dialog Container Tokens
+     * Dialog Heading Tokens
      */
 
-    --dialog-container-z-index: var(--z-index-viewport);
-
-    /**
-     * Dialog Content Tokens
-     */
-
-    --dialog-content-padding: 0 var(--spacing-block-large) 0 var(--spacing-block-large);
-    --dialog-content-margin: 0 0 var(--spacing-block-large) 0;
-    --dialog-content-spacing: var(--spacing-block-large);
-
-    --dialog-content-max-height: 85vh;
-    --dialog-content-max-width: 80vw;
-
-    --dialog-content-radius: var(--radius-block);
-
-    /**
-     * Dialog Content Body Tokens
-     */
-
-    --dialog-content-body-padding: var(--spacing-block-large);
-
-    /**
-     * Dialog Content Heading Tokens
-     */
-
-    --dialog-content-heading-font-size: var(--font-size-heading-small);
-    --dialog-content-heading-font-weight: var(--font-weight-bold);
+    --dialog-heading-font-size: var(--font-size-heading-small);
+    --dialog-heading-font-weight: var(--font-weight-bold);
 }

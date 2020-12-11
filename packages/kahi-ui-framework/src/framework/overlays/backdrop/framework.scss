@@ -1,0 +1,52 @@
+$backdrop: "input[type='checkbox'].backdrop";
+
+$backdrop-background: "label";
+$backdrop-container: "[role='dialog']";
+
+@mixin backdrop() {
+    display: none;
+}
+
+@mixin backdrop-container($namespace) {
+    display: none;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    z-index: var(#{$namespace}-z-index);
+}
+
+@mixin backdrop-background($namespace) {
+    display: block;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: vhsl(#{$namespace}-background);
+    z-index: var(#{$namespace}-z-index);
+}
+
+#{$backdrop} {
+    @include backdrop();
+
+    & + #{$backdrop-container} {
+        @include backdrop-container(--backdrop-container);
+
+        & > #{$backdrop-background} {
+            @include backdrop-background(--backdrop-background);
+        }
+    }
+
+    &:checked + #{$backdrop-container} {
+        display: block;
+    }
+}

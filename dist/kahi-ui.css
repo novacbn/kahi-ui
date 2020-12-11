@@ -2001,8 +2001,8 @@ input[type=checkbox].backdrop:checked+[role=dialog].dialog{
 [role=dialog].sheet[data-palette]>[role=document]{
   background:hsl(var(--background));
   color:hsl(var(--color));
-  --inherited-background:var(--color);
-  --inherited-color:var(--background);
+  --inherited-background:var(--background);
+  --inherited-color:var(--color);
   padding:var(--sheet-region-padding);
   border-radius:var(--sheet-region-radius);
 }

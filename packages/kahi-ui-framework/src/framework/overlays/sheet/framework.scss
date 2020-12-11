@@ -31,8 +31,8 @@ $sheet-region: "[role='document']";
 @mixin sheet-region-block($namespace) {
     @include use-palette-block();
 
-    --inherited-background: var(--color);
-    --inherited-color: var(--background);
+    --inherited-background: var(--background);
+    --inherited-color: var(--color);
 
     padding: var(#{$namespace}-padding);
     border-radius: var(#{$namespace}-radius);

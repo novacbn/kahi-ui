@@ -155,11 +155,18 @@
         <Badge position="raised">Badge RAISED</Badge>
     </span>
 
-    <Spacer spacing="small" />
+    <Spacer spacing="huge" />
 
     <Button>
         This is a sample Button
         <Badge palette="accent" position="floated">Badge FLOATED</Badge>
+    </Button>
+
+    <Heading level="2">Badge Animations</Heading>
+
+    <Button palette="accent">
+        Open Inbox
+        <Badge palette="negative" position="floated" animation="pulse">99+</Badge>
     </Button>
 </article>
 

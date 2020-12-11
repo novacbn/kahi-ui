@@ -29,7 +29,7 @@
 </script>
 
 <style>
-    :global(#render-test-card-sample) {
+    :global(#surfaces-card-sample) {
         max-width: var(--sizing-block-huge);
     }
 </style>
@@ -130,7 +130,7 @@
 <article id="surfaces-cards">
     <Heading>Surfaces :: Cards</Heading>
 
-    <Card.Container id="render-test-card-sample" palette="light">
+    <Card.Container id="surfaces-card-sample" palette="light">
         <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
         <Card.Heading>

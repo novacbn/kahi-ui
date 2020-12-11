@@ -10,9 +10,9 @@
         "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git"
     },
     "devDependencies": {
-        "@snowpack/plugin-svelte": "^3.3.1",
+        "@snowpack/plugin-svelte": "^3.3.0",
         "prettier": "^2.2.0",
         "snowpack": "^2.18.2",
-        "svelte": "^3.30.0"
+        "svelte": "^3.31.0"
     }
 }

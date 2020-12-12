@@ -1,7 +1,7 @@
 const highlight = require("remark-highlight.js");
 
 const {code_highlightjs} = require("./plugins/code");
-const {docs, docs_pre} = require("./plugins/docs");
+const {docs_frontmatter, docs_pre, docs_samples} = require("./plugins/docs");
 
 module.exports = {
     plugins: [
@@ -9,7 +9,7 @@ module.exports = {
         [
             "snowpack-plugin-markdown",
             {
-                remark: [docs, highlight],
+                remark: [docs_frontmatter, docs_samples, highlight],
                 rehype: [code_highlightjs, docs_pre],
             },
         ],

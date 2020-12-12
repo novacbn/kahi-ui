@@ -1,10 +1,10 @@
 const visit = require("unist-util-visit");
 
-const NODE_TYPE_BLOCK_QUOTE = "blockquote";
-
-const NODE_TYPE_CODE_BLOCK = "code";
+const HIGHLIGHTJS_CLASS_TAG = "hljs";
 
 const NODE_TYPE_HEADING = "heading";
+
+const NODE_TYPE_PRE = "pre";
 
 const NODE_TYPE_TEXT = "text";
 
@@ -21,6 +21,25 @@ module.exports.docs = function docs(options = {}) {
     return (tree) => {
         child_visit(tree, NODE_TYPE_HEADING, NODE_TYPE_TEXT, (node) => {
             if (!frontmatter.has("title")) frontmatter.set("title", node.value);
+        });
+    };
+};
+
+module.exports.docs_pre = function docs_pre(options = {}) {
+    return (tree) => {
+        visit(tree, (node) => {
+            const {children = [], tagName} = node;
+            const [child] = children;
+            if (tagName !== NODE_TYPE_PRE || !child) return;
+
+            const {properties = {}} = child;
+            const {className = []} = properties;
+            if (!className.includes(HIGHLIGHTJS_CLASS_TAG)) return;
+
+            const {className: parentClassName = []} = node;
+
+            parentClassName.push("documentation-code-pre");
+            node.properties.className = parentClassName;
         });
     };
 };

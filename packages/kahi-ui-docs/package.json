@@ -8,12 +8,14 @@
     },
     "dependencies": {
         "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git",
+        "highlight.js": "^10.4.1",
         "svelte-commons": "git+https://github.com/novacbn/svelte-commons.git#0.1.2"
     },
     "devDependencies": {
         "@snowpack/plugin-dotenv": "^2.0.4",
         "@snowpack/plugin-svelte": "^3.3.0",
         "prettier": "^2.2.0",
+        "remark-highlight.js": "^6.0.0",
         "snowpack": "^2.17.1",
         "snowpack-plugin-markdown": "git+https://github.com/novacbn/snowpack-plugin-markdown.git#0.0.1",
         "svelte": "^3.30.0",

@@ -7,7 +7,6 @@
     export let page = null;
 
     $: _page = page ? get_page(`${category}/${page}`) : get_page(category);
-    $: console.log({_page});
 </script>
 
 <svelte:head>

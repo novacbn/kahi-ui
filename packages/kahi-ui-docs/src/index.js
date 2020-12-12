@@ -1,3 +1,5 @@
+import "highlight.js/styles/github.css";
+
 import "@dist/kahi-ui.css";
 import "@dist/themes/default.css";
 

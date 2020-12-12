@@ -12,7 +12,7 @@
 </script>
 
 <script>
-    import {Box, Badge, Button, Divider, Heading, Spacer} from "@kahi-ui/svelte";
+    import {Box, Badge, Button, Divider, Heading, Loader, Paragraph, Spacer} from "@kahi-ui/svelte";
 
     import * as Menus from "../menus";
 </script>
@@ -220,4 +220,90 @@
 
 <article id="components-loaders">
     <Heading>Components :: Loaders</Heading>
+
+    <Paragraph>Await Loader</Paragraph>
+    <Loader variation="await" />
+
+    <Paragraph>Wave Loader</Paragraph>
+    <Loader variation="wave" />
+
+    <Heading level="2">Await Palettes</Heading>
+
+    <Paragraph>Await DEFAULT</Paragraph>
+    <Loader variation="await" />
+
+    <Paragraph>Await ACCENT</Paragraph>
+    <Loader variation="await" palette="accent" />
+
+    <Paragraph>Await DARK</Paragraph>
+    <Loader variation="await" palette="dark" />
+
+    <Paragraph>Await LIGHT</Paragraph>
+    <Loader variation="await" palette="light" />
+
+    <Paragraph>Await ALERT</Paragraph>
+    <Loader variation="await" palette="alert" />
+
+    <Paragraph>Await AFFIRMATIVE</Paragraph>
+    <Loader variation="await" palette="affirmative" />
+
+    <Paragraph>Await NEGATIVE</Paragraph>
+    <Loader variation="await" palette="negative" />
+
+    <Heading level="2">Await Sizes</Heading>
+
+    <Paragraph>Await TINY</Paragraph>
+    <Loader variation="await" size="tiny" />
+
+    <Paragraph>Await SMALL</Paragraph>
+    <Loader variation="await" size="small" />
+
+    <Paragraph>Await MEDIUM</Paragraph>
+    <Loader size="medium" />
+
+    <Paragraph>Await LARGE</Paragraph>
+    <Loader variation="await" size="large" />
+
+    <Paragraph>Await HUGE</Paragraph>
+    <Loader variation="await" size="huge" />
+
+    <Heading level="2">Wave Palettes</Heading>
+
+    <Paragraph>Wave DEFAULT</Paragraph>
+    <Loader variation="wave" />
+
+    <Paragraph>Wave ACCENT</Paragraph>
+    <Loader variation="wave" palette="accent" />
+
+    <Paragraph>Wave DARK</Paragraph>
+    <Loader variation="wave" palette="dark" />
+
+    <Paragraph>Wave LIGHT</Paragraph>
+    <Loader variation="wave" palette="light" />
+
+    <Paragraph>Wave ALERT</Paragraph>
+    <Loader variation="wave" palette="alert" />
+
+    <Paragraph>Wave AFFIRMATIVE</Paragraph>
+    <Loader variation="wave" palette="affirmative" />
+
+    <Paragraph>Wave NEGATIVE</Paragraph>
+    <Loader variation="wave" palette="negative" />
+
+    <Heading level="2">Await Sizes</Heading>
+
+    <Paragraph>Wave TINY</Paragraph>
+    <Loader variation="wave" size="tiny" />
+
+    <Paragraph>Wave SMALL</Paragraph>
+    <Loader variation="wave" size="small" />
+
+    <Paragraph>Wave MEDIUM</Paragraph>
+    <Loader variation="wave" size="medium" />
+
+    <Paragraph>Wave LARGE</Paragraph>
+    <Loader variation="wave" size="large" />
+
+    <Paragraph>Wave HUGE</Paragraph>
+    <Loader variation="wave" size="huge" />
 </article>

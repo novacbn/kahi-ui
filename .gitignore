@@ -1,3 +1,5 @@
+/node_modules/
+
 /packages/kahi-ui-framework/node_modules/
 /packages/kahi-ui-framework/packages/postcss-is-pseudo-class/node_modules/
 

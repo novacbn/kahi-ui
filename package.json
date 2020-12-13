@@ -18,5 +18,8 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/novacbn/kahi-ui"
+    },
+    "devDependencies": {
+        "prettier": "^2.2.1"
     }
 }

@@ -53,17 +53,15 @@ Badges can be made to appear "hovering" on a parent container via the `data-posi
 
 ```html
 <span>
-  This is sample text.
-  <span class="badge" data-position="raised">Badge RAISED</span>
+    This is sample text.
+    <span class="badge" data-position="raised">Badge RAISED</span>
 </span>
 
 <div class="spacer" data-spacing="huge"></div>
 
 <button>
-  This is a sample Button
-  <span class="badge" data-palette="accent" data-position="floated">
-    Badge FLOATED
-  </span>
+    This is a sample Button
+    <span class="badge" data-palette="accent" data-position="floated"> Badge FLOATED </span>
 </button>
 ```
 
@@ -73,15 +71,10 @@ Badges can be customized to have animations to grab a user's attention.
 
 ```html
 <button palette="accent">
-  Open Inbox
-  <span
-    class="badge"
-    data-palette="negative"
-    data-position="floated"
-    data-animation="pulse"
-  >
-    99+
-  </span>
+    Open Inbox
+    <span class="badge" data-palette="negative" data-position="floated" data-animation="pulse">
+        99+
+    </span>
 </button>
 ```
 

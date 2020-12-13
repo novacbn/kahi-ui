@@ -90,47 +90,19 @@
     <Heading>Components :: Badges</Heading>
 
     <Badge>Badge DEFAULT</Badge>
-    <Badge active>Badge ACTIVE</Badge>
-    <Badge disabled>Badge DISABLED</Badge>
 
     <Heading level="2">Block Palettes</Heading>
 
-    <Badge>Block DEFAULT</Badge>
+    <Badge>Badge DEFAULT</Badge>
 
-    <Badge palette="accent">Block ACCENT</Badge>
+    <Badge palette="accent">Badge ACCENT</Badge>
 
-    <Badge palette="dark">Block DARK</Badge>
-    <Badge palette="light">Block LIGHT</Badge>
+    <Badge palette="dark">Badge DARK</Badge>
+    <Badge palette="light">Badge LIGHT</Badge>
 
-    <Badge palette="alert">Block ALERT</Badge>
-    <Badge palette="affirmative">Block AFFIRMATIVE</Badge>
-    <Badge palette="negative">Block NEGATIVE</Badge>
-
-    <Heading level="2">Clear Palettes</Heading>
-
-    <Badge variation="clear">Clear ACCENT</Badge>
-
-    <Badge variation="clear" palette="accent">Clear DEFAULT</Badge>
-
-    <Badge variation="clear" palette="dark">Clear DARK</Badge>
-    <Badge variation="clear" palette="light">Clear LIGHT</Badge>
-
-    <Badge variation="clear" palette="alert">Clear ALERT</Badge>
-    <Badge variation="clear" palette="affirmative">Clear AFFIRMATIVE</Badge>
-    <Badge variation="clear" palette="negative">Clear NEGATIVE</Badge>
-
-    <Heading level="2">Outline Palettes</Heading>
-
-    <Badge variation="outline">Outline DEFAULT</Badge>
-
-    <Badge variation="outline" palette="accent">Outline ACCENT</Badge>
-
-    <Badge variation="outline" palette="dark">Outline DARK</Badge>
-    <Badge variation="outline" palette="light">Outline LIGHT</Badge>
-
-    <Badge variation="outline" palette="alert">Outline ALERT</Badge>
-    <Badge variation="outline" palette="affirmative">Outline AFFIRMATIVE</Badge>
-    <Badge variation="outline" palette="negative">Outline NEGATIVE</Badge>
+    <Badge palette="alert">Badge ALERT</Badge>
+    <Badge palette="affirmative">Badge AFFIRMATIVE</Badge>
+    <Badge palette="negative">Badge NEGATIVE</Badge>
 
     <Heading level="2">Badge Sizes</Heading>
 

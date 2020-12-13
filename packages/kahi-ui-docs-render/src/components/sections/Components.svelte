@@ -144,11 +144,9 @@
 
     <Heading level="2">Badge Shapes</Heading>
 
-    <Badge shape="pill">Block PILL</Badge>
-    <Badge shape="pill" variation="clear">Clear PILL</Badge>
-    <Badge shape="pill" variation="outline">Outline PILL</Badge>
+    <Badge shape="pill">Badge PILL</Badge>
 
-    <Heading level="2">Badge Positioning</Heading>
+    <Heading level="2">Badge Position</Heading>
 
     <span>
         This is sample text.

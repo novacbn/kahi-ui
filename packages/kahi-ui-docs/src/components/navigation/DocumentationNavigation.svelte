@@ -10,7 +10,13 @@
     const categories = get_pages();
 </script>
 
-<Aside.Container palette="accent">
+<style>
+    :global(.documentation-navigation) {
+        min-width: max-content;
+    }
+</style>
+
+<Aside.Container class="documentation-navigation" palette="accent">
     <Aside.Heading>
         <Anchor href="#/documentation">Kahi UI</Anchor>
 

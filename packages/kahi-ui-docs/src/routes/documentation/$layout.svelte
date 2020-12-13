@@ -40,6 +40,10 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
+
+    .container > :global(table code) {
+        white-space: nowrap;
+    }
 </style>
 
 <Stack orientation="horizontal">

@@ -114,11 +114,11 @@ export default {
     /** SURFACES */
 
     surfaces: SURFACES_INDEX,
-    "surfaces/": SURFACES_BOX,
-    "surfaces/": SURFACES_CARD,
-    "surfaces/": SURFACES_COLLAPSE,
-    "surfaces/": SURFACES_HERO,
-    "surfaces/": SURFACES_TILE,
+    "surfaces/box": SURFACES_BOX,
+    "surfaces/card": SURFACES_CARD,
+    "surfaces/collapse": SURFACES_COLLAPSE,
+    "surfaces/hero": SURFACES_HERO,
+    "surfaces/tile": SURFACES_TILE,
 
     /** TYPOGRAPHY */
 

@@ -1,16 +1,10 @@
 $container: ".container";
 
 #{$container} {
-    --viewport: var(--container-viewports-small);
+    @include use-viewport(--container-viewports, true, var(--container-viewports-small));
 
     padding: var(--container-padding);
     margin: 0 auto;
 
     max-width: min(var(--viewport), 100%, 100vw);
-
-    @each $viewport in tiny, medium, large {
-        &[data-viewport="#{$viewport}"] {
-            --viewport: var(--container-viewports-#{$viewport});
-        }
-    }
 }

@@ -101,7 +101,8 @@ $heading: "#{$heading-h6}, #{$heading-h5}, #{$heading-h4}, #{$heading-h3}, #{$he
 
     white-space: pre-wrap;
 
-    &::selection {
+    &::selection,
+    & *::selection {
         background-color: vhsl(--typography-identifier-color);
         color: vhsl(--typography-default-color);
     }

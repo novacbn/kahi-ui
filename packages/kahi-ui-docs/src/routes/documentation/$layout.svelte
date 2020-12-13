@@ -1,5 +1,5 @@
 <script>
-    import {Stack} from "@kahi-ui/svelte";
+    import {Container, Stack} from "@kahi-ui/svelte";
 
     import * as Navigation from "../../components/navigation";
 </script>
@@ -22,11 +22,6 @@
         border-top-right-radius: 0;
     }
 
-    .documentation-wrapper :global(.documentation-code-pre *::selection) {
-        background-color: hsl(var(--document-root-color));
-        color: hsl(var(--document-root-background));
-    }
-
     .documentation-wrapper :global(.documentation-code-pre > code) {
         padding: var(--box-padding);
 
@@ -41,7 +36,7 @@
         border-bottom-right-radius: 0;
     }
 
-    .container > :global(table code) {
+    .documentation-wrapper > :global(.container > table code) {
         white-space: nowrap;
     }
 </style>
@@ -50,8 +45,8 @@
     <Navigation.Documentation />
 
     <div class="documentation-wrapper">
-        <main class="container">
+        <Container as="main" viewport="tiny+medium">
             <slot />
-        </main>
+        </Container>
     </div>
 </Stack>

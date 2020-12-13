@@ -17,11 +17,28 @@
         padding: 0;
 
         max-height: 30ex;
+
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
     }
 
     .documentation-wrapper :global(.documentation-code-pre *::selection) {
         background-color: hsl(var(--document-root-color));
         color: hsl(var(--document-root-background));
+    }
+
+    .documentation-wrapper :global(.documentation-code-pre > code) {
+        padding: var(--box-padding);
+
+        background: transparent;
+    }
+
+    .documentation-wrapper :global(.documentation-code-sample) {
+        margin-bottom: 0;
+
+        border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 </style>
 

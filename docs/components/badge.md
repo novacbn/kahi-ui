@@ -8,7 +8,7 @@
 <span class="badge" data-palette="accent">svelte</span>
 ```
 
-## Badge Palettes
+## Palettes
 
 Badges have customizable coloring via the `data-palette` attribute.
 
@@ -25,7 +25,7 @@ Badges have customizable coloring via the `data-palette` attribute.
 <span class="badge" data-palette="negative">Badge NEGATIVE</span>
 ```
 
-## Badge Sizes
+## Sizes
 
 Badges have customizable sizes via the `data-size` attribute.
 
@@ -39,7 +39,7 @@ Badges have customizable sizes via the `data-size` attribute.
 <span class="badge" data-size="huge">Badge HUGE</span>
 ```
 
-## Badge Shapes
+## Shapes
 
 Badges have customizable shapes via the `data-shape` attribute.
 
@@ -47,7 +47,7 @@ Badges have customizable shapes via the `data-shape` attribute.
 <span class="badge" data-shape="pill">Badge PILL</span>
 ```
 
-## Badge Positioning
+## Positioning
 
 Badges can be made to appear "hovering" on a parent container via the `data-position` attribute.
 
@@ -65,7 +65,7 @@ Badges can be made to appear "hovering" on a parent container via the `data-posi
 </button>
 ```
 
-## Badge Animations
+## Animations
 
 Badges can be customized to have animations to grab a user's attention.
 

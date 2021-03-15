@@ -1,20 +1,23 @@
 import {constants, promises} from "fs";
 import {join, relative} from "path";
 import {cwd} from "process";
-const {readFile} = promises;
+const {lstat, readFile} = promises;
 
 import fg from "fast-glob";
 import matter from "gray-matter";
 import json5 from "json5";
 import toml from "toml";
 
-import {CONTENT_INDEX, CONTENT_ROUTE} from "../shared/environment";
+import {CONTENT_INDEX, CONTENT_ROUTE, EDIT_ENABLED} from "../shared/environment";
+import {substitute_value} from "../shared/util/string";
 
 import {
     CONTENT_EXTENSION,
+    EDIT_URL,
     FRONTMATTER_FENCE,
     FRONTMATTER_LANGUAGE,
     PATH_CONTENT,
+    PATH_ROOT,
 } from "./environment";
 import {compile} from "./markdown";
 
@@ -76,7 +79,7 @@ export async function get_content() {
     return await Promise.all(pages);
 }
 
-export function normalize_metadata(file_path, content, meta) {
+export function normalize_metadata(file_path, content, meta, stats) {
     let name = relative(PATH_CONTENT_ABSOLUTE, file_path);
     if (name.endsWith(`${CONTENT_INDEX}${CONTENT_EXTENSION}`)) {
         name = name.slice(0, -(CONTENT_INDEX.length + CONTENT_EXTENSION.length + 1));
@@ -87,13 +90,27 @@ export function normalize_metadata(file_path, content, meta) {
     let {title = null} = meta;
     if (!title) title = extract_header(content) ?? "N/A";
 
+    let edit_url = null;
+    if (EDIT_ENABLED) {
+        const root_path = join(PROCESS_CWD, PATH_ROOT);
+        const edit_path = relative(root_path, file_path);
+
+        edit_url = substitute_value(EDIT_URL, edit_path);
+    }
+
+    const {birthtimeMs, mtimeMs} = stats;
+
     return {
         href,
+        edit_url,
+        btime: birthtimeMs,
+        mtime: mtimeMs,
         title,
     };
 }
 
 export async function read_content(file_path) {
+    const stats = await lstat(file_path);
     const buffer = await readFile(file_path);
     const text = buffer.toString();
 
@@ -101,17 +118,18 @@ export async function read_content(file_path) {
     const render = compile(content);
 
     return {
-        meta: normalize_metadata(file_path, content, meta),
+        meta: normalize_metadata(file_path, content, meta, stats),
         render,
     };
 }
 
 export async function read_metadata(file_path) {
+    const stats = await lstat(file_path);
     const buffer = await readFile(file_path);
     const text = buffer.toString();
 
     const {content, meta} = extract_metadata(text);
-    return normalize_metadata(file_path, content, meta);
+    return normalize_metadata(file_path, content, meta, stats);
 }
 
 export async function resolve_path(path) {

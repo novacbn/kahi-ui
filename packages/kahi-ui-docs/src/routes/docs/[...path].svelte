@@ -2,7 +2,7 @@
     import {CONTENT_INDEX} from "../../shared/environment";
 
     export async function load({fetch, page}) {
-        let {path = [""]} = page.params;
+        let {path = []} = page.params;
         path = path.join("/");
 
         // NOTE: / HACK: Apparently SSR fetch doesn't follow redirects... so we
@@ -36,6 +36,8 @@
 <script>
     import {META_TITLE} from "../../shared/environment";
 
+    import * as Documentation from "../../components/documentation";
+
     export let meta = {};
     export let render = "N/A";
 
@@ -47,3 +49,5 @@
 </svelte:head>
 
 {@html render}
+
+<Documentation.Footer {meta} />

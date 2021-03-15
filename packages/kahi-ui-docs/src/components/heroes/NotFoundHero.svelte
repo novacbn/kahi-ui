@@ -11,6 +11,6 @@
         <Modifiers.Bold>looking for</Modifiers.Bold>
         was
         <Modifiers.Bold>not found</Modifiers.Bold>. Please go back
-        <Anchor href="#/">to the homepage</Anchor>.
+        <Anchor href="/">to the homepage</Anchor>.
     </Hero.Footer>
 </Hero.Container>

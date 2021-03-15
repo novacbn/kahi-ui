@@ -3,15 +3,9 @@
 
     import * as Cards from "../components/cards";
     import * as Heroes from "../components/heroes";
-
-    import Layout from "./$layout.svelte";
 </script>
 
-<svelte:head>
-    <title>Kahi UI :: Straight-forward UI for the Modern Web Application</title>
-</svelte:head>
-
-<Layout>
+<div class="landing-wrapper">
     <Heroes.Landing />
 
     <Container as="main" viewport="medium">
@@ -23,9 +17,9 @@
             </Cards.Landing>
 
             <Cards.Landing heading="Themeable Variables">
-                Every single piece of Kahi UI is themeable via CSS Properties. Including the
-                Elements, Componets, etc... themselves. Making it easy to break away from the
-                centralized variables.
+                Every single piece of Kahi UI is themeable via CSS Properties, both centralized
+                globals and contextual variables. Making it easy to tweak everything to your heart's
+                content.
             </Cards.Landing>
 
             <Cards.Landing heading="No Strings Attached">
@@ -35,4 +29,10 @@
             </Cards.Landing>
         </Grid>
     </Container>
-</Layout>
+</div>
+
+<style>
+    .landing-wrapper {
+        overflow: auto;
+    }
+</style>

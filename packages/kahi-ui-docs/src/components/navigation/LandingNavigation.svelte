@@ -1,43 +1,26 @@
-<script context="module">
-    const LINKS_CENTER = [
-        {href: "#/documentation", text: "Documentation"},
-        {href: "/kahi-ui/playground", text: "Playground", target: "_blank"},
-        {href: "/kahi-ui/render", text: "Render Test", target: "_blank"},
-    ];
-
-    const LINKS_RIGHT = [
-        {
-            href: "https://github.com/novacbn/kahi-ui",
-            text: "GitHub",
-            target: "_blank",
-        },
-
-        {
-            href: "https://github.com/novacbn/kahi-ui/releases/latest",
-            text: "Releases",
-            target: "_blank",
-        },
-    ];
-</script>
-
 <script>
     import {Anchor, Button, Menu, Omni, Popover} from "@kahi-ui/svelte";
+
+    import {META_BRANDING} from "../../shared/environment";
+
+    export let center = [];
+    export let right = [];
 </script>
 
-<style>
-    :global(.landing-navigation) {
-        --omni-margin: 0;
-    }
-</style>
-
-<Omni.Container class="landing-navigation" palette="light" position="top">
+<Omni.Container class="landing-navigation" palette="light">
     <Omni.Heading>
-        <Anchor href="#/">Kahi UI</Anchor>
+        <Anchor href="/">{META_BRANDING}</Anchor>
     </Omni.Heading>
 
     <Omni.Body hidden="tiny small">
-        {#each LINKS_CENTER as link (link.href)}
-            <Button href={link.href} target={link.target} palette="dark" variation="clear">
+        {#each center as link (link.href)}
+            <Button
+                href={link.href}
+                target={link.is_external ? "_blank" : undefined}
+                rel={link.is_external ? "noopener noreferrer" : undefined}
+                palette="dark"
+                variation="clear"
+            >
                 {link.text}
             </Button>
         {/each}
@@ -49,14 +32,24 @@
 
             <Popover.Region>
                 <Menu.Container palette="light">
-                    {#each LINKS_CENTER as link (link.href)}
-                        <Menu.Anchor href={link.href} target={link.target}>{link.text}</Menu.Anchor>
+                    {#each center as link (link.href)}
+                        <Menu.Anchor
+                            href={link.href}
+                            target={link.is_external ? "_blank" : undefined}
+                            rel={link.is_external ? "noopener noreferrer" : undefined}
+                            >{link.text}</Menu.Anchor
+                        >
                     {/each}
 
                     <Menu.Divider />
 
-                    {#each LINKS_RIGHT as link (link.href)}
-                        <Menu.Anchor href={link.href} target={link.target}>{link.text}</Menu.Anchor>
+                    {#each right as link (link.href)}
+                        <Menu.Anchor
+                            href={link.href}
+                            target={link.is_external ? "_blank" : undefined}
+                            rel={link.is_external ? "noopener noreferrer" : undefined}
+                            >{link.text}</Menu.Anchor
+                        >
                     {/each}
                 </Menu.Container>
             </Popover.Region>
@@ -66,10 +59,22 @@
     <Omni.Footer hidden="medium large" />
 
     <Omni.Footer hidden="tiny small">
-        {#each LINKS_RIGHT as link (link.href)}
-            <Button href={link.href} target={link.target} palette="dark" variation="clear">
+        {#each right as link (link.href)}
+            <Button
+                href={link.href}
+                target={link.is_external ? "_blank" : undefined}
+                rel={link.is_external ? "noopener noreferrer" : undefined}
+                palette="dark"
+                variation="clear"
+            >
                 {link.text}
             </Button>
         {/each}
     </Omni.Footer>
 </Omni.Container>
+
+<style>
+    :global(.landing-navigation) {
+        --omni-margin: 0;
+    }
+</style>

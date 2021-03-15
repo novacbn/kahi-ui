@@ -1,25 +1,32 @@
 {
     "name": "kahi-ui-docs",
-    "author": "novacbn",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "scripts": {
-        "build:application": "snowpack build",
-        "serve:application": "snowpack dev --reload --port 3000"
-    },
-    "dependencies": {
-        "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git",
-        "highlight.js": "^10.4.1",
-        "svelte-commons": "git+https://github.com/novacbn/svelte-commons.git#0.1.2"
+        "build:application": "svelte-kit build",
+        "serve:application": "svelte-kit dev",
+        "start:application": "svelte-kit start"
     },
     "devDependencies": {
-        "@snowpack/plugin-dotenv": "^2.0.4",
-        "@snowpack/plugin-svelte": "^3.3.0",
-        "prettier": "^2.2.0",
-        "remark-gfm": "^1.0.0",
-        "remark-highlight.js": "^6.0.0",
-        "snowpack": "^2.17.1",
-        "snowpack-plugin-markdown": "git+https://github.com/novacbn/snowpack-plugin-markdown.git#0.0.1",
-        "svelte": "^3.30.0",
-        "unist-util-visit": "^2.0.3"
+        "@sveltejs/adapter-static": "^1.0.0-next.0",
+        "@sveltejs/kit": "next",
+        "fast-glob": "^3.2.5",
+        "github-slugger": "^1.3.0",
+        "gray-matter": "^4.0.2",
+        "highlight.js": "^10.6.0",
+        "js-yaml": "^4.0.0",
+        "json5": "^2.2.0",
+        "markdown-it": "^12.0.4",
+        "prettier": "^2.2.1",
+        "svelte": "^3.29.0",
+        "toml": "^3.0.0",
+        "vite": "^2.0.4"
+    },
+    "type": "module",
+    "engines": {
+        "node": ">= 12.17.0"
+    },
+    "dependencies": {
+        "@kahi-ui/framework": "github:novacbn/kahi-ui",
+        "@kahi-ui/svelte": "github:novacbn/kahi-ui-svelte"
     }
 }

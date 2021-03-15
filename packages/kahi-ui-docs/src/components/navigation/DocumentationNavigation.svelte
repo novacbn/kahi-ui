@@ -1,39 +1,46 @@
 <script>
-    import {Anchor, Aside, Divider, Menu} from "@kahi-ui/svelte";
+    import {onMount} from "svelte";
+    import {page} from "$app/stores";
 
-    import APPLICATION_ROUTER from "../../router.manifest";
+    import {Aside, Menu} from "@kahi-ui/svelte";
 
-    import {get_pages} from "../../util/documentation";
+    export let categories = [];
 
-    const {url} = APPLICATION_ROUTER;
+    onMount(() => {
+        const navigation = document.querySelector(".documentation-navigation");
+        const current_link = navigation.querySelector("a[aria-current]");
 
-    const categories = get_pages();
+        if (current_link) {
+            current_link.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+        }
+    });
 </script>
 
-<style>
-    :global(.documentation-navigation) {
-        min-width: max-content;
-    }
-</style>
-
-<Aside.Container class="documentation-navigation" palette="accent">
-    <Aside.Heading>
-        <Anchor href="#/documentation">Kahi UI</Anchor>
-
-        <Divider />
-    </Aside.Heading>
-
+<Aside.Container class="documentation-navigation" palette="dark">
     <Menu.Container>
-        {#each categories as category (category.category)}
-            <Menu.Heading>{category.category}</Menu.Heading>
+        {#each categories as category (category.text)}
+            <Menu.Heading>{category.text}</Menu.Heading>
 
-            {#each category.pages as page (page.identifier)}
+            {#each category.links as link (link.href)}
                 <Menu.Anchor
-                    current={page.href.slice(1) === $url.pathname ? 'current' : undefined}
-                    href={page.href}>
-                    {page.title}
+                    current={link.href === $page.path ? "current" : undefined}
+                    href={link.href}
+                    target={link.is_external ? "_blank" : undefined}
+                    rel={link.is_external ? "noopener noreferrer" : undefined}
+                >
+                    {link.text}
                 </Menu.Anchor>
             {/each}
         {/each}
     </Menu.Container>
 </Aside.Container>
+
+<style>
+    :global(.documentation-navigation) {
+        min-width: 14rem;
+        max-height: 100%;
+    }
+</style>

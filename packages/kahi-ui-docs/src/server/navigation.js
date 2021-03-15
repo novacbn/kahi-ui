@@ -2,7 +2,7 @@ import {join} from "path";
 
 import {CONTENT_INDEX, CONTENT_ROUTE} from "../shared/environment";
 
-import {read_metadata, resolve_path} from "./content";
+import {read_content, resolve_path} from "./content";
 import {NAVIGATION_ASIDE, NAVIGATION_OMNI} from "./environment";
 
 import {is_url} from "./util/url";
@@ -22,8 +22,10 @@ async function parse_links(links = []) {
             let file_path = await resolve_path(path);
             if (!file_path) file_path = await resolve_path(join(path, CONTENT_INDEX));
 
-            if (file_path) ({title: text} = await read_metadata(file_path));
-            else text = "N/A";
+            if (file_path) {
+                const {meta} = await read_content(file_path);
+                text = meta.title;
+            } else text = "N/A";
         }
 
         return {

@@ -1,0 +1,27 @@
+{
+    "editor.formatOnSave": false,
+
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+
+    "[json]": {
+        "editor.formatOnSave": true
+    },
+
+    "[json with comments]": {
+        "editor.formatOnSave": true
+    },
+
+    "[markdown]": {
+        "editor.formatOnSave": true
+    },
+
+    "[svelte]": {
+        "editor.formatOnSave": true
+    },
+
+    "[typescript]": {
+        "editor.formatOnSave": true
+    }
+}

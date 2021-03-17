@@ -1,12 +1,14 @@
 <script>
-    import {IconEdit} from "svelte-feather";
+    import {IconSearch} from "svelte-feather";
     import {Hero} from "@kahi-ui/svelte";
+
+    export let size = undefined;
 </script>
 
-<Hero.Container>
+<Hero.Container {size}>
     <Hero.Heading>
-        <IconEdit size="1em" />
+        <IconSearch size="1em" />
     </Hero.Heading>
 
-    <Hero.Body>No Workspaces Found</Hero.Body>
+    <Hero.Body>No Workspaces Available</Hero.Body>
 </Hero.Container>

@@ -1,27 +1,31 @@
 {
     "name": "kahi-ui-docs-playground",
-    "author": "novacbn",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "scripts": {
-        "build:application": "snowpack build",
-        "serve:application": "snowpack dev --reload --port 3000 --polyfill-node"
-    },
-    "dependencies": {
-        "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git",
-        "highlight.js": "^10.4.0",
-        "svelte-codejar": "git+https://github.com/novacbn/svelte-codejar.git#0.0.1",
-        "svelte-commons": "git+https://github.com/novacbn/svelte-commons.git#0.1.2",
-        "svelte-feather": "git+https://github.com/novacbn/svelte-feather.git#0.0.1",
-        "svelte-pipeline": "git+https://github.com/novacbn/svelte-pipeline.git#0.0.1",
-        "uristorage": "git+https://github.com/novacbn/uristorage.git#0.0.2"
+        "build:application": "svelte-kit build",
+        "serve:application": "svelte-kit dev",
+        "start:application": "svelte-kit start"
     },
     "devDependencies": {
-        "@snowpack/plugin-dotenv": "^2.0.4",
-        "@snowpack/plugin-svelte": "^3.3.0",
-        "prettier": "^2.2.0",
-        "snowpack": "^2.17.1",
-        "snowpack-plugin-markdown": "git+https://github.com/novacbn/snowpack-plugin-markdown.git#0.0.1",
-        "svelte": "^3.30.0",
-        "unist-util-visit": "^2.0.3"
+        "@sveltejs/adapter-static": "^1.0.0-next.0",
+        "@sveltejs/kit": "next",
+        "fast-glob": "^3.2.5",
+        "prettier": "^2.2.1",
+        "svelte": "^3.35.0",
+        "vite": "^2.0.4"
+    },
+    "type": "module",
+    "engines": {
+        "node": ">= 12.17.0"
+    },
+    "dependencies": {
+        "@kahi-ui/docs-kit": "file:../kahi-ui-docs-kit",
+        "@kahi-ui/framework": "github:novacbn/kahi-ui",
+        "@kahi-ui/svelte": "github:novacbn/kahi-ui-svelte",
+        "highlight.js": "^10.6.0",
+        "svelte-feather": "github:novacbn/svelte-feather#0.0.1",
+        "svelte-pipeline": "github:novacbn/svelte-pipeline",
+        "svelte-pipeline-repl": "file:../svelte-pipeline-repl",
+        "uristorage": "github:novacbn/uristorage"
     }
 }

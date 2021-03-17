@@ -1,60 +1,69 @@
+<script context="module">
+    import {browser} from "$app/env";
+
+    import {get_recent_workspace, list_workspaces, remove_workspace} from "../client/workspaces";
+
+    export const load = browser
+        ? async () => {
+              const [workspace_list, workspace_recent] = await Promise.all([
+                  list_workspaces(),
+                  get_recent_workspace(),
+              ]);
+
+              return {
+                  props: {
+                      workspace_list,
+                      workspace_recent,
+                  },
+              };
+          }
+        : null;
+</script>
+
 <script>
-    import {Heading, Stack} from "@kahi-ui/svelte";
-
-    import {get_recent_workspace, list_workspaces, remove_workspace} from "../util/workspaces";
-
-    import Layout from "./$layout.svelte";
+    import {Heroes as KitHeroes} from "@kahi-ui/docs-kit/shared";
+    import {Container, Heading, Stack} from "@kahi-ui/svelte";
 
     import * as Heroes from "../components/heroes";
     import * as Tiles from "../components/tiles";
 
-    let resumable = false;
-    let workspaces = null;
+    export let workspace_list = [];
+    export let workspace_recent = null;
 
-    async function init() {
-        resumable = !!(await get_recent_workspace());
-        workspaces = await list_workspaces();
-    }
-
-    async function on_delete_click(event) {
-        const {workspace} = event.detail;
+    async function on_delete_click(workspace, event) {
         const {identifier} = workspace;
 
+        // TODO: Display loading hero while removal in progress
         await remove_workspace(identifier);
-        init();
-    }
 
-    init();
+        [workspace_list, workspace_recent] = await Promise.all([
+            list_workspaces(),
+            get_recent_workspace(),
+        ]);
+    }
 </script>
 
-<style>
-    [slot="hero"] {
-        display: contents;
-    }
-</style>
+{#if browser}
+    <Heroes.Landing recent_workspace={workspace_recent} />
 
-<svelte:head>
-    <title>Playground :: Kahi UI</title>
-</svelte:head>
+    <Container as="main" viewport="medium">
+        <Heading level={2}>Recent Workspaces</Heading>
 
-<Layout>
-    <div slot="hero">
-        <Heroes.Landing {resumable} />
-    </div>
-
-    <Heading level={2}>Recent Workspaces</Heading>
-
-    {#if workspaces}
-        {#if workspaces.length < 1}
-            <Heroes.NoWorkspaces />
-        {:else}
+        {#if workspace_list.length > 0}
             <Stack alignment-x="stretch" spacing="medium">
-                {#each workspaces as workspace (workspace.identifier)}
-                    <Tiles.Workspace {workspace} on:delete={on_delete_click} />
+                {#each workspace_list as workspace (workspace.identifier)}
+                    <Tiles.Workspace
+                        {workspace}
+                        on:delete={on_delete_click.bind(null, workspace)}
+                    />
                 {/each}
             </Stack>
         {/if}
-    {:else}
-        <Heroes.LoadingWorkspaces />
+    </Container>
+
+    {#if workspace_list.length < 1}
+        <Heroes.NoWorkspaces />
     {/if}
-</Layout>
+{:else}
+    <KitHeroes.NotSupported />
+{/if}

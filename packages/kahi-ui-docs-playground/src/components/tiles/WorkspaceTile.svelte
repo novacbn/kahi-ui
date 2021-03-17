@@ -1,7 +1,7 @@
 <script>
     import {createEventDispatcher} from "svelte";
 
-    import {Button, Modifiers, Tile} from "@kahi-ui/svelte";
+    import {Button, Modifiers, Spacer, Tile} from "@kahi-ui/svelte";
     import {IconTrash2} from "svelte-feather";
 
     const dispatch = createEventDispatcher();
@@ -14,16 +14,10 @@
         dispatch("delete", {workspace});
     }
 
-    $: ({identifier = "unknown", title = "N/A"} = workspace);
+    $: ({identifier = null, title = "N/A"} = workspace);
 </script>
 
-<style>
-    span {
-        margin-right: var(--spacing-text-small);
-    }
-</style>
-
-<Tile.Container href="#/repl/workspace/{identifier}" palette="light">
+<Tile.Container href="/repl?workspace={identifier}" palette="light">
     <Tile.Body>
         <Tile.Heading>{title}</Tile.Heading>
         <Modifiers.Small>{identifier}</Modifiers.Small>
@@ -31,7 +25,8 @@
 
     <Tile.Footer>
         <Button palette="negative" size="small" on:click={on_delete_click}>
-            <span><IconTrash2 size="1em" /></span>
+            <IconTrash2 size="1em" />
+            <Spacer orientation="horizontal" spacing="tiny" inline />
             REMOVE
         </Button>
     </Tile.Footer>

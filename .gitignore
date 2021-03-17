@@ -15,9 +15,9 @@
 /packages/kahi-ui-docs-render/node_modules/
 /packages/kahi-ui-docs-render/web_modules/
 
-/packages/kahi-ui-docs-playground/.build/
-/packages/kahi-ui-docs-playground/build/
 /packages/kahi-ui-docs-playground/node_modules/
-/packages/kahi-ui-docs-playground/web_modules/
+/packages/kahi-ui-docs-playground/.svelte/
+/packages/kahi-ui-docs-playground/build/
+/packages/kahi-ui-docs-playground/functions/
 
 /packages/svelte-pipeline-repl/node_modules/

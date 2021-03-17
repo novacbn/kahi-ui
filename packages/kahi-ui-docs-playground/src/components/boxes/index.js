@@ -1,1 +1,1 @@
-export {default as Templates} from "./TemplatesBox.svelte";
+export {default as Syntaxes} from "./SyntaxesBox.svelte";

@@ -1,1 +1,1 @@
-export {default as Template} from "./TemplateCard.svelte";
+export {default as Sample} from "./SampleCard.svelte";

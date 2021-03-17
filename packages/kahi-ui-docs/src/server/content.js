@@ -25,15 +25,7 @@ const PATH_CONTENT_ABSOLUTE = join(PROCESS_CWD, PATH_CONTENT);
 
 const GLOB_CONTENT = join(PATH_CONTENT_ABSOLUTE, `**/*${CONTENT_EXTENSION}`);
 
-export async function get_content() {
-    const file_paths = await fg(GLOB_CONTENT);
-
-    const pages = file_paths.map(async (file_path) => read_content(file_path));
-
-    return await Promise.all(pages);
-}
-
-export function normalize_file_metadata(file_path, meta, stats) {
+function normalize_file_metadata(file_path, meta, stats) {
     let name = relative(PATH_CONTENT_ABSOLUTE, file_path);
     if (name.endsWith(`${CONTENT_INDEX}${CONTENT_EXTENSION}`)) {
         name = name.slice(0, -(CONTENT_INDEX.length + CONTENT_EXTENSION.length + 1));
@@ -61,6 +53,14 @@ export function normalize_file_metadata(file_path, meta, stats) {
         sections,
         snippets,
     };
+}
+
+export async function get_content() {
+    const file_paths = await fg(GLOB_CONTENT);
+
+    const pages = file_paths.map(async (file_path) => read_content(file_path));
+
+    return await Promise.all(pages);
 }
 
 export async function read_content(file_path) {

@@ -1,11 +1,19 @@
-import highlightjs from "highlight.js";
+import hljs from "highlight.js/lib/core";
+import css from "highlight.js/lib/languages/css";
+import javascript from "highlight.js/lib/languages/javascript";
+import xml from "highlight.js/lib/languages/xml";
+
+hljs.registerLanguage("css", css);
+hljs.registerLanguage("html", xml);
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("svelte", xml);
 
 import {escape_html} from "../../../shared/util/html";
 
 const SYNTAX_HTML = "html";
 
 function CodeRender(text, syntax) {
-    const {value: rendered} = highlightjs.highlight(syntax, text);
+    const {value: rendered} = hljs.highlight(syntax, text);
 
     return `<pre class="box snippet-code"><code class="hljs language-${syntax}">${rendered}</code></pre>`;
 }

@@ -1,9 +1,11 @@
 <script>
     import {Hero, Modifiers} from "@kahi-ui/svelte";
     import {IconXOctagon} from "svelte-feather";
+
+    export let size = "parent";
 </script>
 
-<Hero.Container size="viewport">
+<Hero.Container {size}>
     <Hero.Heading>
         <IconXOctagon size="1em" />
     </Hero.Heading>

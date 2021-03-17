@@ -1,5 +1,6 @@
 <script>
-    import {Anchor, Box, Divider, Modifiers, Stack} from "@kahi-ui/svelte";
+    import {substitute_value} from "@kahi-ui/docs-kit/shared";
+    import {Anchor, Box, Divider, Modifiers, Spacer, Stack} from "@kahi-ui/svelte";
 
     import {
         EDIT_ENABLED,
@@ -8,7 +9,6 @@
         TIMESTAMP_LOCALE,
         TIMESTAMP_TEXT,
     } from "../../shared/environment";
-    import {substitute_value} from "../../shared/util/string";
 
     export let meta = {};
 
@@ -30,11 +30,11 @@
                     <Anchor href={edit_url} rel="noopener noreferrer" target="_blank">
                         {edit_text}
                     </Anchor>
-                {:else}
-                    <span />
                 {/if}
 
                 {#if timestamp}
+                    <Spacer />
+
                     <span>{timestamp}</span>
                 {/if}
             </Stack>
@@ -43,7 +43,7 @@
 {/if}
 
 <style>
-    :global(.documentation-footer .stack) {
-        justify-content: space-between;
+    :global(.documentation-footer .spacer) {
+        flex-grow: 1;
     }
 </style>

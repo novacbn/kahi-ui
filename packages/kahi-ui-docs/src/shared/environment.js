@@ -1,4 +1,4 @@
-import {is_affirmative} from "../shared/util/string";
+import {is_affirmative} from "@kahi-ui/docs-kit/shared";
 
 export const CONTENT_INDEX = import.meta.env.VITE_CONTENT_INDEX;
 

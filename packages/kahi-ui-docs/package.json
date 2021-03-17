@@ -26,6 +26,7 @@
         "node": ">= 12.17.0"
     },
     "dependencies": {
+        "@kahi-ui/docs-kit": "file:../kahi-ui-docs-kit",
         "@kahi-ui/framework": "github:novacbn/kahi-ui",
         "@kahi-ui/svelte": "github:novacbn/kahi-ui-svelte"
     }

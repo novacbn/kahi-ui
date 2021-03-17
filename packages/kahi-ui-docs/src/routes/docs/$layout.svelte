@@ -16,34 +16,24 @@
 <script>
     import "extern/styles/highlightjs.css";
 
-    import {Container, Stack} from "@kahi-ui/svelte";
-
-    import * as Navigation from "../../components/navigation";
+    import {Shell} from "@kahi-ui/docs-kit/shared";
+    import {Container} from "@kahi-ui/svelte";
 
     export let aside = [];
 </script>
 
-<Stack class="documentation-wrapper" alignment-y="stretch" orientation="horizontal">
-    <Navigation.Documentation categories={aside} />
+<Shell.Container orientation="horizontal">
+    <Shell.Aside categories={aside} />
 
-    <div>
-        <Container as="main" viewport="tiny+medium">
+    <Shell.Wrapper>
+        <Container as="main" class="documentation-container" viewport="tiny+medium">
             <slot />
         </Container>
-    </div>
-</Stack>
+    </Shell.Wrapper>
+</Shell.Container>
 
 <style>
-    :global(.documentation-wrapper) {
-        overflow: hidden;
-    }
-
-    :global(.documentation-wrapper) > div {
-        flex-grow: 1;
-        overflow: auto;
-    }
-
-    :global(.documentation-wrapper) :global(.documentation-code-pre) {
+    :global(.documentation-container .snippet-code) {
         padding: 0;
 
         max-height: 30ex;
@@ -52,11 +42,11 @@
         border-top-right-radius: 0;
     }
 
-    :global(.documentation-wrapper) :global(.documentation-code-pre > code) {
+    :global(.documentation-container .snippet-code > code) {
         padding: var(--box-padding);
     }
 
-    :global(.documentation-wrapper) :global(.documentation-code-sample) {
+    :global(.documentation-container .snippet-render) {
         margin-bottom: 0;
 
         border-bottom: none;
@@ -64,7 +54,7 @@
         border-bottom-right-radius: 0;
     }
 
-    :global(.documentation-wrapper) > :global(.container > table code) {
+    :global(.documentation-container > table code) {
         white-space: nowrap;
     }
 </style>

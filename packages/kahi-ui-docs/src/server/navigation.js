@@ -1,11 +1,11 @@
 import {join} from "path";
 
+import {is_url} from "@kahi-ui/docs-kit/shared";
+
 import {CONTENT_INDEX, CONTENT_ROUTE} from "../shared/environment";
 
 import {read_content, resolve_path} from "./content";
 import {NAVIGATION_ASIDE, NAVIGATION_OMNI} from "./environment";
-
-import {is_url} from "./util/url";
 
 async function parse_links(links = []) {
     const promises = links.map(async (link) => {

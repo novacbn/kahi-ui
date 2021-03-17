@@ -17,11 +17,9 @@
     import "assets/styles/kahi-ui.css";
     import "assets/styles/kahi-ui.theme.css";
 
-    import {Stack} from "@kahi-ui/svelte";
+    import {Shell} from "@kahi-ui/docs-kit/shared";
 
-    import {META_TITLE} from "../shared/environment";
-
-    import * as Navigation from "../components/navigation";
+    import {META_BRANDING, META_TITLE} from "../shared/environment";
 
     export let omni = {center: [], right: []};
 </script>
@@ -30,18 +28,8 @@
     <title>{META_TITLE}</title>
 </svelte:head>
 
-<Stack class="shell-wrapper" alignment-x="stretch" alignment-y="stretch">
-    <Navigation.Landing center={omni.center} right={omni.right} />
+<Shell.Container>
+    <Shell.Omni branding={META_BRANDING} center={omni.center} right={omni.right} />
 
     <slot />
-</Stack>
-
-<style>
-    :global(body) {
-        overflow: hidden;
-    }
-
-    :global(.shell-wrapper) {
-        height: 100vh;
-    }
-</style>
+</Shell.Container>

@@ -8,6 +8,8 @@
 /packages/kahi-ui-docs/build
 /packages/kahi-ui-docs/functions
 
+/packages/kahi-ui-docs-kit/node_modules/
+
 /packages/kahi-ui-docs-render/.build/
 /packages/kahi-ui-docs-render/build/
 /packages/kahi-ui-docs-render/node_modules/
@@ -17,3 +19,5 @@
 /packages/kahi-ui-docs-playground/build/
 /packages/kahi-ui-docs-playground/node_modules/
 /packages/kahi-ui-docs-playground/web_modules/
+
+/packages/svelte-pipeline-repl/node_modules/

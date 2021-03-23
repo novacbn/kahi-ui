@@ -13,6 +13,7 @@
 <script>
     import {
         Anchor,
+        Badge,
         Box,
         Button,
         Card,
@@ -27,12 +28,6 @@
 
     import * as Menus from "../menus";
 </script>
-
-<style>
-    :global(#surfaces-card-sample) {
-        max-width: var(--sizing-block-huge);
-    }
-</style>
 
 <article id="surfaces">
     <Menus.Contents links={SURFACES_MANIFEST} heading="Table of Contents" palette="light" />
@@ -134,7 +129,7 @@
         <Card.Figure><img src={IMAGE_BACKGROUND} /></Card.Figure>
 
         <Card.Heading>
-            Ocean Rockies<span class="badge" data-palette="accent" data-size="tiny">TROPICAL</span>
+            Ocean Rockies<Badge palette="accent" size="tiny">TROPICAL</Badge>
         </Card.Heading>
 
         <Card.Body>
@@ -349,7 +344,7 @@
     </Hero.Container>
 
     <Hero.Container palette="dark" size="parent">
-        <Hero.Heading>Hero VIEWPORT</Hero.Heading>
+        <Hero.Heading>Hero PARENT</Hero.Heading>
         <Hero.Body>
             My height matches the containing parent element's height!
             <Modifiers.Small>
@@ -451,3 +446,9 @@
         </Tile.Container>
     </Grid>
 </article>
+
+<style>
+    :global(#surfaces-card-sample) {
+        max-width: var(--sizing-block-huge);
+    }
+</style>

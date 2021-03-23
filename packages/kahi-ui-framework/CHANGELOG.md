@@ -99,4 +99,4 @@
 
 -   **(BREAKING)** All Animations Keyframes that were handled by Themes are now moved into the Framework as Utilities instead
 -   **(BREAKING)** Updated all size-based data attributes to base themselves on scale of `tiny, small, DEFAULT (non-selectable), large, huge`
-    -   e.g. `<span class="badge" data-size="medium">` -> `<span class="badge" data-size=="small">`
+    -   e.g. `<span class="badge" data-size="medium">` -> `<span class="badge" data-size="small">`

@@ -3,12 +3,12 @@ export default ({VAR}) => {
         margin: VAR.spacing.block.medium,
         z_index: VAR.z_index.inline,
 
-        spacing: {
-            tiny: VAR.spacing.block.tiny,
-            small: VAR.spacing.block.small,
-            medium: VAR.spacing.block.medium,
-            large: VAR.spacing.block.large,
-            huge: VAR.spacing.block.huge,
+        sizing: {
+            tiny: VAR.sizing.block.tiny,
+            small: VAR.sizing.block.small,
+            medium: VAR.sizing.block.medium,
+            large: VAR.sizing.block.large,
+            huge: VAR.sizing.block.huge,
         },
     };
 };

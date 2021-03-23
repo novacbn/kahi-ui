@@ -467,11 +467,11 @@
     --omni-palette-negative-color: var(--palette-light-bold);
     --omni-z-index: var(--z-index-viewport);
     --popover-margin: var(--spacing-block-medium);
-    --popover-spacing-huge: var(--spacing-block-huge);
-    --popover-spacing-large: var(--spacing-block-large);
-    --popover-spacing-medium: var(--spacing-block-medium);
-    --popover-spacing-small: var(--spacing-block-small);
-    --popover-spacing-tiny: var(--spacing-block-tiny);
+    --popover-sizing-huge: var(--sizing-block-huge);
+    --popover-sizing-large: var(--sizing-block-large);
+    --popover-sizing-medium: var(--sizing-block-medium);
+    --popover-sizing-small: var(--sizing-block-small);
+    --popover-sizing-tiny: var(--sizing-block-tiny);
     --popover-z-index: var(--z-index-inline);
     --sheet-palette-accent-background: var(--palette-accent-bold);
     --sheet-palette-accent-color: var(--palette-light-bold);

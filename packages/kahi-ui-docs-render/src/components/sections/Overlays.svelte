@@ -29,12 +29,6 @@
     import * as Menus from "../menus";
 </script>
 
-<style>
-    :global(#overlays-sheet-sample h3) {
-        margin-top: 0;
-    }
-</style>
-
 <article id="overlays">
     <Menus.Contents links={OVERLAYS_MANIFEST} heading="Table of Contents" palette="light" />
 </article>
@@ -592,3 +586,9 @@
 <article id="overlays-toasts">
     <Heading>Overlays :: Toasts</Heading>
 </article>
+
+<style>
+    :global(#overlays-sheet-sample h3) {
+        margin-top: 0;
+    }
+</style>

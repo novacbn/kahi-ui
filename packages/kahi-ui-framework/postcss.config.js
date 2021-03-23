@@ -1,53 +1,8 @@
-const CSSNANO_PRESET = {
-    autoprefixer: false,
-    cssDeclarationSorter: false,
-    calc: false,
-    colormin: false,
-    convertValues: false,
-    discardOverridden: false,
-    discardUnused: false,
-    mergeIdents: false,
-    normalizeCharset: false,
-    normalizeDisplayValues: false,
-    normalizePositions: false,
-    normalizeRepeatStyle: false,
-    normalizeTimingFunctions: false,
-    normalizeUnicode: false,
-    normalizeUrl: false,
-    normalizeWhitespace: false,
-    reduceIdents: false,
-    svgo: false,
-    zindex: false,
-
-    discardComments: true,
-    discardDuplicates: true,
-    discardEmpty: true,
-    rawCache: true,
-    mergeLonghand: true,
-    mergeRules: true,
-    minifyFontValues: true,
-    minifyGradients: true,
-    minifySelectors: true,
-    minifyParams: true,
-    normalizeString: true,
-    orderedValues: true,
-    reduceInitial: true,
-    reduceTransforms: true,
-    uniqueSelectors: true,
-};
+const PACKAGE = require("./package.json");
 
 module.exports = {
     plugins: [
-        require("@csstools/postcss-sass")({
-            outputStyle: "expanded",
-        }),
-        require("postcss-custom-media")(),
-        require("postcss-is-pseudo-class")(),
-        require("postcss-selector-not")(),
-        require("postcss-easings")(),
+        require("postcss-replace")({commentsOnly: true, data: {VERSION: PACKAGE.version}}),
         require("autoprefixer")(),
-        require("cssnano")({
-            preset: ["default", CSSNANO_PRESET],
-        }),
     ],
 };

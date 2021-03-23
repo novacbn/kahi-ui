@@ -2,10 +2,14 @@ $menu: "nav.menu";
 
 $menu-item: "li";
 $menu-submenu: "ul";
+$menu-state: "input[type='checkbox']";
 
 $menu-anchor: "a";
+$menu-anchor-active: ":is([aria-current], :active)";
+$menu-anchor-hover: ":is(:hover, :focus)";
+
 $menu-heading: "label";
-$menu-state: "input[type='checkbox']";
+$menu-heading-hover: ":hover";
 
 @mixin menu-anchor($namespace) {
     display: flex;
@@ -24,20 +28,20 @@ $menu-state: "input[type='checkbox']";
     transition: background var(#{$namespace}-transition), border-color var(#{$namespace}-transition),
         color var(#{$namespace}-transition);
 
-    &:hover,
-    &[aria-current] {
+    &#{$menu-anchor-active},
+    &#{$menu-anchor-hover} {
         color: vhsl(--color);
-        opacity: var(#{$namespace}-opacity-enabled);
+        opacity: initial;
     }
 
-    &:hover {
-        background: vhsla(--color, #{$namespace}-opacity-transparent);
-        border-color: vhsla(--color, #{$namespace}-opacity-transparent);
+    &#{$menu-anchor-hover} {
+        background: vhsla(--color, #{$namespace}-opacity-hover);
+        border-color: vhsla(--color, #{$namespace}-opacity-hover);
     }
 
-    &[aria-current] {
-        background: vhsla(--color, #{$namespace}-opacity-translucent);
-        border-color: vhsla(--color, #{$namespace}-opacity-translucent);
+    &#{$menu-anchor-active} {
+        background: vhsla(--color, #{$namespace}-opacity-active);
+        border-color: vhsla(--color, #{$namespace}-opacity-active);
     }
 }
 
@@ -51,16 +55,20 @@ $menu-state: "input[type='checkbox']";
     letter-spacing: var(#{$namespace}-letter-spacing);
     text-transform: uppercase;
 
-    opacity: var(#{$namespace}-opacity-dull);
+    opacity: var(#{$namespace}-opacity-default);
 
     &[for] {
         cursor: pointer;
 
         transition: color var(#{$namespace}-transition), opacity var(#{$namespace}-transition);
 
-        &:hover {
+        &#{$menu-heading-hover} {
             color: vhsl(--color);
-            opacity: var(#{$namespace}-opacity-muted);
+            opacity: var(#{$namespace}-opacity-hover);
+        }
+
+        &:active {
+            opacity: var(#{$namespace}-opacity-active);
         }
     }
 }
@@ -105,7 +113,7 @@ $menu-state: "input[type='checkbox']";
 }
 
 #{$menu} {
-    @include use-palette(--menu);
+    @include use-palette(--menu-palette);
 
     position: relative;
 

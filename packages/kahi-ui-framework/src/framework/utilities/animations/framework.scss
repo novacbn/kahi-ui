@@ -1,0 +1,13 @@
+@keyframes animations-pulse {
+    0% {
+        box-shadow: 0 0 0 0 hsla(var(--animation-background), var(--animations-pulse-opacity-start));
+    }
+    70% {
+        box-shadow: 0 0 0 var(--animations-pulse-size)
+            hsla(var(--animation-background), var(--animations-pulse-opacity-mid));
+    }
+    100% {
+        box-shadow: 0 0 0 0
+            hsla(var(--animation-background), var(--animations-pulse-opacity-finish));
+    }
+}

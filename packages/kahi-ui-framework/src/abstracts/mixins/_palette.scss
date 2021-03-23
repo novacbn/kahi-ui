@@ -49,7 +49,7 @@
 
     @if ($has-selection) {
         &::selection,
-        & *::selection {
+        & ::selection {
             background-color: vhsl(--color);
             color: vhsl(--background);
         }
@@ -63,7 +63,7 @@
 
     @if ($has-selection) {
         &::selection,
-        & *::selection {
+        & ::selection {
             background-color: vhsl(--background);
             color: vhsl(--color);
         }

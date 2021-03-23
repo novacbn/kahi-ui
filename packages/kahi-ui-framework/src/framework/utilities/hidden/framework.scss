@@ -1,5 +1,5 @@
 @mixin hidden-viewport($viewport) {
-    @media (--viewports-#{$viewport}) {
+    @include use-media-viewport($viewport) {
         [data-hidden~="#{$viewport}"] {
             display: none !important;
         }

@@ -26,7 +26,7 @@ $tree-icon-right-on: ":last-child:not(:nth-child(2))";
  */
 
 #{$tree} {
-    @include use-palette(--tree);
+    @include use-palette(--tree-palette);
 
     position: relative;
 
@@ -41,15 +41,14 @@ $tree-icon-right-on: ":last-child:not(:nth-child(2))";
         list-style: none;
     }
 
-    & #{$tree-anchor},
-    & #{$tree-label} {
+    & :is(#{$tree-anchor}, #{$tree-label}) {
         display: flex;
         align-items: center;
 
         padding: var(--tree-item-padding);
 
         background: transparent;
-        border-radius: var(--tree-border-radius);
+        border-radius: var(--tree-item-radius);
 
         cursor: pointer;
 
@@ -79,20 +78,17 @@ $tree-icon-right-on: ":last-child:not(:nth-child(2))";
     }
 
     & #{$tree-label} {
-        & > #{$tree-icon-left-off},
-        & > #{$tree-icon-left-on} {
+        & > :is(#{$tree-icon-left-off}, #{$tree-icon-left-on}) {
             margin-right: var(--tree-margin-icon);
         }
 
-        & > #{$tree-icon-right-off},
-        & > #{$tree-icon-right-on} {
+        & > :is(#{$tree-icon-right-off}, #{$tree-icon-right-on}) {
             margin-left: var(--tree-margin-icon);
         }
     }
 
     & #{$tree-item}#{$tree-item-active} {
-        & > #{$tree-anchor},
-        & > #{$tree-label} {
+        & > :is(#{$tree-anchor}, #{$tree-label}) {
             color: vhsl(--background);
             background: vhsla(--background, --tree-opacity-translucent);
         }

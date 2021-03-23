@@ -1,30 +1,24 @@
 {
     "name": "kahi-ui-framework",
     "author": "novacbn",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "scripts": {
         "build": "npm run build:framework;npm run build:themes",
-        "build:framework": "postcss ./src/framework.scss --output ../../dist/kahi-ui.css",
-        "build:themes": "postcss ./src/themes/**.scss --dir ../../dist/themes/ --ext .css",
-        "prettify": "npm run prettify:framework;npm run prettify:themes",
-        "prettify:framework": "prettier ../../dist/kahi-ui.css --write",
-        "prettify:themes": "prettier ../../dist/themes/*.css --write",
-        "watch:framework": "postcss ./src/framework.scss --output ../../dist/kahi-ui.css --watch",
-        "watch:themes": "postcss ./src/themes/**.scss --dir ../../dist/themes/ --ext .css --watch",
+        "build:framework": "sass ./src/framework.scss ../../dist/kahi-ui.framework.css",
+        "build:themes": "node ./scripts/build-themes.mjs build './src/themes/*.theme.mjs' './src/framework/**/*.theme.mjs' ../../dist/themes/",
+        "prepublish": "npm run prepublish:process && npm run prepublish:minify",
+        "prepublish:process": "postcss --config postcss.config.js --replace ../../dist/kahi-ui.framework.css",
+        "prepublish:minify": "sass --style compressed ../../dist/kahi-ui.framework.css:../../dist/kahi-ui.framework.min.css",
         "prebuild:clean": "rimraf ../../dist"
     },
     "devDependencies": {
-        "@csstools/postcss-sass": "^4.0.0",
-        "autoprefixer": "^9.8.6",
-        "cssnano": "^4.1.10",
-        "postcss-cli": "^7.1.2",
-        "postcss-custom-media": "^7.0.8",
-        "postcss-custom-selectors": "^5.1.2",
-        "postcss-easings": "^2.0.0",
-        "postcss-is-pseudo-class": "file:packages/postcss-is-pseudo-class",
-        "postcss-selector-not": "^4.0.0",
+        "autoprefixer": "^10.2.5",
+        "fast-glob": "^3.2.5",
+        "flat": "^5.0.2",
+        "postcss-cli": "^8.3.1",
+        "postcss-replace": "^1.1.3",
         "prettier": "^2.1.2",
-        "rimraf": "^3.0.2"
-    },
-    "dependencies": {}
+        "rimraf": "^3.0.2",
+        "sass": "^1.32.8"
+    }
 }

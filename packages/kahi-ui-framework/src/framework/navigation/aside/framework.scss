@@ -3,7 +3,7 @@ $navigation-aside: "nav.aside";
 $aside-heading: "header";
 
 #{$navigation-aside} {
-    @include use-palette(--aside);
+    @include use-palette(--aside-palette);
 
     display: block;
 

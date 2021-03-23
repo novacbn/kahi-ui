@@ -50,7 +50,7 @@ $tile-body-text: "p";
 }
 
 #{$tile} {
-    @include use-palette(--tile, false);
+    @include use-palette(--tile-palette, false);
 
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@ $tile-body-text: "p";
         margin: var(--tile-margin);
         padding: var(--tile-padding);
 
-        border: var(--tile-border) vhsl(--tile-border-color);
+        border: var(--tile-border);
         border-radius: var(--tile-radius);
     }
 
@@ -81,7 +81,6 @@ $tile-body-text: "p";
     }
 }
 
-#{$anchor}#{$tile},
-#{$label}#{$tile} {
-    @include use-linkable(--tile);
+:is(#{$anchor}, #{$label})#{$tile} {
+    @include use-anchor();
 }

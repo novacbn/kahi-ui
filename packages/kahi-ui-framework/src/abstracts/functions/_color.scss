@@ -1,14 +1,12 @@
-@function vcolor($color, $lightness: 1) {
-    @return var(#{$color}-huesat), step(#{$color}-lightness, $lightness);
-}
-
 @function vhsl($color) {
+    /** deprecated */
     $color: expand-value($color);
 
     @return hsl($color);
 }
 
 @function vhsla($color, $alpha) {
+    /** deprecated */
     $alpha: expand-value($alpha);
     $color: expand-value($color);
 

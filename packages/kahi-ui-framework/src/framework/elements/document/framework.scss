@@ -16,7 +16,7 @@ body {
     line-height: var(--document-root-line-height);
 }
 
-*::selection {
+::selection {
     background-color: vhsl(--document-root-color);
     color: vhsl(--document-root-background);
 }

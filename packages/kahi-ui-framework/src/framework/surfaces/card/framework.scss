@@ -93,7 +93,7 @@ $card-footer: "footer";
 }
 
 #{$card} {
-    @include use-palette(--card, false);
+    @include use-palette(--card-palette, false);
     @include card-container(--card);
 
     margin: var(--card-margin);
@@ -104,12 +104,11 @@ $card-footer: "footer";
     &[data-palette] {
         @include use-palette-block();
 
-        border: var(--card-border) vhsl(--card-border-color);
+        border: var(--card-border);
         border-radius: var(--card-radius);
     }
 }
 
-#{$anchor}#{$card},
-#{$label}#{$card} {
-    @include use-linkable(--card);
+:is(#{$anchor}, #{$label})#{$card} {
+    @include use-anchor();
 }

@@ -5,7 +5,7 @@ $omni-content: "section";
 $omni-footer: "footer";
 
 #{$navigation-omni} {
-    @include use-palette(--omni);
+    @include use-palette(--omni-palette);
 
     display: flex;
     justify-content: space-between;
@@ -20,9 +20,7 @@ $omni-footer: "footer";
         @include use-palette-block();
     }
 
-    & > #{$omni-heading},
-    & > #{$omni-content},
-    & > #{$omni-footer} {
+    & > :is(#{$omni-heading}, #{$omni-content}, #{$omni-footer}) {
         display: grid;
         grid-auto-flow: column;
 
@@ -49,8 +47,7 @@ $omni-footer: "footer";
         white-space: nowrap;
     }
 
-    & > #{$omni-content},
-    & > #{$omni-footer} {
+    & > :is(#{$omni-content}, #{$omni-footer}) {
         gap: var(--omni-content-spacing);
     }
 

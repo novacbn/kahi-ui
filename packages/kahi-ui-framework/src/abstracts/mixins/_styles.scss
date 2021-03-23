@@ -1,19 +1,18 @@
-@mixin use-linkable($namespace) {
+@mixin use-anchor() {
     color: currentColor;
-    opacity: var(#{$namespace}-opacity-visible);
+    opacity: var(--typography-anchor-opacity-default);
 
     cursor: pointer;
     text-decoration: none;
 
     user-select: none;
-    transition: opacity var(#{$namespace}-transition);
+    transition: opacity var(--typography-anchor-transition);
 
-    &:hover,
-    &:focus {
-        opacity: var(#{$namespace}-opacity-dull);
+    &#{$anchor-hover} {
+        opacity: var(--typography-anchor-opacity-hover);
     }
 
-    &:active {
-        opacity: var(#{$namespace}-opacity-muted);
+    &#{$anchor-active} {
+        opacity: var(--typography-anchor-opacity-active);
     }
 }

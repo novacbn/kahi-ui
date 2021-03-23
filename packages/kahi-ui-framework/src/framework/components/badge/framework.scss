@@ -1,7 +1,7 @@
 $badge: ".badge";
 
 #{$badge} {
-    @include use-palette(--badge);
+    @include use-palette(--badge-palette);
     @include use-animation-palette();
 
     display: inline-flex;
@@ -10,17 +10,17 @@ $badge: ".badge";
     align-items: center;
     justify-content: center;
 
-    padding: var(--badge-padding);
+    padding: var(--badge-padding-default);
 
     background: vhsl(--background);
     color: vhsl(--color);
 
-    font-size: var(--badge-font-size-small);
+    font-size: var(--badge-font-size-default);
     font-weight: var(--badge-font-weight);
 
     line-height: 1;
 
-    border-radius: var(--badge-radius);
+    border-radius: var(--badge-radius-default);
 
     user-select: none;
 
@@ -43,18 +43,10 @@ $badge: ".badge";
         animation: var(--badge-attention);
     }
 
-    @each $size, $index in tiny, medium, large, huge {
+    @each $size, $index in tiny, small, large, huge {
         &[data-size="#{$size}"] {
             font-size: var(--badge-font-size-#{$size});
         }
-    }
-
-    &[data-shape="circle"] {
-        padding: 0;
-        width: var(--badge-size-circle);
-        height: var(--badge-size-circle);
-
-        border-radius: var(--badge-radius-circle);
     }
 
     &[data-shape="pill"] {

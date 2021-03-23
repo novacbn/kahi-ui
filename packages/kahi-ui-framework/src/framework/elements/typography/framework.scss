@@ -1,9 +1,10 @@
 $anchor: "a:not([role])";
+$anchor-active: ":active";
 $anchor-hover: ":is(:hover, :focus)";
 
 $blockquote: "blockquote";
 $code: "code";
-$identifier: "#{$code}, kbd";
+$identifier: ":is(#{$code}, kbd)";
 $paragraph: "p";
 $pre: "pre";
 
@@ -19,26 +20,30 @@ $heading-h1: "h1, .h1";
 $heading: "#{$heading-h6}, #{$heading-h5}, #{$heading-h4}, #{$heading-h3}, #{$heading-h2}, #{$heading-h1}";
 
 #{$anchor} {
-    color: vhsl(--typography-accent-background);
-    opacity: 1;
+    color: vhsl(--typography-anchor-color);
 
-    transition: opacity var(--typography-transition);
+    opacity: vhsl(--typography-anchor-opacity-default);
+    transition: opacity var(--typography-anchor-transition);
 
     &#{$anchor-hover} {
-        opacity: var(--typography-opacity-muted);
+        opacity: var(--typography-anchor-opacity-hover);
+    }
+
+    &#{$anchor-active} {
+        opacity: var(--typography-anchor-opacity-active);
     }
 }
 
 #{$blockquote} {
-    @include use-palette(--typography);
+    @include use-palette(--typography-blockquote-palette);
 
     padding: var(--typography-blockquote-padding);
-    margin: var(--typography-margin);
+    margin: var(--typography-blockquote-margin);
 
-    background: vhsla(--background, --typography-opacity-translucent);
+    background: vhsla(--background, --typography-blockquote-background-opacity);
     border-left: vhsl(--background) var(--typography-blockquote-border);
 
-    border-radius: var(--typography-radius);
+    border-radius: var(--typography-blockquote-radius);
 
     & > *:first-child {
         margin-top: 0;
@@ -93,29 +98,38 @@ $heading: "#{$heading-h6}, #{$heading-h5}, #{$heading-h4}, #{$heading-h3}, #{$he
 #{$identifier} {
     padding: var(--typography-identifier-padding);
 
-    background: vhsla(--typography-default-background, --typography-opacity-translucent);
-    color: vhsl(--typography-identifier-color);
+    background: hsla(var(--typography-identifier-background));
+    color: hsl(var(--typography-identifier-color));
 
-    border-radius: var(--typography-radius);
-    font-size: var(--typography-font-size-small);
+    border-radius: var(--typography-identifier-radius);
+
+    font-size: var(--typography-identifier-font-size);
+    font-family: var(--typography-identifier-font-family);
+    font-weight: var(--typography-identifier-font-weight);
 
     white-space: pre-wrap;
 
     &::selection,
-    & *::selection {
-        background-color: vhsl(--typography-identifier-color);
-        color: vhsl(--typography-default-color);
+    & ::selection {
+        background-color: hsl(var(--typography-identifier-selection-background));
+        color: hsl(var(--typography-identifier-selection-color));
     }
 }
 
 #{$paragraph} {
-    margin: var(--typography-margin);
+    margin: var(--typography-paragraph-margin);
 }
 
 #{$pre} {
-    background: vhsla(--typography-default-background, --typography-opacity-translucent);
-
     padding: var(--typography-pre-padding);
+
+    background: hsla(var(--typography-pre-background));
+
+    font-family: var(--typography-pre-font-family);
+    font-weight: var(--typography-pre-font-weight);
+
+    border-radius: var(--typography-pre-radius);
+
     overflow-x: auto;
 
     & #{$code} {
@@ -125,9 +139,9 @@ $heading: "#{$heading-h6}, #{$heading-h5}, #{$heading-h4}, #{$heading-h3}, #{$he
 }
 
 #{$small} {
-    font-size: var(--typography-font-size-small);
+    font-size: var(--typography-small-font-size);
 }
 
 #{$strong} {
-    font-weight: var(--typography-font-weight-bold);
+    font-weight: var(--typography-strong-font-weight);
 }

@@ -1,5 +1,6 @@
 {
     "editor.formatOnSave": false,
+    "javascript.suggest.autoImports": false,
 
     "[css]": {
         "editor.formatOnSave": true

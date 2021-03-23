@@ -9,7 +9,7 @@ $button-clear: "[data-variation='clear']";
 $button-outline: "[data-variation='outline']";
 
 #{$button} {
-    @include use-palette(--button);
+    @include use-palette(--button-palette);
 
     appearance: none;
 
@@ -19,13 +19,13 @@ $button-outline: "[data-variation='outline']";
     align-items: center;
     justify-content: center;
 
-    padding: var(--button-padding);
+    padding: var(--button-padding-default);
     margin: 0;
 
-    border-radius: var(--button-radius);
+    border-radius: var(--button-radius-default);
 
     font-family: var(--button-font-family);
-    font-size: var(--button-font-size-medium);
+    font-size: var(--button-font-size-default);
     font-weight: var(--button-font-weight);
 
     line-height: 1;

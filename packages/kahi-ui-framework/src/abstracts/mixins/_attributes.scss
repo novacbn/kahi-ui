@@ -1,6 +1,6 @@
 @mixin use-alignment-attribute($alignment, $value, $axis: false, $viewport: false) {
     @if ($viewport) {
-        @media (--viewports-#{$viewport}) {
+        @include use-media-viewport($viewport) {
             @if ($axis) {
                 &[data-alignment-#{$axis}~="#{$alignment}+#{$viewport}"] {
                     --alignment-#{$axis}: #{$value};
@@ -38,7 +38,7 @@
     --alignment-y: #{$default-y};
 
     @if ($viewport) {
-        @each $viewport, $index in tiny, small, medium, large {
+        @each $viewport, $index in $viewports-keys {
             @each $alignment, $value in $alignments {
                 @include use-alignment-attribute($alignment, $value, false, $viewport);
             }
@@ -67,9 +67,6 @@
 }
 
 @mixin use-alignment-flex($viewport: false, $default-x: baseline, $default-y: flex-start) {
-    --alignment-x: #{$default-x};
-    --alignment-y: #{$default-y};
-
     @include use-alignment(
         (
             center: center,
@@ -95,9 +92,6 @@
 }
 
 @mixin use-alignment-grid($viewport: false, $default-x: baseline, $default-y: start) {
-    --alignment-x: #{$default-x};
-    --alignment-y: #{$default-y};
-
     @include use-alignment(
         (
             center: center,
@@ -124,7 +118,7 @@
 
 @mixin use-grid-points-attribute($point, $viewport: false) {
     @if ($viewport) {
-        @media (--viewports-#{$viewport}) {
+        @include use-media-viewport($viewport) {
             &[data-points~="#{$point}+#{$viewport}"] {
                 --points: #{$point} !important;
             }
@@ -140,7 +134,7 @@
     --points: #{$default};
 
     @if ($viewport) {
-        @each $viewport, $index in tiny, small, medium, large {
+        @each $viewport, $index in $viewports-keys {
             @for $point from $minimum to $maximum {
                 @include use-grid-points-attribute($point, $viewport);
             }
@@ -154,7 +148,7 @@
 
 @mixin use-spacing-attribute($namespace, $spacing, $viewport: false) {
     @if ($viewport) {
-        @media (--viewports-#{$viewport}) {
+        @include use-media-viewport($viewport) {
             &[data-spacing~="#{$spacing}+#{$viewport}"] {
                 --spacing: var(#{$namespace}-#{$spacing}) !important;
             }
@@ -175,7 +169,7 @@
     --spacing: #{$default};
 
     @if ($viewport) {
-        @each $viewport, $index in tiny, small, medium, large {
+        @each $viewport, $index in $viewports-keys {
             @each $spacing, $index in $spacings {
                 @include use-spacing-attribute($namespace, $spacing, $viewport);
             }
@@ -189,7 +183,7 @@
 
 @mixin use-sizing-attribute($namespace, $sizing, $viewport: false) {
     @if ($viewport) {
-        @media (--viewports-#{$viewport}) {
+        @include use-media-viewport($viewport) {
             &[data-sizing~="#{$sizing}+#{$viewport}"] {
                 --sizing: var(#{$namespace}-#{$sizing}) !important;
             }
@@ -210,7 +204,7 @@
     --sizing: #{$default};
 
     @if ($viewport) {
-        @each $viewport, $index in tiny, small, medium, large {
+        @each $viewport, $index in $viewports-keys {
             @each $sizing, $index in $sizings {
                 @include use-sizing-attribute($namespace, $sizing, $viewport);
             }
@@ -224,7 +218,7 @@
 
 @mixin use-viewport-attribute($namespace, $viewport, $media: false) {
     @if ($media) {
-        @media (--viewports-#{$media}) {
+        @include use-media-viewport($media) {
             &[data-viewport~="#{$viewport}+#{$media}"] {
                 --viewport: var(#{$namespace}-#{$viewport}) !important;
             }
@@ -236,16 +230,11 @@
     }
 }
 
-@mixin use-viewport(
-    $namespace,
-    $constrain: false,
-    $default: initial,
-    $viewports: (tiny, small, medium, large)
-) {
+@mixin use-viewport($namespace, $constrain: false, $default: initial, $viewports: $viewports-keys) {
     --viewport: #{$default};
 
     @if ($constrain) {
-        @each $media, $index in tiny, small, medium, large {
+        @each $media, $index in $viewports-keys {
             @each $viewport, $index in $viewports {
                 @include use-viewport-attribute($namespace, $viewport, $media);
             }

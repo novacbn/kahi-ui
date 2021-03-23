@@ -1,3 +1,9 @@
+/*!
+ * Kahi UI - Framework
+ *
+ * v{{ VERSION }} - (SCSS COMPILED)
+ */
+
 @import "./abstracts/functions";
 @import "./abstracts/media";
 @import "./abstracts/mixins";
@@ -8,6 +14,7 @@
 @import "./framework/elements/typography/framework";
 
 @import "./framework/components/badge/framework";
+@import "./framework/components/dot/framework";
 @import "./framework/components/button/framework";
 @import "./framework/components/divider/framework";
 @import "./framework/components/embedded/framework"; /* TODO */
@@ -43,4 +50,5 @@
 @import "./framework/layout/mosaic/framework";
 @import "./framework/layout/stack/framework";
 
+@import "./framework/utilities/animations/framework";
 @import "./framework/utilities/hidden/framework";

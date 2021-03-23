@@ -3,6 +3,9 @@ $spacer: ".spacer";
 $spacer-block: "div.spacer";
 $spacer-inline: "span.spacer";
 
+/** TODO: Default to no spacing when atribute not set,
+and during default do flex-grow: 1, align-self: stretch */
+
 @mixin spacer-block() {
     width: var(--width);
     height: var(--height);

@@ -3,7 +3,7 @@ $grid: ".grid";
 #{$grid} {
     @include use-alignment-grid(true);
     @include use-grid-points(true);
-    @include use-spacing(--mosaic-spacing, true);
+    @include use-spacing(--grid-spacing, true);
 
     display: grid;
 

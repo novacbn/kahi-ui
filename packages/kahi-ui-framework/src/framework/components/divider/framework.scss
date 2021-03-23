@@ -3,22 +3,22 @@ $divider-hr: "hr";
 $divider-separator: "[role='separator']";
 
 #{$divider} {
-    @include use-palette-single(--divider, false);
+    @include use-palette-single(--divider-palette, false);
 
     align-self: stretch;
     width: 100%;
 
     margin: var(--divider-margin-vertical);
 
+    color: currentColor;
     user-select: none;
 
     &:not([data-palette]) {
-        color: inherit;
-        opacity: var(--divider-opacity-dull);
+        opacity: var(--divider-opacity-default);
     }
 
     &[data-palette] {
-        color: vhsl(--background);
+        color: hsl(var(--background));
     }
 }
 
@@ -30,8 +30,6 @@ $divider-separator: "[role='separator']";
 }
 
 #{$divider-separator} {
-    font-weight: bold;
-
     display: flex;
     align-items: center;
 

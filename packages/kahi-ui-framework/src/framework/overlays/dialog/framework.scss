@@ -70,7 +70,7 @@ $dialog-heading: "header";
 }
 
 #{$dialog} {
-    @include use-palette(--dialog, false);
+    @include use-palette(--dialog-palette, false);
     @include dialog-container(--dialog);
 
     & > #{$dialog-region} {

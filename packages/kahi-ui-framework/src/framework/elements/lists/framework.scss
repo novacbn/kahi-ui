@@ -9,14 +9,11 @@ $lists-item: "li";
 
 #{$lists-ordered},
 #{$lists-unordered} {
-    list-style-position: inside;
-}
-
-#{$lists-ordered},
-#{$lists-unordered} {
     display: block;
 
-    margin: var(--lists-margin);
+    list-style-position: inside;
+
+    margin: var(--lists-margin-block);
     padding: 0;
 }
 
@@ -28,7 +25,7 @@ $lists-item: "li";
 #{$lists-definition} {
     display: block;
 
-    margin: var(--lists-definition-margin);
+    margin: var(--lists-definition-margin-block);
     padding: 0;
 }
 
@@ -37,11 +34,10 @@ $lists-item: "li";
 }
 
 #{$lists-item} {
-    margin: var(--lists-margin-item);
+    margin: var(--lists-margin-item-block);
 }
 
-#{$lists-definition-description},
-#{$lists-item} {
+:is(#{$lists-definition-description}, #{$lists-item}) {
     &:first-child {
         margin-top: 0;
     }

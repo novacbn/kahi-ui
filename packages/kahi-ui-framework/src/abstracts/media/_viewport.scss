@@ -1,24 +1,39 @@
-$viewports-tiny: (
-    "min-width": 0px,
-    "max-width": 599px,
+$viewports: (
+    tiny: 0px,
+    small: 600px,
+    medium: 900px,
+    large: 1200px,
 );
 
-$viewports-small: (
-    "min-width": 600px,
-    "max-width": 899px,
+$viewports-keys: map-keys($viewports);
+
+@function generate-viewport($viewport) {
+    $target-index: index($viewports-keys, $viewport);
+    $target-size: map-get($viewports, $viewport);
+
+    $next-index: $target-index + 1;
+
+    @if (length($viewports-keys) < $next-index) {
+        @return "screen and (min-width: #{$target-size})";
+    }
+
+    $next-key: nth($viewports-keys, $next-index);
+    $next-size: map-get($viewports, $next-key);
+
+    @if ($target-size == 0px) {
+        @return "screen and (max-width: #{$next-size - 1px})";
+    }
+
+    @return "screen and (min-width: #{$target-size}) and (max-width: #{$next-size - 1px})";
+}
+
+$viewports-queries: (
+    tiny: generate-viewport("tiny"),
+    small: generate-viewport("small"),
+    medium: generate-viewport("medium"),
+    large: generate-viewport("large"),
 );
 
-$viewports-medium: (
-    "min-width": 900px,
-    "max-width": 1199px,
-);
-
-$viewports-large: (
-    "min-width": 1200px,
-    "max-width": 999999px,
-);
-
-@custom-media --viewports-tiny screen and (max-width: #{map-get($viewports-tiny, "max-width")});
-@custom-media --viewports-small screen and (min-width: #{map-get($viewports-small, "min-width")}) and (max-width: #{map-get($viewports-small, "max-width")});
-@custom-media --viewports-medium screen and (min-width: #{map-get($viewports-medium, "min-width")}) and (max-width: #{map-get($viewports-medium, "max-width")});
-@custom-media --viewports-large screen and (min-width: #{map-get($viewports-large, "min-width")});
+@function get-viewport($viewport) {
+    @return map-get($viewports-queries, $viewport);
+}

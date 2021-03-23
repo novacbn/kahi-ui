@@ -7,7 +7,7 @@ $box: ".box";
 
         TODO: Allow boxes to be `<a>` elements, with appropriate overrides
     */
-    @include use-palette(--box);
+    @include use-palette(--box-palette);
 
     display: block;
 
@@ -29,7 +29,6 @@ $box: ".box";
     }
 }
 
-#{$anchor}#{$box},
-#{$label}#{$box} {
-    @include use-linkable(--box);
+:is(#{$anchor}, #{$label})#{$box} {
+    @include use-anchor();
 }

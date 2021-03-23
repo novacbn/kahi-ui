@@ -44,7 +44,7 @@ $sheet-region: "[role='document']";
 }
 
 #{$sheet} {
-    @include use-palette(--sheet, false);
+    @include use-palette(--sheet-palette, false);
     @include sheet-container();
 
     & > #{$backdrop-background} {

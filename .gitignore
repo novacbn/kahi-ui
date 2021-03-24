@@ -10,10 +10,10 @@
 
 /packages/kahi-ui-docs-kit/node_modules/
 
-/packages/kahi-ui-docs-render/.build/
-/packages/kahi-ui-docs-render/build/
-/packages/kahi-ui-docs-render/node_modules/
-/packages/kahi-ui-docs-render/web_modules/
+/packages/kahi-ui-docs-render/node_modules
+/packages/kahi-ui-docs-render/.svelte
+/packages/kahi-ui-docs-render/build
+/packages/kahi-ui-docs-render/functions
 
 /packages/kahi-ui-docs-playground/node_modules/
 /packages/kahi-ui-docs-playground/.svelte/

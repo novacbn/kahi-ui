@@ -1,18 +1,12 @@
 <script context="module">
-    import IMAGE_BACKGROUND from "../../../public/assets/images/background.jpg";
-
-    export const OVERLAYS_MANIFEST = [
-        {id: "overlays-dialogs", text: "Dialogs"},
-        {id: "overlays-popovers", text: "Popovers"},
-        {id: "overlays-sheets", text: "Sheets"},
-        {id: "overlays-toasts", text: "Toasts"},
-    ];
+    const IMAGE_BACKGROUND = "/assets/images/background.jpg";
 </script>
 
 <script>
     import {
         Badge,
         Button,
+        Container,
         Dialog,
         Divider,
         Formatting,
@@ -25,29 +19,260 @@
         Sheet,
         Spacer,
     } from "@kahi-ui/svelte";
-
-    import * as Menus from "../menus";
 </script>
 
-<article id="overlays">
-    <Menus.Contents links={OVERLAYS_MANIFEST} heading="Table of Contents" palette="light" />
-</article>
+<Container>
+    <article id="overlays-dialogs">
+        <Heading>Overlays :: Dialogs</Heading>
 
-<article id="overlays-dialogs">
-    <Heading>Overlays :: Dialogs</Heading>
+        <Dialog.Button for="overlays-dialog-sample">Show Dialog Sample</Dialog.Button>
 
-    <Dialog.Button for="overlays-dialog-sample">Show Dialog Sample</Dialog.Button>
+        <Heading level="2">Dialog Palettes</Heading>
 
-    <Heading level="2">Dialog Palettes</Heading>
+        <Dialog.Button for="overlays-dialog-default">Dialog DEFAULT</Dialog.Button>
+        <Dialog.Button for="overlays-dialog-accent">Dialog ACCENT</Dialog.Button>
+        <Dialog.Button for="overlays-dialog-dark">Dialog DARK</Dialog.Button>
+        <Dialog.Button for="overlays-dialog-light">Dialog LIGHT</Dialog.Button>
+        <Dialog.Button for="overlays-dialog-alert">Dialog ALERT</Dialog.Button>
+        <Dialog.Button for="overlays-dialog-affirmative">Dialog AFFIRMATIVE</Dialog.Button>
+        <Dialog.Button for="overlays-dialog-negative">Dialog NEGATIVE</Dialog.Button>
+    </article>
 
-    <Dialog.Button for="overlays-dialog-default">Dialog DEFAULT</Dialog.Button>
-    <Dialog.Button for="overlays-dialog-accent">Dialog ACCENT</Dialog.Button>
-    <Dialog.Button for="overlays-dialog-dark">Dialog DARK</Dialog.Button>
-    <Dialog.Button for="overlays-dialog-light">Dialog LIGHT</Dialog.Button>
-    <Dialog.Button for="overlays-dialog-alert">Dialog ALERT</Dialog.Button>
-    <Dialog.Button for="overlays-dialog-affirmative">Dialog AFFIRMATIVE</Dialog.Button>
-    <Dialog.Button for="overlays-dialog-negative">Dialog NEGATIVE</Dialog.Button>
-</article>
+    <Divider />
+
+    <article id="overlays-popovers">
+        <Heading>Overlays :: Popovers</Heading>
+
+        <Popover.Container id="overlays-popover-sample" sizing="medium">
+            <Popover.Button>Show Popover Sample</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+
+                    <Menu.Anchor href="#">
+                        Cut
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+X</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+
+                    <Menu.Anchor href="#">
+                        Paste
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+V</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Heading level={2}>Popover Positions</Heading>
+
+        <Popover.Container id="overlays-popover-positions-bottom">
+            <Popover.Button>Popover BOTTOM</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-positions-top" position="top">
+            <Popover.Button>Popover TOP</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-positions-left" position="left">
+            <Popover.Button>Popover LEFT</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-positions-right" position="right">
+            <Popover.Button>Popover RIGHT</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Heading level={2}>Popover Sizings</Heading>
+
+        <Popover.Container id="overlays-popover-sizings-default">
+            <Popover.Button>Popover DEFAULT</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-sizings-tiny" sizing="tiny">
+            <Popover.Button>Popover TINY</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-sizings-small" sizing="small">
+            <Popover.Button>Popover SMALL</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-sizings-medium" sizing="medium">
+            <Popover.Button>Popover MEDIUM</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-sizings-large" sizing="large">
+            <Popover.Button>Popover LARGE</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+
+        <Popover.Container id="overlays-popover-sizings-huge" sizing="huge">
+            <Popover.Button>Popover HUGE</Popover.Button>
+
+            <Popover.Region>
+                <Menu.Container palette="light">
+                    <Menu.Divider>Text Operations</Menu.Divider>
+
+                    <Menu.Anchor href="#">
+                        Copy
+                        <Modifiers.Small>
+                            <Formatting.Code>CTRL+C</Formatting.Code>
+                        </Modifiers.Small>
+                    </Menu.Anchor>
+                </Menu.Container>
+            </Popover.Region>
+        </Popover.Container>
+    </article>
+
+    <Divider />
+
+    <article id="overlays-sheets">
+        <Heading>Overlays :: Sheets</Heading>
+
+        <Sheet.Button for="overlays-sheet-sample">Show Sheet Sample</Sheet.Button>
+
+        <Heading level="2">Sheet Palettes</Heading>
+
+        <Sheet.Button for="overlays-sheet-default">Sheet DEFAULT</Sheet.Button>
+        <Sheet.Button for="overlays-sheet-accent">Sheet ACCENT</Sheet.Button>
+        <Sheet.Button for="overlays-sheet-dark">Sheet DARK</Sheet.Button>
+        <Sheet.Button for="overlays-sheet-light">Sheet LIGHT</Sheet.Button>
+        <Sheet.Button for="overlays-sheet-alert">Sheet ALERT</Sheet.Button>
+        <Sheet.Button for="overlays-sheet-affirmative">Sheet AFFIRMATIVE</Sheet.Button>
+        <Sheet.Button for="overlays-sheet-negative">Sheet NEGATIVE</Sheet.Button>
+    </article>
+
+    <Divider />
+
+    <article id="overlays-toasts">
+        <Heading>Overlays :: Toasts</Heading>
+    </article>
+</Container>
 
 <Portal>
     <Dialog.Container id="overlays-dialog-sample" palette="light" viewport="tiny">
@@ -212,235 +437,6 @@
     </Dialog.Container>
 </Portal>
 
-<Divider />
-
-<article id="overlays-popovers">
-    <Heading>Overlays :: Popovers</Heading>
-
-    <Popover.Container id="overlays-popover-sample" sizing="medium">
-        <Popover.Button>Show Popover Sample</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-
-                <Menu.Anchor href="#">
-                    Cut
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+X</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-
-                <Menu.Anchor href="#">
-                    Paste
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+V</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Heading level={2}>Popover Positions</Heading>
-
-    <Popover.Container id="overlays-popover-positions-bottom">
-        <Popover.Button>Popover BOTTOM</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-positions-top" position="top">
-        <Popover.Button>Popover TOP</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-positions-left" position="left">
-        <Popover.Button>Popover LEFT</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-positions-right" position="right">
-        <Popover.Button>Popover RIGHT</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Heading level={2}>Popover Sizings</Heading>
-
-    <Popover.Container id="overlays-popover-sizings-default">
-        <Popover.Button>Popover DEFAULT</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-sizings-tiny" sizing="tiny">
-        <Popover.Button>Popover TINY</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-sizings-small" sizing="small">
-        <Popover.Button>Popover SMALL</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-sizings-medium" sizing="medium">
-        <Popover.Button>Popover MEDIUM</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-sizings-large" sizing="large">
-        <Popover.Button>Popover LARGE</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-
-    <Popover.Container id="overlays-popover-sizings-huge" sizing="huge">
-        <Popover.Button>Popover HUGE</Popover.Button>
-
-        <Popover.Region>
-            <Menu.Container palette="light">
-                <Menu.Divider>Text Operations</Menu.Divider>
-
-                <Menu.Anchor href="#">
-                    Copy
-                    <Modifiers.Small>
-                        <Formatting.Code>CTRL+C</Formatting.Code>
-                    </Modifiers.Small>
-                </Menu.Anchor>
-            </Menu.Container>
-        </Popover.Region>
-    </Popover.Container>
-</article>
-
-<Divider />
-
-<article id="overlays-sheets">
-    <Heading>Overlays :: Sheets</Heading>
-
-    <Sheet.Button for="overlays-sheet-sample">Show Sheet Sample</Sheet.Button>
-
-    <Heading level="2">Sheet Palettes</Heading>
-
-    <Sheet.Button for="overlays-sheet-default">Sheet DEFAULT</Sheet.Button>
-    <Sheet.Button for="overlays-sheet-accent">Sheet ACCENT</Sheet.Button>
-    <Sheet.Button for="overlays-sheet-dark">Sheet DARK</Sheet.Button>
-    <Sheet.Button for="overlays-sheet-light">Sheet LIGHT</Sheet.Button>
-    <Sheet.Button for="overlays-sheet-alert">Sheet ALERT</Sheet.Button>
-    <Sheet.Button for="overlays-sheet-affirmative">Sheet AFFIRMATIVE</Sheet.Button>
-    <Sheet.Button for="overlays-sheet-negative">Sheet NEGATIVE</Sheet.Button>
-</article>
-
 <Portal>
     <Sheet.Container id="overlays-sheet-sample" palette="light">
         <Sheet.Region>
@@ -580,12 +576,6 @@
         </Sheet.Region>
     </Sheet.Container>
 </Portal>
-
-<Divider />
-
-<article id="overlays-toasts">
-    <Heading>Overlays :: Toasts</Heading>
-</article>
 
 <style>
     :global(#overlays-sheet-sample h3) {

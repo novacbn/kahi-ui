@@ -1,3 +1,23 @@
+<script context="module">
+    import {readable} from "svelte/store";
+
+    import {browser} from "$app/env";
+
+    const hash = browser
+        ? readable(window.location.hash, (set) => {
+              const on_hash_change = (event) => set(window.location.hash);
+
+              window.addEventListener("hashchange", on_hash_change);
+              return () => window.removeEventListener("hashchange", on_hash_change);
+          })
+        : readable("");
+
+    function is_current(href, path, hash) {
+        if (href === path || href === hash) return "current";
+        return undefined;
+    }
+</script>
+
 <script>
     import {onMount} from "svelte";
     import {page} from "$app/stores";
@@ -22,11 +42,11 @@
 <Aside.Container class="shell-aside" palette="dark">
     <Menu.Container>
         {#each categories as category (category.text)}
-            <Menu.Heading>{category.text}</Menu.Heading>
+            <Menu.Divider>{category.text}</Menu.Divider>
 
             {#each category.links as link (link.href)}
                 <Menu.Anchor
-                    current={link.href === $page.path ? "current" : undefined}
+                    current={is_current(link.href, $page.path, $hash)}
                     href={link.href}
                     target={link.is_external ? "_blank" : undefined}
                     rel={link.is_external ? "noopener noreferrer" : undefined}

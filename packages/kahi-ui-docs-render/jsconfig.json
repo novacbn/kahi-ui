@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "module": "es2020",
+        "target": "es5",
+        "lib": ["es2015", "es2016", "es2017", "dom", "dom.iterable"],
+        "alwaysStrict": true,
+        "checkJs": true,
+        "paths": {
+            "$app/*": [".svelte/dev/runtime/app/*", ".svelte/build/runtime/app/*"]
+        }
+    },
+
+    "exclude": ["node_modules", "**/node_modules"],
+    "include": ["./src/.meta.js", "./src/**/*.js", "./src/**/*.svelte"]
+}

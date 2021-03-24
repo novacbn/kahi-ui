@@ -1,18 +1,25 @@
 {
     "name": "kahi-ui-docs-render",
     "author": "novacbn",
-    "version": "0.0.1",
+    "version": "0.1.0",
+    "type": "module",
+    "engines": {
+        "node": ">= 12.17.0"
+    },
     "scripts": {
-        "build:application": "snowpack build",
-        "serve:application": "snowpack dev --reload --port 3000"
+        "build:application": "svelte-kit build",
+        "serve:application": "svelte-kit dev",
+        "start:application": "svelte-kit start"
     },
     "dependencies": {
-        "@kahi-ui/svelte": "git+https://github.com/novacbn/kahi-ui-svelte.git"
+        "@kahi-ui/docs-kit": "file:../kahi-ui-docs-kit",
+        "@kahi-ui/svelte": "github:novacbn/kahi-ui-svelte"
     },
     "devDependencies": {
-        "@snowpack/plugin-svelte": "^3.3.0",
+        "@sveltejs/adapter-static": "^1.0.0-next.4",
+        "@sveltejs/kit": "^1.0.0-next.55",
         "prettier": "^2.2.0",
-        "snowpack": "^2.18.2",
-        "svelte": "^3.31.0"
+        "svelte": "^3.31.0",
+        "vite": "^2.1.2"
     }
 }

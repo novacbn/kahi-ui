@@ -7,14 +7,12 @@
 
         <link rel="icon" href="/favicon.ico" />
 
-        <title>Render Test :: Kahi UI</title>
+        %svelte.head%
+
+        <title>Kahi UI :: Render Test</title>
     </head>
 
     <body>
-        <noscript>
-            <h1>Javascript is required to use this Web Application!</h1>
-        </noscript>
-
-        <script type="module" src="/_dist_/index.js"></script>
+        %svelte.body%
     </body>
 </html>

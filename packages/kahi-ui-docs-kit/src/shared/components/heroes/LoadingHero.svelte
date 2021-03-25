@@ -1,13 +1,13 @@
 <script>
     import {Hero} from "@kahi-ui/svelte";
-    import {IconRefreshCcw} from "svelte-feather";
+    import {RefreshCcw} from "svelte-feather/components/RefreshCcw";
 
     export let size = "parent";
 </script>
 
 <Hero.Container {size}>
     <Hero.Heading>
-        <IconRefreshCcw size="1em" />
+        <RefreshCcw />
     </Hero.Heading>
 
     <Hero.Body>Currently loading page...</Hero.Body>

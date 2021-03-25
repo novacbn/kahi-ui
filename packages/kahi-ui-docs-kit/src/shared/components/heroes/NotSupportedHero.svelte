@@ -1,13 +1,13 @@
 <script>
     import {Hero, Modifiers} from "@kahi-ui/svelte";
-    import {IconXOctagon} from "svelte-feather";
+    import {XOctagon} from "svelte-feather/components/XOctagon";
 
     export let size = "parent";
 </script>
 
 <Hero.Container {size}>
     <Hero.Heading>
-        <IconXOctagon size="1em" />
+        <XOctagon />
     </Hero.Heading>
 
     <Hero.Body>

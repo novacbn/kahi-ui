@@ -31,7 +31,7 @@
         "json5": "^2.2.0",
         "markdown-it": "^12.0.4",
         "svelte": "^3.29.7",
-        "svelte-feather": "github:novacbn/svelte-feather#0.0.1",
+        "svelte-feather": "github:novacbn/svelte-feather#0.1.0",
         "toml": "^3.0.0"
     }
 }

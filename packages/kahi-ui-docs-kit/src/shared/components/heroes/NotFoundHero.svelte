@@ -1,13 +1,13 @@
 <script>
     import {Anchor, Hero, Modifiers} from "@kahi-ui/svelte";
-    import {IconMap} from "svelte-feather";
+    import {Map} from "svelte-feather/components/Map";
 
     export let size = "parent";
 </script>
 
 <Hero.Container {size}>
     <Hero.Heading>
-        <IconMap size="1em" />
+        <Map />
     </Hero.Heading>
 
     <Hero.Body>

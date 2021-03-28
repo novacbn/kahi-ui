@@ -1,7 +1,15 @@
 /*!
  * Kahi UI - Framework
  *
- * v{{ VERSION }} - (SCSS COMPILED)
+ * v0.1.0 - (SCSS COMPILED)
+ */
+/**
+ * HACK: Ideally we would just want to check for a blank attribute, e.g. `<div data-hidden>`, however
+ * CSS doesn't support a selector that can accomplish that
+ */
+/**
+ * HACK: SASS can /probably/ not accompish formatting a list of values in a nice way, so
+ / manually referencing the Viewports here
  */
 * {
   box-sizing: border-box;
@@ -16,6 +24,11 @@ body {
   font-size: var(--document-root-font-size);
   font-weight: var(--document-root-font-weight);
   line-height: var(--document-root-line-height);
+}
+
+::-moz-selection {
+  background-color: hsl(var(--document-root-color));
+  color: hsl(var(--document-root-background));
 }
 
 ::selection {
@@ -161,6 +174,10 @@ pre {
   font-weight: var(--typography-identifier-font-weight);
   white-space: pre-wrap;
 }
+:is(code, kbd)::-moz-selection, :is(code, kbd) ::-moz-selection {
+  background-color: hsl(var(--typography-identifier-selection-background));
+  color: hsl(var(--typography-identifier-selection-color));
+}
 :is(code, kbd)::selection, :is(code, kbd) ::selection {
   background-color: hsl(var(--typography-identifier-selection-background));
   color: hsl(var(--typography-identifier-selection-color));
@@ -207,7 +224,10 @@ b, strong {
   font-weight: var(--badge-font-weight);
   line-height: 1;
   border-radius: var(--badge-radius-default);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .badge[data-palette=accent] {
   --background: var(--badge-palette-accent-background);
@@ -245,7 +265,8 @@ b, strong {
   transform: var(--badge-transform-floated);
 }
 .badge[data-animation=pulse] {
-  animation: var(--badge-attention);
+  -webkit-animation: var(--badge-attention);
+          animation: var(--badge-attention);
 }
 .badge[data-size=tiny] {
   font-size: var(--badge-font-size-tiny);
@@ -277,7 +298,10 @@ b, strong {
   background: hsl(var(--background));
   color: hsl(var(--color));
   font-size: var(--dot-font-size);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .dot[data-palette=accent] {
   --background: var(--dot-palette-accent-background);
@@ -315,13 +339,16 @@ b, strong {
   transform: var(--dot-transform-floated);
 }
 .dot[data-animation=pulse] {
-  animation: var(--dot-attention);
+  -webkit-animation: var(--dot-attention);
+          animation: var(--dot-attention);
 }
 
 :is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']) {
   --background: var(--button-palette-default-background);
   --color: var(--button-palette-default-color);
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -336,7 +363,10 @@ b, strong {
   text-decoration: none;
   outline: none;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   opacity: var(--button-opacity-enabled);
   transition: background var(--button-transition), border-color var(--button-transition), color var(--button-transition), opacity var(--button-transition);
 }
@@ -429,7 +459,10 @@ hr, [role=separator] {
   width: 100%;
   margin: var(--divider-margin-vertical);
   color: currentColor;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 hr[data-palette=accent], [role=separator][data-palette=accent] {
   --background: var(--divider-palette-accent);
@@ -497,7 +530,9 @@ video {
 input[type=checkbox]:not([role]) {
   --background: var(--form-palette-default-background);
   --color: var(--form-palette-default-color);
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   display: inline-block;
   position: relative;
   margin: 0;
@@ -513,7 +548,10 @@ input[type=checkbox]:not([role]) {
   color: transparent;
   font-size: var(--form-toggle-font-size);
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   border-radius: var(--form-radius-default);
 }
 input[type=checkbox]:not([role])[data-palette=accent] {
@@ -566,25 +604,31 @@ input[type=checkbox]:not([role])::before, input[type=checkbox]:not([role])::afte
   transform: rotate(45deg);
 }
 input[type=checkbox]:not([role])::before {
-  clip-path: var(--form-check-default-clip-path-before);
+  -webkit-clip-path: var(--form-check-default-clip-path-before);
+          clip-path: var(--form-check-default-clip-path-before);
 }
 input[type=checkbox]:not([role])::after {
   position: absolute;
   top: calc(50% - 0.5em);
   left: calc(50% - 0.5em);
-  clip-path: var(--form-check-default-clip-path-after);
+  -webkit-clip-path: var(--form-check-default-clip-path-after);
+          clip-path: var(--form-check-default-clip-path-after);
 }
 input[type=checkbox]:not([role])[data-variation=cross]::before {
-  clip-path: var(--form-check-cross-clip-path-before);
+  -webkit-clip-path: var(--form-check-cross-clip-path-before);
+          clip-path: var(--form-check-cross-clip-path-before);
 }
 input[type=checkbox]:not([role])[data-variation=cross]::after {
-  clip-path: var(--form-check-cross-clip-path-after);
+  -webkit-clip-path: var(--form-check-cross-clip-path-after);
+          clip-path: var(--form-check-cross-clip-path-after);
 }
 
 input[type=radio] {
   --background: var(--form-palette-default-background);
   --color: var(--form-palette-default-color);
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   display: inline-block;
   position: relative;
   margin: 0;
@@ -600,7 +644,10 @@ input[type=radio] {
   color: transparent;
   font-size: var(--form-toggle-font-size);
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   border-radius: var(--form-radius-circle);
 }
 input[type=radio][data-palette=accent] {
@@ -649,13 +696,16 @@ input[type=radio]::after {
   display: block;
   content: "";
   width: 1em;
-  clip-path: var(--form-radio-clip-path);
+  -webkit-clip-path: var(--form-radio-clip-path);
+          clip-path: var(--form-radio-clip-path);
 }
 
 input[type=checkbox][role=switch] {
   --background: var(--form-palette-default-background);
   --color: var(--form-palette-default-color);
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   display: inline-block;
   position: relative;
   margin: 0;
@@ -671,7 +721,10 @@ input[type=checkbox][role=switch] {
   color: transparent;
   font-size: var(--form-toggle-font-size);
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   color: hsla(var(--background), var(--form-opacity-color-default));
   border-radius: var(--form-radius-default);
 }
@@ -721,17 +774,23 @@ input[type=checkbox][role=switch]::after {
   display: block;
   content: "";
   width: 2.5em;
-  clip-path: var(--form-switch-clip-path-enabled);
+  -webkit-clip-path: var(--form-switch-clip-path-enabled);
+          clip-path: var(--form-switch-clip-path-enabled);
+  transition: -webkit-clip-path var(--form-transition-movement);
   transition: clip-path var(--form-transition-movement);
+  transition: clip-path var(--form-transition-movement), -webkit-clip-path var(--form-transition-movement);
 }
 input[type=checkbox][role=switch]:not(:disabled):is(:active, :checked)::after {
-  clip-path: var(--form-switch-clip-path-active);
+  -webkit-clip-path: var(--form-switch-clip-path-active);
+          clip-path: var(--form-switch-clip-path-active);
 }
 
 :is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea) {
   --background: var(--form-palette-default-background);
   --color: var(--form-palette-default-color);
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   display: inline-block;
   position: relative;
   margin: 0;
@@ -779,12 +838,29 @@ input[type=checkbox][role=switch]:not(:disabled):is(:active, :checked)::after {
   opacity: var(--form-opacity-disabled);
 }
 :is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea):disabled {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+:is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea)::-moz-placeholder {
+  color: currentColor;
+  font-size: inherit;
+  opacity: var(--form-field-placeholder-opacity);
+}
+:is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea):-ms-input-placeholder {
+  color: currentColor;
+  font-size: inherit;
+  opacity: var(--form-field-placeholder-opacity);
 }
 :is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea)::placeholder {
   color: currentColor;
   font-size: inherit;
   opacity: var(--form-field-placeholder-opacity);
+}
+:is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea)::-moz-selection {
+  background-color: hsl(var(--background));
+  color: hsl(var(--color));
 }
 :is(input[type='email'], input[type='password'], input[type='text'], input[type='search'], input[type='url'], textarea)::selection {
   background-color: hsl(var(--background));
@@ -829,7 +905,10 @@ textarea {
 .loader {
   --background: var(--loader-default-background);
   --color: var(--loader-default-color);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .loader[data-palette=accent] {
   --background: var(--loader-accent-background);
@@ -868,31 +947,40 @@ textarea {
   height: var(--loader-size);
 }
 .loader[data-variation=await] > *:nth-child(1) {
-  animation: loader-await-x1y1 var(--loader-await-animation);
+  -webkit-animation: loader-await-x1y1 var(--loader-await-animation);
+          animation: loader-await-x1y1 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(2) {
-  animation: loader-await-x2y1 var(--loader-await-animation);
+  -webkit-animation: loader-await-x2y1 var(--loader-await-animation);
+          animation: loader-await-x2y1 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(3) {
-  animation: loader-await-x3y1 var(--loader-await-animation);
+  -webkit-animation: loader-await-x3y1 var(--loader-await-animation);
+          animation: loader-await-x3y1 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(4) {
-  animation: loader-await-x1y2 var(--loader-await-animation);
+  -webkit-animation: loader-await-x1y2 var(--loader-await-animation);
+          animation: loader-await-x1y2 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(6) {
-  animation: loader-await-x3y2 var(--loader-await-animation);
+  -webkit-animation: loader-await-x3y2 var(--loader-await-animation);
+          animation: loader-await-x3y2 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(7) {
-  animation: loader-await-x1y3 var(--loader-await-animation);
+  -webkit-animation: loader-await-x1y3 var(--loader-await-animation);
+          animation: loader-await-x1y3 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(8) {
-  animation: loader-await-x2y3 var(--loader-await-animation);
+  -webkit-animation: loader-await-x2y3 var(--loader-await-animation);
+          animation: loader-await-x2y3 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(9) {
-  animation: loader-await-x3y3 var(--loader-await-animation);
+  -webkit-animation: loader-await-x3y3 var(--loader-await-animation);
+          animation: loader-await-x3y3 var(--loader-await-animation);
 }
 .loader[data-variation=await] > *:nth-child(2), .loader[data-variation=await] > *:nth-child(4), .loader[data-variation=await] > *:nth-child(6), .loader[data-variation=await] > *:nth-child(8) {
-  animation-delay: var(--loader-await-animation-delay);
+  -webkit-animation-delay: var(--loader-await-animation-delay);
+          animation-delay: var(--loader-await-animation-delay);
 }
 .loader[data-variation=wave] {
   display: inline-flex;
@@ -903,22 +991,27 @@ textarea {
   border-radius: var(--loader-radius);
   width: var(--loader-size);
   height: var(--loader-size);
-  animation: loader-wave var(--loader-wave-animation);
+  -webkit-animation: loader-wave var(--loader-wave-animation);
+          animation: loader-wave var(--loader-wave-animation);
 }
 .loader[data-variation=wave] > *:not(:last-child) {
   margin-right: var(--loader-margin);
 }
 .loader[data-variation=wave] > *:nth-child(2) {
-  animation-delay: var(--loader-wave-animation-delay);
+  -webkit-animation-delay: var(--loader-wave-animation-delay);
+          animation-delay: var(--loader-wave-animation-delay);
 }
 .loader[data-variation=wave] > *:nth-child(3) {
-  animation-delay: calc(var(--loader-wave-animation-delay) * 2);
+  -webkit-animation-delay: calc(var(--loader-wave-animation-delay) * 2);
+          animation-delay: calc(var(--loader-wave-animation-delay) * 2);
 }
 .loader[data-variation=wave] > *:nth-child(4) {
-  animation-delay: calc(var(--loader-wave-animation-delay) * 3);
+  -webkit-animation-delay: calc(var(--loader-wave-animation-delay) * 3);
+          animation-delay: calc(var(--loader-wave-animation-delay) * 3);
 }
 .loader[data-variation=wave] > *:nth-child(5) {
-  animation-delay: calc(var(--loader-wave-animation-delay) * 4);
+  -webkit-animation-delay: calc(var(--loader-wave-animation-delay) * 4);
+          animation-delay: calc(var(--loader-wave-animation-delay) * 4);
 }
 .loader[data-size=tiny] {
   font-size: var(--loader-size-tiny);
@@ -1086,7 +1179,10 @@ nav.menu {
   --color: var(--menu-palette-default-color);
   position: relative;
   font-weight: var(--menu-font-weight);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 nav.menu[data-palette=accent] {
   --background: var(--menu-palette-accent-background);
@@ -1118,6 +1214,10 @@ nav.menu[data-palette] {
   padding: var(--menu-padding);
   border: var(--menu-border) hsl(var(--menu-border-color));
   border-radius: var(--menu-radius);
+}
+nav.menu[data-palette]::-moz-selection, nav.menu[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
 }
 nav.menu[data-palette]::selection, nav.menu[data-palette] ::selection {
   background-color: hsl(var(--color));
@@ -1208,7 +1308,10 @@ nav[role=tree] {
   --color: var(--tree-palette-default-color);
   position: relative;
   font-weight: var(--tree-font-weight);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 nav[role=tree][data-palette=accent] {
   --background: var(--tree-palette-accent-background);
@@ -1294,6 +1397,8 @@ nav.aside {
   --color: var(--aside-palette-default-color);
   display: block;
   width: var(--aside-size);
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
   min-width: max-content;
   height: 100%;
   padding: var(--aside-padding);
@@ -1331,6 +1436,10 @@ nav.aside[data-palette] {
   color: hsl(var(--color));
   --inherited-background: var(--background);
   --inherited-color: var(--color);
+}
+nav.aside[data-palette]::-moz-selection, nav.aside[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
 }
 nav.aside[data-palette]::selection, nav.aside[data-palette] ::selection {
   background-color: hsl(var(--color));
@@ -1390,6 +1499,10 @@ nav.omni[data-palette=negative] {
 nav.omni[data-palette] {
   background: hsl(var(--background));
   color: hsl(var(--color));
+}
+nav.omni[data-palette]::-moz-selection, nav.omni[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
 }
 nav.omni[data-palette]::selection, nav.omni[data-palette] ::selection {
   background-color: hsl(var(--color));
@@ -1469,6 +1582,10 @@ nav.omni[data-position=top] {
   background: hsl(var(--background));
   color: hsl(var(--color));
 }
+.box:not([data-variation])[data-palette]::-moz-selection, .box:not([data-variation])[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
+}
 .box:not([data-variation])[data-palette]::selection, .box:not([data-variation])[data-palette] ::selection {
   background-color: hsl(var(--color));
   color: hsl(var(--background));
@@ -1477,6 +1594,10 @@ nav.omni[data-position=top] {
   background: hsl(var(--color));
   border-color: hsl(var(--background));
   color: hsl(var(--background));
+}
+.box[data-variation=outline]::-moz-selection, .box[data-variation=outline] ::-moz-selection {
+  background-color: hsl(var(--background));
+  color: hsl(var(--color));
 }
 .box[data-variation=outline]::selection, .box[data-variation=outline] ::selection {
   background-color: hsl(var(--background));
@@ -1488,7 +1609,10 @@ nav.omni[data-position=top] {
   opacity: var(--typography-anchor-opacity-default);
   cursor: pointer;
   text-decoration: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   transition: opacity var(--typography-anchor-transition);
 }
 :is(a:not([role]), label).box:is(:hover, :focus) {
@@ -1563,7 +1687,8 @@ nav.omni[data-position=top] {
 }
 .card > figure > * {
   flex-grow: 1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .card > footer {
   display: flex;
@@ -1579,6 +1704,10 @@ nav.omni[data-position=top] {
   border: var(--card-border);
   border-radius: var(--card-radius);
 }
+.card[data-palette]::-moz-selection, .card[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
+}
 .card[data-palette]::selection, .card[data-palette] ::selection {
   background-color: hsl(var(--color));
   color: hsl(var(--background));
@@ -1589,7 +1718,10 @@ nav.omni[data-position=top] {
   opacity: var(--typography-anchor-opacity-default);
   cursor: pointer;
   text-decoration: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   transition: opacity var(--typography-anchor-transition);
 }
 :is(a:not([role]), label).card:is(:hover, :focus) {
@@ -1639,6 +1771,10 @@ nav.omni[data-position=top] {
 .hero[data-palette] {
   background: hsl(var(--background));
   color: hsl(var(--color));
+}
+.hero[data-palette]::-moz-selection, .hero[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
 }
 .hero[data-palette]::selection, .hero[data-palette] ::selection {
   background-color: hsl(var(--color));
@@ -1705,6 +1841,10 @@ nav.omni[data-position=top] {
   border: var(--tile-border);
   border-radius: var(--tile-radius);
 }
+.tile[data-palette]::-moz-selection, .tile[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
+}
 .tile[data-palette]::selection, .tile[data-palette] ::selection {
   background-color: hsl(var(--color));
   color: hsl(var(--background));
@@ -1731,7 +1871,8 @@ nav.omni[data-position=top] {
 }
 .tile figure > * {
   flex-grow: 1;
-  object-fit: fill;
+  -o-object-fit: fill;
+     object-fit: fill;
   border-radius: var(--tile-figure-radius);
 }
 .tile footer {
@@ -1745,7 +1886,10 @@ nav.omni[data-position=top] {
   opacity: var(--typography-anchor-opacity-default);
   cursor: pointer;
   text-decoration: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   transition: opacity var(--typography-anchor-transition);
 }
 :is(a:not([role]), label).tile:is(:hover, :focus) {
@@ -1863,7 +2007,8 @@ input[type=checkbox].backdrop:checked + [role=dialog] {
 }
 [role=dialog].dialog > [role=document] > figure > * {
   flex-grow: 1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 [role=dialog].dialog > [role=document] > footer {
   display: flex;
@@ -1888,7 +2033,8 @@ input[type=checkbox].backdrop:checked + [role=dialog] {
 }
 [role=dialog].dialog > [role=document] > figure > * {
   flex-grow: 1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 [role=dialog].dialog > [role=document] > footer {
   display: flex;
@@ -1912,6 +2058,10 @@ input[type=checkbox].backdrop:checked + [role=dialog] {
   background: hsl(var(--background));
   color: hsl(var(--color));
   border-radius: var(--dialog-region-radius);
+}
+[role=dialog].dialog[data-palette] > [role=document]::-moz-selection, [role=dialog].dialog[data-palette] > [role=document] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
 }
 [role=dialog].dialog[data-palette] > [role=document]::selection, [role=dialog].dialog[data-palette] > [role=document] ::selection {
   background-color: hsl(var(--color));
@@ -2079,7 +2229,8 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 }
 
 [role=dialog].sheet {
-  scroll-snap-type: y mandatory;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
   overflow-y: auto !important;
 }
 [role=dialog].sheet[data-palette=accent] {
@@ -2128,6 +2279,10 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   --inherited-color: var(--color);
   padding: var(--sheet-region-padding);
   border-radius: var(--sheet-region-radius);
+}
+[role=dialog].sheet[data-palette] > [role=document]::-moz-selection, [role=dialog].sheet[data-palette] > [role=document] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
 }
 [role=dialog].sheet[data-palette] > [role=document]::selection, [role=dialog].sheet[data-palette] > [role=document] ::selection {
   background-color: hsl(var(--color));
@@ -3813,6 +3968,41 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 .stack > :first-child {
   margin: 0 !important;
 }
+@media screen and (max-width: 599px) {
+  .stack > [data-stretch~=tiny] {
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .stack > [data-stretch~=small] {
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .stack > [data-stretch~=medium] {
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .stack > [data-stretch~=large] {
+    flex-grow: 1;
+  }
+}
+.stack > [data-stretch]:not([data-stretch~=tiny], [data-stretch~=small], [data-stretch~=medium], [data-stretch~=large]) {
+  flex-grow: 1;
+}
+
+@-webkit-keyframes animations-pulse {
+  0% {
+    box-shadow: 0 0 0 0 hsla(var(--animation-background), var(--animations-pulse-opacity-start));
+  }
+  70% {
+    box-shadow: 0 0 0 var(--animations-pulse-size) hsla(var(--animation-background), var(--animations-pulse-opacity-mid));
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsla(var(--animation-background), var(--animations-pulse-opacity-finish));
+  }
+}
 
 @keyframes animations-pulse {
   0% {
@@ -3825,14 +4015,6 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     box-shadow: 0 0 0 0 hsla(var(--animation-background), var(--animations-pulse-opacity-finish));
   }
 }
-/**
- * HACK: Ideally we would just want to check for a blank attribute, e.g. `<div data-hidden>`, however
- * CSS doesn't support a selector that can accomplish that
- */
-[data-hidden]:not([data-hidden~=tiny], [data-hidden~=small], [data-hidden~=medium], [data-hidden~=large]) {
-  display: none !important;
-}
-
 @media screen and (max-width: 599px) {
   [data-hidden~=tiny] {
     display: none !important;
@@ -3852,6 +4034,9 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   [data-hidden~=large] {
     display: none !important;
   }
+}
+[data-hidden]:not([data-hidden~=tiny], [data-hidden~=small], [data-hidden~=medium], [data-hidden~=large]) {
+  display: none !important;
 }
 
 /*# sourceMappingURL=kahi-ui.framework.css.map */

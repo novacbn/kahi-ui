@@ -116,6 +116,57 @@
     );
 }
 
+/**
+ * HACK: Ideally we would just want to check for a blank attribute, e.g. `<div data-hidden>`, however
+ * CSS doesn't support a selector that can accomplish that
+ */
+
+/**
+ * HACK: SASS can /probably/ not accompish formatting a list of values in a nice way, so
+ / manually referencing the Viewports here
+ */
+
+@mixin use-boolean-global($attribute, $viewport: false) {
+    @if ($viewport) {
+        @each $viewport, $index in $viewports-keys {
+            @include use-media-viewport($viewport) {
+                [#{$attribute}~="#{$viewport}"] {
+                    @content;
+                }
+            }
+        }
+
+        [#{$attribute}]:not([#{$attribute}~="tiny"], [#{$attribute}~="small"], [#{$attribute}~="medium"], [#{$attribute}~="large"]) {
+            @content;
+        }
+    } @else {
+        [#{$attribute}] {
+            @content;
+        }
+    }
+}
+
+@mixin use-boolean-children($attribute, $viewport: false) {
+    @if ($viewport) {
+        @each $viewport, $index in $viewports-keys {
+            @include use-media-viewport($viewport) {
+                & > [#{$attribute}~="#{$viewport}"] {
+                    @content;
+                }
+            }
+        }
+
+        &
+            > [#{$attribute}]:not([#{$attribute}~="tiny"], [#{$attribute}~="small"], [#{$attribute}~="medium"], [#{$attribute}~="large"]) {
+            @content;
+        }
+    } @else {
+        & > [#{$attribute}] {
+            @content;
+        }
+    }
+}
+
 @mixin use-grid-points-attribute($point, $viewport: false) {
     @if ($viewport) {
         @include use-media-viewport($viewport) {

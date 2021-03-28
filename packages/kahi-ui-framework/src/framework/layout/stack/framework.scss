@@ -32,4 +32,8 @@ $stack: ".stack";
     & > :first-child {
         margin: 0 !important;
     }
+
+    @include use-boolean-children(data-stretch, true) {
+        flex-grow: 1;
+    }
 }

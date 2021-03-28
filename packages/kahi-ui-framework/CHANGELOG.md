@@ -4,6 +4,10 @@
 
 -   Added package version header comments to CSS output
 -   Added Dot (`<span class="dot" data-palette="PALETTE" />`) as a replacement for Badge circle shape
+-   Added `data-stretch` modifier attribute that stretches self if parent supports
+
+    -   **NOTE** Currently only supported via Stacks (`<div class="stack">`)
+
 -   Updated file outputs to `dist/kahi-ui.framework.css` / `dist/themes/kahi-ui.theme.*.css`
 -   Fixed Grid referencing `--mosaic-spacing` and not `--grid-spacing`
 -   Moved to using SASS compiler CLI directly for building and minification

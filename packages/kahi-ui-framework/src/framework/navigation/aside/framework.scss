@@ -7,8 +7,9 @@ $aside-heading: "header";
 
     display: block;
 
-    width: max-content;
-    height: 100vh;
+    width: var(--aside-size);
+    min-width: max-content;
+    height: 100%;
 
     padding: var(--aside-padding);
 
@@ -33,10 +34,11 @@ $aside-heading: "header";
     & #{$aside-heading} {
         padding: var(--aside-heading-padding);
 
-        letter-spacing: var(--aside-heading-letter-spacing);
-
         font-size: var(--aside-heading-font-size);
         font-weight: var(--aside-heading-font-weight);
+
+        letter-spacing: var(--aside-heading-letter-spacing);
+        white-space: nowrap;
 
         text-align: center;
 

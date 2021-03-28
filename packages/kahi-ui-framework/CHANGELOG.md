@@ -65,6 +65,8 @@
     -   `var(--typography-small-font-size)`
     -   `var(--typography-strong-font-weight)`
 
+    -   `var(--aside-size)` — The minimum size that an Aside Navigation should be if content is smaller
+
 -   **(BREAKING)** Changed Scaling / Stepping based Theme Variables to no longer be calculated at runtime, and are instead calculated at compile-time
 -   **(BREAKING)** Updated `use-linkable` mixin to pull from `--typography-anchor-*` variables for consistent behavior
 -   **(BREAKING)** Renamed `use-linkable` -> `use-anchor` to better reflect change

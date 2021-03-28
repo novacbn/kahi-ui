@@ -151,6 +151,7 @@
     --aside-palette-light-color: var(--palette-dark-bold);
     --aside-palette-negative-background: var(--palette-negative-bold);
     --aside-palette-negative-color: var(--palette-light-bold);
+    --aside-size: var(--sizing-block-huge);
     --backdrop-background-background: var(--palette-dark-bold), var(--opacity-muted);
     --backdrop-background-z-index: var(--z-index-backdrop);
     --backdrop-container-z-index: var(--z-index-viewport);

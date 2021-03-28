@@ -1,5 +1,6 @@
 export default ({VAR}) => {
     return {
+        size: VAR.sizing.block.huge,
         padding: VAR.spacing.block.large,
 
         palette: {

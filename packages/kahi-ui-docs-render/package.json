@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@kahi-ui/docs-kit": "file:../kahi-ui-docs-kit",
+        "@kahi-ui/framework": "file:../..",
         "@kahi-ui/svelte": "github:novacbn/kahi-ui-svelte"
     },
     "devDependencies": {

@@ -60,7 +60,6 @@
 
 <style>
     :global(.shell-aside) {
-        min-width: 14rem;
-        max-height: 100%;
+        --aside-size: var(--sizing-block-massive);
     }
 </style>

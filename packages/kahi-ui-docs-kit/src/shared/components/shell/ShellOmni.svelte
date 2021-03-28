@@ -91,10 +91,6 @@
 </Omni.Container>
 
 <style>
-    :global(.shell-omni) {
-        --omni-margin: 0;
-    }
-
     :global(.shell-omni-body) {
         --dialog-region-spacing: 0;
     }

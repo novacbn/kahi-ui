@@ -1,4 +1,4 @@
-<div class="shell-wrapper">
+<div class="shell-wrapper" data-stretch>
     <slot />
 </div>
 

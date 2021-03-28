@@ -57,9 +57,3 @@
         {/each}
     </Menu.Container>
 </Aside.Container>
-
-<style>
-    :global(.shell-aside) {
-        --aside-size: var(--sizing-block-massive);
-    }
-</style>

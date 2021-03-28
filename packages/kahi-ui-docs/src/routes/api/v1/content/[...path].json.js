@@ -1,10 +1,12 @@
+import {dirname} from "path";
+
 import {read_content, resolve_path} from "../../../../server/content";
 
 export async function get(req, context) {
-    let {path = []} = req.params;
+    let {path = "index"} = req.params;
 
-    let file_path = await resolve_path(...path);
-    if (!file_path) file_path = await resolve_path(...path.slice(0, -1));
+    let file_path = await resolve_path(path);
+    if (!file_path) file_path = await resolve_path(dirname(path));
 
     if (!file_path) {
         return {

@@ -7,13 +7,13 @@
         "start:application": "svelte-kit start"
     },
     "devDependencies": {
-        "@sveltejs/adapter-static": "^1.0.0-next.0",
-        "@sveltejs/kit": "next",
+        "@sveltejs/adapter-static": "^1.0.0-next.4",
+        "@sveltejs/kit": "^1.0.0-next.61",
         "fast-glob": "^3.2.5",
         "highlight.js": "^10.6.0",
         "prettier": "^2.2.1",
-        "svelte": "^3.29.0",
-        "vite": "^2.0.4"
+        "svelte": "^3.35.0",
+        "vite": "^2.1.3"
     },
     "type": "module",
     "engines": {
@@ -21,8 +21,7 @@
     },
     "dependencies": {
         "@kahi-ui/docs-kit": "file:../kahi-ui-docs-kit",
-        "@kahi-ui/framework": "github:novacbn/kahi-ui",
-        "@kahi-ui/svelte": "github:novacbn/kahi-ui-svelte",
-        "svelte-feather": "github:novacbn/svelte-feather#0.0.1"
+        "@kahi-ui/framework": "file:../..",
+        "@kahi-ui/svelte": "github:novacbn/kahi-ui-svelte"
     }
 }

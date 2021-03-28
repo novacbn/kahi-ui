@@ -2,8 +2,7 @@
     import {CONTENT_INDEX} from "../../shared/environment";
 
     export async function load({fetch, page}) {
-        let {path = []} = page.params;
-        path = path.join("/");
+        let {path = ""} = page.params;
 
         // NOTE: / HACK: Apparently SSR fetch doesn't follow redirects... so we
         // need to retry with the content index instead

@@ -16,7 +16,7 @@
     <article id="navigation-aside">
         <Heading>Navigation :: Aside</Heading>
 
-        <Aside.Container id="render-navigation-aside-sample" palette="accent">
+        <Aside.Container palette="accent">
             <Aside.Heading>
                 <Anchor href="#navigation-aside">Kahi UI</Anchor>
             </Aside.Heading>
@@ -43,7 +43,11 @@
 
         <Heading level={2}>Aside Palettes</Heading>
 
-        <Grid id="render-navigation-aside-palettes" points="2 1+tiny" spacing="medium">
+        <Grid
+            id="render-navigation-aside-palettes"
+            points="2 1+medium 1+small 1+tiny"
+            spacing="medium"
+        >
             <Aside.Container>
                 <Aside.Heading>DEFAULT</Aside.Heading>
 
@@ -330,12 +334,8 @@
 </Container>
 
 <style>
-    :global(#render-navigation-aside-sample) {
-        height: initial;
-    }
-
     :global(#render-navigation-aside-palettes > *) {
-        width: initial;
-        height: initial;
+        min-width: unset;
+        width: unset;
     }
 </style>

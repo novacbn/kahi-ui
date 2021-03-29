@@ -1,7 +1,7 @@
 /*
  * Kahi UI - `default` Theme
  *
- * v0.0.1 - (AUTO-GENERATED)
+ * v0.1.0 - (AUTO-GENERATED)
  */
 
 :root {
@@ -104,13 +104,13 @@
     --spacing-block-small: 0.640rem;
     --spacing-block-tiny: 0.512rem;
     --spacing-divider: 0.800rem;
-    --spacing-inline-huge: 0.661em;
-    --spacing-inline-large: 0.630em;
-    --spacing-inline-massive: 0.695em;
+    --spacing-inline-huge: 0.793em;
+    --spacing-inline-large: 0.690em;
+    --spacing-inline-massive: 0.913em;
     --spacing-inline-medium: 0.600em;
-    --spacing-inline-nano: 0.518em;
-    --spacing-inline-small: 0.571em;
-    --spacing-inline-tiny: 0.544em;
+    --spacing-inline-nano: 0.395em;
+    --spacing-inline-small: 0.522em;
+    --spacing-inline-tiny: 0.454em;
     --viewports-large-max: 999999px;
     --viewports-large-min: 1200px;
     --viewports-medium-max: 1199px;
@@ -489,11 +489,16 @@
     --sheet-region-margin: -5ex 0 0 0;
     --sheet-region-padding: var(--spacing-block-large);
     --sheet-region-radius: 8px 8px 0 0;
-    --spacer-spacing-huge: var(--spacing-block-huge);
-    --spacer-spacing-large: var(--spacing-block-large);
-    --spacer-spacing-medium: var(--spacing-block-medium);
-    --spacer-spacing-small: var(--spacing-block-small);
-    --spacer-spacing-tiny: var(--spacing-block-tiny);
+    --spacer-spacing-block-huge: var(--spacing-block-huge);
+    --spacer-spacing-block-large: var(--spacing-block-large);
+    --spacer-spacing-block-medium: var(--spacing-block-medium);
+    --spacer-spacing-block-small: var(--spacing-block-small);
+    --spacer-spacing-block-tiny: var(--spacing-block-tiny);
+    --spacer-spacing-inline-huge: var(--spacing-inline-huge);
+    --spacer-spacing-inline-large: var(--spacing-inline-large);
+    --spacer-spacing-inline-medium: var(--spacing-inline-medium);
+    --spacer-spacing-inline-small: var(--spacing-inline-small);
+    --spacer-spacing-inline-tiny: var(--spacing-inline-tiny);
     --stack-spacing-huge: var(--spacing-block-huge);
     --stack-spacing-large: var(--spacing-block-large);
     --stack-spacing-medium: var(--spacing-block-medium);

@@ -4,9 +4,7 @@
 
 ```html render
 <span class="dot" data-palette="negative" data-animation="pulse"></span>
-
-<span class="spacer" data-orientation="horizontal" data-spacing="small"></span>
-
+<span class="spacer" data-spacing="tiny"></span>
 Screen recording is currently active!
 ```
 

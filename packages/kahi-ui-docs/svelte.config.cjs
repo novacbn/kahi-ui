@@ -1,4 +1,5 @@
 const PACKAGE = require("./package.json");
+const PACKAGE_FRAMEWORK = require("@kahi-ui/framework/package.json");
 
 const {join, resolve} = require("path");
 const {cwd, env} = require("process");
@@ -51,6 +52,10 @@ module.exports = {
 
             /** @type {import('vite').UserConfig} */
             return {
+                define: {
+                    "import.meta.env.VITE_VERSION_TAG": `"${PACKAGE_FRAMEWORK.version}"`,
+                },
+
                 resolve: {
                     alias: {
                         "assets/styles/kahi-ui.css": path_framework_css,

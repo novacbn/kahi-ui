@@ -1,10 +1,12 @@
 <script>
-    import {Anchor, Button, Dialog, Menu, Omni, Spacer} from "@kahi-ui/svelte";
+    import {Anchor, Badge, Button, Dialog, Menu, Omni, Spacer} from "@kahi-ui/svelte";
 
     import {Menu as MenuIcon} from "svelte-feather/components/Menu";
     import {X} from "svelte-feather/components/X";
 
     export let branding = "N/A";
+    export let version = "N/A";
+
     export let center = [];
     export let right = [];
 </script>
@@ -53,6 +55,16 @@
 <Omni.Container class="shell-omni" palette="light">
     <Omni.Heading>
         <Anchor href="/">{branding}</Anchor>
+        <Spacer inline />
+
+        <Anchor
+            class="shell-omni-version"
+            href={$$props["version-url"] || ""}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <Badge size="tiny">v{version}</Badge>
+        </Anchor>
     </Omni.Heading>
 
     <Omni.Body hidden="tiny small">
@@ -99,5 +111,9 @@
 <style>
     :global(.shell-omni-body) {
         --dialog-region-spacing: 0;
+    }
+
+    :global(.shell-omni-version) {
+        display: flex;
     }
 </style>

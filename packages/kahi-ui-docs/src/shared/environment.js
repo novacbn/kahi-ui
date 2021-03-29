@@ -19,3 +19,7 @@ export const TIMESTAMP_ENABLED = is_affirmative(import.meta.env.VITE_TIMESTAMP_E
 export const TIMESTAMP_LOCALE = import.meta.env.VITE_TIMESTAMP_LOCALE;
 
 export const TIMESTAMP_TEXT = import.meta.env.VITE_TIMESTAMP_TEXT;
+
+export const VERSION_TAG = import.meta.env.VITE_VERSION_TAG;
+
+export const VERSION_URL = import.meta.env.VITE_VERSION_URL;

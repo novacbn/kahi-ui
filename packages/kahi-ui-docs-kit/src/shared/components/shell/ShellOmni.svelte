@@ -15,7 +15,7 @@
             <span />
             <Dialog.Button palette="dark" variation="clear" size="small">
                 <X size="1.25em" />
-                <Spacer orientation="horizontal" spacing="tiny" />
+                <Spacer spacing="tiny" inline />
                 Close
             </Dialog.Button>
         </Dialog.Heading>
@@ -75,7 +75,7 @@
     <Omni.Body hidden="medium large">
         <Dialog.Button for="shell-omni-navigation" palette="dark" variation="clear">
             <MenuIcon size="1.25em" />
-            <Spacer orientation="horizontal" spacing="tiny" />
+            <Spacer spacing="tiny" inline />
             MENU
         </Dialog.Button>
     </Omni.Body>

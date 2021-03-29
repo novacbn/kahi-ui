@@ -33,7 +33,7 @@
                 {/if}
 
                 {#if timestamp}
-                    <Spacer />
+                    <Spacer orientation="horizontal" stretch />
 
                     <span>{timestamp}</span>
                 {/if}
@@ -41,9 +41,3 @@
         </Modifiers.Small>
     </Box>
 {/if}
-
-<style>
-    :global(.documentation-footer .spacer) {
-        flex-grow: 1;
-    }
-</style>

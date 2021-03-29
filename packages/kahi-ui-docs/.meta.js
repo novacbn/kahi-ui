@@ -14,7 +14,7 @@ export default {
     aside: [
         {
             text: "Framework",
-            links: [{href: "/docs"}],
+            links: [{href: "/docs"}, {href: "/docs/framework/icons"}],
         },
 
         {
@@ -56,6 +56,7 @@ export default {
                 {href: "/docs/components/badge"},
                 {href: "/docs/components/button"},
                 {href: "/docs/components/divider"},
+                {href: "/docs/components/dot"},
                 {href: "/docs/components/loader"},
                 {href: "/docs/components/placeholder"},
                 {href: "/docs/components/tab"},

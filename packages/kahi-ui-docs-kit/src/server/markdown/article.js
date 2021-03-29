@@ -2,6 +2,7 @@ import MarkdownIt from "markdown-it";
 
 import {extract_frontmatter} from "./frontmatter";
 
+import {BlockquoteLevels} from "./plugins/blockquote_levels";
 import {ExternalLinkPlugin} from "./plugins/external_link";
 import {LocalLinkPlugin} from "./plugins/local_link";
 import {SectionsPlugin} from "./plugins/sections";
@@ -53,6 +54,7 @@ export function render_article(text, options = {}) {
     md.use(TitlePlugin, plugin_options)
         .use(LocalLinkPlugin, plugin_options)
         .use(ExternalLinkPlugin)
+        .use(BlockquoteLevels)
         .use(SectionsPlugin, plugin_options)
         .use(SnippetsPlugin, plugin_options);
 

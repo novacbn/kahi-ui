@@ -57,3 +57,9 @@
         {/each}
     </Menu.Container>
 </Aside.Container>
+
+<style>
+    :global(.shell-aside) {
+        flex-shrink: 0;
+    }
+</style>

@@ -1,16 +1,27 @@
 import hljs from "highlight.js/lib/core";
+import bash from "highlight.js/lib/languages/bash";
 import css from "highlight.js/lib/languages/css";
 import javascript from "highlight.js/lib/languages/javascript";
 import xml from "highlight.js/lib/languages/xml";
 
+hljs.registerLanguage("bash", bash);
+hljs.registerAliases("bash", ["sh", "shell"]);
+
 hljs.registerLanguage("css", css);
 hljs.registerLanguage("html", xml);
 hljs.registerLanguage("javascript", javascript);
+
 hljs.registerLanguage("svelte", xml);
 
 import {escape_html} from "../../../shared/util/html";
 
-const SYNTAX_HTML = "html";
+const SNIPPET_SYNTAXES = {
+    html: "html",
+};
+
+const SNIPPET_MODES = {
+    render: "render",
+};
 
 function CodeRender(text, syntax) {
     const {value: rendered} = hljs.highlight(syntax, text);
@@ -44,13 +55,15 @@ export function SnippetsPlugin(md, options) {
         const token = tokens[idx];
 
         const code = token.content.trim();
-        const syntax = token.info.trim().toLowerCase();
+        const info = token.info.trim().split(" ");
+
+        const [syntax, mode] = info;
         const rendered = CodeRender(code, syntax);
 
         snippets.push({identifier: count, script: escape_html(code)});
         count += 1;
 
-        if (syntax === SYNTAX_HTML) {
+        if (syntax === SNIPPET_SYNTAXES.html && mode === SNIPPET_MODES.render) {
             return SnippetRender(code) + "\n" + rendered;
         }
 

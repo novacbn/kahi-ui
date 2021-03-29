@@ -2,7 +2,7 @@
 
 > Useful for displaying additional ancillary information in a subtle fashion.
 
-```html
+```html render
 <span class="badge" data-palette="accent">css</span>
 <span class="badge" data-palette="accent">html</span>
 <span class="badge" data-palette="accent">svelte</span>
@@ -12,7 +12,7 @@
 
 Badges have customizable coloring via the `data-palette` attribute.
 
-```html
+```html render
 <span class="badge">Badge DEFAULT</span>
 
 <span class="badge" data-palette="accent">Badge ACCENT</span>
@@ -29,7 +29,7 @@ Badges have customizable coloring via the `data-palette` attribute.
 
 Badges have customizable sizes via the `data-size` attribute.
 
-```html
+```html render
 <span class="badge" data-size="tiny">Badge TINY</span>
 <span class="badge" data-size="small">Badge SMALL</span>
 
@@ -43,7 +43,7 @@ Badges have customizable sizes via the `data-size` attribute.
 
 Badges have customizable shapes via the `data-shape` attribute.
 
-```html
+```html render
 <span class="badge" data-shape="pill">Badge PILL</span>
 ```
 
@@ -51,7 +51,7 @@ Badges have customizable shapes via the `data-shape` attribute.
 
 Badges can be made to appear "hovering" on a parent container via the `data-position` attribute.
 
-```html
+```html render
 <span>
     This is sample text.
     <span class="badge" data-position="raised">Badge RAISED</span>
@@ -69,7 +69,7 @@ Badges can be made to appear "hovering" on a parent container via the `data-posi
 
 Badges can be customized to have animations to grab a user's attention.
 
-```html
+```html render
 <button palette="accent">
     Open Inbox
     <span class="badge" data-palette="negative" data-position="floated" data-animation="pulse">

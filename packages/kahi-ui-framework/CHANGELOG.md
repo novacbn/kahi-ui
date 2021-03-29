@@ -3,7 +3,7 @@
 ## v0.1.0 - UNRELEASED
 
 -   Added package version header comments to CSS output
--   Added Dot (`<span class="dot" data-palette="PALETTE" />`) as a replacement for Badge circle shape
+-   Added `Dot` (`<span class="dot" data-palette="PALETTE" />`) as a replacement for `Badge` circle shape
 -   Added `data-stretch` modifier attribute that stretches self if parent supports
 
     -   **NOTE** Currently only supported via Stacks (`<div class="stack">`)
@@ -24,13 +24,24 @@
     -   `postcss-selector-not` — As-of Chrome 88 (Jan 2021) / Firefox 84 (Dec 2020), it is supported
     -   `postcss-easings` — New Theme generator has it built-in
 
--   Updated Viewports in Framework to construct media queries via mixins
--   Updated Anchors `<a>` to have an `:active` state opacity setting
--   Updated all Headings / Dividers to use the "global heading" Theme Variable for font weight
+-   Updated all `Heading`s / `Divider`s to use the "global heading" Theme Variable for font weight
+-   Updated `Anchor`s `<a>` to have an `:active` state opacity setting
+-   Updated `Divider` designs
+-   Updated `Form` designs
 -   Updated various selectors to use `:is` shorthand list where possible
--   Updated design of Form styles
--   Updated design of Divider styles
--   **(BREAKING)** Moved Badge circle shape into its own stylesheet
+-   Updated Viewports in Framework to construct media queries via mixins
+-   **(BREAKING)** Changed Scaling / Stepping based Theme Variables to no longer be calculated at runtime, and are instead calculated at compile-time
+-   **(BREAKING)** Moved `Badge` circle shape into its own stylesheet
+-   **(BREAKING)** Moved Animations Keyframes that were handled by Themes into the Framework as Utilities instead
+-   **(BREAKING)** Renamed `use-linkable` -> `use-anchor` to better reflect change
+-   **(BREAKING)** Updated `Spacer` Block to take up all remaining available space in the parent by default
+-   **(BREAKING)** Updated `Spacer` Inline to default `horizontal` orientation, since that's the most common use-case
+-   **(BREAKING)** Updated `Spacer` Inline to use "Inline Spacing" so it scales with parent font size
+-   **(BREAKING)** Updated `use-linkable` mixin to pull from `--typography-anchor-*` variables for consistent behavior
+
+-   **(BREAKING)** Updated all size-based data attributes to base themselves on scale of `tiny, small, DEFAULT (non-selectable), large, huge`
+
+    -   e.g. `<span class="badge" data-size="medium">` -> `<span class="badge" data-size="small">`
 
 -   The following Theme Variables were added:
 
@@ -71,9 +82,6 @@
 
     -   `var(--aside-size)` — The minimum size that an Aside Navigation should be if content is smaller
 
--   **(BREAKING)** Changed Scaling / Stepping based Theme Variables to no longer be calculated at runtime, and are instead calculated at compile-time
--   **(BREAKING)** Updated `use-linkable` mixin to pull from `--typography-anchor-*` variables for consistent behavior
--   **(BREAKING)** Renamed `use-linkable` -> `use-anchor` to better reflect change
 -   **(BREAKING)** The following Theme Variables were changed:
 
     -   `var(--palette-*-base)` -> `var(--palette-*-strong)` / `var(--palette-*-translucent)` -> `var(--palette-*-light)`
@@ -102,7 +110,3 @@
     -   `var(--aside-border-color)` — Merged with `var(--aside-border)`
     -   `var(--card-border-color)` — Merged with `var(--card-border)`
     -   `var(--tile-border-color)` — Merged with `var(--tile-border)`
-
--   **(BREAKING)** All Animations Keyframes that were handled by Themes are now moved into the Framework as Utilities instead
--   **(BREAKING)** Updated all size-based data attributes to base themselves on scale of `tiny, small, DEFAULT (non-selectable), large, huge`
-    -   e.g. `<span class="badge" data-size="medium">` -> `<span class="badge" data-size="small">`

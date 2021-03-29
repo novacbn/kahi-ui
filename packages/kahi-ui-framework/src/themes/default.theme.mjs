@@ -76,7 +76,7 @@ export default ({EASINGS, color, mscale, sizing, stepping, transparency, viewpor
 
         spacing: {
             block: sizing({base: 0.8, ratio: 1.25, unit: "rem"}),
-            inline: sizing({base: 0.6, ratio: 1.05, unit: "em"}),
+            inline: sizing({base: 0.6, ratio: 1.15, unit: "em"}),
         },
     };
 

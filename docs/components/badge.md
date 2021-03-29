@@ -61,7 +61,7 @@ Badges can be made to appear "hovering" on a parent container via the `data-posi
 
 <button>
     This is a sample Button
-    <span class="badge" data-palette="accent" data-position="floated"> Badge FLOATED </span>
+    <span class="badge" data-palette="accent" data-position="floated">Badge FLOATED</span>
 </button>
 ```
 

@@ -16,7 +16,7 @@
 <span>My Blog Post #2</span>, <span>My Blog Post #3</span>
 ```
 
-## Types
+## Variations
 
 Dividers can be customized to be a solid block or have inline text as a Separator.
 
@@ -78,7 +78,7 @@ Divider NEGATIVE
 
 ## Attributes
 
-| Attribute      | Svelte    | Values                                                        | Description                                                            |
-| -------------- | --------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `data-palette` | `palette` | `accent`, `dark`, `light`, `alert`, `affirmative`, `negative` | Sets the color visuals of the Divider                                  |
-| `role`         | `N/A`     | `separator`                                                   | Sets if a `<span>` should be treated a Separator Type with inline text |
+| Attribute      | Svelte    | Values                                                        | Description                                                                 |
+| -------------- | --------- | ------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `data-palette` | `palette` | `accent`, `dark`, `light`, `alert`, `affirmative`, `negative` | Sets the color visuals of the Divider                                       |
+| `role`         | `N/A`     | `separator`                                                   | Sets if a `<span>` should be treated a Separator Variation with inline text |

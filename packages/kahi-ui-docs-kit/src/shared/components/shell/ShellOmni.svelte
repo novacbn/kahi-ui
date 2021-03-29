@@ -27,8 +27,10 @@
                         href={link.href}
                         target={link.is_external ? "_blank" : undefined}
                         rel={link.is_external ? "noopener noreferrer" : undefined}
-                        >{link.text}</Menu.Anchor
+                        sveltekit:prefetch={!link.is_external}
                     >
+                        {link.text}
+                    </Menu.Anchor>
                 {/each}
 
                 <Menu.Divider />
@@ -38,8 +40,10 @@
                         href={link.href}
                         target={link.is_external ? "_blank" : undefined}
                         rel={link.is_external ? "noopener noreferrer" : undefined}
-                        >{link.text}</Menu.Anchor
+                        sveltekit:prefetch={!link.is_external}
                     >
+                        {link.text}
+                    </Menu.Anchor>
                 {/each}
             </Menu.Container>
         </Dialog.Body>
@@ -59,6 +63,7 @@
                 rel={link.is_external ? "noopener noreferrer" : undefined}
                 palette="dark"
                 variation="clear"
+                sveltekit:prefetch={!link.is_external}
             >
                 {link.text}
             </Button>
@@ -83,6 +88,7 @@
                 rel={link.is_external ? "noopener noreferrer" : undefined}
                 palette="dark"
                 variation="clear"
+                sveltekit:prefetch={!link.is_external}
             >
                 {link.text}
             </Button>

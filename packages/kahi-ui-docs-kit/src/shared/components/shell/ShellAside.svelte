@@ -50,6 +50,7 @@
                     href={link.href}
                     target={link.is_external ? "_blank" : undefined}
                     rel={link.is_external ? "noopener noreferrer" : undefined}
+                    sveltekit:prefetch={!link.is_external}
                 >
                     {link.text}
                 </Menu.Anchor>

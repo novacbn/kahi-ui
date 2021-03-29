@@ -20,7 +20,6 @@ export default {
         {
             text: "Typography",
             links: [
-                {href: "/docs/typography"},
                 {href: "/docs/typography/anchor"},
                 {href: "/docs/typography/formatting"},
                 {href: "/docs/typography/heading"},
@@ -32,7 +31,6 @@ export default {
         {
             text: "Elements",
             links: [
-                {href: "/docs/elements"},
                 {href: "/docs/elements/embedded"},
                 {href: "/docs/elements/lists"},
                 {href: "/docs/elements/table"},
@@ -42,7 +40,6 @@ export default {
         {
             text: "Form",
             links: [
-                {href: "/docs/form"},
                 {href: "/docs/form/field"},
                 {href: "/docs/form/text"},
                 {href: "/docs/form/toggle"},
@@ -52,7 +49,6 @@ export default {
         {
             text: "Components",
             links: [
-                {href: "/docs/components"},
                 {href: "/docs/components/badge"},
                 {href: "/docs/components/button"},
                 {href: "/docs/components/divider"},
@@ -66,7 +62,6 @@ export default {
         {
             text: "Surfaces",
             links: [
-                {href: "/docs/surfaces"},
                 {href: "/docs/surfaces/box"},
                 {href: "/docs/surfaces/card"},
                 {href: "/docs/surfaces/collapse"},
@@ -78,7 +73,6 @@ export default {
         {
             text: "Layout",
             links: [
-                {href: "/docs/layout"},
                 {href: "/docs/layout/container"},
                 {href: "/docs/layout/grid"},
                 {href: "/docs/layout/group"},
@@ -90,7 +84,6 @@ export default {
         {
             text: "Navigation",
             links: [
-                {href: "/docs/navigation"},
                 {href: "/docs/navigation/aside"},
                 {href: "/docs/navigation/breadcrumb"},
                 {href: "/docs/navigation/icon"},
@@ -104,7 +97,6 @@ export default {
         {
             text: "Overlays",
             links: [
-                {href: "/docs/overlays"},
                 {href: "/docs/overlays/dialog"},
                 {href: "/docs/overlays/popover"},
                 {href: "/docs/overlays/sheet"},

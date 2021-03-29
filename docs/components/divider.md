@@ -2,7 +2,7 @@
 
 > Useful for separating content out into logical visual sectioning.
 
-```html
+```html render
 <h4>My Blog Post #1 — <small>2020/10/10</small></h4>
 <hr />
 
@@ -16,13 +16,29 @@
 <span>My Blog Post #2</span>, <span>My Blog Post #3</span>
 ```
 
+## Types
+
+Dividers can be customized to be a solid block or have inline text as a Separator.
+
+### Divider
+
+```html render
+<hr />
+```
+
+### Separator
+
+```html render
+<span role="separator">Separator</span>
+```
+
 ## Palettes
 
 Dividers have customizable coloring via the `data-palette` attribute.
 
 ### Dividers
 
-```html
+```html render
 Divider DEFAULT
 <hr />
 
@@ -47,7 +63,7 @@ Divider NEGATIVE
 
 ### Separator
 
-```html
+```html render
 <span role="separator">Separator DEFAULT</span>
 
 <span role="separator" data-palette="accent">Separator ACCENT</span>
@@ -62,6 +78,7 @@ Divider NEGATIVE
 
 ## Attributes
 
-| Attribute      | Svelte    | Values                                                        | Description                           |
-| -------------- | --------- | ------------------------------------------------------------- | ------------------------------------- |
-| `data-palette` | `palette` | `accent`, `dark`, `light`, `alert`, `affirmative`, `negative` | Sets the color visuals of the Divider |
+| Attribute      | Svelte    | Values                                                        | Description                                                            |
+| -------------- | --------- | ------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `data-palette` | `palette` | `accent`, `dark`, `light`, `alert`, `affirmative`, `negative` | Sets the color visuals of the Divider                                  |
+| `role`         | `N/A`     | `separator`                                                   | Sets if a `<span>` should be treated a Separator Type with inline text |

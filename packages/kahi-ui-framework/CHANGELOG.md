@@ -8,7 +8,6 @@
 
     -   **NOTE** Currently only supported via Stacks (`<div class="stack">`)
 
--   Updated file outputs to `dist/kahi-ui.framework.css` / `dist/themes/kahi-ui.theme.*.css`
 -   Fixed Grid referencing `--mosaic-spacing` and not `--grid-spacing`
 -   Moved to using SASS compiler CLI directly for building and minification
 -   Moved to new JS-based Theme Variable generation
@@ -24,12 +23,14 @@
     -   `postcss-selector-not` — As-of Chrome 88 (Jan 2021) / Firefox 84 (Dec 2020), it is supported
     -   `postcss-easings` — New Theme generator has it built-in
 
+-   Updated file outputs to `dist/kahi-ui.framework.css` / `dist/themes/kahi-ui.theme.*.css`
 -   Updated all `Heading`s / `Divider`s to use the "global heading" Theme Variable for font weight
 -   Updated `Anchor`s `<a>` to have an `:active` state opacity setting
 -   Updated `Divider` designs
 -   Updated `Form` designs
 -   Updated various selectors to use `:is` shorthand list where possible
 -   Updated Viewports in Framework to construct media queries via mixins
+-   Updated `TextArea` to match max width with parent element
 -   **(BREAKING)** Changed Scaling / Stepping based Theme Variables to no longer be calculated at runtime, and are instead calculated at compile-time
 -   **(BREAKING)** Moved `Badge` circle shape into its own stylesheet
 -   **(BREAKING)** Moved Animations Keyframes that were handled by Themes into the Framework as Utilities instead
@@ -37,6 +38,7 @@
 -   **(BREAKING)** Updated `Spacer` Block to take up all remaining available space in the parent by default
 -   **(BREAKING)** Updated `Spacer` Inline to default `horizontal` orientation, since that's the most common use-case
 -   **(BREAKING)** Updated `Spacer` Inline to use "Inline Spacing" so it scales with parent font size
+-   **(BREAKING)** Updated `Text` to automatically fill parent container width
 -   **(BREAKING)** Updated `use-linkable` mixin to pull from `--typography-anchor-*` variables for consistent behavior
 
 -   **(BREAKING)** Updated all size-based data attributes to base themselves on scale of `tiny, small, DEFAULT (non-selectable), large, huge`

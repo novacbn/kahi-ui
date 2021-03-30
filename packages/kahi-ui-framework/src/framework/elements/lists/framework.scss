@@ -34,7 +34,7 @@ $lists-item: "li";
 }
 
 #{$lists-item} {
-    margin: var(--lists-margin-item-block);
+    margin: var(--lists-margin-item);
 }
 
 :is(#{$lists-definition-description}, #{$lists-item}) {

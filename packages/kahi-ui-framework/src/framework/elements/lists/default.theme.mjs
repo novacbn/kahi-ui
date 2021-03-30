@@ -2,7 +2,7 @@ export default ({VAR}) => {
     return {
         margin: {
             block: `${VAR.spacing.block.medium} 0 ${VAR.spacing.block.medium} ${VAR.spacing.block.medium}`,
-            item: `${VAR.spacing.block.small} 0`,
+            item: `${VAR.spacing.block.tiny} 0`,
         },
 
         font: {
@@ -13,7 +13,7 @@ export default ({VAR}) => {
         definition: {
             margin: {
                 block: `${VAR.spacing.block.medium} 0`,
-                item: `${VAR.spacing.block.small} 0 ${VAR.spacing.block.small} ${VAR.spacing.block.medium}`,
+                item: `${VAR.spacing.block.tiny} 0 ${VAR.spacing.block.tiny} ${VAR.spacing.block.medium}`,
             },
         },
     };

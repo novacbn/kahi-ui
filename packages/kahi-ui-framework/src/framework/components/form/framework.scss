@@ -6,11 +6,11 @@ $text: ":is(input[type='email'], input[type='password'], input[type='text'], inp
 
 $form-disabled: ":disabled";
 
-$form-field-focus: ":is(:active, :focus)";
-$form-field-hover: ":hover";
+$form-field-focus: ":enabled:is(:active, :focus)";
+$form-field-hover: ":enabled:hover";
 
-$form-toggle-active: ":is(:active, :checked)";
-$form-toggle-hover: ":is(:focus, :hover)";
+$form-toggle-active: ":enabled:is(:active, :checked)";
+$form-toggle-hover: ":enabled:is(:focus, :hover)";
 
 /**
  * TODO: `<fieldset>`, `<legend>` and any other stragglers
@@ -50,11 +50,13 @@ $form-toggle-hover: ":is(:focus, :hover)";
     @include form-base();
 
     padding: var(--form-field-padding-default);
+    width: 100%;
 
     background-color: transparent;
     color: currentColor;
 
     border-radius: var(--form-radius-default);
+    box-shadow: none;
 
     font-size: var(--form-field-font-size);
     line-height: 1;
@@ -82,7 +84,7 @@ $form-toggle-hover: ":is(:focus, :hover)";
         padding: var(--form-field-padding-pill);
     }
 
-    &:not(#{$form-disabled}, [data-validate]) {
+    &:not([data-validate]) {
         border-color: hsla(var(--background), var(--form-opacity-border-default));
 
         &#{$form-field-hover} {
@@ -94,7 +96,7 @@ $form-toggle-hover: ":is(:focus, :hover)";
         }
     }
 
-    &:not(#{$form-disabled})[data-validate] {
+    &[data-validate] {
         &:invalid {
             border-color: hsla(var(--form-field-invalid-color), var(--form-opacity-border-default));
 
@@ -143,12 +145,12 @@ $form-toggle-hover: ":is(:focus, :hover)";
     cursor: pointer;
     user-select: none;
 
-    &:not(#{$form-disabled})#{$form-toggle-hover} {
+    &#{$form-toggle-hover} {
         border-color: hsla(var(--background), var(--form-opacity-border-hover));
         color: hsla(var(--background), var(--form-opacity-color-hover));
     }
 
-    &:not(#{$form-disabled})#{$form-toggle-active} {
+    &#{$form-toggle-active} {
         background-color: hsla(var(--background), var(--form-opacity-background-active));
         border-color: hsla(var(--background), var(--form-opacity-border-active));
         color: hsla(var(--color), var(--form-opacity-color-active));
@@ -233,7 +235,7 @@ $form-toggle-hover: ":is(:focus, :hover)";
         transition: clip-path var(--form-transition-movement);
     }
 
-    &:not(#{$form-disabled})#{$form-toggle-active}::after {
+    &#{$form-toggle-active}::after {
         clip-path: var(--form-switch-clip-path-active);
     }
 }
@@ -244,4 +246,5 @@ $form-toggle-hover: ":is(:focus, :hover)";
 
 textarea {
     display: block;
+    max-width: 100%;
 }

@@ -126,11 +126,11 @@ export default ({VAR}) => {
             },
 
             valid: {
-                color: VAR.palette.negative.bold,
+                color: VAR.palette.affirmative.bold,
             },
 
             invalid: {
-                color: VAR.palette.affirmative.bold,
+                color: VAR.palette.negative.bold,
             },
         },
     };

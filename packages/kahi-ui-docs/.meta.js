@@ -28,7 +28,7 @@ export default {
                 {href: "/docs/typography/formatting"},
                 {href: "/docs/typography/heading"},
                 {href: "/docs/typography/modifiers"},
-                {href: "/docs/typography/paragraph"},
+                {href: "/docs/typography/quote"},
             ],
         },
 
@@ -43,11 +43,7 @@ export default {
 
         {
             text: "Form",
-            links: [
-                {href: "/docs/form/field"},
-                {href: "/docs/form/text"},
-                {href: "/docs/form/toggle"},
-            ],
+            links: [{href: "/docs/form/text"}, {href: "/docs/form/toggle"}],
         },
 
         {

@@ -330,11 +330,11 @@
     --form-check-default-clip-path-after: inset(80% 20% 0% 20% round var(--form-radius-default));
     --form-check-default-clip-path-before: inset(0% 20% 0% 60% round var(--form-radius-default));
     --form-field-font-size: var(--font-size-content-medium);
-    --form-field-invalid-color: var(--palette-affirmative-bold);
+    --form-field-invalid-color: var(--palette-negative-bold);
     --form-field-padding-default: var(--spacing-inline-small);
     --form-field-padding-pill: var(--form-field-padding-default) calc(var(--form-field-padding-default) * 1.75);
     --form-field-placeholder-opacity: var(--opacity-muted);
-    --form-field-valid-color: var(--palette-negative-bold);
+    --form-field-valid-color: var(--palette-affirmative-bold);
     --form-font-family: inherit;
     --form-font-weight: var(--font-weight-content);
     --form-opacity-background-active: var(--opacity-muted);
@@ -396,11 +396,11 @@
     --hero-palette-negative-color: var(--palette-light-bold);
     --hero-text-font-size: var(--font-size-heading-small);
     --lists-definition-margin-block: var(--spacing-block-medium) 0;
-    --lists-definition-margin-item: var(--spacing-block-small) 0 var(--spacing-block-small) var(--spacing-block-medium);
+    --lists-definition-margin-item: var(--spacing-block-tiny) 0 var(--spacing-block-tiny) var(--spacing-block-medium);
     --lists-font-size-heading: var(--font-size-content-medium);
     --lists-font-weight-heading: var(--font-weight-bold);
     --lists-margin-block: var(--spacing-block-medium) 0 var(--spacing-block-medium) var(--spacing-block-medium);
-    --lists-margin-item: var(--spacing-block-small) 0;
+    --lists-margin-item: var(--spacing-block-tiny) 0;
     --menu-anchor-border: var(--border-content) solid;
     --menu-anchor-opacity-active: var(--opacity-translucent);
     --menu-anchor-opacity-hover: var(--opacity-transparent);

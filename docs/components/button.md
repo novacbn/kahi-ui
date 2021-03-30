@@ -49,7 +49,7 @@ Buttons have customizable sizes via the `data-size` attribute.
 
 ## Variations
 
-Buttons have customizable visual variations via the `data-size` attribute.
+Buttons have customizable visual variations via the `data-variation` attribute.
 
 ```html render
 <button>Button BLOCK</button>

@@ -21,9 +21,9 @@ Then some where in your code, import the Framework and Theme CSS distributables.
 </script>
 ```
 
-### `<link rel="stylesheet">`
+### Stylesheet
 
-If you're not using some sort of Build Pipeline where the NPM method is applicable or just old-fashioned, head over to the [Releases](https://github.com/novacbn/kahi-ui/releases) and download the latest built CSS files. Then link them in your `<head>` element:
+If you're not using some sort of "build pipeline" where the NPM method is applicable or just old-fashioned, head over to the [Releases](https://github.com/novacbn/kahi-ui/releases) and download the latest built CSS files. Then link them in your `<head>` element:
 
 ```html
 <html>

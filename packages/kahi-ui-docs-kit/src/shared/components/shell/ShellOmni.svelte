@@ -63,7 +63,7 @@
             target="_blank"
             rel="noopener noreferrer"
         >
-            <Badge size="tiny">v{version}</Badge>
+            <Badge palette="accent" size="tiny">v{version}</Badge>
         </Anchor>
     </Omni.Heading>
 

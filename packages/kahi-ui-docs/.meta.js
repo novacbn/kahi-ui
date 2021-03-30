@@ -14,7 +14,11 @@ export default {
     aside: [
         {
             text: "Framework",
-            links: [{href: "/docs"}, {href: "/docs/framework/icons"}],
+            links: [
+                {href: "/docs"},
+                {href: "/docs/framework/icons"},
+                {href: "/docs/framework/svelte"},
+            ],
         },
 
         {

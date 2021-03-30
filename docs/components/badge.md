@@ -44,6 +44,8 @@ Badges have customizable sizes via the `data-size` attribute.
 Badges have customizable shapes via the `data-shape` attribute.
 
 ```html render
+<span class="badge">Badge DEFAULT</span>
+
 <span class="badge" data-shape="pill">Badge PILL</span>
 ```
 

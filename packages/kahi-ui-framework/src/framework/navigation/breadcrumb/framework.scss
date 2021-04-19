@@ -1,0 +1,43 @@
+$breadcrumb: "ul.breadcrumb";
+
+$breadcrumb-item: "li";
+$breadcrumb-item-active: ":last-child";
+$breadcrumb-item-anchor: "a";
+$breadcrumb-item-separator: "::after";
+
+#{$breadcrumb} {
+    font-size: var(--breadcrumb-font-size-default);
+    margin: var(--breadcrumb-margin);
+
+    & > #{$breadcrumb-item} {
+        display: inline-block;
+        margin: 0;
+
+        font-weight: var(--breadcrumb-font-weight-default);
+        list-style: none;
+
+        &#{$breadcrumb-item-active} {
+            font-weight: var(--breadcrumb-font-weight-active);
+        }
+
+        & > #{$breadcrumb-item-anchor} {
+            text-decoration: none;
+        }
+
+        &:not(#{$breadcrumb-item-active})#{$breadcrumb-item-separator} {
+            content: var(--breadcrumb-separator-content-default);
+            margin: var(--breadcrumb-separator-margin);
+
+            font-size: var(--breadcrumb-separator-font-size);
+            font-weight: var(--breadcrumb-separator-font-weight);
+
+            opacity: var(--breadcrumb-separator-opacity);
+        }
+    }
+
+    @each $size, $index in 6, 5, 4, 3, 2 {
+        &[data-size="#{$size}"] {
+            font-size: var(--breadcrumb-font-size-#{$size});
+        }
+    }
+}

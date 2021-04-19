@@ -51,6 +51,8 @@ $card-footer: "footer";
 }
 
 @mixin card-body($namespace) {
+    position: relative;
+
     & > * {
         margin: 0;
     }
@@ -58,6 +60,8 @@ $card-footer: "footer";
 
 @mixin card-figure($namespace) {
     display: flex;
+    position: relative;
+
     align-items: center;
     justify-content: center;
 

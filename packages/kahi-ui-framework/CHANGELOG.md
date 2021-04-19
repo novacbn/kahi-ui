@@ -3,10 +3,13 @@
 ## v0.1.0 - UNRELEASED
 
 -   Added package version header comments to CSS output
--   Added `Dot` (`<span class="dot" data-palette="PALETTE" />`) as a replacement for `Badge` circle shape
+-   Added `Dot` (`<span class="dot" data-palette="PALETTE" />`) Component as a replacement for `Badge` circle shape
+-   Added `Breadcrumb` (`<ul class="breadcrumb" data-size="5"><li>...</li></ul>`) Navigation
 -   Added `data-stretch` modifier attribute that stretches self if parent supports
 
-    -   **NOTE** Currently only supported via Stacks (`<div class="stack">`)
+    -   Currently only supported by:
+        -   Stack (`<div class="stack">`) children (`<div data-stretch>`)
+        -   Dialogs (`<div class="dialog" data-stretch>`)
 
 -   Fixed Grid referencing `--mosaic-spacing` and not `--grid-spacing`
 -   Moved to using SASS compiler CLI directly for building and minification
@@ -28,9 +31,10 @@
 -   Updated `Anchor`s `<a>` to have an `:active` state opacity setting
 -   Updated `Divider` designs
 -   Updated `Form` designs
+-   Updated `TextArea` to match max width with parent element
 -   Updated various selectors to use `:is` shorthand list where possible
 -   Updated Viewports in Framework to construct media queries via mixins
--   Updated `TextArea` to match max width with parent element
+-   Updated various embeddables (e.g. `<video>, <img>`) to disable user highlighting by default
 -   **(BREAKING)** Changed Scaling / Stepping based Theme Variables to no longer be calculated at runtime, and are instead calculated at compile-time
 -   **(BREAKING)** Moved `Badge` circle shape into its own stylesheet
 -   **(BREAKING)** Moved Animations Keyframes that were handled by Themes into the Framework as Utilities instead

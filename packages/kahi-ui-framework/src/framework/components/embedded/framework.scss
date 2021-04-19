@@ -7,4 +7,6 @@ $video: "video";
 #{$video} {
     max-width: 100%;
     height: auto;
+
+    user-select: none;
 }

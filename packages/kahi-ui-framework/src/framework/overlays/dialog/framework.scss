@@ -77,6 +77,13 @@ $dialog-heading: "header";
         @include dialog-region(--dialog-region, --dialog);
     }
 
+    &[data-stretch] > #{$dialog-region} {
+        width: inherit;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        width: stretch;
+    }
+
     &[data-palette] > #{$dialog-region} {
         @include dialog-region-block(--dialog-region);
     }

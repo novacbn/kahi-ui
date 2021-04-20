@@ -40,9 +40,10 @@
 
 @import "./framework/overlays/backdrop/framework";
 @import "./framework/overlays/dialog/framework";
+@import "./framework/overlays/overlay/framework";
 @import "./framework/overlays/popover/framework";
 @import "./framework/overlays/sheet/framework";
-@import "./framework/overlays/toast/framework"; /* TODO */
+@import "./framework/overlays/toast/framework";
 
 @import "./framework/layout/container/framework";
 @import "./framework/layout/grid/framework";

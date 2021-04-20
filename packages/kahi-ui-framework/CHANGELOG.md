@@ -5,6 +5,9 @@
 -   Added package version header comments to CSS output
 -   Added `Dot` (`<span class="dot" data-palette="PALETTE" />`) Component as a replacement for `Badge` circle shape
 -   Added `Breadcrumb` (`<ul class="breadcrumb" data-size="5"><li>...</li></ul>`) Navigation
+-   Added `Overlay` (`<div class="overlay" data-alignment-x="right" data-alignment-y="bottom">...</div>`) Overlay for showing non-blocking positioned elements over the main content
+-   Added `Toast` (`<div class="overlay"><div role="status">...</div></div>`) Overlay for quick `Tile`-inherited elements in an overlay, e.g. Notifications
+-   Added global styling of scrollbars
 -   Added `data-stretch` modifier attribute that stretches self if parent supports
 
     -   Currently only supported by:

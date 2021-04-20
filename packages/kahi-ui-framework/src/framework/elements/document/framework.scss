@@ -20,3 +20,21 @@ body {
     background-color: vhsl(--document-root-color);
     color: vhsl(--document-root-background);
 }
+
+* {
+    scrollbar-width: var(--document-scrollbar-width-keyword);
+    scrollbar-color: hsla(var(--document-scrollbar-thumb-color)),
+        hsla(var(--document-scrollbar-track-color));
+}
+
+::-webkit-scrollbar {
+    width: var(--document-scrollbar-width-size);
+}
+
+::-webkit-scrollbar-track {
+    background: hsla(var(--document-scrollbar-track-color));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsla(var(--document-scrollbar-thumb-color));
+}

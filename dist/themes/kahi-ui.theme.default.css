@@ -530,6 +530,18 @@
     --stack-spacing-medium: var(--spacing-block-medium);
     --stack-spacing-small: var(--spacing-block-small);
     --stack-spacing-tiny: var(--spacing-block-tiny);
+    --table-border-opacity: var(--opacity-dull);
+    --table-border-size: var(--border-content);
+    --table-bordered-opacity: var(--opacity-muted);
+    --table-bordered-size: var(--border-divider);
+    --table-palette-accent: var(--palette-accent-bold);
+    --table-palette-affirmative: var(--palette-affirmative-bold);
+    --table-palette-alert: var(--palette-alert-bold);
+    --table-palette-dark: var(--palette-dark-bold);
+    --table-palette-default: var(--palette-default-bold);
+    --table-palette-light: var(--palette-light-bold);
+    --table-palette-negative: var(--palette-negative-bold);
+    --table-striped-opacity: var(--opacity-translucent);
     --tile-body-heading-font-size: inherit;
     --tile-body-heading-font-weight: var(--font-weight-heading);
     --tile-body-spacing: var(--spacing-block-large);

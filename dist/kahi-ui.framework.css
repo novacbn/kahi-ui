@@ -87,6 +87,61 @@ li {
   margin-bottom: 0;
 }
 
+table {
+  --background: var(--table-palette-default);
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+}
+table[data-palette=accent] {
+  --background: var(--table-palette-accent);
+}
+table[data-palette=dark] {
+  --background: var(--table-palette-dark);
+}
+table[data-palette=light] {
+  --background: var(--table-palette-light);
+}
+table[data-palette=alert] {
+  --background: var(--table-palette-alert);
+}
+table[data-palette=affirmative] {
+  --background: var(--table-palette-affirmative);
+}
+table[data-palette=negative] {
+  --background: var(--table-palette-negative);
+}
+
+table[data-variant~=bordered] tr:not(:first-child) {
+  border-top: var(--table-bordered-size) solid hsla(var(--background), var(--table-bordered-opacity));
+}
+table[data-variant~=bordered] :is(td, th):not(:first-child) {
+  border-left: var(--table-bordered-size) solid hsla(var(--background), var(--table-bordered-opacity));
+}
+
+table[data-variant~=striped] tr:nth-of-type(2n) {
+  background-color: hsla(var(--background), var(--table-striped-opacity));
+}
+
+thead {
+  border-bottom: var(--table-border-size) solid hsla(var(--background), var(--table-border-opacity));
+}
+thead + tr {
+  border: none;
+}
+
+tfoot {
+  border-top: 2px solid hsla(var(--palette-default-bold), var(--opacity-dull));
+}
+
+td,
+th {
+  padding: var(--spacing-inline-massive) var(--spacing-inline-tiny);
+  vertical-align: middle;
+}
+
 /* TODO */
 a:not([role]) {
   color: hsl(var(--typography-anchor-color));
@@ -1058,6 +1113,21 @@ div.spacer {
   width: var(--width);
   height: var(--height);
 }
+div.spacer[data-spacing~=tiny] {
+  --spacing: var(--spacer-spacing-block-tiny);
+}
+div.spacer[data-spacing~=small] {
+  --spacing: var(--spacer-spacing-block-small);
+}
+div.spacer[data-spacing~=medium] {
+  --spacing: var(--spacer-spacing-block-medium);
+}
+div.spacer[data-spacing~=large] {
+  --spacing: var(--spacer-spacing-block-large);
+}
+div.spacer[data-spacing~=huge] {
+  --spacing: var(--spacer-spacing-block-huge);
+}
 @media screen and (max-width: 599px) {
   div.spacer[data-spacing~="tiny+tiny"] {
     --spacing: var(--spacer-spacing-block-tiny) !important;
@@ -1158,21 +1228,6 @@ div.spacer {
     --spacing: var(--spacer-spacing-block-huge) !important;
   }
 }
-div.spacer[data-spacing~=tiny] {
-  --spacing: var(--spacer-spacing-block-tiny);
-}
-div.spacer[data-spacing~=small] {
-  --spacing: var(--spacer-spacing-block-small);
-}
-div.spacer[data-spacing~=medium] {
-  --spacing: var(--spacer-spacing-block-medium);
-}
-div.spacer[data-spacing~=large] {
-  --spacing: var(--spacer-spacing-block-large);
-}
-div.spacer[data-spacing~=huge] {
-  --spacing: var(--spacer-spacing-block-huge);
-}
 div.spacer:not([data-orientation]) {
   --height: var(--spacing);
   --width: 0;
@@ -1185,6 +1240,21 @@ div.spacer[data-orientation=horizontal] {
 span.spacer {
   --spacing: var(--spacer-spacing-inline-medium);
   margin: var(--margin);
+}
+span.spacer[data-spacing~=tiny] {
+  --spacing: var(--spacer-spacing-inline-tiny);
+}
+span.spacer[data-spacing~=small] {
+  --spacing: var(--spacer-spacing-inline-small);
+}
+span.spacer[data-spacing~=medium] {
+  --spacing: var(--spacer-spacing-inline-medium);
+}
+span.spacer[data-spacing~=large] {
+  --spacing: var(--spacer-spacing-inline-large);
+}
+span.spacer[data-spacing~=huge] {
+  --spacing: var(--spacer-spacing-inline-huge);
 }
 @media screen and (max-width: 599px) {
   span.spacer[data-spacing~="tiny+tiny"] {
@@ -1285,21 +1355,6 @@ span.spacer {
   span.spacer[data-spacing~="huge+large"] {
     --spacing: var(--spacer-spacing-inline-huge) !important;
   }
-}
-span.spacer[data-spacing~=tiny] {
-  --spacing: var(--spacer-spacing-inline-tiny);
-}
-span.spacer[data-spacing~=small] {
-  --spacing: var(--spacer-spacing-inline-small);
-}
-span.spacer[data-spacing~=medium] {
-  --spacing: var(--spacer-spacing-inline-medium);
-}
-span.spacer[data-spacing~=large] {
-  --spacing: var(--spacer-spacing-inline-large);
-}
-span.spacer[data-spacing~=huge] {
-  --spacing: var(--spacer-spacing-inline-huge);
 }
 span.spacer:not([data-orientation]) {
   --margin: 0 var(--spacing) 0 0;
@@ -2282,6 +2337,40 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   overflow: hidden;
   z-index: var(--overlay-z-index);
 }
+.overlay[data-alignment~=center] {
+  --alignment-x: center;
+  --alignment-y: center;
+}
+.overlay[data-alignment-x~=baseline] {
+  --alignment-x: baseline;
+}
+.overlay[data-alignment-x~=center] {
+  --alignment-x: center;
+}
+.overlay[data-alignment-x~=stretch] {
+  --alignment-x: stretch;
+}
+.overlay[data-alignment-x~=left] {
+  --alignment-x: flex-start;
+}
+.overlay[data-alignment-x~=right] {
+  --alignment-x: flex-end;
+}
+.overlay[data-alignment-y~=baseline] {
+  --alignment-y: baseline;
+}
+.overlay[data-alignment-y~=center] {
+  --alignment-y: center;
+}
+.overlay[data-alignment-y~=stretch] {
+  --alignment-y: stretch;
+}
+.overlay[data-alignment-y~=top] {
+  --alignment-y: flex-start;
+}
+.overlay[data-alignment-y~=bottom] {
+  --alignment-y: flex-end;
+}
 @media screen and (max-width: 599px) {
   .overlay[data-alignment~="center+tiny"] {
     --alignment-x: center;
@@ -2506,39 +2595,20 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     --alignment-y: flex-end;
   }
 }
-.overlay[data-alignment~=center] {
-  --alignment-x: center;
-  --alignment-y: center;
+.overlay[data-spacing~=tiny] {
+  --spacing: var(--overlay-spacing-tiny);
 }
-.overlay[data-alignment-x~=baseline] {
-  --alignment-x: baseline;
+.overlay[data-spacing~=small] {
+  --spacing: var(--overlay-spacing-small);
 }
-.overlay[data-alignment-x~=center] {
-  --alignment-x: center;
+.overlay[data-spacing~=medium] {
+  --spacing: var(--overlay-spacing-medium);
 }
-.overlay[data-alignment-x~=stretch] {
-  --alignment-x: stretch;
+.overlay[data-spacing~=large] {
+  --spacing: var(--overlay-spacing-large);
 }
-.overlay[data-alignment-x~=left] {
-  --alignment-x: flex-start;
-}
-.overlay[data-alignment-x~=right] {
-  --alignment-x: flex-end;
-}
-.overlay[data-alignment-y~=baseline] {
-  --alignment-y: baseline;
-}
-.overlay[data-alignment-y~=center] {
-  --alignment-y: center;
-}
-.overlay[data-alignment-y~=stretch] {
-  --alignment-y: stretch;
-}
-.overlay[data-alignment-y~=top] {
-  --alignment-y: flex-start;
-}
-.overlay[data-alignment-y~=bottom] {
-  --alignment-y: flex-end;
+.overlay[data-spacing~=huge] {
+  --spacing: var(--overlay-spacing-huge);
 }
 @media screen and (max-width: 599px) {
   .overlay[data-spacing~="tiny+tiny"] {
@@ -2640,21 +2710,6 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     --spacing: var(--overlay-spacing-huge) !important;
   }
 }
-.overlay[data-spacing~=tiny] {
-  --spacing: var(--overlay-spacing-tiny);
-}
-.overlay[data-spacing~=small] {
-  --spacing: var(--overlay-spacing-small);
-}
-.overlay[data-spacing~=medium] {
-  --spacing: var(--overlay-spacing-medium);
-}
-.overlay[data-spacing~=large] {
-  --spacing: var(--overlay-spacing-large);
-}
-.overlay[data-spacing~=huge] {
-  --spacing: var(--overlay-spacing-huge);
-}
 .overlay > * {
   pointer-events: all;
 }
@@ -2663,6 +2718,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   --sizing: initial;
   display: inline-block;
   position: relative;
+}
+.popover[data-sizing~=tiny] {
+  --sizing: var(--popover-sizing-tiny);
+}
+.popover[data-sizing~=small] {
+  --sizing: var(--popover-sizing-small);
+}
+.popover[data-sizing~=medium] {
+  --sizing: var(--popover-sizing-medium);
+}
+.popover[data-sizing~=large] {
+  --sizing: var(--popover-sizing-large);
+}
+.popover[data-sizing~=huge] {
+  --sizing: var(--popover-sizing-huge);
 }
 @media screen and (max-width: 599px) {
   .popover[data-sizing~="tiny+tiny"] {
@@ -2763,21 +2833,6 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   .popover[data-sizing~="huge+large"] {
     --sizing: var(--popover-sizing-huge) !important;
   }
-}
-.popover[data-sizing~=tiny] {
-  --sizing: var(--popover-sizing-tiny);
-}
-.popover[data-sizing~=small] {
-  --sizing: var(--popover-sizing-small);
-}
-.popover[data-sizing~=medium] {
-  --sizing: var(--popover-sizing-medium);
-}
-.popover[data-sizing~=large] {
-  --sizing: var(--popover-sizing-large);
-}
-.popover[data-sizing~=huge] {
-  --sizing: var(--popover-sizing-huge);
 }
 .popover > label + * {
   position: absolute;
@@ -3069,6 +3124,40 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   align-items: var(--alignment-x);
   justify-content: var(--alignment-y);
 }
+.grid[data-alignment~=center] {
+  --alignment-x: center;
+  --alignment-y: center;
+}
+.grid[data-alignment-x~=baseline] {
+  --alignment-x: baseline;
+}
+.grid[data-alignment-x~=center] {
+  --alignment-x: center;
+}
+.grid[data-alignment-x~=stretch] {
+  --alignment-x: stretch;
+}
+.grid[data-alignment-x~=left] {
+  --alignment-x: start;
+}
+.grid[data-alignment-x~=right] {
+  --alignment-x: end;
+}
+.grid[data-alignment-y~=baseline] {
+  --alignment-y: baseline;
+}
+.grid[data-alignment-y~=center] {
+  --alignment-y: center;
+}
+.grid[data-alignment-y~=stretch] {
+  --alignment-y: stretch;
+}
+.grid[data-alignment-y~=top] {
+  --alignment-y: start;
+}
+.grid[data-alignment-y~=bottom] {
+  --alignment-y: end;
+}
 @media screen and (max-width: 599px) {
   .grid[data-alignment~="center+tiny"] {
     --alignment-x: center;
@@ -3292,40 +3381,6 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   .grid[data-alignment-y~="bottom+large"] {
     --alignment-y: end;
   }
-}
-.grid[data-alignment~=center] {
-  --alignment-x: center;
-  --alignment-y: center;
-}
-.grid[data-alignment-x~=baseline] {
-  --alignment-x: baseline;
-}
-.grid[data-alignment-x~=center] {
-  --alignment-x: center;
-}
-.grid[data-alignment-x~=stretch] {
-  --alignment-x: stretch;
-}
-.grid[data-alignment-x~=left] {
-  --alignment-x: start;
-}
-.grid[data-alignment-x~=right] {
-  --alignment-x: end;
-}
-.grid[data-alignment-y~=baseline] {
-  --alignment-y: baseline;
-}
-.grid[data-alignment-y~=center] {
-  --alignment-y: center;
-}
-.grid[data-alignment-y~=stretch] {
-  --alignment-y: stretch;
-}
-.grid[data-alignment-y~=top] {
-  --alignment-y: start;
-}
-.grid[data-alignment-y~=bottom] {
-  --alignment-y: end;
 }
 @media screen and (max-width: 599px) {
   .grid[data-points~="1+tiny"] {
@@ -3580,6 +3635,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 .grid[data-points~="11"] {
   --points: 11;
 }
+.grid[data-spacing~=tiny] {
+  --spacing: var(--grid-spacing-tiny);
+}
+.grid[data-spacing~=small] {
+  --spacing: var(--grid-spacing-small);
+}
+.grid[data-spacing~=medium] {
+  --spacing: var(--grid-spacing-medium);
+}
+.grid[data-spacing~=large] {
+  --spacing: var(--grid-spacing-large);
+}
+.grid[data-spacing~=huge] {
+  --spacing: var(--grid-spacing-huge);
+}
 @media screen and (max-width: 599px) {
   .grid[data-spacing~="tiny+tiny"] {
     --spacing: var(--grid-spacing-tiny) !important;
@@ -3680,21 +3750,6 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     --spacing: var(--grid-spacing-huge) !important;
   }
 }
-.grid[data-spacing~=tiny] {
-  --spacing: var(--grid-spacing-tiny);
-}
-.grid[data-spacing~=small] {
-  --spacing: var(--grid-spacing-small);
-}
-.grid[data-spacing~=medium] {
-  --spacing: var(--grid-spacing-medium);
-}
-.grid[data-spacing~=large] {
-  --spacing: var(--grid-spacing-large);
-}
-.grid[data-spacing~=huge] {
-  --spacing: var(--grid-spacing-huge);
-}
 .grid > * {
   margin: 0 !important;
 }
@@ -3742,6 +3797,40 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   grid-template-columns: repeat(auto-fill, minmax(var(--sizing), 1fr));
   align-items: var(--alignment-x);
   justify-content: var(--alignment-y);
+}
+.mosaic[data-alignment~=center] {
+  --alignment-x: center;
+  --alignment-y: center;
+}
+.mosaic[data-alignment-x~=baseline] {
+  --alignment-x: baseline;
+}
+.mosaic[data-alignment-x~=center] {
+  --alignment-x: center;
+}
+.mosaic[data-alignment-x~=stretch] {
+  --alignment-x: stretch;
+}
+.mosaic[data-alignment-x~=left] {
+  --alignment-x: start;
+}
+.mosaic[data-alignment-x~=right] {
+  --alignment-x: end;
+}
+.mosaic[data-alignment-y~=baseline] {
+  --alignment-y: baseline;
+}
+.mosaic[data-alignment-y~=center] {
+  --alignment-y: center;
+}
+.mosaic[data-alignment-y~=stretch] {
+  --alignment-y: stretch;
+}
+.mosaic[data-alignment-y~=top] {
+  --alignment-y: start;
+}
+.mosaic[data-alignment-y~=bottom] {
+  --alignment-y: end;
 }
 @media screen and (max-width: 599px) {
   .mosaic[data-alignment~="center+tiny"] {
@@ -3967,39 +4056,20 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     --alignment-y: end;
   }
 }
-.mosaic[data-alignment~=center] {
-  --alignment-x: center;
-  --alignment-y: center;
+.mosaic[data-sizing~=tiny] {
+  --sizing: var(--mosaic-sizing-tiny);
 }
-.mosaic[data-alignment-x~=baseline] {
-  --alignment-x: baseline;
+.mosaic[data-sizing~=small] {
+  --sizing: var(--mosaic-sizing-small);
 }
-.mosaic[data-alignment-x~=center] {
-  --alignment-x: center;
+.mosaic[data-sizing~=medium] {
+  --sizing: var(--mosaic-sizing-medium);
 }
-.mosaic[data-alignment-x~=stretch] {
-  --alignment-x: stretch;
+.mosaic[data-sizing~=large] {
+  --sizing: var(--mosaic-sizing-large);
 }
-.mosaic[data-alignment-x~=left] {
-  --alignment-x: start;
-}
-.mosaic[data-alignment-x~=right] {
-  --alignment-x: end;
-}
-.mosaic[data-alignment-y~=baseline] {
-  --alignment-y: baseline;
-}
-.mosaic[data-alignment-y~=center] {
-  --alignment-y: center;
-}
-.mosaic[data-alignment-y~=stretch] {
-  --alignment-y: stretch;
-}
-.mosaic[data-alignment-y~=top] {
-  --alignment-y: start;
-}
-.mosaic[data-alignment-y~=bottom] {
-  --alignment-y: end;
+.mosaic[data-sizing~=huge] {
+  --sizing: var(--mosaic-sizing-huge);
 }
 @media screen and (max-width: 599px) {
   .mosaic[data-sizing~="tiny+tiny"] {
@@ -4101,20 +4171,20 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     --sizing: var(--mosaic-sizing-huge) !important;
   }
 }
-.mosaic[data-sizing~=tiny] {
-  --sizing: var(--mosaic-sizing-tiny);
+.mosaic[data-spacing~=tiny] {
+  --spacing: var(--mosaic-spacing-tiny);
 }
-.mosaic[data-sizing~=small] {
-  --sizing: var(--mosaic-sizing-small);
+.mosaic[data-spacing~=small] {
+  --spacing: var(--mosaic-spacing-small);
 }
-.mosaic[data-sizing~=medium] {
-  --sizing: var(--mosaic-sizing-medium);
+.mosaic[data-spacing~=medium] {
+  --spacing: var(--mosaic-spacing-medium);
 }
-.mosaic[data-sizing~=large] {
-  --sizing: var(--mosaic-sizing-large);
+.mosaic[data-spacing~=large] {
+  --spacing: var(--mosaic-spacing-large);
 }
-.mosaic[data-sizing~=huge] {
-  --sizing: var(--mosaic-sizing-huge);
+.mosaic[data-spacing~=huge] {
+  --spacing: var(--mosaic-spacing-huge);
 }
 @media screen and (max-width: 599px) {
   .mosaic[data-spacing~="tiny+tiny"] {
@@ -4216,23 +4286,385 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     --spacing: var(--mosaic-spacing-huge) !important;
   }
 }
-.mosaic[data-spacing~=tiny] {
-  --spacing: var(--mosaic-spacing-tiny);
-}
-.mosaic[data-spacing~=small] {
-  --spacing: var(--mosaic-spacing-small);
-}
-.mosaic[data-spacing~=medium] {
-  --spacing: var(--mosaic-spacing-medium);
-}
-.mosaic[data-spacing~=large] {
-  --spacing: var(--mosaic-spacing-large);
-}
-.mosaic[data-spacing~=huge] {
-  --spacing: var(--mosaic-spacing-huge);
-}
 .mosaic > * {
   margin: 0 !important;
+}
+
+.scrollable {
+  --overflow-x: auto;
+  --overflow-y: auto;
+  overflow-x: var(--overflow-x);
+  overflow-y: var(--overflow-y);
+}
+.scrollable[data-overflow~=auto] {
+  --overflow-x: auto;
+  --overflow-y: auto;
+}
+.scrollable[data-overflow~=clip] {
+  --overflow-x: clip;
+  --overflow-y: clip;
+}
+.scrollable[data-overflow~=hidden] {
+  --overflow-x: hidden;
+  --overflow-y: hidden;
+}
+.scrollable[data-overflow~=scroll] {
+  --overflow-x: scroll;
+  --overflow-y: scroll;
+}
+.scrollable[data-overflow~=visible] {
+  --overflow-x: visible;
+  --overflow-y: visible;
+}
+.scrollable[data-overflow-x~=auto] {
+  --overflow-x: auto;
+}
+.scrollable[data-overflow-x~=clip] {
+  --overflow-x: clip;
+}
+.scrollable[data-overflow-x~=hidden] {
+  --overflow-x: hidden;
+}
+.scrollable[data-overflow-x~=scroll] {
+  --overflow-x: scroll;
+}
+.scrollable[data-overflow-x~=visible] {
+  --overflow-x: visible;
+}
+.scrollable[data-overflow-y~=auto] {
+  --overflow-y: auto;
+}
+.scrollable[data-overflow-y~=clip] {
+  --overflow-y: clip;
+}
+.scrollable[data-overflow-y~=hidden] {
+  --overflow-y: hidden;
+}
+.scrollable[data-overflow-y~=scroll] {
+  --overflow-y: scroll;
+}
+.scrollable[data-overflow-y~=visible] {
+  --overflow-y: visible;
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow~="auto+tiny"] {
+    --overflow-x: auto;
+    --overflow-y: auto;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow~="clip+tiny"] {
+    --overflow-x: clip;
+    --overflow-y: clip;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow~="hidden+tiny"] {
+    --overflow-x: hidden;
+    --overflow-y: hidden;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow~="scroll+tiny"] {
+    --overflow-x: scroll;
+    --overflow-y: scroll;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow~="visible+tiny"] {
+    --overflow-x: visible;
+    --overflow-y: visible;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-x~="auto+tiny"] {
+    --overflow-x: auto;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-x~="clip+tiny"] {
+    --overflow-x: clip;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-x~="hidden+tiny"] {
+    --overflow-x: hidden;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-x~="scroll+tiny"] {
+    --overflow-x: scroll;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-x~="visible+tiny"] {
+    --overflow-x: visible;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-y~="auto+tiny"] {
+    --overflow-y: auto;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-y~="clip+tiny"] {
+    --overflow-y: clip;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-y~="hidden+tiny"] {
+    --overflow-y: hidden;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-y~="scroll+tiny"] {
+    --overflow-y: scroll;
+  }
+}
+@media screen and (max-width: 599px) {
+  .scrollable[data-overflow-y~="visible+tiny"] {
+    --overflow-y: visible;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow~="auto+small"] {
+    --overflow-x: auto;
+    --overflow-y: auto;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow~="clip+small"] {
+    --overflow-x: clip;
+    --overflow-y: clip;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow~="hidden+small"] {
+    --overflow-x: hidden;
+    --overflow-y: hidden;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow~="scroll+small"] {
+    --overflow-x: scroll;
+    --overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow~="visible+small"] {
+    --overflow-x: visible;
+    --overflow-y: visible;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-x~="auto+small"] {
+    --overflow-x: auto;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-x~="clip+small"] {
+    --overflow-x: clip;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-x~="hidden+small"] {
+    --overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-x~="scroll+small"] {
+    --overflow-x: scroll;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-x~="visible+small"] {
+    --overflow-x: visible;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-y~="auto+small"] {
+    --overflow-y: auto;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-y~="clip+small"] {
+    --overflow-y: clip;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-y~="hidden+small"] {
+    --overflow-y: hidden;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-y~="scroll+small"] {
+    --overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .scrollable[data-overflow-y~="visible+small"] {
+    --overflow-y: visible;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow~="auto+medium"] {
+    --overflow-x: auto;
+    --overflow-y: auto;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow~="clip+medium"] {
+    --overflow-x: clip;
+    --overflow-y: clip;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow~="hidden+medium"] {
+    --overflow-x: hidden;
+    --overflow-y: hidden;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow~="scroll+medium"] {
+    --overflow-x: scroll;
+    --overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow~="visible+medium"] {
+    --overflow-x: visible;
+    --overflow-y: visible;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-x~="auto+medium"] {
+    --overflow-x: auto;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-x~="clip+medium"] {
+    --overflow-x: clip;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-x~="hidden+medium"] {
+    --overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-x~="scroll+medium"] {
+    --overflow-x: scroll;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-x~="visible+medium"] {
+    --overflow-x: visible;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-y~="auto+medium"] {
+    --overflow-y: auto;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-y~="clip+medium"] {
+    --overflow-y: clip;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-y~="hidden+medium"] {
+    --overflow-y: hidden;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-y~="scroll+medium"] {
+    --overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .scrollable[data-overflow-y~="visible+medium"] {
+    --overflow-y: visible;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow~="auto+large"] {
+    --overflow-x: auto;
+    --overflow-y: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow~="clip+large"] {
+    --overflow-x: clip;
+    --overflow-y: clip;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow~="hidden+large"] {
+    --overflow-x: hidden;
+    --overflow-y: hidden;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow~="scroll+large"] {
+    --overflow-x: scroll;
+    --overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow~="visible+large"] {
+    --overflow-x: visible;
+    --overflow-y: visible;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-x~="auto+large"] {
+    --overflow-x: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-x~="clip+large"] {
+    --overflow-x: clip;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-x~="hidden+large"] {
+    --overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-x~="scroll+large"] {
+    --overflow-x: scroll;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-x~="visible+large"] {
+    --overflow-x: visible;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-y~="auto+large"] {
+    --overflow-y: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-y~="clip+large"] {
+    --overflow-y: clip;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-y~="hidden+large"] {
+    --overflow-y: hidden;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-y~="scroll+large"] {
+    --overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .scrollable[data-overflow-y~="visible+large"] {
+    --overflow-y: visible;
+  }
 }
 
 .stack {
@@ -4241,6 +4673,40 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   --spacing: unset;
   display: flex;
   align-self: stretch;
+}
+.stack[data-alignment~=center] {
+  --alignment-x: center;
+  --alignment-y: center;
+}
+.stack[data-alignment-x~=baseline] {
+  --alignment-x: baseline;
+}
+.stack[data-alignment-x~=center] {
+  --alignment-x: center;
+}
+.stack[data-alignment-x~=stretch] {
+  --alignment-x: stretch;
+}
+.stack[data-alignment-x~=left] {
+  --alignment-x: flex-start;
+}
+.stack[data-alignment-x~=right] {
+  --alignment-x: flex-end;
+}
+.stack[data-alignment-y~=baseline] {
+  --alignment-y: baseline;
+}
+.stack[data-alignment-y~=center] {
+  --alignment-y: center;
+}
+.stack[data-alignment-y~=stretch] {
+  --alignment-y: stretch;
+}
+.stack[data-alignment-y~=top] {
+  --alignment-y: flex-start;
+}
+.stack[data-alignment-y~=bottom] {
+  --alignment-y: flex-end;
 }
 @media screen and (max-width: 599px) {
   .stack[data-alignment~="center+tiny"] {
@@ -4466,39 +4932,20 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
     --alignment-y: flex-end;
   }
 }
-.stack[data-alignment~=center] {
-  --alignment-x: center;
-  --alignment-y: center;
+.stack[data-spacing~=tiny] {
+  --spacing: var(--stack-spacing-tiny);
 }
-.stack[data-alignment-x~=baseline] {
-  --alignment-x: baseline;
+.stack[data-spacing~=small] {
+  --spacing: var(--stack-spacing-small);
 }
-.stack[data-alignment-x~=center] {
-  --alignment-x: center;
+.stack[data-spacing~=medium] {
+  --spacing: var(--stack-spacing-medium);
 }
-.stack[data-alignment-x~=stretch] {
-  --alignment-x: stretch;
+.stack[data-spacing~=large] {
+  --spacing: var(--stack-spacing-large);
 }
-.stack[data-alignment-x~=left] {
-  --alignment-x: flex-start;
-}
-.stack[data-alignment-x~=right] {
-  --alignment-x: flex-end;
-}
-.stack[data-alignment-y~=baseline] {
-  --alignment-y: baseline;
-}
-.stack[data-alignment-y~=center] {
-  --alignment-y: center;
-}
-.stack[data-alignment-y~=stretch] {
-  --alignment-y: stretch;
-}
-.stack[data-alignment-y~=top] {
-  --alignment-y: flex-start;
-}
-.stack[data-alignment-y~=bottom] {
-  --alignment-y: flex-end;
+.stack[data-spacing~=huge] {
+  --spacing: var(--stack-spacing-huge);
 }
 @media screen and (max-width: 599px) {
   .stack[data-spacing~="tiny+tiny"] {
@@ -4599,21 +5046,6 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   .stack[data-spacing~="huge+large"] {
     --spacing: var(--stack-spacing-huge) !important;
   }
-}
-.stack[data-spacing~=tiny] {
-  --spacing: var(--stack-spacing-tiny);
-}
-.stack[data-spacing~=small] {
-  --spacing: var(--stack-spacing-small);
-}
-.stack[data-spacing~=medium] {
-  --spacing: var(--stack-spacing-medium);
-}
-.stack[data-spacing~=large] {
-  --spacing: var(--stack-spacing-large);
-}
-.stack[data-spacing~=huge] {
-  --spacing: var(--stack-spacing-huge);
 }
 .stack:not([data-orientation]) {
   --margin: var(--spacing) 0px 0px 0px;

@@ -36,6 +36,23 @@ body {
   color: hsl(var(--document-root-background));
 }
 
+* {
+  scrollbar-width: var(--document-scrollbar-width-keyword);
+  scrollbar-color: hsla(var(--document-scrollbar-thumb-color)), hsla(var(--document-scrollbar-track-color));
+}
+
+::-webkit-scrollbar {
+  width: var(--document-scrollbar-width-size);
+}
+
+::-webkit-scrollbar-track {
+  background: hsla(var(--document-scrollbar-track-color));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(var(--document-scrollbar-thumb-color));
+}
+
 ol,
 ul {
   display: block;
@@ -2032,8 +2049,9 @@ nav.omni[data-position=top] {
   line-height: 0;
 }
 .tile figure > * {
-  width: 100%;
   flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
   -o-object-fit: fill;
      object-fit: fill;
   border-radius: var(--tile-figure-radius);
@@ -2245,6 +2263,400 @@ input[type=checkbox].backdrop:checked + [role=dialog] {
 
 input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   display: flex;
+}
+
+.overlay {
+  --alignment-x: center;
+  --alignment-y: center;
+  --spacing: unset;
+  display: flex;
+  position: fixed;
+  align-items: var(--alignment-y);
+  justify-content: var(--alignment-x);
+  padding: var(--overlay-padding);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: var(--overlay-z-index);
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment~="center+tiny"] {
+    --alignment-x: center;
+    --alignment-y: center;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="baseline+tiny"] {
+    --alignment-x: baseline;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="center+tiny"] {
+    --alignment-x: center;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="stretch+tiny"] {
+    --alignment-x: stretch;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="left+tiny"] {
+    --alignment-x: flex-start;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="right+tiny"] {
+    --alignment-x: flex-end;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="baseline+tiny"] {
+    --alignment-y: baseline;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="center+tiny"] {
+    --alignment-y: center;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="stretch+tiny"] {
+    --alignment-y: stretch;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="top+tiny"] {
+    --alignment-y: flex-start;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="bottom+tiny"] {
+    --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment~="center+small"] {
+    --alignment-x: center;
+    --alignment-y: center;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="baseline+small"] {
+    --alignment-x: baseline;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="center+small"] {
+    --alignment-x: center;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="stretch+small"] {
+    --alignment-x: stretch;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="left+small"] {
+    --alignment-x: flex-start;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="right+small"] {
+    --alignment-x: flex-end;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="baseline+small"] {
+    --alignment-y: baseline;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="center+small"] {
+    --alignment-y: center;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="stretch+small"] {
+    --alignment-y: stretch;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="top+small"] {
+    --alignment-y: flex-start;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="bottom+small"] {
+    --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment~="center+medium"] {
+    --alignment-x: center;
+    --alignment-y: center;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="baseline+medium"] {
+    --alignment-x: baseline;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="center+medium"] {
+    --alignment-x: center;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="stretch+medium"] {
+    --alignment-x: stretch;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="left+medium"] {
+    --alignment-x: flex-start;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="right+medium"] {
+    --alignment-x: flex-end;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="baseline+medium"] {
+    --alignment-y: baseline;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="center+medium"] {
+    --alignment-y: center;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="stretch+medium"] {
+    --alignment-y: stretch;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="top+medium"] {
+    --alignment-y: flex-start;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="bottom+medium"] {
+    --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment~="center+large"] {
+    --alignment-x: center;
+    --alignment-y: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="baseline+large"] {
+    --alignment-x: baseline;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="center+large"] {
+    --alignment-x: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="stretch+large"] {
+    --alignment-x: stretch;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="left+large"] {
+    --alignment-x: flex-start;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="right+large"] {
+    --alignment-x: flex-end;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="baseline+large"] {
+    --alignment-y: baseline;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="center+large"] {
+    --alignment-y: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="stretch+large"] {
+    --alignment-y: stretch;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="top+large"] {
+    --alignment-y: flex-start;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="bottom+large"] {
+    --alignment-y: flex-end;
+  }
+}
+.overlay[data-alignment~=center] {
+  --alignment-x: center;
+  --alignment-y: center;
+}
+.overlay[data-alignment-x~=baseline] {
+  --alignment-x: baseline;
+}
+.overlay[data-alignment-x~=center] {
+  --alignment-x: center;
+}
+.overlay[data-alignment-x~=stretch] {
+  --alignment-x: stretch;
+}
+.overlay[data-alignment-x~=left] {
+  --alignment-x: flex-start;
+}
+.overlay[data-alignment-x~=right] {
+  --alignment-x: flex-end;
+}
+.overlay[data-alignment-y~=baseline] {
+  --alignment-y: baseline;
+}
+.overlay[data-alignment-y~=center] {
+  --alignment-y: center;
+}
+.overlay[data-alignment-y~=stretch] {
+  --alignment-y: stretch;
+}
+.overlay[data-alignment-y~=top] {
+  --alignment-y: flex-start;
+}
+.overlay[data-alignment-y~=bottom] {
+  --alignment-y: flex-end;
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-spacing~="tiny+tiny"] {
+    --spacing: var(--overlay-spacing-tiny) !important;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-spacing~="small+tiny"] {
+    --spacing: var(--overlay-spacing-small) !important;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-spacing~="medium+tiny"] {
+    --spacing: var(--overlay-spacing-medium) !important;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-spacing~="large+tiny"] {
+    --spacing: var(--overlay-spacing-large) !important;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-spacing~="huge+tiny"] {
+    --spacing: var(--overlay-spacing-huge) !important;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-spacing~="tiny+small"] {
+    --spacing: var(--overlay-spacing-tiny) !important;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-spacing~="small+small"] {
+    --spacing: var(--overlay-spacing-small) !important;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-spacing~="medium+small"] {
+    --spacing: var(--overlay-spacing-medium) !important;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-spacing~="large+small"] {
+    --spacing: var(--overlay-spacing-large) !important;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-spacing~="huge+small"] {
+    --spacing: var(--overlay-spacing-huge) !important;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-spacing~="tiny+medium"] {
+    --spacing: var(--overlay-spacing-tiny) !important;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-spacing~="small+medium"] {
+    --spacing: var(--overlay-spacing-small) !important;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-spacing~="medium+medium"] {
+    --spacing: var(--overlay-spacing-medium) !important;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-spacing~="large+medium"] {
+    --spacing: var(--overlay-spacing-large) !important;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-spacing~="huge+medium"] {
+    --spacing: var(--overlay-spacing-huge) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-spacing~="tiny+large"] {
+    --spacing: var(--overlay-spacing-tiny) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-spacing~="small+large"] {
+    --spacing: var(--overlay-spacing-small) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-spacing~="medium+large"] {
+    --spacing: var(--overlay-spacing-medium) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-spacing~="large+large"] {
+    --spacing: var(--overlay-spacing-large) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-spacing~="huge+large"] {
+    --spacing: var(--overlay-spacing-huge) !important;
+  }
+}
+.overlay[data-spacing~=tiny] {
+  --spacing: var(--overlay-spacing-tiny);
+}
+.overlay[data-spacing~=small] {
+  --spacing: var(--overlay-spacing-small);
+}
+.overlay[data-spacing~=medium] {
+  --spacing: var(--overlay-spacing-medium);
+}
+.overlay[data-spacing~=large] {
+  --spacing: var(--overlay-spacing-large);
+}
+.overlay[data-spacing~=huge] {
+  --spacing: var(--overlay-spacing-huge);
+}
+.overlay > * {
+  pointer-events: all;
 }
 
 .popover {
@@ -2468,7 +2880,85 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   --color: var(--inherited-color);
 }
 
-/* TODO */
+.overlay > [role=status] {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  color: currentColor;
+}
+.overlay > [role=status][data-palette=accent] {
+  --background: var(--toast-palette-accent-background);
+  --color: var(--toast-palette-accent-color);
+}
+.overlay > [role=status][data-palette=dark] {
+  --background: var(--toast-palette-dark-background);
+  --color: var(--toast-palette-dark-color);
+}
+.overlay > [role=status][data-palette=light] {
+  --background: var(--toast-palette-light-background);
+  --color: var(--toast-palette-light-color);
+}
+.overlay > [role=status][data-palette=alert] {
+  --background: var(--toast-palette-alert-background);
+  --color: var(--toast-palette-alert-color);
+}
+.overlay > [role=status][data-palette=affirmative] {
+  --background: var(--toast-palette-affirmative-background);
+  --color: var(--toast-palette-affirmative-color);
+}
+.overlay > [role=status][data-palette=negative] {
+  --background: var(--toast-palette-negative-background);
+  --color: var(--toast-palette-negative-color);
+}
+.overlay > [role=status][data-palette] {
+  background: hsl(var(--background));
+  color: hsl(var(--color));
+  padding: var(--toast-padding);
+  border: var(--toast-border);
+  border-radius: var(--toast-radius);
+}
+.overlay > [role=status][data-palette]::-moz-selection, .overlay > [role=status][data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
+}
+.overlay > [role=status][data-palette]::selection, .overlay > [role=status][data-palette] ::selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
+}
+.overlay > [role=status] section {
+  flex-grow: 1;
+}
+.overlay > [role=status] section > header {
+  font-size: var(--toast-body-heading-font-size);
+  font-weight: var(--toast-body-heading-font-weight);
+}
+.overlay > [role=status] section > p {
+  margin: 0;
+}
+.overlay > [role=status] figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: var(--toast-figure-margin);
+  width: var(--toast-figure-size);
+  height: var(--toast-figure-size);
+  line-height: 0;
+}
+.overlay > [role=status] figure > * {
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  border-radius: var(--tile-figure-radius);
+}
+.overlay > [role=status] footer {
+  display: flex;
+  align-items: center;
+  margin: var(--toast-footer-margin);
+}
+
 .container {
   --viewport: var(--container-viewports-small);
   padding: var(--container-padding);

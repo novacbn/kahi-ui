@@ -35,8 +35,10 @@ $tile-body-text: "p";
     line-height: 0;
 
     & > * {
-        width: 100%;
         flex-grow: 1;
+        flex-shrink: 0;
+
+        width: 100%;
         object-fit: fill;
 
         border-radius: var(--tile-figure-radius);

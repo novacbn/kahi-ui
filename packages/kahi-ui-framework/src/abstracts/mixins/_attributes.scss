@@ -37,6 +37,18 @@
     --alignment-x: #{$default-x};
     --alignment-y: #{$default-y};
 
+    @each $alignment, $value in $alignments {
+        @include use-alignment-attribute($alignment, $value);
+    }
+
+    @each $alignment, $value in $alignments-x {
+        @include use-alignment-attribute($alignment, $value, x);
+    }
+
+    @each $alignment, $value in $alignments-y {
+        @include use-alignment-attribute($alignment, $value, y);
+    }
+
     @if ($viewport) {
         @each $viewport, $index in $viewports-keys {
             @each $alignment, $value in $alignments {
@@ -51,18 +63,6 @@
                 @include use-alignment-attribute($alignment, $value, y, $viewport);
             }
         }
-    }
-
-    @each $alignment, $value in $alignments {
-        @include use-alignment-attribute($alignment, $value);
-    }
-
-    @each $alignment, $value in $alignments-x {
-        @include use-alignment-attribute($alignment, $value, x);
-    }
-
-    @each $alignment, $value in $alignments-y {
-        @include use-alignment-attribute($alignment, $value, y);
     }
 }
 
@@ -197,6 +197,67 @@
     }
 }
 
+@mixin use-overflow-attribute($overflow, $axis: false, $viewport: false) {
+    @if ($viewport) {
+        @include use-media-viewport($viewport) {
+            @if ($axis) {
+                &[data-overflow-#{$axis}~="#{$overflow}+#{$viewport}"] {
+                    --overflow-#{$axis}: #{$overflow};
+                }
+            } @else {
+                &[data-overflow~="#{$overflow}+#{$viewport}"] {
+                    --overflow-x: #{$overflow};
+                    --overflow-y: #{$overflow};
+                }
+            }
+        }
+    } @else {
+        @if ($axis) {
+            &[data-overflow-#{$axis}~="#{$overflow}"] {
+                --overflow-#{$axis}: #{$overflow};
+            }
+        } @else {
+            &[data-overflow~="#{$overflow}"] {
+                --overflow-x: #{$overflow};
+                --overflow-y: #{$overflow};
+            }
+        }
+    }
+}
+
+@mixin use-overflow($viewport: false, $default-x: auto, $default-y: auto) {
+    --overflow-x: #{$default-x};
+    --overflow-y: #{$default-y};
+
+    @each $overflow, $index in (auto, clip, hidden, scroll, visible) {
+        @include use-overflow-attribute($overflow);
+    }
+
+    @each $overflow, $index in (auto, clip, hidden, scroll, visible) {
+        @include use-overflow-attribute($overflow, x);
+    }
+
+    @each $overflow, $index in (auto, clip, hidden, scroll, visible) {
+        @include use-overflow-attribute($overflow, y);
+    }
+
+    @if ($viewport) {
+        @each $viewport, $index in $viewports-keys {
+            @each $overflow, $index in (auto, clip, hidden, scroll, visible) {
+                @include use-overflow-attribute($overflow, false, $viewport);
+            }
+
+            @each $overflow, $index in (auto, clip, hidden, scroll, visible) {
+                @include use-overflow-attribute($overflow, x, $viewport);
+            }
+
+            @each $overflow, $index in (auto, clip, hidden, scroll, visible) {
+                @include use-overflow-attribute($overflow, y, $viewport);
+            }
+        }
+    }
+}
+
 @mixin use-spacing-attribute($namespace, $spacing, $viewport: false) {
     @if ($viewport) {
         @include use-media-viewport($viewport) {
@@ -219,16 +280,16 @@
 ) {
     --spacing: #{$default};
 
+    @each $spacing, $index in $spacings {
+        @include use-spacing-attribute($namespace, $spacing);
+    }
+
     @if ($viewport) {
         @each $viewport, $index in $viewports-keys {
             @each $spacing, $index in $spacings {
                 @include use-spacing-attribute($namespace, $spacing, $viewport);
             }
         }
-    }
-
-    @each $spacing, $index in $spacings {
-        @include use-spacing-attribute($namespace, $spacing);
     }
 }
 
@@ -254,16 +315,16 @@
 ) {
     --sizing: #{$default};
 
+    @each $sizing, $index in $sizings {
+        @include use-sizing-attribute($namespace, $sizing);
+    }
+
     @if ($viewport) {
         @each $viewport, $index in $viewports-keys {
             @each $sizing, $index in $sizings {
                 @include use-sizing-attribute($namespace, $sizing, $viewport);
             }
         }
-    }
-
-    @each $sizing, $index in $sizings {
-        @include use-sizing-attribute($namespace, $sizing);
     }
 }
 

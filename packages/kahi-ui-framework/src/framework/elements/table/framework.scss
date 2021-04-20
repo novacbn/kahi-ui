@@ -1,0 +1,58 @@
+$table: table;
+
+$table-heading: thead;
+$table-footer: tfoot;
+$table-row: tr;
+
+$table-column: td;
+$table-column-heading: th;
+
+#{$table} {
+    @include use-palette-single(--table-palette, true);
+
+    width: 100%;
+
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    text-align: left;
+}
+
+#{$table}[data-variant~="bordered"] {
+    & #{$table-row}:not(:first-child) {
+        border-top: var(--table-bordered-size) solid
+            hsla(var(--background), var(--table-bordered-opacity));
+    }
+
+    & :is(#{$table-column}, #{$table-column-heading}):not(:first-child) {
+        border-left: var(--table-bordered-size) solid
+            hsla(var(--background), var(--table-bordered-opacity));
+    }
+}
+
+#{$table}[data-variant~="striped"] {
+    & #{$table-row}:nth-of-type(2n) {
+        background-color: hsla(var(--background), var(--table-striped-opacity));
+    }
+}
+
+#{$table-heading} {
+    border-bottom: var(--table-border-size) solid
+        hsla(var(--background), var(--table-border-opacity));
+
+    & + #{$table-row} {
+        border: none;
+    }
+}
+
+#{$table-footer} {
+    border-top: 2px solid hsla(var(--palette-default-bold), var(--opacity-dull));
+}
+
+#{$table-column},
+#{$table-column-heading} {
+    padding: var(--spacing-inline-massive) var(--spacing-inline-tiny);
+
+    vertical-align: middle;
+}

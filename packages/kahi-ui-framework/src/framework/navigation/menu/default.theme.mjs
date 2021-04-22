@@ -49,6 +49,16 @@ export default ({VAR}) => {
 
             transition: VAR.animation.visual,
 
+            palette: {
+                default: VAR.palette.default.bold,
+                accent: VAR.palette.accent.bold,
+                dark: VAR.palette.dark.bold,
+                light: VAR.palette.light.bold,
+                alert: VAR.palette.alert.bold,
+                affirmative: VAR.palette.affirmative.bold,
+                negative: VAR.palette.negative.bold,
+            },
+
             opacity: {
                 hover: VAR.opacity.transparent,
                 active: VAR.opacity.translucent,

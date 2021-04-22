@@ -27,18 +27,30 @@
     }
 }
 
-@mixin use-palette-single($namespace, $has-default: true, $is-inherited: false) {
+@mixin use-palette-single($namespace, $has-default: true, $is-inherited: false, $is-color: false) {
     @if ($has-default) {
         @if ($is-inherited) {
-            --background: var(inherit, var(#{$namespace}-default));
+            @if ($is-color) {
+                --color: var(inherit, var(#{$namespace}-default));
+            } @else {
+                --background: var(inherit, var(#{$namespace}-default));
+            }
         } @else {
-            --background: var(#{$namespace}-default);
+            @if ($is-color) {
+                --color: var(#{$namespace}-default);
+            } @else {
+                --background: var(#{$namespace}-default);
+            }
         }
     }
 
     @each $palette in accent, dark, light, alert, affirmative, negative {
         &[data-palette="#{$palette}"] {
-            --background: var(#{$namespace}-#{$palette});
+            @if ($is-color) {
+                --color: var(#{$namespace}-#{$palette});
+            } @else {
+                --background: var(#{$namespace}-#{$palette});
+            }
         }
     }
 }

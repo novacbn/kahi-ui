@@ -8,10 +8,14 @@ $menu-anchor: "a";
 $menu-anchor-active: ":is([aria-current], :active)";
 $menu-anchor-hover: ":is(:hover, :focus)";
 
-$menu-heading: "label";
+$menu-button: ":is(a[role='button'], button, label[role='button'])";
+
+$menu-heading: "label:not([role])";
 $menu-heading-hover: ":hover";
 
 @mixin menu-anchor($namespace) {
+    @include use-palette-single(#{$namespace}-palette, false, false, true);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,6 +32,10 @@ $menu-heading-hover: ":hover";
     transition: background var(#{$namespace}-transition), border-color var(#{$namespace}-transition),
         color var(#{$namespace}-transition);
 
+    &[data-palette] {
+        color: vhsl(--color);
+    }
+
     &#{$menu-anchor-active},
     &#{$menu-anchor-hover} {
         color: vhsl(--color);
@@ -42,6 +50,21 @@ $menu-heading-hover: ":hover";
     &#{$menu-anchor-active} {
         background: vhsla(--color, #{$namespace}-opacity-active);
         border-color: vhsla(--color, #{$namespace}-opacity-active);
+    }
+}
+
+@mixin menu-button($namespace) {
+    justify-content: space-between;
+    width: 100%;
+
+    text-align: left;
+
+    &[data-variation="clear"] {
+        font-weight: inherit;
+
+        &:not([data-palette]) {
+            color: currentColor;
+        }
     }
 }
 
@@ -135,6 +158,10 @@ $menu-heading-hover: ":hover";
 
     & #{$menu-anchor} {
         @include menu-anchor(--menu-anchor);
+    }
+
+    & #{$menu-button} {
+        @include menu-button(--menu-button);
     }
 
     & #{$menu-heading} {

@@ -35,6 +35,7 @@
 -   Updated all `Heading`s / `Divider`s to use the "global heading" Theme Variable for font weight
 -   Updated `Anchor`s `<a>` to have an `:active` state opacity setting
 -   Updated `Divider` designs
+-   Updated `Menu` to apply styles to Buttons to match Anchors
 -   Updated `Form` designs
 -   Updated `TextArea` to match max width with parent element
 -   Updated various selectors to use `:is` shorthand list where possible

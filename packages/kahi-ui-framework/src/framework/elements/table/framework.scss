@@ -19,7 +19,7 @@ $table-column-heading: th;
     text-align: left;
 }
 
-#{$table}[data-variant~="bordered"] {
+#{$table}[data-variation~="bordered"] {
     & #{$table-row}:not(:first-child) {
         border-top: var(--table-bordered-size) solid
             hsla(var(--background), var(--table-bordered-opacity));
@@ -31,7 +31,7 @@ $table-column-heading: th;
     }
 }
 
-#{$table}[data-variant~="striped"] {
+#{$table}[data-variation~="striped"] {
     & #{$table-row}:nth-of-type(2n) {
         background-color: hsla(var(--background), var(--table-striped-opacity));
     }

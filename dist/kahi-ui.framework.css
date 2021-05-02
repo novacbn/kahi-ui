@@ -114,14 +114,14 @@ table[data-palette=negative] {
   --background: var(--table-palette-negative);
 }
 
-table[data-variant~=bordered] tr:not(:first-child) {
+table[data-variation~=bordered] tr:not(:first-child) {
   border-top: var(--table-bordered-size) solid hsla(var(--background), var(--table-bordered-opacity));
 }
-table[data-variant~=bordered] :is(td, th):not(:first-child) {
+table[data-variation~=bordered] :is(td, th):not(:first-child) {
   border-left: var(--table-bordered-size) solid hsla(var(--background), var(--table-bordered-opacity));
 }
 
-table[data-variant~=striped] tr:nth-of-type(2n) {
+table[data-variation~=striped] tr:nth-of-type(2n) {
   background-color: hsla(var(--background), var(--table-striped-opacity));
 }
 
@@ -570,6 +570,7 @@ hr {
 [role=separator] {
   display: flex;
   align-items: center;
+  gap: var(--divider-separator-spacing);
   font-size: var(--divider-separator-font-size);
   font-weight: var(--divider-separator-font-weight);
   letter-spacing: var(--divider-separator-letter-spacing);
@@ -580,12 +581,6 @@ hr {
   content: "";
   flex-grow: 1;
   border-top: currentColor var(--divider-border);
-}
-[role=separator]::before {
-  margin-right: var(--divider-separator-margin);
-}
-[role=separator]::after {
-  margin-left: var(--divider-separator-margin);
 }
 
 audio,
@@ -1109,7 +1104,7 @@ textarea {
 /** TODO: Default to no spacing when atribute not set,
 and during default do flex-grow: 1, align-self: stretch */
 div.spacer {
-  --spacing: auto;
+  --spacing: 100%;
   width: var(--width);
   height: var(--height);
 }
@@ -1468,6 +1463,27 @@ nav.menu a {
   text-decoration: none;
   transition: background var(--menu-anchor-transition), border-color var(--menu-anchor-transition), color var(--menu-anchor-transition);
 }
+nav.menu a[data-palette=accent] {
+  --color: var(--menu-anchor-palette-accent);
+}
+nav.menu a[data-palette=dark] {
+  --color: var(--menu-anchor-palette-dark);
+}
+nav.menu a[data-palette=light] {
+  --color: var(--menu-anchor-palette-light);
+}
+nav.menu a[data-palette=alert] {
+  --color: var(--menu-anchor-palette-alert);
+}
+nav.menu a[data-palette=affirmative] {
+  --color: var(--menu-anchor-palette-affirmative);
+}
+nav.menu a[data-palette=negative] {
+  --color: var(--menu-anchor-palette-negative);
+}
+nav.menu a[data-palette] {
+  color: hsl(var(--color));
+}
 nav.menu a:is([aria-current], :active), nav.menu a:is(:hover, :focus) {
   color: hsl(var(--color));
   opacity: initial;
@@ -1480,7 +1496,20 @@ nav.menu a:is([aria-current], :active) {
   background: hsla(var(--color), var(--menu-anchor-opacity-active));
   border-color: hsla(var(--color), var(--menu-anchor-opacity-active));
 }
-nav.menu label {
+nav.menu :is(a[role='button'], button, label[role='button']) {
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+}
+nav.menu :is(a[role='button'], button, label[role='button'])[data-variation=clear] {
+  font-weight: inherit;
+}
+nav.menu :is(a[role='button'], button, label[role='button'])[data-variation=clear]:not([data-palette]) {
+  --background: var(--color);
+  --color: inherit;
+  color: currentColor;
+}
+nav.menu label:not([role]) {
   display: flex;
   align-items: center;
   font-size: var(--menu-heading-font-size);
@@ -1489,15 +1518,15 @@ nav.menu label {
   text-transform: uppercase;
   opacity: var(--menu-heading-opacity-default);
 }
-nav.menu label[for] {
+nav.menu label:not([role])[for] {
   cursor: pointer;
   transition: color var(--menu-heading-transition), opacity var(--menu-heading-transition);
 }
-nav.menu label[for]:hover {
+nav.menu label:not([role])[for]:hover {
   color: hsl(var(--color));
   opacity: var(--menu-heading-opacity-hover);
 }
-nav.menu label[for]:active {
+nav.menu label:not([role])[for]:active {
   opacity: var(--menu-heading-opacity-active);
 }
 nav.menu ul {
@@ -1855,8 +1884,8 @@ nav.omni[data-position=top] {
 .card {
   display: flex;
   flex-direction: column;
+  gap: var(--card-spacing);
   overflow: hidden;
-  margin: var(--card-margin);
   background: transparent;
   color: currentColor;
 }
@@ -1884,17 +1913,29 @@ nav.omni[data-position=top] {
   --background: var(--card-palette-negative-background);
   --color: var(--card-palette-negative-color);
 }
-.card > :not(figure, footer) {
-  padding: var(--card-padding);
+.card > :not(figure) {
+  padding: 0 var(--card-padding);
 }
-.card > :not(figure, footer):first-child {
-  margin-top: var(--card-spacing);
+.card > :not(figure):first-child {
+  margin-top: var(--card-padding);
 }
-.card > :not(figure, footer):last-child {
-  margin-bottom: var(--card-spacing);
+.card > :not(figure):last-child {
+  margin-bottom: var(--card-padding);
 }
-.card > * + * {
-  margin-top: var(--card-spacing);
+.card[data-palette] {
+  background: hsl(var(--background));
+  color: hsl(var(--color));
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  margin: var(--card-margin);
+}
+.card[data-palette]::-moz-selection, .card[data-palette] ::-moz-selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
+}
+.card[data-palette]::selection, .card[data-palette] ::selection {
+  background-color: hsl(var(--color));
+  color: hsl(var(--background));
 }
 .card > section {
   position: relative;
@@ -1926,25 +1967,8 @@ nav.omni[data-position=top] {
 }
 .card > footer {
   display: flex;
-  align-items: center;
-}
-.card > footer > * {
-  border-radius: 0;
-  flex-grow: 1;
-}
-.card[data-palette] {
-  background: hsl(var(--background));
-  color: hsl(var(--color));
-  border: var(--card-border);
-  border-radius: var(--card-radius);
-}
-.card[data-palette]::-moz-selection, .card[data-palette] ::-moz-selection {
-  background-color: hsl(var(--color));
-  color: hsl(var(--background));
-}
-.card[data-palette]::selection, .card[data-palette] ::selection {
-  background-color: hsl(var(--color));
-  color: hsl(var(--background));
+  justify-content: flex-end;
+  gap: var(--card-footer-spacing);
 }
 
 :is(a:not([role]), label).card {
@@ -2040,6 +2064,7 @@ nav.omni[data-position=top] {
 .tile {
   display: flex;
   align-items: center;
+  gap: var(--tile-spacing);
   background: transparent;
   color: currentColor;
 }
@@ -2098,7 +2123,7 @@ nav.omni[data-position=top] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: var(--tile-figure-margin);
+  margin: 0;
   width: var(--tile-figure-size);
   height: var(--tile-figure-size);
   line-height: 0;
@@ -2109,12 +2134,10 @@ nav.omni[data-position=top] {
   width: 100%;
   -o-object-fit: fill;
      object-fit: fill;
-  border-radius: var(--tile-figure-radius);
 }
 .tile footer {
   display: flex;
   align-items: center;
-  margin: var(--tile-footer-margin);
 }
 
 :is(a:not([role]), label).tile {
@@ -2203,99 +2226,6 @@ input[type=checkbox].backdrop:checked + [role=dialog] {
 [role=dialog].dialog[data-viewport~=large] {
   --viewport: var(--dialog-viewports-large);
 }
-[role=dialog].dialog > [role=document] {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  max-width: min(var(--viewport), var(--dialog-region-max-width));
-  max-height: min(var(--dialog-region-max-height));
-}
-[role=dialog].dialog > [role=document] > :not(figure, footer) {
-  padding: var(--dialog-region-padding);
-}
-[role=dialog].dialog > [role=document] > :not(figure, footer):first-child {
-  margin-top: var(--dialog-region-spacing);
-}
-[role=dialog].dialog > [role=document] > :not(figure, footer):last-child {
-  margin-bottom: var(--dialog-region-spacing);
-}
-[role=dialog].dialog > [role=document] > * + * {
-  margin-top: var(--dialog-region-spacing);
-}
-[role=dialog].dialog > [role=document] > section {
-  position: relative;
-}
-[role=dialog].dialog > [role=document] > section > * {
-  margin: 0;
-}
-[role=dialog].dialog > [role=document] > header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: var(--dialog-region-heading-font-size);
-  font-weight: var(--dialog-region-heading-font-weight);
-}
-[role=dialog].dialog > [role=document] > header > * {
-  font-weight: initial;
-}
-[role=dialog].dialog > [role=document] > figure {
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  margin: var(--dialog-region-figure-margin);
-}
-[role=dialog].dialog > [role=document] > figure > * {
-  flex-grow: 1;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-[role=dialog].dialog > [role=document] > footer {
-  display: flex;
-  align-items: center;
-}
-[role=dialog].dialog > [role=document] > footer > * {
-  border-radius: 0;
-  flex-grow: 1;
-}
-[role=dialog].dialog > [role=document] > section {
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-[role=dialog].dialog > [role=document] > section > * {
-  margin: 0;
-}
-[role=dialog].dialog > [role=document] > figure {
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  margin: var(--dialog-figure-margin);
-}
-[role=dialog].dialog > [role=document] > figure > * {
-  flex-grow: 1;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-[role=dialog].dialog > [role=document] > footer {
-  display: flex;
-  align-items: center;
-}
-[role=dialog].dialog > [role=document] > footer > * {
-  border-radius: 0;
-  flex-grow: 1;
-}
-[role=dialog].dialog > [role=document] > header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: var(--dialog-heading-font-size);
-  font-weight: var(--dialog-heading-font-weight);
-}
-[role=dialog].dialog > [role=document] > header > * {
-  font-weight: initial;
-}
 [role=dialog].dialog[data-stretch] > [role=document] {
   width: inherit;
   width: -webkit-fill-available;
@@ -2315,6 +2245,56 @@ input[type=checkbox].backdrop:checked + [role=dialog] {
   background-color: hsl(var(--color));
   color: hsl(var(--background));
 }
+[role=dialog].dialog > [role=document] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dialog-region-spacing);
+  overflow: hidden;
+  max-width: min(var(--viewport), var(--dialog-region-max-width));
+  max-height: min(var(--dialog-region-max-height));
+}
+[role=dialog].dialog > [role=document] > :not(figure) {
+  padding: 0 var(--dialog-region-padding);
+}
+[role=dialog].dialog > [role=document] > :not(figure):first-child {
+  margin-top: var(--dialog-region-padding);
+}
+[role=dialog].dialog > [role=document] > :not(figure):last-child {
+  margin-bottom: var(--dialog-region-padding);
+}
+[role=dialog].dialog > [role=document] > section {
+  position: relative;
+}
+[role=dialog].dialog > [role=document] > section > * {
+  margin: 0;
+}
+[role=dialog].dialog > [role=document] > figure {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin: var(--dialog-figure-margin);
+}
+[role=dialog].dialog > [role=document] > figure > * {
+  flex-grow: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+[role=dialog].dialog > [role=document] > footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--dialog-footer-spacing);
+}
+[role=dialog].dialog > [role=document] > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--dialog-heading-font-size);
+  font-weight: var(--dialog-heading-font-weight);
+}
+[role=dialog].dialog > [role=document] > header > * {
+  font-weight: initial;
+}
 
 input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   display: flex;
@@ -2326,6 +2306,8 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   --spacing: unset;
   display: flex;
   position: fixed;
+  flex-direction: column;
+  gap: var(--spacing);
   align-items: var(--alignment-y);
   justify-content: var(--alignment-x);
   padding: var(--overlay-padding);
@@ -2356,6 +2338,15 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 .overlay[data-alignment-x~=right] {
   --alignment-x: flex-end;
 }
+.overlay[data-alignment-x~=around] {
+  --alignment-x: space-around;
+}
+.overlay[data-alignment-x~=between] {
+  --alignment-x: space-between;
+}
+.overlay[data-alignment-x~=evenly] {
+  --alignment-x: space-evenly;
+}
 .overlay[data-alignment-y~=baseline] {
   --alignment-y: baseline;
 }
@@ -2370,6 +2361,15 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 }
 .overlay[data-alignment-y~=bottom] {
   --alignment-y: flex-end;
+}
+.overlay[data-alignment-y~=around] {
+  --alignment-y: space-around;
+}
+.overlay[data-alignment-y~=between] {
+  --alignment-y: space-between;
+}
+.overlay[data-alignment-y~=evenly] {
+  --alignment-y: space-evenly;
 }
 @media screen and (max-width: 599px) {
   .overlay[data-alignment~="center+tiny"] {
@@ -2403,6 +2403,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="around+tiny"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="between+tiny"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-x~="evenly+tiny"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (max-width: 599px) {
   .overlay[data-alignment-y~="baseline+tiny"] {
     --alignment-y: baseline;
   }
@@ -2425,6 +2440,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (max-width: 599px) {
   .overlay[data-alignment-y~="bottom+tiny"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="around+tiny"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="between+tiny"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (max-width: 599px) {
+  .overlay[data-alignment-y~="evenly+tiny"] {
+    --alignment-y: space-evenly;
   }
 }
 @media screen and (min-width: 600px) and (max-width: 899px) {
@@ -2459,6 +2489,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="around+small"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="between+small"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-x~="evenly+small"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
   .overlay[data-alignment-y~="baseline+small"] {
     --alignment-y: baseline;
   }
@@ -2481,6 +2526,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (min-width: 600px) and (max-width: 899px) {
   .overlay[data-alignment-y~="bottom+small"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="around+small"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="between+small"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .overlay[data-alignment-y~="evenly+small"] {
+    --alignment-y: space-evenly;
   }
 }
 @media screen and (min-width: 900px) and (max-width: 1199px) {
@@ -2515,6 +2575,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="around+medium"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="between+medium"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-x~="evenly+medium"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
   .overlay[data-alignment-y~="baseline+medium"] {
     --alignment-y: baseline;
   }
@@ -2537,6 +2612,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (min-width: 900px) and (max-width: 1199px) {
   .overlay[data-alignment-y~="bottom+medium"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="around+medium"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="between+medium"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .overlay[data-alignment-y~="evenly+medium"] {
+    --alignment-y: space-evenly;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -2571,6 +2661,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="around+large"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="between+large"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-x~="evenly+large"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (min-width: 1200px) {
   .overlay[data-alignment-y~="baseline+large"] {
     --alignment-y: baseline;
   }
@@ -2593,6 +2698,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (min-width: 1200px) {
   .overlay[data-alignment-y~="bottom+large"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="around+large"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="between+large"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overlay[data-alignment-y~="evenly+large"] {
+    --alignment-y: space-evenly;
   }
 }
 .overlay[data-spacing~=tiny] {
@@ -2718,6 +2838,9 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   --sizing: initial;
   display: inline-block;
   position: relative;
+  /**
+   * TODO: Clean up + viewport modifiers
+   */
 }
 .popover[data-sizing~=tiny] {
   --sizing: var(--popover-sizing-tiny);
@@ -2848,20 +2971,60 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   right: 50%;
   transform: translateX(50%);
 }
+.popover[data-position="bottom+left"] > label + * {
+  top: calc(100% + var(--popover-margin));
+  right: 50%;
+  transform: translateX(5%);
+}
+.popover[data-position="bottom+right"] > label + * {
+  top: calc(100% + var(--popover-margin));
+  right: 50%;
+  transform: translateX(95%);
+}
 .popover[data-position=top] > label + * {
   bottom: calc(100% + var(--popover-margin));
   right: 50%;
   transform: translateX(50%);
+}
+.popover[data-position="top+left"] > label + * {
+  bottom: calc(100% + var(--popover-margin));
+  right: 50%;
+  transform: translateX(5%);
+}
+.popover[data-position="top+right"] > label + * {
+  bottom: calc(100% + var(--popover-margin));
+  right: 50%;
+  transform: translateX(95%);
 }
 .popover[data-position=left] > label + * {
   right: calc(100% + var(--popover-margin));
   bottom: 50%;
   transform: translateY(50%);
 }
+.popover[data-position="left+top"] > label + * {
+  right: calc(100% + var(--popover-margin));
+  bottom: 50%;
+  transform: translateY(5%);
+}
+.popover[data-position="left+bottom"] > label + * {
+  right: calc(100% + var(--popover-margin));
+  bottom: 50%;
+  transform: translateY(95%);
+}
 .popover[data-position=right] > label + * {
   left: calc(100% + var(--popover-margin));
   bottom: 50%;
   transform: translateY(50%);
+}
+.popover[data-position="right+top"] > label + * {
+  left: calc(100% + var(--popover-margin));
+  bottom: 50%;
+  transform: translateY(5%);
+}
+.popover[data-position="right+bottom"] > label + * {
+  left: calc(100% + var(--popover-margin));
+  bottom: 50%;
+  transform: translateY(95%);
 }
 .popover > input[type=checkbox] {
   display: none;
@@ -2938,6 +3101,7 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 .overlay > [role=status] {
   display: flex;
   align-items: center;
+  gap: var(--toast-spacing);
   background: transparent;
   color: currentColor;
 }
@@ -2995,7 +3159,7 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: var(--toast-figure-margin);
+  margin: 0;
   width: var(--toast-figure-size);
   height: var(--toast-figure-size);
   line-height: 0;
@@ -3006,12 +3170,10 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   width: 100%;
   -o-object-fit: fill;
      object-fit: fill;
-  border-radius: var(--tile-figure-radius);
 }
 .overlay > [role=status] footer {
   display: flex;
   align-items: center;
-  margin: var(--toast-footer-margin);
 }
 
 .container {
@@ -4673,6 +4835,7 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   --spacing: unset;
   display: flex;
   align-self: stretch;
+  gap: var(--spacing);
 }
 .stack[data-alignment~=center] {
   --alignment-x: center;
@@ -4693,6 +4856,15 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 .stack[data-alignment-x~=right] {
   --alignment-x: flex-end;
 }
+.stack[data-alignment-x~=around] {
+  --alignment-x: space-around;
+}
+.stack[data-alignment-x~=between] {
+  --alignment-x: space-between;
+}
+.stack[data-alignment-x~=evenly] {
+  --alignment-x: space-evenly;
+}
 .stack[data-alignment-y~=baseline] {
   --alignment-y: baseline;
 }
@@ -4707,6 +4879,15 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 }
 .stack[data-alignment-y~=bottom] {
   --alignment-y: flex-end;
+}
+.stack[data-alignment-y~=around] {
+  --alignment-y: space-around;
+}
+.stack[data-alignment-y~=between] {
+  --alignment-y: space-between;
+}
+.stack[data-alignment-y~=evenly] {
+  --alignment-y: space-evenly;
 }
 @media screen and (max-width: 599px) {
   .stack[data-alignment~="center+tiny"] {
@@ -4740,6 +4921,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (max-width: 599px) {
+  .stack[data-alignment-x~="around+tiny"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (max-width: 599px) {
+  .stack[data-alignment-x~="between+tiny"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (max-width: 599px) {
+  .stack[data-alignment-x~="evenly+tiny"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (max-width: 599px) {
   .stack[data-alignment-y~="baseline+tiny"] {
     --alignment-y: baseline;
   }
@@ -4762,6 +4958,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (max-width: 599px) {
   .stack[data-alignment-y~="bottom+tiny"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (max-width: 599px) {
+  .stack[data-alignment-y~="around+tiny"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (max-width: 599px) {
+  .stack[data-alignment-y~="between+tiny"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (max-width: 599px) {
+  .stack[data-alignment-y~="evenly+tiny"] {
+    --alignment-y: space-evenly;
   }
 }
 @media screen and (min-width: 600px) and (max-width: 899px) {
@@ -4796,6 +5007,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (min-width: 600px) and (max-width: 899px) {
+  .stack[data-alignment-x~="around+small"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .stack[data-alignment-x~="between+small"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .stack[data-alignment-x~="evenly+small"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
   .stack[data-alignment-y~="baseline+small"] {
     --alignment-y: baseline;
   }
@@ -4818,6 +5044,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (min-width: 600px) and (max-width: 899px) {
   .stack[data-alignment-y~="bottom+small"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .stack[data-alignment-y~="around+small"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .stack[data-alignment-y~="between+small"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .stack[data-alignment-y~="evenly+small"] {
+    --alignment-y: space-evenly;
   }
 }
 @media screen and (min-width: 900px) and (max-width: 1199px) {
@@ -4852,6 +5093,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (min-width: 900px) and (max-width: 1199px) {
+  .stack[data-alignment-x~="around+medium"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .stack[data-alignment-x~="between+medium"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .stack[data-alignment-x~="evenly+medium"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
   .stack[data-alignment-y~="baseline+medium"] {
     --alignment-y: baseline;
   }
@@ -4874,6 +5130,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (min-width: 900px) and (max-width: 1199px) {
   .stack[data-alignment-y~="bottom+medium"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .stack[data-alignment-y~="around+medium"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .stack[data-alignment-y~="between+medium"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .stack[data-alignment-y~="evenly+medium"] {
+    --alignment-y: space-evenly;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -4908,6 +5179,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 @media screen and (min-width: 1200px) {
+  .stack[data-alignment-x~="around+large"] {
+    --alignment-x: space-around;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .stack[data-alignment-x~="between+large"] {
+    --alignment-x: space-between;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .stack[data-alignment-x~="evenly+large"] {
+    --alignment-x: space-evenly;
+  }
+}
+@media screen and (min-width: 1200px) {
   .stack[data-alignment-y~="baseline+large"] {
     --alignment-y: baseline;
   }
@@ -4930,6 +5216,21 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 @media screen and (min-width: 1200px) {
   .stack[data-alignment-y~="bottom+large"] {
     --alignment-y: flex-end;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .stack[data-alignment-y~="around+large"] {
+    --alignment-y: space-around;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .stack[data-alignment-y~="between+large"] {
+    --alignment-y: space-between;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .stack[data-alignment-y~="evenly+large"] {
+    --alignment-y: space-evenly;
   }
 }
 .stack[data-spacing~=tiny] {
@@ -5048,22 +5349,14 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   }
 }
 .stack:not([data-orientation]) {
-  --margin: var(--spacing) 0px 0px 0px;
   flex-direction: column;
   align-items: var(--alignment-x);
   justify-content: var(--alignment-y);
 }
 .stack[data-orientation=horizontal] {
-  --margin: 0px 0px 0px var(--spacing);
   flex-direction: row;
   align-items: var(--alignment-y);
   justify-content: var(--alignment-x);
-}
-.stack > * + * {
-  margin: var(--margin) !important;
-}
-.stack > :first-child {
-  margin: 0 !important;
 }
 @media screen and (max-width: 599px) {
   .stack > [data-stretch~=tiny] {
@@ -5087,6 +5380,9 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 }
 .stack > [data-stretch]:not([data-stretch~=tiny], [data-stretch~=small], [data-stretch~=medium], [data-stretch~=large]) {
   flex-grow: 1;
+}
+.stack > * {
+  margin: 0 !important;
 }
 
 @-webkit-keyframes animations-pulse {

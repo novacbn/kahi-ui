@@ -2,9 +2,9 @@ export default ({VAR}) => {
     return {
         border: `${VAR.border.block} hsl(${VAR.palette.light.light}) solid`,
 
-        padding: `0 ${VAR.spacing.block.large} 0 ${VAR.spacing.block.large}`,
+        padding: VAR.spacing.block.large,
         margin: `0 0 ${VAR.spacing.block.large} 0`,
-        spacing: VAR.spacing.block.large,
+        spacing: VAR.spacing.block.medium,
 
         radius: VAR.radius.block,
         transition: VAR.animation.visual,
@@ -46,6 +46,10 @@ export default ({VAR}) => {
                 size: `inherit`,
                 weight: VAR.font.weight.heading,
             },
+        },
+
+        footer: {
+            spacing: VAR.spacing.block.tiny,
         },
     };
 };

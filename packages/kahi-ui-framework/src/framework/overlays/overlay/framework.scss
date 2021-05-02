@@ -7,6 +7,9 @@ $overlay: ".overlay";
     display: flex;
     position: fixed;
 
+    flex-direction: column;
+    gap: var(--spacing);
+
     align-items: var(--alignment-y);
     justify-content: var(--alignment-x);
 

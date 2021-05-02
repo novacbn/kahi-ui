@@ -7,7 +7,7 @@ $spacer-inline: "span.spacer";
 and during default do flex-grow: 1, align-self: stretch */
 
 @mixin spacer-block() {
-    @include use-spacing(--spacer-spacing-block, true, auto);
+    @include use-spacing(--spacer-spacing-block, true, 100%);
 
     width: var(--width);
     height: var(--height);

@@ -8,8 +8,13 @@
 -   Added `Overlay` (`<div class="overlay" data-alignment-x="right" data-alignment-y="bottom">...</div>`) Overlay for showing non-blocking positioned elements over the main content
 -   Added `Scrollable` (`<div class="scrollable" data-overflow-y="hidden+tiny">`) Layout for making a responsive scrollable view
 -   Added `Table` (`<table><tr><td>...</td></tr></table>`) Element
--   Added `Toast` (`<div class="overlay"><div role="status">...</div></div>`) Overlay for quick `Tile`-inherited elements in an overlay, e.g. Notifications
+-   Added `Toast` (`<div class="overlay"><div role="status">...</div></div>`) Overlay for quick `Tile`-inherited elements in a viewport overlay, e.g. Notifications
 -   Added global styling of scrollbars
+-   Added dual position modifiers to `data-position` attribute for `Popover`
+
+    -   e.g. `<div class="popover" data-position="top+left">...</div>`
+
+-   Added `around`, `between`, `evenly` values to all flex-based `data-alignment` / `data-alignment-*` attributes
 -   Added `data-stretch` modifier attribute that stretches self if parent supports
 
     -   Currently only supported by:
@@ -27,24 +32,21 @@
 -   Removed polyfills for:
 
     -   `postcss-custom-media` — Removed all legacy usage since the switch from CSS -> SASS
-    -   `postcss-is-pseudo-class` — As-of Chrome 88 (Jan 2021) / Safari (Sep 2020) / Firefox 78 (June 2020), it is supported
+    -   `postcss-is-pseudo-class` — As-of Chrome 88 (Jan 2021) / Safari 14 (Sep 2020) / Firefox 78 (June 2020), it is supported
     -   `postcss-selector-not` — As-of Chrome 88 (Jan 2021) / Firefox 84 (Dec 2020), it is supported
     -   `postcss-easings` — New Theme generator has it built-in
 
 -   Updated file outputs to `dist/kahi-ui.framework.css` / `dist/themes/kahi-ui.theme.*.css`
--   Updated all `Heading`s / `Divider`s to use the "global heading" Theme Variable for font weight
--   Updated `Anchor`s `<a>` to have an `:active` state opacity setting
--   Updated `Divider` designs
--   Updated `Menu` to apply styles to Buttons to match Anchors
--   Updated `Form` designs
--   Updated `TextArea` to match max width with parent element
+-   Updated `Anchor`, `Button`, `Card`, `Dialog`, `Divider`, `Heading`, `Menu`, `Form`, `Text`, `TextArea`, `Tile` designs
 -   Updated various selectors to use `:is` shorthand list where possible
+-   Updated all flex styles with spacing via margin to use the `gap` property now — **(NOT SAFARI COMPATIBLE)**
 -   Updated Viewports in Framework to construct media queries via mixins
 -   Updated various embeddables (e.g. `<video>, <img>`) to disable user highlighting by default
 -   **(BREAKING)** Changed Scaling / Stepping based Theme Variables to no longer be calculated at runtime, and are instead calculated at compile-time
 -   **(BREAKING)** Moved `Badge` circle shape into its own stylesheet
 -   **(BREAKING)** Moved Animations Keyframes that were handled by Themes into the Framework as Utilities instead
 -   **(BREAKING)** Renamed `use-linkable` -> `use-anchor` to better reflect change
+-   **(BREAKING)** Removed overflow scrolling by default in `Dialog` bodys, use `Scrollable` instead
 -   **(BREAKING)** Updated `Spacer` Block to take up all remaining available space in the parent by default
 -   **(BREAKING)** Updated `Spacer` Inline to default `horizontal` orientation, since that's the most common use-case
 -   **(BREAKING)** Updated `Spacer` Inline to use "Inline Spacing" so it scales with parent font size

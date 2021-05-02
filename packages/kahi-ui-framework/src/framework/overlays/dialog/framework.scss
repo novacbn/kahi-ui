@@ -14,34 +14,11 @@ $dialog-heading: "header";
     justify-content: center;
 }
 
-@mixin dialog-region(
-    $namespace,
-    $namespace-parts,
-    $body: $dialog-body,
-    $figure: $dialog-figure,
-    $footer: $dialog-footer,
-    $heading: $dialog-heading
-) {
-    @include card-container($namespace, $body, $figure, $footer, $heading);
+@mixin dialog-region($namespace, $figure: $dialog-figure) {
+    @include card-container($namespace, $figure);
 
     max-width: min(var(--viewport), var(#{$namespace}-max-width));
     max-height: min(var(#{$namespace}-max-height));
-
-    & > #{$body} {
-        @include dialog-body(#{$namespace-parts}-body);
-    }
-
-    & > #{$figure} {
-        @include dialog-figure(#{$namespace-parts}-figure);
-    }
-
-    & > #{$footer} {
-        @include dialog-footer(#{$namespace-parts}-footer);
-    }
-
-    & > #{$heading} {
-        @include dialog-heading(#{$namespace-parts}-heading);
-    }
 }
 
 @mixin dialog-region-block($namespace) {
@@ -52,9 +29,6 @@ $dialog-heading: "header";
 
 @mixin dialog-body($namespace) {
     @include card-body($namespace);
-
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 @mixin dialog-figure($namespace) {
@@ -73,10 +47,6 @@ $dialog-heading: "header";
     @include use-palette(--dialog-palette, false);
     @include dialog-container(--dialog);
 
-    & > #{$dialog-region} {
-        @include dialog-region(--dialog-region, --dialog);
-    }
-
     &[data-stretch] > #{$dialog-region} {
         width: inherit;
         width: -webkit-fill-available;
@@ -86,6 +56,26 @@ $dialog-heading: "header";
 
     &[data-palette] > #{$dialog-region} {
         @include dialog-region-block(--dialog-region);
+    }
+
+    & > #{$dialog-region} {
+        @include dialog-region(--dialog-region);
+
+        & > #{$dialog-body} {
+            @include dialog-body(--dialog-body);
+        }
+
+        & > #{$dialog-figure} {
+            @include dialog-figure(--dialog-figure);
+        }
+
+        & > #{$dialog-footer} {
+            @include dialog-footer(--dialog-footer);
+        }
+
+        & > #{$dialog-heading} {
+            @include dialog-heading(--dialog-heading);
+        }
     }
 }
 

@@ -40,9 +40,9 @@ export default ({VAR}) => {
         },
 
         region: {
-            padding: `0 ${VAR.spacing.block.large} 0 ${VAR.spacing.block.large}`,
-            spacing: VAR.spacing.block.large,
+            padding: VAR.spacing.block.large,
             radius: VAR.radius.block,
+            spacing: VAR.spacing.block.medium,
 
             max: {
                 height: `85vh`,
@@ -55,6 +55,10 @@ export default ({VAR}) => {
                 size: VAR.font.size.heading.small,
                 weight: VAR.font.weight.heading,
             },
+        },
+
+        footer: {
+            spacing: VAR.spacing.block.tiny,
         },
     };
 };

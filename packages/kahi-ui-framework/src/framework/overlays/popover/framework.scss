@@ -24,10 +24,26 @@ $popover-state-active: ":checked";
         white-space: nowrap;
     }
 
+    /**
+     * TODO: Clean up + viewport modifiers
+     */
+
     &:not([data-position]) > #{$popover-label} + * {
         top: calc(100% + var(--popover-margin));
         right: 50%;
         transform: translateX(50%);
+    }
+
+    &[data-position="bottom+left"] > #{$popover-label} + * {
+        top: calc(100% + var(--popover-margin));
+        right: 50%;
+        transform: translateX(5%);
+    }
+
+    &[data-position="bottom+right"] > #{$popover-label} + * {
+        top: calc(100% + var(--popover-margin));
+        right: 50%;
+        transform: translateX(95%);
     }
 
     &[data-position="top"] > #{$popover-label} + * {
@@ -36,16 +52,52 @@ $popover-state-active: ":checked";
         transform: translateX(50%);
     }
 
+    &[data-position="top+left"] > #{$popover-label} + * {
+        bottom: calc(100% + var(--popover-margin));
+        right: 50%;
+        transform: translateX(5%);
+    }
+
+    &[data-position="top+right"] > #{$popover-label} + * {
+        bottom: calc(100% + var(--popover-margin));
+        right: 50%;
+        transform: translateX(95%);
+    }
+
     &[data-position="left"] > #{$popover-label} + * {
         right: calc(100% + var(--popover-margin));
         bottom: 50%;
         transform: translateY(50%);
     }
 
+    &[data-position="left+top"] > #{$popover-label} + * {
+        right: calc(100% + var(--popover-margin));
+        bottom: 50%;
+        transform: translateY(5%);
+    }
+
+    &[data-position="left+bottom"] > #{$popover-label} + * {
+        right: calc(100% + var(--popover-margin));
+        bottom: 50%;
+        transform: translateY(95%);
+    }
+
     &[data-position="right"] > #{$popover-label} + * {
         left: calc(100% + var(--popover-margin));
         bottom: 50%;
         transform: translateY(50%);
+    }
+
+    &[data-position="right+top"] > #{$popover-label} + * {
+        left: calc(100% + var(--popover-margin));
+        bottom: 50%;
+        transform: translateY(5%);
+    }
+
+    &[data-position="right+bottom"] > #{$popover-label} + * {
+        left: calc(100% + var(--popover-margin));
+        bottom: 50%;
+        transform: translateY(95%);
     }
 
     & > #{$popover-state} {

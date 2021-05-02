@@ -4,8 +4,9 @@ export default ({VAR}) => {
 
         margin: `0 0 ${VAR.spacing.block.large} 0`,
         padding: VAR.spacing.block.large,
-        radius: VAR.radius.block,
+        spacing: VAR.spacing.block.massive,
 
+        radius: VAR.radius.block,
         transition: VAR.animation.visual,
 
         palette: {
@@ -52,14 +53,7 @@ export default ({VAR}) => {
         },
 
         figure: {
-            margin: `0 ${VAR.spacing.block.large} 0 0`,
-
-            radius: VAR.radius.circle,
-            size: VAR.sizing.content.small,
-        },
-
-        footer: {
-            margin: `0 0 0 ${VAR.spacing.block.large}`,
+            size: VAR.sizing.content.nano,
         },
     };
 };

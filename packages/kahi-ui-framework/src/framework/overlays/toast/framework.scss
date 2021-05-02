@@ -4,6 +4,10 @@ $toast-body: "section";
 $toast-figure: "figure";
 $toast-footer: "footer";
 
+@mixin toast-container($namespace) {
+    @include tile-container($namespace);
+}
+
 @mixin toast-body($namespace) {
     @include tile-body($namespace);
 }
@@ -18,9 +22,7 @@ $toast-footer: "footer";
 
 #{$toast} {
     @include use-palette(--toast-palette, false);
-
-    display: flex;
-    align-items: center;
+    @include tile-container(--toast);
 
     background: transparent;
     color: currentColor;

@@ -33,6 +33,8 @@ $divider-separator: "[role='separator']";
     display: flex;
     align-items: center;
 
+    gap: var(--divider-separator-spacing);
+
     font-size: var(--divider-separator-font-size);
     font-weight: var(--divider-separator-font-weight);
 
@@ -46,13 +48,5 @@ $divider-separator: "[role='separator']";
 
         flex-grow: 1;
         border-top: currentColor var(--divider-border);
-    }
-
-    &::before {
-        margin-right: var(--divider-separator-margin);
-    }
-
-    &::after {
-        margin-left: var(--divider-separator-margin);
     }
 }

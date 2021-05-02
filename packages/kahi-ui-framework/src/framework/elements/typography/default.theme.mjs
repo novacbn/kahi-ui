@@ -60,7 +60,7 @@ export default ({VAR}) => {
 
         heading: {
             font_family: VAR.font.family.heading,
-            margin: `${VAR.spacing.inline.small} 0 ${VAR.spacing.inline.medium} 0`,
+            margin: `${VAR.spacing.inline.tiny} 0 ${VAR.spacing.inline.small} 0`,
 
             [6]: {
                 font: {

@@ -7,9 +7,9 @@ $stack: ".stack";
     display: flex;
     align-self: stretch;
 
-    &:not([data-orientation]) {
-        --margin: var(--spacing) 0px 0px 0px;
+    gap: var(--spacing);
 
+    &:not([data-orientation]) {
         flex-direction: column;
 
         align-items: var(--alignment-x);
@@ -17,23 +17,17 @@ $stack: ".stack";
     }
 
     &[data-orientation="horizontal"] {
-        --margin: 0px 0px 0px var(--spacing);
-
         flex-direction: row;
 
         align-items: var(--alignment-y);
         justify-content: var(--alignment-x);
     }
 
-    & > * + * {
-        margin: var(--margin) !important;
-    }
-
-    & > :first-child {
-        margin: 0 !important;
-    }
-
     @include use-boolean-children(data-stretch, true) {
         flex-grow: 1;
+    }
+
+    & > * {
+        margin: 0 !important;
     }
 }

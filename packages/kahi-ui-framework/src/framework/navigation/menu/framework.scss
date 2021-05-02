@@ -63,6 +63,9 @@ $menu-heading-hover: ":hover";
         font-weight: inherit;
 
         &:not([data-palette]) {
+            --background: var(--color);
+            --color: inherit;
+
             color: currentColor;
         }
     }

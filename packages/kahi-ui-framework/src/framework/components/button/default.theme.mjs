@@ -4,8 +4,8 @@ export default ({VAR}) => {
         transition: VAR.animation.visual,
 
         padding: {
-            default: VAR.spacing.inline.medium,
-            pill: `var(--button-padding-default) calc(var(--button-padding-default) * 1.25)`,
+            default: `${VAR.spacing.inline.tiny} ${VAR.spacing.inline.medium}`,
+            pill: `${VAR.spacing.inline.tiny} calc(${VAR.spacing.inline.medium} * 1.25)`,
         },
 
         font: {

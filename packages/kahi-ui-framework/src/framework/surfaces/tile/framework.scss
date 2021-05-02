@@ -7,6 +7,13 @@ $tile-body: "section";
 $tile-body-heading: "header";
 $tile-body-text: "p";
 
+@mixin tile-container($namespace) {
+    display: flex;
+    align-items: center;
+
+    gap: var(#{$namespace}-spacing);
+}
+
 @mixin tile-body($namespace) {
     flex-grow: 1;
 
@@ -27,7 +34,7 @@ $tile-body-text: "p";
     align-items: center;
     justify-content: center;
 
-    margin: var(#{$namespace}-margin);
+    margin: 0;
 
     width: var(#{$namespace}-size);
     height: var(#{$namespace}-size);
@@ -40,23 +47,17 @@ $tile-body-text: "p";
 
         width: 100%;
         object-fit: fill;
-
-        border-radius: var(--tile-figure-radius);
     }
 }
 
 @mixin tile-footer($namespace) {
     display: flex;
     align-items: center;
-
-    margin: var(#{$namespace}-margin);
 }
 
 #{$tile} {
     @include use-palette(--tile-palette, false);
-
-    display: flex;
-    align-items: center;
+    @include tile-container(--tile);
 
     background: transparent;
     color: currentColor;

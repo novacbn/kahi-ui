@@ -25,7 +25,7 @@ export default ({VAR}) => {
 
         separator: {
             letter_spacing: "0.1em",
-            margin: VAR.spacing.block.small,
+            spacing: VAR.spacing.block.small,
 
             font: {
                 size: VAR.font.size.content.small,

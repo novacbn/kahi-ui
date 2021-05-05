@@ -2123,6 +2123,7 @@ nav.omni[data-position=top] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   margin: 0;
   width: var(--tile-figure-size);
   height: var(--tile-figure-size);
@@ -2138,6 +2139,8 @@ nav.omni[data-position=top] {
 .tile footer {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+  gap: var(--tile-footer-spacing);
 }
 
 :is(a:not([role]), label).tile {
@@ -3159,6 +3162,7 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   margin: 0;
   width: var(--toast-figure-size);
   height: var(--toast-figure-size);
@@ -3174,6 +3178,8 @@ input[type=checkbox].backdrop:checked + [role=dialog].dialog {
 .overlay > [role=status] footer {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+  gap: var(--toast-footer-spacing);
 }
 
 .container {

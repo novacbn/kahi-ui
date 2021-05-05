@@ -556,6 +556,7 @@
     --tile-body-spacing: var(--spacing-block-large);
     --tile-border: var(--border-block) hsl(var(--palette-light-light)) solid;
     --tile-figure-size: var(--sizing-content-nano);
+    --tile-footer-spacing: var(--spacing-block-tiny);
     --tile-margin: 0 0 var(--spacing-block-large) 0;
     --tile-padding: var(--spacing-block-large);
     --tile-palette-accent-background: var(--palette-accent-bold);
@@ -578,6 +579,7 @@
     --toast-body-spacing: var(--spacing-block-large);
     --toast-border: var(--border-block) hsl(var(--palette-light-light)) solid;
     --toast-figure-size: var(--sizing-content-nano);
+    --toast-footer-spacing: var(--spacing-block-tiny);
     --toast-padding: var(--spacing-block-large);
     --toast-palette-accent-background: var(--palette-accent-bold);
     --toast-palette-accent-color: var(--palette-light-bold);

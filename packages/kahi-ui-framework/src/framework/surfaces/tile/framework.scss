@@ -34,6 +34,7 @@ $tile-body-text: "p";
     align-items: center;
     justify-content: center;
 
+    flex-shrink: 0;
     margin: 0;
 
     width: var(#{$namespace}-size);
@@ -53,6 +54,9 @@ $tile-body-text: "p";
 @mixin tile-footer($namespace) {
     display: flex;
     align-items: center;
+
+    flex-shrink: 0;
+    gap: var(#{$namespace}-spacing);
 }
 
 #{$tile} {

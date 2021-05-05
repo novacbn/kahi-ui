@@ -54,5 +54,9 @@ export default ({VAR}) => {
         figure: {
             size: VAR.sizing.content.nano,
         },
+
+        footer: {
+            spacing: VAR.spacing.block.tiny,
+        },
     };
 };

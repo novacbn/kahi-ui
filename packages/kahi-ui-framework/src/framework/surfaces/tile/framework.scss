@@ -16,10 +16,15 @@ $tile-body-text: "p";
 
 @mixin tile-body($namespace) {
     flex-grow: 1;
+    min-width: 0;
 
     & > #{$tile-body-heading} {
         font-size: var(#{$namespace}-heading-font-size);
         font-weight: var(#{$namespace}-heading-font-weight);
+        white-space: nowrap;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     & > #{$tile-body-text} {

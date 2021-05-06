@@ -5,13 +5,14 @@ $group-last: ":last-child";
 
 #{$group} {
     display: inline-flex;
-    align-items: stretch;
 
     & > * {
         margin: 0;
     }
 
     &:not([data-orientation]) > * {
+        align-items: stretch;
+
         &#{$group-first} {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -29,6 +30,7 @@ $group-last: ":last-child";
 
     &[data-orientation="vertical"] {
         flex-direction: column;
+        justify-content: stretch;
 
         & > * {
             &#{$group-first} {
@@ -45,5 +47,9 @@ $group-last: ":last-child";
                 border-radius: 0;
             }
         }
+    }
+
+    &[data-stretch] > * {
+        flex-grow: 1;
     }
 }

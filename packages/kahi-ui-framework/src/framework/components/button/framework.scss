@@ -1,7 +1,7 @@
 $button: ":is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])";
 
 $button-active: ":is(:active, [aria-pressed='true'])";
-$button-disabled: ":disabled, [aria-disabled='true']";
+$button-disabled: ":is(:disabled, [aria-disabled='true'])";
 $button-hover: ":is(:focus, :hover)";
 
 $button-block: ":not([data-variation])";

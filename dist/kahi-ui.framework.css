@@ -466,7 +466,7 @@ b, strong {
   --background: var(--button-palette-negative-background);
   --color: var(--button-palette-negative-color);
 }
-:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']):disabled, :is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']) [aria-disabled=true] {
+:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']):is(:disabled, [aria-disabled='true']) {
   cursor: not-allowed;
   opacity: var(--button-opacity-disabled);
 }
@@ -475,11 +475,11 @@ b, strong {
   border: var(--button-border) hsl(var(--background));
   color: hsl(var(--color));
 }
-:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']):not([data-variation]):not(:disabled, [aria-disabled=true]):is(:focus, :hover) {
+:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']):not([data-variation]):not(:is(:disabled, [aria-disabled='true'])):is(:focus, :hover) {
   background: hsla(var(--background), var(--button-opacity-dull));
   border-color: transparent;
 }
-:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']):not([data-variation]):not(:disabled, [aria-disabled=true]):is(:active, [aria-pressed='true']) {
+:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit']):not([data-variation]):not(:is(:disabled, [aria-disabled='true'])):is(:active, [aria-pressed='true']) {
   background: hsla(var(--background), var(--button-opacity-muted));
   border-color: hsla(var(--color), var(--button-opacity-muted));
 }
@@ -488,11 +488,11 @@ b, strong {
   border: var(--button-border) transparent;
   color: hsl(var(--background));
 }
-:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=clear]:not(:disabled, [aria-disabled=true]):is(:focus, :hover) {
+:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=clear]:not(:is(:disabled, [aria-disabled='true'])):is(:focus, :hover) {
   background: hsla(var(--background), var(--button-opacity-translucent));
   border-color: hsla(var(--background), var(--button-opacity-translucent));
 }
-:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=clear]:not(:disabled, [aria-disabled=true]):is(:active, [aria-pressed='true']) {
+:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=clear]:not(:is(:disabled, [aria-disabled='true'])):is(:active, [aria-pressed='true']) {
   background: hsla(var(--background), var(--button-opacity-muted));
   border-color: transparent;
   color: hsl(var(--color));
@@ -502,10 +502,10 @@ b, strong {
   border: var(--button-border) hsl(var(--background));
   color: hsl(var(--background));
 }
-:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=outline]:not(:disabled, [aria-disabled=true]):is(:focus, :hover) {
+:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=outline]:not(:is(:disabled, [aria-disabled='true'])):is(:focus, :hover) {
   background-color: hsla(var(--background), var(--button-opacity-translucent));
 }
-:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=outline]:not(:disabled, [aria-disabled=true]):is(:active, [aria-pressed='true']) {
+:is(a[role='button'], button, label[role='button'], input[type='button'], input[type='reset'], input[type='submit'])[data-variation=outline]:not(:is(:disabled, [aria-disabled='true'])):is(:active, [aria-pressed='true']) {
   background-color: hsl(var(--background));
   color: hsl(var(--color));
 }

@@ -1,8 +1,0 @@
-$scrollable: ".scrollable";
-
-#{$scrollable} {
-    @include use-overflow(true);
-
-    overflow-x: var(--overflow-x);
-    overflow-y: var(--overflow-y);
-}

@@ -1,41 +1,278 @@
++++
+[[properties.Heading]]
+name="align"
+description="Changes how the text is aligned within the containing box."
+types=["center", "justify", "left", "right"]
+
+[[properties.Heading]]
+name="is"
+description="Changes the HTML tag used for rendering the text, and the text size."
+types=["h1", "h2", "h3", "h4", "h5", "h6"]
+
+[[properties.Heading]]
+name="transform"
+description="Alters how the text casing is rendered."
+types=["capitalize", "lowercase", "uppercase"]
+
+[[properties.Heading]]
+name="variation"
+description="Removes parent container overflow from the render, clipping text with an ellipsis."
+types=["truncate"]
++++
+
 # Heading
 
-> Useful for semantically denoting a body of content as a descrete section, ordered by level.
+`Heading` is typically used for delineating sections of content within your Web Application.
 
-```html render
-<h1>Hello World!</h1>
+```html repl Heading Preview
+<script>
+    import {Heading} from "@kahi-ui/framework";
+</script>
+
+<Heading>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci. mus.
+</Heading>
 ```
 
-## Levels
+## Imports
 
-Section levels, therefore the font size, weight, and margins, can be customized via `<h1> ~ <h6>` tags.
-
-```html render
-<h1>Heading Level One!</h1>
-<h2>Heading Level Two!</h2>
-<h3>Heading Level Three!</h3>
-<h4>Heading Level Four!</h4>
-<h5>Heading Level Five!</h5>
-<h6>Heading Level Six!</h6>
+```html default Heading Imports
+<script>
+    import {Heading} from "@kahi-ui/framework";
+</script>
 ```
 
-## Classes
+## Size
 
-The section levels can also be applied to other elements as well via the `.h1 ~ .h6` classes, for their font sizes / weights **ONLY**.
+You can adjust the size of `Heading` by passing the `is` property.
 
-```html render
-<div class="stack" data-spacing="medium">
-    <span class="h1">Heading Level One! <code>.h1</code></span>
-    <span class="h2">Heading Level Two! <code>.h2</code></span>
-    <span class="h3">Heading Level Three! <code>.h3</code></span>
-    <span class="h4">Heading Level Four! <code>.h4</code></span>
-    <span class="h5">Heading Level Five! <code>.h5</code></span>
-    <span class="h6">Heading Level Six! <code>.h6</code></span>
-</div>
+```html repl Heading Size
+<script>
+    import {Heading, Stack, Text} from "@kahi-ui/framework";
+</script>
+
+<Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <div style="max-width:25ch;">
+        <Text is="strong">H1</Text>
+
+        <Heading is="h1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">H2</Text>
+
+        <Heading is="h2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">H3</Text>
+
+        <Heading is="h3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">H4</Text>
+
+        <Heading is="h4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">H5</Text>
+
+        <Heading is="h5">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">H6</Text>
+
+        <Heading is="h6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+</Stack>
 ```
 
-## Attributes
+## Align
 
-| Attribute | Svelte  | Values                       | Description                   |
-| --------- | ------- | ---------------------------- | ----------------------------- |
-| **N/A**   | `level` | `1`, `2`, `3`, `4`, `5`, `6` | Sets the level of the Heading |
+You can adjust the text alignment of the `Heading` via the `align` property.
+
+```html repl Heading Align
+<script>
+    import {Heading, Stack, Text} from "@kahi-ui/framework";
+</script>
+
+<Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <div style="max-width:25ch;">
+        <Text is="strong">DEFAULT</Text>
+
+        <Heading>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">CENTER</Text>
+
+        <Heading align="center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">JUSTIFY</Text>
+
+        <Heading align="justify">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">LEFT</Text>
+
+        <Heading align="left">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">RIGHT</Text>
+
+        <Heading align="right">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+</Stack>
+```
+
+## Transform
+
+You can alter the rendered text capitalization via the `transform` property.
+
+```html repl Heading Transform
+<script>
+    import {Heading, Stack, Text} from "@kahi-ui/framework";
+</script>
+
+<Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <div style="max-width:25ch;">
+        <Text is="strong">DEFAULT</Text>
+
+        <Heading>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">CAPITALIZE</Text>
+
+        <Heading transform="capitalize">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">LOWERCASE</Text>
+
+        <Heading transform="lowercase">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">UPPERCASE</Text>
+
+        <Heading transform="uppercase">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+</Stack>
+```
+
+## Variation
+
+You can apply variations to the rendered text, like truncating, via the `variation` property.
+
+```html repl Heading Variation
+<script>
+    import {Heading, Stack, Text} from "@kahi-ui/framework";
+</script>
+
+<Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <div style="max-width:25ch;">
+        <Text is="strong">DEFAULT</Text>
+
+        <Heading>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+
+    <div style="max-width:25ch;">
+        <Text is="strong">TRUNCATE</Text>
+
+        <Heading variation="truncate">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Heading>
+    </div>
+</Stack>
+```

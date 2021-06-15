@@ -1,5 +1,10 @@
 {
     "editor.formatOnSave": false,
+    "svelte.plugin.css.diagnostics.enable": false,
+
+    "[css]": {
+        "editor.formatOnSave": true
+    },
 
     "[html]": {
         "editor.formatOnSave": true
@@ -13,11 +18,19 @@
         "editor.formatOnSave": true
     },
 
-    "[json with comments]": {
+    "[jsonc]": {
         "editor.formatOnSave": true
     },
 
     "[markdown]": {
         "editor.formatOnSave": true
     },
+
+    "[svelte]": {
+        "editor.formatOnSave": true
+    },
+
+    "[typescript]": {
+        "editor.formatOnSave": true
+    }
 }

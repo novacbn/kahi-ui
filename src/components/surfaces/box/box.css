@@ -1,0 +1,10 @@
+.box {
+    @apply border-1 border-solid text-current;
+
+    background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
+    border-color: rgba(theme("colors.default.200"), theme("opacity.5"));
+
+    &[data-palette] {
+        @apply bg-[rgb(var(--palette-background-bg))] border-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
+    }
+}

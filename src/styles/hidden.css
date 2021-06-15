@@ -1,0 +1,27 @@
+[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
+    display: none !important;
+}
+
+@variants <sm {
+    [data-hidden~="mobile"] {
+        display: none !important;
+    }
+}
+
+@variants @sm {
+    [data-hidden~="tablet"] {
+        display: none !important;
+    }
+}
+
+@variants @md {
+    [data-hidden~="desktop"] {
+        display: none !important;
+    }
+}
+
+@variants lg {
+    [data-hidden~="widescreen"] {
+        display: none !important;
+    }
+}

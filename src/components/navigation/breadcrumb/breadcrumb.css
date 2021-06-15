@@ -1,0 +1,17 @@
+nav.breadcrumb {
+    & > ol {
+        @apply flex;
+
+        & > li {
+            @apply inline-flex items-center;
+
+            & > a[aria-current] {
+                @apply font-bold;
+            }
+
+            & > [role="presentation"] {
+                @apply mx-1 opacity-30 pointer-events-none select-none;
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+/**
+ * NOTE: Some of these are from WindiCSS's built-ins, some are from Animate.css
+ */
+
+/**
+ * animation: bounce 1s infinite;
+ */
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/**
+ * animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+ */
+
+@keyframes ping {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/**
+ * animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+ */
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: var(--animation-pulse-ends-opacity, 1);
+    }
+    50% {
+        opacity: var(--animation-pulse-stop-opacity, 0.5);
+    }
+}
+
+/**
+ * animation: spin 1s linear infinite;
+ */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/**
+ * animation: wave 1s infinite;
+ */
+
+@keyframes wave {
+    0%,
+    100% {
+        transform: translateY(-15%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(15%);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+[data-animation="pulse"] {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

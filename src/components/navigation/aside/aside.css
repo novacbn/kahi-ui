@@ -1,0 +1,79 @@
+@variants <md {
+    input[type="checkbox"][role="presentation"] {
+        & + nav.aside,
+        & + .context-backdrop + nav.aside {
+            @apply fixed left-0 top-0;
+
+            transform: translateX(-100%);
+            transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+            & > .context-button {
+                @apply bottom-3 fixed -right-3;
+            }
+
+            & > .context-button {
+                transform: translateX(100%);
+            }
+        }
+
+        &:not(:checked) + nav.aside,
+        &:not(:checked) + .context-backdrop + nav.aside {
+            & > .context-button:nth-last-of-type(2) {
+                display: initial;
+            }
+        }
+
+        &:checked + nav.aside,
+        &:checked + .context-backdrop + nav.aside {
+            transform: translateX(0%);
+
+            & > .context-button:last-of-type {
+                display: initial;
+            }
+        }
+    }
+}
+
+nav.aside {
+    @apply flex flex-col relative text-current z-1;
+
+    background-color: rgba(theme("colors.default.200"), theme("opacity.20"));
+
+    &[data-palette] {
+        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
+    }
+
+    &[data-variation~="sticky"] {
+        @apply sticky top-0;
+    }
+
+    & > footer {
+        @apply items-center flex gap-4 justify-center mt-auto pb-4;
+
+        & > a {
+            @apply !text-current;
+        }
+    }
+
+    & > .context-button {
+        @apply hidden;
+    }
+
+    & > header {
+        @apply font-bold py-8 select-none text-center text-5xl tracking-widest whitespace-nowrap;
+
+        & > a {
+            @apply !text-current;
+        }
+    }
+
+    & > section {
+        @apply overflow-y-auto py-2 mb-4;
+    }
+
+    & > :is(footer, header, section) {
+        @apply px-6;
+    }
+}

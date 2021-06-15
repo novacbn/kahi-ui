@@ -1,0 +1,8 @@
+blockquote {
+    --palette-background-bg: theme("colors.default.400");
+
+    @apply border-l-5 border-solid px-6 py-4 relative rounded-md;
+
+    border-color: rgb(var(--palette-background-bg));
+    background-color: rgba(var(--palette-background-bg), theme("opacity.10"));
+}

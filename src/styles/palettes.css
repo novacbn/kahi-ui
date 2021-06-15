@@ -1,0 +1,214 @@
+/**
+ * TODO: Darkmode color handling can probably be handled in `document.css` via variables
+ */
+
+[data-palette="auto"] {
+    --palette-background-bg: theme("colors.light.100");
+    --palette-background-text: theme("colors.dark.400");
+
+    --palette-foreground-bg: theme("colors.light.500");
+    --palette-foreground-text: theme("colors.dark.500");
+}
+
+[data-palette="auto-inverse"] {
+    --palette-background-bg: theme("colors.dark.600");
+    --palette-background-text: theme("colors.light.100");
+
+    --palette-foreground-bg: theme("colors.dark.700");
+    --palette-foreground-text: theme("colors.light.200");
+}
+
+[data-palette="inherit"] {
+    --palette-background-bg: inherit;
+    --palette-background-text: inherit;
+
+    --palette-foreground-bg: inherit;
+    --palette-foreground-text: inherit;
+}
+
+[data-palette="accent"] {
+    --palette-background-bg: theme("colors.accent.400");
+    --palette-background-text: theme("colors.light.100");
+
+    --palette-foreground-bg: theme("colors.accent.500");
+    --palette-foreground-text: theme("colors.light.200");
+}
+
+[data-palette="dark"] {
+    --palette-background-bg: theme("colors.dark.400");
+    --palette-background-text: theme("colors.light.100");
+
+    --palette-foreground-bg: theme("colors.dark.500");
+    --palette-foreground-text: theme("colors.light.200");
+}
+
+[data-palette="light"] {
+    --palette-background-bg: theme("colors.light.100");
+    --palette-background-text: theme("colors.dark.400");
+
+    --palette-foreground-bg: theme("colors.light.500");
+    --palette-foreground-text: theme("colors.dark.500");
+}
+
+[data-palette="alert"] {
+    --palette-background-bg: theme("colors.alert.400");
+    --palette-background-text: theme("colors.light.100");
+
+    --palette-foreground-bg: theme("colors.alert.500");
+    --palette-foreground-text: theme("colors.light.200");
+}
+
+[data-palette="affirmative"] {
+    --palette-background-bg: theme("colors.affirmative.400");
+    --palette-background-text: theme("colors.light.100");
+
+    --palette-foreground-bg: theme("colors.affirmative.500");
+    --palette-foreground-text: theme("colors.light.200");
+}
+
+[data-palette="negative"] {
+    --palette-background-bg: theme("colors.negative.400");
+    --palette-background-text: theme("colors.light.100");
+
+    --palette-foreground-bg: theme("colors.negative.500");
+    --palette-foreground-text: theme("colors.light.200");
+}
+
+/**
+ * TODO: Does this make sense, to make the darker shades only
+ * available during auto-dark / palette set dark?
+ */
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-palette]) {
+        & [data-palette="auto"] {
+            --palette-background-bg: theme("colors.dark.600");
+            --palette-background-text: theme("colors.light.900");
+
+            --palette-foreground-bg: theme("colors.dark.700");
+            --palette-foreground-text: theme("colors.light.200");
+        }
+
+        & [data-palette="auto-inverse"] {
+            --palette-background-bg: theme("colors.light.100");
+            --palette-background-text: theme("colors.dark.400");
+
+            --palette-foreground-bg: theme("colors.light.500");
+            --palette-foreground-text: theme("colors.dark.500");
+        }
+
+        & [data-palette="accent"] {
+            --palette-background-bg: theme("colors.accent.800");
+            --palette-background-text: theme("colors.light.100");
+
+            --palette-foreground-bg: theme("colors.accent.600");
+            --palette-foreground-text: theme("colors.light.200");
+        }
+
+        & [data-palette="dark"] {
+            --palette-background-bg: theme("colors.dark.600");
+            --palette-background-text: theme("colors.light.900");
+
+            --palette-foreground-bg: theme("colors.dark.700");
+            --palette-foreground-text: theme("colors.light.200");
+        }
+
+        & [data-palette="light"] {
+            --palette-background-bg: theme("colors.light.500");
+            --palette-background-text: theme("colors.dark.400");
+
+            --palette-foreground-bg: theme("colors.light.900");
+            --palette-foreground-text: theme("colors.dark.500");
+        }
+
+        & [data-palette="alert"] {
+            --palette-background-bg: theme("colors.alert.800");
+            --palette-background-text: theme("colors.light.100");
+
+            --palette-foreground-bg: theme("colors.alert.600");
+            --palette-foreground-text: theme("colors.light.200");
+        }
+
+        & [data-palette="affirmative"] {
+            --palette-background-bg: theme("colors.affirmative.800");
+            --palette-background-text: theme("colors.light.100");
+
+            --palette-foreground-bg: theme("colors.affirmative.600");
+            --palette-foreground-text: theme("colors.light.200");
+        }
+
+        & [data-palette="negative"] {
+            --palette-background-bg: theme("colors.negative.800");
+            --palette-background-text: theme("colors.light.100");
+
+            --palette-foreground-bg: theme("colors.negative.600");
+            --palette-foreground-text: theme("colors.light.200");
+        }
+    }
+}
+
+html[data-palette="dark"] {
+    & [data-palette="auto"] {
+        --palette-background-bg: theme("colors.dark.600");
+        --palette-background-text: theme("colors.light.900");
+
+        --palette-foreground-bg: theme("colors.dark.700");
+        --palette-foreground-text: theme("colors.light.200");
+    }
+
+    & [data-palette="auto-inverse"] {
+        --palette-background-bg: theme("colors.light.100");
+        --palette-background-text: theme("colors.dark.400");
+
+        --palette-foreground-bg: theme("colors.light.500");
+        --palette-foreground-text: theme("colors.dark.500");
+    }
+
+    & [data-palette="accent"] {
+        --palette-background-bg: theme("colors.accent.800");
+        --palette-background-text: theme("colors.light.100");
+
+        --palette-foreground-bg: theme("colors.accent.600");
+        --palette-foreground-text: theme("colors.light.200");
+    }
+
+    & [data-palette="dark"] {
+        --palette-background-bg: theme("colors.dark.600");
+        --palette-background-text: theme("colors.light.900");
+
+        --palette-foreground-bg: theme("colors.dark.700");
+        --palette-foreground-text: theme("colors.light.200");
+    }
+
+    & [data-palette="light"] {
+        --palette-background-bg: theme("colors.light.500");
+        --palette-background-text: theme("colors.dark.400");
+
+        --palette-foreground-bg: theme("colors.light.900");
+        --palette-foreground-text: theme("colors.dark.500");
+    }
+
+    & [data-palette="alert"] {
+        --palette-background-bg: theme("colors.alert.800");
+        --palette-background-text: theme("colors.light.100");
+
+        --palette-foreground-bg: theme("colors.alert.600");
+        --palette-foreground-text: theme("colors.light.200");
+    }
+
+    & [data-palette="affirmative"] {
+        --palette-background-bg: theme("colors.affirmative.800");
+        --palette-background-text: theme("colors.light.100");
+
+        --palette-foreground-bg: theme("colors.affirmative.600");
+        --palette-foreground-text: theme("colors.light.200");
+    }
+
+    & [data-palette="negative"] {
+        --palette-background-bg: theme("colors.negative.800");
+        --palette-background-text: theme("colors.light.100");
+
+        --palette-foreground-bg: theme("colors.negative.600");
+        --palette-foreground-text: theme("colors.light.200");
+    }
+}

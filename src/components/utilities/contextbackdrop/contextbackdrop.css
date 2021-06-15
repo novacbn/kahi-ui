@@ -1,0 +1,15 @@
+.context-backdrop {
+    @apply block bg-default-100 bg-opacity-0 fixed h-screen invisible left-0 top-0 w-screen z-1;
+}
+
+label[for].context-backdrop {
+    @apply cursor-pointer;
+}
+
+input[type="checkbox"][role="presentation"]:not(:checked) + .context-backdrop {
+    @apply pointer-events-none;
+}
+
+input[type="checkbox"][role="presentation"]:checked + .context-backdrop {
+    @apply bg-opacity-40 visible;
+}

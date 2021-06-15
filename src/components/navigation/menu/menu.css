@@ -1,0 +1,106 @@
+nav.menu {
+    @apply;
+
+    --direction: column;
+    --margin: theme("spacing.4") 0 0 0;
+
+    &[data-orientation~="horizontal"] {
+        @apply;
+
+        --direction: row;
+        --margin: 0 0 0 theme("spacing.4");
+    }
+
+    & ul {
+        @apply flex items-stretch ml-0;
+
+        flex-direction: var(--direction);
+
+        & > li {
+            @apply flex flex-col gap-4 min-w-max;
+
+            & > * {
+                @apply !m-0;
+            }
+
+            & > :is(a, button, label) {
+                --palette-foreground-bg: inherit;
+                --palette-foreground-text: inherit;
+
+                all: unset;
+
+                @apply bg-transparent cursor-pointer flex flex-grow gap-3 items-center !no-underline
+                px-4 py-3 relative rounded-lg select-none !text-current whitespace-nowrap transition duration-200 ease-out-quad;
+
+                &:is(:focus, :hover) {
+                    @apply;
+
+                    background-color: rgba(var(--palette-foreground-text), theme("opacity.10"));
+                }
+
+                &:is(:active, [aria-current], [aria-pressed="true"]) {
+                    @apply !text-[rgb(var(--palette-foreground-bg))];
+
+                    background-color: rgba(var(--palette-foreground-text), theme("opacity.75"));
+                }
+
+                &::before,
+                &::after {
+                    all: unset;
+                }
+            }
+
+            & > small {
+                @apply font-bold opacity-30 select-none tracking-widest;
+            }
+
+            & > span[role="separator"]::before {
+                @apply max-w-[1ch];
+            }
+
+            & > ul {
+                @apply px-4;
+            }
+        }
+
+        & > li + li {
+            margin: var(--margin);
+        }
+    }
+}
+
+@variants <sm {
+    nav.menu[data-orientation~="mobile:horizontal"] {
+        @apply;
+
+        --direction: row;
+        --margin: 0 0 0 theme("spacing.4");
+    }
+}
+
+@variants @sm {
+    nav.menu[data-orientation~="tablet:horizontal"] {
+        @apply;
+
+        --direction: row;
+        --margin: 0 0 0 theme("spacing.4");
+    }
+}
+
+@variants @md {
+    nav.menu[data-orientation~="desktop:horizontal"] {
+        @apply;
+
+        --direction: row;
+        --margin: 0 0 0 theme("spacing.4");
+    }
+}
+
+@variants lg {
+    nav.menu[data-orientation~="widescreen:horizontal"] {
+        @apply;
+
+        --direction: row;
+        --margin: 0 0 0 theme("spacing.4");
+    }
+}

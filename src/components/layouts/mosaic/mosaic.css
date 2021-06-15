@@ -1,0 +1,20 @@
+.mosaic {
+    --grid-alignment-x: initial;
+    --grid-alignment-y: initial;
+
+    --sizing: initial;
+
+    --spacing-x: 0;
+    --spacing-y: 0;
+
+    @apply grid gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)];
+
+    align-items: var(--grid-alignment-y);
+    justify-content: var(--grid-alignment-x);
+
+    grid-template-columns: repeat(auto-fill, minmax(var(--sizing), 1fr));
+
+    & > * {
+        @apply m-0;
+    }
+}

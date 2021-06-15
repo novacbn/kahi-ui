@@ -1,0 +1,247 @@
+[data-points~="1"] {
+    --points: 1;
+}
+
+[data-points~="2"] {
+    --points: 2;
+}
+
+[data-points~="3"] {
+    --points: 3;
+}
+
+[data-points~="4"] {
+    --points: 4;
+}
+
+[data-points~="5"] {
+    --points: 5;
+}
+
+[data-points~="6"] {
+    --points: 6;
+}
+
+[data-points~="7"] {
+    --points: 7;
+}
+
+[data-points~="8"] {
+    --points: 8;
+}
+
+[data-points~="9"] {
+    --points: 9;
+}
+
+[data-points~="10"] {
+    --points: 10;
+}
+
+[data-points~="11"] {
+    --points: 11;
+}
+
+[data-points~="12"] {
+    --points: 12;
+}
+
+@variants <sm {
+    [data-points~="mobile:1"] {
+        --points: 1;
+    }
+
+    [data-points~="mobile:2"] {
+        --points: 2;
+    }
+
+    [data-points~="mobile:3"] {
+        --points: 3;
+    }
+
+    [data-points~="mobile:4"] {
+        --points: 4;
+    }
+
+    [data-points~="mobile:5"] {
+        --points: 5;
+    }
+
+    [data-points~="mobile:6"] {
+        --points: 6;
+    }
+
+    [data-points~="mobile:7"] {
+        --points: 7;
+    }
+
+    [data-points~="mobile:8"] {
+        --points: 8;
+    }
+
+    [data-points~="mobile:9"] {
+        --points: 9;
+    }
+
+    [data-points~="mobile:10"] {
+        --points: 10;
+    }
+
+    [data-points~="mobile:11"] {
+        --points: 11;
+    }
+
+    [data-points~="mobile:12"] {
+        --points: 12;
+    }
+}
+
+@variants @sm {
+    [data-points~="tablet:1"] {
+        --points: 1;
+    }
+
+    [data-points~="tablet:2"] {
+        --points: 2;
+    }
+
+    [data-points~="tablet:3"] {
+        --points: 3;
+    }
+
+    [data-points~="tablet:4"] {
+        --points: 4;
+    }
+
+    [data-points~="tablet:5"] {
+        --points: 5;
+    }
+
+    [data-points~="tablet:6"] {
+        --points: 6;
+    }
+
+    [data-points~="tablet:7"] {
+        --points: 7;
+    }
+
+    [data-points~="tablet:8"] {
+        --points: 8;
+    }
+
+    [data-points~="tablet:9"] {
+        --points: 9;
+    }
+
+    [data-points~="tablet:10"] {
+        --points: 10;
+    }
+
+    [data-points~="tablet:11"] {
+        --points: 11;
+    }
+
+    [data-points~="tablet:12"] {
+        --points: 12;
+    }
+}
+
+@variants @md {
+    [data-points~="desktop:1"] {
+        --points: 1;
+    }
+
+    [data-points~="desktop:2"] {
+        --points: 2;
+    }
+
+    [data-points~="desktop:3"] {
+        --points: 3;
+    }
+
+    [data-points~="desktop:4"] {
+        --points: 4;
+    }
+
+    [data-points~="desktop:5"] {
+        --points: 5;
+    }
+
+    [data-points~="desktop:6"] {
+        --points: 6;
+    }
+
+    [data-points~="desktop:7"] {
+        --points: 7;
+    }
+
+    [data-points~="desktop:8"] {
+        --points: 8;
+    }
+
+    [data-points~="desktop:9"] {
+        --points: 9;
+    }
+
+    [data-points~="desktop:10"] {
+        --points: 10;
+    }
+
+    [data-points~="desktop:11"] {
+        --points: 11;
+    }
+
+    [data-points~="desktop:12"] {
+        --points: 12;
+    }
+}
+
+@variants lg {
+    [data-points~="widescreen:1"] {
+        --points: 1;
+    }
+
+    [data-points~="widescreen:2"] {
+        --points: 2;
+    }
+
+    [data-points~="widescreen:3"] {
+        --points: 3;
+    }
+
+    [data-points~="widescreen:4"] {
+        --points: 4;
+    }
+
+    [data-points~="widescreen:5"] {
+        --points: 5;
+    }
+
+    [data-points~="widescreen:6"] {
+        --points: 6;
+    }
+
+    [data-points~="widescreen:7"] {
+        --points: 7;
+    }
+
+    [data-points~="widescreen:8"] {
+        --points: 8;
+    }
+
+    [data-points~="widescreen:9"] {
+        --points: 9;
+    }
+
+    [data-points~="widescreen:10"] {
+        --points: 10;
+    }
+
+    [data-points~="widescreen:11"] {
+        --points: 11;
+    }
+
+    [data-points~="widescreen:12"] {
+        --points: 12;
+    }
+}

@@ -1,0 +1,11 @@
+.badge {
+    --palette-foreground-bg: theme("colors.default.400");
+    --palette-foreground-text: theme("colors.light.200");
+
+    @apply align-middle bg-[rgb(var(--palette-foreground-bg))] font-bold gap-3 inline-flex items-center
+    justify-center p-1 relative text-xs text-[rgb(var(--palette-foreground-text))] transform-gpu whitespace-nowrap;
+
+    &[data-position] {
+        @apply pointer-events-none rounded-4xl select-none;
+    }
+}

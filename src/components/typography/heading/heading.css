@@ -1,0 +1,56 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-bold;
+}
+
+h1 {
+    @apply text-4xl;
+
+    &[data-variation~="headline"] {
+        @apply text-7xl;
+    }
+}
+
+h2 {
+    @apply text-3xl;
+
+    &[data-variation~="headline"] {
+        @apply text-6xl;
+    }
+}
+
+h3 {
+    @apply text-2xl;
+
+    &[data-variation~="headline"] {
+        @apply text-5xl;
+    }
+}
+
+h4 {
+    @apply text-xl;
+
+    &[data-variation~="headline"] {
+        @apply text-4xl;
+    }
+}
+
+h5 {
+    @apply text-lg;
+
+    &[data-variation~="headline"] {
+        @apply text-3xl;
+    }
+}
+
+h6 {
+    @apply text-base;
+
+    &[data-variation~="headline"] {
+        @apply text-2xl;
+    }
+}

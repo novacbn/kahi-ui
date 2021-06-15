@@ -1,0 +1,17 @@
+a:not([role]) {
+    @apply cursor-pointer no-underline text-accent-700;
+
+    &:hover {
+        @apply underline;
+    }
+}
+
+:root[data-palette="dark"] a:not([role]) {
+    @apply text-accent-300;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-palette]) a:not([role]) {
+        @apply text-accent-300;
+    }
+}

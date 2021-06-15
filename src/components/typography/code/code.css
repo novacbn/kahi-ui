@@ -1,0 +1,30 @@
+code,
+pre {
+    --palette-foreground-bg: theme("colors.default.500");
+    --palette-background-bg: theme("colors.default.400");
+
+    &[data-palette] {
+        @apply text-[rgb(var(--palette-background-bg))];
+    }
+}
+
+code {
+    --size-text: 80%;
+
+    @apply px-2 py-1 rounded-md whitespace-nowrap;
+
+    background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
+    font-size: var(--size-text);
+}
+
+pre {
+    &[data-palette] {
+        @apply;
+
+        background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
+    }
+
+    & > code {
+        @apply bg-transparent p-0 whitespace-pre;
+    }
+}

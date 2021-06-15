@@ -1,0 +1,36 @@
+.tile {
+    @apply border-1 border-solid flex rounded-md text-current shadow;
+
+    background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
+    border-color: rgba(theme("colors.default.200"), theme("opacity.5"));
+
+    &[data-palette] {
+        @apply bg-[rgb(var(--palette-background-bg))] border-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
+    }
+
+    & > figure {
+        & > * {
+            @apply h-16 w-16;
+        }
+    }
+
+    & > footer {
+        @apply gap-4 justify-end ml-auto;
+    }
+
+    & > section {
+        @apply flex-col justify-center px-2;
+
+        & > header {
+            @apply font-bold text-xl;
+        }
+    }
+
+    & > :is(figure, footer) {
+        @apply items-center px-4;
+    }
+
+    & > :is(figure, footer, section) {
+        @apply flex py-4;
+    }
+}

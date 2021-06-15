@@ -1,7 +1,0 @@
-@mixin use-media-viewport($viewport) {
-    $query: map-get($viewports-queries, $viewport);
-
-    @media #{$query} {
-        @content;
-    }
-}

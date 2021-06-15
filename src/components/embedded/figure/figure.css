@@ -1,0 +1,42 @@
+figure {
+    &[data-fit="contain"] > * {
+        @apply object-contain;
+    }
+
+    &[data-fit="cover"] > * {
+        @apply object-cover;
+    }
+
+    &[data-fit="fill"] > * {
+        @apply object-fill;
+    }
+
+    &[data-fit="none"] > * {
+        @apply object-none;
+    }
+
+    &[data-fit="scale-down"] > * {
+        @apply object-scale-down;
+    }
+
+    &[data-shape="pill"] > * {
+        @apply !rounded-full;
+    }
+
+    &[data-shape="rounded"] > * {
+        @apply !rounded-lg;
+    }
+
+    &:not([data-variation]) {
+        &[data-size] > * {
+            width: var(--size-embedded);
+        }
+    }
+
+    &[data-variation="icon"] {
+        &[data-size] > * {
+            width: var(--size-icon);
+            height: var(--size-icon);
+        }
+    }
+}

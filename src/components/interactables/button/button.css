@@ -1,0 +1,131 @@
+button,
+[role="button"],
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    --palette-background-bg: theme("colors.default.300");
+    --palette-foreground-bg: theme("colors.default.500");
+    --palette-foreground-text: theme("colors.light.200");
+
+    --size-text: inherit;
+    --size-line-height: inherit;
+
+    @apply align-middle border-none font-bold gap-3 inline-flex items-center justify-center px-4
+    py-3 relative rounded-lg select-none leading-[var(--size-line-height)] whitespace-nowrap z-0;
+
+    font-size: var(--size-text);
+    outline: none !important;
+
+    &:is(:disabled, [aria-disabled="true"]) {
+        @apply cursor-not-allowed opacity-40;
+    }
+
+    &::before {
+        @apply absolute border-2 border-transparent border-solid h-full left-0 rounded-lg top-0 w-full -z-1;
+
+        content: "";
+
+        transform: scale(1);
+        transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:not(:disabled, [aria-disabled="true"]) {
+        &:is(:active, [aria-current], [aria-pressed="true"])::before {
+            transform: scale(0.95);
+        }
+    }
+
+    &:not([data-variation]) {
+        @apply text-[rgb(var(--palette-foreground-text))];
+
+        &::before {
+            @apply bg-[rgb(var(--palette-foreground-bg))];
+        }
+
+        &:not(:disabled, [aria-disabled="true"]) {
+            &:is(:focus, :hover)::before {
+                @apply bg-[rgb(var(--palette-background-bg))];
+            }
+
+            &:is(:active, [aria-current], [aria-pressed="true"])::before {
+                @apply;
+
+                background-color: rgba(var(--palette-background-bg), theme("opacity.75"));
+            }
+        }
+    }
+
+    &[data-variation="clear"] {
+        @apply text-[rgb(var(--palette-foreground-bg))];
+
+        &:not(:disabled, [aria-disabled="true"]) {
+            &:is(:focus, :hover)::before {
+                @apply;
+
+                background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
+            }
+
+            &:is(:active, [aria-current], [aria-pressed="true"]) {
+                @apply text-[rgb(var(--palette-foreground-text))];
+
+                &::before {
+                    @apply;
+
+                    background-color: rgba(var(--palette-foreground-bg), theme("opacity.50"));
+                }
+            }
+        }
+    }
+
+    &[data-variation="outline"] {
+        @apply text-[rgb(var(--palette-foreground-bg))];
+
+        &::before {
+            @apply border-[rgb(var(--palette-foreground-bg))];
+        }
+
+        &:not(:disabled, [aria-disabled="true"]) {
+            &:is(:focus, :hover)::before {
+                @apply;
+
+                background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
+                border-color: rgba(var(--palette-foreground-bg), theme("opacity.50"));
+            }
+
+            &:is(:active, [aria-current], [aria-pressed="true"]) {
+                @apply text-[rgb(var(--palette-foreground-text))];
+
+                &::before {
+                    @apply bg-[rgb(var(--palette-foreground-bg))] border-transparent;
+                }
+            }
+        }
+    }
+}
+
+html[data-palette="dark"] {
+    & button,
+    & [role="button"],
+    & [type="button"],
+    & [type="reset"],
+    & [type="submit"] {
+        &:not([data-palette]) {
+            --palette-background-bg: theme("colors.default.700");
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-palette]) {
+        & button,
+        & [role="button"],
+        & [type="button"],
+        & [type="reset"],
+        & [type="submit"] {
+            &:not([data-palette]) {
+                --palette-background-bg: theme("colors.default.700");
+            }
+        }
+    }
+}

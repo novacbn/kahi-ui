@@ -1,0 +1,20 @@
+.grid {
+    --grid-alignment-x: initial;
+    --grid-alignment-y: initial;
+
+    --points: inital;
+
+    --spacing-x: 0;
+    --spacing-y: 0;
+
+    @apply grid gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)];
+
+    align-items: var(--grid-alignment-y);
+    justify-content: var(--grid-alignment-x);
+
+    grid-template-columns: repeat(var(--points), 1fr);
+
+    & > * {
+        @apply m-0;
+    }
+}

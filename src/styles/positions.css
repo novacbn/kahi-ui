@@ -1,0 +1,7 @@
+[data-position="floated"] {
+    @apply absolute right-0 top-0 transform translate-x-1/2 -translate-y-1/2;
+}
+
+[data-position="raised"] {
+    @apply transform -translate-y-1/2;
+}

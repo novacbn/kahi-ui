@@ -1,0 +1,98 @@
+abbr,
+b,
+del,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+ins,
+kbd,
+mark,
+p,
+pre,
+s,
+samp,
+small,
+span,
+strong,
+sub,
+sup,
+u {
+    &[data-transform="capitalize"] {
+        @apply capitalize;
+    }
+
+    &[data-transform="lowercase"] {
+        @apply lowercase;
+    }
+
+    &[data-transform="uppercase"] {
+        @apply uppercase;
+    }
+
+    &[data-variation~="truncate"] {
+        @apply truncate;
+    }
+}
+
+abbr,
+b,
+del,
+em,
+i,
+ins,
+kbd,
+mark,
+p,
+pre,
+s,
+samp,
+span:not([class]),
+strong,
+sub,
+sup,
+u {
+    &[data-size] {
+        font-size: var(--size-text);
+        line-height: var(--size-line-height);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    &[data-align="center"] {
+        @apply text-center;
+    }
+
+    &[data-align="left"] {
+        @apply text-left;
+    }
+
+    &[data-align="justify"] {
+        @apply text-justify;
+    }
+
+    &[data-align="right"] {
+        @apply text-right;
+    }
+}
+
+pre {
+    @apply bg-default-400 bg-opacity-10 p-2 rounded-md overflow-x-auto;
+}
+
+small {
+    @apply opacity-75;
+
+    font-size: 80%;
+}

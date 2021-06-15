@@ -1,0 +1,22 @@
+span.ellipsis {
+    --animation-pulse-stop-opacity: theme("opacity.30");
+    --character: ".";
+
+    & > span {
+        animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+        &::before {
+            @apply inline;
+
+            content: var(--character);
+        }
+
+        &:first-child {
+            animation-delay: -0.66s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: -0.33s;
+        }
+    }
+}

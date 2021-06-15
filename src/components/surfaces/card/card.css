@@ -1,0 +1,55 @@
+.card {
+    @apply flex flex-col rounded-md text-current shadow;
+
+    background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
+
+    &[data-palette] {
+        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
+    }
+
+    & > figure {
+        @apply m-0 rounded-[inherit];
+
+        &:first-child > * {
+            @apply rounded-t-[inherit];
+        }
+
+        &:last-child > * {
+            @apply rounded-b-[inherit];
+        }
+    }
+
+    & > footer {
+        @apply justify-end;
+    }
+
+    & > header {
+        @apply font-bold text-xl;
+    }
+
+    & > section {
+        @apply py-2;
+    }
+
+    & > :is(header, footer) {
+        @apply flex gap-4 items-center py-4;
+    }
+
+    & > :is(footer, header, section) {
+        @apply border-l-1 border-r-1 border-solid px-6;
+
+        border-color: rgba(theme("colors.default.200"), theme("opacity.5"));
+
+        &:first-child {
+            @apply border-t-1 rounded-t-[inherit];
+        }
+
+        &:last-child {
+            @apply border-b-1 rounded-b-[inherit];
+        }
+    }
+
+    &[data-palette] > :is(footer, header, section) {
+        @apply border-[rgb(var(--palette-background-bg))];
+    }
+}

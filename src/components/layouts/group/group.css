@@ -1,0 +1,56 @@
+/**
+ * TODO: Figure how to add responsitivity for orientation, need to revert the border-radius
+ * resets for the first / last child back to the element's default.
+ */
+
+[role="group"] {
+    @apply flex-row inline-flex items-stretch;
+
+    &[data-orientation~="vertical"] {
+        @apply flex-col items-[unset] justify-[stretch];
+    }
+
+    & > * {
+        @apply m-0;
+    }
+
+    & > :not(:first-child, :last-child),
+    & > :not(:first-child, :last-child)::before,
+    & > :not(:first-child, :last-child)::after {
+        @apply rounded-none;
+    }
+
+    &:not([data-orientation~="vertical"]) > :first-child,
+    &:not([data-orientation~="vertical"]) > :first-child::before,
+    &:not([data-orientation~="vertical"]) > :first-child::after {
+        @apply rounded-r-none;
+    }
+
+    &:not([data-orientation~="vertical"]) > :last-child,
+    &:not([data-orientation~="vertical"]) > :last-child::before,
+    &:not([data-orientation~="vertical"]) > :last-child::after {
+        @apply rounded-l-none;
+    }
+
+    &[data-orientation~="vertical"] > :first-child,
+    &[data-orientation~="vertical"] > :first-child::before,
+    &[data-orientation~="vertical"] > :first-child::after {
+        @apply rounded-b-none;
+    }
+
+    &[data-orientation~="vertical"] > :last-child,
+    &[data-orientation~="vertical"] > :last-child::before,
+    &[data-orientation~="vertical"] > :last-child::after {
+        @apply rounded-t-none;
+    }
+
+    &[data-variation~="stacked"] {
+        &[data-orientation~="vertical"] > :not(:last-child) {
+            @apply -mb-2;
+        }
+
+        &:not([data-orientation~="vertical"]) > :not(:last-child) {
+            @apply -mr-2;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+ol,
+ul {
+    @apply ml-[1em];
+}
+
+ol {
+    @apply list-decimal;
+}
+
+ul {
+    @apply list-disc;
+}

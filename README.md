@@ -19,7 +19,7 @@
 
 ## Documentation
 
-Visit the documentation at [novacbn.github.io/kahi-ui](https://novacbn.github.io/kahi-ui)
+Visit the documentation at [kahi-ui.nbn.dev](https://kahi-ui.nbn.dev)
 
 ## Browser Support
 
@@ -115,7 +115,3 @@ Some Components are multi-part patterns, so you'll need to import their namespac
 ## License
 
 Kahi UI is licensed under the [MIT license](./LICENSE).
-
-```
-
-```

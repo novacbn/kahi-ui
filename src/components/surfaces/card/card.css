@@ -28,7 +28,7 @@
     }
 
     & > section {
-        @apply py-2;
+        @apply flex-grow py-2;
     }
 
     & > :is(header, footer) {
@@ -38,7 +38,7 @@
     & > :is(footer, header, section) {
         @apply border-l-1 border-r-1 border-solid px-6;
 
-        border-color: rgba(theme("colors.default.200"), theme("opacity.5"));
+        border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
 
         &:first-child {
             @apply border-t-1 rounded-t-[inherit];
@@ -47,9 +47,5 @@
         &:last-child {
             @apply border-b-1 rounded-b-[inherit];
         }
-    }
-
-    &[data-palette] > :is(footer, header, section) {
-        @apply border-[rgb(var(--palette-background-bg))];
     }
 }

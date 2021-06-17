@@ -53,7 +53,7 @@
     export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
 
     export let captive: boolean = false;
-    export let dismissable: boolean = false;
+    export let dismissible: boolean = false;
     export let logic_id: string = "";
     export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
     export let state: boolean = false;
@@ -82,7 +82,7 @@
     />
 
     {#if captive}
-        <ContextBackdrop {dismissable} />
+        <ContextBackdrop {dismissible} />
     {/if}
 {/if}
 

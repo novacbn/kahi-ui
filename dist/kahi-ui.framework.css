@@ -249,7 +249,7 @@ sup {
 
 :root,
 :root[data-palette="light"] {
-    --palette-background-bg: 248, 248, 248;
+    --palette-background-bg: 238, 238, 238;
     --palette-background-text: 67, 70, 74;
 
     --palette-foreground-bg: 245, 245, 245;
@@ -705,6 +705,7 @@ nav.aside {
   color: currentColor;
   z-index: 1;
   background-color: rgba(192, 197, 204, 0.2);
+  border-color: rgba(192, 197, 204, 0.2);
 }
 
 nav.aside[data-palette] {
@@ -776,11 +777,22 @@ nav.aside > :is(footer, header, section) {
   padding-right: 1.5rem;
 }
 
+input[type="checkbox"][role="presentation"]:first-child + nav.aside, input[type="checkbox"][role="presentation"]:first-child + .context-backdrop + nav.aside, nav.aside:first-child {
+  border-right-width: 1px;
+  border-style: solid;
+}
+
+input[type="checkbox"][role="presentation"]:last-child + nav.aside, input[type="checkbox"][role="presentation"]:last-child + .context-backdrop + nav.aside, nav.aside:last-child {
+  border-left-width: 1px;
+  border-style: solid;
+}
+
 nav.breadcrumb > ol {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  margin-left: 0px;
 }
 
 nav.breadcrumb > ol > li {
@@ -978,6 +990,9 @@ nav.menu ul > li + li {
   }
   input[type="checkbox"][role="presentation"] + nav.omni > footer, input[type="checkbox"][role="presentation"] + .context-backdrop + nav.omni > footer {
     position: absolute;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
     bottom: 0px;
     background-color: rgb(var(--palette-background-bg));
     color: rgb(var(--palette-background-text));
@@ -1008,6 +1023,7 @@ nav.menu ul > li + li {
     padding-top: 1rem;
     padding-bottom: 1rem;
     max-height: min(85vh, 60ex);
+    border-color: inherit;
     clip-path: inset(0% 0% 100% 0% round 0% 0% 0% 0.375rem);
     transform: translateY(100%);
     transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -1049,6 +1065,7 @@ nav.omni {
   color: currentColor;
   z-index: 1;
   background-color: rgba(192, 197, 204, 0.2);
+  border-color: rgba(192, 197, 204, 0.2);
 }
 
 nav.omni[data-palette] {
@@ -1121,6 +1138,16 @@ nav.omni > :is(footer, header) {
   align-items: center;
 }
 
+input[type="checkbox"][role="presentation"]:first-child + nav.omni, input[type="checkbox"][role="presentation"]:first-child + .context-backdrop + nav.omni, nav.omni:first-child {
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+
+input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="checkbox"][role="presentation"]:last-child + .context-backdrop + nav.omni, nav.omni:last-child {
+  border-top-width: 1px;
+  border-style: solid;
+}
+
 .card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1173,6 +1200,10 @@ nav.omni > :is(footer, header) {
 }
 
 .card > section {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -1198,7 +1229,7 @@ nav.omni > :is(footer, header) {
   border-style: solid;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  border-color: rgba(192, 197, 204, 0.05);
+  border-color: rgba(192, 197, 204, 0.2);
 }
 
 .card > :is(footer, header, section):first-child {
@@ -1213,23 +1244,13 @@ nav.omni > :is(footer, header) {
   border-bottom-left-radius: inherit;
 }
 
-.card[data-palette] > :is(footer, header, section) {
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--palette-background-bg));
-}
-
 .box {
-  border-width: 1px;
-  border-style: solid;
   color: currentColor;
   background-color: rgba(240, 241, 243, 0.1);
-  border-color: rgba(192, 197, 204, 0.05);
 }
 
 .box[data-palette] {
   background-color: rgb(var(--palette-background-bg));
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--palette-background-bg));
   color: rgb(var(--palette-background-text));
 }
 
@@ -1330,13 +1351,11 @@ nav.omni > :is(footer, header) {
   -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   background-color: rgba(240, 241, 243, 0.1);
-  border-color: rgba(192, 197, 204, 0.05);
+  border-color: rgba(192, 197, 204, 0.2);
 }
 
 .tile[data-palette] {
   background-color: rgb(var(--palette-background-bg));
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--palette-background-bg));
   color: rgb(var(--palette-background-text));
 }
 
@@ -1367,6 +1386,14 @@ nav.omni > :is(footer, header) {
   justify-content: center;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.tile > section:first-child {
+  padding-left: 1rem;
+}
+
+.tile > section:last-child {
+  padding-right: 1rem;
 }
 
 .tile > section > header {
@@ -1665,18 +1692,22 @@ figure[data-variation="icon"][data-size] > * {
           transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.overlay > * {
+  pointer-events: auto;
+}
+
 input[type="checkbox"][role="presentation"]:not(:checked) + .overlay, input[type="checkbox"][role="presentation"]:not(:checked) + .context-backdrop + .overlay {
   opacity: 0;
   transform: scale(0.3);
 }
 
+input[type="checkbox"][role="presentation"]:not(:checked) + .overlay > *, input[type="checkbox"][role="presentation"]:not(:checked) + .context-backdrop + .overlay > * {
+  pointer-events: none;
+}
+
 input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .overlay {
   opacity: 1;
   transform: scale(1);
-}
-
-input[type="checkbox"][role="presentation"]:checked + .overlay > *, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .overlay > * {
-  pointer-events: auto;
 }
 
 .grid {
@@ -2783,10 +2814,10 @@ input[type="checkbox"][role="presentation"] {
 
 @media (prefers-color-scheme: dark) {
         html:not([data-palette]) [data-palette="auto"] {
-            --palette-background-bg: 30, 33, 37;
+            --palette-background-bg: 25, 27, 31;
             --palette-background-text: 238, 238, 238;
 
-            --palette-foreground-bg: 25, 27, 31;
+            --palette-foreground-bg: 20, 22, 25;
             --palette-foreground-text: 250, 250, 250;
         }
 
@@ -2807,10 +2838,10 @@ input[type="checkbox"][role="presentation"] {
         }
 
         html:not([data-palette]) [data-palette="dark"] {
-            --palette-background-bg: 30, 33, 37;
+            --palette-background-bg: 25, 27, 31;
             --palette-background-text: 238, 238, 238;
 
-            --palette-foreground-bg: 25, 27, 31;
+            --palette-foreground-bg: 20, 22, 25;
             --palette-foreground-text: 250, 250, 250;
         }
 
@@ -2848,10 +2879,10 @@ input[type="checkbox"][role="presentation"] {
 }
 
 html[data-palette="dark"] [data-palette="auto"] {
-        --palette-background-bg: 30, 33, 37;
+        --palette-background-bg: 25, 27, 31;
         --palette-background-text: 238, 238, 238;
 
-        --palette-foreground-bg: 25, 27, 31;
+        --palette-foreground-bg: 20, 22, 25;
         --palette-foreground-text: 250, 250, 250;
     }
 
@@ -2872,10 +2903,10 @@ html[data-palette="dark"] [data-palette="accent"] {
     }
 
 html[data-palette="dark"] [data-palette="dark"] {
-        --palette-background-bg: 30, 33, 37;
+        --palette-background-bg: 25, 27, 31;
         --palette-background-text: 238, 238, 238;
 
-        --palette-foreground-bg: 25, 27, 31;
+        --palette-foreground-bg: 20, 22, 25;
         --palette-foreground-text: 250, 250, 250;
     }
 
@@ -3069,269 +3100,269 @@ html[data-palette="dark"] [data-palette="negative"] {
 }
 
 @media (max-width: 639.9px) {
-  [data-max-width~="mobile:auto"] {
+  [data-width~="mobile:auto"] {
     width: auto;
   }
-  [data-max-width~="mobile:content-fit"] {
+  [data-width~="mobile:content-fit"] {
     width: -moz-fit-content;
     width: fit-content;
   }
-  [data-max-width~="mobile:content-max"] {
+  [data-width~="mobile:content-max"] {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }
-  [data-max-width~="mobile:content-min"] {
+  [data-width~="mobile:content-min"] {
     width: -webkit-min-content;
     width: -moz-min-content;
     width: min-content;
   }
-  [data-max-width~="mobile:prose"] {
+  [data-width~="mobile:prose"] {
     width: 65ch;
   }
-  [data-max-width~="mobile:stretch"] {
+  [data-width~="mobile:stretch"] {
     width: -moz-available;
     width: -webkit-fill-available;
     width: stretch;
   }
-  [data-max-width~="mobile:0"] {
+  [data-width~="mobile:0"] {
     width: 0px;
   }
-  [data-max-width~="mobile:25"] {
+  [data-width~="mobile:25"] {
     width: 25%;
   }
-  [data-max-width~="mobile:viewport-25"] {
+  [data-width~="mobile:viewport-25"] {
     width: 25vw;
   }
-  [data-max-width~="mobile:33"] {
+  [data-width~="mobile:33"] {
     width: 33%;
   }
-  [data-max-width~="mobile:viewport-33"] {
+  [data-width~="mobile:viewport-33"] {
     width: 33vw;
   }
-  [data-max-width~="mobile:50"] {
+  [data-width~="mobile:50"] {
     width: 50%;
   }
-  [data-max-width~="mobile:viewport-50"] {
+  [data-width~="mobile:viewport-50"] {
     width: 50vw;
   }
-  [data-max-width~="mobile:66"] {
+  [data-width~="mobile:66"] {
     width: 66%;
   }
-  [data-max-width~="mobile:viewport-66"] {
+  [data-width~="mobile:viewport-66"] {
     width: 66vw;
   }
-  [data-max-width~="mobile:75"] {
+  [data-width~="mobile:75"] {
     width: 75%;
   }
-  [data-max-width~="mobile:viewport-75"] {
+  [data-width~="mobile:viewport-75"] {
     width: 75vw;
   }
-  [data-max-width~="mobile:100"] {
+  [data-width~="mobile:100"] {
     width: 100%;
   }
-  [data-max-width~="mobile:viewport-100"] {
+  [data-width~="mobile:viewport-100"] {
     width: 100vw;
   }
 }
 
 @media (min-width: 640px) and (max-width: 767.9px) {
-  [data-max-width~="tablet:auto"] {
+  [data-width~="tablet:auto"] {
     width: auto;
   }
-  [data-max-width~="tablet:content-fit"] {
+  [data-width~="tablet:content-fit"] {
     width: -moz-fit-content;
     width: fit-content;
   }
-  [data-max-width~="tablet:content-max"] {
+  [data-width~="tablet:content-max"] {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }
-  [data-max-width~="tablet:content-min"] {
+  [data-width~="tablet:content-min"] {
     width: -webkit-min-content;
     width: -moz-min-content;
     width: min-content;
   }
-  [data-max-width~="tablet:prose"] {
+  [data-width~="tablet:prose"] {
     width: 65ch;
   }
-  [data-max-width~="tablet:stretch"] {
+  [data-width~="tablet:stretch"] {
     width: -moz-available;
     width: -webkit-fill-available;
     width: stretch;
   }
-  [data-max-width~="tablet:0"] {
+  [data-width~="tablet:0"] {
     width: 0px;
   }
-  [data-max-width~="tablet:25"] {
+  [data-width~="tablet:25"] {
     width: 25%;
   }
-  [data-max-width~="tablet:viewport-25"] {
+  [data-width~="tablet:viewport-25"] {
     width: 25vw;
   }
-  [data-max-width~="tablet:33"] {
+  [data-width~="tablet:33"] {
     width: 33%;
   }
-  [data-max-width~="tablet:viewport-33"] {
+  [data-width~="tablet:viewport-33"] {
     width: 33vw;
   }
-  [data-max-width~="tablet:50"] {
+  [data-width~="tablet:50"] {
     width: 50%;
   }
-  [data-max-width~="tablet:viewport-50"] {
+  [data-width~="tablet:viewport-50"] {
     width: 50vw;
   }
-  [data-max-width~="tablet:66"] {
+  [data-width~="tablet:66"] {
     width: 66%;
   }
-  [data-max-width~="tablet:viewport-66"] {
+  [data-width~="tablet:viewport-66"] {
     width: 66vw;
   }
-  [data-max-width~="tablet:75"] {
+  [data-width~="tablet:75"] {
     width: 75%;
   }
-  [data-max-width~="tablet:viewport-75"] {
+  [data-width~="tablet:viewport-75"] {
     width: 75vw;
   }
-  [data-max-width~="tablet:100"] {
+  [data-width~="tablet:100"] {
     width: 100%;
   }
-  [data-max-width~="tablet:viewport-100"] {
+  [data-width~="tablet:viewport-100"] {
     width: 100vw;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023.9px) {
-  [data-max-width~="desktop:auto"] {
+  [data-width~="desktop:auto"] {
     width: auto;
   }
-  [data-max-width~="desktop:content-fit"] {
+  [data-width~="desktop:content-fit"] {
     width: -moz-fit-content;
     width: fit-content;
   }
-  [data-max-width~="desktop:content-max"] {
+  [data-width~="desktop:content-max"] {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }
-  [data-max-width~="desktop:content-min"] {
+  [data-width~="desktop:content-min"] {
     width: -webkit-min-content;
     width: -moz-min-content;
     width: min-content;
   }
-  [data-max-width~="desktop:prose"] {
+  [data-width~="desktop:prose"] {
     width: 65ch;
   }
-  [data-max-width~="desktop:stretch"] {
+  [data-width~="desktop:stretch"] {
     width: -moz-available;
     width: -webkit-fill-available;
     width: stretch;
   }
-  [data-max-width~="desktop:0"] {
+  [data-width~="desktop:0"] {
     width: 0px;
   }
-  [data-max-width~="desktop:25"] {
+  [data-width~="desktop:25"] {
     width: 25%;
   }
-  [data-max-width~="desktop:viewport-25"] {
+  [data-width~="desktop:viewport-25"] {
     width: 25vw;
   }
-  [data-max-width~="desktop:33"] {
+  [data-width~="desktop:33"] {
     width: 33%;
   }
-  [data-max-width~="desktop:viewport-33"] {
+  [data-width~="desktop:viewport-33"] {
     width: 33vw;
   }
-  [data-max-width~="desktop:50"] {
+  [data-width~="desktop:50"] {
     width: 50%;
   }
-  [data-max-width~="desktop:viewport-50"] {
+  [data-width~="desktop:viewport-50"] {
     width: 50vw;
   }
-  [data-max-width~="desktop:66"] {
+  [data-width~="desktop:66"] {
     width: 66%;
   }
-  [data-max-width~="desktop:viewport-66"] {
+  [data-width~="desktop:viewport-66"] {
     width: 66vw;
   }
-  [data-max-width~="desktop:75"] {
+  [data-width~="desktop:75"] {
     width: 75%;
   }
-  [data-max-width~="desktop:viewport-75"] {
+  [data-width~="desktop:viewport-75"] {
     width: 75vw;
   }
-  [data-max-width~="desktop:100"] {
+  [data-width~="desktop:100"] {
     width: 100%;
   }
-  [data-max-width~="desktop:viewport-100"] {
+  [data-width~="desktop:viewport-100"] {
     width: 100vw;
   }
 }
 
 @media (min-width: 1024px) {
-  [data-max-width~="widescreen:auto"] {
+  [data-width~="widescreen:auto"] {
     width: auto;
   }
-  [data-max-width~="widescreen:content-fit"] {
+  [data-width~="widescreen:content-fit"] {
     width: -moz-fit-content;
     width: fit-content;
   }
-  [data-max-width~="widescreen:content-max"] {
+  [data-width~="widescreen:content-max"] {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }
-  [data-max-width~="widescreen:content-min"] {
+  [data-width~="widescreen:content-min"] {
     width: -webkit-min-content;
     width: -moz-min-content;
     width: min-content;
   }
-  [data-max-width~="widescreen:prose"] {
+  [data-width~="widescreen:prose"] {
     width: 65ch;
   }
-  [data-max-width~="widescreen:stretch"] {
+  [data-width~="widescreen:stretch"] {
     width: -moz-available;
     width: -webkit-fill-available;
     width: stretch;
   }
-  [data-max-width~="widescreen:0"] {
+  [data-width~="widescreen:0"] {
     width: 0px;
   }
-  [data-max-width~="widescreen:25"] {
+  [data-width~="widescreen:25"] {
     width: 25%;
   }
-  [data-max-width~="widescreen:viewport-25"] {
+  [data-width~="widescreen:viewport-25"] {
     width: 25vw;
   }
-  [data-max-width~="widescreen:33"] {
+  [data-width~="widescreen:33"] {
     width: 33%;
   }
-  [data-max-width~="widescreen:viewport-33"] {
+  [data-width~="widescreen:viewport-33"] {
     width: 33vw;
   }
-  [data-max-width~="widescreen:50"] {
+  [data-width~="widescreen:50"] {
     width: 50%;
   }
-  [data-max-width~="widescreen:viewport-50"] {
+  [data-width~="widescreen:viewport-50"] {
     width: 50vw;
   }
-  [data-max-width~="widescreen:66"] {
+  [data-width~="widescreen:66"] {
     width: 66%;
   }
-  [data-max-width~="widescreen:viewport-66"] {
+  [data-width~="widescreen:viewport-66"] {
     width: 66vw;
   }
-  [data-max-width~="widescreen:75"] {
+  [data-width~="widescreen:75"] {
     width: 75%;
   }
-  [data-max-width~="widescreen:viewport-75"] {
+  [data-width~="widescreen:viewport-75"] {
     width: 75vw;
   }
-  [data-max-width~="widescreen:100"] {
+  [data-width~="widescreen:100"] {
     width: 100%;
   }
-  [data-max-width~="widescreen:viewport-100"] {
+  [data-width~="widescreen:viewport-100"] {
     width: 100vw;
   }
 }
@@ -4364,6 +4395,684 @@ html[data-palette="dark"] [data-palette="negative"] {
   }
   [data-height~="widescreen:viewport-100"] {
     height: 100vh;
+  }
+}
+
+[data-max-height~="auto"] {
+    @apply max-h-auto;
+}
+
+[data-max-height~="content-fit"] {
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+
+[data-max-height~="content-max"] {
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+}
+
+[data-max-height~="content-min"] {
+  max-height: -webkit-min-content;
+  max-height: -moz-min-content;
+  max-height: min-content;
+}
+
+[data-max-height~="prose"] {
+  max-height: 65ch;
+}
+
+[data-max-height~="stretch"] {
+  max-height: -moz-available;
+  max-height: -webkit-fill-available;
+  max-height: stretch;
+}
+
+[data-max-height~="0"] {
+  max-height: 0px;
+}
+
+[data-max-height~="25"] {
+  max-height: 25%;
+}
+
+[data-max-height~="viewport-25"] {
+  max-height: 25vh;
+}
+
+[data-max-height~="33"] {
+  max-height: 33%;
+}
+
+[data-max-height~="viewport-33"] {
+  max-height: 33vh;
+}
+
+[data-max-height~="50"] {
+  max-height: 50%;
+}
+
+[data-max-height~="viewport-50"] {
+  max-height: 50vh;
+}
+
+[data-max-height~="66"] {
+  max-height: 66%;
+}
+
+[data-max-height~="viewport-66"] {
+  max-height: 66vh;
+}
+
+[data-max-height~="75"] {
+  max-height: 75%;
+}
+
+[data-max-height~="viewport-75"] {
+  max-height: 75vh;
+}
+
+[data-max-height~="100"] {
+  max-height: 100%;
+}
+
+[data-max-height~="viewport-100"] {
+  max-height: 100vh;
+}
+
+@media (max-width: 639.9px) {
+  [data-max-height~="mobile:content-fit"] {
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
+  [data-max-height~="mobile:content-max"] {
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
+    max-height: max-content;
+  }
+  [data-max-height~="mobile:content-min"] {
+    max-height: -webkit-min-content;
+    max-height: -moz-min-content;
+    max-height: min-content;
+  }
+  [data-max-height~="mobile:prose"] {
+    max-height: 65ch;
+  }
+  [data-max-height~="mobile:stretch"] {
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: stretch;
+  }
+  [data-max-height~="mobile:0"] {
+    max-height: 0px;
+  }
+  [data-max-height~="mobile:25"] {
+    max-height: 25%;
+  }
+  [data-max-height~="mobile:viewport-25"] {
+    max-height: 25vh;
+  }
+  [data-max-height~="mobile:33"] {
+    max-height: 33%;
+  }
+  [data-max-height~="mobile:viewport-33"] {
+    max-height: 33vh;
+  }
+  [data-max-height~="mobile:50"] {
+    max-height: 50%;
+  }
+  [data-max-height~="mobile:viewport-50"] {
+    max-height: 50vh;
+  }
+  [data-max-height~="mobile:66"] {
+    max-height: 66%;
+  }
+  [data-max-height~="mobile:viewport-66"] {
+    max-height: 66vh;
+  }
+  [data-max-height~="mobile:75"] {
+    max-height: 75%;
+  }
+  [data-max-height~="mobile:viewport-75"] {
+    max-height: 75vh;
+  }
+  [data-max-height~="mobile:100"] {
+    max-height: 100%;
+  }
+  [data-max-height~="mobile:viewport-100"] {
+    max-height: 100vh;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767.9px) {
+  [data-max-height~="tablet:content-fit"] {
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
+  [data-max-height~="tablet:content-max"] {
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
+    max-height: max-content;
+  }
+  [data-max-height~="tablet:content-min"] {
+    max-height: -webkit-min-content;
+    max-height: -moz-min-content;
+    max-height: min-content;
+  }
+  [data-max-height~="tablet:prose"] {
+    max-height: 65ch;
+  }
+  [data-max-height~="tablet:stretch"] {
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: stretch;
+  }
+  [data-max-height~="tablet:0"] {
+    max-height: 0px;
+  }
+  [data-max-height~="tablet:25"] {
+    max-height: 25%;
+  }
+  [data-max-height~="tablet:viewport-25"] {
+    max-height: 25vh;
+  }
+  [data-max-height~="tablet:33"] {
+    max-height: 33%;
+  }
+  [data-max-height~="tablet:viewport-33"] {
+    max-height: 33vh;
+  }
+  [data-max-height~="tablet:50"] {
+    max-height: 50%;
+  }
+  [data-max-height~="tablet:viewport-50"] {
+    max-height: 50vh;
+  }
+  [data-max-height~="tablet:66"] {
+    max-height: 66%;
+  }
+  [data-max-height~="tablet:viewport-66"] {
+    max-height: 66vh;
+  }
+  [data-max-height~="tablet:75"] {
+    max-height: 75%;
+  }
+  [data-max-height~="tablet:viewport-75"] {
+    max-height: 75vh;
+  }
+  [data-max-height~="tablet:100"] {
+    max-height: 100%;
+  }
+  [data-max-height~="tablet:viewport-100"] {
+    max-height: 100vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  [data-max-height~="desktop:content-fit"] {
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
+  [data-max-height~="desktop:content-max"] {
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
+    max-height: max-content;
+  }
+  [data-max-height~="desktop:content-min"] {
+    max-height: -webkit-min-content;
+    max-height: -moz-min-content;
+    max-height: min-content;
+  }
+  [data-max-height~="desktop:prose"] {
+    max-height: 65ch;
+  }
+  [data-max-height~="desktop:stretch"] {
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: stretch;
+  }
+  [data-max-height~="desktop:0"] {
+    max-height: 0px;
+  }
+  [data-max-height~="desktop:25"] {
+    max-height: 25%;
+  }
+  [data-max-height~="desktop:viewport-25"] {
+    max-height: 25vh;
+  }
+  [data-max-height~="desktop:33"] {
+    max-height: 33%;
+  }
+  [data-max-height~="desktop:viewport-33"] {
+    max-height: 33vh;
+  }
+  [data-max-height~="desktop:50"] {
+    max-height: 50%;
+  }
+  [data-max-height~="desktop:viewport-50"] {
+    max-height: 50vh;
+  }
+  [data-max-height~="desktop:66"] {
+    max-height: 66%;
+  }
+  [data-max-height~="desktop:viewport-66"] {
+    max-height: 66vh;
+  }
+  [data-max-height~="desktop:75"] {
+    max-height: 75%;
+  }
+  [data-max-height~="desktop:viewport-75"] {
+    max-height: 75vh;
+  }
+  [data-max-height~="desktop:100"] {
+    max-height: 100%;
+  }
+  [data-max-height~="desktop:viewport-100"] {
+    max-height: 100vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-max-height~="widescreen:content-fit"] {
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
+  [data-max-height~="widescreen:content-max"] {
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
+    max-height: max-content;
+  }
+  [data-max-height~="widescreen:content-min"] {
+    max-height: -webkit-min-content;
+    max-height: -moz-min-content;
+    max-height: min-content;
+  }
+  [data-max-height~="widescreen:prose"] {
+    max-height: 65ch;
+  }
+  [data-max-height~="widescreen:stretch"] {
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: stretch;
+  }
+  [data-max-height~="widescreen:0"] {
+    max-height: 0px;
+  }
+  [data-max-height~="widescreen:25"] {
+    max-height: 25%;
+  }
+  [data-max-height~="widescreen:viewport-25"] {
+    max-height: 25vh;
+  }
+  [data-max-height~="widescreen:33"] {
+    max-height: 33%;
+  }
+  [data-max-height~="widescreen:viewport-33"] {
+    max-height: 33vh;
+  }
+  [data-max-height~="widescreen:50"] {
+    max-height: 50%;
+  }
+  [data-max-height~="widescreen:viewport-50"] {
+    max-height: 50vh;
+  }
+  [data-max-height~="widescreen:66"] {
+    max-height: 66%;
+  }
+  [data-max-height~="widescreen:viewport-66"] {
+    max-height: 66vh;
+  }
+  [data-max-height~="widescreen:75"] {
+    max-height: 75%;
+  }
+  [data-max-height~="widescreen:viewport-75"] {
+    max-height: 75vh;
+  }
+  [data-max-height~="widescreen:100"] {
+    max-height: 100%;
+  }
+  [data-max-height~="widescreen:viewport-100"] {
+    max-height: 100vh;
+  }
+}
+
+[data-min-height~="auto"] {
+    @apply min-h-auto;
+}
+
+[data-min-height~="content-fit"] {
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+
+[data-min-height~="content-max"] {
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
+}
+
+[data-min-height~="content-min"] {
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
+}
+
+[data-min-height~="prose"] {
+  min-height: 65ch;
+}
+
+[data-min-height~="stretch"] {
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+}
+
+[data-min-height~="0"] {
+  min-height: 0px;
+}
+
+[data-min-height~="25"] {
+  min-height: 25%;
+}
+
+[data-min-height~="viewport-25"] {
+  min-height: 25vh;
+}
+
+[data-min-height~="33"] {
+  min-height: 33%;
+}
+
+[data-min-height~="viewport-33"] {
+  min-height: 33vh;
+}
+
+[data-min-height~="50"] {
+  min-height: 50%;
+}
+
+[data-min-height~="viewport-50"] {
+  min-height: 50vh;
+}
+
+[data-min-height~="66"] {
+  min-height: 66%;
+}
+
+[data-min-height~="viewport-66"] {
+  min-height: 66vh;
+}
+
+[data-min-height~="75"] {
+  min-height: 75%;
+}
+
+[data-min-height~="viewport-75"] {
+  min-height: 75vh;
+}
+
+[data-min-height~="100"] {
+  min-height: 100%;
+}
+
+[data-min-height~="viewport-100"] {
+  min-height: 100vh;
+}
+
+@media (max-width: 639.9px) {
+  [data-min-height~="mobile:content-fit"] {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  [data-min-height~="mobile:content-max"] {
+    min-height: -webkit-max-content;
+    min-height: -moz-max-content;
+    min-height: max-content;
+  }
+  [data-min-height~="mobile:content-min"] {
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+  }
+  [data-min-height~="mobile:prose"] {
+    min-height: 65ch;
+  }
+  [data-min-height~="mobile:stretch"] {
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: stretch;
+  }
+  [data-min-height~="mobile:0"] {
+    min-height: 0px;
+  }
+  [data-min-height~="mobile:25"] {
+    min-height: 25%;
+  }
+  [data-min-height~="mobile:viewport-25"] {
+    min-height: 25vh;
+  }
+  [data-min-height~="mobile:33"] {
+    min-height: 33%;
+  }
+  [data-min-height~="mobile:viewport-33"] {
+    min-height: 33vh;
+  }
+  [data-min-height~="mobile:50"] {
+    min-height: 50%;
+  }
+  [data-min-height~="mobile:viewport-50"] {
+    min-height: 50vh;
+  }
+  [data-min-height~="mobile:66"] {
+    min-height: 66%;
+  }
+  [data-min-height~="mobile:viewport-66"] {
+    min-height: 66vh;
+  }
+  [data-min-height~="mobile:75"] {
+    min-height: 75%;
+  }
+  [data-min-height~="mobile:viewport-75"] {
+    min-height: 75vh;
+  }
+  [data-min-height~="mobile:100"] {
+    min-height: 100%;
+  }
+  [data-min-height~="mobile:viewport-100"] {
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767.9px) {
+  [data-min-height~="tablet:content-fit"] {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  [data-min-height~="tablet:content-max"] {
+    min-height: -webkit-max-content;
+    min-height: -moz-max-content;
+    min-height: max-content;
+  }
+  [data-min-height~="tablet:content-min"] {
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+  }
+  [data-min-height~="tablet:prose"] {
+    min-height: 65ch;
+  }
+  [data-min-height~="tablet:stretch"] {
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: stretch;
+  }
+  [data-min-height~="tablet:0"] {
+    min-height: 0px;
+  }
+  [data-min-height~="tablet:25"] {
+    min-height: 25%;
+  }
+  [data-min-height~="tablet:viewport-25"] {
+    min-height: 25vh;
+  }
+  [data-min-height~="tablet:33"] {
+    min-height: 33%;
+  }
+  [data-min-height~="tablet:viewport-33"] {
+    min-height: 33vh;
+  }
+  [data-min-height~="tablet:50"] {
+    min-height: 50%;
+  }
+  [data-min-height~="tablet:viewport-50"] {
+    min-height: 50vh;
+  }
+  [data-min-height~="tablet:66"] {
+    min-height: 66%;
+  }
+  [data-min-height~="tablet:viewport-66"] {
+    min-height: 66vh;
+  }
+  [data-min-height~="tablet:75"] {
+    min-height: 75%;
+  }
+  [data-min-height~="tablet:viewport-75"] {
+    min-height: 75vh;
+  }
+  [data-min-height~="tablet:100"] {
+    min-height: 100%;
+  }
+  [data-min-height~="tablet:viewport-100"] {
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  [data-min-height~="desktop:content-fit"] {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  [data-min-height~="desktop:content-max"] {
+    min-height: -webkit-max-content;
+    min-height: -moz-max-content;
+    min-height: max-content;
+  }
+  [data-min-height~="desktop:content-min"] {
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+  }
+  [data-min-height~="desktop:prose"] {
+    min-height: 65ch;
+  }
+  [data-min-height~="desktop:stretch"] {
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: stretch;
+  }
+  [data-min-height~="desktop:0"] {
+    min-height: 0px;
+  }
+  [data-min-height~="desktop:25"] {
+    min-height: 25%;
+  }
+  [data-min-height~="desktop:viewport-25"] {
+    min-height: 25vh;
+  }
+  [data-min-height~="desktop:33"] {
+    min-height: 33%;
+  }
+  [data-min-height~="desktop:viewport-33"] {
+    min-height: 33vh;
+  }
+  [data-min-height~="desktop:50"] {
+    min-height: 50%;
+  }
+  [data-min-height~="desktop:viewport-50"] {
+    min-height: 50vh;
+  }
+  [data-min-height~="desktop:66"] {
+    min-height: 66%;
+  }
+  [data-min-height~="desktop:viewport-66"] {
+    min-height: 66vh;
+  }
+  [data-min-height~="desktop:75"] {
+    min-height: 75%;
+  }
+  [data-min-height~="desktop:viewport-75"] {
+    min-height: 75vh;
+  }
+  [data-min-height~="desktop:100"] {
+    min-height: 100%;
+  }
+  [data-min-height~="desktop:viewport-100"] {
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-min-height~="widescreen:content-fit"] {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  [data-min-height~="widescreen:content-max"] {
+    min-height: -webkit-max-content;
+    min-height: -moz-max-content;
+    min-height: max-content;
+  }
+  [data-min-height~="widescreen:content-min"] {
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+  }
+  [data-min-height~="widescreen:prose"] {
+    min-height: 65ch;
+  }
+  [data-min-height~="widescreen:stretch"] {
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: stretch;
+  }
+  [data-min-height~="widescreen:0"] {
+    min-height: 0px;
+  }
+  [data-min-height~="widescreen:25"] {
+    min-height: 25%;
+  }
+  [data-min-height~="widescreen:viewport-25"] {
+    min-height: 25vh;
+  }
+  [data-min-height~="widescreen:33"] {
+    min-height: 33%;
+  }
+  [data-min-height~="widescreen:viewport-33"] {
+    min-height: 33vh;
+  }
+  [data-min-height~="widescreen:50"] {
+    min-height: 50%;
+  }
+  [data-min-height~="widescreen:viewport-50"] {
+    min-height: 50vh;
+  }
+  [data-min-height~="widescreen:66"] {
+    min-height: 66%;
+  }
+  [data-min-height~="widescreen:viewport-66"] {
+    min-height: 66vh;
+  }
+  [data-min-height~="widescreen:75"] {
+    min-height: 75%;
+  }
+  [data-min-height~="widescreen:viewport-75"] {
+    min-height: 75vh;
+  }
+  [data-min-height~="widescreen:100"] {
+    min-height: 100%;
+  }
+  [data-min-height~="widescreen:viewport-100"] {
+    min-height: 100vh;
   }
 }
 

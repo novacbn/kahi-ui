@@ -77,313 +77,313 @@
 }
 
 @variants <sm {
-    [data-max-width~="mobile:auto"] {
+    [data-width~="mobile:auto"] {
         @apply w-auto;
     }
 
-    [data-max-width~="mobile:content-fit"] {
+    [data-width~="mobile:content-fit"] {
         @apply w-[-moz-fit-content] w-[fit-content];
     }
 
-    [data-max-width~="mobile:content-max"] {
+    [data-width~="mobile:content-max"] {
         @apply w-max;
     }
 
-    [data-max-width~="mobile:content-min"] {
+    [data-width~="mobile:content-min"] {
         @apply w-min;
     }
 
-    [data-max-width~="mobile:prose"] {
+    [data-width~="mobile:prose"] {
         @apply w-prose;
     }
 
-    [data-max-width~="mobile:stretch"] {
+    [data-width~="mobile:stretch"] {
         @apply w-[-moz-available] w-[-webkit-fill-available] w-[stretch];
     }
 
-    [data-max-width~="mobile:0"] {
+    [data-width~="mobile:0"] {
         @apply w-0;
     }
 
-    [data-max-width~="mobile:25"] {
+    [data-width~="mobile:25"] {
         @apply w-[25%];
     }
 
-    [data-max-width~="mobile:viewport-25"] {
+    [data-width~="mobile:viewport-25"] {
         @apply w-[25vw];
     }
 
-    [data-max-width~="mobile:33"] {
+    [data-width~="mobile:33"] {
         @apply w-[33%];
     }
 
-    [data-max-width~="mobile:viewport-33"] {
+    [data-width~="mobile:viewport-33"] {
         @apply w-[33vw];
     }
 
-    [data-max-width~="mobile:50"] {
+    [data-width~="mobile:50"] {
         @apply w-[50%];
     }
 
-    [data-max-width~="mobile:viewport-50"] {
+    [data-width~="mobile:viewport-50"] {
         @apply w-[50vw];
     }
 
-    [data-max-width~="mobile:66"] {
+    [data-width~="mobile:66"] {
         @apply w-[66%];
     }
 
-    [data-max-width~="mobile:viewport-66"] {
+    [data-width~="mobile:viewport-66"] {
         @apply w-[66vw];
     }
 
-    [data-max-width~="mobile:75"] {
+    [data-width~="mobile:75"] {
         @apply w-[75%];
     }
 
-    [data-max-width~="mobile:viewport-75"] {
+    [data-width~="mobile:viewport-75"] {
         @apply w-[75vw];
     }
 
-    [data-max-width~="mobile:100"] {
+    [data-width~="mobile:100"] {
         @apply w-full;
     }
 
-    [data-max-width~="mobile:viewport-100"] {
+    [data-width~="mobile:viewport-100"] {
         @apply w-[100vw];
     }
 }
 
 @variants @sm {
-    [data-max-width~="tablet:auto"] {
+    [data-width~="tablet:auto"] {
         @apply w-auto;
     }
 
-    [data-max-width~="tablet:content-fit"] {
+    [data-width~="tablet:content-fit"] {
         @apply w-[-moz-fit-content] w-[fit-content];
     }
 
-    [data-max-width~="tablet:content-max"] {
+    [data-width~="tablet:content-max"] {
         @apply w-max;
     }
 
-    [data-max-width~="tablet:content-min"] {
+    [data-width~="tablet:content-min"] {
         @apply w-min;
     }
 
-    [data-max-width~="tablet:prose"] {
+    [data-width~="tablet:prose"] {
         @apply w-prose;
     }
 
-    [data-max-width~="tablet:stretch"] {
+    [data-width~="tablet:stretch"] {
         @apply w-[-moz-available] w-[-webkit-fill-available] w-[stretch];
     }
 
-    [data-max-width~="tablet:0"] {
+    [data-width~="tablet:0"] {
         @apply w-0;
     }
 
-    [data-max-width~="tablet:25"] {
+    [data-width~="tablet:25"] {
         @apply w-[25%];
     }
 
-    [data-max-width~="tablet:viewport-25"] {
+    [data-width~="tablet:viewport-25"] {
         @apply w-[25vw];
     }
 
-    [data-max-width~="tablet:33"] {
+    [data-width~="tablet:33"] {
         @apply w-[33%];
     }
 
-    [data-max-width~="tablet:viewport-33"] {
+    [data-width~="tablet:viewport-33"] {
         @apply w-[33vw];
     }
 
-    [data-max-width~="tablet:50"] {
+    [data-width~="tablet:50"] {
         @apply w-[50%];
     }
 
-    [data-max-width~="tablet:viewport-50"] {
+    [data-width~="tablet:viewport-50"] {
         @apply w-[50vw];
     }
 
-    [data-max-width~="tablet:66"] {
+    [data-width~="tablet:66"] {
         @apply w-[66%];
     }
 
-    [data-max-width~="tablet:viewport-66"] {
+    [data-width~="tablet:viewport-66"] {
         @apply w-[66vw];
     }
 
-    [data-max-width~="tablet:75"] {
+    [data-width~="tablet:75"] {
         @apply w-[75%];
     }
 
-    [data-max-width~="tablet:viewport-75"] {
+    [data-width~="tablet:viewport-75"] {
         @apply w-[75vw];
     }
 
-    [data-max-width~="tablet:100"] {
+    [data-width~="tablet:100"] {
         @apply w-full;
     }
 
-    [data-max-width~="tablet:viewport-100"] {
+    [data-width~="tablet:viewport-100"] {
         @apply w-[100vw];
     }
 }
 
 @variants @md {
-    [data-max-width~="desktop:auto"] {
+    [data-width~="desktop:auto"] {
         @apply w-auto;
     }
 
-    [data-max-width~="desktop:content-fit"] {
+    [data-width~="desktop:content-fit"] {
         @apply w-[-moz-fit-content] w-[fit-content];
     }
 
-    [data-max-width~="desktop:content-max"] {
+    [data-width~="desktop:content-max"] {
         @apply w-max;
     }
 
-    [data-max-width~="desktop:content-min"] {
+    [data-width~="desktop:content-min"] {
         @apply w-min;
     }
 
-    [data-max-width~="desktop:prose"] {
+    [data-width~="desktop:prose"] {
         @apply w-prose;
     }
 
-    [data-max-width~="desktop:stretch"] {
+    [data-width~="desktop:stretch"] {
         @apply w-[-moz-available] w-[-webkit-fill-available] w-[stretch];
     }
 
-    [data-max-width~="desktop:0"] {
+    [data-width~="desktop:0"] {
         @apply w-0;
     }
 
-    [data-max-width~="desktop:25"] {
+    [data-width~="desktop:25"] {
         @apply w-[25%];
     }
 
-    [data-max-width~="desktop:viewport-25"] {
+    [data-width~="desktop:viewport-25"] {
         @apply w-[25vw];
     }
 
-    [data-max-width~="desktop:33"] {
+    [data-width~="desktop:33"] {
         @apply w-[33%];
     }
 
-    [data-max-width~="desktop:viewport-33"] {
+    [data-width~="desktop:viewport-33"] {
         @apply w-[33vw];
     }
 
-    [data-max-width~="desktop:50"] {
+    [data-width~="desktop:50"] {
         @apply w-[50%];
     }
 
-    [data-max-width~="desktop:viewport-50"] {
+    [data-width~="desktop:viewport-50"] {
         @apply w-[50vw];
     }
 
-    [data-max-width~="desktop:66"] {
+    [data-width~="desktop:66"] {
         @apply w-[66%];
     }
 
-    [data-max-width~="desktop:viewport-66"] {
+    [data-width~="desktop:viewport-66"] {
         @apply w-[66vw];
     }
 
-    [data-max-width~="desktop:75"] {
+    [data-width~="desktop:75"] {
         @apply w-[75%];
     }
 
-    [data-max-width~="desktop:viewport-75"] {
+    [data-width~="desktop:viewport-75"] {
         @apply w-[75vw];
     }
 
-    [data-max-width~="desktop:100"] {
+    [data-width~="desktop:100"] {
         @apply w-full;
     }
 
-    [data-max-width~="desktop:viewport-100"] {
+    [data-width~="desktop:viewport-100"] {
         @apply w-[100vw];
     }
 }
 
 @variants lg {
-    [data-max-width~="widescreen:auto"] {
+    [data-width~="widescreen:auto"] {
         @apply w-auto;
     }
 
-    [data-max-width~="widescreen:content-fit"] {
+    [data-width~="widescreen:content-fit"] {
         @apply w-[-moz-fit-content] w-[fit-content];
     }
 
-    [data-max-width~="widescreen:content-max"] {
+    [data-width~="widescreen:content-max"] {
         @apply w-max;
     }
 
-    [data-max-width~="widescreen:content-min"] {
+    [data-width~="widescreen:content-min"] {
         @apply w-min;
     }
 
-    [data-max-width~="widescreen:prose"] {
+    [data-width~="widescreen:prose"] {
         @apply w-prose;
     }
 
-    [data-max-width~="widescreen:stretch"] {
+    [data-width~="widescreen:stretch"] {
         @apply w-[-moz-available] w-[-webkit-fill-available] w-[stretch];
     }
 
-    [data-max-width~="widescreen:0"] {
+    [data-width~="widescreen:0"] {
         @apply w-0;
     }
 
-    [data-max-width~="widescreen:25"] {
+    [data-width~="widescreen:25"] {
         @apply w-[25%];
     }
 
-    [data-max-width~="widescreen:viewport-25"] {
+    [data-width~="widescreen:viewport-25"] {
         @apply w-[25vw];
     }
 
-    [data-max-width~="widescreen:33"] {
+    [data-width~="widescreen:33"] {
         @apply w-[33%];
     }
 
-    [data-max-width~="widescreen:viewport-33"] {
+    [data-width~="widescreen:viewport-33"] {
         @apply w-[33vw];
     }
 
-    [data-max-width~="widescreen:50"] {
+    [data-width~="widescreen:50"] {
         @apply w-[50%];
     }
 
-    [data-max-width~="widescreen:viewport-50"] {
+    [data-width~="widescreen:viewport-50"] {
         @apply w-[50vw];
     }
 
-    [data-max-width~="widescreen:66"] {
+    [data-width~="widescreen:66"] {
         @apply w-[66%];
     }
 
-    [data-max-width~="widescreen:viewport-66"] {
+    [data-width~="widescreen:viewport-66"] {
         @apply w-[66vw];
     }
 
-    [data-max-width~="widescreen:75"] {
+    [data-width~="widescreen:75"] {
         @apply w-[75%];
     }
 
-    [data-max-width~="widescreen:viewport-75"] {
+    [data-width~="widescreen:viewport-75"] {
         @apply w-[75vw];
     }
 
-    [data-max-width~="widescreen:100"] {
+    [data-width~="widescreen:100"] {
         @apply w-full;
     }
 
-    [data-max-width~="widescreen:viewport-100"] {
+    [data-width~="widescreen:viewport-100"] {
         @apply w-[100vw];
     }
 }
@@ -1551,6 +1551,782 @@
 
     [data-height~="widescreen:viewport-100"] {
         @apply h-[100vh];
+    }
+}
+
+[data-max-height~="auto"] {
+    @apply max-h-auto;
+}
+
+[data-max-height~="content-fit"] {
+    @apply max-h-[-moz-fit-content] max-h-[fit-content];
+}
+
+[data-max-height~="content-max"] {
+    @apply max-h-max;
+}
+
+[data-max-height~="content-min"] {
+    @apply max-h-min;
+}
+
+[data-max-height~="prose"] {
+    @apply max-h-prose;
+}
+
+[data-max-height~="stretch"] {
+    @apply max-h-[-moz-available] max-h-[-webkit-fill-available] max-h-[stretch];
+}
+
+[data-max-height~="0"] {
+    @apply max-h-0;
+}
+
+[data-max-height~="25"] {
+    @apply max-h-[25%];
+}
+
+[data-max-height~="viewport-25"] {
+    @apply max-h-[25vh];
+}
+
+[data-max-height~="33"] {
+    @apply max-h-[33%];
+}
+
+[data-max-height~="viewport-33"] {
+    @apply max-h-[33vh];
+}
+
+[data-max-height~="50"] {
+    @apply max-h-[50%];
+}
+
+[data-max-height~="viewport-50"] {
+    @apply max-h-[50vh];
+}
+
+[data-max-height~="66"] {
+    @apply max-h-[66%];
+}
+
+[data-max-height~="viewport-66"] {
+    @apply max-h-[66vh];
+}
+
+[data-max-height~="75"] {
+    @apply max-h-[75%];
+}
+
+[data-max-height~="viewport-75"] {
+    @apply max-h-[75vh];
+}
+
+[data-max-height~="100"] {
+    @apply max-h-full;
+}
+
+[data-max-height~="viewport-100"] {
+    @apply max-h-[100vh];
+}
+
+@variants <sm {
+    [data-max-height~="mobile:auto"] {
+        @apply max-h-auto;
+    }
+
+    [data-max-height~="mobile:content-fit"] {
+        @apply max-h-[-moz-fit-content] max-h-[fit-content];
+    }
+
+    [data-max-height~="mobile:content-max"] {
+        @apply max-h-max;
+    }
+
+    [data-max-height~="mobile:content-min"] {
+        @apply max-h-min;
+    }
+
+    [data-max-height~="mobile:prose"] {
+        @apply max-h-prose;
+    }
+
+    [data-max-height~="mobile:stretch"] {
+        @apply max-h-[-moz-available] max-h-[-webkit-fill-available] max-h-[stretch];
+    }
+
+    [data-max-height~="mobile:0"] {
+        @apply max-h-0;
+    }
+
+    [data-max-height~="mobile:25"] {
+        @apply max-h-[25%];
+    }
+
+    [data-max-height~="mobile:viewport-25"] {
+        @apply max-h-[25vh];
+    }
+
+    [data-max-height~="mobile:33"] {
+        @apply max-h-[33%];
+    }
+
+    [data-max-height~="mobile:viewport-33"] {
+        @apply max-h-[33vh];
+    }
+
+    [data-max-height~="mobile:50"] {
+        @apply max-h-[50%];
+    }
+
+    [data-max-height~="mobile:viewport-50"] {
+        @apply max-h-[50vh];
+    }
+
+    [data-max-height~="mobile:66"] {
+        @apply max-h-[66%];
+    }
+
+    [data-max-height~="mobile:viewport-66"] {
+        @apply max-h-[66vh];
+    }
+
+    [data-max-height~="mobile:75"] {
+        @apply max-h-[75%];
+    }
+
+    [data-max-height~="mobile:viewport-75"] {
+        @apply max-h-[75vh];
+    }
+
+    [data-max-height~="mobile:100"] {
+        @apply max-h-full;
+    }
+
+    [data-max-height~="mobile:viewport-100"] {
+        @apply max-h-[100vh];
+    }
+}
+
+@variants @sm {
+    [data-max-height~="tablet:auto"] {
+        @apply max-h-auto;
+    }
+
+    [data-max-height~="tablet:content-fit"] {
+        @apply max-h-[-moz-fit-content] max-h-[fit-content];
+    }
+
+    [data-max-height~="tablet:content-max"] {
+        @apply max-h-max;
+    }
+
+    [data-max-height~="tablet:content-min"] {
+        @apply max-h-min;
+    }
+
+    [data-max-height~="tablet:prose"] {
+        @apply max-h-prose;
+    }
+
+    [data-max-height~="tablet:stretch"] {
+        @apply max-h-[-moz-available] max-h-[-webkit-fill-available] max-h-[stretch];
+    }
+
+    [data-max-height~="tablet:0"] {
+        @apply max-h-0;
+    }
+
+    [data-max-height~="tablet:25"] {
+        @apply max-h-[25%];
+    }
+
+    [data-max-height~="tablet:viewport-25"] {
+        @apply max-h-[25vh];
+    }
+
+    [data-max-height~="tablet:33"] {
+        @apply max-h-[33%];
+    }
+
+    [data-max-height~="tablet:viewport-33"] {
+        @apply max-h-[33vh];
+    }
+
+    [data-max-height~="tablet:50"] {
+        @apply max-h-[50%];
+    }
+
+    [data-max-height~="tablet:viewport-50"] {
+        @apply max-h-[50vh];
+    }
+
+    [data-max-height~="tablet:66"] {
+        @apply max-h-[66%];
+    }
+
+    [data-max-height~="tablet:viewport-66"] {
+        @apply max-h-[66vh];
+    }
+
+    [data-max-height~="tablet:75"] {
+        @apply max-h-[75%];
+    }
+
+    [data-max-height~="tablet:viewport-75"] {
+        @apply max-h-[75vh];
+    }
+
+    [data-max-height~="tablet:100"] {
+        @apply max-h-full;
+    }
+
+    [data-max-height~="tablet:viewport-100"] {
+        @apply max-h-[100vh];
+    }
+}
+
+@variants @md {
+    [data-max-height~="desktop:auto"] {
+        @apply max-h-auto;
+    }
+
+    [data-max-height~="desktop:content-fit"] {
+        @apply max-h-[-moz-fit-content] max-h-[fit-content];
+    }
+
+    [data-max-height~="desktop:content-max"] {
+        @apply max-h-max;
+    }
+
+    [data-max-height~="desktop:content-min"] {
+        @apply max-h-min;
+    }
+
+    [data-max-height~="desktop:prose"] {
+        @apply max-h-prose;
+    }
+
+    [data-max-height~="desktop:stretch"] {
+        @apply max-h-[-moz-available] max-h-[-webkit-fill-available] max-h-[stretch];
+    }
+
+    [data-max-height~="desktop:0"] {
+        @apply max-h-0;
+    }
+
+    [data-max-height~="desktop:25"] {
+        @apply max-h-[25%];
+    }
+
+    [data-max-height~="desktop:viewport-25"] {
+        @apply max-h-[25vh];
+    }
+
+    [data-max-height~="desktop:33"] {
+        @apply max-h-[33%];
+    }
+
+    [data-max-height~="desktop:viewport-33"] {
+        @apply max-h-[33vh];
+    }
+
+    [data-max-height~="desktop:50"] {
+        @apply max-h-[50%];
+    }
+
+    [data-max-height~="desktop:viewport-50"] {
+        @apply max-h-[50vh];
+    }
+
+    [data-max-height~="desktop:66"] {
+        @apply max-h-[66%];
+    }
+
+    [data-max-height~="desktop:viewport-66"] {
+        @apply max-h-[66vh];
+    }
+
+    [data-max-height~="desktop:75"] {
+        @apply max-h-[75%];
+    }
+
+    [data-max-height~="desktop:viewport-75"] {
+        @apply max-h-[75vh];
+    }
+
+    [data-max-height~="desktop:100"] {
+        @apply max-h-full;
+    }
+
+    [data-max-height~="desktop:viewport-100"] {
+        @apply max-h-[100vh];
+    }
+}
+
+@variants lg {
+    [data-max-height~="widescreen:auto"] {
+        @apply max-h-auto;
+    }
+
+    [data-max-height~="widescreen:content-fit"] {
+        @apply max-h-[-moz-fit-content] max-h-[fit-content];
+    }
+
+    [data-max-height~="widescreen:content-max"] {
+        @apply max-h-max;
+    }
+
+    [data-max-height~="widescreen:content-min"] {
+        @apply max-h-min;
+    }
+
+    [data-max-height~="widescreen:prose"] {
+        @apply max-h-prose;
+    }
+
+    [data-max-height~="widescreen:stretch"] {
+        @apply max-h-[-moz-available] max-h-[-webkit-fill-available] max-h-[stretch];
+    }
+
+    [data-max-height~="widescreen:0"] {
+        @apply max-h-0;
+    }
+
+    [data-max-height~="widescreen:25"] {
+        @apply max-h-[25%];
+    }
+
+    [data-max-height~="widescreen:viewport-25"] {
+        @apply max-h-[25vh];
+    }
+
+    [data-max-height~="widescreen:33"] {
+        @apply max-h-[33%];
+    }
+
+    [data-max-height~="widescreen:viewport-33"] {
+        @apply max-h-[33vh];
+    }
+
+    [data-max-height~="widescreen:50"] {
+        @apply max-h-[50%];
+    }
+
+    [data-max-height~="widescreen:viewport-50"] {
+        @apply max-h-[50vh];
+    }
+
+    [data-max-height~="widescreen:66"] {
+        @apply max-h-[66%];
+    }
+
+    [data-max-height~="widescreen:viewport-66"] {
+        @apply max-h-[66vh];
+    }
+
+    [data-max-height~="widescreen:75"] {
+        @apply max-h-[75%];
+    }
+
+    [data-max-height~="widescreen:viewport-75"] {
+        @apply max-h-[75vh];
+    }
+
+    [data-max-height~="widescreen:100"] {
+        @apply max-h-full;
+    }
+
+    [data-max-height~="widescreen:viewport-100"] {
+        @apply max-h-[100vh];
+    }
+}
+
+[data-min-height~="auto"] {
+    @apply min-h-auto;
+}
+
+[data-min-height~="content-fit"] {
+    @apply min-h-[-moz-fit-content] min-h-[fit-content];
+}
+
+[data-min-height~="content-max"] {
+    @apply min-h-max;
+}
+
+[data-min-height~="content-min"] {
+    @apply min-h-min;
+}
+
+[data-min-height~="prose"] {
+    @apply min-h-prose;
+}
+
+[data-min-height~="stretch"] {
+    @apply min-h-[-moz-available] min-h-[-webkit-fill-available] min-h-[stretch];
+}
+
+[data-min-height~="0"] {
+    @apply min-h-0;
+}
+
+[data-min-height~="25"] {
+    @apply min-h-[25%];
+}
+
+[data-min-height~="viewport-25"] {
+    @apply min-h-[25vh];
+}
+
+[data-min-height~="33"] {
+    @apply min-h-[33%];
+}
+
+[data-min-height~="viewport-33"] {
+    @apply min-h-[33vh];
+}
+
+[data-min-height~="50"] {
+    @apply min-h-[50%];
+}
+
+[data-min-height~="viewport-50"] {
+    @apply min-h-[50vh];
+}
+
+[data-min-height~="66"] {
+    @apply min-h-[66%];
+}
+
+[data-min-height~="viewport-66"] {
+    @apply min-h-[66vh];
+}
+
+[data-min-height~="75"] {
+    @apply min-h-[75%];
+}
+
+[data-min-height~="viewport-75"] {
+    @apply min-h-[75vh];
+}
+
+[data-min-height~="100"] {
+    @apply min-h-full;
+}
+
+[data-min-height~="viewport-100"] {
+    @apply min-h-[100vh];
+}
+
+@variants <sm {
+    [data-min-height~="mobile:auto"] {
+        @apply min-h-auto;
+    }
+
+    [data-min-height~="mobile:content-fit"] {
+        @apply min-h-[-moz-fit-content] min-h-[fit-content];
+    }
+
+    [data-min-height~="mobile:content-max"] {
+        @apply min-h-max;
+    }
+
+    [data-min-height~="mobile:content-min"] {
+        @apply min-h-min;
+    }
+
+    [data-min-height~="mobile:prose"] {
+        @apply min-h-prose;
+    }
+
+    [data-min-height~="mobile:stretch"] {
+        @apply min-h-[-moz-available] min-h-[-webkit-fill-available] min-h-[stretch];
+    }
+
+    [data-min-height~="mobile:0"] {
+        @apply min-h-0;
+    }
+
+    [data-min-height~="mobile:25"] {
+        @apply min-h-[25%];
+    }
+
+    [data-min-height~="mobile:viewport-25"] {
+        @apply min-h-[25vh];
+    }
+
+    [data-min-height~="mobile:33"] {
+        @apply min-h-[33%];
+    }
+
+    [data-min-height~="mobile:viewport-33"] {
+        @apply min-h-[33vh];
+    }
+
+    [data-min-height~="mobile:50"] {
+        @apply min-h-[50%];
+    }
+
+    [data-min-height~="mobile:viewport-50"] {
+        @apply min-h-[50vh];
+    }
+
+    [data-min-height~="mobile:66"] {
+        @apply min-h-[66%];
+    }
+
+    [data-min-height~="mobile:viewport-66"] {
+        @apply min-h-[66vh];
+    }
+
+    [data-min-height~="mobile:75"] {
+        @apply min-h-[75%];
+    }
+
+    [data-min-height~="mobile:viewport-75"] {
+        @apply min-h-[75vh];
+    }
+
+    [data-min-height~="mobile:100"] {
+        @apply min-h-full;
+    }
+
+    [data-min-height~="mobile:viewport-100"] {
+        @apply min-h-[100vh];
+    }
+}
+
+@variants @sm {
+    [data-min-height~="tablet:auto"] {
+        @apply min-h-auto;
+    }
+
+    [data-min-height~="tablet:content-fit"] {
+        @apply min-h-[-moz-fit-content] min-h-[fit-content];
+    }
+
+    [data-min-height~="tablet:content-max"] {
+        @apply min-h-max;
+    }
+
+    [data-min-height~="tablet:content-min"] {
+        @apply min-h-min;
+    }
+
+    [data-min-height~="tablet:prose"] {
+        @apply min-h-prose;
+    }
+
+    [data-min-height~="tablet:stretch"] {
+        @apply min-h-[-moz-available] min-h-[-webkit-fill-available] min-h-[stretch];
+    }
+
+    [data-min-height~="tablet:0"] {
+        @apply min-h-0;
+    }
+
+    [data-min-height~="tablet:25"] {
+        @apply min-h-[25%];
+    }
+
+    [data-min-height~="tablet:viewport-25"] {
+        @apply min-h-[25vh];
+    }
+
+    [data-min-height~="tablet:33"] {
+        @apply min-h-[33%];
+    }
+
+    [data-min-height~="tablet:viewport-33"] {
+        @apply min-h-[33vh];
+    }
+
+    [data-min-height~="tablet:50"] {
+        @apply min-h-[50%];
+    }
+
+    [data-min-height~="tablet:viewport-50"] {
+        @apply min-h-[50vh];
+    }
+
+    [data-min-height~="tablet:66"] {
+        @apply min-h-[66%];
+    }
+
+    [data-min-height~="tablet:viewport-66"] {
+        @apply min-h-[66vh];
+    }
+
+    [data-min-height~="tablet:75"] {
+        @apply min-h-[75%];
+    }
+
+    [data-min-height~="tablet:viewport-75"] {
+        @apply min-h-[75vh];
+    }
+
+    [data-min-height~="tablet:100"] {
+        @apply min-h-full;
+    }
+
+    [data-min-height~="tablet:viewport-100"] {
+        @apply min-h-[100vh];
+    }
+}
+
+@variants @md {
+    [data-min-height~="desktop:auto"] {
+        @apply min-h-auto;
+    }
+
+    [data-min-height~="desktop:content-fit"] {
+        @apply min-h-[-moz-fit-content] min-h-[fit-content];
+    }
+
+    [data-min-height~="desktop:content-max"] {
+        @apply min-h-max;
+    }
+
+    [data-min-height~="desktop:content-min"] {
+        @apply min-h-min;
+    }
+
+    [data-min-height~="desktop:prose"] {
+        @apply min-h-prose;
+    }
+
+    [data-min-height~="desktop:stretch"] {
+        @apply min-h-[-moz-available] min-h-[-webkit-fill-available] min-h-[stretch];
+    }
+
+    [data-min-height~="desktop:0"] {
+        @apply min-h-0;
+    }
+
+    [data-min-height~="desktop:25"] {
+        @apply min-h-[25%];
+    }
+
+    [data-min-height~="desktop:viewport-25"] {
+        @apply min-h-[25vh];
+    }
+
+    [data-min-height~="desktop:33"] {
+        @apply min-h-[33%];
+    }
+
+    [data-min-height~="desktop:viewport-33"] {
+        @apply min-h-[33vh];
+    }
+
+    [data-min-height~="desktop:50"] {
+        @apply min-h-[50%];
+    }
+
+    [data-min-height~="desktop:viewport-50"] {
+        @apply min-h-[50vh];
+    }
+
+    [data-min-height~="desktop:66"] {
+        @apply min-h-[66%];
+    }
+
+    [data-min-height~="desktop:viewport-66"] {
+        @apply min-h-[66vh];
+    }
+
+    [data-min-height~="desktop:75"] {
+        @apply min-h-[75%];
+    }
+
+    [data-min-height~="desktop:viewport-75"] {
+        @apply min-h-[75vh];
+    }
+
+    [data-min-height~="desktop:100"] {
+        @apply min-h-full;
+    }
+
+    [data-min-height~="desktop:viewport-100"] {
+        @apply min-h-[100vh];
+    }
+}
+
+@variants lg {
+    [data-min-height~="widescreen:auto"] {
+        @apply min-h-auto;
+    }
+
+    [data-min-height~="widescreen:content-fit"] {
+        @apply min-h-[-moz-fit-content] min-h-[fit-content];
+    }
+
+    [data-min-height~="widescreen:content-max"] {
+        @apply min-h-max;
+    }
+
+    [data-min-height~="widescreen:content-min"] {
+        @apply min-h-min;
+    }
+
+    [data-min-height~="widescreen:prose"] {
+        @apply min-h-prose;
+    }
+
+    [data-min-height~="widescreen:stretch"] {
+        @apply min-h-[-moz-available] min-h-[-webkit-fill-available] min-h-[stretch];
+    }
+
+    [data-min-height~="widescreen:0"] {
+        @apply min-h-0;
+    }
+
+    [data-min-height~="widescreen:25"] {
+        @apply min-h-[25%];
+    }
+
+    [data-min-height~="widescreen:viewport-25"] {
+        @apply min-h-[25vh];
+    }
+
+    [data-min-height~="widescreen:33"] {
+        @apply min-h-[33%];
+    }
+
+    [data-min-height~="widescreen:viewport-33"] {
+        @apply min-h-[33vh];
+    }
+
+    [data-min-height~="widescreen:50"] {
+        @apply min-h-[50%];
+    }
+
+    [data-min-height~="widescreen:viewport-50"] {
+        @apply min-h-[50vh];
+    }
+
+    [data-min-height~="widescreen:66"] {
+        @apply min-h-[66%];
+    }
+
+    [data-min-height~="widescreen:viewport-66"] {
+        @apply min-h-[66vh];
+    }
+
+    [data-min-height~="widescreen:75"] {
+        @apply min-h-[75%];
+    }
+
+    [data-min-height~="widescreen:viewport-75"] {
+        @apply min-h-[75vh];
+    }
+
+    [data-min-height~="widescreen:100"] {
+        @apply min-h-full;
+    }
+
+    [data-min-height~="widescreen:viewport-100"] {
+        @apply min-h-[100vh];
     }
 }
 

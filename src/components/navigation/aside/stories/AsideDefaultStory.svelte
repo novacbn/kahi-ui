@@ -17,7 +17,7 @@
     max_width="content-max"
     height="viewport-100"
     captive
-    dismissable
+    dismissible
 >
     <Aside.Header>
         <Anchor href="#">Kahi UI</Anchor>

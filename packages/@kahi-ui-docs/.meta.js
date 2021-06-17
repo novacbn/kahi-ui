@@ -93,6 +93,11 @@ export default {
         },
 
         {
+            separator: "Overlays",
+            items: [{href: "/docs/overlays/overlay"}],
+        },
+
+        {
             separator: "Utilities",
             items: [
                 {href: "/docs/utilities/contextbackdrop"},

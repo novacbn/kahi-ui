@@ -82,10 +82,10 @@
 @media (prefers-color-scheme: dark) {
     html:not([data-palette]) {
         & [data-palette="auto"] {
-            --palette-background-bg: theme("colors.dark.600");
+            --palette-background-bg: theme("colors.dark.700");
             --palette-background-text: theme("colors.light.900");
 
-            --palette-foreground-bg: theme("colors.dark.700");
+            --palette-foreground-bg: theme("colors.dark.800");
             --palette-foreground-text: theme("colors.light.200");
         }
 
@@ -106,10 +106,10 @@
         }
 
         & [data-palette="dark"] {
-            --palette-background-bg: theme("colors.dark.600");
+            --palette-background-bg: theme("colors.dark.700");
             --palette-background-text: theme("colors.light.900");
 
-            --palette-foreground-bg: theme("colors.dark.700");
+            --palette-foreground-bg: theme("colors.dark.800");
             --palette-foreground-text: theme("colors.light.200");
         }
 
@@ -149,10 +149,10 @@
 
 html[data-palette="dark"] {
     & [data-palette="auto"] {
-        --palette-background-bg: theme("colors.dark.600");
+        --palette-background-bg: theme("colors.dark.700");
         --palette-background-text: theme("colors.light.900");
 
-        --palette-foreground-bg: theme("colors.dark.700");
+        --palette-foreground-bg: theme("colors.dark.800");
         --palette-foreground-text: theme("colors.light.200");
     }
 
@@ -173,10 +173,10 @@ html[data-palette="dark"] {
     }
 
     & [data-palette="dark"] {
-        --palette-background-bg: theme("colors.dark.600");
+        --palette-background-bg: theme("colors.dark.700");
         --palette-background-text: theme("colors.light.900");
 
-        --palette-foreground-bg: theme("colors.dark.700");
+        --palette-foreground-bg: theme("colors.dark.800");
         --palette-foreground-text: theme("colors.light.200");
     }
 

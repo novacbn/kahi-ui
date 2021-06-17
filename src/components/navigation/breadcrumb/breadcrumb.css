@@ -1,6 +1,6 @@
 nav.breadcrumb {
     & > ol {
-        @apply flex;
+        @apply flex ml-0;
 
         & > li {
             @apply inline-flex items-center;

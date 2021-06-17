@@ -13,6 +13,10 @@
 
     transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    & > * {
+        @apply pointer-events-auto;
+    }
 }
 
 input[type="checkbox"][role="presentation"] {
@@ -21,6 +25,10 @@ input[type="checkbox"][role="presentation"] {
         @apply opacity-0;
 
         transform: scale(0.3);
+
+        & > * {
+            @apply pointer-events-none;
+        }
     }
 
     &:checked + .overlay,
@@ -28,9 +36,5 @@ input[type="checkbox"][role="presentation"] {
         @apply opacity-100;
 
         transform: scale(1);
-
-        & > * {
-            @apply pointer-events-auto;
-        }
     }
 }

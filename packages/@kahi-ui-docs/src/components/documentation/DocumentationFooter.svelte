@@ -1,6 +1,6 @@
 <script lang="ts">
     import {Clock} from "svelte-feather/components/Clock";
-    import {Button, Divider, Figure, Heading, Spacer, Stack, Text, Tile} from "@kahi-ui/framework";
+    import {Button, Figure, Heading, Spacer, Stack, Text, Tile} from "@kahi-ui/framework";
 
     import {substitute_value} from "@kahi-ui/docs-kit/shared";
 
@@ -21,7 +21,7 @@
 
 </script>
 
-<Tile.Container class="documentation-footer" palette="accent" margin_top="medium">
+<Tile.Container class="documentation-footer" palette="accent" margin_top="large">
     <Stack
         orientation={["widescreen:horizontal", "desktop:horizontal", "tablet:horizontal"]}
         alignment="center"

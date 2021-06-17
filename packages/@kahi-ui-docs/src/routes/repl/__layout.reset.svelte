@@ -33,4 +33,15 @@
         min-height: 100%;
     }
 
+    :global(.context-backdrop),
+    :global(.overlay) {
+        /**
+         * HACK: Used to have `ContextBackdrop` / `Overlay`s properly take up REPL viewports
+        * since renders aren't rendered in a separate srcdoc iframe yet.
+         */
+
+        width: 100% !important;
+        height: 100% !important;
+    }
+
 </style>

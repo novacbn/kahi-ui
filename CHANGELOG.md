@@ -2,13 +2,36 @@
 
 ## v0.2.6 -
 
+-   Adjusted dark / light shades coloring slightly.
+-   Fixed the sizing modifiers.
+-   Fixed typo of `dismissable` -> `dismissible`.
 -   Updated the following Components
+
+    -   Navigation
+
+        -   `Aside` / `Omni`
+
+            -   Added low transparency border for legibility.
+
+        -   `Breadcrumb`
+
+            -   Fixed not resetting the `List` margins.
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   Fixed children not being interactable when state was not configured.
 
     -   Surfaces
 
-        -   `Box` / `Card` / `Tile`
+        -   `Card` / `Tile`
 
-            -   Added low transparency border for legibility when `palette` is not set.
+            -   Added low transparency border for legibility.
+
+        -   `Tile`
+
+            -   Updated `Tile.Section` to use bigger padding when first and / or last child for their respective sides.
 
 ## v0.2.5 - UNRELEASED
 

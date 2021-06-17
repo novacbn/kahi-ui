@@ -5,7 +5,7 @@
 
     import {browser} from "$app/env";
     import {page} from "$app/stores";
-    import {Anchor, Aside, Container, ContextButton, Stack} from "@kahi-ui/framework";
+    import {Anchor, Aside, ContextButton, Scrollable, Stack} from "@kahi-ui/framework";
     import {onMount} from "svelte";
     import {Menu} from "svelte-feather/components/Menu";
     import {X} from "svelte-feather/components/X";
@@ -41,13 +41,14 @@
     <style>
         html,
         body {
-            max-height: 100vh;
+            width: 100%;
+            height: 100%;
         }
 
     </style>
 </svelte:head>
 
-<Stack orientation="horizontal">
+<Stack class="shell-aside-stack" orientation="horizontal">
     <Aside.Container
         bind:element
         class="shell-aside"
@@ -57,7 +58,7 @@
         height="viewport-100"
         max_height="100"
         captive
-        dismissable
+        dismissible
     >
         <Aside.Header>
             {#if href}
@@ -90,7 +91,5 @@
         </ContextButton>
     </Aside.Container>
 
-    <Container viewport={["mobile", "widescreen:desktop"]} margin_x="auto" padding_bottom="large">
-        <slot />
-    </Container>
+    <slot />
 </Stack>

@@ -18,7 +18,7 @@
 
 :root,
 :root[data-palette="light"] {
-    --palette-background-bg: theme("colors.light.300");
+    --palette-background-bg: theme("colors.light.900");
     --palette-background-text: theme("colors.dark.400");
 
     --palette-foreground-bg: theme("colors.light.500");

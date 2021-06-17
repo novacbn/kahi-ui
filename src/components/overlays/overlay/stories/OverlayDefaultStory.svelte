@@ -11,7 +11,7 @@
 
 <Button for="overlay-default-story" palette="accent">Open Modal</Button>
 
-<Overlay {...$$props} logic_id="overlay-default-story" captive dismissable>
+<Overlay {...$$props} logic_id="overlay-default-story" captive dismissible>
     <Card.Container palette="auto" max_width="viewport-75">
         <Card.Header>Are you sure?</Card.Header>
 

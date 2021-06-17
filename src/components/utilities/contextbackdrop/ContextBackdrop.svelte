@@ -54,7 +54,7 @@
     export let max_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
     export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
 
-    export let dismissable: boolean = false;
+    export let dismissible: boolean = false;
 
     const _logic_id = get_id_context();
     const _scrolllock = scrolllock();
@@ -64,7 +64,7 @@
 
 </script>
 
-{#if dismissable}
+{#if dismissible}
     <label
         bind:this={element}
         {...map_global_attributes($$props)}

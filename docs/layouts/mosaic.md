@@ -5,6 +5,21 @@ description="Sets the minimum width each child item divided up into, out of the 
 types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SIZING}"]
 
 [[properties.Mosaic]]
+name="alignment"
+description="Adjusts where the child items will be placed within the <code>Mosaic</code> along both axis."
+types=["center", "stretch"]
+
+[[properties.Mosaic]]
+name="alignment_x"
+description="Adjusts where the child items will be placed within the <code>Mosaic</code> along the horizontal axis."
+types=["center", "stretch", "left", "right"]
+
+[[properties.Mosaic]]
+name="alignment_y"
+description="Adjusts where the child items will be placed within the <code>Mosaic</code> along the vertical axis."
+types=["center", "stretch", "bottom", "top"]
+
+[[properties.Mosaic]]
 name="spacing"
 description="Adjusts the visual spacing between child items in the <code>Mosaic</code>."
 types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]

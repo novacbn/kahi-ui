@@ -5,6 +5,21 @@ description="In a point scale of 1...12, sets how the <code>Grid</code> divides 
 types=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "{VIEWPORT}:{POINTS}"]
 
 [[properties.Grid]]
+name="alignment"
+description="Adjusts where the child items will be placed within the <code>Grid</code> along both axis."
+types=["center", "stretch"]
+
+[[properties.Grid]]
+name="alignment_x"
+description="Adjusts where the child items will be placed within the <code>Grid</code> along the horizontal axis."
+types=["center", "stretch", "left", "right"]
+
+[[properties.Grid]]
+name="alignment_y"
+description="Adjusts where the child items will be placed within the <code>Grid</code> along the vertical axis."
+types=["center", "stretch", "bottom", "top"]
+
+[[properties.Grid]]
 name="spacing"
 description="Adjusts the visual spacing between child items in the <code>Grid</code>."
 types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]

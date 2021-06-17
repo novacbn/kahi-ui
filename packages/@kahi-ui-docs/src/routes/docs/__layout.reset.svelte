@@ -21,7 +21,7 @@
 </script>
 
 <script lang="ts">
-    import {Text} from "@kahi-ui/framework";
+    import {Container, Text} from "@kahi-ui/framework";
 
     import type {INavigationMenu} from "@kahi-ui/docs-kit/shared";
     import {Shell} from "@kahi-ui/docs-kit/shared";
@@ -39,7 +39,14 @@
         </Text>
     </svelte:fragment>
 
-    <slot />
+    <Container
+        class="documentation-container"
+        viewport={["mobile", "widescreen:desktop"]}
+        margin_x="auto"
+        padding_bottom="large"
+    >
+        <slot />
+    </Container>
 </Shell.Aside>
 
 <style>
@@ -47,27 +54,27 @@
         text-transform: uppercase;
     }
 
-    :global(.shell-aside + .container > :is(h1, h2, h3, h4, h5, h6)) {
+    :global(.documentation-container > :is(h1, h2, h3, h4, h5, h6)) {
         margin-top: 1em;
         margin-bottom: 0.25em;
     }
 
-    :global(.shell-aside + .container > blockquote),
-    :global(.shell-aside + .container > p) {
+    :global(.documentation-container > blockquote),
+    :global(.documentation-container > p) {
         margin-top: 1em;
     }
 
-    :global(.shell-aside + .container .snippet-highlight) {
+    :global(.documentation-container > .snippet-highlight) {
         max-height: 35ex;
     }
 
-    :global(.shell-aside + .container .snippet-repl) {
+    :global(.documentation-container > .snippet-repl) {
         width: 100%;
         height: min(60ex, 65vh);
     }
 
-    :global(.shell-aside + .container .snippet-highlight),
-    :global(.shell-aside + .container .snippet-repl) {
+    :global(.documentation-container > .snippet-highlight),
+    :global(.documentation-container > .snippet-repl) {
         margin: 1rem 0 0 0;
 
         border: 1px solid rgb(var(--palette-foreground-text), 0.3);

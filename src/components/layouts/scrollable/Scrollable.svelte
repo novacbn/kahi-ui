@@ -7,7 +7,7 @@
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
-    import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
+    import {map_global_attributes} from "../../../lib/util/attributes";
 
     export let element: HTMLElement | null = null;
 
@@ -51,11 +51,6 @@
 
 </script>
 
-<div
-    bind:this={element}
-    {...map_global_attributes($$props)}
-    class="scrollable"
-    {...map_data_attributes({})}
->
+<div bind:this={element} {...map_global_attributes($$props)} class="scrollable">
     <slot />
 </div>

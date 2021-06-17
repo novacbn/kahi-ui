@@ -8,10 +8,12 @@
 
             & > footer {
                 /** TODO: FIX OVERFLOW PUSHING BEYOND TOP BOUNDARY */
-                @apply absolute bottom-0 bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))] flex
+                @apply absolute border-l-1 border-b-1 border-solid bottom-0 bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))] flex
                 flex-col gap-4 items-stretch justify-center right-0 rounded-bl-md overflow-y-auto px-6 py-4;
 
                 max-height: min(85vh, 60ex);
+
+                border-color: inherit;
 
                 clip-path: inset(0% 0% 100% 0% round 0% 0% 0% theme("borderRadius.md"));
                 transform: translateY(100%);
@@ -53,8 +55,9 @@
 nav.omni {
     @apply flex px-6 py-4 relative text-current z-1;
 
-    /** TODO: When this is a sticky, the transparency for the default palette looks terrible **/
+    /** TODO: When this is a sticky, the background transparency for the default palette looks terrible **/
     background-color: rgba(theme("colors.default.200"), theme("opacity.20"));
+    border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
 
     &[data-palette] {
         @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
@@ -93,4 +96,16 @@ nav.omni {
     & > :is(footer, header) {
         @apply flex items-center;
     }
+}
+
+input[type="checkbox"][role="presentation"]:first-child + nav.omni,
+input[type="checkbox"][role="presentation"]:first-child + .context-backdrop + nav.omni,
+nav.omni:first-child {
+    @apply border-b-1 border-solid;
+}
+
+input[type="checkbox"][role="presentation"]:last-child + nav.omni,
+input[type="checkbox"][role="presentation"]:last-child + .context-backdrop + nav.omni,
+nav.omni:last-child {
+    @apply border-t-1 border-solid;
 }

@@ -9,7 +9,6 @@
     import {viewports} from "../../../lib/stores/viewport";
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
@@ -58,9 +57,8 @@
     export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
 
     export let captive: boolean = false;
-    export let dismissable: boolean = false;
+    export let dismissible: boolean = false;
     export let logic_id: string = "";
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
     export let state: boolean = false;
 
     export let alignment: DESIGN_ALIGNMENT_ARGUMENT | undefined = undefined;
@@ -94,7 +92,7 @@
     />
 
     {#if captive}
-        <ContextBackdrop {dismissable} />
+        <ContextBackdrop {dismissible} />
     {/if}
 {/if}
 
@@ -106,7 +104,6 @@
         alignment,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
-        palette,
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,

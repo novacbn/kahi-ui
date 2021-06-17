@@ -17,7 +17,7 @@
     palette="dark"
     width="viewport-100"
     captive
-    dismissable
+    dismissible
 >
     <Omni.Header>
         <Anchor href="#">Kahi UI</Anchor>

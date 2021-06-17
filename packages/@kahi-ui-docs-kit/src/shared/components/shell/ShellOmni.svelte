@@ -52,7 +52,7 @@
     variation="sticky"
     width="100"
     captive
-    dismissable
+    dismissible
 >
     <Omni.Header>
         {#if href}

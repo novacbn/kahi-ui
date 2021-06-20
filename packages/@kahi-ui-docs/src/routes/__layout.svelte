@@ -20,12 +20,58 @@
 </script>
 
 <script lang="ts">
-    import "@kahi-ui/framework/dist/kahi-ui.framework.css";
-    import "prismjs/themes/prism-tomorrow.css";
+    import {Book} from "svelte-feather/components/Book";
+    import {Github} from "svelte-feather/components/Github";
+    import {Package} from "svelte-feather/components/Package";
 
-    import {Shell} from "@kahi-ui/docs-kit/shared";
+    import type {INavigationBar} from "@kahi-ui/docs-kit/shared";
+    import {Shell, append_pathname} from "@kahi-ui/docs-kit/shared";
 
-    import {META_BRANDING, META_TITLE, NAVIGATION_OMNI} from "../shared/environment";
+    import {
+        CONTENT_INITIAL,
+        CONTENT_TEXT,
+        CONTENT_URL,
+        META_BRANDING,
+        META_TITLE,
+        NAVIGATION_OMNI,
+        RELEASES_ENABLED,
+        RELEASES_URL,
+        REPOSITORY_ENABLED,
+        REPOSITORY_URL,
+    } from "../shared/environment";
+
+    let _center_items: INavigationBar[];
+    $: {
+        _center_items = [
+            ...NAVIGATION_OMNI.center,
+            {
+                href: append_pathname(CONTENT_URL, CONTENT_INITIAL),
+                icon: Book,
+                text: CONTENT_TEXT,
+            },
+        ];
+    }
+
+    let _right_items: INavigationBar[];
+    $: {
+        _right_items = [...NAVIGATION_OMNI.right];
+
+        if (REPOSITORY_ENABLED) {
+            _right_items.push({
+                href: REPOSITORY_URL,
+                icon: Github,
+                text: "GitHub",
+            });
+        }
+
+        if (RELEASES_ENABLED) {
+            _right_items.push({
+                href: RELEASES_URL,
+                icon: Package,
+                text: "Releases",
+            });
+        }
+    }
 
 </script>
 
@@ -33,10 +79,6 @@
     <title>{META_TITLE}</title>
 </svelte:head>
 
-<Shell.Omni
-    branding={META_BRANDING}
-    center_items={NAVIGATION_OMNI.center}
-    right_items={NAVIGATION_OMNI.right}
->
+<Shell.Omni branding={META_BRANDING} center_items={_center_items} right_items={_right_items}>
     <slot />
 </Shell.Omni>

@@ -1,8 +1,4 @@
-<script context="module" lang="ts">
-    // HACK: Reset also... resets the CSS! Except when hydration happens...
-    import "@kahi-ui/framework/dist/kahi-ui.framework.css";
 
-</script>
 
 <script lang="ts">
     import {htmlpalette} from "@kahi-ui/framework";

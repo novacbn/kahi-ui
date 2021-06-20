@@ -38,7 +38,7 @@
               ...map_navigation_items<INavigationBar>(right_items, $page.path),
               {
                   icon: _is_darkmode_next ? Moon : Sun,
-                  text: _is_darkmode_next ? "LIGHT" : "DARK",
+                  text: _is_darkmode_next ? "DARK" : "LIGHT",
                   on_click: on_theme_click.bind(null, _htmlpalette, _prefersdark),
               },
           ];

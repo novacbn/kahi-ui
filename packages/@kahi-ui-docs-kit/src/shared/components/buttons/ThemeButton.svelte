@@ -3,7 +3,7 @@
     import {get} from "svelte/store";
 
     export function is_darkmode_next(palette: string, darkmode: boolean): boolean {
-        return palette === "dark" || (!palette && darkmode);
+        return !palette ? !darkmode : palette !== "dark";
     }
 
     export function on_theme_click(
@@ -37,10 +37,10 @@
 
 <Button bind:element {...$$props} on:click={on_theme_click.bind(null, _htmlpalette, _prefersdark)}>
     {#if is_darkmode_next($_htmlpalette, $_prefersdark)}
-        <Sun />
-        LIGHT
-    {:else}
         <Moon />
         DARK
+    {:else}
+        <Sun />
+        LIGHT
     {/if}
 </Button>

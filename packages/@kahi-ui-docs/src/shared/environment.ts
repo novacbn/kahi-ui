@@ -3,7 +3,11 @@ import {get_affirmative, get_string} from "@kahi-ui/docs-kit/shared";
 
 import META_MANIFEST from "../../.meta.js";
 
-export const CONTENT_ROUTE = get_string(import.meta.env, "VITE_CONTENT_ROUTE", "/docs");
+export const CONTENT_INITIAL = get_string(import.meta.env, "VITE_CONTENT_INITIAL");
+
+export const CONTENT_TEXT = get_string(import.meta.env, "VITE_CONTENT_TEXT", "Documentation");
+
+export const CONTENT_URL = get_string(import.meta.env, "VITE_CONTENT_ROUTE", "/docs");
 
 export const EDIT_ENABLED = get_affirmative(import.meta.env, "VITE_EDIT_ENABLED", false);
 
@@ -34,13 +38,33 @@ export const NAVIGATION_OMNI = (META_MANIFEST.omni ?? {center: [], right: []}) a
     right: INavigationBar[];
 };
 
+export const RELEASES_ENABLED = get_affirmative(import.meta.env, "VITE_RELEASES_ENABLED", false);
+
+export const RELEASES_URL = get_string(
+    import.meta.env,
+    "VITE_RELEASES_URL",
+    RELEASES_ENABLED ? undefined : ""
+);
+
+export const REPOSITORY_ENABLED = get_affirmative(
+    import.meta.env,
+    "VITE_REPOSITORY_ENABLED",
+    false
+);
+
+export const REPOSITORY_URL = get_string(
+    import.meta.env,
+    "VITE_REPOSITORY_URL",
+    REPOSITORY_ENABLED ? undefined : ""
+);
+
 export const TIMESTAMP_ENABLED = get_affirmative(import.meta.env, "VITE_TIMESTAMP_ENABLED", false);
 
 export const TIMESTAMP_TEXT = get_string(import.meta.env, "VITE_TIMESTAMP_TEXT", "Last Updated");
 
 export const VERSION_ENABLED = get_affirmative(import.meta.env, "VITE_VERSION_ENABLED", false);
 
-export const VERSION_TAG = import.meta.env.VITE_VERSION_TAG;
+export const VERSION_TAG = import.meta.env.VITE_VERSION_TAG as string;
 
 export const VERSION_URL = get_string(
     import.meta.env,

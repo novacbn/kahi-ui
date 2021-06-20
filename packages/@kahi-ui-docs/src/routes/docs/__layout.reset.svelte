@@ -1,7 +1,4 @@
 <script context="module" lang="ts">
-    // HACK: Reset also... resets the CSS! Except when hydration happens...
-    import "@kahi-ui/framework/dist/kahi-ui.framework.css";
-    import "prismjs/themes/prism-tomorrow.css";
 
     import type {Load} from "@sveltejs/kit";
 
@@ -21,35 +18,64 @@
 </script>
 
 <script lang="ts">
-    import {Container, Text} from "@kahi-ui/framework";
+    import {Anchor, Container, Spacer, Text} from "@kahi-ui/framework";
 
     import type {INavigationMenu} from "@kahi-ui/docs-kit/shared";
-    import {Shell} from "@kahi-ui/docs-kit/shared";
+    import {Shell, substitute_value} from "@kahi-ui/docs-kit/shared";
 
-    import {META_BRANDING, VERSION_TAG} from "../../shared/environment";
+    import {
+        META_BRANDING,
+        VERSION_ENABLED,
+        VERSION_TAG,
+        VERSION_URL,
+    } from "../../shared/environment";
+
+    import LandingFooter from "../../components/landing/LandingFooter.svelte";
 
     export let items: INavigationMenu[] = [];
+
+    $: _version_url = VERSION_ENABLED ? substitute_value(VERSION_URL, VERSION_TAG) : null;
 
 </script>
 
 <Shell.Aside branding={META_BRANDING} {items}>
     <svelte:fragment slot="footer">
-        <Text is="small">
-            v{VERSION_TAG}
-        </Text>
+        {#if _version_url}
+            <Anchor href={_version_url} rel="noopener noreferrer" target="_blank">
+                <Text is="small">
+                    v{VERSION_TAG}
+                </Text>
+            </Anchor>
+        {:else}
+            <Text is="small">
+                v{VERSION_TAG}
+            </Text>
+        {/if}
     </svelte:fragment>
 
-    <Container
-        class="documentation-container"
-        viewport={["mobile", "widescreen:desktop"]}
-        margin_x="auto"
-        padding_bottom="large"
-    >
-        <slot />
-    </Container>
+    <main>
+        <Container
+            class="documentation-container"
+            viewport={["mobile", "widescreen:desktop"]}
+            margin_x="auto"
+            padding_bottom="large"
+        >
+            <slot />
+        </Container>
+
+        <Spacer />
+        <LandingFooter />
+    </main>
 </Shell.Aside>
 
 <style>
+    main {
+        display: flex;
+
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
     :global(.shell-aside span[role="separator"]) {
         text-transform: uppercase;
     }

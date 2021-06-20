@@ -14,6 +14,7 @@
 
     let _class: string = "";
     export let id: string = "";
+    export let name: string = "";
     export let style: string = "";
     export let tabindex: number | string = "";
     export let title: string = "";

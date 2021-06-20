@@ -16,6 +16,7 @@
 
     let _class: string = "";
     export let id: string = "";
+    export let name: string = "";
     export let style: string = "";
     export let tabindex: number | string = "";
     export let title: string = "";
@@ -42,7 +43,6 @@
     export let active: boolean = false;
     export let disabled: boolean = false;
 
-    export let name: string = "";
     export let type: "submit" | undefined = undefined;
     export let value: string = "";
 
@@ -102,7 +102,7 @@
             type="submit"
             {...map_data_attributes({palette, shape, size, variation})}
             {...map_aria_attributes({pressed: active})}
-            {...map_attributes({disabled, name, value})}
+            {...map_attributes({disabled, value})}
             on:click
         />
     {:else}
@@ -112,7 +112,7 @@
             type="button"
             {...map_data_attributes({palette, shape, size, variation})}
             {...map_aria_attributes({pressed: active})}
-            {...map_attributes({disabled, name, value})}
+            {...map_attributes({disabled, value})}
             on:click
         />
     {/if}

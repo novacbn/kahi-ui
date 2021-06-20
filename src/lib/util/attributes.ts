@@ -47,6 +47,7 @@ const STORYBOOK_DATA_ATTRIBUTES: Set<string> = new Set([
 const STORYBOOK_HTML_ATTRIBUTES: Set<string> = new Set([
     "class",
     "id",
+    "name",
     "style",
     "sveltekit:noscroll",
     "sveltekit:prefetch",

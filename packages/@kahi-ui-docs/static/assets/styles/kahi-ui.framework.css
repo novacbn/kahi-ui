@@ -1530,6 +1530,10 @@ h6[data-variation~="headline"] {
   line-height: 2rem;
 }
 
+abbr[data-palette], b[data-palette], del[data-palette], em[data-palette], h1[data-palette], h2[data-palette], h3[data-palette], h4[data-palette], h5[data-palette], h6[data-palette], i[data-palette], ins[data-palette], kbd[data-palette], mark[data-palette], p[data-palette], pre[data-palette], s[data-palette], samp[data-palette], small[data-palette], span[data-palette], strong[data-palette], sub[data-palette], sup[data-palette], u[data-palette] {
+        color: rgb(var(--palette-foreground-bg));
+    }
+
 abbr[data-transform="capitalize"], b[data-transform="capitalize"], del[data-transform="capitalize"], em[data-transform="capitalize"], h1[data-transform="capitalize"], h2[data-transform="capitalize"], h3[data-transform="capitalize"], h4[data-transform="capitalize"], h5[data-transform="capitalize"], h6[data-transform="capitalize"], i[data-transform="capitalize"], ins[data-transform="capitalize"], kbd[data-transform="capitalize"], mark[data-transform="capitalize"], p[data-transform="capitalize"], pre[data-transform="capitalize"], s[data-transform="capitalize"], samp[data-transform="capitalize"], small[data-transform="capitalize"], span[data-transform="capitalize"], strong[data-transform="capitalize"], sub[data-transform="capitalize"], sup[data-transform="capitalize"], u[data-transform="capitalize"] {
   text-transform: capitalize;
 }
@@ -1568,6 +1572,21 @@ h1[data-align="justify"], h2[data-align="justify"], h3[data-align="justify"], h4
 
 h1[data-align="right"], h2[data-align="right"], h3[data-align="right"], h4[data-align="right"], h5[data-align="right"], h6[data-align="right"], p[data-align="right"], span[data-align="right"] {
   text-align: right;
+}
+
+kbd {
+  --size-text: 70%;
+  border-width: 2px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  border-radius: 0.375rem;
+  white-space: nowrap;
+  background-color: rgba(var(--palette-background-bg), 0.3);
+  border-color: rgba(var(--palette-background-bg), 0.5);
+  border-style: outset;
+  font-size: var(--size-text);
 }
 
 pre {

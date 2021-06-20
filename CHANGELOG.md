@@ -7,6 +7,7 @@
 -   Fixed the sizing modifiers.
 -   Fixed the spacing modifiers.
 -   Fixed typo of `dismissable` -> `dismissible`.
+-   Fixed typing of `DESIGN_HIDDEN_ARGUMENT` not accepting array arguments for Viewports.
 -   Updated the following Components
 
     -   Navigation
@@ -18,6 +19,10 @@
         -   `Breadcrumb`
 
             -   Fixed not resetting the `List` margins.
+
+        -   `Menu`
+
+            -   Fixed `Menu.Divider` not rendering non-text dividers properly.
 
     -   Overlays
 
@@ -38,6 +43,16 @@
         -   `Tile`
 
             -   Updated `Tile.Section` to use bigger padding when first and / or last child for their respective sides.
+
+    -   Typography
+
+        -   `Heading` / `Text`
+
+            -   Added `palette="accent/dark/light/alert/affirmative/negative"` text color modifier.
+
+        -   `Text`
+
+            -   Added initial keycap design for `<Text is="kbd">`.
 
 ## v0.2.5 - UNRELEASED
 

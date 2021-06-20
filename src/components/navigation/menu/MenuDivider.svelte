@@ -51,9 +51,13 @@
 </script>
 
 <MenuItem bind:element {...$$props}>
-    <Divider>
-        <slot />
-    </Divider>
+    {#if $$slots["default"]}
+        <Divider>
+            <slot />
+        </Divider>
+    {:else}
+        <Divider />
+    {/if}
 
     <slot name="sub-menu" />
 </MenuItem>

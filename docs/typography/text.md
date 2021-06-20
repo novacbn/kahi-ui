@@ -11,6 +11,11 @@ default="p"
 types=["abbr", "b", "del", "em", "i", "ins", "kbd", "mark", "p", "pre", "s", "samp", "small", "span", "strong", "sub", "sup", "u"]
 
 [[properties.Text]]
+name="palette"
+description="Alters the displayed color scheme."
+types=["accent", "dark", "light", "alert", "affirmative", "negative"]
+
+[[properties.Text]]
 name="size"
 description="Changes how big the text will be rendered."
 types=["tiny", "small", "medium", "large", "huge"]

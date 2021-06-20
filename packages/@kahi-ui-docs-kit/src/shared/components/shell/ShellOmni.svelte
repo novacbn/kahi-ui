@@ -65,13 +65,13 @@
             <slot name="footer" />
         {/if}
 
-        <Spacer />
+        <Spacer hidden={["desktop", "widescreen"]} />
 
-        <ContextButton palette="light" variation="clear">
+        <ContextButton palette="light" variation="clear" hidden={["desktop", "widescreen"]}>
             <Menu />
         </ContextButton>
 
-        <ContextButton palette="light" variation="clear">
+        <ContextButton palette="light" variation="clear" hidden={["desktop", "widescreen"]}>
             <X />
         </ContextButton>
     </Omni.Header>

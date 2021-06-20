@@ -7,17 +7,17 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SIZING}"]
 [[properties.Mosaic]]
 name="alignment"
 description="Adjusts where the child items will be placed within the <code>Mosaic</code> along both axis."
-types=["center", "stretch"]
+types=["center", "stretch", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Mosaic]]
 name="alignment_x"
 description="Adjusts where the child items will be placed within the <code>Mosaic</code> along the horizontal axis."
-types=["center", "stretch", "left", "right"]
+types=["center", "stretch", "left", "right", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Mosaic]]
 name="alignment_y"
 description="Adjusts where the child items will be placed within the <code>Mosaic</code> along the vertical axis."
-types=["center", "stretch", "bottom", "top"]
+types=["center", "stretch", "bottom", "top", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Mosaic]]
 name="spacing"

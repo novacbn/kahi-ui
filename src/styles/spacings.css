@@ -1037,12 +1037,9 @@
 }
 
 /** GLOBAL PADDING */
+
 [data-padding~="none"] {
     @apply !p-0;
-}
-
-[data-padding~="auto"] {
-    @apply !p-auto;
 }
 
 [data-padding~="tiny"] {
@@ -1068,10 +1065,6 @@
 @variants <sm {
     [data-padding~="mobile:none"] {
         @apply !p-0;
-    }
-
-    [data-padding~="mobile:auto"] {
-        @apply !p-auto;
     }
 
     [data-padding~="mobile:tiny"] {
@@ -1100,10 +1093,6 @@
         @apply !p-0;
     }
 
-    [data-padding~="tablet:auto"] {
-        @apply !p-auto;
-    }
-
     [data-padding~="tablet:tiny"] {
         @apply !p-1;
     }
@@ -1128,10 +1117,6 @@
 @variants @md {
     [data-padding~="desktop:none"] {
         @apply !p-0;
-    }
-
-    [data-padding~="desktop:auto"] {
-        @apply !p-auto;
     }
 
     [data-padding~="desktop:tiny"] {
@@ -1160,10 +1145,6 @@
         @apply !p-0;
     }
 
-    [data-padding~="widescreen:auto"] {
-        @apply !p-auto;
-    }
-
     [data-padding~="widescreen:tiny"] {
         @apply !p-1;
     }
@@ -1189,10 +1170,6 @@
     @apply !px-0;
 }
 
-[data-padding-x~="auto"] {
-    @apply !px-auto;
-}
-
 [data-padding-x~="tiny"] {
     @apply !px-1;
 }
@@ -1216,10 +1193,6 @@
 @variants <sm {
     [data-padding-x~="mobile:none"] {
         @apply !px-0;
-    }
-
-    [data-padding-x~="mobile:auto"] {
-        @apply !px-auto;
     }
 
     [data-padding-x~="mobile:tiny"] {
@@ -1248,10 +1221,6 @@
         @apply !px-0;
     }
 
-    [data-padding-x~="tablet:auto"] {
-        @apply !px-auto;
-    }
-
     [data-padding-x~="tablet:tiny"] {
         @apply !px-1;
     }
@@ -1276,10 +1245,6 @@
 @variants @md {
     [data-padding-x~="desktop:none"] {
         @apply !px-0;
-    }
-
-    [data-padding-x~="desktop:auto"] {
-        @apply !px-auto;
     }
 
     [data-padding-x~="desktop:tiny"] {
@@ -1308,10 +1273,6 @@
         @apply !px-0;
     }
 
-    [data-padding-x~="widescreen:auto"] {
-        @apply !px-auto;
-    }
-
     [data-padding-x~="widescreen:tiny"] {
         @apply !px-1;
     }
@@ -1337,10 +1298,6 @@
     @apply !py-0;
 }
 
-[data-padding-y~="auto"] {
-    @apply !py-auto;
-}
-
 [data-padding-y~="tiny"] {
     @apply !py-1;
 }
@@ -1364,10 +1321,6 @@
 @variants <sm {
     [data-padding-y~="mobile:none"] {
         @apply !py-0;
-    }
-
-    [data-padding-y~="mobile:auto"] {
-        @apply !py-auto;
     }
 
     [data-padding-y~="mobile:tiny"] {
@@ -1396,10 +1349,6 @@
         @apply !py-0;
     }
 
-    [data-padding-y~="tablet:auto"] {
-        @apply !py-auto;
-    }
-
     [data-padding-y~="tablet:tiny"] {
         @apply !py-1;
     }
@@ -1424,10 +1373,6 @@
 @variants @md {
     [data-padding-y~="desktop:none"] {
         @apply !py-0;
-    }
-
-    [data-padding-y~="desktop:auto"] {
-        @apply !py-auto;
     }
 
     [data-padding-y~="desktop:tiny"] {
@@ -1456,10 +1401,6 @@
         @apply !py-0;
     }
 
-    [data-padding-y~="widescreen:auto"] {
-        @apply !py-auto;
-    }
-
     [data-padding-y~="widescreen:tiny"] {
         @apply !py-1;
     }
@@ -1485,10 +1426,6 @@
     @apply !pt-0;
 }
 
-[data-padding-top~="auto"] {
-    @apply !pt-auto;
-}
-
 [data-padding-top~="tiny"] {
     @apply !pt-1;
 }
@@ -1512,10 +1449,6 @@
 @variants <sm {
     [data-padding-top~="mobile:none"] {
         @apply !pt-0;
-    }
-
-    [data-padding-top~="mobile:auto"] {
-        @apply !pt-auto;
     }
 
     [data-padding-top~="mobile:tiny"] {
@@ -1544,10 +1477,6 @@
         @apply !pt-0;
     }
 
-    [data-padding-top~="tablet:auto"] {
-        @apply !pt-auto;
-    }
-
     [data-padding-top~="tablet:tiny"] {
         @apply !pt-1;
     }
@@ -1572,10 +1501,6 @@
 @variants @md {
     [data-padding-top~="desktop:none"] {
         @apply !pt-0;
-    }
-
-    [data-padding-top~="desktop:auto"] {
-        @apply !pt-auto;
     }
 
     [data-padding-top~="desktop:tiny"] {
@@ -1604,10 +1529,6 @@
         @apply !pt-0;
     }
 
-    [data-padding-top~="widescreen:auto"] {
-        @apply !pt-auto;
-    }
-
     [data-padding-top~="widescreen:tiny"] {
         @apply !pt-1;
     }
@@ -1633,10 +1554,6 @@
     @apply !pl-0;
 }
 
-[data-padding-left~="auto"] {
-    @apply !pl-auto;
-}
-
 [data-padding-left~="tiny"] {
     @apply !pl-1;
 }
@@ -1660,10 +1577,6 @@
 @variants <sm {
     [data-padding-left~="mobile:none"] {
         @apply !pl-0;
-    }
-
-    [data-padding-left~="mobile:auto"] {
-        @apply !pl-auto;
     }
 
     [data-padding-left~="mobile:tiny"] {
@@ -1692,10 +1605,6 @@
         @apply !pl-0;
     }
 
-    [data-padding-left~="tablet:auto"] {
-        @apply !pl-auto;
-    }
-
     [data-padding-left~="tablet:tiny"] {
         @apply !pl-1;
     }
@@ -1720,10 +1629,6 @@
 @variants @md {
     [data-padding-left~="desktop:none"] {
         @apply !pl-0;
-    }
-
-    [data-padding-left~="desktop:auto"] {
-        @apply !pl-auto;
     }
 
     [data-padding-left~="desktop:tiny"] {
@@ -1752,10 +1657,6 @@
         @apply !pl-0;
     }
 
-    [data-padding-left~="widescreen:auto"] {
-        @apply !pl-auto;
-    }
-
     [data-padding-left~="widescreen:tiny"] {
         @apply !pl-1;
     }
@@ -1781,10 +1682,6 @@
     @apply !pb-0;
 }
 
-[data-padding-bottom~="auto"] {
-    @apply !pb-auto;
-}
-
 [data-padding-bottom~="tiny"] {
     @apply !pb-1;
 }
@@ -1808,10 +1705,6 @@
 @variants <sm {
     [data-padding-bottom~="mobile:none"] {
         @apply !pb-0;
-    }
-
-    [data-padding-bottom~="mobile:auto"] {
-        @apply !pb-auto;
     }
 
     [data-padding-bottom~="mobile:tiny"] {
@@ -1840,10 +1733,6 @@
         @apply !pb-0;
     }
 
-    [data-padding-bottom~="tablet:auto"] {
-        @apply !pb-auto;
-    }
-
     [data-padding-bottom~="tablet:tiny"] {
         @apply !pb-1;
     }
@@ -1868,10 +1757,6 @@
 @variants @md {
     [data-padding-bottom~="desktop:none"] {
         @apply !pb-0;
-    }
-
-    [data-padding-bottom~="desktop:auto"] {
-        @apply !pb-auto;
     }
 
     [data-padding-bottom~="desktop:tiny"] {
@@ -1900,10 +1785,6 @@
         @apply !pb-0;
     }
 
-    [data-padding-bottom~="widescreen:auto"] {
-        @apply !pb-auto;
-    }
-
     [data-padding-bottom~="widescreen:tiny"] {
         @apply !pb-1;
     }
@@ -1929,10 +1810,6 @@
     @apply !pr-0;
 }
 
-[data-padding-right~="auto"] {
-    @apply !pr-auto;
-}
-
 [data-padding-right~="tiny"] {
     @apply !pr-1;
 }
@@ -1956,10 +1833,6 @@
 @variants <sm {
     [data-padding-right~="mobile:none"] {
         @apply !pr-0;
-    }
-
-    [data-padding-right~="mobile:auto"] {
-        @apply !pr-auto;
     }
 
     [data-padding-right~="mobile:tiny"] {
@@ -1988,10 +1861,6 @@
         @apply !pr-0;
     }
 
-    [data-padding-right~="tablet:auto"] {
-        @apply !pr-auto;
-    }
-
     [data-padding-right~="tablet:tiny"] {
         @apply !pr-1;
     }
@@ -2018,10 +1887,6 @@
         @apply !pr-0;
     }
 
-    [data-padding-right~="desktop:auto"] {
-        @apply !pr-auto;
-    }
-
     [data-padding-right~="desktop:tiny"] {
         @apply !pr-1;
     }
@@ -2046,10 +1911,6 @@
 @variants lg {
     [data-padding-right~="widescreen:none"] {
         @apply !pr-0;
-    }
-
-    [data-padding-right~="widescreen:auto"] {
-        @apply !pr-auto;
     }
 
     [data-padding-right~="widescreen:tiny"] {

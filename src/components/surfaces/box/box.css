@@ -1,7 +1,7 @@
 .box {
     @apply text-current;
 
-    background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
+    background-color: rgba(theme("colors.default.100"), theme("opacity.20"));
 
     &[data-palette] {
         @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];

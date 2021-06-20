@@ -1,14 +1,7 @@
 export default {
     omni: {
-        center: [{href: "/docs/framework/getting-started", text: "Documentation"}],
-
-        right: [
-            {href: "https://github.com/novacbn/kahi-ui", text: "GitHub"},
-            {
-                href: "https://github.com/novacbn/kahi-ui/releases/latest",
-                text: "Releases",
-            },
-        ],
+        center: [],
+        right: [],
     },
 
     aside: [
@@ -18,7 +11,7 @@ export default {
                 {href: "/docs/framework/getting-started"},
                 {href: "/docs/framework/icons"},
                 {href: "/docs/framework/browser-support"},
-                {href: "/docs/framework/viewports"},
+                {href: "/docs/framework/responsivity"},
             ],
         },
 

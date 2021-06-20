@@ -3,7 +3,7 @@ import {relative} from "path";
 import type {INavigationBar, INavigationMenu} from "@kahi-ui/docs-kit/shared";
 import {is_navigation_anchor, is_navigation_submenu} from "@kahi-ui/docs-kit/shared";
 
-import {CONTENT_ROUTE} from "../shared/environment";
+import {CONTENT_URL} from "../shared/environment";
 
 import {has_content, read_content} from "./content";
 
@@ -16,8 +16,8 @@ export async function parse_navigation<T extends INavigationBar | INavigationMen
                 const {href} = item;
                 let {text} = item;
 
-                if (!text && href.startsWith(CONTENT_ROUTE)) {
-                    const path = relative(CONTENT_ROUTE, href);
+                if (!text && href.startsWith(CONTENT_URL)) {
+                    const path = relative(CONTENT_URL, href);
                     if (await has_content(path)) {
                         const content = await read_content(path);
                         text = content.meta.title;

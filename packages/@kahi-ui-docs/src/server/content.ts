@@ -6,7 +6,7 @@ const {lstat, readFile} = promises;
 import {can_access, render_article} from "@kahi-ui/docs-kit/server";
 import type {IArticleMeta} from "@kahi-ui/docs-kit/shared";
 
-import {CONTENT_ROUTE} from "../shared/environment";
+import {CONTENT_URL} from "../shared/environment";
 import type {IContent, IContentMeta} from "../shared/types/content";
 
 import {PATH_CONTENT} from "./environment";
@@ -15,7 +15,7 @@ function normalize_metadata(identifier: string, meta: IArticleMeta, stats: Stats
     const {properties, sections, snippets, title} = meta;
     const btime = meta.btime ?? stats.birthtimeMs;
     const mtime = meta.mtime ?? stats.mtimeMs;
-    const href = `${CONTENT_ROUTE}/${identifier}`;
+    const href = `${CONTENT_URL}/${identifier}`;
 
     return {
         identifier,

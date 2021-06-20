@@ -7,17 +7,17 @@ types=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "{VIEWPORT
 [[properties.Grid]]
 name="alignment"
 description="Adjusts where the child items will be placed within the <code>Grid</code> along both axis."
-types=["center", "stretch"]
+types=["center", "stretch", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Grid]]
 name="alignment_x"
 description="Adjusts where the child items will be placed within the <code>Grid</code> along the horizontal axis."
-types=["center", "stretch", "left", "right"]
+types=["center", "stretch", "left", "right", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Grid]]
 name="alignment_y"
 description="Adjusts where the child items will be placed within the <code>Grid</code> along the vertical axis."
-types=["center", "stretch", "bottom", "top"]
+types=["center", "stretch", "bottom", "top", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Grid]]
 name="spacing"
@@ -90,7 +90,7 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 ## Points
 
-> **NOTE**: By passing an array, you can set values based on viewports. e.g. `points={["7", "tablet:6", "mobile:5"]}`
+> **NOTE**: By passing an array, you can set [responsive values](../framework/responsivity.md). e.g. `points={["7", "tablet:6", "mobile:5"]}`
 
 You can adjust how many points the `Grid` items are divided by via the `points` property.
 
@@ -392,7 +392,7 @@ You can adjust how many points the `Grid` items are divided by via the `points` 
 
 ## Spacing
 
-> **NOTE**: By passing an array, you can set values based on viewports. e.g. `spacing={["medium", "tablet:small", "mobile:tiny"]}`
+> **NOTE**: By passing an array, you can set [responsive values](../framework/responsivity.md). e.g. `spacing={["medium", "tablet:small", "mobile:tiny"]}`
 
 You can adjust the spacing between items via the `spacing`, `spacing_x`, and `spacing_y` properties.
 

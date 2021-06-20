@@ -7,9 +7,21 @@
 
         <link rel="icon" href="/favicon.ico" />
 
+        <link rel="stylesheet" href="/assets/styles/kahi-ui.framework.css" />
+        <link rel="stylesheet" href="/assets/styles/prism-tomorrow.css" />
+
         %svelte.head%
 
         <title>Kahi UI :: Straight-forward Svelte UI for the Web</title>
+
+        <!--
+            HACK: This is just here due to time to execute Javascript causing
+            a flash of color on page load
+        -->
+        <script type="application/javascript">
+            const theme = localStorage.getItem("preferences.theme");
+            if (theme) document.documentElement.setAttribute("data-palette", JSON.parse(theme));
+        </script>
     </head>
 
     <body>

@@ -2,8 +2,10 @@
 
 ## v0.2.6 -
 
+-   Added `name` HTML5 attribute to all Components as a global property.
 -   Adjusted dark / light shades coloring slightly.
 -   Fixed the sizing modifiers.
+-   Fixed the spacing modifiers.
 -   Fixed typo of `dismissable` -> `dismissible`.
 -   Updated the following Components
 
@@ -24,6 +26,10 @@
             -   Fixed children not being interactable when state was not configured.
 
     -   Surfaces
+
+        -   `Box`
+
+            -   Adjusted default color shade to match `Hero`.
 
         -   `Card` / `Tile`
 

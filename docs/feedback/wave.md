@@ -44,7 +44,7 @@ You can change the color palette of the `Wave` via the `palette` property.
     import {Stack, Text, Wave} from "@kahi-ui/framework";
 </script>
 
-<Stack spacing="medium" orientation="horizontal">
+<Stack spacing="medium" orientation="horizontal" variation="wrap">
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>

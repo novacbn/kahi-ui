@@ -17,11 +17,15 @@ pre,
 s,
 samp,
 small,
-span,
+span:not([class]),
 strong,
 sub,
 sup,
 u {
+    &[data-palette] {
+        color: rgb(var(--palette-foreground-bg));
+    }
+
     &[data-transform="capitalize"] {
         @apply capitalize;
     }
@@ -69,7 +73,7 @@ h4,
 h5,
 h6,
 p,
-span {
+span:not([class]) {
     &[data-align="center"] {
         @apply text-center;
     }
@@ -85,6 +89,18 @@ span {
     &[data-align="right"] {
         @apply text-right;
     }
+}
+
+kbd {
+    --size-text: 65%;
+
+    @apply border-2 px-1 py-0.5 rounded-md whitespace-nowrap;
+
+    background-color: rgba(var(--palette-background-bg), theme("opacity.30"));
+    border-color: rgba(var(--palette-background-bg), theme("opacity.50"));
+    border-style: outset;
+
+    font-size: var(--size-text);
 }
 
 pre {

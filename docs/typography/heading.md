@@ -9,6 +9,11 @@ name="is"
 description="Changes the HTML tag used for rendering the text, and the text size."
 types=["h1", "h2", "h3", "h4", "h5", "h6"]
 
+[[properties.Text]]
+name="palette"
+description="Alters the displayed color scheme."
+types=["accent", "dark", "light", "alert", "affirmative", "negative"]
+
 [[properties.Heading]]
 name="transform"
 description="Alters how the text casing is rendered."

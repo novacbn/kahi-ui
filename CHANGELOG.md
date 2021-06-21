@@ -2,10 +2,19 @@
 
 ## v0.2.6 -
 
+-   Added `name` HTML5 attribute to all Components as a global property.
 -   Adjusted dark / light shades coloring slightly.
 -   Fixed the sizing modifiers.
+-   Fixed the spacing modifiers.
 -   Fixed typo of `dismissable` -> `dismissible`.
+-   Fixed typing of `DESIGN_HIDDEN_ARGUMENT` not accepting array arguments for Viewports.
 -   Updated the following Components
+
+    -   Feedback
+
+        -   `Wave`
+
+            -   Removed line wrapping from the children dots.
 
     -   Navigation
 
@@ -17,6 +26,10 @@
 
             -   Fixed not resetting the `List` margins.
 
+        -   `Menu`
+
+            -   Fixed `Menu.Divider` not rendering non-text dividers properly.
+
     -   Overlays
 
         -   `Overlay`
@@ -25,6 +38,10 @@
 
     -   Surfaces
 
+        -   `Box`
+
+            -   Adjusted default color shade to match `Hero`.
+
         -   `Card` / `Tile`
 
             -   Added low transparency border for legibility.
@@ -32,6 +49,16 @@
         -   `Tile`
 
             -   Updated `Tile.Section` to use bigger padding when first and / or last child for their respective sides.
+
+    -   Typography
+
+        -   `Heading` / `Text`
+
+            -   Added `palette="accent/dark/light/alert/affirmative/negative"` text color modifier.
+
+        -   `Text`
+
+            -   Added initial keycap design for `<Text is="kbd">`.
 
 ## v0.2.5 - UNRELEASED
 

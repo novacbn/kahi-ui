@@ -1,7 +1,7 @@
 .wave {
     --size-icon: 1em;
 
-    @apply align-middle inline-block;
+    @apply align-middle inline-block whitespace-nowrap;
 
     font-size: var(--size-icon);
 

@@ -1,16 +1,11 @@
 # Browser Support
 
-TODO: Browser support table with minimum tested versions as-well
+|                       | Chrome          | Edge            | Firefox        | Safari             | Internet Explorer |
+| --------------------- | --------------- | --------------- | -------------- | ------------------ | ----------------- |
+| **Estimated Minimum** | 64+ _July 2020_ | 84+ _July 2020_ | 67+ _May 2019_ | 14.1+ _April 2021_ | **UNSUPPORTED**   |
+| **Tested Minimum**    | 89+             | ?               | 87+            | ?                  | **UNSUPPORTED**   |
 
-<!--
--   Chrome 84+ — July 2020
--   Edge 84+ — July 2020
--   Firefox 67+ — May 2019
--   Safari 14.1+ — April 2021
--   Internet Explorer — **UNSUPPORTED**
--->
-
-## Features
+## Features Used
 
 -   CSS
 

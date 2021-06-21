@@ -1,5 +1,6 @@
 <script lang="ts">
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
     import type {
         DESIGN_HEADING_VARIATION_ARGUMENT,
@@ -13,6 +14,7 @@
 
     let _class: string = "";
     export let id: string = "";
+    export let name: string = "";
     export let style: string = "";
     export let tabindex: number | string = "";
     export let title: string = "";
@@ -36,13 +38,15 @@
     export let transform: DESIGN_TEXT_TRANSFORM_ARGUMENT | undefined = undefined;
     export let variation: DESIGN_HEADING_VARIATION_ARGUMENT | undefined = undefined;
 
+    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
+
 </script>
 
 {#if is === "h6"}
     <h6
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, transform, variation})}
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </h6>
@@ -50,7 +54,7 @@
     <h5
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, transform, variation})}
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </h5>
@@ -58,7 +62,7 @@
     <h4
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, transform, variation})}
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </h4>
@@ -66,7 +70,7 @@
     <h3
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, transform, variation})}
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </h3>
@@ -74,7 +78,7 @@
     <h2
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, transform, variation})}
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </h2>
@@ -82,7 +86,7 @@
     <h1
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, transform, variation})}
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </h1>

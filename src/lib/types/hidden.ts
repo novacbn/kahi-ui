@@ -13,4 +13,6 @@ export enum DESIGN_HIDDEN {
 
 export const DESIGN_HIDDEN_LITERALS = {...DESIGN_HIDDEN} as const;
 
-export type DESIGN_HIDDEN_ARGUMENT = boolean | keyof typeof DESIGN_HIDDEN_LITERALS;
+export type DESIGN_HIDDEN_ARGUMENT =
+    | (boolean | keyof typeof DESIGN_HIDDEN_LITERALS)
+    | (keyof typeof DESIGN_HIDDEN_LITERALS)[];

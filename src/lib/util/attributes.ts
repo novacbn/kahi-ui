@@ -1,4 +1,4 @@
-const STORYBOOK_ATTRIBUTE_REMAP: Record<string, string | undefined> = {
+const ATTRIBUTE_REMAP: Record<string, string | undefined> = {
     max_height: "max-height",
     min_height: "min-height",
     max_width: "max-width",
@@ -17,7 +17,7 @@ const STORYBOOK_ATTRIBUTE_REMAP: Record<string, string | undefined> = {
     padding_right: "padding-right",
 };
 
-const STORYBOOK_DATA_ATTRIBUTES: Set<string> = new Set([
+const DATA_ATTRIBUTES: Set<string> = new Set([
     "height",
     "hidden",
     "max-height",
@@ -44,9 +44,10 @@ const STORYBOOK_DATA_ATTRIBUTES: Set<string> = new Set([
 /**
  * Represents HTML attributes that can be set globally on every Svelte Component
  */
-const STORYBOOK_HTML_ATTRIBUTES: Set<string> = new Set([
+const HTML_ATTRIBUTES: Set<string> = new Set([
     "class",
     "id",
+    "name",
     "style",
     "sveltekit:noscroll",
     "sveltekit:prefetch",
@@ -74,7 +75,7 @@ export type IProps = Record<string, IPropPrimitive | IPropPrimitive[]>;
 export function map_attributes(props: IProps, set?: Set<string>, prefix: string = ""): IProps {
     let entries = Object.entries(props).filter((entry) => {
         let [attribute, value] = entry;
-        attribute = STORYBOOK_ATTRIBUTE_REMAP[attribute] ?? attribute;
+        attribute = ATTRIBUTE_REMAP[attribute] ?? attribute;
 
         if (set && !set.has(attribute)) return false;
         return Array.isArray(value) ? value.length > 0 : !!value;
@@ -82,7 +83,7 @@ export function map_attributes(props: IProps, set?: Set<string>, prefix: string 
 
     entries = entries.map((entry) => {
         let [attribute, value] = entry;
-        attribute = STORYBOOK_ATTRIBUTE_REMAP[attribute] ?? attribute;
+        attribute = ATTRIBUTE_REMAP[attribute] ?? attribute;
 
         return [
             prefix ? prefix + attribute : attribute,
@@ -125,8 +126,8 @@ export function map_data_attributes(props: IProps, set?: Set<string>): IProps {
  * @returns
  */
 export function map_global_attributes(props: IProps): IProps {
-    const data_attributes = map_data_attributes(props, STORYBOOK_DATA_ATTRIBUTES);
-    const html_attributes = map_attributes(props, STORYBOOK_HTML_ATTRIBUTES);
+    const data_attributes = map_data_attributes(props, DATA_ATTRIBUTES);
+    const html_attributes = map_attributes(props, HTML_ATTRIBUTES);
 
     return {
         ...html_attributes,

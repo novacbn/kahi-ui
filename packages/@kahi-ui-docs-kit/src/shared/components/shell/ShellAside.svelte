@@ -5,7 +5,7 @@
 
     import {browser} from "$app/env";
     import {page} from "$app/stores";
-    import {Anchor, Aside, ContextButton, Scrollable, Stack} from "@kahi-ui/framework";
+    import {Anchor, Aside, ContextButton, Stack} from "@kahi-ui/framework";
     import {onMount} from "svelte";
     import {Menu} from "svelte-feather/components/Menu";
     import {X} from "svelte-feather/components/X";
@@ -82,11 +82,11 @@
             </Aside.Footer>
         {/if}
 
-        <ContextButton>
+        <ContextButton hidden={["desktop", "widescreen"]}>
             <Menu />
         </ContextButton>
 
-        <ContextButton palette="dark" variation="clear">
+        <ContextButton palette="dark" variation="clear" hidden={["desktop", "widescreen"]}>
             <X />
         </ContextButton>
     </Aside.Container>

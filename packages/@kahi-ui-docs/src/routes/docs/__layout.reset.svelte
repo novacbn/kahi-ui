@@ -1,5 +1,4 @@
 <script context="module" lang="ts">
-
     import type {Load} from "@sveltejs/kit";
 
     import type {IAsideGet} from "../../shared/types/api";
@@ -88,6 +87,10 @@
     :global(.documentation-container > blockquote),
     :global(.documentation-container > p) {
         margin-top: 1em;
+    }
+
+    :global(.documentation-container > table) {
+        margin-top: 1rem;
     }
 
     :global(.documentation-container > .snippet-highlight) {

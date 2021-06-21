@@ -10,6 +10,12 @@
 -   Fixed typing of `DESIGN_HIDDEN_ARGUMENT` not accepting array arguments for Viewports.
 -   Updated the following Components
 
+    -   Feedback
+
+        -   `Wave`
+
+            -   Removed line wrapping from the children dots.
+
     -   Navigation
 
         -   `Aside` / `Omni`

@@ -17,7 +17,7 @@ pre,
 s,
 samp,
 small,
-span,
+span:not([class]),
 strong,
 sub,
 sup,
@@ -73,7 +73,7 @@ h4,
 h5,
 h6,
 p,
-span {
+span:not([class]) {
     &[data-align="center"] {
         @apply text-center;
     }

@@ -484,6 +484,7 @@ span.ellipsis > span:nth-child(2) {
   --size-icon: 1em;
   vertical-align: middle;
   display: inline-block;
+  white-space: nowrap;
   font-size: var(--size-icon);
 }
 
@@ -1530,23 +1531,23 @@ h6[data-variation~="headline"] {
   line-height: 2rem;
 }
 
-abbr[data-palette], b[data-palette], del[data-palette], em[data-palette], h1[data-palette], h2[data-palette], h3[data-palette], h4[data-palette], h5[data-palette], h6[data-palette], i[data-palette], ins[data-palette], kbd[data-palette], mark[data-palette], p[data-palette], pre[data-palette], s[data-palette], samp[data-palette], small[data-palette], span[data-palette], strong[data-palette], sub[data-palette], sup[data-palette], u[data-palette] {
+abbr[data-palette], b[data-palette], del[data-palette], em[data-palette], h1[data-palette], h2[data-palette], h3[data-palette], h4[data-palette], h5[data-palette], h6[data-palette], i[data-palette], ins[data-palette], kbd[data-palette], mark[data-palette], p[data-palette], pre[data-palette], s[data-palette], samp[data-palette], small[data-palette], span:not([class])[data-palette], strong[data-palette], sub[data-palette], sup[data-palette], u[data-palette] {
         color: rgb(var(--palette-foreground-bg));
     }
 
-abbr[data-transform="capitalize"], b[data-transform="capitalize"], del[data-transform="capitalize"], em[data-transform="capitalize"], h1[data-transform="capitalize"], h2[data-transform="capitalize"], h3[data-transform="capitalize"], h4[data-transform="capitalize"], h5[data-transform="capitalize"], h6[data-transform="capitalize"], i[data-transform="capitalize"], ins[data-transform="capitalize"], kbd[data-transform="capitalize"], mark[data-transform="capitalize"], p[data-transform="capitalize"], pre[data-transform="capitalize"], s[data-transform="capitalize"], samp[data-transform="capitalize"], small[data-transform="capitalize"], span[data-transform="capitalize"], strong[data-transform="capitalize"], sub[data-transform="capitalize"], sup[data-transform="capitalize"], u[data-transform="capitalize"] {
+abbr[data-transform="capitalize"], b[data-transform="capitalize"], del[data-transform="capitalize"], em[data-transform="capitalize"], h1[data-transform="capitalize"], h2[data-transform="capitalize"], h3[data-transform="capitalize"], h4[data-transform="capitalize"], h5[data-transform="capitalize"], h6[data-transform="capitalize"], i[data-transform="capitalize"], ins[data-transform="capitalize"], kbd[data-transform="capitalize"], mark[data-transform="capitalize"], p[data-transform="capitalize"], pre[data-transform="capitalize"], s[data-transform="capitalize"], samp[data-transform="capitalize"], small[data-transform="capitalize"], span:not([class])[data-transform="capitalize"], strong[data-transform="capitalize"], sub[data-transform="capitalize"], sup[data-transform="capitalize"], u[data-transform="capitalize"] {
   text-transform: capitalize;
 }
 
-abbr[data-transform="lowercase"], b[data-transform="lowercase"], del[data-transform="lowercase"], em[data-transform="lowercase"], h1[data-transform="lowercase"], h2[data-transform="lowercase"], h3[data-transform="lowercase"], h4[data-transform="lowercase"], h5[data-transform="lowercase"], h6[data-transform="lowercase"], i[data-transform="lowercase"], ins[data-transform="lowercase"], kbd[data-transform="lowercase"], mark[data-transform="lowercase"], p[data-transform="lowercase"], pre[data-transform="lowercase"], s[data-transform="lowercase"], samp[data-transform="lowercase"], small[data-transform="lowercase"], span[data-transform="lowercase"], strong[data-transform="lowercase"], sub[data-transform="lowercase"], sup[data-transform="lowercase"], u[data-transform="lowercase"] {
+abbr[data-transform="lowercase"], b[data-transform="lowercase"], del[data-transform="lowercase"], em[data-transform="lowercase"], h1[data-transform="lowercase"], h2[data-transform="lowercase"], h3[data-transform="lowercase"], h4[data-transform="lowercase"], h5[data-transform="lowercase"], h6[data-transform="lowercase"], i[data-transform="lowercase"], ins[data-transform="lowercase"], kbd[data-transform="lowercase"], mark[data-transform="lowercase"], p[data-transform="lowercase"], pre[data-transform="lowercase"], s[data-transform="lowercase"], samp[data-transform="lowercase"], small[data-transform="lowercase"], span:not([class])[data-transform="lowercase"], strong[data-transform="lowercase"], sub[data-transform="lowercase"], sup[data-transform="lowercase"], u[data-transform="lowercase"] {
   text-transform: lowercase;
 }
 
-abbr[data-transform="uppercase"], b[data-transform="uppercase"], del[data-transform="uppercase"], em[data-transform="uppercase"], h1[data-transform="uppercase"], h2[data-transform="uppercase"], h3[data-transform="uppercase"], h4[data-transform="uppercase"], h5[data-transform="uppercase"], h6[data-transform="uppercase"], i[data-transform="uppercase"], ins[data-transform="uppercase"], kbd[data-transform="uppercase"], mark[data-transform="uppercase"], p[data-transform="uppercase"], pre[data-transform="uppercase"], s[data-transform="uppercase"], samp[data-transform="uppercase"], small[data-transform="uppercase"], span[data-transform="uppercase"], strong[data-transform="uppercase"], sub[data-transform="uppercase"], sup[data-transform="uppercase"], u[data-transform="uppercase"] {
+abbr[data-transform="uppercase"], b[data-transform="uppercase"], del[data-transform="uppercase"], em[data-transform="uppercase"], h1[data-transform="uppercase"], h2[data-transform="uppercase"], h3[data-transform="uppercase"], h4[data-transform="uppercase"], h5[data-transform="uppercase"], h6[data-transform="uppercase"], i[data-transform="uppercase"], ins[data-transform="uppercase"], kbd[data-transform="uppercase"], mark[data-transform="uppercase"], p[data-transform="uppercase"], pre[data-transform="uppercase"], s[data-transform="uppercase"], samp[data-transform="uppercase"], small[data-transform="uppercase"], span:not([class])[data-transform="uppercase"], strong[data-transform="uppercase"], sub[data-transform="uppercase"], sup[data-transform="uppercase"], u[data-transform="uppercase"] {
   text-transform: uppercase;
 }
 
-abbr[data-variation~="truncate"], b[data-variation~="truncate"], del[data-variation~="truncate"], em[data-variation~="truncate"], h1[data-variation~="truncate"], h2[data-variation~="truncate"], h3[data-variation~="truncate"], h4[data-variation~="truncate"], h5[data-variation~="truncate"], h6[data-variation~="truncate"], i[data-variation~="truncate"], ins[data-variation~="truncate"], kbd[data-variation~="truncate"], mark[data-variation~="truncate"], p[data-variation~="truncate"], pre[data-variation~="truncate"], s[data-variation~="truncate"], samp[data-variation~="truncate"], small[data-variation~="truncate"], span[data-variation~="truncate"], strong[data-variation~="truncate"], sub[data-variation~="truncate"], sup[data-variation~="truncate"], u[data-variation~="truncate"] {
+abbr[data-variation~="truncate"], b[data-variation~="truncate"], del[data-variation~="truncate"], em[data-variation~="truncate"], h1[data-variation~="truncate"], h2[data-variation~="truncate"], h3[data-variation~="truncate"], h4[data-variation~="truncate"], h5[data-variation~="truncate"], h6[data-variation~="truncate"], i[data-variation~="truncate"], ins[data-variation~="truncate"], kbd[data-variation~="truncate"], mark[data-variation~="truncate"], p[data-variation~="truncate"], pre[data-variation~="truncate"], s[data-variation~="truncate"], samp[data-variation~="truncate"], small[data-variation~="truncate"], span:not([class])[data-variation~="truncate"], strong[data-variation~="truncate"], sub[data-variation~="truncate"], sup[data-variation~="truncate"], u[data-variation~="truncate"] {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -1558,19 +1559,19 @@ abbr[data-size], b[data-size], del[data-size], em[data-size], i[data-size], ins[
         line-height: var(--size-line-height);
     }
 
-h1[data-align="center"], h2[data-align="center"], h3[data-align="center"], h4[data-align="center"], h5[data-align="center"], h6[data-align="center"], p[data-align="center"], span[data-align="center"] {
+h1[data-align="center"], h2[data-align="center"], h3[data-align="center"], h4[data-align="center"], h5[data-align="center"], h6[data-align="center"], p[data-align="center"], span:not([class])[data-align="center"] {
   text-align: center;
 }
 
-h1[data-align="left"], h2[data-align="left"], h3[data-align="left"], h4[data-align="left"], h5[data-align="left"], h6[data-align="left"], p[data-align="left"], span[data-align="left"] {
+h1[data-align="left"], h2[data-align="left"], h3[data-align="left"], h4[data-align="left"], h5[data-align="left"], h6[data-align="left"], p[data-align="left"], span:not([class])[data-align="left"] {
   text-align: left;
 }
 
-h1[data-align="justify"], h2[data-align="justify"], h3[data-align="justify"], h4[data-align="justify"], h5[data-align="justify"], h6[data-align="justify"], p[data-align="justify"], span[data-align="justify"] {
+h1[data-align="justify"], h2[data-align="justify"], h3[data-align="justify"], h4[data-align="justify"], h5[data-align="justify"], h6[data-align="justify"], p[data-align="justify"], span:not([class])[data-align="justify"] {
   text-align: justify;
 }
 
-h1[data-align="right"], h2[data-align="right"], h3[data-align="right"], h4[data-align="right"], h5[data-align="right"], h6[data-align="right"], p[data-align="right"], span[data-align="right"] {
+h1[data-align="right"], h2[data-align="right"], h3[data-align="right"], h4[data-align="right"], h5[data-align="right"], h6[data-align="right"], p[data-align="right"], span:not([class])[data-align="right"] {
   text-align: right;
 }
 

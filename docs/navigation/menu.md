@@ -1,3 +1,50 @@
++++
+[[properties."Menu.Container"]]
+name="orientation"
+description="Renders the <code>Menu.Container</code> horizontally."
+types=["horizontal", "{VIEWPORT}:horizontal"]
+
+[[properties."Menu.Anchor"]]
+name="active"
+description="Renders the <code>Menu.Anchor</code> with <code>aria-pressed</code> attribute, and styles the <code>Menu.Anchor</code> as if it where being clicked."
+types=["boolean"]
+
+[[properties."Menu.Anchor"]]
+name="disabled"
+description="Renders the <code>Menu.Anchor</code> with <code>aria-disabled</code> attributes, and styles the <code>Menu.Anchor</code> partially transparent."
+types=["boolean"]
+
+[[properties."Menu.Anchor"]]
+name="href"
+description="Renders the <code>Menu.Anchor</code> as a <code>&lt;a role=\"button\"&gt;</code> and links to the specified <code>href</code> property."
+types=["string"]
+
+[[properties."Menu.Anchor"]]
+name="download"
+description="If linking to a downloadable file, this property will be used as the suggested file name."
+types=["string"]
+
+[[properties."Menu.Anchor"]]
+name="rel"
+description="Sets how the <code>Menu.Anchor</code> relates to the current page, see <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-rel' rel='noopener noreferrer' target='_blank'>MDN</a> for more information."
+types=["string"]
+
+[[properties."Menu.Anchor"]]
+name="target"
+description="Sets the target of the <code>Menu.Anchor</code> being navigated, see <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target' rel='noopener noreferrer' target='_blank'>MDN</a> for more information."
+types=["string"]
+
+[[properties."Menu.Button"]]
+name="active"
+description="Renders the <code>Menu.Button</code> with <code>aria-pressed</code> attribute, and styles the <code>Menu.Button</code> as if it where being clicked."
+types=["boolean"]
+
+[[properties."Menu.Button"]]
+name="disabled"
+description="Renders the <code>Menu.Button</code> with <code>disabled</code> attributes, and styles the <code>Menu.Button</code> partially transparent."
+types=["boolean"]
++++
+
 # Menu
 
 `Menu` renders a nestable list of actionable buttons and links. Typically used in context menus or used as the main content body of [`Aside`](./aside.md).
@@ -39,6 +86,35 @@
 
     const {Container, Anchor, Button, Divider, Heading, Item, SubMenu} = Menu;
 </script>
+```
+
+## Orientation
+
+> **NOTE**: By passing an array, you can set [responsive values](../framework/responsivity.md). e.g. `orientation={["tablet:horizontal", "mobile:horizontal"]}`
+
+> **IMPORTANT**: You should never use sub menus whenever using horizontal `Menu.Container` Components.
+
+You can alter the orientation of how the `Menu.Container` lays out the children.
+
+<!-- prettier-ignore -->
+```html repl Menu Orientation
+<script>
+    import {Menu} from "@kahi-ui/framework";
+</script>
+
+<Menu.Container orientation="horizontal">
+    <Menu.Button>
+        Documentation
+    </Menu.Button>
+
+    <Menu.Button>
+        Github
+    </Menu.Button>
+
+    <Menu.Button>
+        Releases
+    </Menu.Button>
+</Menu.Container>
 ```
 
 ## Sub Menus

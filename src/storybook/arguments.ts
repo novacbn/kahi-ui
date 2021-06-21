@@ -21,6 +21,7 @@ import {DESIGN_SHAPE_LITERALS} from "../lib/types/shapes";
 import {DESIGN_SIZE_LITERALS} from "../lib/types/sizes";
 import {DESIGN_INTRINSIC_SIZING_LITERALS, DESIGN_SIZING_LITERALS} from "../lib/types/sizings";
 import {DESIGN_SPACING_LITERALS} from "../lib/types/spacings";
+import {DESIGN_TABLE_VARIATION_LITERALS} from "../lib/types/table";
 import {DESIGN_VARIATION_LITERALS} from "../lib/types/variations";
 
 export const STORYBOOK_ANIMATION_ARGUMENTS = {
@@ -424,6 +425,15 @@ export const STORYBOOK_SPACING_ARGUMENTS = {
 
     spacing_y: {
         options: Object.values(DESIGN_SPACING_LITERALS),
+        control: {
+            type: "multi-select",
+        },
+    },
+};
+
+export const STORYBOOK_TABLE_VARIATION_ARGUMENTS = {
+    variation: {
+        options: Object.values(DESIGN_TABLE_VARIATION_LITERALS),
         control: {
             type: "multi-select",
         },

@@ -20,6 +20,8 @@ export * from "./lib/types/viewports";
 export * from "./components/display/badge";
 import * as List from "./components/display/list";
 export {List};
+import * as Table from "./components/display/table";
+export {Table};
 
 export * from "./components/feedback/ellipsis";
 export * from "./components/feedback/dot";

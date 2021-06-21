@@ -1,7 +1,7 @@
 /*!
  * Kahi UI - Framework
  *
- * v0.2.6
+ * v0.2.7
  */
 
 *, ::before, ::after {
@@ -192,6 +192,12 @@ sup {
   top: -0.5em;
 }
 
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -249,7 +255,7 @@ sup {
 
 :root,
 :root[data-palette="light"] {
-    --palette-background-bg: 238, 238, 238;
+    --palette-background-bg: 250, 250, 250;
     --palette-background-text: 67, 70, 74;
 
     --palette-foreground-bg: 245, 245, 245;
@@ -400,6 +406,53 @@ ul {
   list-style-type: disc;
 }
 
+table {
+  --palette-background-bg: 166, 173, 184;
+  --palette-foreground-bg: 128, 138, 153;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/**
+ * TODO: Repeat properties could probably be condensed a bit
+ */
+
+table[data-variation~="borders"] :is(td, th):not(:last-child) {
+  border-right-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--palette-background-bg));
+  border-color: rgba(var(--palette-background-bg), 0.3);
+}
+
+table[data-variation~="stripes"] > tbody > tr:nth-child(2n + 1) {
+  background-color: rgba(var(--palette-foreground-bg), 0.1);
+}
+
+th, td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: left;
+}
+
+thead > tr, table[data-variation~="borders"] > tbody > tr:not(:last-child) {
+  border-bottom-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--palette-background-bg));
+  border-color: rgba(var(--palette-background-bg), 0.3);
+}
+
+tfoot > tr {
+  border-top-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--palette-background-bg));
+  border-color: rgba(var(--palette-background-bg), 0.3);
+}
+
 span.ellipsis {
     --animation-pulse-stop-opacity: 0.3;
     --character: "."
@@ -535,10 +588,10 @@ button, [role="button"], [type="button"], [type="reset"], [type="submit"] {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   position: relative;
   border-radius: 0.5rem;
   -webkit-user-select: none;
@@ -633,12 +686,359 @@ button[data-variation="outline"]:not(:disabled, [aria-disabled="true"]):is(:acti
   border-color: transparent;
 }
 
+button:is([data-size="tiny"], [data-size="small"]), [role="button"]:is([data-size="tiny"], [data-size="small"]), [type="button"]:is([data-size="tiny"], [data-size="small"]), [type="reset"]:is([data-size="tiny"], [data-size="small"]), [type="submit"]:is([data-size="tiny"], [data-size="small"]) {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+button:is([data-size="large"], [data-size="huge"]), [role="button"]:is([data-size="large"], [data-size="huge"]), [type="button"]:is([data-size="large"], [data-size="huge"]), [type="reset"]:is([data-size="large"], [data-size="huge"]), [type="submit"]:is([data-size="large"], [data-size="huge"]) {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 html[data-palette="dark"] button:not([data-palette]), html[data-palette="dark"] [role="button"]:not([data-palette]), html[data-palette="dark"] [type="button"]:not([data-palette]), html[data-palette="dark"] [type="reset"]:not([data-palette]), html[data-palette="dark"] [type="submit"]:not([data-palette]) {
             --palette-background-bg: 109, 119, 134;
         }
 
 @media (prefers-color-scheme: dark) {
             html:not([data-palette]) button:not([data-palette]), html:not([data-palette]) [role="button"]:not([data-palette]), html:not([data-palette]) [type="button"]:not([data-palette]), html:not([data-palette]) [type="reset"]:not([data-palette]), html:not([data-palette]) [type="submit"]:not([data-palette]) {
+                --palette-background-bg: 109, 119, 134;
+            }
+}
+
+/**
+ * TODO: This could probably be cleaned up
+ */
+
+[type="checkbox"] {
+  --palette-background-bg: 166, 173, 184;
+  --palette-foreground-bg: 128, 138, 153;
+  --palette-foreground-text: 250, 250, 250;
+  --size-text: inherit;
+  --size-line-height: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  background-color: transparent;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 0.5rem;
+  position: relative;
+  border-radius: 0.375rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: var(--size-line-height);
+  white-space: nowrap;
+  background-color: rgba(var(--palette-background-bg), 0.25);
+  font-size: var(--size-text);
+  outline: none !important;
+  transform: scale(1);
+  transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[type="checkbox"]::before {
+  height: 2ex;
+  width: 2ex;
+  content: "";
+  background-color: currentColor;
+  clip-path: inset(50% 50% 50% 50% round 0.25rem);
+  transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[type="checkbox"]:not(:disabled):not(:checked) {
+  color: rgb(var(--palette-background-bg));
+}
+
+[type="checkbox"]:not(:disabled):not(:checked):is(:hover)::before {
+  clip-path: inset(0% 0% 0% 0% round 0.25rem);
+}
+
+[type="checkbox"]:not(:disabled):not(:checked):is(:active, :hover, [aria-pressed="true"]) {
+  background-color: rgba(var(--palette-background-bg), 0.5);
+}
+
+[type="checkbox"]:not(:disabled):checked {
+  background-color: rgb(var(--palette-foreground-bg));
+  color: rgb(var(--palette-foreground-text));
+}
+
+[type="checkbox"]:not(:disabled):checked::before {
+  clip-path: inset(0% 0% 0% 0% round 0.25rem);
+}
+
+[type="checkbox"]:not(:disabled):checked:is(:hover) {
+  background-color: rgba(var(--palette-foreground-bg), 0.75);
+}
+
+[type="checkbox"]:not(:disabled):is(:active, [aria-pressed="true"]) {
+            transform: scale(0.95);
+        }
+
+[type="checkbox"][data-size="large"] {
+  padding: 0.75rem;
+}
+
+[type="checkbox"][data-size="large"]::before {
+  height: 2.25ex;
+  width: 2.25ex;
+}
+
+[type="checkbox"][data-size="huge"] {
+  padding: 0.75rem;
+}
+
+[type="checkbox"][data-size="huge"]::before {
+  height: 2.4ex;
+  width: 2.4ex;
+}
+
+html[data-palette="dark"] [type="checkbox"][role="switch"]:not([data-palette]) {
+            --palette-background-bg: 109, 119, 134;
+        }
+
+@media (prefers-color-scheme: dark) {
+            html:not([data-palette])[type="checkbox"][role="switch"]:not([data-palette]) {
+                --palette-background-bg: 109, 119, 134;
+            }
+}
+
+[type="radio"] {
+  --palette-background-bg: 166, 173, 184;
+  --palette-foreground-bg: 128, 138, 153;
+  --palette-foreground-text: 250, 250, 250;
+  --size-text: inherit;
+  --size-line-height: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  background-color: transparent;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 0.5rem;
+  position: relative;
+  border-radius: 9999px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: var(--size-line-height);
+  white-space: nowrap;
+  background-color: rgba(var(--palette-background-bg), 0.25);
+  font-size: var(--size-text);
+  outline: none !important;
+  transform: scale(1);
+  transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[type="radio"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[type="radio"]::before {
+  height: 2ex;
+  width: 2ex;
+  content: "";
+  background-color: currentColor;
+  clip-path: inset(50% 50% 50% 50% round 9999px);
+  transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[type="radio"]:not(:disabled):not(:checked) {
+  color: rgb(var(--palette-background-bg));
+}
+
+[type="radio"]:not(:disabled):not(:checked):is(:hover)::before {
+  clip-path: inset(0% 0% 0% 0% round 9999px);
+}
+
+[type="radio"]:not(:disabled):not(:checked):is(:active, :hover, [aria-pressed="true"]) {
+  background-color: rgba(var(--palette-background-bg), 0.5);
+}
+
+[type="radio"]:not(:disabled):checked {
+  background-color: rgb(var(--palette-foreground-bg));
+  color: rgb(var(--palette-foreground-text));
+}
+
+[type="radio"]:not(:disabled):checked::before {
+  clip-path: inset(0% 0% 0% 0% round 9999px);
+}
+
+[type="radio"]:not(:disabled):checked:is(:hover) {
+  background-color: rgba(var(--palette-foreground-bg), 0.75);
+}
+
+[type="radio"]:not(:disabled):is(:active, [aria-pressed="true"]) {
+            transform: scale(0.95);
+        }
+
+[type="radio"][data-size="large"] {
+  padding: 0.75rem;
+}
+
+[type="radio"][data-size="large"]::before {
+  height: 2.25ex;
+  width: 2.25ex;
+}
+
+[type="radio"][data-size="huge"] {
+  padding: 0.75rem;
+}
+
+[type="radio"][data-size="huge"]::before {
+  height: 2.4ex;
+  width: 2.4ex;
+}
+
+html[data-palette="dark"] [type="checkbox"][role="switch"]:not([data-palette]) {
+            --palette-background-bg: 109, 119, 134;
+        }
+
+@media (prefers-color-scheme: dark) {
+            html:not([data-palette])[type="checkbox"][role="switch"]:not([data-palette]) {
+                --palette-background-bg: 109, 119, 134;
+            }
+}
+
+[type="checkbox"][role="switch"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  background-color: transparent;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 0.5rem;
+  position: relative;
+  border-radius: 9999px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: var(--size-line-height);
+  white-space: nowrap;
+  background-color: rgba(var(--palette-background-bg), 0.25);
+  font-size: var(--size-text);
+  outline: none !important;
+  transform: scale(1);
+  transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[type="checkbox"][role="switch"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[type="checkbox"][role="switch"]::before {
+  height: 2.5ex;
+  width: 5ex;
+  content: "";
+  background-color: currentColor;
+  transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[type="checkbox"][role="switch"]:not(:disabled):not(:checked) {
+  color: rgb(var(--palette-background-bg));
+}
+
+[type="checkbox"][role="switch"]:not(:disabled):not(:checked)::before {
+  clip-path: inset(0% 50% 0% 0% round 9999px);
+}
+
+[type="checkbox"][role="switch"]:not(:disabled):not(:checked):is(:active, :hover, [aria-pressed="true"]) {
+  background-color: rgba(var(--palette-background-bg), 0.5);
+}
+
+[type="checkbox"][role="switch"]:not(:disabled):checked {
+  background-color: rgb(var(--palette-foreground-bg));
+  color: rgb(var(--palette-foreground-text));
+}
+
+[type="checkbox"][role="switch"]:not(:disabled):checked::before {
+  clip-path: inset(0% 0% 0% 50% round 9999px);
+}
+
+[type="checkbox"][role="switch"]:not(:disabled):checked:is(:active, :hover, [aria-pressed="true"]) {
+  background-color: rgba(var(--palette-foreground-bg), 0.75);
+}
+
+[type="checkbox"][role="switch"]:not(:disabled):is(:active, [aria-pressed="true"]) {
+            transform: scale(0.95)
+        }
+
+[type="checkbox"][role="switch"]:not(:disabled):is(:active, [aria-pressed="true"])::before {
+  clip-path: inset(0% 25% 0% 25% round 9999px);
+}
+
+[type="checkbox"][role="switch"]:is([data-size="tiny"], [data-size="small"])::before {
+  height: 2ex;
+  width: 4ex;
+}
+
+[type="checkbox"][role="switch"]:is([data-size="large"], [data-size="huge"])::before {
+  height: 3ex;
+  width: 6ex;
+}
+
+html[data-palette="dark"] [type="checkbox"][role="switch"]:not([data-palette]) {
+            --palette-background-bg: 109, 119, 134;
+        }
+
+@media (prefers-color-scheme: dark) {
+            html:not([data-palette])[type="checkbox"][role="switch"]:not([data-palette]) {
                 --palette-background-bg: 109, 119, 134;
             }
 }
@@ -887,10 +1287,10 @@ nav.menu ul > li > :is(a, button, label) {
   -webkit-align-items: center;
   align-items: center;
   text-decoration: none !important;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   position: relative;
   border-radius: 0.5rem;
   -webkit-user-select: none;
@@ -932,11 +1332,13 @@ nav.menu ul > li > :is(a, button, label)::before,
 
 nav.menu ul > li > small {
   font-weight: 700;
-  opacity: 0.3;
+  opacity: 0.6;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  --tw-text-opacity: 1;
+  color: rgba(166, 173, 184, var(--tw-text-opacity));
   letter-spacing: 0.1em;
 }
 
@@ -1965,8 +2367,9 @@ input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="chec
 }
 
 hr, span[role="separator"] {
+  --palette-background-bg: 166, 173, 184;
   display: block;
-  opacity: 0.3;
+  opacity: 0.7;
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1988,12 +2391,8 @@ hr[data-orientation="vertical"], span[role="separator"][data-orientation="vertic
 
 hr {
   border-width: 0px;
-  background-color: currentColor;
-  border-radius: 0.375rem;
-}
-
-hr[data-palette] {
   background-color: rgb(var(--palette-background-bg));
+  border-radius: 0.375rem;
 }
 
 hr:not([data-orientation]) {
@@ -2021,14 +2420,10 @@ span[role="separator"] {
   -webkit-justify-content: center;
   justify-content: center;
   text-align: center;
-  color: currentColor;
+  color: rgb(var(--palette-background-bg));
   letter-spacing: 0.1em;
   white-space: nowrap;
   font-size: 80%;
-}
-
-span[role="separator"][data-palette] {
-  color: rgb(var(--palette-background-bg));
 }
 
 span[role="separator"]::before, span[role="separator"]::after {

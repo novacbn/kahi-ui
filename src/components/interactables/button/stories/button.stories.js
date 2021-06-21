@@ -3,6 +3,7 @@ import {
     STORYBOOK_HIDDEN_ARGUMENTS,
     STORYBOOK_PALETTE_ARGUMENTS,
     STORYBOOK_SIZE_ARGUMENTS,
+    STORYBOOK_VARIATION_FOREGROUND_ARGUMENTS,
 } from "../../../../storybook/arguments";
 
 import Button from "../Button.svelte";
@@ -17,6 +18,7 @@ export default {
     title: "Interactable/Button",
     component: Button,
     argTypes: {
+        ...STORYBOOK_VARIATION_FOREGROUND_ARGUMENTS,
         ...STORYBOOK_PALETTE_ARGUMENTS,
         ...STORYBOOK_SIZE_ARGUMENTS,
         ...STORYBOOK_FOREGROUND_ARGUMENTS,

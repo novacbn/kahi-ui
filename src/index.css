@@ -10,6 +10,7 @@
 
 @import url("./components/display/badge/badge.css");
 @import url("./components/display/list/list.css");
+@import url("./components/display/table/table.css");
 
 @import url("./components/feedback/ellipsis/ellipsis.css");
 @import url("./components/feedback/dot/dot.css");
@@ -17,6 +18,9 @@
 @import url("./components/feedback/wave/wave.css");
 
 @import url("./components/interactables/button/button.css");
+@import url("./components/interactables/check/check.css");
+@import url("./components/interactables/radio/radio.css");
+@import url("./components/interactables/switch/switch.css");
 
 @import url("./components/navigation/anchor/anchor.css");
 @import url("./components/navigation/aside/aside.css");

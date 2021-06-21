@@ -1,0 +1,44 @@
+table {
+    --palette-background-bg: theme("colors.default.300");
+    --palette-foreground-bg: theme("colors.default.500");
+
+    @apply border-collapse w-full;
+}
+
+/**
+ * TODO: Repeat properties could probably be condensed a bit
+ */
+
+table[data-variation~="borders"] {
+    & :is(td, th):not(:last-child) {
+        @apply border-r-1 border-solid border-[rgb(var(--palette-background-bg))];
+
+        border-color: rgba(var(--palette-background-bg), theme("opacity.30"));
+    }
+}
+
+table[data-variation~="stripes"] {
+    & > tbody > tr:nth-child(2n + 1) {
+        @apply;
+
+        background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
+    }
+}
+
+th,
+td {
+    @apply align-center px-4 py-3 text-left;
+}
+
+thead > tr,
+table[data-variation~="borders"] > tbody > tr:not(:last-child) {
+    @apply border-b-1 border-solid border-[rgb(var(--palette-background-bg))];
+
+    border-color: rgba(var(--palette-background-bg), theme("opacity.30"));
+}
+
+tfoot > tr {
+    @apply border-t-1 border-solid border-[rgb(var(--palette-background-bg))];
+
+    border-color: rgba(var(--palette-background-bg), theme("opacity.30"));
+}

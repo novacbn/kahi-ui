@@ -1,6 +1,51 @@
 # CHANGELOG
 
-## v0.2.6 -
+## v0.2.7 -
+
+-   Upgraded Storybook to `6.3.0-rc.11`.
+
+    -   Changed Storybook to use Vite as toolchain.
+
+-   Adjusted background shades for light mode.
+-   Returning Components with their associated updates
+
+    -   Display
+
+        -   `Table`
+
+            -   Changed `Table.Body` -> `Table.Section`
+            -   Changed `Table.Heading` -> `Table.Header`
+            -   Added `<Table.Container palette="accent/dark/light/alert/affirmative/negative">`
+            -   Changed `<Table.Column heading>...</Table.Column>` -> `<Table.Heading>...</Table.Heading>`
+            -   Changed `<Table.Container variation="bordered">` -> `<Table.Container variation="borders">`
+            -   Changed `<Table.Container variation="striped">` -> `<Table.Container variation="stripes">`
+
+    -   Interactables
+
+        -   `Check` / `Radio` / `Switch` / `TextInput`
+
+-   Updated the following Components
+
+    -   Interactables
+
+        -   `Button`
+
+            -   Added padding to adjust depending on sizing tier.
+
+    -   Layouts
+
+        -   `Divider`
+
+            -   Updated `Divider` coloring to match `Table`.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   Updated `Menu.Heading` coloring to match `Table`.
+            -   Updated `Menu.Anchor` / `Menu.Button` to match new `Button` padding.
+
+## v0.2.6 - 2021/06/21
 
 -   Added `name` HTML5 attribute to all Components as a global property.
 -   Adjusted dark / light shades coloring slightly.

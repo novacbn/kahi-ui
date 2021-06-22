@@ -34,6 +34,10 @@
 
     -   Layouts
 
+        -   `Container`
+
+            -   Updated x-axis padding to be slightly larger.
+
         -   `Divider`
 
             -   Updated `Divider` coloring to match `Table`.

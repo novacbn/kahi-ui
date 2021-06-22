@@ -97,7 +97,10 @@ export default {
 
         {
             separator: "Overlays",
-            items: [{href: "/docs/overlays/popover"}, {href: "/docs/overlays/overlay"}],
+            items: [
+                //{href: "/docs/overlays/popover"},
+                {href: "/docs/overlays/overlay"},
+            ],
         },
 
         {

@@ -1,7 +1,7 @@
 .container {
     --viewport: theme("width.prose");
 
-    @apply mx-auto px-4 w-full;
+    @apply mx-auto px-6 w-full;
 
     max-width: min(var(--viewport), 100vw);
 }

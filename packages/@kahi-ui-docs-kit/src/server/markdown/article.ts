@@ -15,6 +15,7 @@ import {BlockquoteLevels} from "./plugins/blockquote_levels";
 import {ExternalLinkPlugin} from "./plugins/external_link";
 import type {ILocalLinkOptions} from "./plugins/local_link";
 import {LocalLinkPlugin} from "./plugins/local_link";
+import {ScrollablesPlugin} from "./plugins/scrollables";
 import {SectionsPlugin} from "./plugins/sections";
 import {SnippetsPlugin} from "./plugins/snippets";
 import {TitlePlugin} from "./plugins/title";
@@ -97,7 +98,8 @@ export function render_article(text: string, options: Partial<IArticleOptions> =
         .use(ExternalLinkPlugin)
         .use(BlockquoteLevels)
         .use(SectionsPlugin, article_options)
-        .use(SnippetsPlugin, article_options);
+        .use(SnippetsPlugin, article_options)
+        .use(ScrollablesPlugin);
 
     const render = md.render(content);
     const article_meta = normalize_metadata(frontmatter, article_options.meta);

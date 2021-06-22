@@ -46,15 +46,15 @@
     </style>
 </svelte:head>
 
-<Stack class="shell-aside-stack" orientation="horizontal">
+<Stack class="shell-aside-stack" orientation="horizontal" min_height="100">
     <Aside.Container
         bind:element
         class="shell-aside"
         logic_id="shell-aside"
         palette="dark"
         variation="sticky"
-        height="viewport-100"
         max_height="100"
+        height="viewport-100"
         captive
         dismissible
     >

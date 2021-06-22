@@ -7,7 +7,7 @@
     --size-line-height: inherit;
 
     @apply appearance-none align-middle bg-transparent cursor-pointer inline-flex items-center
-    justify-center p-2 relative rounded-full select-none leading-[var(--size-line-height)] whitespace-nowrap;
+    justify-center p-[0.5em] relative rounded-full select-none leading-[var(--size-line-height)] whitespace-nowrap;
 
     background-color: rgba(var(--palette-background-bg), theme("opacity.25"));
 
@@ -25,7 +25,7 @@
     }
 
     &::before {
-        @apply h-[2ex] w-[2ex];
+        @apply h-[1.5ex] w-[1.5ex];
 
         content: "";
 
@@ -75,19 +75,15 @@
         }
     }
 
-    &[data-size="large"] {
-        @apply p-3;
-
+    &:is([data-size="tiny"], [data-size="small"]) {
         &::before {
-            @apply h-[2.25ex] w-[2.25ex];
+            @apply h-[1ex] w-[1ex];
         }
     }
 
-    &[data-size="huge"] {
-        @apply p-3;
-
+    &:is([data-size="large"], [data-size="huge"]) {
         &::before {
-            @apply h-[2.4ex] w-[2.4ex];
+            @apply h-[2ex] w-[2ex];
         }
     }
 }

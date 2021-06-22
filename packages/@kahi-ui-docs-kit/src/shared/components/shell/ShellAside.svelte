@@ -34,7 +34,6 @@
             });
         }
     });
-
 </script>
 
 <svelte:head>
@@ -44,7 +43,6 @@
             width: 100%;
             height: 100%;
         }
-
     </style>
 </svelte:head>
 
@@ -82,11 +80,16 @@
             </Aside.Footer>
         {/if}
 
-        <ContextButton hidden={["desktop", "widescreen"]}>
+        <ContextButton hidden={["desktop", "widescreen"]} size="large">
             <Menu />
         </ContextButton>
 
-        <ContextButton palette="dark" variation="clear" hidden={["desktop", "widescreen"]}>
+        <ContextButton
+            palette="dark"
+            variation="clear"
+            size="large"
+            hidden={["desktop", "widescreen"]}
+        >
             <X />
         </ContextButton>
     </Aside.Container>

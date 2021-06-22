@@ -45,6 +45,12 @@
             -   Updated `Menu.Heading` coloring to match `Table`.
             -   Updated `Menu.Anchor` / `Menu.Button` to match new `Button` padding.
 
+    -   Utilities
+
+        -   `ContextBackdrop`
+
+            -   Adjusted background shading to be slightly darker / opaque.
+
 ## v0.2.6 - 2021/06/21
 
 -   Added `name` HTML5 attribute to all Components as a global property.

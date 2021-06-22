@@ -1,6 +1,6 @@
 [type="checkbox"][role="switch"] {
     @apply appearance-none align-middle bg-transparent cursor-pointer inline-flex items-center
-    justify-center p-2 relative rounded-full select-none leading-[var(--size-line-height)] whitespace-nowrap;
+    justify-center p-[0.5em] relative rounded-full select-none leading-[var(--size-line-height)] whitespace-nowrap;
 
     background-color: rgba(var(--palette-background-bg), theme("opacity.25"));
 
@@ -18,7 +18,7 @@
     }
 
     &::before {
-        @apply h-[2.5ex] w-[5ex];
+        @apply h-[1.5ex] w-[3ex];
 
         content: "";
 
@@ -73,13 +73,13 @@
 
     &:is([data-size="tiny"], [data-size="small"]) {
         &::before {
-            @apply h-[2ex] w-[4ex];
+            @apply h-[1ex] w-[2ex];
         }
     }
 
     &:is([data-size="large"], [data-size="huge"]) {
         &::before {
-            @apply h-[3ex] w-[6ex];
+            @apply h-[2ex] w-[4ex];
         }
     }
 }

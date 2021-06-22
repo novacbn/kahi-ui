@@ -3,7 +3,6 @@
     import Text from "../../../typography/text/Text.svelte";
 
     import Switch from "../Switch.svelte";
-
 </script>
 
 <Stack orientation="horizontal" spacing="medium" variation="wrap">

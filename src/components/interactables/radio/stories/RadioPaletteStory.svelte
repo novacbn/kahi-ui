@@ -3,7 +3,6 @@
     import Text from "../../../typography/text/Text.svelte";
 
     import Radio from "../Radio.svelte";
-
 </script>
 
 <Stack orientation="horizontal" spacing="medium" variation="wrap">

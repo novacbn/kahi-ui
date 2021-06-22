@@ -10,8 +10,8 @@ button,
     --size-text: inherit;
     --size-line-height: inherit;
 
-    @apply align-middle border-none font-bold gap-3 inline-flex items-center justify-center px-3
-    py-2 relative rounded-lg select-none leading-[var(--size-line-height)] whitespace-nowrap z-0;
+    @apply align-middle border-none font-bold gap-3 inline-flex items-center justify-center px-[0.75em]
+    py-[0.5em] relative rounded-lg select-none leading-[var(--size-line-height)] whitespace-nowrap z-0;
 
     font-size: var(--size-text);
     outline: none !important;
@@ -101,14 +101,6 @@ button,
                 }
             }
         }
-    }
-
-    &:is([data-size="tiny"], [data-size="small"]) {
-        @apply px-2 py-1;
-    }
-
-    &:is([data-size="large"], [data-size="huge"]) {
-        @apply px-4 py-3;
     }
 }
 

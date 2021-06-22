@@ -30,7 +30,7 @@
 
         -   `Button`
 
-            -   Added padding to adjust depending on sizing tier.
+            -   Added padding to adjust depending on text size.
 
     -   Layouts
 
@@ -44,6 +44,12 @@
 
             -   Updated `Menu.Heading` coloring to match `Table`.
             -   Updated `Menu.Anchor` / `Menu.Button` to match new `Button` padding.
+
+    -   Typography
+
+        -   `Text`
+
+            -   Updated keycap design for `<Text is="kbd">`.
 
     -   Utilities
 

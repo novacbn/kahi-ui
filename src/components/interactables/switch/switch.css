@@ -9,8 +9,8 @@
     outline: none !important;
     transform: scale(1);
 
-    transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &:disabled {
@@ -27,47 +27,48 @@
         transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    &:not(:disabled) {
-        &:not(:checked) {
-            @apply text-[rgb(var(--palette-background-bg))];
+    &:not(:checked) {
+        @apply text-[rgb(var(--palette-background-bg))];
 
-            &::before {
-                @apply;
+        &::before {
+            @apply;
 
-                clip-path: inset(0% 50% 0% 0% round theme("borderRadius.full"));
-            }
-
-            &:is(:active, :hover, [aria-pressed="true"]) {
-                @apply;
-
-                background-color: rgba(var(--palette-background-bg), theme("opacity.50"));
-            }
+            clip-path: inset(0% 50% 0% 0% round theme("borderRadius.full"));
         }
 
-        &:checked {
-            @apply bg-[rgb(var(--palette-foreground-bg))] text-[rgb(var(--palette-foreground-text))];
+        &:enabled:is(:active, :hover),
+        &[aria-pressed="true"] {
+            @apply;
 
-            &::before {
-                @apply;
+            background-color: rgba(var(--palette-background-bg), theme("opacity.50"));
+        }
+    }
 
-                clip-path: inset(0% 0% 0% 50% round theme("borderRadius.full"));
-            }
+    &:checked {
+        @apply bg-[rgb(var(--palette-foreground-bg))] text-[rgb(var(--palette-foreground-text))];
 
-            &:is(:active, :hover, [aria-pressed="true"]) {
-                @apply;
+        &::before {
+            @apply;
 
-                background-color: rgba(var(--palette-foreground-bg), theme("opacity.75"));
-            }
+            clip-path: inset(0% 0% 0% 50% round theme("borderRadius.full"));
         }
 
-        &:is(:active, [aria-pressed="true"]) {
-            transform: scale(0.95);
+        &:enabled:is(:active, :hover),
+        &[aria-pressed="true"] {
+            @apply;
 
-            &::before {
-                @apply;
+            background-color: rgba(var(--palette-foreground-bg), theme("opacity.75"));
+        }
+    }
 
-                clip-path: inset(0% 25% 0% 25% round theme("borderRadius.full"));
-            }
+    &:enabled:active,
+    &[aria-pressed="true"] {
+        transform: scale(0.95);
+
+        &::before {
+            @apply;
+
+            clip-path: inset(0% 25% 0% 25% round theme("borderRadius.full"));
         }
     }
 
@@ -80,24 +81,6 @@
     &:is([data-size="large"], [data-size="huge"]) {
         &::before {
             @apply h-[2ex] w-[4ex];
-        }
-    }
-}
-
-html[data-palette="dark"] {
-    & [type="checkbox"][role="switch"] {
-        &:not([data-palette]) {
-            --palette-background-bg: theme("colors.default.700");
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    html:not([data-palette]) {
-        &[type="checkbox"][role="switch"] {
-            &:not([data-palette]) {
-                --palette-background-bg: theme("colors.default.700");
-            }
         }
     }
 }

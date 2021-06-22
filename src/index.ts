@@ -31,6 +31,9 @@ export * from "./components/feedback/wave";
 export * from "./components/embedded/figure";
 
 export * from "./components/interactables/button";
+export * from "./components/interactables/check";
+export * from "./components/interactables/radio";
+export * from "./components/interactables/switch";
 
 export * from "./components/layouts/container";
 export * from "./components/layouts/divider";

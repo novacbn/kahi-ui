@@ -116,7 +116,7 @@ You can change the color palette of the `Spinner` via the `palette` property.
 
 ## Size
 
-You can change the size of the `Spinner` via the `palette` property.
+You can change the size of the `Spinner` via the `size` property.
 
 ```html repl Spinner Size
 <script>

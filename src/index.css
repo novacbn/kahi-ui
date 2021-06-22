@@ -19,6 +19,7 @@
 
 @import url("./components/interactables/button/button.css");
 @import url("./components/interactables/check/check.css");
+@import url("./components/interactables/form/form.css");
 @import url("./components/interactables/radio/radio.css");
 @import url("./components/interactables/switch/switch.css");
 

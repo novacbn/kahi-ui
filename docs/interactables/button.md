@@ -67,7 +67,7 @@ types=["string"]
 
 # Button
 
-A `Button` is used to usually trigger an action in the Web Application, such as submitting forms or opening an Overlay.
+`Button` is used to usually trigger an action in the Web Application, such as submitting forms or opening an Overlay.
 
 <!-- prettier-ignore -->
 ```html repl Button Preview
@@ -111,7 +111,7 @@ You can change the color palette of the `Button` via the `palette` property.
 
 ## Size
 
-You can change the size of the `Button` via the `palette` property.
+You can change the size of the `Button` via the `size` property.
 
 <!-- prettier-ignore -->
 ```html repl Button Size

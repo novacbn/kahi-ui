@@ -1,8 +1,10 @@
 hr,
 span[role="separator"] {
-    --palette-background-bg: theme("colors.default.300");
+    @apply block opacity-40 select-none;
 
-    @apply block opacity-70 pointer-events-none select-none;
+    &[data-palette] {
+        @apply text-[rgb(var(--palette-background-bg))];
+    }
 
     &:not([data-orientation]) {
         @apply my-4 w-full;
@@ -14,7 +16,7 @@ span[role="separator"] {
 }
 
 hr {
-    @apply border-0 bg-[rgb(var(--palette-background-bg))] rounded-md;
+    @apply border-0 bg-current rounded-md;
 
     &:not([data-orientation]) {
         @apply h-[1px];
@@ -27,7 +29,7 @@ hr {
 
 span[role="separator"] {
     @apply font-bold inline-flex items-center gap-1 justify-center text-center
-    text-[rgb(var(--palette-background-bg))] tracking-widest whitespace-nowrap;
+    tracking-widest whitespace-nowrap;
 
     font-size: 80%;
 

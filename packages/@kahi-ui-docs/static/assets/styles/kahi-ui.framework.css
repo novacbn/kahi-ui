@@ -417,16 +417,34 @@ table {
  * TODO: Repeat properties could probably be condensed a bit
  */
 
-table[data-variation~="borders"] :is(td, th):not(:last-child) {
-  border-right-width: 1px;
-  border-style: solid;
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--palette-background-bg));
-  border-color: rgba(var(--palette-background-bg), 0.3);
+table[data-variation~="borders"] :is(td, th):not(:last-child)::after {
+  position: absolute;
+  display: block;
+  background-color: currentColor;
+  height: 100%;
+  opacity: 0.4;
+  right: 0px;
+  top: 0px;
+  width: 1px;
+  content: "";
+}
+
+table[data-variation~="borders"] > :is(tbody, thead, tfoot):first-child :is(td, th):not(:last-child)::after {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+table[data-variation~="borders"] > :is(tbody, thead, tfoot):last-child :is(td, th):not(:last-child)::after {
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
 }
 
 table[data-variation~="stripes"] > tbody > tr:nth-child(2n + 1) {
   background-color: rgba(var(--palette-foreground-bg), 0.1);
+}
+
+th, thead, td, tfoot, tr {
+  position: relative;
 }
 
 th, td {
@@ -437,20 +455,22 @@ th, td {
   text-align: left;
 }
 
-thead > tr, table[data-variation~="borders"] > tbody > tr:not(:last-child) {
-  border-bottom-width: 1px;
-  border-style: solid;
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--palette-background-bg));
-  border-color: rgba(var(--palette-background-bg), 0.3);
+:is(thead, tfoot) > tr::after, table[data-variation~="borders"] > tbody > tr:not(:last-child)::after {
+  position: absolute;
+  display: block;
+  background-color: currentColor;
+  bottom: 0px;
+  height: 1px;
+  opacity: 0.4;
+  right: 0px;
+  border-left-radius: 0.375rem;
+  border-right-radius: 0.375rem;
+  width: 100%;
+  content: "";
 }
 
-tfoot > tr {
-  border-top-width: 1px;
-  border-style: solid;
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--palette-background-bg));
-  border-color: rgba(var(--palette-background-bg), 0.3);
+tfoot > tr::after {
+  top: 0px;
 }
 
 span.ellipsis {
@@ -1314,13 +1334,11 @@ nav.menu ul > li > :is(a, button, label)::before,
 
 nav.menu ul > li > small {
   font-weight: 700;
-  opacity: 0.6;
+  opacity: 0.4;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  --tw-text-opacity: 1;
-  color: rgba(166, 173, 184, var(--tw-text-opacity));
   letter-spacing: 0.1em;
 }
 
@@ -1966,8 +1984,8 @@ kbd {
   border-bottom-width: 4px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
   border-radius: 0.375rem;
   white-space: nowrap;
   background-color: rgba(var(--palette-background-bg), 0.2);
@@ -2351,14 +2369,16 @@ input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="chec
 }
 
 hr, span[role="separator"] {
-  --palette-background-bg: 166, 173, 184;
   display: block;
-  opacity: 0.7;
-  pointer-events: none;
+  opacity: 0.4;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+hr[data-palette], span[role="separator"][data-palette] {
+  color: rgb(var(--palette-background-bg));
 }
 
 hr:not([data-orientation]), span[role="separator"]:not([data-orientation]) {
@@ -2375,7 +2395,7 @@ hr[data-orientation="vertical"], span[role="separator"][data-orientation="vertic
 
 hr {
   border-width: 0px;
-  background-color: rgb(var(--palette-background-bg));
+  background-color: currentColor;
   border-radius: 0.375rem;
 }
 
@@ -2404,7 +2424,6 @@ span[role="separator"] {
   -webkit-justify-content: center;
   justify-content: center;
   text-align: center;
-  color: rgb(var(--palette-background-bg));
   letter-spacing: 0.1em;
   white-space: nowrap;
   font-size: 80%;

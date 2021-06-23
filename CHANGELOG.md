@@ -38,15 +38,10 @@
 
             -   Updated x-axis padding to be slightly larger.
 
-        -   `Divider`
-
-            -   Updated `Divider` coloring to match `Table`.
-
     -   Navigation
 
         -   `Menu`
 
-            -   Updated `Menu.Heading` coloring to match `Table`.
             -   Updated `Menu.Anchor` / `Menu.Button` to match new `Button` padding.
 
     -   Typography

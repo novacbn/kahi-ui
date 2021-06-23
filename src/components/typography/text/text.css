@@ -97,7 +97,7 @@ kbd {
 
     --size-text: 70%;
 
-    @apply border-b-4 px-2 py-1 rounded-md text-bold whitespace-nowrap;
+    @apply border-b-4 px-2 py-0.5 rounded-md text-bold whitespace-nowrap;
 
     background-color: rgba(var(--palette-background-bg), theme("opacity.20"));
     border-color: rgba(var(--palette-foreground-bg), theme("opacity.50"));

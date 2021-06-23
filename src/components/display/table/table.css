@@ -10,10 +10,18 @@ table {
  */
 
 table[data-variation~="borders"] {
-    & :is(td, th):not(:last-child) {
-        @apply border-r-1 border-solid border-[rgb(var(--palette-background-bg))];
+    & :is(td, th):not(:last-child)::after {
+        @apply absolute block bg-current h-full opacity-40 right-0 top-0 w-[1px];
 
-        border-color: rgba(var(--palette-background-bg), theme("opacity.30"));
+        content: "";
+    }
+
+    & > :is(tbody, thead, tfoot):first-child :is(td, th):not(:last-child)::after {
+        @apply rounded-t-md;
+    }
+
+    & > :is(tbody, thead, tfoot):last-child :is(td, th):not(:last-child)::after {
+        @apply rounded-b-md;
     }
 }
 
@@ -26,19 +34,30 @@ table[data-variation~="stripes"] {
 }
 
 th,
+thead,
+td,
+tfoot,
+tr {
+    @apply relative;
+}
+
+th,
 td {
     @apply align-center px-4 py-3 text-left;
 }
 
-thead > tr,
+:is(thead, tfoot) > tr,
 table[data-variation~="borders"] > tbody > tr:not(:last-child) {
-    @apply border-b-1 border-solid border-[rgb(var(--palette-background-bg))];
+    &::after {
+        @apply absolute block bg-current bottom-0 h-[1px] opacity-40 right-0
+        rounded-md w-full;
 
-    border-color: rgba(var(--palette-background-bg), theme("opacity.30"));
+        content: "";
+    }
 }
 
 tfoot > tr {
-    @apply border-t-1 border-solid border-[rgb(var(--palette-background-bg))];
-
-    border-color: rgba(var(--palette-background-bg), theme("opacity.30"));
+    &::after {
+        @apply top-0;
+    }
 }

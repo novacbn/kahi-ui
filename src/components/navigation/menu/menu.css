@@ -52,7 +52,7 @@ nav.menu {
             }
 
             & > small {
-                @apply font-bold opacity-60 select-none text-default-300 tracking-widest;
+                @apply font-bold opacity-40 select-none tracking-widest;
             }
 
             & > span[role="separator"]::before {

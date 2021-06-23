@@ -17,7 +17,7 @@ export default {
     argTypes: {
         ...STORYBOOK_PALETTE_ARGUMENTS,
         ...STORYBOOK_SIZE_ARGUMENTS,
-        as: {
+        is: {
             options: ["pre"],
             control: {
                 type: "select",

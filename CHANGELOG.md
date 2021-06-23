@@ -7,6 +7,7 @@
     -   Changed Storybook to use Vite as toolchain.
 
 -   Adjusted background shades for light mode.
+-   Fixed up some naming / organization of Component types and Storybook options.
 -   Returning Components with their associated updates
 
     -   Display
@@ -22,7 +23,13 @@
 
     -   Interactables
 
-        -   `Check` / `Radio` / `Switch` / `TextInput`
+        -   `Button`
+
+            -   Updated to use transparent borders for consistent height.
+
+        -   `Check` / `Radio` / `Switch`
+
+        -   `TextInput`
 
 -   Updated the following Components
 

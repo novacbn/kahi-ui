@@ -3,7 +3,7 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
-    import type {DESIGN_TABLE_VARIATION_ARGUMENT} from "../../../lib/types/table";
+    import type {DESIGN_TABLE_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
@@ -50,7 +50,6 @@
 
     export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
     export let variation: DESIGN_TABLE_VARIATION_ARGUMENT | undefined = undefined;
-
 </script>
 
 <table

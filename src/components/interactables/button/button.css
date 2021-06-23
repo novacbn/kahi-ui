@@ -10,8 +10,11 @@ button,
     --size-text: inherit;
     --size-line-height: inherit;
 
-    @apply align-middle border-none font-bold gap-3 inline-flex items-center justify-center px-[0.75em]
-    py-[0.5em] relative rounded-lg select-none leading-[var(--size-line-height)] whitespace-nowrap z-0;
+    @apply align-middle border-2 border-solid font-bold gap-3 inline-flex items-center
+    justify-center px-[0.75em] py-[0.5em] relative rounded-lg select-none leading-[var(--size-line-height)]
+    whitespace-nowrap z-0;
+
+    border-color: rgba(0, 0, 0, 0);
 
     font-size: var(--size-text);
     outline: none !important;
@@ -21,12 +24,13 @@ button,
     }
 
     &::before {
-        @apply absolute border-2 border-transparent border-solid h-full left-0 rounded-lg top-0 w-full -z-1;
+        @apply absolute h-full left-0 rounded-lg top-0 w-full -z-1;
 
         content: "";
 
         transform: scale(1);
         transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
             transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -82,7 +86,7 @@ button,
         @apply text-[rgb(var(--palette-foreground-bg))];
 
         &::before {
-            @apply border-[rgb(var(--palette-foreground-bg))];
+            @apply border-2 border-[rgb(var(--palette-foreground-bg))] border-solid;
         }
 
         &:not(:disabled, [aria-disabled="true"]) {

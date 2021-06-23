@@ -3,7 +3,6 @@ import {
     STORYBOOK_ELEVATION_ARGUMENTS,
     STORYBOOK_HIDDEN_ARGUMENTS,
     STORYBOOK_PALETTE_ARGUMENTS,
-    STORYBOOK_VARIATION_BACKGROUND_ARGUMENTS,
 } from "../../../../storybook/arguments";
 
 import TileContainer from "../TileContainer.svelte";

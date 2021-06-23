@@ -22,6 +22,7 @@
 @import url("./components/interactables/form/form.css");
 @import url("./components/interactables/radio/radio.css");
 @import url("./components/interactables/switch/switch.css");
+@import url("./components/interactables/textinput/textinput.css");
 
 @import url("./components/navigation/anchor/anchor.css");
 @import url("./components/navigation/aside/aside.css");
@@ -64,6 +65,7 @@
 @import url("./styles/logic.css");
 @import url("./styles/palettes.css");
 @import url("./styles/positions.css");
+@import url("./styles/resizeable.css");
 @import url("./styles/sizes.css");
 @import url("./styles/sizings.css");
 @import url("./styles/spacings.css");

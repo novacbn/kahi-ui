@@ -20,7 +20,7 @@ export default {
     title: "Typography/Text",
     component: Text,
     argTypes: {
-        as: {
+        is: {
             options: [
                 "abbr",
                 "b",

@@ -7,7 +7,6 @@ import {DESIGN_ANIMATION_LITERALS} from "../lib/types/animations";
 import {ARIA_CURRENT_LITERALS} from "../lib/types/aria";
 import {DESIGN_ELEVATION_LITERALS} from "../lib/types/elevations";
 import {DESIGN_FIT_LITERALS} from "../lib/types/fit";
-import {DESIGN_FLEX_VARIATIONS_LITERALS} from "../lib/types/flex";
 import {DESIGN_HIDDEN_LITERALS} from "../lib/types/hidden";
 import {
     DESIGN_ORIENTATION_HORIZONTAL_LITERALS,
@@ -17,12 +16,16 @@ import {
 import {DESIGN_PALETTE_LITERALS} from "../lib/types/palettes";
 import {DESIGN_POINTS_LITERALS} from "../lib/types/points";
 import {DESIGN_POSITION_LITERALS} from "../lib/types/positions";
+import {DESIGN_RESIZEABLE_LITERALS} from "../lib/types/resizeable";
 import {DESIGN_SHAPE_LITERALS} from "../lib/types/shapes";
 import {DESIGN_SIZE_LITERALS} from "../lib/types/sizes";
 import {DESIGN_INTRINSIC_SIZING_LITERALS, DESIGN_SIZING_LITERALS} from "../lib/types/sizings";
 import {DESIGN_SPACING_LITERALS} from "../lib/types/spacings";
-import {DESIGN_TABLE_VARIATION_LITERALS} from "../lib/types/table";
-import {DESIGN_VARIATION_LITERALS} from "../lib/types/variations";
+import {
+    DESIGN_FILL_VARIATION_LITERALS,
+    DESIGN_FLEX_VARIATION_LITERALS,
+    DESIGN_TABLE_VARIATION_LITERALS,
+} from "../lib/types/variations";
 
 export const STORYBOOK_ANIMATION_ARGUMENTS = {
     animation: {
@@ -282,6 +285,15 @@ export const STORYBOOK_ANCHOR_ARGUMENTS = {
     },
 };
 
+export const STORYBOOK_BUTTON_VARIATION_ARGUMENTS = {
+    variation: {
+        options: [DESIGN_FILL_VARIATION_LITERALS.clear, DESIGN_FILL_VARIATION_LITERALS.outline],
+        control: {
+            type: "select",
+        },
+    },
+};
+
 export const STORYBOOK_ELEVATION_ARGUMENTS = {
     elevation: {
         options: Object.values(DESIGN_ELEVATION_LITERALS),
@@ -302,7 +314,7 @@ export const STORYBOOK_FIT_ARGUMENTS = {
 
 export const STORYBOOK_FLEX_VARIATION_ARGUMENTS = {
     variation: {
-        options: Object.values(DESIGN_FLEX_VARIATIONS_LITERALS),
+        options: Object.values(DESIGN_FLEX_VARIATION_LITERALS),
         control: {
             type: "multi-select",
         },
@@ -314,6 +326,15 @@ export const STORYBOOK_HIDDEN_ARGUMENTS = {
         options: Object.values(DESIGN_HIDDEN_LITERALS),
         control: {
             type: "multi-select",
+        },
+    },
+};
+
+export const STORYBOOK_INPUT_VARIATION_ARGUMENTS = {
+    variation: {
+        options: [DESIGN_FILL_VARIATION_LITERALS.block, DESIGN_FILL_VARIATION_LITERALS.flush],
+        control: {
+            type: "select",
         },
     },
 };
@@ -366,6 +387,14 @@ export const STORYBOOK_POINTS_ARGUMENTS = {
 export const STORYBOOK_POSITION_ARGUMENTS = {
     position: {
         options: Object.values(DESIGN_POSITION_LITERALS),
+        control: {
+            type: "select",
+        },
+    },
+};
+export const STORYBOOK_RESIZEABLE_ARGUMENTS = {
+    resizeable: {
+        options: [true, ...Object.values(DESIGN_RESIZEABLE_LITERALS)],
         control: {
             type: "select",
         },
@@ -463,26 +492,6 @@ export const STORYBOOK_TEXT_VARIATION_ARGUMENTS = {
         options: ["truncate"],
         control: {
             type: "multi-select",
-        },
-    },
-};
-
-export const STORYBOOK_VARIATION_BACKGROUND_ARGUMENTS = {
-    variation: {
-        options: Object.values(DESIGN_VARIATION_LITERALS).filter(
-            (v) => v !== "block" && v !== "clear"
-        ),
-        control: {
-            type: "select",
-        },
-    },
-};
-
-export const STORYBOOK_VARIATION_FOREGROUND_ARGUMENTS = {
-    variation: {
-        options: Object.values(DESIGN_VARIATION_LITERALS).filter((v) => v !== "block"),
-        control: {
-            type: "select",
         },
     },
 };

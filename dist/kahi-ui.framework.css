@@ -119,7 +119,7 @@ h6, h5, h4, h3, h2, h1 {
   font-weight: inherit;
 }
 
-input, button {
+input, button, textarea {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
@@ -199,14 +199,7 @@ table {
 }
 
 textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
   resize: vertical;
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
 }
 
 textarea::placeholder {
@@ -882,7 +875,35 @@ html[data-palette="dark"] [type="checkbox"]:not([data-palette]) {
             }
 }
 
-label[for] {
+.form-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  grid-gap: 0.5em;
+  gap: 0.5em;
+  width: 100%;
+}
+
+label:not([role]) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  grid-gap: 0.5em;
+  gap: 0.5em;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+label:not([role])[for] {
   cursor: pointer;
 }
 

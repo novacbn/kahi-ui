@@ -28,21 +28,26 @@ types=["string"]
 name="state"
 description="Sets the checked state of the <code>Switch</code>."
 types=["boolean"]
+
+[[properties.Switch]]
+name="value"
+description="Sets the value sent whenever the parent <code>&lt;form&gt;</code> is submitted."
+types=["string"]
 +++
 
 # Switch
 
-`Switch` is typically used to present a set of options to the end-user, which they can then choose from.
+`Switch` is typically used to present to the end-user features, settings, and other toggles that they can turn on / off.
 
 ```html repl Switch Preview
 <script>
-    import {Switch} from "@kahi-ui/framework";
+    import {Form, Switch} from "@kahi-ui/framework";
 </script>
 
-<label for="switch-preview">
+<Form.Label for="switch-preview">
     Remember Login?
-    <Switch id="switch-preview" palette="affirmative" margin_left="tiny" />
-</label>
+    <Switch palette="affirmative" />
+</Form.Label>
 ```
 
 ## Imports

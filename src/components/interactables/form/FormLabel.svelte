@@ -2,14 +2,10 @@
     // TODO: Stories (?)
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
-    import type {DESIGN_FILL_BUTTON_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
-    import {get_id_context} from "../../../lib/stores/id";
-
-    import Button from "../../interactables/button/Button.svelte";
+    import {CONTEXT_FORM_ID, get_id_context, make_id_context} from "../../../lib/stores/id";
+    import {map_attributes} from "../../../lib/util/attributes";
 
     export let element: HTMLElement | null = null;
 
@@ -34,17 +30,28 @@
     export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let shape: undefined = undefined;
-    export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT | undefined = undefined;
+    export let _for: string = "";
 
-    export let active: boolean = false;
-    export let disabled: boolean = false;
+    export {_for as for};
 
-    const store = get_id_context();
+    const _form_id = _for
+        ? make_id_context(_for, CONTEXT_FORM_ID)
+        : get_id_context(CONTEXT_FORM_ID);
+
+    $: {
+        if ($$slots["default"]) {
+            // @ts-expect-error - HACK: If we have a slot, this Component is the
+            // authorative Store anyway
+            $_form_id = _for;
+        }
+    }
 </script>
 
-<Button bind:element {...$$props} class="context-button {_class}" for={$store} on:click>
+<label
+    bind:this={element}
+    {...$$props}
+    {...map_attributes({for: _form_id && $_form_id ? $_form_id : _for})}
+    on:click
+>
     <slot />
-</Button>
+</label>

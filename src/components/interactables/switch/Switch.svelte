@@ -1,4 +1,6 @@
 <script lang="ts">
+    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../lib/stores/id";
+
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
@@ -42,6 +44,8 @@
     export let state: boolean = false;
     export let value: string = "";
 
+    const _form_id = get_id_context(CONTEXT_FORM_ID);
+    const _form_name = get_id_context(CONTEXT_FORM_NAME);
 </script>
 
 <input
@@ -51,7 +55,13 @@
     type="checkbox"
     {...map_data_attributes({palette, size})}
     {...map_aria_attributes({pressed: active})}
-    {...map_attributes({checked: state, disabled, value})}
+    {...map_attributes({
+        checked: state,
+        disabled,
+        id: _form_id && $_form_id ? $_form_id : id,
+        name: _form_name && $_form_name ? $_form_name : name,
+        value,
+    })}
     on:change
     on:click
     on:input

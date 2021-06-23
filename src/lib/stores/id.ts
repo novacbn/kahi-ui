@@ -6,22 +6,21 @@ export type IIDStore = Writable<string>;
 
 export const CONTEXT_ID = Symbol.for("kahi-ui-id");
 
+export const CONTEXT_FORM_ID = Symbol.for("kahi-ui-form-id");
+
+export const CONTEXT_FORM_NAME = Symbol.for("kahi-ui-form-name");
+
 export function id(default_value: string): IIDStore {
     return writable(default_value);
 }
 
-export function get_id_context(): IIDStore {
-    const store = getContext<Writable<string> | undefined>(CONTEXT_ID);
-    if (!store) {
-        throw new Error("bad dispatch to 'get_id_context' (Svelte Context not previously set)");
-    }
-
-    return store;
+export function get_id_context(context_id: Symbol = CONTEXT_ID): IIDStore | undefined {
+    return getContext<IIDStore | undefined>(context_id);
 }
 
-export function make_id_context(default_value: string): IIDStore {
+export function make_id_context(default_value: string, context_id: Symbol = CONTEXT_ID): IIDStore {
     const store = id(default_value);
 
-    setContext<IIDStore>(CONTEXT_ID, store);
+    setContext<IIDStore>(context_id, store);
     return store;
 }

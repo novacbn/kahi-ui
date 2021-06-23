@@ -1,6 +1,9 @@
 const svelteOptions = require("../svelte.config.cjs");
 
 module.exports = {
+    core: {
+        builder: "storybook-builder-vite",
+    },
     features: {
         postcss: false,
     },

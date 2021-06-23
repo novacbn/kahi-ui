@@ -11,10 +11,10 @@ The features listed below are used within Kahi UI, and are newer features. So th
 
 ### CSS
 
+-   [`clip-path`](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path) w/ Shapes
+-   [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 -   [Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/display#display_grid)
 -   [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/display#display_flex) w/ [Gap](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
--   [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
--   [`clip-path`](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path) w/ Shapes
 -   [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
 
 ### Javascript

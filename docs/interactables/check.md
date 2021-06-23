@@ -28,6 +28,11 @@ types=["string"]
 name="state"
 description="Sets the checked state of the <code>Check</code>."
 types=["boolean"]
+
+[[properties.Check]]
+name="value"
+description="Sets the value sent whenever the parent <code>&lt;form&gt;</code> is submitted."
+types=["string"]
 +++
 
 # Check
@@ -37,50 +42,49 @@ types=["boolean"]
 <!-- prettier-ignore -->
 ```html repl Check Preview
 <script>
-    import {Check, Spacer, Stack, Text} from "@kahi-ui/framework";
+    import {Check, Form, Stack, Text} from "@kahi-ui/framework";
 </script>
 
-<Text is="strong">Select Pizza toppings:</Text>
+<Text is="strong">Select Pizza Toppings</Text>
 
-<Stack spacing="small" style="max-width:10rem;">
-    <label for="check-preview-pepperoni">
-        <Stack orientation="horizontal" spacing="small">
+<Stack orientation="horizontal" spacing="small" variation="wrap" margin_top="small">
+    <Form.Group name="check-preview">
+        <Check
+            id="check-preview-cheese"
+            palette="accent"
+            size="tiny"
+            value="cheese"
+        >
+            Cheese
+        </Check>
+
+        <Check
+            id="check-preview-pepperoni"
+            palette="accent"
+            size="tiny"
+            value="pepperoni"
+        >
             Pepperoni
-            <Spacer />
-            <Check
-                name="check-preview"
-                id="check-preview-pepperoni"
-                palette="accent"
-                margin_left="tiny"
-            />
-        </Stack>
-    </label>
+        </Check>
 
-    <label for="check-preview-onions">
-        <Stack orientation="horizontal" spacing="small">
+        <Check
+            id="check-preview-onions"
+            palette="accent"
+            size="tiny"
+            value="onions"
+        >
             Onions
-            <Spacer />
-            <Check
-                name="check-preview"
-                id="check-preview-onions"
-                palette="accent"
-                margin_left="tiny"
-            />
-        </Stack>
-    </label>
+        </Check>
 
-    <label for="check-preview-pineapple">
-        <Stack orientation="horizontal" spacing="small">
+        <Check
+            id="check-preview-pineapple"
+            palette="accent"
+            size="tiny"
+            value="pineapple"
+        >
             Pineapple
-            <Spacer />
-            <Check
-                name="check-preview"
-                id="check-preview-pineapple"
-                palette="accent"
-                margin_left="tiny"
-            />
-        </Stack>
-    </label>
+        </Check>
+    </Form.Group>
 </Stack>
 ```
 

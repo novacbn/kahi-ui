@@ -8,6 +8,27 @@
 
 -   Adjusted background shades for light mode.
 -   Fixed up some naming / organization of Component types and Storybook options.
+
+-   Added new Components
+
+    -   Form
+
+        -   `Form`
+
+            -   `Form.Control` — Works as a container Component for providing vertical stacking for `Form.Label` / `Form.HelpText` / form Component with font-size based spacing
+
+                -   `<Form.Control logic_id="XXX">` — Used as an authoritative source for IDs for form-based Components via Svelte Context
+
+            -   `Form.Group` — Works as a purely virtual Component for providing shortcuts for groupings of form Components
+
+                -   `<Form.Group logic_name="XXX">` — Used as an authoritative source for form names for form-based Components via Svelte Context
+
+            -   `Form.Label` — Used to communicate to the end-user what a sibling / child form Component is used for
+
+                -   `<Form.Label logic_id="XXX">` — Used as an authoritative source for IDs for form-based Components via Svelte Context
+
+            -   `Form.HelpText` — Used to communicate to the end-user helpful information about a sibling form Component, e.g. input is for E-Mail address format
+
 -   Returning Components with their associated updates
 
     -   Display
@@ -27,7 +48,11 @@
 
             -   Updated to use transparent borders for consistent height.
 
-        -   `Check` / `Radio` / `Switch`
+        -   `Check` / `Radio`
+
+            -   Providing child content as a slot will wrap the Component and content in a `<Form.Label>` with spacing as siblings
+
+        -   `Switch`
 
         -   `TextInput`
 

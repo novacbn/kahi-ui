@@ -1,4 +1,6 @@
 <script lang="ts">
+    import {CONTEXT_FORM_ID, get_id_context} from "../../../lib/stores/id";
+
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../lib/types/resizeable";
@@ -48,8 +50,8 @@
 
     export let max_length: number | undefined = undefined;
     export let min_length: number | undefined = undefined;
-
     export let pattern: RegExp | string = "";
+
     export let placeholder: string = "";
     export let value: string = "";
 
@@ -58,6 +60,8 @@
     export let lines: number | undefined = undefined;
     export let resizeable: DESIGN_RESIZEABLE_ARGUMENT = false;
     export let spell_check: boolean | undefined = undefined;
+
+    const _form_id = get_id_context(CONTEXT_FORM_ID);
 
     $: _pattern = typeof pattern === "string" ? pattern : pattern.source;
 </script>
@@ -71,6 +75,7 @@
         {...map_attributes({
             cols: characters,
             disabled,
+            id: _form_id && $_form_id ? $_form_id : id,
             maxlength: max_length,
             minlength: min_length,
             placeholder,
@@ -92,6 +97,7 @@
         {...map_data_attributes({palette, size, variation})}
         {...map_attributes({
             disabled,
+            id: _form_id && $_form_id ? $_form_id : id,
             maxlength: max_length,
             minlength: min_length,
             pattern: _pattern,

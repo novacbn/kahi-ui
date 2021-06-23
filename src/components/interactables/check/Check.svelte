@@ -1,4 +1,11 @@
 <script lang="ts">
+    import {
+        CONTEXT_FORM_ID,
+        CONTEXT_FORM_NAME,
+        get_id_context,
+        make_id_context,
+    } from "../../../lib/stores/id";
+
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
@@ -10,6 +17,8 @@
         map_data_attributes,
         map_global_attributes,
     } from "../../../lib/util/attributes";
+
+    import FormLabel from "../form/FormLabel.svelte";
 
     export let element: HTMLElement | null = null;
 
@@ -42,16 +51,62 @@
     export let state: boolean = false;
     export let value: string = "";
 
+    const _form_id = $$slots["default"]
+        ? make_id_context(id, CONTEXT_FORM_ID)
+        : get_id_context(CONTEXT_FORM_ID);
+    const _form_name = $$slots["default"]
+        ? make_id_context(name, CONTEXT_FORM_NAME)
+        : get_id_context(CONTEXT_FORM_NAME);
+
+    $: {
+        if ($$slots["default"]) {
+            // @ts-expect-error - HACK: If we have a slot, this Component is the
+            // authorative Store anyway
+            $_form_id = id;
+            // @ts-expect-error
+            $_form_name = name;
+        }
+    }
 </script>
 
-<input
-    bind:this={element}
-    {...map_global_attributes($$props)}
-    type="checkbox"
-    {...map_data_attributes({palette, size})}
-    {...map_aria_attributes({pressed: active})}
-    {...map_attributes({checked: state, disabled, value})}
-    on:change
-    on:click
-    on:input
-/>
+{#if $$slots["default"]}
+    <FormLabel>
+        <input
+            bind:this={element}
+            {...map_global_attributes($$props)}
+            type="checkbox"
+            {...map_data_attributes({palette, size})}
+            {...map_aria_attributes({pressed: active})}
+            {...map_attributes({
+                checked: state,
+                disabled,
+                id: _form_id && $_form_id ? $_form_id : id,
+                name: _form_name && $_form_name ? $_form_name : name,
+                value,
+            })}
+            on:change
+            on:click
+            on:input
+        />
+
+        <slot />
+    </FormLabel>
+{:else}
+    <input
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        type="checkbox"
+        {...map_data_attributes({palette, size})}
+        {...map_aria_attributes({pressed: active})}
+        {...map_attributes({
+            checked: state,
+            disabled,
+            id: _form_id && $_form_id ? $_form_id : id,
+            name: _form_name && $_form_name ? $_form_name : name,
+            value,
+        })}
+        on:change
+        on:click
+        on:input
+    />
+{/if}

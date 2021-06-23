@@ -28,6 +28,11 @@ types=["string"]
 name="state"
 description="Sets the checked state of the <code>Radio</code>."
 types=["boolean"]
+
+[[properties.Radio]]
+name="value"
+description="Sets the value sent whenever the parent <code>&lt;form&gt;</code> is submitted."
+types=["string"]
 +++
 
 # Radio
@@ -37,50 +42,37 @@ types=["boolean"]
 <!-- prettier-ignore -->
 ```html repl Radio Preview
 <script>
-    import {Radio, Spacer, Stack, Text} from "@kahi-ui/framework";
+    import {Form, Radio, Stack, Text} from "@kahi-ui/framework";
 </script>
 
-<Text is="strong">Select an Ice Cream flavor:</Text>
+<Text is="strong">Select an Ice Cream Flavor</Text>
 
-<Stack spacing="small" style="max-width:10rem;">
-    <label for="radio-preview-bubblegum">
-        <Stack orientation="horizontal" spacing="small">
+<Stack spacing="small" margin_top="small">
+    <Form.Group logic_name="radio-preview">
+        <Radio
+            id="radio-preview-bubblegum"
+            palette="accent"
+            size="tiny"
+        >
             Bubblegum
-            <Spacer />
-            <Radio
-                name="radio-preview"
-                id="radio-preview-bubblegum"
-                palette="accent"
-                margin_left="tiny"
-            />
-        </Stack>
-    </label>
+        </Radio>
 
-    <label for="radio-preview-chocolate">
-        <Stack orientation="horizontal" spacing="small">
+        <Radio
+            id="radio-preview-chocolate"
+            palette="accent"
+            size="tiny"
+        >
             Chocolate
-            <Spacer />
-            <Radio
-                name="radio-preview"
-                id="radio-preview-chocolate"
-                palette="accent"
-                margin_left="tiny"
-            />
-        </Stack>
-    </label>
+        </Radio>
 
-    <label for="radio-preview-vanilla">
-        <Stack orientation="horizontal" spacing="small">
+        <Radio
+            id="radio-preview-vanilla"
+            palette="accent"
+            size="tiny"
+        >
             Vanilla
-            <Spacer />
-            <Radio
-                name="radio-preview"
-                id="radio-preview-vanilla"
-                palette="accent"
-                margin_left="tiny"
-            />
-        </Stack>
-    </label>
+        </Radio>
+    </Form.Group>
 </Stack>
 ```
 
@@ -158,66 +150,68 @@ You can change the color palette of the `Radio` via the `palette` property.
 
 ```html repl Radio Palette
 <script>
-    import {Radio, Stack, Text} from "@kahi-ui/framework";
+    import {Form, Radio, Stack, Text} from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
-    <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
+<Form.Group logic_name="radio-palette">
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        <div>
+            <Text>
+                <Text is="strong">DEFAULT</Text>
+            </Text>
 
-        <Radio name="radio-palette" />
-    </div>
+            <Radio />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">ACCENT</Text>
+            </Text>
 
-        <Radio name="radio-palette" palette="accent" />
-    </div>
+            <Radio palette="accent" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">DARK</Text>
+            </Text>
 
-        <Radio name="radio-palette" palette="dark" />
-    </div>
+            <Radio palette="dark" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">LIGHT</Text>
+            </Text>
 
-        <Radio name="radio-palette" palette="light" />
-    </div>
+            <Radio palette="light" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">ALERT</Text>
+            </Text>
 
-        <Radio name="radio-palette" palette="alert" />
-    </div>
+            <Radio palette="alert" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">AFFIRMATIVE</Text>
+            </Text>
 
-        <Radio name="radio-palette" palette="affirmative" />
-    </div>
+            <Radio palette="affirmative" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">NEGATIVE</Text>
+            </Text>
 
-        <Radio name="radio-palette" palette="negative" />
-    </div>
-</Stack>
+            <Radio palette="negative" />
+        </div>
+    </Stack>
+</Form.Group>
 ```
 
 ## Size
@@ -226,56 +220,58 @@ You can change the size of the `Radio` via the `size` property.
 
 ```html repl Radio Size
 <script>
-    import {Radio, Stack, Text} from "@kahi-ui/framework";
+    import {Form, Radio, Stack, Text} from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
-    <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
+<Form.Group logic_name="radio-size">
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        <div>
+            <Text>
+                <Text is="strong">DEFAULT</Text>
+            </Text>
 
-        <Radio name="radio-size" />
-    </div>
+            <Radio />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">TINY</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">TINY</Text>
+            </Text>
 
-        <Radio name="radio-size" size="tiny" />
-    </div>
+            <Radio size="tiny" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">SMALL</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">SMALL</Text>
+            </Text>
 
-        <Radio name="radio-size" size="small" />
-    </div>
+            <Radio size="small" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">MEDIUM</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">MEDIUM</Text>
+            </Text>
 
-        <Radio name="radio-size" size="medium" />
-    </div>
+            <Radio size="medium" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">LARGE</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">LARGE</Text>
+            </Text>
 
-        <Radio name="radio-size" size="large" />
-    </div>
+            <Radio size="large" />
+        </div>
 
-    <div>
-        <Text>
-            <Text is="strong">HUGE</Text>
-        </Text>
+        <div>
+            <Text>
+                <Text is="strong">HUGE</Text>
+            </Text>
 
-        <Radio name="radio-size" size="huge" />
-    </div>
-</Stack>
+            <Radio size="huge" />
+        </div>
+    </Stack>
+</Form.Group>
 ```

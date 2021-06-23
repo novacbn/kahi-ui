@@ -1,15 +1,10 @@
 <script lang="ts">
     // TODO: Stories (?)
 
+    import {CONTEXT_FORM_ID, make_id_context} from "../../../lib/stores/id";
+
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
-    import type {DESIGN_FILL_BUTTON_VARIATION_ARGUMENT} from "../../../lib/types/variations";
-
-    import {get_id_context} from "../../../lib/stores/id";
-
-    import Button from "../../interactables/button/Button.svelte";
 
     export let element: HTMLElement | null = null;
 
@@ -34,17 +29,13 @@
     export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let shape: undefined = undefined;
-    export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT | undefined = undefined;
+    export let logic_id: string = "";
 
-    export let active: boolean = false;
-    export let disabled: boolean = false;
+    const _logic_id = make_id_context(logic_id, CONTEXT_FORM_ID);
 
-    const store = get_id_context();
+    $: $_logic_id = logic_id;
 </script>
 
-<Button bind:element {...$$props} class="context-button {_class}" for={$store} on:click>
+<div bind:this={element} {...$$props} class="form-control {_class}">
     <slot />
-</Button>
+</div>

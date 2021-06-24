@@ -23,7 +23,7 @@ Visit the documentation at [kahi-ui.nbn.dev](https://kahi-ui.nbn.dev).
 
 ## F.A.Q.
 
-Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework](https://kahi-ui.nbn.dev/docs/framework).
+Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/faq](https://kahi-ui.nbn.dev/docs/framework/faq).
 
 ## Browser Support
 

@@ -36,7 +36,14 @@
         </Figure>
 
         <div>
-            <Heading is="h5">{TIMESTAMP_TEXT}</Heading>
+            <Heading
+                is="h5"
+                align="center"
+                max_width={["widescreen:content-max", "desktop:content-max", "tablet:content-max"]}
+            >
+                {TIMESTAMP_TEXT}
+            </Heading>
+
             <Text is="small">{_timestamp}</Text>
         </div>
     {/if}

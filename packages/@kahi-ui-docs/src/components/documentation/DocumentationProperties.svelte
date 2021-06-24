@@ -6,7 +6,6 @@
     export let properties: IArticleProperties;
 
     $: _components = Object.entries(properties);
-
 </script>
 
 <Heading is="h2" id="properties">Properties</Heading>
@@ -26,24 +25,25 @@
 
                 <Divider />
                 <Stack spacing="medium">
-                    <Stack orientation="horizontal" spacing="huge">
+                    <Stack orientation="horizontal">
                         <Text is="strong">Description</Text>
 
-                        <Spacer />
-                        <Text is="span" align="right">
+                        <Spacer orientation="horizontal" spacing="huge" />
+                        <Text is="span" align="right" max_width="prose">
                             {@html property.description}
                         </Text>
                     </Stack>
 
-                    <Stack orientation="horizontal" spacing="huge">
+                    <Stack orientation="horizontal">
                         <Text is="strong">Types</Text>
 
-                        <Spacer />
+                        <Spacer orientation="horizontal" spacing="huge" />
                         <Stack
                             orientation="horizontal"
                             alignment_x="right"
                             spacing="small"
                             variation="wrap"
+                            max_width="prose"
                         >
                             {#each property.types as type (type)}
                                 <Code>
@@ -66,5 +66,4 @@
         margin-top: 1em;
         margin-bottom: 0.25em;
     }
-
 </style>

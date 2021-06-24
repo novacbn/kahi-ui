@@ -3530,15 +3530,15 @@ html[data-palette="dark"] [data-palette="negative"] {
   --tw-translate-y: -50%;
 }
 
-[data-resizeable]:not([data-resizeable="x"], [data-resizeable="y"]) {
+[data-resizable]:not([data-resizable="x"], [data-resizable="y"]) {
     resize: both;
 }
 
-[data-resizeable="x"] {
+[data-resizable="x"] {
     resize: horizontal;
 }
 
-[data-resizeable="y"] {
+[data-resizable="y"] {
     resize: vertical;
 }
 

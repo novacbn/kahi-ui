@@ -1,10 +1,12 @@
 import GithubSlugger from "github-slugger";
 import type MarkdownIt from "markdown-it";
 import Prism from "prismjs";
-import "prismjs/components/prism-bash.js";
 
 import {escape_html} from "../../../shared/util/html";
 import {hash_sha256} from "../../util/crypto";
+
+import "../syntaxes/prism-bash";
+
 import type {IArticleOptions} from "../article";
 
 enum SNIPPET_MODES {

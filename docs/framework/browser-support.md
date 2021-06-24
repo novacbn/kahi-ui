@@ -1,9 +1,11 @@
 # Browser Support
 
-|                       | Chrome          | Edge            | Firefox        | Safari             | Internet Explorer |
-| --------------------- | --------------- | --------------- | -------------- | ------------------ | ----------------- |
-| **Estimated Minimum** | 64+ _July 2020_ | 84+ _July 2020_ | 67+ _May 2019_ | 14.1+ _April 2021_ | **UNSUPPORTED**   |
-| **Tested Minimum**    | 89+             | ?               | 87+            | ?                  | **UNSUPPORTED**   |
+Modern Browsers listed below and generally their derivatives. Primary testing happens on Chrome / Firefox, both mobile and desktop. With occasional testing on Gnome Web which is based on WebKit.
+
+|                       | Chrome          | Edge            | Firefox        | Safari             | Edge _(Pre Chromium)_ | Internet Explorer |
+| --------------------- | --------------- | --------------- | -------------- | ------------------ | --------------------- | ----------------- |
+| **Estimated Minimum** | 64+ _July 2020_ | 84+ _July 2020_ | 67+ _May 2019_ | 14.1+ _April 2021_ | **NOT SUPPORTED**     | **NOT SUPPORTED** |
+| **Tested Minimum**    | 89+             | ?               | 87+            | ?                  | **NOT SUPPORTED**     | **NOT SUPPORTED** |
 
 ## Features Used
 

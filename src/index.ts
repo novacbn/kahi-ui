@@ -8,7 +8,7 @@ export * from "./lib/types/orientations";
 export * from "./lib/types/palettes";
 export * from "./lib/types/points";
 export * from "./lib/types/positions";
-export * from "./lib/types/resizeable";
+export * from "./lib/types/resizable";
 export * from "./lib/types/shapes";
 export * from "./lib/types/sizes";
 export * from "./lib/types/sizings";

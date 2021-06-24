@@ -16,7 +16,7 @@ import {
 import {DESIGN_PALETTE_LITERALS} from "../lib/types/palettes";
 import {DESIGN_POINTS_LITERALS} from "../lib/types/points";
 import {DESIGN_POSITION_LITERALS} from "../lib/types/positions";
-import {DESIGN_RESIZEABLE_LITERALS} from "../lib/types/resizeable";
+import {DESIGN_RESIZEABLE_LITERALS} from "../lib/types/resizable";
 import {DESIGN_SHAPE_LITERALS} from "../lib/types/shapes";
 import {DESIGN_SIZE_LITERALS} from "../lib/types/sizes";
 import {DESIGN_INTRINSIC_SIZING_LITERALS, DESIGN_SIZING_LITERALS} from "../lib/types/sizings";
@@ -393,7 +393,7 @@ export const STORYBOOK_POSITION_ARGUMENTS = {
     },
 };
 export const STORYBOOK_RESIZEABLE_ARGUMENTS = {
-    resizeable: {
+    resizable: {
         options: [true, ...Object.values(DESIGN_RESIZEABLE_LITERALS)],
         control: {
             type: "select",

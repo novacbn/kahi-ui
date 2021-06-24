@@ -53,7 +53,7 @@
     <main>
         <Container
             class="documentation-container"
-            viewport={["mobile", "widescreen:desktop"]}
+            viewport={["mobile", "widescreen:tablet"]}
             padding_bottom="large"
         >
             <slot />

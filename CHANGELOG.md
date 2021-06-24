@@ -1,6 +1,16 @@
 # CHANGELOG
 
-## v0.2.7 -
+## v0.2.8 - 2021/06/24
+
+-   Updated the following Components
+
+    -   Interactables
+
+        -   `TextInput`
+
+            -   Fixed `<TextInput resizeable>` -> `<TextInput resizable>`
+
+## v0.2.7 - 2021/06/24
 
 -   Upgraded Storybook to `6.3.0-rc.11`.
 

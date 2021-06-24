@@ -9,8 +9,9 @@ export default {
             separator: "Framework",
             items: [
                 {href: "/docs/framework/getting-started"},
-                {href: "/docs/framework/icons"},
+                {href: "/docs/framework/faq"},
                 {href: "/docs/framework/browser-support"},
+                {href: "/docs/framework/icons"},
                 {href: "/docs/framework/responsivity"},
             ],
         },

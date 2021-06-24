@@ -1,0 +1,11 @@
+[data-resizable]:not([data-resizable="x"], [data-resizable="y"]) {
+    resize: both;
+}
+
+[data-resizable="x"] {
+    resize: horizontal;
+}
+
+[data-resizable="y"] {
+    resize: vertical;
+}

@@ -1,5 +1,4 @@
 import type MarkdownIt from "markdown-it";
-import "prismjs/components/prism-bash.js";
 
 import type {IArticleOptions} from "../article";
 

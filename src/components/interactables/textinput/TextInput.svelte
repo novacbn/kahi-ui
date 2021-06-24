@@ -3,7 +3,7 @@
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
-    import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../lib/types/resizeable";
+    import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../lib/types/resizable";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
     import type {DESIGN_FILL_INPUT_VARIATION_ARGUMENT} from "../../../lib/types/variations";
@@ -58,7 +58,7 @@
     export let characters: number | undefined = undefined;
 
     export let lines: number | undefined = undefined;
-    export let resizeable: DESIGN_RESIZEABLE_ARGUMENT = false;
+    export let resizable: DESIGN_RESIZEABLE_ARGUMENT = false;
     export let spell_check: boolean | undefined = undefined;
 
     const _form_id = get_id_context(CONTEXT_FORM_ID);
@@ -70,7 +70,7 @@
     <textarea
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({palette, resizeable, size, variation})}
+        {...map_data_attributes({palette, resizable, size, variation})}
         {...map_attributes({
             cols: characters,
             disabled,

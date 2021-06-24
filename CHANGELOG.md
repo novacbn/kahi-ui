@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.2.9 - 2021/06/24
+
+-   Fixed NPM install.
+
 ## v0.2.8 - 2021/06/24
 
 -   Updated the following Components

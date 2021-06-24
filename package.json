@@ -2,14 +2,15 @@
     "name": "@kahi-ui/framework",
     "description": "Straight-forward Svelte UI for the Web",
     "author": "novacbn",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "type": "module",
     "main": "./src/index.ts",
     "svelte": "./src/index.ts",
     "exports": {
         "./package.json": "./package.json",
         ".": "./src/index.ts",
-        "./dist/kahi-ui.framework.css": "./dist/kahi-ui.framework.css"
+        "./dist/kahi-ui.framework.css": "./dist/kahi-ui.framework.css",
+        "./dist/kahi-ui.framework.min.css": "./dist/kahi-ui.framework.min.css"
     },
     "keywords": [
         "css",
@@ -21,7 +22,11 @@
         "windicss"
     ],
     "files": [
-        "dist"
+        "dist",
+        "src",
+        "CHANGELOG.md",
+        "LICENSE",
+        "README.md"
     ],
     "repository": {
         "type": "git",

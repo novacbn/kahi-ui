@@ -14,7 +14,7 @@
         map_global_attributes,
     } from "../../../lib/util/attributes";
 
-    export let element: HTMLElement | null = null;
+    export let element: HTMLInputElement | HTMLTextAreaElement | null = null;
 
     let _class: string = "";
     export let id: string = "";

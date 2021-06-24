@@ -10,8 +10,8 @@ button,
     --size-text: inherit;
     --size-line-height: inherit;
 
-    @apply align-middle border-2 border-solid font-bold gap-3 inline-flex items-center
-    justify-center px-[0.75em] py-[0.5em] relative rounded-lg select-none leading-[var(--size-line-height)]
+    @apply align-middle border-0 font-bold gap-3 inline-flex items-center justify-center
+    px-[0.75em] py-[0.5em] relative rounded-lg select-none leading-[var(--size-line-height)]
     whitespace-nowrap z-0;
 
     border-color: rgba(0, 0, 0, 0);

@@ -21,7 +21,7 @@ types=["boolean"]
 
 [[properties.Button]]
 name="disabled"
-description="Renders the <code>Button</code> with <code>disabled <strong>(BUTTON / FORM ONLY)</strong></code> / <code>aria-disabled <strong>(ANCHORS / LABELS ONLY)</strong></code> attributes, and styles the <code>Button</code> partially transparent."
+description="Renders the <code>Button</code> with <code>disabled</code> / <code>aria-disabled</code> attributes, and styles the <code>Button</code> partially transparent."
 types=["boolean"]
 
 [[properties.Button]]

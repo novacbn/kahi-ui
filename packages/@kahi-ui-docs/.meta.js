@@ -54,6 +54,7 @@ export default {
             items: [
                 {href: "/docs/interactables/button"},
                 {href: "/docs/interactables/check"},
+                {href: "/docs/interactables/form"},
                 {href: "/docs/interactables/radio"},
                 {href: "/docs/interactables/switch"},
                 {href: "/docs/interactables/textinput"},

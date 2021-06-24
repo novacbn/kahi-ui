@@ -21,7 +21,7 @@
 
     import FormLabel from "../form/FormLabel.svelte";
 
-    export let element: HTMLElement | null = null;
+    export let element: HTMLInputElement | null = null;
 
     let _class: string = "";
     export let id: string = "";

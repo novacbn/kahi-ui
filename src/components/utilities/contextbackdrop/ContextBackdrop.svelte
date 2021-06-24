@@ -61,8 +61,15 @@
     const _scrolllock = scrolllock();
     const _state = get_state_context();
 
-    $: if (IS_BROWSER) $_scrolllock = $_state;
+    $: {
+        if (dismissible && !_logic_id) {
+            throw new Error(
+                "bad property 'dismissable' to 'ContextBackdrop' (Svelte Store was not set as a context)"
+            );
+        }
+    }
 
+    $: if (IS_BROWSER) $_scrolllock = $_state;
 </script>
 
 {#if dismissible}
@@ -70,7 +77,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         class="context-backdrop {_class}"
-        for={$_logic_id}
+        for={_logic_id ? $_logic_id : ""}
         on:click
     />
 {:else}

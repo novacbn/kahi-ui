@@ -3,7 +3,7 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
-    import type {DESIGN_VARIATION_INTERACTIVE_ARGUMENT} from "../../../lib/types/variations";
+    import type {DESIGN_FILL_BUTTON_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {
         map_aria_attributes,
@@ -38,7 +38,7 @@
     export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
     export let shape: undefined = undefined;
     export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_VARIATION_INTERACTIVE_ARGUMENT | undefined = undefined;
+    export let variation: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT | undefined = undefined;
 
     export let active: boolean = false;
     export let disabled: boolean = false;
@@ -54,7 +54,6 @@
     export let _for: boolean | string = false;
 
     export {_for as for};
-
 </script>
 
 {#if href}

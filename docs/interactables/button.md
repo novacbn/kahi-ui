@@ -21,7 +21,7 @@ types=["boolean"]
 
 [[properties.Button]]
 name="disabled"
-description="Renders the <code>Button</code> with <code>disabled <strong>(BUTTON / FORM ONLY)</strong></code> / <code>aria-disabled <strong>(ANCHORS / LABELS ONLY)</strong></code> attributes, and styles the <code>Button</code> partially transparent."
+description="Renders the <code>Button</code> with <code>disabled</code> / <code>aria-disabled</code> attributes, and styles the <code>Button</code> partially transparent."
 types=["boolean"]
 
 [[properties.Button]]
@@ -67,7 +67,7 @@ types=["string"]
 
 # Button
 
-A `Button` is used to usually trigger an action in the Web Application, such as submitting forms or opening an Overlay.
+`Button` is used to usually trigger an action in the Web Application, such as submitting forms or opening an Overlay.
 
 <!-- prettier-ignore -->
 ```html repl Button Preview
@@ -111,7 +111,7 @@ You can change the color palette of the `Button` via the `palette` property.
 
 ## Size
 
-You can change the size of the `Button` via the `palette` property.
+You can change the size of the `Button` via the `size` property.
 
 <!-- prettier-ignore -->
 ```html repl Button Size

@@ -388,10 +388,6 @@
     }
 }
 
-[data-max-width~="auto"] {
-    @apply !max-w-auto;
-}
-
 [data-max-width~="content-fit"] {
     @apply !max-w-[-moz-fit-content] !max-w-[fit-content];
 }
@@ -465,10 +461,6 @@
 }
 
 @variants <sm {
-    [data-max-width~="mobile:auto"] {
-        @apply !max-w-auto;
-    }
-
     [data-max-width~="mobile:content-fit"] {
         @apply !max-w-[-moz-fit-content] !max-w-[fit-content];
     }
@@ -543,10 +535,6 @@
 }
 
 @variants @sm {
-    [data-max-width~="tablet:auto"] {
-        @apply !max-w-auto;
-    }
-
     [data-max-width~="tablet:content-fit"] {
         @apply !max-w-[-moz-fit-content] !max-w-[fit-content];
     }
@@ -621,10 +609,6 @@
 }
 
 @variants @md {
-    [data-max-width~="desktop:auto"] {
-        @apply !max-w-auto;
-    }
-
     [data-max-width~="desktop:content-fit"] {
         @apply !max-w-[-moz-fit-content] !max-w-[fit-content];
     }
@@ -699,10 +683,6 @@
 }
 
 @variants lg {
-    [data-max-width~="widescreen:auto"] {
-        @apply !max-w-auto;
-    }
-
     [data-max-width~="widescreen:content-fit"] {
         @apply !max-w-[-moz-fit-content] !max-w-[fit-content];
     }
@@ -774,10 +754,6 @@
     [data-max-width~="widescreen:viewport-100"] {
         @apply !max-w-[100vw];
     }
-}
-
-[data-min-width~="auto"] {
-    @apply !min-w-auto;
 }
 
 [data-min-width~="content-fit"] {
@@ -853,10 +829,6 @@
 }
 
 @variants <sm {
-    [data-min-width~="mobile:auto"] {
-        @apply !min-w-auto;
-    }
-
     [data-min-width~="mobile:content-fit"] {
         @apply !min-w-[-moz-fit-content] !min-w-[fit-content];
     }
@@ -931,10 +903,6 @@
 }
 
 @variants @sm {
-    [data-min-width~="tablet:auto"] {
-        @apply !min-w-auto;
-    }
-
     [data-min-width~="tablet:content-fit"] {
         @apply !min-w-[-moz-fit-content] !min-w-[fit-content];
     }
@@ -1009,10 +977,6 @@
 }
 
 @variants @md {
-    [data-min-width~="desktop:auto"] {
-        @apply !min-w-auto;
-    }
-
     [data-min-width~="desktop:content-fit"] {
         @apply !min-w-[-moz-fit-content] !min-w-[fit-content];
     }
@@ -1087,10 +1051,6 @@
 }
 
 @variants lg {
-    [data-min-width~="widescreen:auto"] {
-        @apply !min-w-auto;
-    }
-
     [data-min-width~="widescreen:content-fit"] {
         @apply !min-w-[-moz-fit-content] !min-w-[fit-content];
     }
@@ -1554,10 +1514,6 @@
     }
 }
 
-[data-max-height~="auto"] {
-    @apply !max-h-auto;
-}
-
 [data-max-height~="content-fit"] {
     @apply !max-h-[-moz-fit-content] !max-h-[fit-content];
 }
@@ -1631,10 +1587,6 @@
 }
 
 @variants <sm {
-    [data-max-height~="mobile:auto"] {
-        @apply !max-h-auto;
-    }
-
     [data-max-height~="mobile:content-fit"] {
         @apply !max-h-[-moz-fit-content] !max-h-[fit-content];
     }
@@ -1709,10 +1661,6 @@
 }
 
 @variants @sm {
-    [data-max-height~="tablet:auto"] {
-        @apply !max-h-auto;
-    }
-
     [data-max-height~="tablet:content-fit"] {
         @apply !max-h-[-moz-fit-content] !max-h-[fit-content];
     }
@@ -1787,10 +1735,6 @@
 }
 
 @variants @md {
-    [data-max-height~="desktop:auto"] {
-        @apply !max-h-auto;
-    }
-
     [data-max-height~="desktop:content-fit"] {
         @apply !max-h-[-moz-fit-content] !max-h-[fit-content];
     }
@@ -1865,10 +1809,6 @@
 }
 
 @variants lg {
-    [data-max-height~="widescreen:auto"] {
-        @apply !max-h-auto;
-    }
-
     [data-max-height~="widescreen:content-fit"] {
         @apply !max-h-[-moz-fit-content] !max-h-[fit-content];
     }
@@ -1940,10 +1880,6 @@
     [data-max-height~="widescreen:viewport-100"] {
         @apply !max-h-[100vh];
     }
-}
-
-[data-min-height~="auto"] {
-    @apply !min-h-auto;
 }
 
 [data-min-height~="content-fit"] {
@@ -2019,10 +1955,6 @@
 }
 
 @variants <sm {
-    [data-min-height~="mobile:auto"] {
-        @apply !min-h-auto;
-    }
-
     [data-min-height~="mobile:content-fit"] {
         @apply !min-h-[-moz-fit-content] !min-h-[fit-content];
     }
@@ -2097,10 +2029,6 @@
 }
 
 @variants @sm {
-    [data-min-height~="tablet:auto"] {
-        @apply !min-h-auto;
-    }
-
     [data-min-height~="tablet:content-fit"] {
         @apply !min-h-[-moz-fit-content] !min-h-[fit-content];
     }
@@ -2175,10 +2103,6 @@
 }
 
 @variants @md {
-    [data-min-height~="desktop:auto"] {
-        @apply !min-h-auto;
-    }
-
     [data-min-height~="desktop:content-fit"] {
         @apply !min-h-[-moz-fit-content] !min-h-[fit-content];
     }
@@ -2253,10 +2177,6 @@
 }
 
 @variants lg {
-    [data-min-height~="widescreen:auto"] {
-        @apply !min-h-auto;
-    }
-
     [data-min-height~="widescreen:content-fit"] {
         @apply !min-h-[-moz-fit-content] !min-h-[fit-content];
     }

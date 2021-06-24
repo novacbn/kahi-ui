@@ -35,8 +35,8 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
     </Tile.Section>
 
     <Tile.Footer>
-        <Button palette="affirmative" size="small">Add Friend</Button>
-        <Button palette="negative" size="small">Ban User</Button>
+        <Button palette="affirmative">Add Friend</Button>
+        <Button palette="negative">Ban User</Button>
     </Tile.Footer>
 </Tile.Container>
 ```

@@ -1,6 +1,7 @@
 <script lang="ts">
     import {Clock} from "svelte-feather/components/Clock";
-    import {Button, Figure, Heading, Spacer, Stack, Text, Tile} from "@kahi-ui/framework";
+    import {Github} from "svelte-feather/components/Github";
+    import {Button, Divider, Figure, Heading, Spacer, Stack, Text} from "@kahi-ui/framework";
 
     import {substitute_value} from "@kahi-ui/docs-kit/shared";
 
@@ -18,43 +19,43 @@
 
     $: _edit_url = substitute_value(EDIT_URL, meta.identifier + ".md");
     $: _timestamp = new Date(meta.mtime).toLocaleString(LOCALE_DEFAULT);
-
 </script>
 
-<Tile.Container class="documentation-footer" palette="accent" margin_top="large">
-    <Stack
-        orientation={["widescreen:horizontal", "desktop:horizontal", "tablet:horizontal"]}
-        alignment="center"
-        spacing="medium"
-        padding_x="large"
-        padding_y="medium"
-        width="100"
-    >
-        {#if TIMESTAMP_ENABLED}
-            <Figure variation="icon" size="medium">
-                <Clock />
-            </Figure>
+<Divider margin_y="large" />
 
-            <div>
-                <Heading is="h5">{TIMESTAMP_TEXT}</Heading>
-                <Text is="small">{_timestamp}</Text>
-            </div>
-        {/if}
+<Stack
+    class="documentation-footer"
+    orientation={["widescreen:horizontal", "desktop:horizontal", "tablet:horizontal"]}
+    alignment="center"
+    spacing="medium"
+    width="100"
+>
+    {#if TIMESTAMP_ENABLED}
+        <Figure variation="icon" size="medium">
+            <Clock />
+        </Figure>
 
-        {#if EDIT_ENABLED}
-            <Spacer hidden="mobile" />
+        <div>
+            <Heading is="h5">{TIMESTAMP_TEXT}</Heading>
+            <Text is="small">{_timestamp}</Text>
+        </div>
+    {/if}
 
-            <div>
-                <Button
-                    href={_edit_url}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    palette="light"
-                    variation="outline"
-                >
-                    {EDIT_TEXT}
-                </Button>
-            </div>
-        {/if}
-    </Stack>
-</Tile.Container>
+    {#if EDIT_ENABLED}
+        <Spacer hidden="mobile" />
+
+        <div>
+            <Button
+                href={_edit_url}
+                rel="noopener noreferrer"
+                target="_blank"
+                palette="accent"
+                size="medium"
+                variation="clear"
+            >
+                {EDIT_TEXT}
+                <Github />
+            </Button>
+        </div>
+    {/if}
+</Stack>

@@ -1,0 +1,86 @@
+[type="checkbox"][role="switch"] {
+    @apply appearance-none align-middle bg-transparent cursor-pointer inline-flex items-center
+    justify-center p-[0.5em] relative rounded-full select-none leading-[var(--size-line-height)] whitespace-nowrap;
+
+    background-color: rgba(var(--palette-background-bg), theme("opacity.25"));
+
+    font-size: var(--size-text);
+
+    outline: none !important;
+    transform: scale(1);
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &:disabled {
+        @apply cursor-not-allowed opacity-40;
+    }
+
+    &::before {
+        @apply h-[1.5ex] w-[3ex];
+
+        content: "";
+
+        background-color: currentColor;
+
+        transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:not(:checked) {
+        @apply text-[rgb(var(--palette-background-bg))];
+
+        &::before {
+            @apply;
+
+            clip-path: inset(0% 50% 0% 0% round theme("borderRadius.full"));
+        }
+
+        &:enabled:is(:active, :hover),
+        &[aria-pressed="true"] {
+            @apply;
+
+            background-color: rgba(var(--palette-background-bg), theme("opacity.50"));
+        }
+    }
+
+    &:checked {
+        @apply bg-[rgb(var(--palette-foreground-bg))] text-[rgb(var(--palette-foreground-text))];
+
+        &::before {
+            @apply;
+
+            clip-path: inset(0% 0% 0% 50% round theme("borderRadius.full"));
+        }
+
+        &:enabled:is(:active, :hover),
+        &[aria-pressed="true"] {
+            @apply;
+
+            background-color: rgba(var(--palette-foreground-bg), theme("opacity.75"));
+        }
+    }
+
+    &:enabled:active,
+    &[aria-pressed="true"] {
+        transform: scale(0.95);
+
+        &::before {
+            @apply;
+
+            clip-path: inset(0% 25% 0% 25% round theme("borderRadius.full"));
+        }
+    }
+
+    &:is([data-size="tiny"], [data-size="small"]) {
+        &::before {
+            @apply h-[1ex] w-[2ex];
+        }
+    }
+
+    &:is([data-size="large"], [data-size="huge"]) {
+        &::before {
+            @apply h-[2ex] w-[4ex];
+        }
+    }
+}

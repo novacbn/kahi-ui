@@ -11,7 +11,7 @@ pre {
 code {
     --size-text: 80%;
 
-    @apply px-2 py-1 rounded-md whitespace-nowrap;
+    @apply break-words px-2 py-1 rounded-md;
 
     background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
     font-size: var(--size-text);

@@ -34,7 +34,6 @@
             });
         }
     });
-
 </script>
 
 <svelte:head>
@@ -44,19 +43,18 @@
             width: 100%;
             height: 100%;
         }
-
     </style>
 </svelte:head>
 
-<Stack class="shell-aside-stack" orientation="horizontal">
+<Stack class="shell-aside-stack" orientation="horizontal" min_height="100">
     <Aside.Container
         bind:element
         class="shell-aside"
         logic_id="shell-aside"
         palette="dark"
         variation="sticky"
-        height="viewport-100"
         max_height="100"
+        height="viewport-100"
         captive
         dismissible
     >
@@ -82,11 +80,16 @@
             </Aside.Footer>
         {/if}
 
-        <ContextButton hidden={["desktop", "widescreen"]}>
+        <ContextButton hidden={["desktop", "widescreen"]} size="large">
             <Menu />
         </ContextButton>
 
-        <ContextButton palette="dark" variation="clear" hidden={["desktop", "widescreen"]}>
+        <ContextButton
+            palette="dark"
+            variation="clear"
+            size="large"
+            hidden={["desktop", "widescreen"]}
+        >
             <X />
         </ContextButton>
     </Aside.Container>

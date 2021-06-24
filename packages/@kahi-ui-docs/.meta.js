@@ -32,7 +32,11 @@ export default {
 
         {
             separator: "Display",
-            items: [{href: "/docs/display/badge"}, {href: "/docs/display/list"}],
+            items: [
+                {href: "/docs/display/badge"},
+                {href: "/docs/display/list"},
+                {href: "/docs/display/table"},
+            ],
         },
 
         {
@@ -47,7 +51,14 @@ export default {
 
         {
             separator: "Interactables",
-            items: [{href: "/docs/interactables/button"}],
+            items: [
+                {href: "/docs/interactables/button"},
+                {href: "/docs/interactables/check"},
+                {href: "/docs/interactables/form"},
+                {href: "/docs/interactables/radio"},
+                {href: "/docs/interactables/switch"},
+                {href: "/docs/interactables/textinput"},
+            ],
         },
 
         {
@@ -87,7 +98,10 @@ export default {
 
         {
             separator: "Overlays",
-            items: [{href: "/docs/overlays/overlay"}],
+            items: [
+                //{href: "/docs/overlays/popover"},
+                {href: "/docs/overlays/overlay"},
+            ],
         },
 
         {

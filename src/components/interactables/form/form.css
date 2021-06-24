@@ -1,0 +1,11 @@
+.form-control {
+    @apply flex flex-col gap-[0.5em] w-full;
+}
+
+label:not([role]) {
+    @apply inline-flex gap-[0.5em] items-center;
+
+    &[for] {
+        @apply cursor-pointer;
+    }
+}

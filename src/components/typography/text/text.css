@@ -92,13 +92,16 @@ span:not([class]) {
 }
 
 kbd {
-    --size-text: 65%;
+    --palette-foreground-bg: theme("colors.default.500");
+    --palette-background-bg: theme("colors.default.400");
 
-    @apply border-2 px-1 py-0.5 rounded-md whitespace-nowrap;
+    --size-text: 70%;
 
-    background-color: rgba(var(--palette-background-bg), theme("opacity.30"));
-    border-color: rgba(var(--palette-background-bg), theme("opacity.50"));
-    border-style: outset;
+    @apply border-b-4 px-2 py-0.5 rounded-md text-bold whitespace-nowrap;
+
+    background-color: rgba(var(--palette-background-bg), theme("opacity.20"));
+    border-color: rgba(var(--palette-foreground-bg), theme("opacity.50"));
+    border-style: ridge;
 
     font-size: var(--size-text);
 }

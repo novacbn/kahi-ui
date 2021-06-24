@@ -317,7 +317,7 @@ You can also access most of the other HTML text tags via the `is` property.
     import {Stack, Text} from "@kahi-ui/framework";
 </script>
 
-<Stack spacing="medium">
+<Stack alignment_x="left" spacing="medium">
     <Text is="abbr">Abbreviation</Text>
 
     <Text is="b">Bold</Text>
@@ -332,7 +332,7 @@ You can also access most of the other HTML text tags via the `is` property.
     <Text is="ins">Inserted</Text>
     <Text is="u">Underline</Text>
 
-    <Text is="kbd">Ctrl + C</Text>
+    <Text is="kbd">CTRL + C</Text>
     <Text is="mark">Highlighted</Text>
     <Text is="samp">Sample</Text>
 

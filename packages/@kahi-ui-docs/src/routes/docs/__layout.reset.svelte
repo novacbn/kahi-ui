@@ -13,7 +13,6 @@
             },
         };
     };
-
 </script>
 
 <script lang="ts">
@@ -34,7 +33,6 @@
     export let items: INavigationMenu[] = [];
 
     $: _version_url = VERSION_ENABLED ? substitute_value(VERSION_URL, VERSION_TAG) : null;
-
 </script>
 
 <Shell.Aside branding={META_BRANDING} {items}>
@@ -56,7 +54,6 @@
         <Container
             class="documentation-container"
             viewport={["mobile", "widescreen:desktop"]}
-            margin_x="auto"
             padding_bottom="large"
         >
             <slot />
@@ -89,8 +86,13 @@
         margin-top: 1em;
     }
 
-    :global(.documentation-container > table) {
+    :global(.documentation-container > .scrollable),
+    :global(.documentation-container > ul) {
         margin-top: 1rem;
+    }
+
+    :global(.documentation-container > ul) {
+        margin-left: 2em;
     }
 
     :global(.documentation-container > .snippet-highlight) {
@@ -109,5 +111,4 @@
         border: 1px solid rgb(var(--palette-foreground-text), 0.3);
         border-radius: 0.375rem;
     }
-
 </style>

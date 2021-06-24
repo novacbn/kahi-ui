@@ -232,7 +232,7 @@ You can align `Overlay` content via the `alignment`, `alignment_x`, and `alignme
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="negative" size="tiny">X</Button>
+            <Button palette="negative" data-size="small">X</Button>
         </Tile.Footer>
     </Tile.Container>
 </Overlay>
@@ -259,7 +259,7 @@ You can adjust the spacing between `Overlay` content via the `spacing`, `spacing
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="negative" size="tiny">X</Button>
+            <Button palette="negative" data-size="small">X</Button>
         </Tile.Footer>
     </Tile.Container>
 
@@ -273,7 +273,7 @@ You can adjust the spacing between `Overlay` content via the `spacing`, `spacing
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="negative" size="tiny">X</Button>
+            <Button palette="negative" data-size="small">X</Button>
         </Tile.Footer>
     </Tile.Container>
 </Overlay>

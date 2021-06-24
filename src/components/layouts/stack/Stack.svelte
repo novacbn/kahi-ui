@@ -4,11 +4,11 @@
         DESIGN_ALIGNMENT_X_ARGUMENT,
         DESIGN_ALIGNMENT_Y_ARGUMENT,
     } from "../../../lib/types/alignments";
-    import type {DESIGN_FLEX_VARIATIONS_ARGUMENT} from "../../../lib/types/flex";
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_ORIENTATION_VERTICAL_ARGUMENT} from "../../../lib/types/orientations";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {DESIGN_FLEX_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
@@ -54,7 +54,7 @@
     export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
 
     export let orientation: DESIGN_ORIENTATION_VERTICAL_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_FLEX_VARIATIONS_ARGUMENT | undefined = undefined;
+    export let variation: DESIGN_FLEX_VARIATION_ARGUMENT | undefined = undefined;
 
     export let alignment: DESIGN_ALIGNMENT_ARGUMENT | undefined = undefined;
     export let alignment_x: DESIGN_ALIGNMENT_X_ARGUMENT | undefined = undefined;
@@ -63,7 +63,6 @@
     export let spacing: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let spacing_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let spacing_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
 </script>
 
 <div

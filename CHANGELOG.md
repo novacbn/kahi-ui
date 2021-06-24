@@ -1,6 +1,94 @@
 # CHANGELOG
 
-## v0.2.6 -
+## v0.2.7 -
+
+-   Upgraded Storybook to `6.3.0-rc.11`.
+
+    -   Changed Storybook to use Vite as toolchain.
+
+-   Adjusted background shades for light mode.
+-   Fixed up some naming / organization of Component types and Storybook options.
+
+-   Added new Components
+
+    -   Form
+
+        -   `Form`
+
+            -   `Form.Control` — Works as a container Component for providing vertical stacking for `Form.Label` / `Form.HelpText` / form Component with font-size based spacing
+
+                -   `<Form.Control logic_id="XXX">` — Used as an authoritative source for IDs for form-based Components via Svelte Context
+
+            -   `Form.Group` — Works as a purely virtual Component for providing shortcuts for groupings of form Components
+
+                -   `<Form.Group logic_name="XXX">` — Used as an authoritative source for form names for form-based Components via Svelte Context
+
+            -   `Form.Label` — Used to communicate to the end-user what a sibling / child form Component is used for
+
+                -   `<Form.Label logic_id="XXX">` — Used as an authoritative source for IDs for form-based Components via Svelte Context
+
+            -   `Form.HelpText` — Used to communicate to the end-user helpful information about a sibling form Component, e.g. input is for E-Mail address format
+
+-   Returning Components with their associated updates
+
+    -   Display
+
+        -   `Table`
+
+            -   Changed `Table.Body` -> `Table.Section`
+            -   Changed `Table.Heading` -> `Table.Header`
+            -   Added `<Table.Container palette="accent/dark/light/alert/affirmative/negative">`
+            -   Changed `<Table.Column heading>...</Table.Column>` -> `<Table.Heading>...</Table.Heading>`
+            -   Changed `<Table.Container variation="bordered">` -> `<Table.Container variation="borders">`
+            -   Changed `<Table.Container variation="striped">` -> `<Table.Container variation="stripes">`
+
+    -   Interactables
+
+        -   `Button`
+
+            -   Updated to use transparent borders for consistent height.
+
+        -   `Check` / `Radio`
+
+            -   Providing child content as a slot will wrap the Component and content in a `<Form.Label>` with spacing as siblings
+
+        -   `Switch`
+
+        -   `TextInput`
+
+-   Updated the following Components
+
+    -   Interactables
+
+        -   `Button`
+
+            -   Added padding to adjust depending on text size.
+
+    -   Layouts
+
+        -   `Container`
+
+            -   Updated x-axis padding to be slightly larger.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   Updated `Menu.Anchor` / `Menu.Button` to match new `Button` padding.
+
+    -   Typography
+
+        -   `Text`
+
+            -   Updated keycap design for `<Text is="kbd">`.
+
+    -   Utilities
+
+        -   `ContextBackdrop`
+
+            -   Adjusted background shading to be slightly darker / opaque.
+
+## v0.2.6 - 2021/06/21
 
 -   Added `name` HTML5 attribute to all Components as a global property.
 -   Adjusted dark / light shades coloring slightly.

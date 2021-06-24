@@ -1,6 +1,10 @@
 hr,
 span[role="separator"] {
-    @apply block opacity-30 pointer-events-none select-none;
+    @apply block opacity-40 select-none;
+
+    &[data-palette] {
+        @apply text-[rgb(var(--palette-background-bg))];
+    }
 
     &:not([data-orientation]) {
         @apply my-4 w-full;
@@ -14,10 +18,6 @@ span[role="separator"] {
 hr {
     @apply border-0 bg-current rounded-md;
 
-    &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bg))];
-    }
-
     &:not([data-orientation]) {
         @apply h-[1px];
     }
@@ -28,14 +28,10 @@ hr {
 }
 
 span[role="separator"] {
-    @apply font-bold inline-flex items-center gap-1 justify-center text-center text-current
+    @apply font-bold inline-flex items-center gap-1 justify-center text-center
     tracking-widest whitespace-nowrap;
 
     font-size: 80%;
-
-    &[data-palette] {
-        @apply text-[rgb(var(--palette-background-bg))];
-    }
 
     &::before,
     &::after {

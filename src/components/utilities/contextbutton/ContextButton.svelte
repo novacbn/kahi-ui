@@ -5,7 +5,7 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
-    import type {DESIGN_VARIATION_INTERACTIVE_ARGUMENT} from "../../../lib/types/variations";
+    import type {DESIGN_FILL_BUTTON_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {get_id_context} from "../../../lib/stores/id";
 
@@ -37,13 +37,12 @@
     export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
     export let shape: undefined = undefined;
     export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_VARIATION_INTERACTIVE_ARGUMENT | undefined = undefined;
+    export let variation: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT | undefined = undefined;
 
     export let active: boolean = false;
     export let disabled: boolean = false;
 
     const store = get_id_context();
-
 </script>
 
 <Button bind:element {...$$props} class="context-button {_class}" for={$store} on:click>

@@ -30,7 +30,8 @@ nav.menu {
                 all: unset;
 
                 @apply bg-transparent cursor-pointer flex flex-grow gap-3 items-center !no-underline
-                px-4 py-3 relative rounded-lg select-none !text-current whitespace-nowrap transition duration-200 ease-out-quad;
+                px-[1em] py-[0.75em] relative rounded-lg select-none !text-current whitespace-nowrap transition
+                duration-200 ease-out-quad;
 
                 &:is(:focus, :hover) {
                     @apply;
@@ -51,7 +52,7 @@ nav.menu {
             }
 
             & > small {
-                @apply font-bold opacity-30 select-none tracking-widest;
+                @apply font-bold opacity-40 select-none tracking-widest;
             }
 
             & > span[role="separator"]::before {

@@ -43,12 +43,17 @@ types=["string"]
 ```html repl Check Preview
 <script>
     import {Check, Form, Stack, Text} from "@kahi-ui/framework";
+
+    let logic_state = ["cheese", "onion"];
 </script>
 
-<Text is="strong">Select Pizza Toppings</Text>
+<Text is="strong">
+    Select Pizza Toppings
+	<Text is="sup">{logic_state}</Text>
+</Text>
 
 <Stack orientation="horizontal" spacing="small" variation="wrap" margin_top="small">
-    <Form.Group name="check-preview">
+    <Form.Group name="check-preview" bind:logic_state>
         <Check
             id="check-preview-cheese"
             palette="accent"
@@ -68,12 +73,12 @@ types=["string"]
         </Check>
 
         <Check
-            id="check-preview-onions"
+            id="check-preview-onion"
             palette="accent"
             size="tiny"
-            value="onions"
+            value="onion"
         >
-            Onions
+            Onion
         </Check>
 
         <Check

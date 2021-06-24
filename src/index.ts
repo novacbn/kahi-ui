@@ -82,6 +82,7 @@ export * from "./lib/actions/click_outside";
 export * from "./lib/stores/attribute";
 export * from "./lib/stores/component";
 export * from "./lib/stores/darkmode";
+export * from "./lib/stores/formstate";
 export * from "./lib/stores/id";
 export * from "./lib/stores/prefersscheme";
 export * from "./lib/stores/scrolllock";

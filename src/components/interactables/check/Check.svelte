@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {get_formstate_context, make_formstate_context} from "../../../lib/stores/formstate";
     import {
         CONTEXT_FORM_ID,
         CONTEXT_FORM_NAME,
@@ -51,21 +52,26 @@
     export let state: boolean = false;
     export let value: string = "";
 
-    const _form_id = $$slots["default"]
-        ? make_id_context(id, CONTEXT_FORM_ID)
-        : get_id_context(CONTEXT_FORM_ID);
-    const _form_name = $$slots["default"]
-        ? make_id_context(name, CONTEXT_FORM_NAME)
-        : get_id_context(CONTEXT_FORM_NAME);
+    const _form_id = get_id_context(CONTEXT_FORM_ID) ?? make_id_context(id, CONTEXT_FORM_ID);
+    const _form_name =
+        get_id_context(CONTEXT_FORM_NAME) ?? make_id_context(name, CONTEXT_FORM_NAME);
+    const _form_state = get_formstate_context() ?? make_formstate_context(state ? value : "");
+
+    $: if (id) $_form_id = id;
+    $: if (name) $_form_name = name;
 
     $: {
-        if ($$slots["default"]) {
-            // @ts-expect-error - HACK: If we have a slot, this Component is the
-            // authorative Store anyway
-            $_form_id = id;
-            // @ts-expect-error
-            $_form_name = name;
-        }
+        if (state) _form_state.push_value(value);
+        else _form_state.remove_value(value);
+    }
+
+    $: if (value) state = $_form_state.includes(value);
+
+    $: if (element) {
+        element.addEventListener(
+            "change",
+            (event) => (state = (event.target as HTMLInputElement).checked)
+        );
     }
 </script>
 
@@ -78,12 +84,12 @@
             {...map_data_attributes({palette, size})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({
-                checked: state,
                 disabled,
-                id: _form_id && $_form_id ? $_form_id : id,
-                name: _form_name && $_form_name ? $_form_name : name,
+                id: $_form_id,
+                name: $_form_name,
                 value,
             })}
+            checked={state}
             on:change
             on:click
             on:input
@@ -99,12 +105,12 @@
         {...map_data_attributes({palette, size})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
-            checked: state,
             disabled,
-            id: _form_id && $_form_id ? $_form_id : id,
-            name: _form_name && $_form_name ? $_form_name : name,
+            id: $_form_id,
+            name: $_form_name,
             value,
         })}
+        checked={state}
         on:change
         on:click
         on:input

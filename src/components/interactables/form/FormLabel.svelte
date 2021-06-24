@@ -34,24 +34,11 @@
 
     export {_for as for};
 
-    const _form_id = _for
-        ? make_id_context(_for, CONTEXT_FORM_ID)
-        : get_id_context(CONTEXT_FORM_ID);
+    const _form_id = get_id_context(CONTEXT_FORM_ID) ?? make_id_context(_for, CONTEXT_FORM_ID);
 
-    $: {
-        if ($$slots["default"]) {
-            // @ts-expect-error - HACK: If we have a slot, this Component is the
-            // authorative Store anyway
-            $_form_id = _for;
-        }
-    }
+    $: if (_for) $_form_id = _for;
 </script>
 
-<label
-    bind:this={element}
-    {...$$props}
-    {...map_attributes({for: _form_id && $_form_id ? $_form_id : _for})}
-    on:click
->
+<label bind:this={element} {...$$props} {...map_attributes({for: $_form_id})} on:click>
     <slot />
 </label>

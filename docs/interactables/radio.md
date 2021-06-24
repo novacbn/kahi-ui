@@ -43,16 +43,22 @@ types=["string"]
 ```html repl Radio Preview
 <script>
     import {Form, Radio, Stack, Text} from "@kahi-ui/framework";
+
+	let logic_state = "vanilla";
 </script>
 
-<Text is="strong">Select an Ice Cream Flavor</Text>
+<Text is="strong">
+	Select an Ice Cream Flavor
+	<Text is="sup">{logic_state}</Text>
+</Text>
 
 <Stack spacing="small" margin_top="small">
-    <Form.Group logic_name="radio-preview">
+    <Form.Group logic_name="radio-preview" bind:logic_state>
         <Radio
             id="radio-preview-bubblegum"
             palette="accent"
             size="tiny"
+            value="bubblegum"
         >
             Bubblegum
         </Radio>
@@ -61,6 +67,7 @@ types=["string"]
             id="radio-preview-chocolate"
             palette="accent"
             size="tiny"
+            value="chocolate"
         >
             Chocolate
         </Radio>
@@ -69,6 +76,7 @@ types=["string"]
             id="radio-preview-vanilla"
             palette="accent"
             size="tiny"
+            value="vanilla"
         >
             Vanilla
         </Radio>

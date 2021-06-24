@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {get_formstate_context, make_formstate_context} from "../../../lib/stores/formstate";
     import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../lib/stores/id";
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
@@ -46,6 +47,23 @@
 
     const _form_id = get_id_context(CONTEXT_FORM_ID);
     const _form_name = get_id_context(CONTEXT_FORM_NAME);
+    const _form_state = get_formstate_context();
+
+    $: {
+        if (_form_state) {
+            if (state) _form_state.push_value(value);
+            else _form_state.remove_value(value);
+        }
+    }
+
+    $: if (_form_state && value) state = $_form_state.includes(value);
+
+    $: if (element) {
+        element.addEventListener(
+            "change",
+            (event) => (state = (event.target as HTMLInputElement).checked)
+        );
+    }
 </script>
 
 <input
@@ -56,12 +74,12 @@
     {...map_data_attributes({palette, size})}
     {...map_aria_attributes({pressed: active})}
     {...map_attributes({
-        checked: state,
         disabled,
-        id: _form_id && $_form_id ? $_form_id : id,
-        name: _form_name && $_form_name ? $_form_name : name,
+        id: _form_id ? $_form_id : id,
+        name: _form_name ? $_form_name : name,
         value,
     })}
+    checked={state}
     on:change
     on:click
     on:input

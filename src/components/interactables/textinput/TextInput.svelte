@@ -70,12 +70,11 @@
     <textarea
         bind:this={element}
         {...map_global_attributes($$props)}
-        {type}
         {...map_data_attributes({palette, resizeable, size, variation})}
         {...map_attributes({
             cols: characters,
             disabled,
-            id: _form_id && $_form_id ? $_form_id : id,
+            id: _form_id ? $_form_id : id,
             maxlength: max_length,
             minlength: min_length,
             placeholder,
@@ -83,21 +82,21 @@
             required,
             rows: lines,
             spellcheck: spell_check === undefined ? undefined : spell_check.toString(),
-            value,
         })}
+        bind:value
         on:change
         on:click
         on:input
     />
-{:else}
+{:else if type === "email"}
     <input
         bind:this={element}
         {...map_global_attributes($$props)}
-        {type}
+        type="email"
         {...map_data_attributes({palette, size, variation})}
         {...map_attributes({
             disabled,
-            id: _form_id && $_form_id ? $_form_id : id,
+            id: _form_id ? $_form_id : id,
             maxlength: max_length,
             minlength: min_length,
             pattern: _pattern,
@@ -107,6 +106,99 @@
             size: characters,
             value,
         })}
+        bind:value
+        on:change
+        on:click
+        on:input
+    />
+{:else if type === "password"}
+    <input
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        type="password"
+        {...map_data_attributes({palette, size, variation})}
+        {...map_attributes({
+            disabled,
+            id: _form_id ? $_form_id : id,
+            maxlength: max_length,
+            minlength: min_length,
+            pattern: _pattern,
+            placeholder,
+            readonly,
+            required,
+            size: characters,
+            value,
+        })}
+        bind:value
+        on:change
+        on:click
+        on:input
+    />
+{:else if type === "search"}
+    <input
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        type="search"
+        {...map_data_attributes({palette, size, variation})}
+        {...map_attributes({
+            disabled,
+            id: _form_id ? $_form_id : id,
+            maxlength: max_length,
+            minlength: min_length,
+            pattern: _pattern,
+            placeholder,
+            readonly,
+            required,
+            size: characters,
+            value,
+        })}
+        bind:value
+        on:change
+        on:click
+        on:input
+    />
+{:else if type === "url"}
+    <input
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        type="url"
+        {...map_data_attributes({palette, size, variation})}
+        {...map_attributes({
+            disabled,
+            id: _form_id ? $_form_id : id,
+            maxlength: max_length,
+            minlength: min_length,
+            pattern: _pattern,
+            placeholder,
+            readonly,
+            required,
+            size: characters,
+            value,
+        })}
+        bind:value
+        on:change
+        on:click
+        on:input
+    />
+{:else}
+    <input
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        type="text"
+        {...map_data_attributes({palette, size, variation})}
+        {...map_attributes({
+            disabled,
+            id: _form_id ? $_form_id : id,
+            maxlength: max_length,
+            minlength: min_length,
+            pattern: _pattern,
+            placeholder,
+            readonly,
+            required,
+            size: characters,
+            value,
+        })}
+        bind:value
         on:change
         on:click
         on:input

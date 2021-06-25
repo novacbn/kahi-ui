@@ -52,165 +52,185 @@ You can set a defined width for your Components via the `width` property.
 <Stack spacing="medium">
     <div>
         <Text is="strong">auto</Text>
-        <Box palette="affirmative" width="auto"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" width="auto">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">content-fit</Text>
-        <Box palette="negative" width="content-fit"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" width="content-fit">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">content-max</Text>
-        <Box palette="alert" width="content-max"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" width="content-max">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">content-min</Text>
-        <Box palette="affirmative" width="content-min"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" width="content-min">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">prose</Text>
-        <Box palette="negative" width="prose"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" width="prose">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">stretch</Text>
-        <Box palette="alert" width="stretch"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" width="stretch">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
 
     <div>
         <Text is="strong">0</Text>
-        <Box palette="affirmative" width="0"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" width="0">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">25</Text>
-        <Box palette="negative" width="25"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" width="25">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">33</Text>
-        <Box palette="alert" width="33"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" width="33">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">50</Text>
-        <Box palette="affirmative" width="50"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" width="50">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">66</Text>
-        <Box palette="negative" width="66"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" width="66">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">75</Text>
-        <Box palette="alert" width="75"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" width="75">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">100</Text>
-        <Box palette="affirmative" width="100"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" width="100">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
 
     <div>
         <Text is="strong">viewport-0</Text>
-        <Box palette="affirmative" width="viewport-0"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" width="viewport-0">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-25</Text>
-        <Box palette="negative" width="viewport-25"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" width="viewport-25">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-33</Text>
-        <Box palette="alert" width="viewport-33"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" width="viewport-33">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-50</Text>
-        <Box palette="affirmative" width="viewport-50"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" width="viewport-50">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-66</Text>
-        <Box palette="negative" width="viewport-66"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" width="viewport-66">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-75</Text>
-        <Box palette="alert" width="viewport-75"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" width="viewport-75">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-100</Text>
-        <Box palette="affirmative" width="viewport-100"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
+        <Box
+            palette="affirmative"
+            width="viewport-100"
         >
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
 </Stack>
 ```
@@ -233,167 +253,191 @@ You can set a defined height for your Components via the `height` property.
 <Stack orientation="horizontal" spacing="medium">
     <div>
         <Text is="strong">auto</Text>
-        <Box palette="affirmative" height="auto"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" height="auto">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">content-fit</Text>
-        <Box palette="negative" height="content-fit"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" height="content-fit">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">content-max</Text>
-        <Box palette="alert" height="content-max"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" height="content-max">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">content-min</Text>
-        <Box palette="affirmative" height="content-min"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
+        <Box
+            palette="affirmative"
+            height="content-min"
         >
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">prose</Text>
-        <Box palette="negative" height="prose"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" height="prose">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">stretch</Text>
-        <Box palette="alert" height="stretch"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" height="stretch">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
 
     <div>
         <Text is="strong">0</Text>
-        <Box palette="affirmative" height="0"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" height="0">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">25</Text>
-        <Box palette="negative" height="25"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" height="25">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">33</Text>
-        <Box palette="alert" height="33"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" height="33">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">50</Text>
-        <Box palette="affirmative" height="50"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" height="50">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">66</Text>
-        <Box palette="negative" height="66"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" height="66">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">75</Text>
-        <Box palette="alert" height="75"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" height="75">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">100</Text>
-        <Box palette="affirmative" height="100"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" height="100">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
 
     <div>
         <Text is="strong">viewport-0</Text>
-        <Box palette="affirmative" height="viewport-0"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="affirmative" height="viewport-0">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-25</Text>
-        <Box palette="negative" height="viewport-25"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" height="viewport-25">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-33</Text>
-        <Box palette="alert" height="viewport-33"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" height="viewport-33">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-50</Text>
-        <Box palette="affirmative" height="viewport-50"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
+        <Box
+            palette="affirmative"
+            height="viewport-50"
         >
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-66</Text>
-        <Box palette="negative" height="viewport-66"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="negative" height="viewport-66">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-75</Text>
-        <Box palette="alert" height="viewport-75"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
-        >
+        <Box palette="alert" height="viewport-75">
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
+
     <div>
         <Text is="strong">viewport-100</Text>
         <Box
             palette="affirmative"
             height="viewport-100"
-            ><Text variation="truncate"
-                >Lorem ipsum dolor</Text
-            ></Box
         >
+            <Text variation="truncate">
+                Lorem ipsum dolor
+            </Text>
+        </Box>
     </div>
 </Stack>
 ```
@@ -413,10 +457,10 @@ You can also set minimums or maximum sizes via prefixing your properties with `m
     style="width:15rem;"
 >
     <Box palette="negative" max_width="25">
-        <Text variation="truncate"
-            >Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.</Text
-        >
+        <Text variation="truncate">
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit.
+        </Text>
     </Box>
 </Box>
 ```

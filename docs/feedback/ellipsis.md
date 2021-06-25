@@ -16,15 +16,20 @@ types=["string"]
         Ellipsis,
         Heading,
         Stack,
+        Text,
     } from "@kahi-ui/framework";
 </script>
 
 <Stack alignment_x="left" spacing="medium">
     <Button disabled>
-        <span>
+        <!--
+            NOTE: Wrapping text and Component together to
+            prevent `Ellipsis` from getting icon spacing
+        -->
+        <Text is="span">
             Submit
             <Ellipsis />
-        </span>
+        </Text>
     </Button>
 
     <Heading>

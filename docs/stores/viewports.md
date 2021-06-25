@@ -34,8 +34,10 @@
 
 <Text>Desktop: <Code>{$desktop_store}</Code></Text>
 <Text
-    >Widescreen: <Code>{$widescreen_store}</Code></Text
->
+    >Widescreen: <Code>
+        {$widescreen_store}
+    </Code>
+</Text>
 
 <Text>Combo: <Code>{$combo_store}</Code></Text>
 ```

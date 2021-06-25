@@ -43,10 +43,10 @@ All Components have access to several common HTML5 global attributes.
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text class="my-text"
-    >Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit.</Text
->
+<Text class="my-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit.
+</Text>
 
 <style>
     :global(.my-text) {
@@ -64,10 +64,10 @@ All Components have access to several common HTML5 global attributes.
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text style="color:red;"
-    >Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit.</Text
->
+<Text style="color:red;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit.
+</Text>
 ```
 
 ## id
@@ -83,9 +83,9 @@ All Components have access to several common HTML5 global attributes.
     } from "@kahi-ui/framework";
 </script>
 
-<Anchor href="#target-heading"
-    >Scroll to Heading!</Anchor
->
+<Anchor href="#target-heading">
+    Scroll to Heading!
+</Anchor>
 
 <Spacer spacing="huge" />
 <Spacer spacing="huge" />
@@ -109,9 +109,10 @@ All Components have access to several common HTML5 global attributes.
     import {Anchor} from "@kahi-ui/framework";
 </script>
 
-<Anchor target="target-iframe" href="/"
-    >Open Landing Page</Anchor
->
+<Anchor target="target-iframe" href="/">
+    Open Landing Page
+</Anchor>
+
 <iframe
     name="target-iframe"
     width="100%"
@@ -128,9 +129,9 @@ All Components have access to several common HTML5 global attributes.
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text title="I am some additional text!"
-    >Hover me!</Text
->
+<Text title="I am some additional text!">
+    Hover me!
+</Text>
 ```
 
 ## tabindex

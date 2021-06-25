@@ -49,66 +49,52 @@ You can change the color palette of the `Wave` via the `palette` property.
 </script>
 
 <Stack
+    class="wave-palette"
     spacing="medium"
     orientation="horizontal"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Wave />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
-
+        <Text is="strong">ACCENT</Text>
         <Wave palette="accent" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
-
+        <Text is="strong">DARK</Text>
         <Wave palette="dark" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
-
+        <Text is="strong">LIGHT</Text>
         <Wave palette="light" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
-
+        <Text is="strong">ALERT</Text>
         <Wave palette="alert" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
-
+        <Text is="strong">AFFIRMATIVE</Text>
         <Wave palette="affirmative" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
-
+        <Text is="strong">NEGATIVE</Text>
         <Wave palette="negative" />
     </div>
 </Stack>
+
+<style>
+    :global(.wave-palette .wave) {
+        display: block;
+    }
+</style>
 ```
 
 ## Size
@@ -125,56 +111,45 @@ You can change the size of the `Wave` via the `size` property.
 </script>
 
 <Stack
+    class="wave-size"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Wave />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">TINY</Text>
-        </Text>
-
+        <Text is="strong">TINY</Text>
         <Wave size="tiny" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">SMALL</Text>
-        </Text>
-
+        <Text is="strong">SMALL</Text>
         <Wave size="small" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">MEDIUM</Text>
-        </Text>
-
+        <Text is="strong">MEDIUM</Text>
         <Wave size="medium" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LARGE</Text>
-        </Text>
-
+        <Text is="strong">LARGE</Text>
         <Wave size="large" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">HUGE</Text>
-        </Text>
-
+        <Text is="strong">HUGE</Text>
         <Wave size="huge" />
     </div>
 </Stack>
+
+<style>
+    :global(.wave-size .wave) {
+        display: block;
+    }
+</style>
 ```

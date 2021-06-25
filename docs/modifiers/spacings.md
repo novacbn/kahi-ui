@@ -95,37 +95,30 @@ You can set margins for your Components via the `margin` property.
     spacing="medium"
     variation="wrap"
 >
-    <Box palette="alert">
-        <Box palette="negative" margin="none">NONE</Box
-        >
+    <Box palette="negative">
+        <Box palette="alert" margin="none">NONE</Box>
     </Box>
 
-    <Box palette="alert">
-        <Box palette="negative" margin="tiny">TINY</Box
-        >
+    <Box palette="negative">
+        <Box palette="alert" margin="tiny">TINY</Box>
     </Box>
 
-    <Box palette="alert">
-        <Box palette="negative" margin="small"
-            >SMALL</Box
-        >
+    <Box palette="negative">
+        <Box palette="alert" margin="small">SMALL</Box>
     </Box>
 
-    <Box palette="alert">
-        <Box palette="negative" margin="medium"
-            >MEDIUM</Box
-        >
+    <Box palette="negative">
+        <Box palette="alert" margin="medium">
+            MEDIUM
+        </Box>
     </Box>
 
-    <Box palette="alert">
-        <Box palette="negative" margin="large"
-            >LARGE</Box
-        >
+    <Box palette="negative">
+        <Box palette="alert" margin="large">LARGE</Box>
     </Box>
 
-    <Box palette="alert">
-        <Box palette="negative" margin="huge">HUGE</Box
-        >
+    <Box palette="negative">
+        <Box palette="alert" margin="huge">HUGE</Box>
     </Box>
 </Stack>
 ```

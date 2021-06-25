@@ -49,66 +49,52 @@ You can change the color palette of the `Dot` via the `palette` property.
 </script>
 
 <Stack
+    class="dot-palette"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Dot />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
-
+        <Text is="strong">ACCENT</Text>
         <Dot palette="accent" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
-
+        <Text is="strong">DARK</Text>
         <Dot palette="dark" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
-
+        <Text is="strong">LIGHT</Text>
         <Dot palette="light" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
-
+        <Text is="strong">ALERT</Text>
         <Dot palette="alert" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
-
+        <Text is="strong">AFFIRMATIVE</Text>
         <Dot palette="affirmative" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
-
+        <Text is="strong">NEGATIVE</Text>
         <Dot palette="negative" />
     </div>
 </Stack>
+
+<style>
+    :global(.dot-palette .dot) {
+        display: block;
+    }
+</style>
 ```
 
 ## Animation
@@ -125,26 +111,27 @@ You can have the `Dot` perform animations to grab the end-user's attention via t
 </script>
 
 <Stack
+    class="dot-animation"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Dot />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">PULSE</Text>
-        </Text>
-
+        <Text is="strong">PULSE</Text>
         <Dot animation="pulse" />
     </div>
 </Stack>
+
+<style>
+    :global(.dot-animation .dot) {
+        display: block;
+    }
+</style>
 ```
 
 ## Position

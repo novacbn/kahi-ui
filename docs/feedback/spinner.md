@@ -62,63 +62,53 @@ You can change the color palette of the `Spinner` via the `palette` property.
     } from "@kahi-ui/framework";
 </script>
 
-<Stack spacing="medium" orientation="horizontal">
+<Stack
+    class="spinner-palette"
+    spacing="medium"
+    orientation="horizontal"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Spinner />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
-
+        <Text is="strong">ACCENT</Text>
         <Spinner palette="accent" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
-
+        <Text is="strong">DARK</Text>
         <Spinner palette="dark" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
-
+        <Text is="strong">LIGHT</Text>
         <Spinner palette="light" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
-
+        <Text is="strong">ALERT</Text>
         <Spinner palette="alert" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
-
+        <Text is="strong">AFFIRMATIVE</Text>
         <Spinner palette="affirmative" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
-
+        <Text is="strong">NEGATIVE</Text>
         <Spinner palette="negative" />
     </div>
 </Stack>
+
+<style>
+    :global(.spinner-palette .spinner) {
+        display: block;
+    }
+</style>
 ```
 
 ## Size
@@ -135,58 +125,47 @@ You can change the size of the `Spinner` via the `size` property.
 </script>
 
 <Stack
+    class="spinner-size"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Spinner />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">TINY</Text>
-        </Text>
-
+        <Text is="strong">TINY</Text>
         <Spinner size="tiny" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">SMALL</Text>
-        </Text>
-
+        <Text is="strong">SMALL</Text>
         <Spinner size="small" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">MEDIUM</Text>
-        </Text>
-
+        <Text is="strong">MEDIUM</Text>
         <Spinner size="medium" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LARGE</Text>
-        </Text>
-
+        <Text is="strong">LARGE</Text>
         <Spinner size="large" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">HUGE</Text>
-        </Text>
-
+        <Text is="strong">HUGE</Text>
         <Spinner size="huge" />
     </div>
 </Stack>
+
+<style>
+    :global(.spinner-size .spinner) {
+        display: block;
+    }
+</style>
 ```
 
 ## Dual
@@ -202,52 +181,39 @@ You can change the size of the `Spinner` via the `size` property.
     } from "@kahi-ui/framework";
 </script>
 
-<Stack spacing="medium" orientation="horizontal">
+<Stack
+    class="spinner-dual"
+    spacing="medium"
+    orientation="horizontal"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Spinner variation="dual" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
-
+        <Text is="strong">ACCENT</Text>
         <Spinner variation="dual" palette="accent" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
-
+        <Text is="strong">DARK</Text>
         <Spinner variation="dual" palette="dark" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
-
+        <Text is="strong">LIGHT</Text>
         <Spinner variation="dual" palette="light" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
-
+        <Text is="strong">ALERT</Text>
         <Spinner variation="dual" palette="alert" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
-
+        <Text is="strong">AFFIRMATIVE</Text>
         <Spinner
             variation="dual"
             palette="affirmative"
@@ -255,11 +221,14 @@ You can change the size of the `Spinner` via the `size` property.
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
-
+        <Text is="strong">NEGATIVE</Text>
         <Spinner variation="dual" palette="negative" />
     </div>
 </Stack>
+
+<style>
+    :global(.spinner-dual .spinner) {
+        display: block;
+    }
+</style>
 ```

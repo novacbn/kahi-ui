@@ -19,9 +19,9 @@
 <Heading>Application Global Palette</Heading>
 
 <Text>
-    <Code>data-palette</Code>: <Code
-        >{$palette_store}</Code
-    >
+    <Code>data-palette</Code>: <Code>
+        {$palette_store}
+    </Code>
 </Text>
 ```
 

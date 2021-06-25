@@ -39,7 +39,11 @@ types=["string"]
     import {Anchor} from "@kahi-ui/framework";
 </script>
 
-<Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
+<Anchor
+    href="https://google.com"
+    target="_blank"
+    rel="noopener noreferrer"
+>
     Goto google.com
 </Anchor>
 ```
@@ -73,7 +77,11 @@ When navigating to external links, for **security purposes** it's recommended to
     import {Anchor} from "@kahi-ui/framework";
 </script>
 
-<Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
+<Anchor
+    href="https://google.com"
+    target="_blank"
+    rel="noopener noreferrer"
+>
     Goto google.com
 </Anchor>
 ```

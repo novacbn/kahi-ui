@@ -4,18 +4,27 @@
 
 > **NOTE**: The REPL currently does not support viewport values. Resize your Browser instead.
 
-<!-- prettier-ignore -->
-```html repl viewports Preview
+```svelte repl viewports Preview
 <script>
-    import {Code, Heading, Text, viewports} from "@kahi-ui/framework";
+    import {
+        Code,
+        Heading,
+        Text,
+        viewports,
+    } from "@kahi-ui/framework";
 
     const mobile_store = viewports({mobile: true});
     const tablet_store = viewports({tablet: true});
 
     const desktop_store = viewports({desktop: true});
-    const widescreen_store = viewports({widescreen: true});
+    const widescreen_store = viewports({
+        widescreen: true,
+    });
 
-    const combo_store = viewports({mobile: true, tablet: true});
+    const combo_store = viewports({
+        mobile: true,
+        tablet: true,
+    });
 </script>
 
 <Heading>Viewports Enabled</Heading>
@@ -24,7 +33,9 @@
 <Text>Tablet: <Code>{$tablet_store}</Code></Text>
 
 <Text>Desktop: <Code>{$desktop_store}</Code></Text>
-<Text>Widescreen: <Code>{$widescreen_store}</Code></Text>
+<Text
+    >Widescreen: <Code>{$widescreen_store}</Code></Text
+>
 
 <Text>Combo: <Code>{$combo_store}</Code></Text>
 ```

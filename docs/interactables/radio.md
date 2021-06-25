@@ -39,21 +39,28 @@ types=["string"]
 
 `Radio` is typically used to present a set of mutually-exclusive options to the end-user, which they can then choose from.
 
-<!-- prettier-ignore -->
-```html repl Radio Preview
+```svelte repl Radio Preview
 <script>
-    import {Form, Radio, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Form,
+        Radio,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 
-	let logic_state = "vanilla";
+    let logic_state = "vanilla";
 </script>
 
 <Text is="strong">
-	Select an Ice Cream Flavor
-	<Text is="sup">{logic_state}</Text>
+    Select an Ice Cream Flavor
+    <Text is="sup">{logic_state}</Text>
 </Text>
 
 <Stack spacing="small" margin_top="small">
-    <Form.Group logic_name="radio-preview" bind:logic_state>
+    <Form.Group
+        logic_name="radio-preview"
+        bind:logic_state
+    >
         <Radio
             id="radio-preview-bubblegum"
             palette="accent"
@@ -98,10 +105,18 @@ You can control the state of the `Radio` via the `active`, `disabled`, and `stat
 
 ```html repl Radio States
 <script>
-    import {Radio, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Radio,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -158,11 +173,20 @@ You can change the color palette of the `Radio` via the `palette` property.
 
 ```html repl Radio Palette
 <script>
-    import {Form, Radio, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Form,
+        Radio,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Form.Group logic_name="radio-palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack
+        orientation="horizontal"
+        spacing="medium"
+        variation="wrap"
+    >
         <div>
             <Text>
                 <Text is="strong">DEFAULT</Text>
@@ -228,11 +252,20 @@ You can change the size of the `Radio` via the `size` property.
 
 ```html repl Radio Size
 <script>
-    import {Form, Radio, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Form,
+        Radio,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Form.Group logic_name="radio-size">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack
+        orientation="horizontal"
+        spacing="medium"
+        variation="wrap"
+    >
         <div>
             <Text>
                 <Text is="strong">DEFAULT</Text>

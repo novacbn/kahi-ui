@@ -36,7 +36,11 @@ You can change the color palette of the `Divider` via the `palette` property.
 
 ```html repl Divider Palette
 <script>
-    import {Divider, Mosaic, Text} from "@kahi-ui/framework";
+    import {
+        Divider,
+        Mosaic,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Mosaic sizing="large" spacing="medium">
@@ -90,10 +94,20 @@ You can set the `Divider` to render vertically via the `orientation` property.
 
 ```html repl Divider Orientation
 <script>
-    import {Box, Divider, Mosaic, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Divider,
+        Mosaic,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">DEFAULT</Text>
 
@@ -109,7 +123,12 @@ You can set the `Divider` to render vertically via the `orientation` property.
     <div>
         <Text is="strong">VERTICAL</Text>
 
-        <Box palette="dark" padding="small" width="content-min" style="height:6rem;">
+        <Box
+            palette="dark"
+            padding="small"
+            width="content-min"
+            style="height:6rem;"
+        >
             <Divider orientation="vertical" />
         </Box>
     </div>
@@ -122,12 +141,26 @@ You can set the `Divider` to render vertically via the `orientation` property.
 
 ```html repl Divider Text
 <script>
-    import {Box, Divider, Mosaic, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Divider,
+        Mosaic,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
-        <Box palette="dark" padding="small" style="width:12rem;">
+        <Box
+            palette="dark"
+            padding="small"
+            style="width:12rem;"
+        >
             <Divider>DEFAULT</Divider>
         </Box>
     </div>
@@ -138,7 +171,9 @@ You can set the `Divider` to render vertically via the `orientation` property.
             padding="small"
             style="display:inline-flex;justify-content:center;width:3rem;height:12rem;"
         >
-            <Divider orientation="vertical">VERTICAL</Divider>
+            <Divider orientation="vertical"
+                >VERTICAL</Divider
+            >
         </Box>
     </div>
 </Stack>

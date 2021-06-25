@@ -49,10 +49,13 @@ types=["boolean"]
 
 `Menu` renders a nestable list of actionable buttons and links. Typically used in context menus or used as the main content body of [`Aside`](./aside.md).
 
-<!-- prettier-ignore -->
-```html repl Menu Preview
+```svelte repl Menu Preview
 <script>
-    import {Menu, Spacer, Text} from "@kahi-ui/framework";
+    import {
+        Menu,
+        Spacer,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Menu.Container>
@@ -84,7 +87,15 @@ types=["boolean"]
 <script>
     import {Menu} from "@kahi-ui/framework";
 
-    const {Container, Anchor, Button, Divider, Heading, Item, SubMenu} = Menu;
+    const {
+        Container,
+        Anchor,
+        Button,
+        Divider,
+        Heading,
+        Item,
+        SubMenu,
+    } = Menu;
 </script>
 ```
 
@@ -96,24 +107,17 @@ types=["boolean"]
 
 You can alter the orientation of how the `Menu.Container` lays out the children.
 
-<!-- prettier-ignore -->
-```html repl Menu Orientation
+```svelte repl Menu Orientation
 <script>
     import {Menu} from "@kahi-ui/framework";
 </script>
 
 <Menu.Container orientation="horizontal">
-    <Menu.Button>
-        Documentation
-    </Menu.Button>
+    <Menu.Button>Documentation</Menu.Button>
 
-    <Menu.Button>
-        Github
-    </Menu.Button>
+    <Menu.Button>Github</Menu.Button>
 
-    <Menu.Button>
-        Releases
-    </Menu.Button>
+    <Menu.Button>Releases</Menu.Button>
 </Menu.Container>
 ```
 
@@ -121,10 +125,14 @@ You can alter the orientation of how the `Menu.Container` lays out the children.
 
 You can nest more menus via `<Menu.SubMenu>` Component and using `<svelte:fragment slot="sub-menu">` in `<Menu.Divider>` or `<Menu.Heading>` Components.
 
-<!-- prettier-ignore -->
-```html repl Menu Sub Menu
+```svelte repl Menu Sub Menu
 <script>
-    import {Box, Menu, Spacer, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Menu,
+        Spacer,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Box palette="negative" padding="medium">
@@ -168,10 +176,14 @@ You can nest more menus via `<Menu.SubMenu>` Component and using `<svelte:fragme
 
 In place of `<Menu.Heading>` you can also use `<Menu.Divider>` with text content.
 
-<!-- prettier-ignore -->
-```html repl Menu Text Divider
+```svelte repl Menu Text Divider
 <script>
-    import {Box, Menu, Spacer, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Menu,
+        Spacer,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Box palette="negative" padding="medium">

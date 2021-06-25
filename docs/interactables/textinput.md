@@ -96,18 +96,27 @@ types=["boolean"]
 
 `TextInput` is typically used for capturing string input from an end-user for input into forms, XHR requests, etc.
 
-<!-- prettier-ignore -->
-```html repl TextInput Preview
+```svelte repl TextInput Preview
 <script>
-    import {Code, Form, TextInput} from "@kahi-ui/framework";
+    import {
+        Code,
+        Form,
+        TextInput,
+    } from "@kahi-ui/framework";
 
     let value = "sample@sample.org";
 </script>
 
 <Form.Control logic_id="textinput-preview">
-    <Form.Label>Register E-Mail for Newsletter</Form.Label>
+    <Form.Label
+        >Register E-Mail for Newsletter</Form.Label
+    >
     <TextInput bind:value />
-    <Form.HelpText>Make sure to enter a valid E-Mail Address, e.g. <Code>sample@sample.org</Code></Form.HelpText>
+    <Form.HelpText
+        >Make sure to enter a valid E-Mail Address,
+        e.g. <Code>sample@sample.org</Code
+        ></Form.HelpText
+    >
 </Form.Control>
 ```
 
@@ -125,19 +134,54 @@ You can change the color palette of the `TextInput` via the `palette` property.
 
 ```html repl TextInput Palette
 <script>
-    import {Stack, TextInput} from "@kahi-ui/framework";
+    import {
+        Stack,
+        TextInput,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-    <TextInput characters="20" value="This is a DEFAULT TextInput" />
-    <TextInput palette="accent" characters="20" value="This is a ACCENT TextInput" />
+<Stack
+    orientation="horizontal"
+    alignment_y="top"
+    spacing="medium"
+    variation="wrap"
+>
+    <TextInput
+        characters="20"
+        value="This is a DEFAULT TextInput"
+    />
+    <TextInput
+        palette="accent"
+        characters="20"
+        value="This is a ACCENT TextInput"
+    />
 
-    <TextInput palette="dark" characters="20" value="This is a DARK TextInput" />
-    <TextInput palette="light" characters="20" value="This is a LIGHT TextInput" />
+    <TextInput
+        palette="dark"
+        characters="20"
+        value="This is a DARK TextInput"
+    />
+    <TextInput
+        palette="light"
+        characters="20"
+        value="This is a LIGHT TextInput"
+    />
 
-    <TextInput palette="alert" characters="20" value="This is a ALERT TextInput" />
-    <TextInput palette="affirmative" characters="20" value="This is a AFFIRMATIVE TextInput" />
-    <TextInput palette="negative" characters="20" value="This is a NEGATIVE TextInput" />
+    <TextInput
+        palette="alert"
+        characters="20"
+        value="This is a ALERT TextInput"
+    />
+    <TextInput
+        palette="affirmative"
+        characters="20"
+        value="This is a AFFIRMATIVE TextInput"
+    />
+    <TextInput
+        palette="negative"
+        characters="20"
+        value="This is a NEGATIVE TextInput"
+    />
 </Stack>
 ```
 
@@ -147,19 +191,50 @@ You can change the size of the `TextInput` via the `size` property.
 
 ```html repl TextInput Size
 <script>
-    import {Stack, TextInput} from "@kahi-ui/framework";
+    import {
+        Stack,
+        TextInput,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-    <TextInput characters="20" value="This is a DEFAULT TextInput" />
+<Stack
+    orientation="horizontal"
+    alignment_y="top"
+    spacing="medium"
+    variation="wrap"
+>
+    <TextInput
+        characters="20"
+        value="This is a DEFAULT TextInput"
+    />
 
-    <TextInput size="tiny" characters="20" value="This is a TINY TextInput" />
-    <TextInput size="small" characters="20" value="This is a SMALL TextInput" />
+    <TextInput
+        size="tiny"
+        characters="20"
+        value="This is a TINY TextInput"
+    />
+    <TextInput
+        size="small"
+        characters="20"
+        value="This is a SMALL TextInput"
+    />
 
-    <TextInput size="medium" characters="20" value="This is a MEDIUM TextInput" />
+    <TextInput
+        size="medium"
+        characters="20"
+        value="This is a MEDIUM TextInput"
+    />
 
-    <TextInput size="large" characters="20" value="This is a LARGE TextInput" />
-    <TextInput size="huge" characters="20" value="This is a HUGE TextInput" />
+    <TextInput
+        size="large"
+        characters="20"
+        value="This is a LARGE TextInput"
+    />
+    <TextInput
+        size="huge"
+        characters="20"
+        value="This is a HUGE TextInput"
+    />
 </Stack>
 ```
 
@@ -169,11 +244,23 @@ You can alter the `TextInput` render as an opaque block via the `variation` prop
 
 ```html repl TextInput Block
 <script>
-    import {Stack, TextInput} from "@kahi-ui/framework";
+    import {
+        Stack,
+        TextInput,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-    <TextInput variation="block" characters="20" value="This is a DEFAULT TextInput" />
+<Stack
+    orientation="horizontal"
+    alignment_y="top"
+    spacing="medium"
+    variation="wrap"
+>
+    <TextInput
+        variation="block"
+        characters="20"
+        value="This is a DEFAULT TextInput"
+    />
     <TextInput
         variation="block"
         palette="accent"
@@ -181,7 +268,12 @@ You can alter the `TextInput` render as an opaque block via the `variation` prop
         value="This is a ACCENT TextInput"
     />
 
-    <TextInput variation="block" palette="dark" characters="20" value="This is a DARK TextInput" />
+    <TextInput
+        variation="block"
+        palette="dark"
+        characters="20"
+        value="This is a DARK TextInput"
+    />
     <TextInput
         variation="block"
         palette="light"
@@ -214,8 +306,7 @@ You can alter the `TextInput` render as an opaque block via the `variation` prop
 
 You can have the `TextInput` to be completely flush document text with no other stylings via the `variation` property.
 
-<!-- prettier-ignore -->
-```html repl TextInput Flush
+```svelte repl TextInput Flush
 <script>
     import {TextInput} from "@kahi-ui/framework";
 </script>
@@ -232,13 +323,20 @@ Input some text:
 
 You can change your input type between `email`, `password`, `search`, `text` **(DEFAULT)**, `url` via the `type` property.
 
-<!-- prettier-ignore -->
-```html repl TextInput Input Type
+```svelte repl TextInput Input Type
 <script>
-    import {Stack, TextInput} from "@kahi-ui/framework";
+    import {
+        Stack,
+        TextInput,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    alignment_y="top"
+    spacing="medium"
+    variation="wrap"
+>
     <TextInput
         type="email"
         characters="20"
@@ -263,23 +361,19 @@ You can change your input type between `email`, `password`, `search`, `text` **(
 
 You can set the `TextInput` to show placeholder text whenever there is no current value.
 
-<!-- prettier-ignore -->
-```html repl TextInput Placeholder
+```svelte repl TextInput Placeholder
 <script>
     import {TextInput} from "@kahi-ui/framework";
 </script>
 
-<TextInput
-    placeholder="...enter some text"
-/>
+<TextInput placeholder="...enter some text" />
 ```
 
 ## Field Character Size
 
 You can set how wide your `TextInput` to an approximation of character width via the `characters` property.
 
-<!-- prettier-ignore -->
-```html repl TextInput Field Character Size
+```svelte repl TextInput Field Character Size
 <script>
     import {TextInput} from "@kahi-ui/framework";
 </script>
@@ -294,8 +388,7 @@ You can set how wide your `TextInput` to an approximation of character width via
 
 You can have the `TextInput` render as a `<textarea>` via the `is` property.
 
-<!-- prettier-ignore -->
-```html repl TextInput TextArea
+```svelte repl TextInput TextArea
 <script>
     import {TextInput} from "@kahi-ui/framework";
 </script>
@@ -310,8 +403,7 @@ You can have the `TextInput` render as a `<textarea>` via the `is` property.
 
 You can set how tall your `<textarea>` based `TextInput` to an approximation of character lines via the `lines` property.
 
-<!-- prettier-ignore -->
-```html repl TextInput Field Line Size
+```svelte repl TextInput Field Line Size
 <script>
     import {TextInput} from "@kahi-ui/framework";
 </script>
@@ -327,8 +419,7 @@ You can set how tall your `<textarea>` based `TextInput` to an approximation of 
 
 You alter the a `<textarea>` based `TextInput` to resizable both axis `true`, horizontally `x`, and vertically `y` via the `resizable` property.
 
-<!-- prettier-ignore -->
-```html repl TextInput Resizable TextArea
+```svelte repl TextInput Resizable TextArea
 <script>
     import {TextInput} from "@kahi-ui/framework";
 </script>

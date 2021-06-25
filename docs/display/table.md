@@ -9,10 +9,13 @@ types=["borders", "stripes"]
 
 `Table` is typically used to render tabular data in a structured row -> columns format, for end-users to easily read the contents.
 
-<!-- prettier-ignore -->
-```html repl Table Preview
+```svelte repl Table Preview
 <script>
-    import {Code, Table, Text} from "@kahi-ui/framework";
+    import {
+        Code,
+        Table,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Table.Container>
@@ -26,24 +29,50 @@ types=["borders", "stripes"]
 
     <Table.Section>
         <Table.Row>
-            <Table.Column><Text is="strong">mobile</Text></Table.Column>
-            <Table.Column><Code>0px</Code></Table.Column>
-            <Table.Column><Code>640px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">mobile</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>0px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>640px</Code></Table.Column
+            >
         </Table.Row>
 
         <Table.Row>
-            <Table.Column><Text is="strong">tablet</Text></Table.Column>
-            <Table.Column><Code>641px</Code></Table.Column>
-            <Table.Column><Code>768px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">tablet</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>641px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>768px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">desktop</Text></Table.Column>
-            <Table.Column><Code>769px</Code></Table.Column>
-            <Table.Column><Code>1024px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">desktop</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>769px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>1024px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">widescreen</Text></Table.Column>
-            <Table.Column><Code>1025px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">widescreen</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>1025px</Code></Table.Column
+            >
             <Table.Column><Code>∞</Code></Table.Column>
         </Table.Row>
     </Table.Section>
@@ -64,7 +93,15 @@ types=["borders", "stripes"]
 <script>
     import {Table} from "@kahi-ui/framework";
 
-    const {Container, Column, Footer, Header, Heading, Row, Section} = Table;
+    const {
+        Container,
+        Column,
+        Footer,
+        Header,
+        Heading,
+        Row,
+        Section,
+    } = Table;
 </script>
 ```
 
@@ -72,10 +109,13 @@ types=["borders", "stripes"]
 
 You can make a `Table` have borders via the `variation` property.
 
-<!-- prettier-ignore -->
-```html repl Table Preview
+```svelte repl Table Preview
 <script>
-    import {Code, Table, Text} from "@kahi-ui/framework";
+    import {
+        Code,
+        Table,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Table.Container variation="borders">
@@ -89,24 +129,50 @@ You can make a `Table` have borders via the `variation` property.
 
     <Table.Section>
         <Table.Row>
-            <Table.Column><Text is="strong">mobile</Text></Table.Column>
-            <Table.Column><Code>0px</Code></Table.Column>
-            <Table.Column><Code>640px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">mobile</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>0px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>640px</Code></Table.Column
+            >
         </Table.Row>
 
         <Table.Row>
-            <Table.Column><Text is="strong">tablet</Text></Table.Column>
-            <Table.Column><Code>641px</Code></Table.Column>
-            <Table.Column><Code>768px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">tablet</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>641px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>768px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">desktop</Text></Table.Column>
-            <Table.Column><Code>769px</Code></Table.Column>
-            <Table.Column><Code>1024px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">desktop</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>769px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>1024px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">widescreen</Text></Table.Column>
-            <Table.Column><Code>1025px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">widescreen</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>1025px</Code></Table.Column
+            >
             <Table.Column><Code>∞</Code></Table.Column>
         </Table.Row>
     </Table.Section>
@@ -125,10 +191,13 @@ You can make a `Table` have borders via the `variation` property.
 
 You can make a `Table` have stripes via the `variation` property.
 
-<!-- prettier-ignore -->
-```html repl Table Preview
+```svelte repl Table Preview
 <script>
-    import {Code, Table, Text} from "@kahi-ui/framework";
+    import {
+        Code,
+        Table,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Table.Container variation="stripes">
@@ -142,24 +211,50 @@ You can make a `Table` have stripes via the `variation` property.
 
     <Table.Section>
         <Table.Row>
-            <Table.Column><Text is="strong">mobile</Text></Table.Column>
-            <Table.Column><Code>0px</Code></Table.Column>
-            <Table.Column><Code>640px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">mobile</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>0px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>640px</Code></Table.Column
+            >
         </Table.Row>
 
         <Table.Row>
-            <Table.Column><Text is="strong">tablet</Text></Table.Column>
-            <Table.Column><Code>641px</Code></Table.Column>
-            <Table.Column><Code>768px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">tablet</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>641px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>768px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">desktop</Text></Table.Column>
-            <Table.Column><Code>769px</Code></Table.Column>
-            <Table.Column><Code>1024px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">desktop</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>769px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>1024px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">widescreen</Text></Table.Column>
-            <Table.Column><Code>1025px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">widescreen</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>1025px</Code></Table.Column
+            >
             <Table.Column><Code>∞</Code></Table.Column>
         </Table.Row>
     </Table.Section>
@@ -178,10 +273,13 @@ You can make a `Table` have stripes via the `variation` property.
 
 You can make a `Table` have both borders **AND** stripes via the `variation` property.
 
-<!-- prettier-ignore -->
-```html repl Table Preview
+```svelte repl Table Preview
 <script>
-    import {Code, Table, Text} from "@kahi-ui/framework";
+    import {
+        Code,
+        Table,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Table.Container variation={["borders", "stripes"]}>
@@ -195,24 +293,50 @@ You can make a `Table` have both borders **AND** stripes via the `variation` pro
 
     <Table.Section>
         <Table.Row>
-            <Table.Column><Text is="strong">mobile</Text></Table.Column>
-            <Table.Column><Code>0px</Code></Table.Column>
-            <Table.Column><Code>640px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">mobile</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>0px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>640px</Code></Table.Column
+            >
         </Table.Row>
 
         <Table.Row>
-            <Table.Column><Text is="strong">tablet</Text></Table.Column>
-            <Table.Column><Code>641px</Code></Table.Column>
-            <Table.Column><Code>768px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">tablet</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>641px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>768px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">desktop</Text></Table.Column>
-            <Table.Column><Code>769px</Code></Table.Column>
-            <Table.Column><Code>1024px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">desktop</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>769px</Code></Table.Column
+            >
+            <Table.Column
+                ><Code>1024px</Code></Table.Column
+            >
         </Table.Row>
         <Table.Row>
-            <Table.Column><Text is="strong">widescreen</Text></Table.Column>
-            <Table.Column><Code>1025px</Code></Table.Column>
+            <Table.Column
+                ><Text is="strong">widescreen</Text
+                ></Table.Column
+            >
+            <Table.Column
+                ><Code>1025px</Code></Table.Column
+            >
             <Table.Column><Code>∞</Code></Table.Column>
         </Table.Row>
     </Table.Section>
@@ -231,10 +355,14 @@ You can make a `Table` have both borders **AND** stripes via the `variation` pro
 
 You can make a `Table` scrollable by wrapping it with a [`Scrollable`](../layouts/scrollable.md).
 
-<!-- prettier-ignore -->
-```html repl Table Scrollable
+```svelte repl Table Scrollable
 <script>
-    import {Code, Scrollable, Table, Text} from "@kahi-ui/framework";
+    import {
+        Code,
+        Scrollable,
+        Table,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Scrollable>
@@ -249,25 +377,53 @@ You can make a `Table` scrollable by wrapping it with a [`Scrollable`](../layout
 
         <Table.Section>
             <Table.Row>
-                <Table.Column><Text is="strong">mobile</Text></Table.Column>
-                <Table.Column><Code>0px</Code></Table.Column>
-                <Table.Column><Code>640px</Code></Table.Column>
+                <Table.Column
+                    ><Text is="strong">mobile</Text
+                    ></Table.Column
+                >
+                <Table.Column
+                    ><Code>0px</Code></Table.Column
+                >
+                <Table.Column
+                    ><Code>640px</Code></Table.Column
+                >
             </Table.Row>
 
             <Table.Row>
-                <Table.Column><Text is="strong">tablet</Text></Table.Column>
-                <Table.Column><Code>641px</Code></Table.Column>
-                <Table.Column><Code>768px</Code></Table.Column>
+                <Table.Column
+                    ><Text is="strong">tablet</Text
+                    ></Table.Column
+                >
+                <Table.Column
+                    ><Code>641px</Code></Table.Column
+                >
+                <Table.Column
+                    ><Code>768px</Code></Table.Column
+                >
             </Table.Row>
             <Table.Row>
-                <Table.Column><Text is="strong">desktop</Text></Table.Column>
-                <Table.Column><Code>769px</Code></Table.Column>
-                <Table.Column><Code>1024px</Code></Table.Column>
+                <Table.Column
+                    ><Text is="strong">desktop</Text
+                    ></Table.Column
+                >
+                <Table.Column
+                    ><Code>769px</Code></Table.Column
+                >
+                <Table.Column
+                    ><Code>1024px</Code></Table.Column
+                >
             </Table.Row>
             <Table.Row>
-                <Table.Column><Text is="strong">widescreen</Text></Table.Column>
-                <Table.Column><Code>1025px</Code></Table.Column>
-                <Table.Column><Code>∞</Code></Table.Column>
+                <Table.Column
+                    ><Text is="strong">widescreen</Text
+                    ></Table.Column
+                >
+                <Table.Column
+                    ><Code>1025px</Code></Table.Column
+                >
+                <Table.Column
+                    ><Code>∞</Code></Table.Column
+                >
             </Table.Row>
         </Table.Section>
 

@@ -19,10 +19,13 @@ types=["dual"]
 
 `Spinner` is an indicator used to tell the end-user that the Web Application is loading something in the background.
 
-<!-- prettier-ignore -->
-```html repl Spinner Preview
+```svelte repl Spinner Preview
 <script>
-    import {Button, Hero, Spinner} from "@kahi-ui/framework";
+    import {
+        Button,
+        Hero,
+        Spinner,
+    } from "@kahi-ui/framework";
 </script>
 
 <Button palette="affirmative" disabled>
@@ -52,7 +55,11 @@ You can change the color palette of the `Spinner` via the `palette` property.
 
 ```html repl Spinner Palette
 <script>
-    import {Spinner, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Spinner,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Stack spacing="medium" orientation="horizontal">
@@ -120,10 +127,18 @@ You can change the size of the `Spinner` via the `size` property.
 
 ```html repl Spinner Size
 <script>
-    import {Spinner, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Spinner,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -180,7 +195,11 @@ You can change the size of the `Spinner` via the `size` property.
 
 ```html repl Spinner Dual
 <script>
-    import {Spinner, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Spinner,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Stack spacing="medium" orientation="horizontal">
@@ -229,7 +248,10 @@ You can change the size of the `Spinner` via the `size` property.
             <Text is="strong">AFFIRMATIVE</Text>
         </Text>
 
-        <Spinner variation="dual" palette="affirmative" />
+        <Spinner
+            variation="dual"
+            palette="affirmative"
+        />
     </div>
 
     <div>

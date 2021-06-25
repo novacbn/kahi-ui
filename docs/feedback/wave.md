@@ -41,10 +41,18 @@ You can change the color palette of the `Wave` via the `palette` property.
 
 ```html repl Wave Palette
 <script>
-    import {Stack, Text, Wave} from "@kahi-ui/framework";
+    import {
+        Stack,
+        Text,
+        Wave,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack spacing="medium" orientation="horizontal" variation="wrap">
+<Stack
+    spacing="medium"
+    orientation="horizontal"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -109,10 +117,18 @@ You can change the size of the `Wave` via the `size` property.
 
 ```html repl Wave Size
 <script>
-    import {Stack, Text, Wave} from "@kahi-ui/framework";
+    import {
+        Stack,
+        Text,
+        Wave,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>

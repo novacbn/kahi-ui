@@ -80,35 +80,52 @@ All Components have access to the global margin and padding HTML data attributes
 
 You can set margins for your Components via the `margin` property.
 
-<!-- prettier-ignore -->
-```html repl Spacings Margin
+```svelte repl Spacings Margin
 <script>
-    import {Box, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    alignment_y="top"
+    spacing="medium"
+    variation="wrap"
+>
     <Box palette="alert">
-        <Box palette="negative" margin="none">NONE</Box>
+        <Box palette="negative" margin="none">NONE</Box
+        >
     </Box>
 
     <Box palette="alert">
-        <Box palette="negative" margin="tiny">TINY</Box>
+        <Box palette="negative" margin="tiny">TINY</Box
+        >
     </Box>
 
     <Box palette="alert">
-        <Box palette="negative" margin="small">SMALL</Box>
+        <Box palette="negative" margin="small"
+            >SMALL</Box
+        >
     </Box>
 
     <Box palette="alert">
-        <Box palette="negative" margin="medium">MEDIUM</Box>
+        <Box palette="negative" margin="medium"
+            >MEDIUM</Box
+        >
     </Box>
 
     <Box palette="alert">
-        <Box palette="negative" margin="large">LARGE</Box>
+        <Box palette="negative" margin="large"
+            >LARGE</Box
+        >
     </Box>
 
     <Box palette="alert">
-        <Box palette="negative" margin="huge">HUGE</Box>
+        <Box palette="negative" margin="huge">HUGE</Box
+        >
     </Box>
 </Stack>
 ```
@@ -119,13 +136,21 @@ You can set margins for your Components via the `margin` property.
 
 You can set paddings for your Components via the `padding` property.
 
-<!-- prettier-ignore -->
-```html repl Spacings Padding
+```svelte repl Spacings Padding
 <script>
-    import {Box, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    alignment_y="top"
+    spacing="medium"
+    variation="wrap"
+>
     <Box palette="alert" padding="none">
         <Box palette="negative">NONE</Box>
     </Box>
@@ -156,8 +181,7 @@ You can set paddings for your Components via the `padding` property.
 
 All `Spacings` properties have directional support via the `*_x`, `*_y`, `*_left`, `*_top`, `*_right`, and `*_bottom` suffixes.
 
-<!-- prettier-ignore -->
-```html repl Spacings Direction
+```svelte repl Spacings Direction
 <script>
     import {Box, Code} from "@kahi-ui/framework";
 </script>

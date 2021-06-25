@@ -64,10 +64,18 @@ You can control the state of the `Switch` via the `active`, `disabled`, and `sta
 
 ```html repl Switch States
 <script>
-    import {Switch, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Switch,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -124,10 +132,18 @@ You can change the color palette of the `Switch` via the `palette` property.
 
 ```html repl Switch Palette
 <script>
-    import {Switch, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Switch,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -192,10 +208,18 @@ You can change the size of the `Switch` via the `size` property.
 
 ```html repl Switch Size
 <script>
-    import {Switch, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Switch,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>

@@ -4,18 +4,20 @@
 
 > **NOTE**: Change your Operating System's color settings to see changes.
 
-<!-- prettier-ignore -->
-```html repl prefersscheme Preview
+```svelte repl prefersscheme Preview
 <script>
-    import {Code, Heading, Text, prefersscheme} from "@kahi-ui/framework";
+    import {
+        Code,
+        Heading,
+        Text,
+        prefersscheme,
+    } from "@kahi-ui/framework";
 
     const darkmode_store = prefersscheme("dark");
     const lightmode_store = prefersscheme("light");
 </script>
 
-<Heading>
-    User Color Scheme Preferences 
-</Heading>
+<Heading>User Color Scheme Preferences</Heading>
 
 <Text>
     Darkmode: <Code>{$darkmode_store}</Code>
@@ -29,25 +31,32 @@
 ## Imports
 
 ```javascript default prefersscheme Imports
-import {prefersscheme, prefersdark, preferslight} from "@kahi-ui/framework";
+import {
+    prefersscheme,
+    prefersdark,
+    preferslight,
+} from "@kahi-ui/framework";
 ```
 
 ## Built-in Shortcuts
 
 The `prefersscheme` Store also comes with two preconfigured default shortcuts, `prefersdark` and `preferslight`.
 
-<!-- prettier-ignore -->
-```html repl prefersscheme Shortcuts
+```svelte repl prefersscheme Shortcuts
 <script>
-    import {Code, Heading, Text, prefersdark, preferslight} from "@kahi-ui/framework";
+    import {
+        Code,
+        Heading,
+        Text,
+        prefersdark,
+        preferslight,
+    } from "@kahi-ui/framework";
 
     const darkmode_store = prefersdark();
     const lightmode_store = preferslight();
 </script>
 
-<Heading>
-    User Color Scheme Preferences 
-</Heading>
+<Heading>User Color Scheme Preferences</Heading>
 
 <Text>
     Darkmode: <Code>{$darkmode_store}</Code>

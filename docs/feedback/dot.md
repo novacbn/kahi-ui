@@ -41,10 +41,18 @@ You can change the color palette of the `Dot` via the `palette` property.
 
 ```html repl Dot Palette
 <script>
-    import {Dot, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Dot,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -109,10 +117,18 @@ You can have the `Dot` perform animations to grab the end-user's attention via t
 
 ```html repl Dot Animation
 <script>
-    import {Dot, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Dot,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -135,13 +151,21 @@ You can have the `Dot` perform animations to grab the end-user's attention via t
 
 You can change the position of the `Dot` to raise it above in its parent to more explictly call out a Component.
 
-<!-- prettier-ignore -->
-```html repl Dot Position
+```svelte repl Dot Position
 <script>
-    import {Button, Dot, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Button,
+        Dot,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <Text>
         Sample Text (RAISED)
         <Dot palette="accent" position="raised" />
@@ -150,7 +174,10 @@ You can change the position of the `Dot` to raise it above in its parent to more
     <div>
         <Button palette="accent">
             Open Inbox (FLOATED)
-            <Dot palette="negative" position="floated" />
+            <Dot
+                palette="negative"
+                position="floated"
+            />
         </Button>
     </div>
 </Stack>

@@ -39,20 +39,29 @@ types=["string"]
 
 `Check` is typically used to present a set of options to the end-user, which they can then choose from.
 
-<!-- prettier-ignore -->
-```html repl Check Preview
+```svelte repl Check Preview
 <script>
-    import {Check, Form, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Form,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 
     let logic_state = ["cheese", "onion"];
 </script>
 
 <Text is="strong">
     Select Pizza Toppings
-	<Text is="sup">{logic_state}</Text>
+    <Text is="sup">{logic_state}</Text>
 </Text>
 
-<Stack orientation="horizontal" spacing="small" variation="wrap" margin_top="small">
+<Stack
+    orientation="horizontal"
+    spacing="small"
+    variation="wrap"
+    margin_top="small"
+>
     <Form.Group name="check-preview" bind:logic_state>
         <Check
             id="check-preview-cheese"
@@ -107,10 +116,18 @@ You can control the state of the `Check` via the `active`, `disabled`, and `stat
 
 ```html repl Check States
 <script>
-    import {Check, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -167,10 +184,18 @@ You can change the color palette of the `Check` via the `palette` property.
 
 ```html repl Check Palette
 <script>
-    import {Check, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>
@@ -235,10 +260,18 @@ You can change the size of the `Check` via the `size` property.
 
 ```html repl Check Size
 <script>
-    import {Check, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>

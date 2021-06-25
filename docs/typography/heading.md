@@ -35,7 +35,8 @@ types=["truncate"]
 </script>
 
 <Heading>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci. mus.
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Proin et consectetur orci. mus.
 </Heading>
 ```
 
@@ -53,17 +54,28 @@ You can adjust the size of `Heading` by passing the `is` property.
 
 ```html repl Heading Size
 <script>
-    import {Heading, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Heading,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div style="max-width:25ch;">
         <Text is="strong">H1</Text>
 
         <Heading is="h1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -72,9 +84,12 @@ You can adjust the size of `Heading` by passing the `is` property.
         <Text is="strong">H2</Text>
 
         <Heading is="h2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -83,9 +98,12 @@ You can adjust the size of `Heading` by passing the `is` property.
         <Text is="strong">H3</Text>
 
         <Heading is="h3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -94,9 +112,12 @@ You can adjust the size of `Heading` by passing the `is` property.
         <Text is="strong">H4</Text>
 
         <Heading is="h4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -105,9 +126,12 @@ You can adjust the size of `Heading` by passing the `is` property.
         <Text is="strong">H5</Text>
 
         <Heading is="h5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -116,9 +140,12 @@ You can adjust the size of `Heading` by passing the `is` property.
         <Text is="strong">H6</Text>
 
         <Heading is="h6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -131,17 +158,28 @@ You can adjust the text alignment of the `Heading` via the `align` property.
 
 ```html repl Heading Align
 <script>
-    import {Heading, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Heading,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div style="max-width:25ch;">
         <Text is="strong">DEFAULT</Text>
 
         <Heading>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -150,9 +188,12 @@ You can adjust the text alignment of the `Heading` via the `align` property.
         <Text is="strong">CENTER</Text>
 
         <Heading align="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -161,9 +202,12 @@ You can adjust the text alignment of the `Heading` via the `align` property.
         <Text is="strong">JUSTIFY</Text>
 
         <Heading align="justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -172,9 +216,12 @@ You can adjust the text alignment of the `Heading` via the `align` property.
         <Text is="strong">LEFT</Text>
 
         <Heading align="left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -183,9 +230,12 @@ You can adjust the text alignment of the `Heading` via the `align` property.
         <Text is="strong">RIGHT</Text>
 
         <Heading align="right">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -198,17 +248,28 @@ You can alter the rendered text capitalization via the `transform` property.
 
 ```html repl Heading Transform
 <script>
-    import {Heading, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Heading,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div style="max-width:25ch;">
         <Text is="strong">DEFAULT</Text>
 
         <Heading>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -217,9 +278,12 @@ You can alter the rendered text capitalization via the `transform` property.
         <Text is="strong">CAPITALIZE</Text>
 
         <Heading transform="capitalize">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -228,9 +292,12 @@ You can alter the rendered text capitalization via the `transform` property.
         <Text is="strong">LOWERCASE</Text>
 
         <Heading transform="lowercase">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -239,9 +306,12 @@ You can alter the rendered text capitalization via the `transform` property.
         <Text is="strong">UPPERCASE</Text>
 
         <Heading transform="uppercase">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -254,17 +324,28 @@ You can apply variations to the rendered text, like truncating, via the `variati
 
 ```html repl Heading Variation
 <script>
-    import {Heading, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Heading,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div style="max-width:25ch;">
         <Text is="strong">DEFAULT</Text>
 
         <Heading>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>
@@ -273,9 +354,12 @@ You can apply variations to the rendered text, like truncating, via the `variati
         <Text is="strong">TRUNCATE</Text>
 
         <Heading variation="truncate">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Heading>
     </div>

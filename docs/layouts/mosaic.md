@@ -89,18 +89,36 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 ```html repl Mosaic Sizing
 <script>
-    import {Box, Mosaic, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Mosaic,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">TINY</Text>
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -110,9 +128,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="small" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -122,9 +149,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="medium" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -134,9 +170,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="large" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -146,9 +191,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="huge" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -159,18 +213,36 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 ```html repl Mosaic Spacing
 <script>
-    import {Box, Mosaic, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Mosaic,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">DEFAULT</Text>
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -180,9 +252,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="tiny">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -192,9 +273,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="small">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -204,9 +294,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -216,9 +315,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="large">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>
@@ -228,9 +336,18 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="huge">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box
+                    palette="alert"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="affirmative"
+                    style="height:3rem;"
+                />
+                <Box
+                    palette="negative"
+                    style="height:3rem;"
+                />
             </Mosaic>
         </Box>
     </div>

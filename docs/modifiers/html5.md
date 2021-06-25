@@ -43,7 +43,10 @@ All Components have access to several common HTML5 global attributes.
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text class="my-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+<Text class="my-text"
+    >Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit.</Text
+>
 
 <style>
     :global(.my-text) {
@@ -61,20 +64,28 @@ All Components have access to several common HTML5 global attributes.
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text style="color:red;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+<Text style="color:red;"
+    >Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit.</Text
+>
 ```
 
 ## id
 
 [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) allows you to set an identifier that other elements can target or targettable for scrolling by a [URL fragment](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash).
 
-<!-- prettier-ignore -->
-```html repl HTML5 id
+```svelte repl HTML5 id
 <script>
-    import {Anchor, Heading, Spacer} from "@kahi-ui/framework";
+    import {
+        Anchor,
+        Heading,
+        Spacer,
+    } from "@kahi-ui/framework";
 </script>
 
-<Anchor href="#target-heading">Scroll to Heading!</Anchor>
+<Anchor href="#target-heading"
+    >Scroll to Heading!</Anchor
+>
 
 <Spacer spacing="huge" />
 <Spacer spacing="huge" />
@@ -98,8 +109,14 @@ All Components have access to several common HTML5 global attributes.
     import {Anchor} from "@kahi-ui/framework";
 </script>
 
-<Anchor target="target-iframe" href="/">Open Landing Page</Anchor>
-<iframe name="target-iframe" width="100%" height="256"></iframe>
+<Anchor target="target-iframe" href="/"
+    >Open Landing Page</Anchor
+>
+<iframe
+    name="target-iframe"
+    width="100%"
+    height="256"
+></iframe>
 ```
 
 ## title
@@ -111,15 +128,16 @@ All Components have access to several common HTML5 global attributes.
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text title="I am some additional text!">Hover me!</Text>
+<Text title="I am some additional text!"
+    >Hover me!</Text
+>
 ```
 
 ## tabindex
 
 [`tabindex`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) allows you to configure how the Browser cycles through elements in the current stacking context when they press their tab keyboard button, or similar.
 
-<!-- prettier-ignore -->
-```html repl HTML5 tabindex
+```svelte repl HTML5 tabindex
 <script>
     import {Button} from "@kahi-ui/framework";
 </script>

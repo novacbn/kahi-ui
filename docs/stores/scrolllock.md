@@ -4,14 +4,21 @@
 
 > **NOTE**: If no [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) is passed into the Store function, it'll default to the root `<html>`.
 
-<!-- prettier-ignore -->
-```html repl scrolllock Preview
+```svelte repl scrolllock Preview
 <script>
-    import {Box, Button, Heading, scrolllock} from "@kahi-ui/framework";
+    import {
+        Box,
+        Button,
+        Heading,
+        scrolllock,
+    } from "@kahi-ui/framework";
 
-    const scrolllock_store = scrolllock(document.querySelector(".repl-render"));
+    const scrolllock_store = scrolllock(
+        document.querySelector(".repl-render")
+    );
 
-    const on_click = () => $scrolllock_store = !$scrolllock_store;
+    const on_click = () =>
+        ($scrolllock_store = !$scrolllock_store);
 </script>
 
 <Button on:click={on_click}>Toggle Scroll Lock</Button>

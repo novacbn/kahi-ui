@@ -24,8 +24,7 @@ types=["icon"]
 
 `Figure` is a multimedia container Component, providing modifications for things such as images and videos.
 
-<!-- prettier-ignore -->
-```html repl Figure Preview
+```svelte repl Figure Preview
 <script>
     import {Figure} from "@kahi-ui/framework";
 </script>
@@ -47,10 +46,13 @@ types=["icon"]
 
 You can modify the shape of the child content via the `shape` property.
 
-<!-- prettier-ignore -->
-```html repl Figure Shape
+```svelte repl Figure Shape
 <script>
-    import {Figure, Mosaic, Text} from "@kahi-ui/framework";
+    import {
+        Figure,
+        Mosaic,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Mosaic spacing="medium" sizing="tiny">
@@ -81,10 +83,13 @@ You can modify the shape of the child content via the `shape` property.
 
 You can modify the size of the child content between five presets via the `size` property. Along with separate set of sizes meant for icon-sized content by including `variation="icon"`.
 
-<!-- prettier-ignore -->
-```html repl Figure Size
+```svelte repl Figure Size
 <script>
-    import {Figure, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Figure,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Stack spacing="medium">
@@ -98,7 +103,11 @@ You can modify the size of the child content between five presets via the `size`
         </div>
     </div>
 
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack
+        orientation="horizontal"
+        spacing="medium"
+        variation="wrap"
+    >
         <div>
             <Text is="strong">TINY (ICON)</Text>
 
@@ -194,13 +203,20 @@ You can modify the size of the child content between five presets via the `size`
 
 You can change how the child content is stretched across the `Figure` container via the `fit` property.
 
-<!-- prettier-ignore -->
-```html repl Figure Fit
+```svelte repl Figure Fit
 <script>
-    import {Figure, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Figure,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">DEFAULT</Text>
 
@@ -252,8 +268,8 @@ You can change how the child content is stretched across the `Figure` container 
 
 <style>
     img {
-        width:12rem;
-        height:18rem;
+        width: 12rem;
+        height: 18rem;
     }
 </style>
 ```

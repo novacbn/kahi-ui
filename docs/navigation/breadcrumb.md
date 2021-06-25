@@ -40,14 +40,17 @@ types=["string"]
 </script>
 
 <Breadcrumb.Container>
-    <Breadcrumb.Anchor href="#">home</Breadcrumb.Anchor
-    >
-    <Breadcrumb.Anchor href="#"
-        >pictures</Breadcrumb.Anchor
-    >
-    <Breadcrumb.Anchor href="#" active
-        >IMG_20191123_121131.jpg</Breadcrumb.Anchor
-    >
+    <Breadcrumb.Anchor href="#">
+        home
+    </Breadcrumb.Anchor>
+
+    <Breadcrumb.Anchor href="#">
+        pictures
+    </Breadcrumb.Anchor>
+
+    <Breadcrumb.Anchor href="#" active>
+        IMG_20191123_121131.jpg
+    </Breadcrumb.Anchor>
 </Breadcrumb.Container>
 ```
 
@@ -71,13 +74,16 @@ You can alter the separator between items rendered via the `separator` property.
 </script>
 
 <Breadcrumb.Container separator=">">
-    <Breadcrumb.Anchor href="#">Home</Breadcrumb.Anchor
-    >
-    <Breadcrumb.Anchor href="#"
-        >Contacts</Breadcrumb.Anchor
-    >
-    <Breadcrumb.Anchor href="#" active
-        >John Doe</Breadcrumb.Anchor
-    >
+    <Breadcrumb.Anchor href="#">
+        Home
+    </Breadcrumb.Anchor>
+
+    <Breadcrumb.Anchor href="#">
+        Contacts
+    </Breadcrumb.Anchor>
+
+    <Breadcrumb.Anchor href="#" active>
+        John Doe
+    </Breadcrumb.Anchor>
 </Breadcrumb.Container>
 ```

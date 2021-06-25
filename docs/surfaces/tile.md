@@ -24,7 +24,7 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
     } from "@kahi-ui/framework";
 </script>
 
-<Tile.Container {...$$props} width="content-max">
+<Tile.Container width="content-max">
     <Tile.Figure shape="pill">
         <img src={IMAGE_AVATAR} />
     </Tile.Figure>
@@ -33,17 +33,17 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
         <Tile.Header>NovacBN</Tile.Header>
 
         <Text>
-            <Text is="small"
-                >joined 2018 &bullet; last online
-                2021/05/29</Text
-            >
+            <Text is="small">
+                joined 2018 &bullet; last online
+                2021/05/29
+            </Text>
         </Text>
     </Tile.Section>
 
     <Tile.Footer>
-        <Button palette="affirmative"
-            >Add Friend</Button
-        >
+        <Button palette="affirmative">
+            Add Friend
+        </Button>
         <Button palette="negative">Ban User</Button>
     </Tile.Footer>
 </Tile.Container>
@@ -78,12 +78,8 @@ You can change the color palette of the `Tile` via the `palette` property.
     } from "@kahi-ui/framework";
 </script>
 
-<Stack
-    orientation="horizontal"
-    spacing="medium"
-    variation="wrap"
->
-    <Tile.Container {...$$props} width="content-max">
+<Stack spacing="medium">
+    <Tile.Container width="content-max">
         <Tile.Figure shape="pill">
             <img src={IMAGE_AVATAR} />
         </Tile.Figure>
@@ -92,10 +88,10 @@ You can change the color palette of the `Tile` via the `palette` property.
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -105,7 +101,6 @@ You can change the color palette of the `Tile` via the `palette` property.
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         palette="accent"
         width="content-max"
     >
@@ -117,10 +112,10 @@ You can change the color palette of the `Tile` via the `palette` property.
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -129,11 +124,7 @@ You can change the color palette of the `Tile` via the `palette` property.
         </Tile.Footer>
     </Tile.Container>
 
-    <Tile.Container
-        {...$$props}
-        palette="dark"
-        width="content-max"
-    >
+    <Tile.Container palette="dark" width="content-max">
         <Tile.Figure shape="pill">
             <img src={IMAGE_AVATAR} />
         </Tile.Figure>
@@ -142,10 +133,10 @@ You can change the color palette of the `Tile` via the `palette` property.
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -155,7 +146,6 @@ You can change the color palette of the `Tile` via the `palette` property.
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         palette="light"
         width="content-max"
     >
@@ -167,10 +157,10 @@ You can change the color palette of the `Tile` via the `palette` property.
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -180,7 +170,6 @@ You can change the color palette of the `Tile` via the `palette` property.
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         palette="alert"
         width="content-max"
     >
@@ -192,10 +181,10 @@ You can change the color palette of the `Tile` via the `palette` property.
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -205,7 +194,6 @@ You can change the color palette of the `Tile` via the `palette` property.
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         palette="affirmative"
         width="content-max"
     >
@@ -217,10 +205,10 @@ You can change the color palette of the `Tile` via the `palette` property.
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -230,7 +218,6 @@ You can change the color palette of the `Tile` via the `palette` property.
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         palette="negative"
         width="content-max"
     >
@@ -242,10 +229,10 @@ You can change the color palette of the `Tile` via the `palette` property.
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -269,13 +256,8 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
     } from "@kahi-ui/framework";
 </script>
 
-<Stack
-    orientation="horizontal"
-    spacing="large"
-    variation="wrap"
->
+<Stack spacing="large">
     <Tile.Container
-        {...$$props}
         elevation="lowest"
         width="content-max"
     >
@@ -287,10 +269,10 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -299,7 +281,7 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
         </Tile.Footer>
     </Tile.Container>
 
-    <Tile.Container {...$$props} width="content-max">
+    <Tile.Container width="content-max">
         <Tile.Figure shape="pill">
             <img src={IMAGE_AVATAR} />
         </Tile.Figure>
@@ -308,10 +290,10 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -321,7 +303,6 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         elevation="medium"
         width="content-max"
     >
@@ -333,10 +314,10 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -346,7 +327,6 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         elevation="high"
         width="content-max"
     >
@@ -358,10 +338,10 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 
@@ -371,7 +351,6 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
     </Tile.Container>
 
     <Tile.Container
-        {...$$props}
         elevation="highest"
         width="content-max"
     >
@@ -383,10 +362,10 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
             <Tile.Header>NovacBN</Tile.Header>
 
             <Text>
-                <Text is="small"
-                    >joined 2018 &bullet; last online
-                    2021/05/29</Text
-                >
+                <Text is="small">
+                    joined 2018 &bullet; last online
+                    2021/05/29
+                </Text>
             </Text>
         </Tile.Section>
 

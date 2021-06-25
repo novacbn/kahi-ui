@@ -114,9 +114,7 @@ You can alter the orientation of how the `Menu.Container` lays out the children.
 
 <Menu.Container orientation="horizontal">
     <Menu.Button>Documentation</Menu.Button>
-
     <Menu.Button>Github</Menu.Button>
-
     <Menu.Button>Releases</Menu.Button>
 </Menu.Container>
 ```

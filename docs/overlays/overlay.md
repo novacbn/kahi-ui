@@ -152,12 +152,13 @@ You can optionally include a backdrop by passing via the `captive` property.
     } from "@kahi-ui/framework";
 </script>
 
-<Button for="overlay-non-captive"
-    >Open Non Captive Modal</Button
->
-<Button for="overlay-is-captive" palette="accent"
-    >Open Captive Modal</Button
->
+<Button for="overlay-non-captive">
+    Open Non Captive Modal
+</Button>
+
+<Button for="overlay-is-captive" palette="accent">
+    Open Captive Modal
+</Button>
 
 <Overlay logic_id="overlay-non-captive">
     <Card.Container
@@ -200,12 +201,13 @@ You can optionally have an included backdrop be dismissible by clicking it via t
     } from "@kahi-ui/framework";
 </script>
 
-<Button for="overlay-non-dismissible"
-    >Open Non Dismissable Modal</Button
->
-<Button for="overlay-is-dismissible" palette="accent"
-    >Open Dismissable Modal</Button
->
+<Button for="overlay-non-dismissible">
+    Open Non Dismissable Modal
+</Button>
+
+<Button for="overlay-is-dismissible" palette="accent">
+    Open Dismissable Modal
+</Button>
 
 <Overlay logic_id="overlay-non-dismissible" captive>
     <Card.Container
@@ -314,8 +316,10 @@ You can align `Overlay` content via the `alignment`, `alignment_x`, and `alignme
         <Tile.Footer>
             <Button
                 palette="negative"
-                data-size="small">X</Button
+                data-size="small"
             >
+                X
+            </Button>
         </Tile.Footer>
     </Tile.Container>
 </Overlay>
@@ -361,8 +365,10 @@ You can adjust the spacing between `Overlay` content via the `spacing`, `spacing
         <Tile.Footer>
             <Button
                 palette="negative"
-                data-size="small">X</Button
+                data-size="small"
             >
+                X
+            </Button>
         </Tile.Footer>
     </Tile.Container>
 
@@ -384,8 +390,10 @@ You can adjust the spacing between `Overlay` content via the `spacing`, `spacing
         <Tile.Footer>
             <Button
                 palette="negative"
-                data-size="small">X</Button
+                data-size="small"
             >
+                X
+            </Button>
         </Tile.Footer>
     </Tile.Container>
 </Overlay>

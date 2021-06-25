@@ -7,7 +7,7 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply grid gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)];
+    @apply grid gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] grid-flow-row-dense;
 
     align-items: var(--grid-alignment-y);
     justify-content: var(--grid-alignment-x);
@@ -16,5 +16,17 @@
 
     & > * {
         @apply m-0;
+    }
+}
+
+.grid-item {
+    --span-x: 1;
+    --span-y: 1;
+
+    @apply contents;
+
+    & > * {
+        grid-column: span var(--span-x) / span var(--span-x);
+        grid-row: span var(--span-y) / span var(--span-y);
     }
 }

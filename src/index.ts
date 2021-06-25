@@ -40,7 +40,8 @@ export * from "./components/interactables/textinput";
 
 export * from "./components/layouts/container";
 export * from "./components/layouts/divider";
-export * from "./components/layouts/grid";
+import * as Grid from "./components/layouts/grid";
+export {Grid};
 export * from "./components/layouts/group";
 export * from "./components/layouts/mosaic";
 export * from "./components/layouts/scrollable";

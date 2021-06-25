@@ -4,7 +4,7 @@ Modern Browsers listed below and generally their derivatives. Primary testing ha
 
 |                       | Chrome          | Edge            | Firefox        | Safari             | Edge _(Pre Chromium)_ | Internet Explorer |
 | --------------------- | --------------- | --------------- | -------------- | ------------------ | --------------------- | ----------------- |
-| **Estimated Minimum** | 64+ _July 2020_ | 84+ _July 2020_ | 67+ _May 2019_ | 14.1+ _April 2021_ | **NOT SUPPORTED**     | **NOT SUPPORTED** |
+| **Estimated Minimum** | 84+ _July 2020_ | 84+ _July 2020_ | 67+ _May 2019_ | 14.1+ _April 2021_ | **NOT SUPPORTED**     | **NOT SUPPORTED** |
 | **Tested Minimum**    | 89+             | ?               | 87+            | ?                  | **NOT SUPPORTED**     | **NOT SUPPORTED** |
 
 ## Features Used

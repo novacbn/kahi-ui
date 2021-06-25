@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## v0.2.10 -
+
+-   Updated the following Components
+
+    -   Layouts
+
+        -   `Grid`
+
+            -   Changed `Grid` to be a namespace.
+
+                -   Access the original Component via `<Grid>` -> `<Grid.Container>`, same API otherwise.
+
+            -   Updated `Grid.Container` to densely pack rows.
+
+            -   Added `Grid.Item` — Optionally used to wrap a child item.
+
+                -   `<Grid.Item span="1...12" span_x="1...12" span_y="1...12">` — Used to control how many Grid Points the child item spans in columns, rows, or both. With Viewport support, e.g. `<Grid.Item span={[3, "mobile:1"]}>`
+
 ## v0.2.9 - 2021/06/24
 
 -   Fixed NPM install.

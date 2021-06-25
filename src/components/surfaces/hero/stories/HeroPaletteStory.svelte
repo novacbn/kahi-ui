@@ -1,12 +1,11 @@
 <script>
     import Button from "../../../interactables/button/Button.svelte";
-    import Grid from "../../../layouts/grid/Grid.svelte";
+    import * as Grid from "../../../layouts/grid/index";
 
     import * as Hero from "../index";
-
 </script>
 
-<Grid spacing="medium" points={["2", "desktop:1", "tablet:1", "mobile:1"]}>
+<Grid.Container spacing="medium" points={["2", "desktop:1", "tablet:1", "mobile:1"]}>
     <Hero.Container {...$$props}>
         <Hero.Header>404 (DEFAULT)</Hero.Header>
         <Hero.Section>The page you tried to access is missing or no longer available.</Hero.Section>
@@ -76,4 +75,4 @@
             <Button palette="accent">Submit Ticket</Button>
         </Hero.Footer>
     </Hero.Container>
-</Grid>
+</Grid.Container>

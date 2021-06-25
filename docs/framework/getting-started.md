@@ -5,7 +5,7 @@
 Using a terminal inside of your project's directory, use `npm` to install the package.
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.9
+npm install github:novacbn/kahi-ui#0.2.10
 ```
 
 ## Importing Stylesheet
@@ -21,7 +21,10 @@ Otherwise download the required CSS files from [Releases](https://github.com/nov
 ```html
 <html>
     <head>
-        <link rel="stylesheet" href="/path/to/kahi-ui.framework.css" />
+        <link
+            rel="stylesheet"
+            href="/path/to/kahi-ui.framework.css"
+        />
     </head>
 </html>
 ```
@@ -79,5 +82,4 @@ Some Components are multi-part patterns, so you'll need to import their namespac
         <Button palette="affirmative">Open Details</Button>
     </Card.Footer>
 </Card.Container>
-
 ```

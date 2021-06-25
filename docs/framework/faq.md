@@ -10,7 +10,7 @@ Contributions are currently not being actively accepted aside from bug reports o
 
 ## What Browsers are supported?
 
-Visit the [Browser Support](./browser-support.md) documentation for more information.
+Visit the [Browser Support](../framework/browser-support.md) documentation for more information.
 
 ## Can I use the library without Typescript?
 

@@ -402,7 +402,7 @@ You can set a defined height for your Components via the `height` property.
 
 You can also set minimums or maximum sizes via prefixing your properties with `max_` or `min_`.
 
-```html repl Sizings Height
+```svelte repl Sizings Height
 <script>
     import {Box, Text} from "@kahi-ui/framework";
 </script>

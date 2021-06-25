@@ -132,7 +132,7 @@ types=["boolean"]
 
 You can change the color palette of the `TextInput` via the `palette` property.
 
-```html repl TextInput Palette
+```svelte repl TextInput Palette
 <script>
     import {
         Stack,
@@ -189,7 +189,7 @@ You can change the color palette of the `TextInput` via the `palette` property.
 
 You can change the size of the `TextInput` via the `size` property.
 
-```html repl TextInput Size
+```svelte repl TextInput Size
 <script>
     import {
         Stack,
@@ -242,7 +242,7 @@ You can change the size of the `TextInput` via the `size` property.
 
 You can alter the `TextInput` render as an opaque block via the `variation` property.
 
-```html repl TextInput Block
+```svelte repl TextInput Block
 <script>
     import {
         Stack,

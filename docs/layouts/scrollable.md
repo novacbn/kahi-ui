@@ -2,7 +2,7 @@
 
 `Scrollable` is a layout primitive for encapsulating a given available space into its own scrollable context.
 
-```html repl Scrollable Preview
+```svelte repl Scrollable Preview
 <script>
     import {
         Heading,

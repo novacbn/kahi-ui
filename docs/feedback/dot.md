@@ -19,7 +19,7 @@ types=["floated", "raised"]
 
 `Dot` is typically used for calling out other UI elements to the end-user, that they need attention.
 
-```html repl Dot Preview
+```svelte repl Dot Preview
 <script>
     import {Dot} from "@kahi-ui/framework";
 </script>
@@ -39,7 +39,7 @@ types=["floated", "raised"]
 
 You can change the color palette of the `Dot` via the `palette` property.
 
-```html repl Dot Palette
+```svelte repl Dot Palette
 <script>
     import {
         Dot,
@@ -115,7 +115,7 @@ You can change the color palette of the `Dot` via the `palette` property.
 
 You can have the `Dot` perform animations to grab the end-user's attention via the `animation` property.
 
-```html repl Dot Animation
+```svelte repl Dot Animation
 <script>
     import {
         Dot,

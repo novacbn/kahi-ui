@@ -114,7 +114,7 @@ types=["string"]
 
 You can control the state of the `Check` via the `active`, `disabled`, and `state` properties.
 
-```html repl Check States
+```svelte repl Check States
 <script>
     import {
         Check,
@@ -182,7 +182,7 @@ You can control the state of the `Check` via the `active`, `disabled`, and `stat
 
 You can change the color palette of the `Check` via the `palette` property.
 
-```html repl Check Palette
+```svelte repl Check Palette
 <script>
     import {
         Check,
@@ -258,7 +258,7 @@ You can change the color palette of the `Check` via the `palette` property.
 
 You can change the size of the `Check` via the `size` property.
 
-```html repl Check Size
+```svelte repl Check Size
 <script>
     import {
         Check,

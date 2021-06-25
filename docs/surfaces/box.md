@@ -2,7 +2,7 @@
 
 `Box` is a surface primitive for encapsulating section content in a block of color.
 
-```html repl Box Preview
+```svelte repl Box Preview
 <script>
     import {Box} from "@kahi-ui/framework";
 </script>
@@ -22,7 +22,7 @@
 
 You can change the color palette of the `Box` via the `palette` property.
 
-```html repl Box Palette
+```svelte repl Box Palette
 <script>
     import {
         Box,

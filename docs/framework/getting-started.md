@@ -62,7 +62,7 @@ Some Components are multi-part patterns, so you'll need to import their namespac
     } from "@kahi-ui/framework";
 </script>
 
-<Card.Container style="max-width:25rem;">
+<Card.Container class="getting-started-patterns">
     <Card.Figure>
         <img src={IMAGE_BACKGROUND} />
     </Card.Figure>
@@ -82,9 +82,15 @@ Some Components are multi-part patterns, so you'll need to import their namespac
     </Card.Section>
 
     <Card.Footer>
-        <Button palette="affirmative"
-            >Open Details</Button
-        >
+        <Button palette="affirmative">
+            Open Details
+        </Button>
     </Card.Footer>
 </Card.Container>
+
+<style>
+    :global(.getting-started-patterns) {
+        max-width: 35ch;
+    }
+</style>
 ```

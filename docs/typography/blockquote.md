@@ -9,7 +9,7 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
 
 `Blockquote` is typically used to render a block of text, that's attributed to a certain source of information.
 
-```html repl Blockquote Preview
+```svelte repl Blockquote Preview
 <script>
     import {
         Blockquote,
@@ -30,24 +30,16 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
         hendrerit odio, at dictum nulla. Morbi
         tristique, augue vel blandit bibendum, mauris
         nibh finibus justo, ut mollis magna neque in
-        lectus. Sed dignissim, enim sit amet lobortis
+        lectus.
+    </Text>
+
+    <Text margin_bottom="medium">
+        Sed dignissim, enim sit amet lobortis
         tincidunt, nibh risus elementum urna, vel
         tincidunt nisi elit vel tortor. Curabitur
         iaculis nulla nec odio efficitur, sit amet
         auctor odio mattis. Aenean quam arcu, feugiat
         non turpis eget, aliquet vestibulum lacus.
-    </Text>
-
-    <Text margin_bottom="medium">
-        Praesent lacinia elit et risus molestie
-        pretium. Aenean semper mauris ut erat ornare
-        lobortis. Integer sollicitudin bibendum
-        rhoncus. Nulla nisi orci, maximus elementum
-        libero ut, tristique scelerisque sapien. Aenean
-        ultricies dui quis finibus pretium. Nunc tellus
-        neque, cursus et egestas vel, elementum sit
-        amet lacus. Aenean ac euismod nunc, id molestie
-        eros.
     </Text>
 
     <Blockquote.Cite>— Lorem Ipsum</Blockquote.Cite>
@@ -68,7 +60,7 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
 
 You can change the color palette of the `Blockquote.Container` via the `palette` property.
 
-```html repl Blockquote Palette
+```svelte repl Blockquote Palette
 <script>
     import {
         Blockquote,
@@ -92,17 +84,7 @@ You can change the color palette of the `Blockquote.Container` via the `palette`
             molestie lectus convallis. Nullam gravida
             placerat ex, sodales porttitor nibh.
             Suspendisse vitae nisi euismod, venenatis
-            dui eu, hendrerit risus. Maecenas at
-            hendrerit odio, at dictum nulla. Morbi
-            tristique, augue vel blandit bibendum,
-            mauris nibh finibus justo, ut mollis magna
-            neque in lectus. Sed dignissim, enim sit
-            amet lobortis tincidunt, nibh risus
-            elementum urna, vel tincidunt nisi elit vel
-            tortor. Curabitur iaculis nulla nec odio
-            efficitur, sit amet auctor odio mattis.
-            Aenean quam arcu, feugiat non turpis eget,
-            aliquet vestibulum lacus.
+            dui eu, hendrerit risus.
         </Text>
 
         <Blockquote.Cite>— DEFAULT</Blockquote.Cite>
@@ -121,17 +103,7 @@ You can change the color palette of the `Blockquote.Container` via the `palette`
             molestie lectus convallis. Nullam gravida
             placerat ex, sodales porttitor nibh.
             Suspendisse vitae nisi euismod, venenatis
-            dui eu, hendrerit risus. Maecenas at
-            hendrerit odio, at dictum nulla. Morbi
-            tristique, augue vel blandit bibendum,
-            mauris nibh finibus justo, ut mollis magna
-            neque in lectus. Sed dignissim, enim sit
-            amet lobortis tincidunt, nibh risus
-            elementum urna, vel tincidunt nisi elit vel
-            tortor. Curabitur iaculis nulla nec odio
-            efficitur, sit amet auctor odio mattis.
-            Aenean quam arcu, feugiat non turpis eget,
-            aliquet vestibulum lacus.
+            dui eu, hendrerit risus.
         </Text>
 
         <Blockquote.Cite>— ACCENT</Blockquote.Cite>
@@ -150,17 +122,7 @@ You can change the color palette of the `Blockquote.Container` via the `palette`
             molestie lectus convallis. Nullam gravida
             placerat ex, sodales porttitor nibh.
             Suspendisse vitae nisi euismod, venenatis
-            dui eu, hendrerit risus. Maecenas at
-            hendrerit odio, at dictum nulla. Morbi
-            tristique, augue vel blandit bibendum,
-            mauris nibh finibus justo, ut mollis magna
-            neque in lectus. Sed dignissim, enim sit
-            amet lobortis tincidunt, nibh risus
-            elementum urna, vel tincidunt nisi elit vel
-            tortor. Curabitur iaculis nulla nec odio
-            efficitur, sit amet auctor odio mattis.
-            Aenean quam arcu, feugiat non turpis eget,
-            aliquet vestibulum lacus.
+            dui eu, hendrerit risus.
         </Text>
 
         <Blockquote.Cite>— DARK</Blockquote.Cite>
@@ -179,17 +141,7 @@ You can change the color palette of the `Blockquote.Container` via the `palette`
             molestie lectus convallis. Nullam gravida
             placerat ex, sodales porttitor nibh.
             Suspendisse vitae nisi euismod, venenatis
-            dui eu, hendrerit risus. Maecenas at
-            hendrerit odio, at dictum nulla. Morbi
-            tristique, augue vel blandit bibendum,
-            mauris nibh finibus justo, ut mollis magna
-            neque in lectus. Sed dignissim, enim sit
-            amet lobortis tincidunt, nibh risus
-            elementum urna, vel tincidunt nisi elit vel
-            tortor. Curabitur iaculis nulla nec odio
-            efficitur, sit amet auctor odio mattis.
-            Aenean quam arcu, feugiat non turpis eget,
-            aliquet vestibulum lacus.
+            dui eu, hendrerit risus.
         </Text>
 
         <Blockquote.Cite>— LIGHT</Blockquote.Cite>
@@ -208,17 +160,7 @@ You can change the color palette of the `Blockquote.Container` via the `palette`
             molestie lectus convallis. Nullam gravida
             placerat ex, sodales porttitor nibh.
             Suspendisse vitae nisi euismod, venenatis
-            dui eu, hendrerit risus. Maecenas at
-            hendrerit odio, at dictum nulla. Morbi
-            tristique, augue vel blandit bibendum,
-            mauris nibh finibus justo, ut mollis magna
-            neque in lectus. Sed dignissim, enim sit
-            amet lobortis tincidunt, nibh risus
-            elementum urna, vel tincidunt nisi elit vel
-            tortor. Curabitur iaculis nulla nec odio
-            efficitur, sit amet auctor odio mattis.
-            Aenean quam arcu, feugiat non turpis eget,
-            aliquet vestibulum lacus.
+            dui eu, hendrerit risus.
         </Text>
 
         <Blockquote.Cite>— ALERT</Blockquote.Cite>
@@ -237,22 +179,12 @@ You can change the color palette of the `Blockquote.Container` via the `palette`
             molestie lectus convallis. Nullam gravida
             placerat ex, sodales porttitor nibh.
             Suspendisse vitae nisi euismod, venenatis
-            dui eu, hendrerit risus. Maecenas at
-            hendrerit odio, at dictum nulla. Morbi
-            tristique, augue vel blandit bibendum,
-            mauris nibh finibus justo, ut mollis magna
-            neque in lectus. Sed dignissim, enim sit
-            amet lobortis tincidunt, nibh risus
-            elementum urna, vel tincidunt nisi elit vel
-            tortor. Curabitur iaculis nulla nec odio
-            efficitur, sit amet auctor odio mattis.
-            Aenean quam arcu, feugiat non turpis eget,
-            aliquet vestibulum lacus.
+            dui eu, hendrerit risus.
         </Text>
 
-        <Blockquote.Cite
-            >— AFFIRMATIVE</Blockquote.Cite
-        >
+        <Blockquote.Cite>
+            — AFFIRMATIVE
+        </Blockquote.Cite>
     </Blockquote.Container>
 
     <Blockquote.Container
@@ -268,17 +200,7 @@ You can change the color palette of the `Blockquote.Container` via the `palette`
             molestie lectus convallis. Nullam gravida
             placerat ex, sodales porttitor nibh.
             Suspendisse vitae nisi euismod, venenatis
-            dui eu, hendrerit risus. Maecenas at
-            hendrerit odio, at dictum nulla. Morbi
-            tristique, augue vel blandit bibendum,
-            mauris nibh finibus justo, ut mollis magna
-            neque in lectus. Sed dignissim, enim sit
-            amet lobortis tincidunt, nibh risus
-            elementum urna, vel tincidunt nisi elit vel
-            tortor. Curabitur iaculis nulla nec odio
-            efficitur, sit amet auctor odio mattis.
-            Aenean quam arcu, feugiat non turpis eget,
-            aliquet vestibulum lacus.
+            dui eu, hendrerit risus.
         </Text>
 
         <Blockquote.Cite>— NEGATIVE</Blockquote.Cite>

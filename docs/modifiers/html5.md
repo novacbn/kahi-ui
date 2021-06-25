@@ -38,7 +38,7 @@ All Components have access to several common HTML5 global attributes.
 
 [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) allows you to apply CSS classes that you've defined to Components. However, you will have to use `:global` on your class names to bypass Svelte's local scoping.
 
-```html repl HTML5 class
+```svelte repl HTML5 class
 <script>
     import {Text} from "@kahi-ui/framework";
 </script>
@@ -59,7 +59,7 @@ All Components have access to several common HTML5 global attributes.
 
 [`style`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style) allows you to apply inline CSS properties to Components.
 
-```html repl HTML5 style
+```svelte repl HTML5 style
 <script>
     import {Text} from "@kahi-ui/framework";
 </script>
@@ -104,7 +104,7 @@ All Components have access to several common HTML5 global attributes.
 
 [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/name) allows you to set an identifier for the Component to set its value to in a form, or, can targettable by an [`Anchor`](../navigation/anchor.md).
 
-```html repl HTML5 name
+```svelte repl HTML5 name
 <script>
     import {Anchor} from "@kahi-ui/framework";
 </script>
@@ -116,14 +116,14 @@ All Components have access to several common HTML5 global attributes.
     name="target-iframe"
     width="100%"
     height="256"
-></iframe>
+/>
 ```
 
 ## title
 
 [`title`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) allows you to set a timed effect to show a text tooltip whenever an end-user hovers for long enough. Typically you don't want to rely on this attribute for the UI. Rather use it for semantic and assistive purposes.
 
-```html repl HTML5 title
+```svelte repl HTML5 title
 <script>
     import {Text} from "@kahi-ui/framework";
 </script>

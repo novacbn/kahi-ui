@@ -14,7 +14,7 @@ types=["vertical", "{VIEWPORT}:vertical"]
 
 `Divider` is typically used to visually separate content for easier reading comprehension.
 
-```html repl Divider Preview
+```svelte repl Divider Preview
 <script>
     import {Divider} from "@kahi-ui/framework";
 </script>
@@ -34,7 +34,7 @@ types=["vertical", "{VIEWPORT}:vertical"]
 
 You can change the color palette of the `Divider` via the `palette` property.
 
-```html repl Divider Palette
+```svelte repl Divider Palette
 <script>
     import {
         Divider,
@@ -92,7 +92,7 @@ You can change the color palette of the `Divider` via the `palette` property.
 
 You can set the `Divider` to render vertically via the `orientation` property.
 
-```html repl Divider Orientation
+```svelte repl Divider Orientation
 <script>
     import {
         Box,
@@ -139,7 +139,7 @@ You can set the `Divider` to render vertically via the `orientation` property.
 
 `Divider` components can also render text within their separators.
 
-```html repl Divider Text
+```svelte repl Divider Text
 <script>
     import {
         Box,

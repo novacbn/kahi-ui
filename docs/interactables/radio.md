@@ -103,7 +103,7 @@ types=["string"]
 
 You can control the state of the `Radio` via the `active`, `disabled`, and `state` properties.
 
-```html repl Radio States
+```svelte repl Radio States
 <script>
     import {
         Radio,
@@ -171,7 +171,7 @@ You can control the state of the `Radio` via the `active`, `disabled`, and `stat
 
 You can change the color palette of the `Radio` via the `palette` property.
 
-```html repl Radio Palette
+```svelte repl Radio Palette
 <script>
     import {
         Form,
@@ -250,7 +250,7 @@ You can change the color palette of the `Radio` via the `palette` property.
 
 You can change the size of the `Radio` via the `size` property.
 
-```html repl Radio Size
+```svelte repl Radio Size
 <script>
     import {
         Form,

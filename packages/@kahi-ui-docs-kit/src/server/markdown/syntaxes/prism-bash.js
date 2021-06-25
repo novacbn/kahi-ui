@@ -1,4 +1,5 @@
 // HACK: This needs to be here due to the normal file using globals, which fails during build
+// SOURCE: https://github.com/PrismJS/prism
 
 import Prism from "prismjs";
 

@@ -53,7 +53,7 @@ types=["dual"]
 
 You can change the color palette of the `Spinner` via the `palette` property.
 
-```html repl Spinner Palette
+```svelte repl Spinner Palette
 <script>
     import {
         Spinner,
@@ -125,7 +125,7 @@ You can change the color palette of the `Spinner` via the `palette` property.
 
 You can change the size of the `Spinner` via the `size` property.
 
-```html repl Spinner Size
+```svelte repl Spinner Size
 <script>
     import {
         Spinner,
@@ -193,7 +193,7 @@ You can change the size of the `Spinner` via the `size` property.
 
 `Spinner` components also have a special variation to render with two rotating borders on either side.
 
-```html repl Spinner Dual
+```svelte repl Spinner Dual
 <script>
     import {
         Spinner,

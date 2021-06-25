@@ -41,12 +41,15 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 > **NOTE**: The REPL currently does not support viewport values. Resize your Browser instead.
 
-```html repl Mosaic Preview
+```svelte repl Mosaic Preview
 <script>
     import {Box, Mosaic} from "@kahi-ui/framework";
 </script>
 
-<Mosaic sizing={["tiny", "tablet:small", "mobile:medium"]} spacing="medium">
+<Mosaic
+    sizing={["tiny", "tablet:small", "mobile:medium"]}
+    spacing="medium"
+>
     <Box palette="alert" style="height:3rem;" />
     <Box palette="affirmative" style="height:3rem;" />
     <Box palette="negative" style="height:3rem;" />
@@ -87,7 +90,7 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 ## Sizing
 
-```html repl Mosaic Sizing
+```svelte repl Mosaic Sizing
 <script>
     import {
         Box,
@@ -211,7 +214,7 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 ## Spacing
 
-```html repl Mosaic Spacing
+```svelte repl Mosaic Spacing
 <script>
     import {
         Box,

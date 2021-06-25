@@ -14,7 +14,7 @@ types=["tiny", "small", "medium", "large", "huge"]
 
 `Wave` is an indicator used to tell the end-user that the Web Application is loading something in the background.
 
-```html repl Wave Preview
+```svelte repl Wave Preview
 <script>
     import {Hero, Wave} from "@kahi-ui/framework";
 </script>
@@ -39,7 +39,7 @@ types=["tiny", "small", "medium", "large", "huge"]
 
 You can change the color palette of the `Wave` via the `palette` property.
 
-```html repl Wave Palette
+```svelte repl Wave Palette
 <script>
     import {
         Stack,
@@ -115,7 +115,7 @@ You can change the color palette of the `Wave` via the `palette` property.
 
 You can change the size of the `Wave` via the `size` property.
 
-```html repl Wave Size
+```svelte repl Wave Size
 <script>
     import {
         Stack,

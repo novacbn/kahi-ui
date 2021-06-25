@@ -14,7 +14,7 @@ types=["floated", "raised"]
 
 `Badge` is typically used to subtlely display to the user some type of ancillary information, relating to its siblings / parent UI elements.
 
-```html repl Badge Preview
+```svelte repl Badge Preview
 <script>
     import {Badge} from "@kahi-ui/framework";
 </script>
@@ -34,7 +34,7 @@ types=["floated", "raised"]
 
 You can change the color palette of the `Badge` via the `palette` property.
 
-```html repl Badge Palette
+```svelte repl Badge Palette
 <script>
     import {Badge, Stack} from "@kahi-ui/framework";
 </script>
@@ -45,24 +45,28 @@ You can change the color palette of the `Badge` via the `palette` property.
     variation="wrap"
 >
     <Badge>This is a DEFAULT Badge</Badge>
-    <Badge palette="accent"
-        >This is a ACCENT Badge</Badge
-    >
+
+    <Badge palette="accent">
+        This is a ACCENT Badge
+    </Badge>
 
     <Badge palette="dark">This is a DARK Badge</Badge>
-    <Badge palette="light"
-        >This is a LIGHT Badge</Badge
-    >
 
-    <Badge palette="alert"
-        >This is a ALERT Badge</Badge
-    >
-    <Badge palette="affirmative"
-        >This is a AFFIRMATIVE Badge</Badge
-    >
-    <Badge palette="negative"
-        >This is a NEGATIVE Badge</Badge
-    >
+    <Badge palette="light">
+        This is a LIGHT Badge
+    </Badge>
+
+    <Badge palette="alert">
+        This is a ALERT Badge
+    </Badge>
+
+    <Badge palette="affirmative">
+        This is a AFFIRMATIVE Badge
+    </Badge>
+
+    <Badge palette="negative">
+        This is a NEGATIVE Badge
+    </Badge>
 </Stack>
 ```
 
@@ -83,9 +87,9 @@ You can change the position of the `Badge` to raise it above in its parent to mo
 <Stack spacing="medium">
     <Text>
         Sample Text (RAISED)
-        <Badge palette="accent" position="raised"
-            >+99</Badge
-        >
+        <Badge palette="accent" position="raised">
+            +99
+        </Badge>
     </Text>
 
     <div>
@@ -93,8 +97,10 @@ You can change the position of the `Badge` to raise it above in its parent to mo
             Open Inbox (FLOATED)
             <Badge
                 palette="negative"
-                position="floated">+99</Badge
+                position="floated"
             >
+                +99
+            </Badge>
         </Button>
     </div>
 </Stack>

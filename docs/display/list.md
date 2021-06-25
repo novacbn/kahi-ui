@@ -1,19 +1,25 @@
++++
+[[properties."List.Container"]]
+name="is"
+description="Changes the HTML tag used for rendering the list, and the list item prefixing."
+default="ul"
+types=["ol", "ul"]
++++
+
 # List
 
 `List` is used for rendering simple text lists.
 
-```html repl List Preview
+```svelte repl List Preview
 <script>
     import {List} from "@kahi-ui/framework";
 </script>
 
-<List.Unordered>
+<List.Container>
     <List.Item>Lorem ipsum dolor sit amet.</List.Item>
     <List.Item>Consectetur adipiscing elit.</List.Item>
-    <List.Item
-        >Proin et consectetur orci. mus.</List.Item
-    >
-</List.Unordered>
+    <List.Item>Proin et consectetur orci.</List.Item>
+</List.Container>
 ```
 
 ## Imports
@@ -22,7 +28,7 @@
 <script>
     import {List} from "@kahi-ui/framework";
 
-    const {Item, Ordered, Unordered} = List;
+    const {Container, Item} = List;
 </script>
 ```
 
@@ -30,7 +36,7 @@
 
 You can change what type of list is being rendered via the `is` property.
 
-```html repl List Types
+```svelte repl List Types
 <script>
     import {
         List,
@@ -47,42 +53,38 @@ You can change what type of list is being rendered via the `is` property.
     <div>
         <Text>
             <Text is="strong">ORDERED</Text>
+            <List.Container is="ol">
+                <List.Item>
+                    Lorem ipsum dolor sit amet.
+                </List.Item>
 
-            <List.Ordered>
-                <List.Item
-                    >Lorem ipsum dolor sit
-                    amet.</List.Item
-                >
-                <List.Item
-                    >Consectetur adipiscing
-                    elit.</List.Item
-                >
-                <List.Item
-                    >Proin et consectetur orci.
-                    mus.</List.Item
-                >
-            </List.Ordered>
+                <List.Item>
+                    Consectetur adipiscing elit.
+                </List.Item>
+
+                <List.Item>
+                    Proin et consectetur orci.
+                </List.Item>
+            </List.Container>
         </Text>
     </div>
 
     <div>
         <Text>
             <Text is="strong">UNORDERED</Text>
+            <List.Container>
+                <List.Item>
+                    Lorem ipsum dolor sit amet.
+                </List.Item>
 
-            <List.Unordered>
-                <List.Item
-                    >Lorem ipsum dolor sit
-                    amet.</List.Item
-                >
-                <List.Item
-                    >Consectetur adipiscing
-                    elit.</List.Item
-                >
-                <List.Item
-                    >Proin et consectetur orci.
-                    mus.</List.Item
-                >
-            </List.Unordered>
+                <List.Item>
+                    Consectetur adipiscing elit.
+                </List.Item>
+
+                <List.Item>
+                    Proin et consectetur orci.
+                </List.Item>
+            </List.Container>
         </Text>
     </div>
 </Stack>

@@ -51,7 +51,10 @@
         const {snippets} = data.data.meta;
 
         const selected_snippet = snippets.find((value) => value.identifier === snippet);
-        if (!selected_snippet || selected_snippet.syntax !== "html") {
+        if (
+            !selected_snippet ||
+            (selected_snippet.syntax !== "html" && selected_snippet.syntax !== "svelte")
+        ) {
             return {
                 status: 404,
                 error: "InvalidDocumentationSnippet",
@@ -65,7 +68,6 @@
             },
         };
     };
-
 </script>
 
 <script lang="ts">
@@ -106,7 +108,6 @@
     onMount(async () => {
         ({REPL_ROTATION, REPL_VIEWS, Split} = await import("svelte-pipeline/repl"));
     });
-
 </script>
 
 {#if browser}
@@ -157,5 +158,4 @@
     :global(.repl-editor) {
         border-radius: 0;
     }
-
 </style>

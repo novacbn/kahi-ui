@@ -1,4 +1,6 @@
 <script lang="ts">
+    import {createEventDispatcher} from "svelte";
+
     import type {
         DESIGN_ALIGNMENT_ARGUMENT,
         DESIGN_ALIGNMENT_X_ARGUMENT,
@@ -15,6 +17,8 @@
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
+
+    const dispatch = createEventDispatcher();
 
     export let element: HTMLElement | null = null;
 
@@ -74,13 +78,22 @@
     const _state = make_state_context(state);
     const _viewports = viewports({mobile: true, tablet: true});
 
-    function on_input(event: Event) {
+    let _previous_state = state;
+
+    function on_change(event: Event) {
         state = (event.target as HTMLInputElement).checked;
     }
 
     $: if (!$_viewports) state = false;
     $: $_state = state;
 
+    $: {
+        if (_previous_state !== state) {
+            dispatch(state ? "active" : "dismiss");
+
+            _previous_state = state;
+        }
+    }
 </script>
 
 {#if $_logic_id}
@@ -89,7 +102,7 @@
         id={$_logic_id}
         type="checkbox"
         bind:checked={$_state}
-        on:input={on_input}
+        on:change={on_change}
     />
 
     {#if captive}

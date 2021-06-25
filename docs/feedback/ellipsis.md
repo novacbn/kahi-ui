@@ -46,7 +46,7 @@ types=["string"]
 
 You can customize the text character used for the animation via the `character` property.
 
-```html repl Ellipsis Character
+```svelte repl Ellipsis Character
 <script>
     import {
         Ellipsis,

@@ -69,7 +69,7 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
 
 You can change the color palette of the `Tile` via the `palette` property.
 
-```html repl Tile Palette
+```svelte repl Tile Palette
 <script>
     import {
         Stack,
@@ -85,7 +85,7 @@ You can change the color palette of the `Tile` via the `palette` property.
 >
     <Tile.Container {...$$props} width="content-max">
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -110,7 +110,7 @@ You can change the color palette of the `Tile` via the `palette` property.
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -135,7 +135,7 @@ You can change the color palette of the `Tile` via the `palette` property.
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -160,7 +160,7 @@ You can change the color palette of the `Tile` via the `palette` property.
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -185,7 +185,7 @@ You can change the color palette of the `Tile` via the `palette` property.
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -210,7 +210,7 @@ You can change the color palette of the `Tile` via the `palette` property.
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -235,7 +235,7 @@ You can change the color palette of the `Tile` via the `palette` property.
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -260,7 +260,7 @@ You can change the color palette of the `Tile` via the `palette` property.
 
 You can set how "high" your `Tile` will appear to be over top the page via the `elevation` property.
 
-```html repl Tile Elevation
+```svelte repl Tile Elevation
 <script>
     import {
         Stack,
@@ -280,7 +280,7 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -301,7 +301,7 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
 
     <Tile.Container {...$$props} width="content-max">
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -326,7 +326,7 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -351,7 +351,7 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>
@@ -376,7 +376,7 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
         width="content-max"
     >
         <Tile.Figure shape="pill">
-            <img src="{IMAGE_AVATAR}" />
+            <img src={IMAGE_AVATAR} />
         </Tile.Figure>
 
         <Tile.Section>

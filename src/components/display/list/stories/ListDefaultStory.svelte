@@ -3,7 +3,6 @@
     import {Text} from "../../../typography/text";
 
     import * as List from "../index";
-
 </script>
 
 <Stack orientation="horizontal" spacing="medium" variation="wrap">
@@ -11,11 +10,11 @@
         <Text>
             <Text is="strong">ORDERED</Text>
 
-            <List.Ordered>
+            <List.Container is="ol">
                 <List.Item>List Item #1</List.Item>
                 <List.Item>List Item #2</List.Item>
                 <List.Item>List Item #3</List.Item>
-            </List.Ordered>
+            </List.Container>
         </Text>
     </div>
 
@@ -23,11 +22,11 @@
         <Text>
             <Text is="strong">UNORDERED</Text>
 
-            <List.Unordered>
+            <List.Container>
                 <List.Item>List Item #1</List.Item>
                 <List.Item>List Item #2</List.Item>
                 <List.Item>List Item #3</List.Item>
-            </List.Unordered>
+            </List.Container>
         </Text>
     </div>
 </Stack>

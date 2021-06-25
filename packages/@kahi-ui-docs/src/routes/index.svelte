@@ -10,7 +10,6 @@
     import LandingHero from "../components/landing/LandingHero.svelte";
 
     import SnippetREPL from "../components/snippets/SnippetREPL.svelte";
-
 </script>
 
 <LandingHero />
@@ -34,7 +33,10 @@
         <Text is="small">Opinonated when needed. Flexible when wanted.</Text>
     </Text>
 
-    <Grid points={["2", "mobile:1"]} spacing={["large", "tablet:medium", "mobile:medium"]}>
+    <Grid.Container
+        points={["2", "mobile:1"]}
+        spacing={["large", "tablet:medium", "mobile:medium"]}
+    >
         <LandingCard icon={GridIcon} heading="Composable">
             Designed with <Text is="strong">Composability</Text> in mind, author new Components easily.
         </LandingCard>
@@ -57,7 +59,7 @@
             </Text>
             enhancing the <Text is="strong">UX</Text>.
         </LandingCard>
-    </Grid>
+    </Grid.Container>
 </Container>
 
 <LandingFooter />

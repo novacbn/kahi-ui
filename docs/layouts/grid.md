@@ -56,7 +56,7 @@ types=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "{VIEWPORT
 
 > **NOTE**: The REPL currently does not support viewport values. Resize your Browser instead.
 
-```html repl Grid Preview
+```svelte repl Grid Preview
 <script>
     import {Box, Grid} from "@kahi-ui/framework";
 </script>
@@ -111,7 +111,7 @@ types=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "{VIEWPORT
 
 You can adjust how many points the `Grid.Container` items are divided by via the `points` property.
 
-```html repl Grid.Container Points
+```svelte repl Grid.Container Points
 <script>
     import {
         Box,
@@ -902,7 +902,7 @@ You can adjust how many points the `Grid.Container` items are divided by via the
 
 You can adjust the spacing between items via the `spacing`, `spacing_x`, and `spacing_y` properties.
 
-```html repl Grid Spacing
+```svelte repl Grid Spacing
 <script>
     import {
         Box,
@@ -1150,43 +1150,55 @@ You can adjust the spacing between items via the `spacing`, `spacing_x`, and `sp
 
 You can adjust grid span of individual items via the `span`, `span_x`, `span_y` properties, by wrapping the items in `Grid.Item`.
 
-```html repl Grid Item Span
+```svelte repl Grid Item Span
 <script>
     import {Box, Grid} from "@kahi-ui/framework";
 </script>
 
-<Grid.Container class="grid-item-span" points={["6", "mobile:3", "tablet:4", "desktop:5"]} spacing="medium">
-    <Box palette="alert"  />
-    <Grid.Item span_x={["4", "mobile:1", "tablet:2", "desktop:3"]} span_y="1">
+<Grid.Container
+    class="grid-item-span"
+    points={["6", "mobile:3", "tablet:4", "desktop:5"]}
+    spacing="medium"
+>
+    <Box palette="alert" />
+    <Grid.Item
+        span_x={[
+            "4",
+            "mobile:1",
+            "tablet:2",
+            "desktop:3",
+        ]}
+        span_y="1"
+    >
         <Box palette="affirmative" />
     </Grid.Item>
-    <Box palette="negative"  />
+    <Box palette="negative" />
 
-    <Box palette="affirmative"  />
-    <Box palette="negative"  />
-    <Box palette="alert"  />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 
-    <Box palette="alert"  />
-    <Box palette="affirmative"  />
-    <Box palette="negative"  />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 
     <Grid.Item span_x="3" span_y="2">
         <Box palette="negative" />
     </Grid.Item>
-    <Box palette="alert"  />
-    <Box palette="affirmative"  />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
 
-    <Box palette="affirmative"  />
-    <Box palette="negative"  />
-    <Box palette="alert"  />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 
-    <Box palette="negative"  />
-    <Box palette="alert"  />
-    <Box palette="affirmative"  />
+    <Box palette="negative" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
 
-    <Box palette="alert"  />
-    <Box palette="affirmative"  />
-    <Box palette="negative"  />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 </Grid.Container>
 
 <style>

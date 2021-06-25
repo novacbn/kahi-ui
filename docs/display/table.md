@@ -29,51 +29,57 @@ types=["borders", "stripes"]
 
     <Table.Section>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">mobile</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>0px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>640px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">mobile</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>0px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>640px</Code>
+            </Table.Column>
         </Table.Row>
 
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">tablet</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>641px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>768px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">tablet</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>641px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>768px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">desktop</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>769px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>1024px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">desktop</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>769px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1024px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">widescreen</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>1025px</Code></Table.Column
-            >
-            <Table.Column><Code>∞</Code></Table.Column>
+            <Table.Column>
+                <Text is="strong">widescreen</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1025px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>∞</Code>
+            </Table.Column>
         </Table.Row>
     </Table.Section>
 
@@ -129,51 +135,57 @@ You can make a `Table` have borders via the `variation` property.
 
     <Table.Section>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">mobile</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>0px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>640px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">mobile</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>0px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>640px</Code>
+            </Table.Column>
         </Table.Row>
 
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">tablet</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>641px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>768px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">tablet</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>641px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>768px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">desktop</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>769px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>1024px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">desktop</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>769px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1024px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">widescreen</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>1025px</Code></Table.Column
-            >
-            <Table.Column><Code>∞</Code></Table.Column>
+            <Table.Column>
+                <Text is="strong">widescreen</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1025px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>∞</Code>
+            </Table.Column>
         </Table.Row>
     </Table.Section>
 
@@ -211,51 +223,57 @@ You can make a `Table` have stripes via the `variation` property.
 
     <Table.Section>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">mobile</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>0px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>640px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">mobile</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>0px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>640px</Code>
+            </Table.Column>
         </Table.Row>
 
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">tablet</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>641px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>768px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">tablet</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>641px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>768px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">desktop</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>769px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>1024px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">desktop</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>769px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1024px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">widescreen</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>1025px</Code></Table.Column
-            >
-            <Table.Column><Code>∞</Code></Table.Column>
+            <Table.Column>
+                <Text is="strong">widescreen</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1025px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>∞</Code>
+            </Table.Column>
         </Table.Row>
     </Table.Section>
 
@@ -293,51 +311,57 @@ You can make a `Table` have both borders **AND** stripes via the `variation` pro
 
     <Table.Section>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">mobile</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>0px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>640px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">mobile</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>0px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>640px</Code>
+            </Table.Column>
         </Table.Row>
 
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">tablet</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>641px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>768px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">tablet</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>641px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>768px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">desktop</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>769px</Code></Table.Column
-            >
-            <Table.Column
-                ><Code>1024px</Code></Table.Column
-            >
+            <Table.Column>
+                <Text is="strong">desktop</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>769px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1024px</Code>
+            </Table.Column>
         </Table.Row>
         <Table.Row>
-            <Table.Column
-                ><Text is="strong">widescreen</Text
-                ></Table.Column
-            >
-            <Table.Column
-                ><Code>1025px</Code></Table.Column
-            >
-            <Table.Column><Code>∞</Code></Table.Column>
+            <Table.Column>
+                <Text is="strong">widescreen</Text>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>1025px</Code>
+            </Table.Column>
+
+            <Table.Column>
+                <Code>∞</Code>
+            </Table.Column>
         </Table.Row>
     </Table.Section>
 
@@ -377,53 +401,57 @@ You can make a `Table` scrollable by wrapping it with a [`Scrollable`](../layout
 
         <Table.Section>
             <Table.Row>
-                <Table.Column
-                    ><Text is="strong">mobile</Text
-                    ></Table.Column
-                >
-                <Table.Column
-                    ><Code>0px</Code></Table.Column
-                >
-                <Table.Column
-                    ><Code>640px</Code></Table.Column
-                >
+                <Table.Column>
+                    <Text is="strong">mobile</Text>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>0px</Code>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>640px</Code>
+                </Table.Column>
             </Table.Row>
 
             <Table.Row>
-                <Table.Column
-                    ><Text is="strong">tablet</Text
-                    ></Table.Column
-                >
-                <Table.Column
-                    ><Code>641px</Code></Table.Column
-                >
-                <Table.Column
-                    ><Code>768px</Code></Table.Column
-                >
+                <Table.Column>
+                    <Text is="strong">tablet</Text>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>641px</Code>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>768px</Code>
+                </Table.Column>
             </Table.Row>
             <Table.Row>
-                <Table.Column
-                    ><Text is="strong">desktop</Text
-                    ></Table.Column
-                >
-                <Table.Column
-                    ><Code>769px</Code></Table.Column
-                >
-                <Table.Column
-                    ><Code>1024px</Code></Table.Column
-                >
+                <Table.Column>
+                    <Text is="strong">desktop</Text>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>769px</Code>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>1024px</Code>
+                </Table.Column>
             </Table.Row>
             <Table.Row>
-                <Table.Column
-                    ><Text is="strong">widescreen</Text
-                    ></Table.Column
-                >
-                <Table.Column
-                    ><Code>1025px</Code></Table.Column
-                >
-                <Table.Column
-                    ><Code>∞</Code></Table.Column
-                >
+                <Table.Column>
+                    <Text is="strong">widescreen</Text>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>1025px</Code>
+                </Table.Column>
+
+                <Table.Column>
+                    <Code>∞</Code>
+                </Table.Column>
             </Table.Row>
         </Table.Section>
 

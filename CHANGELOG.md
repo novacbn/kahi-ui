@@ -8,7 +8,7 @@
 
         -   `List`
 
-            -   Updated to be in line with the rest of element configurable Components.
+            -   **(BREAKING)** Updated to be in line with the rest of element configurable Components.
 
                 -   `<List.Ordered>` -> `<List.Container is="ol">`
                 -   `<List.Unordered>` -> `<List.Container is="ul">`
@@ -17,7 +17,7 @@
 
         -   `Grid`
 
-            -   Changed `Grid` to be a namespace.
+            -   **(BREAKING)** Changed `Grid` to be a namespace.
 
                 -   Access the original Component via `<Grid>` -> `<Grid.Container>`, same API otherwise.
 

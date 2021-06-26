@@ -55,6 +55,7 @@ types=["borders", "stripes"]
                 <Code>768px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">desktop</Text>
@@ -68,6 +69,7 @@ types=["borders", "stripes"]
                 <Code>1024px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">widescreen</Text>
@@ -161,6 +163,7 @@ You can make a `Table` have borders via the `variation` property.
                 <Code>768px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">desktop</Text>
@@ -174,6 +177,7 @@ You can make a `Table` have borders via the `variation` property.
                 <Code>1024px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">widescreen</Text>
@@ -249,6 +253,7 @@ You can make a `Table` have stripes via the `variation` property.
                 <Code>768px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">desktop</Text>
@@ -262,6 +267,7 @@ You can make a `Table` have stripes via the `variation` property.
                 <Code>1024px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">widescreen</Text>
@@ -337,6 +343,7 @@ You can make a `Table` have both borders **AND** stripes via the `variation` pro
                 <Code>768px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">desktop</Text>
@@ -350,6 +357,7 @@ You can make a `Table` have both borders **AND** stripes via the `variation` pro
                 <Code>1024px</Code>
             </Table.Column>
         </Table.Row>
+
         <Table.Row>
             <Table.Column>
                 <Text is="strong">widescreen</Text>
@@ -427,6 +435,7 @@ You can make a `Table` scrollable by wrapping it with a [`Scrollable`](../layout
                     <Code>768px</Code>
                 </Table.Column>
             </Table.Row>
+
             <Table.Row>
                 <Table.Column>
                     <Text is="strong">desktop</Text>
@@ -440,6 +449,7 @@ You can make a `Table` scrollable by wrapping it with a [`Scrollable`](../layout
                     <Code>1024px</Code>
                 </Table.Column>
             </Table.Row>
+
             <Table.Row>
                 <Table.Column>
                     <Text is="strong">widescreen</Text>

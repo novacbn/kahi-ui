@@ -24,36 +24,43 @@ To be able to use Viewport-specific values, you just need to prefix your values 
     import {Box, Grid} from "@kahi-ui/framework";
 </script>
 
-<Grid
+<Grid.Container
+    class="responsivity-syntax"
     points={["5", "mobile:2", "tablet:3", "desktop:4"]}
     spacing="medium"
 >
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
+    <Box palette="negative" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
 
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
+    <Box palette="negative" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
 
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
-</Grid>
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+</Grid.Container>
+
+<style>
+    :global(.responsivity-syntax .box) {
+        height: 3rem;
+    }
+</style>
 ```

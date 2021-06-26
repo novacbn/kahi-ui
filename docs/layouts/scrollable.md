@@ -10,9 +10,7 @@
     } from "@kahi-ui/framework";
 </script>
 
-<Scrollable
-    style="width:24rem;height:10rem;white-space:nowrap;"
->
+<Scrollable class="scrollable-preview">
     <Heading>
         Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Proin et consectetur orci.
@@ -49,6 +47,15 @@
         mus.
     </Heading>
 </Scrollable>
+
+<style>
+    :global(.scrollable-preview) {
+        width: 24rem;
+        height: 10rem;
+
+        white-space: nowrap;
+    }
+</style>
 ```
 
 ## Imports

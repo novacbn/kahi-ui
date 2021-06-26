@@ -25,7 +25,7 @@
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="grid-item"
+    class="grid-item {_class}"
     {...map_data_attributes({
         span,
         span_x,

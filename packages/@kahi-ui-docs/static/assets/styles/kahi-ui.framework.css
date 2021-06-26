@@ -1,7 +1,7 @@
 /*!
  * Kahi UI - Framework
  *
- * v0.2.7
+ * v0.2.10
  */
 
 *, ::before, ::after {
@@ -874,38 +874,6 @@ html[data-palette="dark"] [type="checkbox"]:not([data-palette]) {
             }
 }
 
-.form-control {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  grid-gap: 0.5em;
-  gap: 0.5em;
-  width: 100%;
-}
-
-label:not([role]) {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: -webkit-inline-flex;
-  display: inline-flex;
-  grid-gap: 0.5em;
-  gap: 0.5em;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-label:not([role])[for] {
-  cursor: pointer;
-}
-
 [type="radio"] {
   --palette-background-bg: 166, 173, 184;
   --palette-foreground-bg: 128, 138, 153;
@@ -1181,6 +1149,38 @@ textarea {
   max-height: 100%;
   resize: none;
   max-width: 100%;
+}
+
+.form-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  grid-gap: 0.5em;
+  gap: 0.5em;
+  width: 100%;
+}
+
+label:not([role]) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  grid-gap: 0.5em;
+  gap: 0.5em;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+label:not([role])[for] {
+  cursor: pointer;
 }
 
 a:not([role]) {
@@ -2288,6 +2288,7 @@ input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="chec
   -moz-row-gap: var(--spacing-y);
   grid-row-gap: var(--spacing-y);
   row-gap: var(--spacing-y);
+  grid-auto-flow: row dense;
   align-items: var(--grid-alignment-y);
   justify-content: var(--grid-alignment-x);
   grid-template-columns: repeat(var(--points), 1fr);
@@ -2296,6 +2297,17 @@ input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="chec
 .grid > * {
   margin: 0px;
 }
+
+.grid-item {
+  --span-x: 1;
+  --span-y: 1;
+  display: contents;
+}
+
+.grid-item > * {
+        grid-column: span var(--span-x) / span var(--span-x);
+        grid-row: span var(--span-y) / span var(--span-y);
+    }
 
 /**
  * TODO: Figure how to add responsitivity for orientation, need to revert the border-radius
@@ -3252,6 +3264,654 @@ span.spacer[data-orientation~="vertical"] {
   }
   [data-points~="widescreen:12"] {
     --points: 12;
+  }
+}
+
+[data-span~="1"] {
+    --span-x: 1;
+    --span-y: 1;
+}
+
+[data-span~="2"] {
+    --span-x: 2;
+    --span-y: 2;
+}
+
+[data-span~="3"] {
+    --span-x: 3;
+    --span-y: 3;
+}
+
+[data-span~="4"] {
+    --span-x: 4;
+    --span-y: 4;
+}
+
+[data-span~="5"] {
+    --span-x: 5;
+    --span-y: 5;
+}
+
+[data-span~="6"] {
+    --span-x: 6;
+    --span-y: 6;
+}
+
+[data-span~="7"] {
+    --span-x: 7;
+    --span-y: 7;
+}
+
+[data-span~="8"] {
+    --span-x: 8;
+    --span-y: 8;
+}
+
+[data-span~="9"] {
+    --span-x: 9;
+    --span-y: 9;
+}
+
+[data-span~="10"] {
+    --span-x: 10;
+    --span-y: 10;
+}
+
+[data-span~="11"] {
+    --span-x: 11;
+    --span-y: 11;
+}
+
+[data-span~="12"] {
+    --span-x: 12;
+    --span-y: 12;
+}
+
+[data-span-x~="1"] {
+    --span-x: 1;
+}
+
+[data-span-x~="2"] {
+    --span-x: 2;
+}
+
+[data-span-x~="3"] {
+    --span-x: 3;
+}
+
+[data-span-x~="4"] {
+    --span-x: 4;
+}
+
+[data-span-x~="5"] {
+    --span-x: 5;
+}
+
+[data-span-x~="6"] {
+    --span-x: 6;
+}
+
+[data-span-x~="7"] {
+    --span-x: 7;
+}
+
+[data-span-x~="8"] {
+    --span-x: 8;
+}
+
+[data-span-x~="9"] {
+    --span-x: 9;
+}
+
+[data-span-x~="10"] {
+    --span-x: 10;
+}
+
+[data-span-x~="11"] {
+    --span-x: 11;
+}
+
+[data-span-x~="12"] {
+    --span-x: 12;
+}
+
+[data-span-y~="1"] {
+    --span-y: 1;
+}
+
+[data-span-y~="2"] {
+    --span-y: 2;
+}
+
+[data-span-y~="3"] {
+    --span-y: 3;
+}
+
+[data-span-y~="4"] {
+    --span-y: 4;
+}
+
+[data-span-y~="5"] {
+    --span-y: 5;
+}
+
+[data-span-y~="6"] {
+    --span-y: 6;
+}
+
+[data-span-y~="7"] {
+    --span-y: 7;
+}
+
+[data-span-y~="8"] {
+    --span-y: 8;
+}
+
+[data-span-y~="9"] {
+    --span-y: 9;
+}
+
+[data-span-y~="10"] {
+    --span-y: 10;
+}
+
+[data-span-y~="11"] {
+    --span-y: 11;
+}
+
+[data-span-y~="12"] {
+    --span-y: 12;
+}
+
+@media (max-width: 639.9px) {
+  [data-span~="mobile:1"] {
+    --span-x: 1;
+    --span-y: 1;
+  }
+  [data-span~="mobile:2"] {
+    --span-x: 2;
+    --span-y: 2;
+  }
+  [data-span~="mobile:3"] {
+    --span-x: 3;
+    --span-y: 3;
+  }
+  [data-span~="mobile:4"] {
+    --span-x: 4;
+    --span-y: 4;
+  }
+  [data-span~="mobile:5"] {
+    --span-x: 5;
+    --span-y: 5;
+  }
+  [data-span~="mobile:6"] {
+    --span-x: 6;
+    --span-y: 6;
+  }
+  [data-span~="mobile:7"] {
+    --span-x: 7;
+    --span-y: 7;
+  }
+  [data-span~="mobile:8"] {
+    --span-x: 8;
+    --span-y: 8;
+  }
+  [data-span~="mobile:9"] {
+    --span-x: 9;
+    --span-y: 9;
+  }
+  [data-span~="mobile:10"] {
+    --span-x: 10;
+    --span-y: 10;
+  }
+  [data-span~="mobile:11"] {
+    --span-x: 11;
+    --span-y: 11;
+  }
+  [data-span~="mobile:12"] {
+    --span-x: 12;
+    --span-y: 12;
+  }
+  [data-span-x~="mobile:1"] {
+    --span-x: 1;
+  }
+  [data-span-x~="mobile:2"] {
+    --span-x: 2;
+  }
+  [data-span-x~="mobile:3"] {
+    --span-x: 3;
+  }
+  [data-span-x~="mobile:4"] {
+    --span-x: 4;
+  }
+  [data-span-x~="mobile:5"] {
+    --span-x: 5;
+  }
+  [data-span-x~="mobile:6"] {
+    --span-x: 6;
+  }
+  [data-span-x~="mobile:7"] {
+    --span-x: 7;
+  }
+  [data-span-x~="mobile:8"] {
+    --span-x: 8;
+  }
+  [data-span-x~="mobile:9"] {
+    --span-x: 9;
+  }
+  [data-span-x~="mobile:10"] {
+    --span-x: 10;
+  }
+  [data-span-x~="mobile:11"] {
+    --span-x: 11;
+  }
+  [data-span-x~="mobile:12"] {
+    --span-x: 12;
+  }
+  [data-span-y~="mobile:1"] {
+    --span-y: 1;
+  }
+  [data-span-y~="mobile:2"] {
+    --span-y: 2;
+  }
+  [data-span-y~="mobile:3"] {
+    --span-y: 3;
+  }
+  [data-span-y~="mobile:4"] {
+    --span-y: 4;
+  }
+  [data-span-y~="mobile:5"] {
+    --span-y: 5;
+  }
+  [data-span-y~="mobile:6"] {
+    --span-y: 6;
+  }
+  [data-span-y~="mobile:7"] {
+    --span-y: 7;
+  }
+  [data-span-y~="mobile:8"] {
+    --span-y: 8;
+  }
+  [data-span-y~="mobile:9"] {
+    --span-y: 9;
+  }
+  [data-span-y~="mobile:10"] {
+    --span-y: 10;
+  }
+  [data-span-y~="mobile:11"] {
+    --span-y: 11;
+  }
+  [data-span-y~="mobile:12"] {
+    --span-y: 12;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767.9px) {
+  [data-span~="tablet:1"] {
+    --span-x: 1;
+    --span-y: 1;
+  }
+  [data-span~="tablet:2"] {
+    --span-x: 2;
+    --span-y: 2;
+  }
+  [data-span~="tablet:3"] {
+    --span-x: 3;
+    --span-y: 3;
+  }
+  [data-span~="tablet:4"] {
+    --span-x: 4;
+    --span-y: 4;
+  }
+  [data-span~="tablet:5"] {
+    --span-x: 5;
+    --span-y: 5;
+  }
+  [data-span~="tablet:6"] {
+    --span-x: 6;
+    --span-y: 6;
+  }
+  [data-span~="tablet:7"] {
+    --span-x: 7;
+    --span-y: 7;
+  }
+  [data-span~="tablet:8"] {
+    --span-x: 8;
+    --span-y: 8;
+  }
+  [data-span~="tablet:9"] {
+    --span-x: 9;
+    --span-y: 9;
+  }
+  [data-span~="tablet:10"] {
+    --span-x: 10;
+    --span-y: 10;
+  }
+  [data-span~="tablet:11"] {
+    --span-x: 11;
+    --span-y: 11;
+  }
+  [data-span~="tablet:12"] {
+    --span-x: 12;
+    --span-y: 12;
+  }
+  [data-span-x~="tablet:1"] {
+    --span-x: 1;
+  }
+  [data-span-x~="tablet:2"] {
+    --span-x: 2;
+  }
+  [data-span-x~="tablet:3"] {
+    --span-x: 3;
+  }
+  [data-span-x~="tablet:4"] {
+    --span-x: 4;
+  }
+  [data-span-x~="tablet:5"] {
+    --span-x: 5;
+  }
+  [data-span-x~="tablet:6"] {
+    --span-x: 6;
+  }
+  [data-span-x~="tablet:7"] {
+    --span-x: 7;
+  }
+  [data-span-x~="tablet:8"] {
+    --span-x: 8;
+  }
+  [data-span-x~="tablet:9"] {
+    --span-x: 9;
+  }
+  [data-span-x~="tablet:10"] {
+    --span-x: 10;
+  }
+  [data-span-x~="tablet:11"] {
+    --span-x: 11;
+  }
+  [data-span-x~="tablet:12"] {
+    --span-x: 12;
+  }
+  [data-span-y~="tablet:1"] {
+    --span-y: 1;
+  }
+  [data-span-y~="tablet:2"] {
+    --span-y: 2;
+  }
+  [data-span-y~="tablet:3"] {
+    --span-y: 3;
+  }
+  [data-span-y~="tablet:4"] {
+    --span-y: 4;
+  }
+  [data-span-y~="tablet:5"] {
+    --span-y: 5;
+  }
+  [data-span-y~="tablet:6"] {
+    --span-y: 6;
+  }
+  [data-span-y~="tablet:7"] {
+    --span-y: 7;
+  }
+  [data-span-y~="tablet:8"] {
+    --span-y: 8;
+  }
+  [data-span-y~="tablet:9"] {
+    --span-y: 9;
+  }
+  [data-span-y~="tablet:10"] {
+    --span-y: 10;
+  }
+  [data-span-y~="tablet:11"] {
+    --span-y: 11;
+  }
+  [data-span-y~="tablet:12"] {
+    --span-y: 12;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  [data-span~="desktop:1"] {
+    --span-x: 1;
+    --span-y: 1;
+  }
+  [data-span~="desktop:2"] {
+    --span-x: 2;
+    --span-y: 2;
+  }
+  [data-span~="desktop:3"] {
+    --span-x: 3;
+    --span-y: 3;
+  }
+  [data-span~="desktop:4"] {
+    --span-x: 4;
+    --span-y: 4;
+  }
+  [data-span~="desktop:5"] {
+    --span-x: 5;
+    --span-y: 5;
+  }
+  [data-span~="desktop:6"] {
+    --span-x: 6;
+    --span-y: 6;
+  }
+  [data-span~="desktop:7"] {
+    --span-x: 7;
+    --span-y: 7;
+  }
+  [data-span~="desktop:8"] {
+    --span-x: 8;
+    --span-y: 8;
+  }
+  [data-span~="desktop:9"] {
+    --span-x: 9;
+    --span-y: 9;
+  }
+  [data-span~="desktop:10"] {
+    --span-x: 10;
+    --span-y: 10;
+  }
+  [data-span~="desktop:11"] {
+    --span-x: 11;
+    --span-y: 11;
+  }
+  [data-span~="desktop:12"] {
+    --span-x: 12;
+    --span-y: 12;
+  }
+  [data-span-x~="desktop:1"] {
+    --span-x: 1;
+  }
+  [data-span-x~="desktop:2"] {
+    --span-x: 2;
+  }
+  [data-span-x~="desktop:3"] {
+    --span-x: 3;
+  }
+  [data-span-x~="desktop:4"] {
+    --span-x: 4;
+  }
+  [data-span-x~="desktop:5"] {
+    --span-x: 5;
+  }
+  [data-span-x~="desktop:6"] {
+    --span-x: 6;
+  }
+  [data-span-x~="desktop:7"] {
+    --span-x: 7;
+  }
+  [data-span-x~="desktop:8"] {
+    --span-x: 8;
+  }
+  [data-span-x~="desktop:9"] {
+    --span-x: 9;
+  }
+  [data-span-x~="desktop:10"] {
+    --span-x: 10;
+  }
+  [data-span-x~="desktop:11"] {
+    --span-x: 11;
+  }
+  [data-span-x~="desktop:12"] {
+    --span-x: 12;
+  }
+  [data-span-y~="desktop:1"] {
+    --span-y: 1;
+  }
+  [data-span-y~="desktop:2"] {
+    --span-y: 2;
+  }
+  [data-span-y~="desktop:3"] {
+    --span-y: 3;
+  }
+  [data-span-y~="desktop:4"] {
+    --span-y: 4;
+  }
+  [data-span-y~="desktop:5"] {
+    --span-y: 5;
+  }
+  [data-span-y~="desktop:6"] {
+    --span-y: 6;
+  }
+  [data-span-y~="desktop:7"] {
+    --span-y: 7;
+  }
+  [data-span-y~="desktop:8"] {
+    --span-y: 8;
+  }
+  [data-span-y~="desktop:9"] {
+    --span-y: 9;
+  }
+  [data-span-y~="desktop:10"] {
+    --span-y: 10;
+  }
+  [data-span-y~="desktop:11"] {
+    --span-y: 11;
+  }
+  [data-span-y~="desktop:12"] {
+    --span-y: 12;
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-span~="widescreen:1"] {
+    --span-x: 1;
+    --span-y: 1;
+  }
+  [data-span~="widescreen:2"] {
+    --span-x: 2;
+    --span-y: 2;
+  }
+  [data-span~="widescreen:3"] {
+    --span-x: 3;
+    --span-y: 3;
+  }
+  [data-span~="widescreen:4"] {
+    --span-x: 4;
+    --span-y: 4;
+  }
+  [data-span~="widescreen:5"] {
+    --span-x: 5;
+    --span-y: 5;
+  }
+  [data-span~="widescreen:6"] {
+    --span-x: 6;
+    --span-y: 6;
+  }
+  [data-span~="widescreen:7"] {
+    --span-x: 7;
+    --span-y: 7;
+  }
+  [data-span~="widescreen:8"] {
+    --span-x: 8;
+    --span-y: 8;
+  }
+  [data-span~="widescreen:9"] {
+    --span-x: 9;
+    --span-y: 9;
+  }
+  [data-span~="widescreen:10"] {
+    --span-x: 10;
+    --span-y: 10;
+  }
+  [data-span~="widescreen:11"] {
+    --span-x: 11;
+    --span-y: 11;
+  }
+  [data-span~="widescreen:12"] {
+    --span-x: 12;
+    --span-y: 12;
+  }
+  [data-span-x~="widescreen:1"] {
+    --span-x: 1;
+  }
+  [data-span-x~="widescreen:2"] {
+    --span-x: 2;
+  }
+  [data-span-x~="widescreen:3"] {
+    --span-x: 3;
+  }
+  [data-span-x~="widescreen:4"] {
+    --span-x: 4;
+  }
+  [data-span-x~="widescreen:5"] {
+    --span-x: 5;
+  }
+  [data-span-x~="widescreen:6"] {
+    --span-x: 6;
+  }
+  [data-span-x~="widescreen:7"] {
+    --span-x: 7;
+  }
+  [data-span-x~="widescreen:8"] {
+    --span-x: 8;
+  }
+  [data-span-x~="widescreen:9"] {
+    --span-x: 9;
+  }
+  [data-span-x~="widescreen:10"] {
+    --span-x: 10;
+  }
+  [data-span-x~="widescreen:11"] {
+    --span-x: 11;
+  }
+  [data-span-x~="widescreen:12"] {
+    --span-x: 12;
+  }
+  [data-span-y~="widescreen:1"] {
+    --span-y: 1;
+  }
+  [data-span-y~="widescreen:2"] {
+    --span-y: 2;
+  }
+  [data-span-y~="widescreen:3"] {
+    --span-y: 3;
+  }
+  [data-span-y~="widescreen:4"] {
+    --span-y: 4;
+  }
+  [data-span-y~="widescreen:5"] {
+    --span-y: 5;
+  }
+  [data-span-y~="widescreen:6"] {
+    --span-y: 6;
+  }
+  [data-span-y~="widescreen:7"] {
+    --span-y: 7;
+  }
+  [data-span-y~="widescreen:8"] {
+    --span-y: 8;
+  }
+  [data-span-y~="widescreen:9"] {
+    --span-y: 9;
+  }
+  [data-span-y~="widescreen:10"] {
+    --span-y: 10;
+  }
+  [data-span-y~="widescreen:11"] {
+    --span-y: 11;
+  }
+  [data-span-y~="widescreen:12"] {
+    --span-y: 12;
   }
 }
 

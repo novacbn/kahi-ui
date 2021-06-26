@@ -62,37 +62,36 @@ types=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "{VIEWPORT
 </script>
 
 <Grid.Container
+    class="grid-preview"
     points={["6", "mobile:3", "tablet:4", "desktop:5"]}
     spacing="medium"
 >
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
+    <Box palette="negative" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
 
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 </Grid.Container>
+
+<style>
+    :global(.grid-preview .box) {
+        height: 3rem;
+    }
+</style>
 ```
 
 ## Imports
@@ -111,7 +110,7 @@ types=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "{VIEWPORT
 
 You can adjust how many points the `Grid.Container` items are divided by via the `points` property.
 
-```svelte repl Grid.Container Points
+```svelte repl Grid Points
 <script>
     import {
         Box,
@@ -122,778 +121,333 @@ You can adjust how many points the `Grid.Container` items are divided by via the
 </script>
 
 <Stack
+    class="grid-points"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
         <Text is="strong">12</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="12"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">11</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="11"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">10</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="10"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">9</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="9"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">8</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="8"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">7</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="7"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">6</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="6"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">5</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="5"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">4</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="4"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">3</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="3"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">2</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="2"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">1</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="1"
                 spacing="medium"
-                style="width:18rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 </Stack>
+
+<style>
+    :global(.grid-points .grid) {
+        width: 14rem;
+    }
+
+    :global(.grid-points .grid .box) {
+        height: 3rem;
+    }
+</style>
 ```
 
 ## Spacing
@@ -913,237 +467,114 @@ You can adjust the spacing between items via the `spacing`, `spacing_x`, and `sp
 </script>
 
 <Stack
+    class="grid-spacing"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
         <Text is="strong">DEFAULT</Text>
-
         <Box palette="dark" padding="small">
-            <Grid.Container
-                points="3"
-                style="width:12rem;"
-            >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+            <Grid.Container points="3">
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">TINY</Text>
-
         <Box palette="dark" padding="small">
-            <Grid.Container
-                points="3"
-                spacing="tiny"
-                style="width:12rem;"
-            >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+            <Grid.Container points="3" spacing="tiny">
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">SMALL</Text>
-
         <Box palette="dark" padding="small">
-            <Grid.Container
-                points="3"
-                spacing="small"
-                style="width:12rem;"
-            >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+            <Grid.Container points="3" spacing="small">
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">MEDIUM</Text>
-
         <Box palette="dark" padding="small">
             <Grid.Container
                 points="3"
                 spacing="medium"
-                style="width:12rem;"
             >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">LARGE</Text>
-
         <Box palette="dark" padding="small">
-            <Grid.Container
-                points="3"
-                spacing="large"
-                style="width:12rem;"
-            >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+            <Grid.Container points="3" spacing="large">
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 
     <div>
         <Text is="strong">HUGE</Text>
-
         <Box palette="dark" padding="small">
-            <Grid.Container
-                points="3"
-                spacing="huge"
-                style="width:12rem;"
-            >
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
+            <Grid.Container points="3" spacing="huge">
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
 
-                <Box
-                    palette="affirmative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="negative"
-                    style="height:3rem;"
-                />
-                <Box
-                    palette="alert"
-                    style="height:3rem;"
-                />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
+                <Box palette="alert" />
             </Grid.Container>
         </Box>
     </div>
 </Stack>
+
+<style>
+    :global(.grid-spacing .grid) {
+        width: 12rem;
+    }
+
+    :global(.grid-spacing .grid .box) {
+        height: 3rem;
+    }
+</style>
 ```
 
 ## Item Span

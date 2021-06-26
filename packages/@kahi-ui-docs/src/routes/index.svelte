@@ -22,7 +22,11 @@
         <Text is="small">Develop more UI without writing essays worth of markup.</Text>
     </Text>
 
-    <SnippetREPL documentation="samples/landing" snippet="hero-preview" rotation="horizontal" />
+    <SnippetREPL
+        documentation="samples/landing-page"
+        snippet="landing-preview"
+        rotation="horizontal"
+    />
 
     <Divider palette="accent" margin_y="huge" />
 

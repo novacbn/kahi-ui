@@ -63,13 +63,12 @@
     export let spacing: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let spacing_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let spacing_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
 </script>
 
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="mosaic"
+    class="mosaic {_class}"
     {...map_data_attributes({
         alignment,
         "alignment-x": alignment_x,

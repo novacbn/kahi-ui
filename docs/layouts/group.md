@@ -56,7 +56,6 @@ You can set the `Group` to render its children Components vertically, via the `o
 >
     <div>
         <Text is="strong">DEFAULT</Text>
-
         <Box palette="dark" padding="small">
             <Group>
                 <Button>Button 1</Button>
@@ -68,7 +67,6 @@ You can set the `Group` to render its children Components vertically, via the `o
 
     <div>
         <Text is="strong">VERTICAL</Text>
-
         <Box palette="dark" padding="small">
             <Group orientation="vertical">
                 <Button>Button 1</Button>
@@ -99,14 +97,13 @@ You can set the `variation` property to `stacked` to visually stack children Com
 </script>
 
 <Stack
+    class="group-stacked"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
         <Text is="strong">DEFAULT</Text>
-        <br />
-
         <Group variation="stacked">
             <Figure
                 variation="icon"
@@ -143,8 +140,6 @@ You can set the `variation` property to `stacked` to visually stack children Com
 
     <div>
         <Text is="strong">VERTICAL</Text>
-        <br />
-
         <Group
             variation="stacked"
             orientation="vertical"
@@ -182,4 +177,10 @@ You can set the `variation` property to `stacked` to visually stack children Com
         </Group>
     </div>
 </Stack>
+
+<style>
+    :global(.group-stacked strong) {
+        display: block;
+    }
+</style>
 ```

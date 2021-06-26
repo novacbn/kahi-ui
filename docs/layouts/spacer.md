@@ -167,7 +167,6 @@ You can have the `Spacer` rendering as an inline `<span>` that defaults to `hori
 >
     <div>
         <Text is="strong">BLOCK / DEFAULT</Text>
-
         <Box
             palette="auto-inverse"
             margin_top="small"
@@ -182,7 +181,6 @@ You can have the `Spacer` rendering as an inline `<span>` that defaults to `hori
 
     <div>
         <Text is="strong">INLINE / DEFAULT</Text>
-
         <Box
             palette="auto-inverse"
             margin_top="small"

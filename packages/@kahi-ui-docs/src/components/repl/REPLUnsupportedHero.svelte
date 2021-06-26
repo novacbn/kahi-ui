@@ -1,6 +1,5 @@
 <script lang="ts">
     import {Hero, Text} from "@kahi-ui/framework";
-
 </script>
 
 <Hero.Container palette="negative" height="viewport-100">

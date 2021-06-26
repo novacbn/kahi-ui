@@ -1,5 +1,3 @@
-
-
 <script lang="ts">
     import {htmlpalette} from "@kahi-ui/framework";
     import {preferencetheme} from "@kahi-ui/docs-kit/shared";
@@ -13,7 +11,6 @@
     onMount(() => (mounted = true));
 
     $: if (mounted) $_htmlpalette = $_preferencetheme || "light";
-
 </script>
 
 <slot />
@@ -39,5 +36,4 @@
         width: 100% !important;
         height: 100% !important;
     }
-
 </style>

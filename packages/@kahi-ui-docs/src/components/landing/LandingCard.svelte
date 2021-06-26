@@ -7,7 +7,6 @@
 
     export let heading: string = "N/A";
     export let icon: SvelteComponent | SvelteComponentDev;
-
 </script>
 
 <Card.Container>

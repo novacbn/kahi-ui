@@ -13,7 +13,6 @@
     } from "../../shared/environment";
 
     $: _version_url = VERSION_ENABLED ? substitute_value(VERSION_URL, VERSION_TAG) : null;
-
 </script>
 
 <Box class="landing-footer" padding_y="huge">
@@ -62,5 +61,4 @@
         display: inline;
         margin-left: 0.1em;
     }
-
 </style>

@@ -22,7 +22,6 @@
             },
         };
     };
-
 </script>
 
 <script lang="ts">
@@ -33,7 +32,6 @@
     import DocumentationProperties from "../../components/documentation/DocumentationProperties.svelte";
 
     export let content: IContent;
-
 </script>
 
 <svelte:head>

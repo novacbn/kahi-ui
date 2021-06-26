@@ -17,7 +17,6 @@
         if (palette) htmlpalette.set(palette === "dark" ? "light" : "dark");
         else htmlpalette.set(darkmode ? "light" : "dark");
     }
-
 </script>
 
 <script lang="ts">
@@ -32,7 +31,6 @@
 
     export let active: boolean = false;
     export let disabled: boolean = false;
-
 </script>
 
 <Button bind:element {...$$props} on:click={on_theme_click.bind(null, _htmlpalette, _prefersdark)}>

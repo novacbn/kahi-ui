@@ -5,6 +5,7 @@
         "build:application": "svelte-kit build",
         "dev:application": "svelte-kit dev --host 0.0.0.0",
         "index:build": "node ./scripts/build-index.js",
+        "format:application": "prettier --config .prettierrc --write ./src",
         "preview:application": "svelte-kit preview --host 0.0.0.0"
     },
     "devDependencies": {
@@ -13,7 +14,8 @@
         "@sveltejs/kit": "^1.0.0-next.115",
         "cheerio": "*",
         "fast-glob": "^3.2.5",
-        "prettier": "^2.3.0",
+        "prettier": "^2.3.1",
+        "prettier-plugin-svelte": "^2.3.1",
         "svelte": "^3.38.2",
         "typescript": "^4.3.2",
         "vite": "^2.3.3"

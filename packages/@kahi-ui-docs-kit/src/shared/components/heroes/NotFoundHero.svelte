@@ -1,7 +1,6 @@
 <script lang="ts">
     import {Anchor, Hero, Text} from "@kahi-ui/framework";
     import {Map} from "svelte-feather/components/Map";
-
 </script>
 
 <Hero.Container {...$$props} class="not-found-hero">

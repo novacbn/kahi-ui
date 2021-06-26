@@ -4,7 +4,6 @@
     import type {SvelteComponentDev} from "svelte/internal";
 
     export let icon: SvelteComponent | SvelteComponentDev;
-
 </script>
 
 <Figure class="landing-icon-figure" variation="icon" shape="pill">
@@ -19,5 +18,4 @@
         align-items: center;
         justify-content: center;
     }
-
 </style>

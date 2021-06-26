@@ -1,7 +1,6 @@
 <script lang="ts">
     import {Hero, Text} from "@kahi-ui/framework";
     import {XOctagon} from "svelte-feather/components/XOctagon";
-
 </script>
 
 <Hero.Container {...$$props}>

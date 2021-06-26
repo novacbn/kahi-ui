@@ -113,58 +113,47 @@ You can control the state of the `Radio` via the `active`, `disabled`, and `stat
 </script>
 
 <Stack
+    class="radio-states"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Radio />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">STATE</Text>
-        </Text>
-
+        <Text is="strong">STATE</Text>
         <Radio state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE NO-STATE</Text>
         <Radio active />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE STATE</Text>
         <Radio active state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED NO-STATE</Text>
         <Radio disabled />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED STATE</Text>
         <Radio disabled state />
     </div>
 </Stack>
+
+<style>
+    :global(.radio-states strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Palette
@@ -183,67 +172,53 @@ You can change the color palette of the `Radio` via the `palette` property.
 
 <Form.Group logic_name="radio-palette">
     <Stack
+        class="radio-palette"
         orientation="horizontal"
         spacing="medium"
         variation="wrap"
     >
         <div>
-            <Text>
-                <Text is="strong">DEFAULT</Text>
-            </Text>
-
+            <Text is="strong">DEFAULT</Text>
             <Radio />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">ACCENT</Text>
-            </Text>
-
+            <Text is="strong">ACCENT</Text>
             <Radio palette="accent" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">DARK</Text>
-            </Text>
-
+            <Text is="strong">DARK</Text>
             <Radio palette="dark" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">LIGHT</Text>
-            </Text>
-
+            <Text is="strong">LIGHT</Text>
             <Radio palette="light" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">ALERT</Text>
-            </Text>
-
+            <Text is="strong">ALERT</Text>
             <Radio palette="alert" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">AFFIRMATIVE</Text>
-            </Text>
-
+            <Text is="strong">AFFIRMATIVE</Text>
             <Radio palette="affirmative" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">NEGATIVE</Text>
-            </Text>
-
+            <Text is="strong">NEGATIVE</Text>
             <Radio palette="negative" />
         </div>
     </Stack>
 </Form.Group>
+
+<style>
+    :global(.radio-palette strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Size
@@ -262,57 +237,46 @@ You can change the size of the `Radio` via the `size` property.
 
 <Form.Group logic_name="radio-size">
     <Stack
+        class="radio-size"
         orientation="horizontal"
         spacing="medium"
         variation="wrap"
     >
         <div>
-            <Text>
-                <Text is="strong">DEFAULT</Text>
-            </Text>
-
+            <Text is="strong">DEFAULT</Text>
             <Radio />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">TINY</Text>
-            </Text>
-
+            <Text is="strong">TINY</Text>
             <Radio size="tiny" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">SMALL</Text>
-            </Text>
-
+            <Text is="strong">SMALL</Text>
             <Radio size="small" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">MEDIUM</Text>
-            </Text>
-
+            <Text is="strong">MEDIUM</Text>
             <Radio size="medium" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">LARGE</Text>
-            </Text>
-
+            <Text is="strong">LARGE</Text>
             <Radio size="large" />
         </div>
 
         <div>
-            <Text>
-                <Text is="strong">HUGE</Text>
-            </Text>
-
+            <Text is="strong">HUGE</Text>
             <Radio size="huge" />
         </div>
     </Stack>
 </Form.Group>
+
+<style>
+    :global(.radio-size strong) {
+        display: block;
+    }
+</style>
 ```

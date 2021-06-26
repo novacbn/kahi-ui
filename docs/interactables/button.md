@@ -100,26 +100,30 @@ You can change the color palette of the `Button` via the `palette` property.
     variation="wrap"
 >
     <Button>This is a DEFAULT Button!</Button>
-    <Button palette="accent"
-        >This is a ACCENT Button!</Button
-    >
 
-    <Button palette="light"
-        >This is a LIGHT Button!</Button
-    >
-    <Button palette="dark"
-        >This is a DARK Button!</Button
-    >
+    <Button palette="accent">
+        This is a ACCENT Button!
+    </Button>
 
-    <Button palette="alert"
-        >This is a ALERT Button!</Button
-    >
-    <Button palette="affirmative"
-        >This is a AFFIRMATIVE Button!</Button
-    >
-    <Button palette="negative"
-        >This is a NEGATIVE Button!</Button
-    >
+    <Button palette="light">
+        This is a LIGHT Button!
+    </Button>
+
+    <Button palette="dark">
+        This is a DARK Button!
+    </Button>
+
+    <Button palette="alert">
+        This is a ALERT Button!
+    </Button>
+
+    <Button palette="affirmative">
+        This is a AFFIRMATIVE Button!
+    </Button>
+
+    <Button palette="negative">
+        This is a NEGATIVE Button!
+    </Button>
 </Stack>
 ```
 
@@ -141,17 +145,19 @@ You can change the size of the `Button` via the `size` property.
     <Button>This is a DEFAULT Button!</Button>
 
     <Button size="tiny">This is a TINY Button!</Button>
-    <Button size="small"
-        >This is a SMALL Button!</Button
-    >
 
-    <Button size="medium"
-        >This is a MEDIUM Button!</Button
-    >
+    <Button size="small">
+        This is a SMALL Button!
+    </Button>
 
-    <Button size="large"
-        >This is a LARGE Button!</Button
-    >
+    <Button size="medium">
+        This is a MEDIUM Button!
+    </Button>
+
+    <Button size="large">
+        This is a LARGE Button!
+    </Button>
+
     <Button size="huge">This is a HUGE Button!</Button>
 </Stack>
 ```
@@ -170,29 +176,33 @@ You can change the size of the `Button` via the `size` property.
     spacing="medium"
     variation="wrap"
 >
-    <Button variation="clear"
-        >This is a DEFAULT Button!</Button
-    >
+    <Button variation="clear">
+        This is a DEFAULT Button!
+    </Button>
 
-    <Button variation="clear" palette="accent"
-        >This is a ACCENT Button!</Button
-    >
-    <Button variation="clear" palette="light"
-        >This is a LIGHT Button!</Button
-    >
+    <Button variation="clear" palette="accent">
+        This is a ACCENT Button!
+    </Button>
 
-    <Button variation="clear" palette="dark"
-        >This is a DARK Button!</Button
-    >
-    <Button variation="clear" palette="alert"
-        >This is a ALERT Button!</Button
-    >
-    <Button variation="clear" palette="affirmative"
-        >This is a AFFIRMATIVE Button!</Button
-    >
-    <Button variation="clear" palette="negative"
-        >This is a NEGATIVE Button!</Button
-    >
+    <Button variation="clear" palette="light">
+        This is a LIGHT Button!
+    </Button>
+
+    <Button variation="clear" palette="dark">
+        This is a DARK Button!
+    </Button>
+
+    <Button variation="clear" palette="alert">
+        This is a ALERT Button!
+    </Button>
+
+    <Button variation="clear" palette="affirmative">
+        This is a AFFIRMATIVE Button!
+    </Button>
+
+    <Button variation="clear" palette="negative">
+        This is a NEGATIVE Button!
+    </Button>
 </Stack>
 ```
 
@@ -210,28 +220,32 @@ You can change the size of the `Button` via the `size` property.
     spacing="medium"
     variation="wrap"
 >
-    <Button variation="outline"
-        >This is a DEFAULT Button!</Button
-    >
+    <Button variation="outline">
+        This is a DEFAULT Button!
+    </Button>
 
-    <Button variation="outline" palette="accent"
-        >This is a ACCENT Button!</Button
-    >
-    <Button variation="outline" palette="light"
-        >This is a LIGHT Button!</Button
-    >
+    <Button variation="outline" palette="accent">
+        This is a ACCENT Button!
+    </Button>
 
-    <Button variation="outline" palette="dark"
-        >This is a DARK Button!</Button
-    >
-    <Button variation="outline" palette="alert"
-        >This is a ALERT Button!</Button
-    >
-    <Button variation="outline" palette="affirmative"
-        >This is a AFFIRMATIVE Button!</Button
-    >
-    <Button variation="outline" palette="negative"
-        >This is a NEGATIVE Button!</Button
-    >
+    <Button variation="outline" palette="light">
+        This is a LIGHT Button!
+    </Button>
+
+    <Button variation="outline" palette="dark">
+        This is a DARK Button!
+    </Button>
+
+    <Button variation="outline" palette="alert">
+        This is a ALERT Button!
+    </Button>
+
+    <Button variation="outline" palette="affirmative">
+        This is a AFFIRMATIVE Button!
+    </Button>
+
+    <Button variation="outline" palette="negative">
+        This is a NEGATIVE Button!
+    </Button>
 </Stack>
 ```

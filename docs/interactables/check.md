@@ -124,58 +124,47 @@ You can control the state of the `Check` via the `active`, `disabled`, and `stat
 </script>
 
 <Stack
+    class="check-states"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Check />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">STATE</Text>
-        </Text>
-
+        <Text is="strong">STATE</Text>
         <Check state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE NO-STATE</Text>
         <Check active />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE STATE</Text>
         <Check active state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED NO-STATE</Text>
         <Check disabled />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED STATE</Text>
         <Check disabled state />
     </div>
 </Stack>
+
+<style>
+    :global(.check-states strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Palette
@@ -192,66 +181,52 @@ You can change the color palette of the `Check` via the `palette` property.
 </script>
 
 <Stack
+    class="check-palette"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Check />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
-
+        <Text is="strong">ACCENT</Text>
         <Check palette="accent" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
-
+        <Text is="strong">DARK</Text>
         <Check palette="dark" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
-
+        <Text is="strong">LIGHT</Text>
         <Check palette="light" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
-
+        <Text is="strong">ALERT</Text>
         <Check palette="alert" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
-
+        <Text is="strong">AFFIRMATIVE</Text>
         <Check palette="affirmative" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
-
+        <Text is="strong">NEGATIVE</Text>
         <Check palette="negative" />
     </div>
 </Stack>
+
+<style>
+    :global(.check-palette strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Size
@@ -268,56 +243,45 @@ You can change the size of the `Check` via the `size` property.
 </script>
 
 <Stack
+    class="check-size"
     orientation="horizontal"
     spacing="medium"
     variation="wrap"
 >
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Check />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">TINY</Text>
-        </Text>
-
+        <Text is="strong">TINY</Text>
         <Check size="tiny" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">SMALL</Text>
-        </Text>
-
+        <Text is="strong">SMALL</Text>
         <Check size="small" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">MEDIUM</Text>
-        </Text>
-
+        <Text is="strong">MEDIUM</Text>
         <Check size="medium" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LARGE</Text>
-        </Text>
-
+        <Text is="strong">LARGE</Text>
         <Check size="large" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">HUGE</Text>
-        </Text>
-
+        <Text is="strong">HUGE</Text>
         <Check size="huge" />
     </div>
 </Stack>
+
+<style>
+    :global(.check-size strong) {
+        display: block;
+    }
+</style>
 ```

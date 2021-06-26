@@ -108,15 +108,15 @@ types=["boolean"]
 </script>
 
 <Form.Control logic_id="textinput-preview">
-    <Form.Label
-        >Register E-Mail for Newsletter</Form.Label
-    >
+    <Form.Label>
+        Register E-Mail for Newsletter
+    </Form.Label>
+
     <TextInput bind:value />
-    <Form.HelpText
-        >Make sure to enter a valid E-Mail Address,
-        e.g. <Code>sample@sample.org</Code
-        ></Form.HelpText
-    >
+    <Form.HelpText>
+        Make sure to enter a valid E-Mail Address, e.g.
+        <Code>sample@sample.org</Code>
+    </Form.HelpText>
 </Form.Control>
 ```
 
@@ -150,6 +150,7 @@ You can change the color palette of the `TextInput` via the `palette` property.
         characters="20"
         value="This is a DEFAULT TextInput"
     />
+
     <TextInput
         palette="accent"
         characters="20"
@@ -161,6 +162,7 @@ You can change the color palette of the `TextInput` via the `palette` property.
         characters="20"
         value="This is a DARK TextInput"
     />
+
     <TextInput
         palette="light"
         characters="20"
@@ -172,11 +174,13 @@ You can change the color palette of the `TextInput` via the `palette` property.
         characters="20"
         value="This is a ALERT TextInput"
     />
+
     <TextInput
         palette="affirmative"
         characters="20"
         value="This is a AFFIRMATIVE TextInput"
     />
+
     <TextInput
         palette="negative"
         characters="20"
@@ -213,6 +217,7 @@ You can change the size of the `TextInput` via the `size` property.
         characters="20"
         value="This is a TINY TextInput"
     />
+
     <TextInput
         size="small"
         characters="20"
@@ -230,6 +235,7 @@ You can change the size of the `TextInput` via the `size` property.
         characters="20"
         value="This is a LARGE TextInput"
     />
+
     <TextInput
         size="huge"
         characters="20"
@@ -261,6 +267,7 @@ You can alter the `TextInput` render as an opaque block via the `variation` prop
         characters="20"
         value="This is a DEFAULT TextInput"
     />
+
     <TextInput
         variation="block"
         palette="accent"
@@ -274,6 +281,7 @@ You can alter the `TextInput` render as an opaque block via the `variation` prop
         characters="20"
         value="This is a DARK TextInput"
     />
+
     <TextInput
         variation="block"
         palette="light"
@@ -287,12 +295,14 @@ You can alter the `TextInput` render as an opaque block via the `variation` prop
         characters="20"
         value="This is a ALERT TextInput"
     />
+
     <TextInput
         variation="block"
         palette="affirmative"
         characters="20"
         value="This is a AFFIRMATIVE TextInput"
     />
+
     <TextInput
         variation="block"
         palette="negative"

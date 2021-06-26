@@ -21,11 +21,20 @@
 
                 -   Access the original Component via `<Grid>` -> `<Grid.Container>`, same API otherwise.
 
+            -   Fixed `<Grid class="XXX">` not working.
             -   Updated `Grid.Container` to densely pack rows.
 
             -   Added `Grid.Item` — Optionally used to wrap a child item.
 
-                -   `<Grid.Item span="1...12" span_x="1...12" span_y="1...12">` — Used to control how many Grid Points the child item spans in columns, rows, or both. With Viewport support, e.g. `<Grid.Item span={[3, "mobile:1"]}>`
+                -   `<Grid.Item span="1...12" span_x="1...12" span_y="1...12">` — Used to control how many Grid Points the child item spans in columns, rows, or both. With Viewport support, e.g. `<Grid.Item span={["3", "mobile:1"]}>`
+
+        -   `Mosaic`
+
+            -   Fixed `<Mosaic class="XXX">` not working.
+
+        -   `Scrollable`
+
+            -   Fixed `<Scrollable class="XXX">` not working.
 
     -   Overlays
 

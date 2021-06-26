@@ -6,6 +6,7 @@ import {escape_html} from "../../../shared/util/html";
 import {hash_sha256} from "../../util/crypto";
 
 import "../syntaxes/prism-bash";
+import "../syntaxes/prism-svelte";
 
 import type {IArticleOptions} from "../article";
 

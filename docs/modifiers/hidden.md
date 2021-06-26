@@ -11,7 +11,7 @@ All Components have access to the `data-hidden` global HTML attribute via the `h
 
 > **NOTE**: The REPL currently does not support viewport values. Resize your Browser instead.
 
-```html repl Hidden Preview
+```svelte repl Hidden Preview
 <script>
     import {Box} from "@kahi-ui/framework";
 </script>
@@ -20,7 +20,10 @@ All Components have access to the `data-hidden` global HTML attribute via the `h
     I am visible on Desktop / Widescreen Viewports.
 </Box>
 
-<Box palette="affirmative" hidden={["desktop", "widescreen"]}>
+<Box
+    palette="affirmative"
+    hidden={["desktop", "widescreen"]}
+>
     I am visible on Mobile / Tablet Viewports.
 </Box>
 ```

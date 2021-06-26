@@ -39,7 +39,7 @@ types=["string"]
 
 `Switch` is typically used to present to the end-user features, settings, and other toggles that they can turn on / off.
 
-```html repl Switch Preview
+```svelte repl Switch Preview
 <script>
     import {Form, Switch} from "@kahi-ui/framework";
 </script>
@@ -62,186 +62,174 @@ types=["string"]
 
 You can control the state of the `Switch` via the `active`, `disabled`, and `state` properties.
 
-```html repl Switch States
+```svelte repl Switch States
 <script>
-    import {Switch, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Switch,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="switch-states"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Switch />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">STATE</Text>
-        </Text>
-
+        <Text is="strong">STATE</Text>
         <Switch state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE NO-STATE</Text>
         <Switch active />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE STATE</Text>
         <Switch active state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED NO-STATE</Text>
         <Switch disabled />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED STATE</Text>
         <Switch disabled state />
     </div>
 </Stack>
+
+<style>
+    :global(.switch-states strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Palette
 
 You can change the color palette of the `Switch` via the `palette` property.
 
-```html repl Switch Palette
+```svelte repl Switch Palette
 <script>
-    import {Switch, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Switch,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="switch-palette"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Switch />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
-
+        <Text is="strong">ACCENT</Text>
         <Switch palette="accent" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
-
+        <Text is="strong">DARK</Text>
         <Switch palette="dark" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
-
+        <Text is="strong">LIGHT</Text>
         <Switch palette="light" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
-
+        <Text is="strong">ALERT</Text>
         <Switch palette="alert" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
-
+        <Text is="strong">AFFIRMATIVE</Text>
         <Switch palette="affirmative" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
-
+        <Text is="strong">NEGATIVE</Text>
         <Switch palette="negative" />
     </div>
 </Stack>
+
+<style>
+    :global(.switch-palette strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Size
 
 You can change the size of the `Switch` via the `size` property.
 
-```html repl Switch Size
+```svelte repl Switch Size
 <script>
-    import {Switch, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Switch,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="switch-size"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Switch />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">TINY</Text>
-        </Text>
-
+        <Text is="strong">TINY</Text>
         <Switch size="tiny" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">SMALL</Text>
-        </Text>
-
+        <Text is="strong">SMALL</Text>
         <Switch size="small" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">MEDIUM</Text>
-        </Text>
-
+        <Text is="strong">MEDIUM</Text>
         <Switch size="medium" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LARGE</Text>
-        </Text>
-
+        <Text is="strong">LARGE</Text>
         <Switch size="large" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">HUGE</Text>
-        </Text>
-
+        <Text is="strong">HUGE</Text>
         <Switch size="huge" />
     </div>
 </Stack>
+
+<style>
+    :global(.switch-size strong) {
+        display: block;
+    }
+</style>
 ```

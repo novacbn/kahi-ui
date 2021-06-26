@@ -38,7 +38,7 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 Open your terminal and install via `npm`:
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.9
+npm install github:novacbn/kahi-ui#0.2.10
 ```
 
 Install current in-development code:

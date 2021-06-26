@@ -2,7 +2,7 @@
     "name": "@kahi-ui/framework",
     "description": "Straight-forward Svelte UI for the Web",
     "author": "novacbn",
-    "version": "0.2.9",
+    "version": "0.2.10",
     "type": "module",
     "main": "./src/index.ts",
     "svelte": "./src/index.ts",
@@ -47,6 +47,7 @@
         "postcss-replace": "^1.1.3",
         "postcss-windicss": "^0.1.0",
         "prettier": "^2.3.0",
+        "prettier-plugin-svelte": "^2.3.1",
         "storybook-builder-vite": "^0.0.9",
         "svelte-check": "^1.5.4",
         "svelte-loader": "^3.1.1",
@@ -62,6 +63,8 @@
         "build:framework": "postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css ./src/index.css",
         "build:storybook": "build-storybook",
         "dev:storybook": "start-storybook --ci -p 6006",
+        "format:docs": "prettier --config ./docs/.prettierrc --write ./docs",
+        "format:framework": "prettier --config .prettierrc --write ./src",
         "watch:framework": "postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css --watch ./src/index.css"
     }
 }

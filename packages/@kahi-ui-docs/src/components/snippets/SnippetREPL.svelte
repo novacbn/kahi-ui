@@ -2,7 +2,6 @@
     export let documentation: string;
     export let snippet: string;
     export let rotation: "horizontal" | "vertical" = "vertical";
-
 </script>
 
 <iframe
@@ -21,5 +20,4 @@
         border: 1px solid rgb(var(--palette-foreground-text), 0.3);
         border-radius: 0.375rem;
     }
-
 </style>

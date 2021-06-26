@@ -14,8 +14,7 @@ types=["stacked"]
 
 `Group` is a layout primitive used for grouping together like Components with their inner border radii removed.
 
-<!-- prettier-ignore -->
-```html repl Group Preview
+```svelte repl Group Preview
 <script>
     import {Button, Group} from "@kahi-ui/framework";
 </script>
@@ -39,16 +38,24 @@ types=["stacked"]
 
 You can set the `Group` to render its children Components vertically, via the `orientation` property.
 
-<!-- prettier-ignore -->
-```html repl Group Orientation
+```svelte repl Group Orientation
 <script>
-    import {Button, Box, Group, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Button,
+        Box,
+        Group,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">DEFAULT</Text>
-
         <Box palette="dark" padding="small">
             <Group>
                 <Button>Button 1</Button>
@@ -60,7 +67,6 @@ You can set the `Group` to render its children Components vertically, via the `o
 
     <div>
         <Text is="strong">VERTICAL</Text>
-
         <Box palette="dark" padding="small">
             <Group orientation="vertical">
                 <Button>Button 1</Button>
@@ -80,31 +86,53 @@ You can set the `variation` property to `stacked` to visually stack children Com
     TODO: Two more avatars, would probably look nicer without ones that would blend into each other
 -->
 
-<!-- prettier-ignore -->
-```html repl Group Stacked
+```svelte repl Group Stacked
 <script>
-    import {Figure, Group, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Figure,
+        Group,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="group-stacked"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">DEFAULT</Text>
-        <br />
-
         <Group variation="stacked">
-            <Figure variation="icon" size="medium" shape="pill">
+            <Figure
+                variation="icon"
+                size="medium"
+                shape="pill"
+            >
                 <img src={IMAGE_AVATAR} />
             </Figure>
 
-            <Figure variation="icon" size="medium" shape="pill">
+            <Figure
+                variation="icon"
+                size="medium"
+                shape="pill"
+            >
                 <img src={IMAGE_AVATAR} />
             </Figure>
 
-            <Figure variation="icon" size="medium" shape="pill">
+            <Figure
+                variation="icon"
+                size="medium"
+                shape="pill"
+            >
                 <img src={IMAGE_AVATAR} />
             </Figure>
 
-            <Stack alignment_y="center" padding_left="small">
+            <Stack
+                alignment_y="center"
+                padding_left="small"
+            >
                 <Text is="small">+7</Text>
             </Stack>
         </Group>
@@ -112,25 +140,47 @@ You can set the `variation` property to `stacked` to visually stack children Com
 
     <div>
         <Text is="strong">VERTICAL</Text>
-        <br />
-
-        <Group variation="stacked" orientation="vertical">
-            <Figure variation="icon" size="medium" shape="pill">
+        <Group
+            variation="stacked"
+            orientation="vertical"
+        >
+            <Figure
+                variation="icon"
+                size="medium"
+                shape="pill"
+            >
                 <img src={IMAGE_AVATAR} />
             </Figure>
 
-            <Figure variation="icon" size="medium" shape="pill">
+            <Figure
+                variation="icon"
+                size="medium"
+                shape="pill"
+            >
                 <img src={IMAGE_AVATAR} />
             </Figure>
 
-            <Figure variation="icon" size="medium" shape="pill">
+            <Figure
+                variation="icon"
+                size="medium"
+                shape="pill"
+            >
                 <img src={IMAGE_AVATAR} />
             </Figure>
 
-            <Stack alignment_x="center" padding_top="small">
+            <Stack
+                alignment_x="center"
+                padding_top="small"
+            >
                 <Text is="small">+7</Text>
             </Stack>
         </Group>
     </div>
 </Stack>
+
+<style>
+    :global(.group-stacked strong) {
+        display: block;
+    }
+</style>
 ```

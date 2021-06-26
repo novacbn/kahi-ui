@@ -7,7 +7,6 @@
 
     export let items: INavigationMenu[] = [];
     export let orientation: DESIGN_ORIENTATION_VERTICAL_ARGUMENT | undefined = undefined;
-
 </script>
 
 <Menu.Container {orientation}>

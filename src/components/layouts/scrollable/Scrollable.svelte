@@ -49,9 +49,8 @@
     export let width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
     export let max_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
     export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-
 </script>
 
-<div bind:this={element} {...map_global_attributes($$props)} class="scrollable">
+<div bind:this={element} {...map_global_attributes($$props)} class="scrollable {_class}">
     <slot />
 </div>

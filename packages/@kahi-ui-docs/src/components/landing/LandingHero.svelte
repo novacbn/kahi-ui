@@ -2,7 +2,6 @@
     import {Box, Button, Hero, Text} from "@kahi-ui/framework";
     import {ArrowRight} from "svelte-feather/components/ArrowRight";
     import {Github} from "svelte-feather/components/Github";
-
 </script>
 
 <Hero.Container class="landing-hero" palette="dark" height="viewport-100">
@@ -45,5 +44,4 @@
     :global(.hero.landing-hero > :is(header, section)) {
         max-width: 50ch;
     }
-
 </style>

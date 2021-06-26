@@ -39,42 +39,42 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 `Mosaic` is a layout primitive for setting up a mosaic of items organized to displaying as many child items at a certain size as possible.
 
-> **NOTE**: The REPL currently does not support viewport values. Resize your Browser instead.
-
-```html repl Mosaic Preview
+```svelte repl Mosaic Preview
 <script>
     import {Box, Mosaic} from "@kahi-ui/framework";
 </script>
 
-<Mosaic sizing={["tiny", "tablet:small", "mobile:medium"]} spacing="medium">
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+<Mosaic
+    class="mosaic-preview"
+    sizing="tiny"
+    spacing="medium"
+>
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
 
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
+    <Box palette="negative" />
+    <Box palette="alert" />
+    <Box palette="affirmative" />
 
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-
-    <Box palette="negative" style="height:3rem;" />
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-
-    <Box palette="alert" style="height:3rem;" />
-    <Box palette="affirmative" style="height:3rem;" />
-    <Box palette="negative" style="height:3rem;" />
+    <Box palette="affirmative" />
+    <Box palette="negative" />
+    <Box palette="alert" />
 </Mosaic>
+
+<style>
+    :global(.mosaic-preview .box) {
+        height: 3rem;
+    }
+</style>
 ```
 
 ## Imports
@@ -87,20 +87,33 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 ## Sizing
 
-```html repl Mosaic Sizing
+> **NOTE**: By passing an array, you can set [responsive values](../framework/responsivity.md). e.g. `sizing={["tiny", "tablet:medium", "mobile:medium"]}`
+
+You can alter how large each `Mosaic` item should be via the `sizing` property.
+
+```svelte repl Mosaic Sizing
 <script>
-    import {Box, Mosaic, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Mosaic,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="mosaic-sizing"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">TINY</Text>
-
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
@@ -110,9 +123,9 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="small" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
@@ -122,9 +135,9 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="medium" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
@@ -134,9 +147,9 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="large" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
@@ -146,93 +159,113 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
         <Box palette="dark" padding="small">
             <Mosaic sizing="huge" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
 </Stack>
+
+<style>
+    :global(.mosaic-sizing .mosaic .box) {
+        height: 3rem;
+    }
+</style>
 ```
 
 ## Spacing
 
-```html repl Mosaic Spacing
+> **NOTE**: By passing an array, you can set [responsive values](../framework/responsivity.md). e.g. `spacing={["medium", "tablet:small", "mobile:tiny"]}`
+
+You can adjust the spacing between items via the `spacing`, `spacing_x`, and `spacing_y` properties.
+
+```svelte repl Mosaic Spacing
 <script>
-    import {Box, Mosaic, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Box,
+        Mosaic,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="mosaic-spacing"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
         <Text is="strong">DEFAULT</Text>
-
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
 
     <div>
         <Text is="strong">TINY</Text>
-
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="tiny">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
 
     <div>
         <Text is="strong">SMALL</Text>
-
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="small">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
 
     <div>
         <Text is="strong">MEDIUM</Text>
-
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="medium">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
 
     <div>
         <Text is="strong">LARGE</Text>
-
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="large">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
 
     <div>
         <Text is="strong">HUGE</Text>
-
         <Box palette="dark" padding="small">
             <Mosaic sizing="tiny" spacing="huge">
-                <Box palette="alert" style="height:3rem;" />
-                <Box palette="affirmative" style="height:3rem;" />
-                <Box palette="negative" style="height:3rem;" />
+                <Box palette="alert" />
+                <Box palette="affirmative" />
+                <Box palette="negative" />
             </Mosaic>
         </Box>
     </div>
 </Stack>
+
+<style>
+    :global(.mosaic-spacing .mosaic .box) {
+        height: 3rem;
+    }
+</style>
 ```

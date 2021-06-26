@@ -1,5 +1,48 @@
 # CHANGELOG
 
+## v0.2.10 -
+
+-   Updated the following Components
+
+    -   Display
+
+        -   `List`
+
+            -   **(BREAKING)** Updated to be in line with the rest of element configurable Components.
+
+                -   `<List.Ordered>` -> `<List.Container is="ol">`
+                -   `<List.Unordered>` -> `<List.Container is="ul">`
+
+    -   Layouts
+
+        -   `Grid`
+
+            -   **(BREAKING)** Changed `Grid` to be a namespace.
+
+                -   Access the original Component via `<Grid>` -> `<Grid.Container>`, same API otherwise.
+
+            -   Fixed `<Grid class="XXX">` not working.
+            -   Updated `Grid.Container` to densely pack rows.
+
+            -   Added `Grid.Item` — Optionally used to wrap a child item.
+
+                -   `<Grid.Item span="1...12" span_x="1...12" span_y="1...12">` — Used to control how many Grid Points the child item spans in columns, rows, or both. With Viewport support, e.g. `<Grid.Item span={["3", "mobile:1"]}>`
+
+        -   `Mosaic`
+
+            -   Fixed `<Mosaic class="XXX">` not working.
+
+        -   `Scrollable`
+
+            -   Fixed `<Scrollable class="XXX">` not working.
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   Added `<Overlay on:active>` — Fires whenever the `Overlay` is made active, either via scripting or the end-user.
+            -   Added `<Overlay on:dismiss>` — Fires whenever the `Overlay` is dismissed, either via scripting or the end-user.
+
 ## v0.2.9 - 2021/06/24
 
 -   Fixed NPM install.

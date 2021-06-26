@@ -4,20 +4,24 @@
 
 > **NOTE**: Click the color scheme button in the Navigation Sidebar to see changes.
 
-<!-- prettier-ignore -->
-```html repl htmlpalette Preview
+```svelte repl htmlpalette Preview
 <script>
-    import {Code, Heading, Text, htmlpalette} from "@kahi-ui/framework";
+    import {
+        Code,
+        Heading,
+        Text,
+        htmlpalette,
+    } from "@kahi-ui/framework";
 
     const palette_store = htmlpalette();
 </script>
 
-<Heading>
-    Application Global Palette
-</Heading>
+<Heading>Application Global Palette</Heading>
 
 <Text>
-    <Code>data-palette</Code>: <Code>{$palette_store}</Code>
+    <Code>data-palette</Code>: <Code>
+        {$palette_store}
+    </Code>
 </Text>
 ```
 

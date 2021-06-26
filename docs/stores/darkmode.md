@@ -4,8 +4,7 @@
 
 > **NOTE**: Click the color scheme button in the Navigation Sidebar to see changes.
 
-<!-- prettier-ignore -->
-```html repl darkmode Preview
+```svelte repl darkmode Preview
 <script>
     import {Text, darkmode} from "@kahi-ui/framework";
 
@@ -13,7 +12,9 @@
 </script>
 
 <Text>
-    {$darkmode_store ? "Darkmode is enabled!" : "Lightmode is enabled!"}
+    {$darkmode_store
+        ? "Darkmode is enabled!"
+        : "Lightmode is enabled!"}
 </Text>
 ```
 

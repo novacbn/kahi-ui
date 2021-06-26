@@ -15,6 +15,8 @@ const ATTRIBUTE_REMAP: Record<string, string | undefined> = {
     padding_left: "padding-left",
     padding_bottom: "padding-bottom",
     padding_right: "padding-right",
+    span_x: "span-x",
+    span_y: "span-y",
 };
 
 const DATA_ATTRIBUTES: Set<string> = new Set([

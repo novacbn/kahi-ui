@@ -16,7 +16,6 @@
             _preferencetheme.set(value as any);
         });
     }
-
 </script>
 
 <script lang="ts">
@@ -72,7 +71,6 @@
             });
         }
     }
-
 </script>
 
 <svelte:head>

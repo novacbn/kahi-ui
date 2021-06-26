@@ -1,1 +1,2 @@
-export {default as Grid} from "./Grid.svelte";
+export {default as Container} from "./GridContainer.svelte";
+export {default as Item} from "./GridItem.svelte";

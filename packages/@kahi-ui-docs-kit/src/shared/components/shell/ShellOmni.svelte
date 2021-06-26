@@ -42,7 +42,6 @@
                   on_click: on_theme_click.bind(null, _htmlpalette, _prefersdark),
               },
           ];
-
 </script>
 
 <Omni.Container

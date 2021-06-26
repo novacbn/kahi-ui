@@ -39,20 +39,29 @@ types=["string"]
 
 `Check` is typically used to present a set of options to the end-user, which they can then choose from.
 
-<!-- prettier-ignore -->
-```html repl Check Preview
+```svelte repl Check Preview
 <script>
-    import {Check, Form, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Form,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 
     let logic_state = ["cheese", "onion"];
 </script>
 
 <Text is="strong">
     Select Pizza Toppings
-	<Text is="sup">{logic_state}</Text>
+    <Text is="sup">{logic_state}</Text>
 </Text>
 
-<Stack orientation="horizontal" spacing="small" variation="wrap" margin_top="small">
+<Stack
+    orientation="horizontal"
+    spacing="small"
+    variation="wrap"
+    margin_top="small"
+>
     <Form.Group name="check-preview" bind:logic_state>
         <Check
             id="check-preview-cheese"
@@ -105,186 +114,174 @@ types=["string"]
 
 You can control the state of the `Check` via the `active`, `disabled`, and `state` properties.
 
-```html repl Check States
+```svelte repl Check States
 <script>
-    import {Check, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="check-states"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Check />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">STATE</Text>
-        </Text>
-
+        <Text is="strong">STATE</Text>
         <Check state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE NO-STATE</Text>
         <Check active />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACTIVE STATE</Text>
-        </Text>
-
+        <Text is="strong">ACTIVE STATE</Text>
         <Check active state />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED NO-STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED NO-STATE</Text>
         <Check disabled />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DISABLED STATE</Text>
-        </Text>
-
+        <Text is="strong">DISABLED STATE</Text>
         <Check disabled state />
     </div>
 </Stack>
+
+<style>
+    :global(.check-states strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Palette
 
 You can change the color palette of the `Check` via the `palette` property.
 
-```html repl Check Palette
+```svelte repl Check Palette
 <script>
-    import {Check, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="check-palette"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Check />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ACCENT</Text>
-        </Text>
-
+        <Text is="strong">ACCENT</Text>
         <Check palette="accent" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">DARK</Text>
-        </Text>
-
+        <Text is="strong">DARK</Text>
         <Check palette="dark" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LIGHT</Text>
-        </Text>
-
+        <Text is="strong">LIGHT</Text>
         <Check palette="light" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">ALERT</Text>
-        </Text>
-
+        <Text is="strong">ALERT</Text>
         <Check palette="alert" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">AFFIRMATIVE</Text>
-        </Text>
-
+        <Text is="strong">AFFIRMATIVE</Text>
         <Check palette="affirmative" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">NEGATIVE</Text>
-        </Text>
-
+        <Text is="strong">NEGATIVE</Text>
         <Check palette="negative" />
     </div>
 </Stack>
+
+<style>
+    :global(.check-palette strong) {
+        display: block;
+    }
+</style>
 ```
 
 ## Size
 
 You can change the size of the `Check` via the `size` property.
 
-```html repl Check Size
+```svelte repl Check Size
 <script>
-    import {Check, Stack, Text} from "@kahi-ui/framework";
+    import {
+        Check,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Stack orientation="horizontal" spacing="medium" variation="wrap">
+<Stack
+    class="check-size"
+    orientation="horizontal"
+    spacing="medium"
+    variation="wrap"
+>
     <div>
-        <Text>
-            <Text is="strong">DEFAULT</Text>
-        </Text>
-
+        <Text is="strong">DEFAULT</Text>
         <Check />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">TINY</Text>
-        </Text>
-
+        <Text is="strong">TINY</Text>
         <Check size="tiny" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">SMALL</Text>
-        </Text>
-
+        <Text is="strong">SMALL</Text>
         <Check size="small" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">MEDIUM</Text>
-        </Text>
-
+        <Text is="strong">MEDIUM</Text>
         <Check size="medium" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">LARGE</Text>
-        </Text>
-
+        <Text is="strong">LARGE</Text>
         <Check size="large" />
     </div>
 
     <div>
-        <Text>
-            <Text is="strong">HUGE</Text>
-        </Text>
-
+        <Text is="strong">HUGE</Text>
         <Check size="huge" />
     </div>
 </Stack>
+
+<style>
+    :global(.check-size strong) {
+        display: block;
+    }
+</style>
 ```

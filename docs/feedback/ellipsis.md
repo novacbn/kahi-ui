@@ -9,18 +9,27 @@ types=["string"]
 
 `Ellipsis` is a text-based indicator used to tell the end-user that the Web Application is loading something in the background.
 
-<!-- prettier-ignore -->
-```html repl Ellipsis Preview
+```svelte repl Ellipsis Preview
 <script>
-    import {Button, Ellipsis, Heading, Stack} from "@kahi-ui/framework";
+    import {
+        Button,
+        Ellipsis,
+        Heading,
+        Stack,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
 <Stack alignment_x="left" spacing="medium">
     <Button disabled>
-        <span>
+        <!--
+            NOTE: Wrapping text and Component together to
+            prevent `Ellipsis` from getting icon spacing
+        -->
+        <Text is="span">
             Submit
             <Ellipsis />
-        </span>
+        </Text>
     </Button>
 
     <Heading>
@@ -42,9 +51,12 @@ types=["string"]
 
 You can customize the text character used for the animation via the `character` property.
 
-```html repl Ellipsis Character
+```svelte repl Ellipsis Character
 <script>
-    import {Ellipsis, Heading} from "@kahi-ui/framework";
+    import {
+        Ellipsis,
+        Heading,
+    } from "@kahi-ui/framework";
 </script>
 
 <Heading>

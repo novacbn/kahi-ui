@@ -1,6 +1,5 @@
 <script lang="ts">
     import {Hero, Spinner} from "@kahi-ui/framework";
-
 </script>
 
 <Hero.Container {...$$props} class="loading-hero">

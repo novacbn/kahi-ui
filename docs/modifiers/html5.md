@@ -38,12 +38,15 @@ All Components have access to several common HTML5 global attributes.
 
 [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) allows you to apply CSS classes that you've defined to Components. However, you will have to use `:global` on your class names to bypass Svelte's local scoping.
 
-```html repl HTML5 class
+```svelte repl HTML5 class
 <script>
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text class="my-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+<Text class="my-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit.
+</Text>
 
 <style>
     :global(.my-text) {
@@ -56,25 +59,33 @@ All Components have access to several common HTML5 global attributes.
 
 [`style`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style) allows you to apply inline CSS properties to Components.
 
-```html repl HTML5 style
+```svelte repl HTML5 style
 <script>
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text style="color:red;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+<Text style="color:red;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit.
+</Text>
 ```
 
 ## id
 
 [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) allows you to set an identifier that other elements can target or targettable for scrolling by a [URL fragment](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash).
 
-<!-- prettier-ignore -->
-```html repl HTML5 id
+```svelte repl HTML5 id
 <script>
-    import {Anchor, Heading, Spacer} from "@kahi-ui/framework";
+    import {
+        Anchor,
+        Heading,
+        Spacer,
+    } from "@kahi-ui/framework";
 </script>
 
-<Anchor href="#target-heading">Scroll to Heading!</Anchor>
+<Anchor href="#target-heading">
+    Scroll to Heading!
+</Anchor>
 
 <Spacer spacing="huge" />
 <Spacer spacing="huge" />
@@ -93,33 +104,41 @@ All Components have access to several common HTML5 global attributes.
 
 [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/name) allows you to set an identifier for the Component to set its value to in a form, or, can targettable by an [`Anchor`](../navigation/anchor.md).
 
-```html repl HTML5 name
+```svelte repl HTML5 name
 <script>
     import {Anchor} from "@kahi-ui/framework";
 </script>
 
-<Anchor target="target-iframe" href="/">Open Landing Page</Anchor>
-<iframe name="target-iframe" width="100%" height="256"></iframe>
+<Anchor target="target-iframe" href="/">
+    Open Landing Page
+</Anchor>
+
+<iframe
+    name="target-iframe"
+    width="100%"
+    height="256"
+/>
 ```
 
 ## title
 
 [`title`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) allows you to set a timed effect to show a text tooltip whenever an end-user hovers for long enough. Typically you don't want to rely on this attribute for the UI. Rather use it for semantic and assistive purposes.
 
-```html repl HTML5 title
+```svelte repl HTML5 title
 <script>
     import {Text} from "@kahi-ui/framework";
 </script>
 
-<Text title="I am some additional text!">Hover me!</Text>
+<Text title="I am some additional text!">
+    Hover me!
+</Text>
 ```
 
 ## tabindex
 
 [`tabindex`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) allows you to configure how the Browser cycles through elements in the current stacking context when they press their tab keyboard button, or similar.
 
-<!-- prettier-ignore -->
-```html repl HTML5 tabindex
+```svelte repl HTML5 tabindex
 <script>
     import {Button} from "@kahi-ui/framework";
 </script>

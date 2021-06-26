@@ -1,9 +1,15 @@
 <script lang="ts">
+    import type {
+        DESIGN_ALIGNMENT_ARGUMENT,
+        DESIGN_ALIGNMENT_X_ARGUMENT,
+        DESIGN_ALIGNMENT_Y_ARGUMENT,
+    } from "../../../lib/types/alignments";
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {DESIGN_POINTS_ARGUMENT} from "../../../lib/types/points";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
-    import {map_global_attributes} from "../../../lib/util/attributes";
+    import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     export let element: HTMLElement | null = null;
 
@@ -46,8 +52,30 @@
     export let max_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
     export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
 
+    export let points: DESIGN_POINTS_ARGUMENT | undefined = undefined;
+
+    export let alignment: DESIGN_ALIGNMENT_ARGUMENT | undefined = undefined;
+    export let alignment_x: DESIGN_ALIGNMENT_X_ARGUMENT | undefined = undefined;
+    export let alignment_y: DESIGN_ALIGNMENT_Y_ARGUMENT | undefined = undefined;
+
+    export let spacing: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let spacing_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let spacing_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 </script>
 
-<ol bind:this={element} {...map_global_attributes($$props)}>
+<div
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    class="grid {_class}"
+    {...map_data_attributes({
+        alignment,
+        "alignment-x": alignment_x,
+        "alignment-y": alignment_y,
+        points,
+        spacing,
+        "spacing-x": spacing_x,
+        "spacing-y": spacing_y,
+    })}
+>
     <slot />
-</ol>
+</div>

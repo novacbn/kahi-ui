@@ -54,16 +54,31 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 `Overlay` is typically used for rendering full-screen content over the rest of the page, optionally including a backdrop or being toggleable.
 
-<!-- prettier-ignore -->
-```html repl Overlay Preview
+```svelte repl Overlay Preview
 <script>
-    import {Button, Card, Code, ContextButton, Overlay, Text} from "@kahi-ui/framework";
+    import {
+        Button,
+        Card,
+        Code,
+        ContextButton,
+        Overlay,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Button for="overlay-preview" palette="accent">Open Modal</Button>
+<Button for="overlay-preview" palette="accent"
+    >Open Modal</Button
+>
 
-<Overlay logic_id="overlay-preview" captive dismissible>
-    <Card.Container palette="auto" max_width="viewport-75">
+<Overlay
+    logic_id="overlay-preview"
+    captive
+    dismissible
+>
+    <Card.Container
+        palette="auto"
+        max_width="viewport-75"
+    >
         <Card.Header>Are you sure?</Card.Header>
 
         <Card.Section>
@@ -74,7 +89,9 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
         </Card.Section>
 
         <Card.Footer>
-            <ContextButton variation="clear">Cancel</ContextButton>
+            <ContextButton variation="clear"
+                >Cancel</ContextButton
+            >
             <Button palette="negative">Delete</Button>
         </Card.Footer>
     </Card.Container>
@@ -95,16 +112,23 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 You can make the Overlay toggleable via the `logic_id` property, and then referencing that with a [`Button`](../interactables/button.md).
 
-<!-- prettier-ignore -->
-```html repl Overlay Captive
+```svelte repl Overlay Captive
 <script>
-    import {Button, Card, ContextButton, Overlay} from "@kahi-ui/framework";
+    import {
+        Button,
+        Card,
+        ContextButton,
+        Overlay,
+    } from "@kahi-ui/framework";
 </script>
 
 <Button for="overlay-toggleable">Toggle Modal</Button>
 
 <Overlay logic_id="overlay-toggleable">
-    <Card.Container palette="auto" max_width="viewport-75">
+    <Card.Container
+        palette="auto"
+        max_width="viewport-75"
+    >
         <Card.Header>Toggleable Modal</Card.Header>
 
         <Card.Footer>
@@ -118,17 +142,29 @@ You can make the Overlay toggleable via the `logic_id` property, and then refere
 
 You can optionally include a backdrop by passing via the `captive` property.
 
-<!-- prettier-ignore -->
-```html repl Overlay Captive
+```svelte repl Overlay Captive
 <script>
-    import {Button, Card, ContextButton, Overlay} from "@kahi-ui/framework";
+    import {
+        Button,
+        Card,
+        ContextButton,
+        Overlay,
+    } from "@kahi-ui/framework";
 </script>
 
-<Button for="overlay-non-captive">Open Non Captive Modal</Button>
-<Button for="overlay-is-captive" palette="accent">Open Captive Modal</Button>
+<Button for="overlay-non-captive">
+    Open Non Captive Modal
+</Button>
+
+<Button for="overlay-is-captive" palette="accent">
+    Open Captive Modal
+</Button>
 
 <Overlay logic_id="overlay-non-captive">
-    <Card.Container palette="auto" max_width="viewport-75">
+    <Card.Container
+        palette="auto"
+        max_width="viewport-75"
+    >
         <Card.Header>Non-Captive Modal</Card.Header>
 
         <Card.Footer>
@@ -138,7 +174,10 @@ You can optionally include a backdrop by passing via the `captive` property.
 </Overlay>
 
 <Overlay logic_id="overlay-is-captive" captive>
-    <Card.Container palette="auto" max_width="viewport-75">
+    <Card.Container
+        palette="auto"
+        max_width="viewport-75"
+    >
         <Card.Header>Captive Modal</Card.Header>
 
         <Card.Footer>
@@ -152,18 +191,31 @@ You can optionally include a backdrop by passing via the `captive` property.
 
 You can optionally have an included backdrop be dismissible by clicking it via the `dismissible` property.
 
-<!-- prettier-ignore -->
-```html repl Overlay Dismissable
+```svelte repl Overlay Dismissable
 <script>
-    import {Button, Card, ContextButton, Overlay} from "@kahi-ui/framework";
+    import {
+        Button,
+        Card,
+        ContextButton,
+        Overlay,
+    } from "@kahi-ui/framework";
 </script>
 
-<Button for="overlay-non-dismissible">Open Non Dismissable Modal</Button>
-<Button for="overlay-is-dismissible" palette="accent">Open Dismissable Modal</Button>
+<Button for="overlay-non-dismissible">
+    Open Non Dismissable Modal
+</Button>
+
+<Button for="overlay-is-dismissible" palette="accent">
+    Open Dismissable Modal
+</Button>
 
 <Overlay logic_id="overlay-non-dismissible" captive>
-    <Card.Container palette="auto" max_width="viewport-75">
-        <Card.Header>Non Dismissable Modal</Card.Header>
+    <Card.Container
+        palette="auto"
+        max_width="viewport-75"
+    >
+        <Card.Header>Non Dismissable Modal</Card.Header
+        >
 
         <Card.Footer>
             <ContextButton>Dismiss</ContextButton>
@@ -171,8 +223,15 @@ You can optionally have an included backdrop be dismissible by clicking it via t
     </Card.Container>
 </Overlay>
 
-<Overlay logic_id="overlay-is-dismissible" captive dismissible>
-    <Card.Container palette="auto" max_width="viewport-75">
+<Overlay
+    logic_id="overlay-is-dismissible"
+    captive
+    dismissible
+>
+    <Card.Container
+        palette="auto"
+        max_width="viewport-75"
+    >
         <Card.Header>Dismissable Modal</Card.Header>
 
         <Card.Footer>
@@ -188,20 +247,27 @@ You can optionally have an included backdrop be dismissible by clicking it via t
 
 You can manually open / close the `Overlay` via the `state` property.
 
-<!-- prettier-ignore -->
-```html repl Overlay State
+```svelte repl Overlay State
 <script>
-    import {Button, Card, ContextButton, Overlay} from "@kahi-ui/framework";
+    import {
+        Button,
+        Card,
+        ContextButton,
+        Overlay,
+    } from "@kahi-ui/framework";
 
     let toggle = false;
 
-    const on_click = () => toggle = !toggle;
+    const on_click = () => (toggle = !toggle);
 </script>
 
 <Button on:click={on_click}>Toggle Modal</Button>
 
 <Overlay logic_id="overlay-state" bind:state={toggle}>
-    <Card.Container palette="auto" max_width="viewport-75">
+    <Card.Container
+        palette="auto"
+        max_width="viewport-75"
+    >
         <Card.Header>Toggleable Modal</Card.Header>
 
         <Card.Footer>
@@ -215,24 +281,45 @@ You can manually open / close the `Overlay` via the `state` property.
 
 You can align `Overlay` content via the `alignment`, `alignment_x`, and `alignment_y` properties respectively.
 
-<!-- prettier-ignore -->
-```html repl Overlay Alignment
+```svelte repl Overlay Alignment
 <script>
-    import {Button, Code, Overlay, Tile, Text} from "@kahi-ui/framework";
+    import {
+        Button,
+        Code,
+        Overlay,
+        Tile,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Overlay alignment_x="right" alignment_y="bottom" padding_bottom="medium" padding_right="medium">
-    <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="viewport-75">
+<Overlay
+    alignment_x="right"
+    alignment_y="bottom"
+    padding_bottom="medium"
+    padding_right="medium"
+>
+    <Tile.Container
+        palette="auto"
+        elevation="medium"
+        width="content-max"
+        max_width="viewport-75"
+    >
         <Tile.Section>
             <Tile.Header>File Deleted</Tile.Header>
 
             <Text>
-                <Code>important_file.docx</Code> was deleted from cloud storage.
+                <Code>important_file.docx</Code> was deleted
+                from cloud storage.
             </Text>
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="negative" data-size="small">X</Button>
+            <Button
+                palette="negative"
+                data-size="small"
+            >
+                X
+            </Button>
         </Tile.Footer>
     </Tile.Container>
 </Overlay>
@@ -242,38 +329,71 @@ You can align `Overlay` content via the `alignment`, `alignment_x`, and `alignme
 
 You can adjust the spacing between `Overlay` content via the `spacing`, `spacing_x`, and `spacing_y` properties respectively.
 
-<!-- prettier-ignore -->
-```html repl Overlay Spacing
+```svelte repl Overlay Spacing
 <script>
-    import {Button, Code, Overlay, Tile, Text} from "@kahi-ui/framework";
+    import {
+        Button,
+        Code,
+        Overlay,
+        Tile,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Overlay alignment_x="right" alignment_y="bottom" spacing="medium" padding_bottom="medium" padding_right="medium">
-    <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="viewport-75">
+<Overlay
+    alignment_x="right"
+    alignment_y="bottom"
+    spacing="medium"
+    padding_bottom="medium"
+    padding_right="medium"
+>
+    <Tile.Container
+        palette="auto"
+        elevation="medium"
+        width="content-max"
+        max_width="viewport-75"
+    >
         <Tile.Section>
             <Tile.Header>File Deleted</Tile.Header>
 
             <Text>
-                <Code>important_file.docx</Code> was deleted from cloud storage.
+                <Code>important_file.docx</Code> was deleted
+                from cloud storage.
             </Text>
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="negative" data-size="small">X</Button>
+            <Button
+                palette="negative"
+                data-size="small"
+            >
+                X
+            </Button>
         </Tile.Footer>
     </Tile.Container>
 
-    <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="viewport-75">
+    <Tile.Container
+        palette="auto"
+        elevation="medium"
+        width="content-max"
+        max_width="viewport-75"
+    >
         <Tile.Section>
             <Tile.Header>File Deleted</Tile.Header>
 
             <Text>
-                <Code>other_file.png</Code> was deleted from cloud storage.
+                <Code>other_file.png</Code> was deleted
+                from cloud storage.
             </Text>
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="negative" data-size="small">X</Button>
+            <Button
+                palette="negative"
+                data-size="small"
+            >
+                X
+            </Button>
         </Tile.Footer>
     </Tile.Container>
 </Overlay>

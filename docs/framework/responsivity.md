@@ -19,7 +19,7 @@ To be able to use Viewport-specific values, you just need to prefix your values 
 
 > **NOTE**: The REPL currently does not support viewport values. Resize your Browser instead.
 
-```html repl Responsivity Syntax
+```svelte repl Responsivity Syntax
 <script>
     import {Box, Grid} from "@kahi-ui/framework";
 </script>

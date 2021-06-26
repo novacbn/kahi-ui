@@ -5,7 +5,7 @@
 Using a terminal inside of your project's directory, use `npm` to install the package.
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.9
+npm install github:novacbn/kahi-ui#0.2.10
 ```
 
 ## Importing Stylesheet
@@ -21,7 +21,10 @@ Otherwise download the required CSS files from [Releases](https://github.com/nov
 ```html
 <html>
     <head>
-        <link rel="stylesheet" href="/path/to/kahi-ui.framework.css" />
+        <link
+            rel="stylesheet"
+            href="/path/to/kahi-ui.framework.css"
+        />
     </head>
 </html>
 ```
@@ -30,8 +33,7 @@ Otherwise download the required CSS files from [Releases](https://github.com/nov
 
 Import Components by their variable name from `@kahi-ui/framework`:
 
-<!-- prettier-ignore -->
-```html repl Getting Started Usage
+```svelte repl Getting Started Usage
 <script>
     import {Button, Heading} from "@kahi-ui/framework";
 
@@ -51,33 +53,44 @@ Import Components by their variable name from `@kahi-ui/framework`:
 
 Some Components are multi-part patterns, so you'll need to import their namespaces:
 
-<!-- prettier-ignore -->
-```html repl Getting Started Patterns
+```svelte repl Getting Started Patterns
 <script>
-    import {Button, Card, Text} from "@kahi-ui/framework";
+    import {
+        Button,
+        Card,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Card.Container style="max-width:25rem;">
+<Card.Container class="getting-started-patterns">
     <Card.Figure>
         <img src={IMAGE_BACKGROUND} />
     </Card.Figure>
 
-    <Card.Header>
-        Lorem Ipsum
-    </Card.Header>
+    <Card.Header>Lorem Ipsum</Card.Header>
 
     <Card.Section>
         <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Text>
     </Card.Section>
 
     <Card.Footer>
-        <Button palette="affirmative">Open Details</Button>
+        <Button palette="affirmative">
+            Open Details
+        </Button>
     </Card.Footer>
 </Card.Container>
 
+<style>
+    :global(.getting-started-patterns) {
+        max-width: 35ch;
+    }
+</style>
 ```

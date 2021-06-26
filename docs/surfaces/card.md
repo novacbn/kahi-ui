@@ -15,13 +15,18 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
 
 `Card` is a multi-part surface pattern for displaying a section of content in a long-form vertical format.
 
-<!-- prettier-ignore -->
-```html repl Card Preview
+```svelte repl Card Preview
 <script>
-    import {Badge, Button, Card, Spacer, Text} from "@kahi-ui/framework";
+    import {
+        Badge,
+        Button,
+        Card,
+        Spacer,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Card.Container style="max-width:25rem;">
+<Card.Container class="card-preview">
     <Card.Figure>
         <img src={IMAGE_BACKGROUND} />
     </Card.Figure>
@@ -34,9 +39,12 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
 
     <Card.Section>
         <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-            Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-            iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
             montes, nascetur ridiculus mus.
         </Text>
     </Card.Section>
@@ -45,6 +53,12 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
         <Button palette="accent">Book Flight</Button>
     </Card.Footer>
 </Card.Container>
+
+<style>
+    :global(.card-preview) {
+        max-width: 35ch;
+    }
+</style>
 ```
 
 ## Imports
@@ -53,7 +67,13 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
 <script>
     import {Card} from "@kahi-ui/framework";
 
-    const {Container, Figure, Footer, Header, Section} = Card;
+    const {
+        Container,
+        Figure,
+        Footer,
+        Header,
+        Section,
+    } = Card;
 </script>
 ```
 
@@ -61,13 +81,19 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
 
 You can change the color palette of the `Card` via the `palette` property.
 
-<!-- prettier-ignore -->
-```html repl Card Palette
+```svelte repl Card Palette
 <script>
-    import {Badge, Button, Card, Mosaic, Spacer, Text} from "@kahi-ui/framework";
+    import {
+        Badge,
+        Button,
+        Card,
+        Mosaic,
+        Spacer,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Mosaic sizing="large" spacing="medium">
+<Mosaic sizing="medium" spacing="medium">
     <Card.Container>
         <Card.Figure>
             <img src={IMAGE_BACKGROUND} />
@@ -81,10 +107,12 @@ You can change the color palette of the `Card` via the `palette` property.
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -102,10 +130,12 @@ You can change the color palette of the `Card` via the `palette` property.
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -123,10 +153,12 @@ You can change the color palette of the `Card` via the `palette` property.
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -144,10 +176,12 @@ You can change the color palette of the `Card` via the `palette` property.
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -165,10 +199,12 @@ You can change the color palette of the `Card` via the `palette` property.
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -186,10 +222,12 @@ You can change the color palette of the `Card` via the `palette` property.
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -207,10 +245,12 @@ You can change the color palette of the `Card` via the `palette` property.
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -221,13 +261,19 @@ You can change the color palette of the `Card` via the `palette` property.
 
 You can set how "high" your `Card` will appear to be over top the page via the `elevation` property.
 
-<!-- prettier-ignore -->
-```html repl Card Elevation
+```svelte repl Card Elevation
 <script>
-    import {Badge, Button, Card, Mosaic, Spacer, Text} from "@kahi-ui/framework";
+    import {
+        Badge,
+        Button,
+        Card,
+        Mosaic,
+        Spacer,
+        Text,
+    } from "@kahi-ui/framework";
 </script>
 
-<Mosaic sizing="large" spacing="large">
+<Mosaic sizing="medium" spacing="large">
     <Card.Container elevation="lowest">
         <Card.Figure>
             <img src={IMAGE_BACKGROUND} />
@@ -241,10 +287,12 @@ You can set how "high" your `Card` will appear to be over top the page via the `
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -262,10 +310,12 @@ You can set how "high" your `Card` will appear to be over top the page via the `
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -283,10 +333,12 @@ You can set how "high" your `Card` will appear to be over top the page via the `
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -304,10 +356,12 @@ You can set how "high" your `Card` will appear to be over top the page via the `
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>
@@ -325,10 +379,12 @@ You can set how "high" your `Card` will appear to be over top the page via the `
 
         <Card.Section>
             <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Proin et consectetur
+                orci. Curabitur a egestas turpis, vitae
+                convallis sapien. Sed pellentesque
+                rutrum tellus, in iaculis dolor
+                tincidunt non.
             </Text>
         </Card.Section>
     </Card.Container>

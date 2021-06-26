@@ -34,12 +34,16 @@ types=["string"]
 
 `Anchor` are used for navigating from page to page, or to external websites.
 
-```html repl Anchor Preview
+```svelte repl Anchor Preview
 <script>
     import {Anchor} from "@kahi-ui/framework";
 </script>
 
-<Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
+<Anchor
+    href="https://google.com"
+    target="_blank"
+    rel="noopener noreferrer"
+>
     Goto google.com
 </Anchor>
 ```
@@ -56,7 +60,7 @@ types=["string"]
 
 When navigating only to an internal Web Application route, you can just set `href` property with no other properties.
 
-```html repl Anchor Internal Navigation
+```svelte repl Anchor Internal Navigation
 <script>
     import {Anchor} from "@kahi-ui/framework";
 </script>
@@ -68,12 +72,16 @@ When navigating only to an internal Web Application route, you can just set `hre
 
 When navigating to external links, for **security purposes** it's recommended to set [`rel="noopener"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/noopener) to prevent [`Window.opener`](https://developer.mozilla.org/en-US/docs/Web/API/Window/opener) from being set on the newly opened page. And also to set [`rel="noreferrer"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/noreferrer) for **privacy purposes**, to prevent the Browser from sending the [`Referer`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) header to the new page.
 
-```html repl Anchor External Navigation
+```svelte repl Anchor External Navigation
 <script>
     import {Anchor} from "@kahi-ui/framework";
 </script>
 
-<Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
+<Anchor
+    href="https://google.com"
+    target="_blank"
+    rel="noopener noreferrer"
+>
     Goto google.com
 </Anchor>
 ```

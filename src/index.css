@@ -46,8 +46,6 @@
 
 @import url("./components/embedded/figure/figure.css");
 
-@import url("./components/overlays/overlay/overlay.css");
-
 @import url("./components/layouts/grid/grid.css");
 @import url("./components/layouts/group/group.css");
 @import url("./components/layouts/mosaic/mosaic.css");
@@ -65,9 +63,13 @@
 @import url("./styles/hidden.css");
 @import url("./styles/logic.css");
 @import url("./styles/palettes.css");
+@import url("./styles/placements.css");
 @import url("./styles/positions.css");
 @import url("./styles/resizable.css");
 @import url("./styles/sizes.css");
 @import url("./styles/sizings.css");
 @import url("./styles/spacings.css");
 @import url("./styles/viewports.css");
+
+@import url("./components//overlays/offscreen/offscreen.css");
+@import url("./components/overlays/overlay/overlay.css");

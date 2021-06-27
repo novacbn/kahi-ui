@@ -2,6 +2,27 @@
 
 ## v0.2.11 - 2021/??/??
 
+-   Added the following Components
+
+    -   Overlays
+
+        -   `Offscreen` — Useful for wrapping excess content offscreen that the end-user can show via buttons on the Viewport edges.
+
+            -   `<Offscreen alignment="center/stretch" alignment_x="left/right/center/stretch" alignment_y="top/bottom/center/stretch">` — Defaults to `stretch`, used to align the content.
+            -   `<Offscreen hidden="true/mobile/tablet/desktop/widescreen">` — Used to control which Viewports the excess content is hidden on.
+            -   `<Offscreen logic_id="XXX">` — Used to set the HTML `id` for the state checkbox which controls when content is being shown.
+            -   `<Offscreen placement="top/left/bottom/right">` — Defaults to `left`, used to control which edge to show the content along.
+            -   `<Offscreen captive>` — Enables the backdrop.
+            -   `<Offscreen dismissable>` — Enables the backdrop to be clickable, and dismisses the `Offscreen`.
+
+-   Updated the following Components
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   Fixed `Overlay` potentially resetting between viewport changes.
+
 ## v0.2.10 - 2021/06/26
 
 -   Updated the following Components

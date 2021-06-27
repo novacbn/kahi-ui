@@ -16,6 +16,7 @@
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
+    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../lib/types/placements";
 
     const dispatch = createEventDispatcher();
 
@@ -65,13 +66,11 @@
     export let logic_id: string = "";
     export let state: boolean = false;
 
+    export let placement: DESIGN_PLACEMENT_ARGUMENT | undefined = undefined;
+
     export let alignment: DESIGN_ALIGNMENT_ARGUMENT | undefined = undefined;
     export let alignment_x: DESIGN_ALIGNMENT_X_ARGUMENT | undefined = undefined;
     export let alignment_y: DESIGN_ALIGNMENT_Y_ARGUMENT | undefined = undefined;
-
-    export let spacing: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let spacing_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let spacing_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 
     const _logic_id = make_id_context(logic_id);
     const _state = make_state_context(state);
@@ -110,14 +109,12 @@
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="overlay {_class}"
+    class="offscreen {_class}"
     {...map_data_attributes({
+        placement,
         alignment,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
-        spacing,
-        "spacing-x": spacing_x,
-        "spacing-y": spacing_y,
     })}
 >
     <slot />

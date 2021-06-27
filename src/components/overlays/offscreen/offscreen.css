@@ -1,0 +1,56 @@
+.offscreen {
+    @apply contents fixed h-screen pointer-events-none w-screen z-1;
+
+    flex-direction: var(--placement-orientation, row);
+
+    align-items: var(--placement-alignment-y, stretch);
+    justify-content: var(--placement-alignment-x, stretch);
+
+    width: var(--placement-width, max-content);
+    height: var(--placement-height, 100vh);
+
+    left: var(--placement-left, 0%);
+    top: var(--placement-top, 0%);
+
+    transform: translate(var(--placement-translation-off, -100%, 0%));
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+input[type="checkbox"][role="presentation"] {
+    &:checked + .offscreen,
+    &:checked + .context-backdrop + .offscreen {
+        transform: translate(var(--placement-translation-on, 0%, 0%));
+
+        & > * {
+            @apply pointer-events-auto;
+        }
+    }
+}
+
+.offscreen[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
+    @apply !flex;
+}
+
+@variants <sm {
+    .offscreen[data-hidden~="mobile"] {
+        @apply !flex;
+    }
+}
+
+@variants @sm {
+    .offscreen[data-hidden~="tablet"] {
+        @apply !flex;
+    }
+}
+
+@variants @md {
+    .offscreen[data-hidden~="desktop"] {
+        @apply !flex;
+    }
+}
+
+@variants lg {
+    .offscreen[data-hidden~="widescreen"] {
+        @apply !flex;
+    }
+}

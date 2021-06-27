@@ -2,6 +2,20 @@
 
 ## v0.2.11 - 2021/??/??
 
+-   Bump Browser minimum version requirements.
+
+    -   Utilizing [`inset`](https://developer.mozilla.org/en-US/docs/Web/CSS/inset) in `Popover`.
+
+        -   Chrome 87+ _(November 2020)_
+        -   Edge 87+ _(November 2020)_
+        -   Firefox 66+ _(March 2019)_
+
+            -   Minimum was already Firefox 67+.
+
+        -   Safari 14.1+ _(April 2021)_
+
+            -   Minimum was already Safari 14.1+.
+
 -   Added the following Components
 
     -   Overlays

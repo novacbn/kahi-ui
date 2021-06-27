@@ -27,8 +27,8 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 
 ## Browser Support
 
--   Chrome 84+ — July 2020
--   Edge 84+ — July 2020
+-   Chrome 87+ _(November 2020)_
+-   Edge 87+ _(November 2020)_
 -   Firefox 67+ — May 2019
 -   Safari 14.1+ — April 2021
 -   Internet Explorer — **UNSUPPORTED**
@@ -38,7 +38,7 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 Open your terminal and install via `npm`:
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.10
+npm install github:novacbn/kahi-ui#0.2.11
 ```
 
 Install current in-development code:

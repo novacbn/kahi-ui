@@ -45,9 +45,17 @@ export const DESIGN_ALIGNMENT_X_LITERALS = {
     ...get_breakpoint_delimited<DESIGN_ALIGNMENT_X>(DESIGN_ALIGNMENT_X),
 } as const;
 
+export const DESIGN_ALIGNMENT_X_SINGULAR_LITERALS = {
+    ...DESIGN_ALIGNMENT_X,
+} as const;
+
 export const DESIGN_ALIGNMENT_Y_LITERALS = {
     ...DESIGN_ALIGNMENT_Y,
     ...get_breakpoint_delimited<DESIGN_ALIGNMENT_Y>(DESIGN_ALIGNMENT_Y),
+} as const;
+
+export const DESIGN_ALIGNMENT_Y_SINGULAR_LITERALS = {
+    ...DESIGN_ALIGNMENT_Y,
 } as const;
 
 export type DESIGN_ALIGNMENT_ARGUMENT =
@@ -58,6 +66,12 @@ export type DESIGN_ALIGNMENT_X_ARGUMENT =
     | keyof typeof DESIGN_ALIGNMENT_X_LITERALS
     | (keyof typeof DESIGN_ALIGNMENT_X_LITERALS)[];
 
+export type DESIGN_ALIGNMENT_X_SINGULAR_ARGUMENT =
+    keyof typeof DESIGN_ALIGNMENT_X_SINGULAR_LITERALS;
+
 export type DESIGN_ALIGNMENT_Y_ARGUMENT =
     | keyof typeof DESIGN_ALIGNMENT_Y_LITERALS
     | (keyof typeof DESIGN_ALIGNMENT_Y_LITERALS)[];
+
+export type DESIGN_ALIGNMENT_Y_SINGULAR_ARGUMENT =
+    keyof typeof DESIGN_ALIGNMENT_Y_SINGULAR_LITERALS;

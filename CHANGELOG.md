@@ -15,6 +15,15 @@
             -   `<Offscreen captive>` — Enables the backdrop.
             -   `<Offscreen dismissable>` — Enables the backdrop to be clickable, and dismisses the `Offscreen`.
 
+        -   `Popover` — Useful for creating overflow menus that the end-user can show via buttons.
+
+            -   `<Popover alignment_x="left/right/center" alignment_y="top/bottom/center">` — Defaults to `center`, used to align the content.
+            -   `<Popover hidden="true/mobile/tablet/desktop/widescreen">` — Used to control which Viewports the excess content is hidden on.
+            -   `<Popover logic_id="XXX">` — Used to set the HTML `id` for the state checkbox which controls when content is being shown.
+            -   `<Popover placement="top/left/bottom/right">` — Defaults to `bottom`, used to control which edge to show the content along.
+            -   `<Popover captive>` — Enables the backdrop.
+            -   `<Popover dismissable>` — Enables the backdrop to be clickable, and dismisses the `Popover`.
+
 -   Updated the following Components
 
     -   Navigation
@@ -31,6 +40,12 @@
         -   `Overlay`
 
             -   Fixed `Overlay` potentially resetting between viewport changes.
+
+    -   Surfaces
+
+        -   `Card`
+
+            -   Updated `<Card.Section>` to have increased y-axis padding when the first / last child of a `<Card.Container>`.
 
 -   Updated the following Stores / Contexts
 

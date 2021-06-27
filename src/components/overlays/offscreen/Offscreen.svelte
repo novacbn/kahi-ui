@@ -10,13 +10,13 @@
     import {get_state_context, make_state_context} from "../../../lib/stores/state";
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../lib/types/placements";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
-    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../lib/types/placements";
 
     const dispatch = createEventDispatcher();
 

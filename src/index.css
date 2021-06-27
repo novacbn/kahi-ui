@@ -71,5 +71,6 @@
 @import url("./styles/spacings.css");
 @import url("./styles/viewports.css");
 
-@import url("./components//overlays/offscreen/offscreen.css");
+@import url("./components/overlays/offscreen/offscreen.css");
 @import url("./components/overlays/overlay/overlay.css");
+@import url("./components/overlays/popover/popover.css");

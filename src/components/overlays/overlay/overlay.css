@@ -6,7 +6,7 @@
     --spacing-y: 0;
 
     @apply fixed flex flex-col gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] h-screen
-    left-0 pointer-events-none top-0 w-screen z-1;
+    left-0 pointer-events-none top-0 w-screen z-2;
 
     align-items: var(--flex-alignment-x);
     justify-content: var(--flex-alignment-y);

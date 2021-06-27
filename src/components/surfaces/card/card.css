@@ -29,6 +29,14 @@
 
     & > section {
         @apply flex-grow py-2;
+
+        &:first-child {
+            @apply pt-4;
+        }
+
+        &:last-child {
+            @apply pb-4;
+        }
     }
 
     & > :is(header, footer) {

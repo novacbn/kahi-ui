@@ -579,6 +579,8 @@ You can adjust the spacing between items via the `spacing`, `spacing_x`, and `sp
 
 ## Item Span
 
+> **NOTE**: By passing an array, you can set [responsive values](../framework/responsivity.md). e.g. `span={["3", "tablet:2", "mobile:1"]}`
+
 You can adjust grid span of individual items via the `span`, `span_x`, `span_y` properties, by wrapping the items in `Grid.Item`.
 
 ```svelte repl Grid Item Span
@@ -588,18 +590,13 @@ You can adjust grid span of individual items via the `span`, `span_x`, `span_y` 
 
 <Grid.Container
     class="grid-item-span"
-    points={["6", "mobile:3", "tablet:4", "desktop:5"]}
+    points={["4", "mobile:2"]}
     spacing="medium"
 >
     <Box palette="alert" />
     <Grid.Item
-        span_x={[
-            "4",
-            "mobile:1",
-            "tablet:2",
-            "desktop:3",
-        ]}
-        span_y="1"
+        span_x={["2", "mobile:1"]}
+        span_y={["1", "mobile:2"]}
     >
         <Box palette="affirmative" />
     </Grid.Item>
@@ -608,24 +605,6 @@ You can adjust grid span of individual items via the `span`, `span_x`, `span_y` 
     <Box palette="affirmative" />
     <Box palette="negative" />
     <Box palette="alert" />
-
-    <Box palette="alert" />
-    <Box palette="affirmative" />
-    <Box palette="negative" />
-
-    <Grid.Item span_x="3" span_y="2">
-        <Box palette="negative" />
-    </Grid.Item>
-    <Box palette="alert" />
-    <Box palette="affirmative" />
-
-    <Box palette="affirmative" />
-    <Box palette="negative" />
-    <Box palette="alert" />
-
-    <Box palette="negative" />
-    <Box palette="alert" />
-    <Box palette="affirmative" />
 
     <Box palette="alert" />
     <Box palette="affirmative" />

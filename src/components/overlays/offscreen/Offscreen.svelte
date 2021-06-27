@@ -6,8 +6,8 @@
         DESIGN_ALIGNMENT_X_ARGUMENT,
         DESIGN_ALIGNMENT_Y_ARGUMENT,
     } from "../../../lib/types/alignments";
-    import {make_id_context} from "../../../lib/stores/id";
-    import {make_state_context} from "../../../lib/stores/state";
+    import {get_id_context, make_id_context} from "../../../lib/stores/id";
+    import {get_state_context, make_state_context} from "../../../lib/stores/state";
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
@@ -72,8 +72,8 @@
     export let alignment_x: DESIGN_ALIGNMENT_X_ARGUMENT | undefined = undefined;
     export let alignment_y: DESIGN_ALIGNMENT_Y_ARGUMENT | undefined = undefined;
 
-    const _logic_id = make_id_context(logic_id);
-    const _state = make_state_context(state);
+    const _logic_id = get_id_context() ?? make_id_context(logic_id);
+    const _state = get_state_context() ?? make_state_context(state);
 
     let _previous_state = state;
 
@@ -111,10 +111,10 @@
     {...map_global_attributes($$props)}
     class="offscreen {_class}"
     {...map_data_attributes({
-        placement,
         alignment,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
+        placement,
     })}
 >
     <slot />

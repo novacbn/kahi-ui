@@ -17,11 +17,26 @@
 
 -   Updated the following Components
 
+    -   Navigation
+
+        -   `Aside`
+
+            -   Added `<Aside.Container placement="left/right">` — Used to control which Viewport edge the `Aside` will be on when collapsed on Mobile / Tablet.
+            -   Added `<Aside.Container on:active>` — Fires whenever the `Aside` is made active, either via scripting or the end-user.
+            -   Added `<Aside.Container on:dismiss>` — Fires whenever the `Aside` is dismissed, either via scripting or the end-user.
+            -   Migrated `<Aside.Container>` to internally use `Offscreen` for collapsing functionality.
+
     -   Overlays
 
         -   `Overlay`
 
             -   Fixed `Overlay` potentially resetting between viewport changes.
+
+-   Updated the following Stores / Contexts
+
+    -   `get_state_context(): Writable<boolean>`
+
+        -   `get_state_context(): Writable<boolean>` -> `get_state_context(): Writable<boolean> | undefined` — No longer throws an error when the Svelte Context cannot be found.
 
 ## v0.2.10 - 2021/06/26
 
@@ -359,7 +374,7 @@
 
 -   Added Stores / Contexts used by some Components for progressive enhancements
 
-    -   `state(default_value: boolean): Writable<boolean>` / `get_state_context(): Writable<string>`
+    -   `state(default_value: boolean): Writable<boolean>` / `get_state_context(): Writable<boolean>`
 
         -   Used for providing contextual boolean state access, e.g. `<ContextBackdrop>` will read this from an `<Aside.Container>` to enable Scroll Lock
 

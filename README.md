@@ -27,10 +27,11 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 
 ## Browser Support
 
--   Chrome 87+ _(November 2020)_
--   Edge 87+ _(November 2020)_
+-   Chrome 87+ — November 2020
+-   Edge 87+ — November 2020
 -   Firefox 67+ — May 2019
 -   Safari 14.1+ — April 2021
+-   Edge _(Pre Chromium)_ — **UNSUPPORTED**
 -   Internet Explorer — **UNSUPPORTED**
 
 ## Installation

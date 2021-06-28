@@ -1,7 +1,7 @@
 +++
 [[properties.Overlay]]
 name="logic_id"
-description="Renders a `<input role=\"presentation\" type=\"checkbox\" /> as sibling before the <code>Overlay</code>, which controls the visible state via CSS."
+description="Renders a <code>&lt;input role=\"presentation\" type=\"checkbox\" /&gt;</code> as sibling before the <code>Overlay</code>, which controls the visible state via CSS."
 types=["string"]
 
 [[properties.Overlay]]
@@ -22,16 +22,19 @@ types=["boolean"]
 [[properties.Overlay]]
 name="alignment"
 description="Adjusts where the child content will be placed within the <code>Overlay</code> along both axis."
+default="center"
 types=["center", "stretch", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Overlay]]
 name="alignment_x"
 description="Adjusts where the child content will be placed within the <code>Overlay</code> along the horizontal axis."
+default="center"
 types=["center", "stretch", "left", "right", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Overlay]]
 name="alignment_y"
 description="Adjusts where the child content will be placed within the <code>Overlay</code> along the vertical axis."
+default="center"
 types=["center", "stretch", "bottom", "top", "{VIEWPORT}:{ALIGNMENT}"]
 
 [[properties.Overlay]]
@@ -112,7 +115,7 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 You can make the Overlay toggleable via the `logic_id` property, and then referencing that with a [`Button`](../interactables/button.md).
 
-```svelte repl Overlay Captive
+```svelte repl Overlay Logic ID
 <script>
     import {
         Button,
@@ -153,11 +156,11 @@ You can optionally include a backdrop by passing via the `captive` property.
 </script>
 
 <Button for="overlay-non-captive">
-    Open Non Captive Modal
+    Open NON CAPTIVE Modal
 </Button>
 
 <Button for="overlay-is-captive" palette="accent">
-    Open Captive Modal
+    Open CAPTIVE Modal
 </Button>
 
 <Overlay logic_id="overlay-non-captive">
@@ -165,7 +168,7 @@ You can optionally include a backdrop by passing via the `captive` property.
         palette="auto"
         max_width="viewport-75"
     >
-        <Card.Header>Non-Captive Modal</Card.Header>
+        <Card.Header>NON CAPTIVE Modal</Card.Header>
 
         <Card.Footer>
             <ContextButton>Dismiss</ContextButton>
@@ -178,7 +181,7 @@ You can optionally include a backdrop by passing via the `captive` property.
         palette="auto"
         max_width="viewport-75"
     >
-        <Card.Header>Captive Modal</Card.Header>
+        <Card.Header>CAPTIVE Modal</Card.Header>
 
         <Card.Footer>
             <ContextButton>Dismiss</ContextButton>
@@ -187,11 +190,11 @@ You can optionally include a backdrop by passing via the `captive` property.
 </Overlay>
 ```
 
-## Dismissable
+## Dismissible
 
-You can optionally have an included backdrop be dismissible by clicking it via the `dismissible` property.
+You can optionally have the `Overlay` dismissible by clicking the backdrop via the `dismissible` property.
 
-```svelte repl Overlay Dismissable
+```svelte repl Overlay Dismissible
 <script>
     import {
         Button,
@@ -202,11 +205,11 @@ You can optionally have an included backdrop be dismissible by clicking it via t
 </script>
 
 <Button for="overlay-non-dismissible">
-    Open Non Dismissable Modal
+    Open NON DISMISSIBLE Modal
 </Button>
 
 <Button for="overlay-is-dismissible" palette="accent">
-    Open Dismissable Modal
+    Open DISMISSIBLE Modal
 </Button>
 
 <Overlay logic_id="overlay-non-dismissible" captive>
@@ -214,8 +217,9 @@ You can optionally have an included backdrop be dismissible by clicking it via t
         palette="auto"
         max_width="viewport-75"
     >
-        <Card.Header>Non Dismissable Modal</Card.Header
-        >
+        <Card.Header>
+            NON DISMISSIBLE Modal
+        </Card.Header>
 
         <Card.Footer>
             <ContextButton>Dismiss</ContextButton>
@@ -232,7 +236,7 @@ You can optionally have an included backdrop be dismissible by clicking it via t
         palette="auto"
         max_width="viewport-75"
     >
-        <Card.Header>Dismissable Modal</Card.Header>
+        <Card.Header>DISMISSIBLE Modal</Card.Header>
 
         <Card.Footer>
             <ContextButton>Dismiss</ContextButton>

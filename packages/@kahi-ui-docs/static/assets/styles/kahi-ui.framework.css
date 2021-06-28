@@ -142,26 +142,6 @@ input::placeholder {
   color: #a1a1aa;
 }
 
-input::webkit-input-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
-input::-moz-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
-input:-ms-input-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
-input::-ms-input-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
 ol, ul {
   list-style: none;
   margin: 0;
@@ -205,67 +185,6 @@ textarea {
 textarea::placeholder {
   opacity: 1;
   color: #a1a1aa;
-}
-
-textarea::webkit-input-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
-textarea::-moz-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
-textarea:-ms-input-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
-textarea::-ms-input-placeholder {
-  opacity: 1;
-  color: #a1a1aa;
-}
-
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.block {
-  display: block;
-}
-
-.inline {
-  display: inline;
-}
-
-.grid {
-  display: -ms-grid;
-  display: grid;
-}
-
-.sticky {
-  position: sticky;
-  position: -webkit-sticky;
-}
-
-.truncate {
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.lowercase {
-  text-transform: lowercase;
-}
-
-.capitalize {
-  text-transform: capitalize;
 }
 
 :root {
@@ -386,7 +305,6 @@ img, video {
   vertical-align: middle;
   background-color: rgb(var(--palette-foreground-bg));
   font-weight: 700;
-  grid-gap: 0.75rem;
   gap: 0.75rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -626,7 +544,6 @@ button, [role="button"], [type="button"], [type="reset"], [type="submit"] {
   vertical-align: middle;
   border-width: 0px;
   font-weight: 700;
-  grid-gap: 0.75rem;
   gap: 0.75rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1161,7 +1078,6 @@ textarea {
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  grid-gap: 0.5em;
   gap: 0.5em;
   width: 100%;
 }
@@ -1171,7 +1087,6 @@ label:not([role]) {
   display: -ms-inline-flexbox;
   display: -webkit-inline-flex;
   display: inline-flex;
-  grid-gap: 0.5em;
   gap: 0.5em;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1258,7 +1173,6 @@ nav.aside > footer {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  grid-gap: 1rem;
   gap: 1rem;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -1385,7 +1299,6 @@ nav.menu ul > li {
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  grid-gap: 1rem;
   gap: 1rem;
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
@@ -1410,7 +1323,6 @@ nav.menu ul > li > :is(a, button, label) {
   -ms-flex-positive: 1;
   -webkit-flex-grow: 1;
   flex-grow: 1;
-  grid-gap: 0.75rem;
   gap: 0.75rem;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1536,7 +1448,6 @@ nav.menu ul > li + li {
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
-    grid-gap: 1rem;
     gap: 1rem;
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
@@ -1623,14 +1534,12 @@ nav.omni > footer > section {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  grid-gap: 1rem;
   gap: 1rem;
   margin-left: auto;
 }
 
 nav.omni > header {
   font-weight: 700;
-  grid-gap: 1rem;
   gap: 1rem;
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1752,7 +1661,6 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  grid-gap: 1rem;
   gap: 1rem;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1803,7 +1711,6 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  grid-gap: 0.5rem;
   gap: 0.5rem;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1843,7 +1750,6 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  grid-gap: 1rem;
   gap: 1rem;
   max-width: max-content;
 }
@@ -1904,7 +1810,6 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
 }
 
 .tile > footer {
-  grid-gap: 1rem;
   gap: 1rem;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -2225,13 +2130,7 @@ figure[data-variation="icon"][data-size] > * {
   --spacing-y: 0;
   display: -ms-grid;
   display: grid;
-  -webkit-column-gap: var(--spacing-x);
-  -moz-column-gap: var(--spacing-x);
-  grid-column-gap: var(--spacing-x);
   column-gap: var(--spacing-x);
-  -webkit-row-gap: var(--spacing-y);
-  -moz-row-gap: var(--spacing-y);
-  grid-row-gap: var(--spacing-y);
   row-gap: var(--spacing-y);
   grid-auto-flow: row dense;
   align-items: var(--grid-alignment-y);
@@ -2327,13 +2226,7 @@ figure[data-variation="icon"][data-size] > * {
   --spacing-y: 0;
   display: -ms-grid;
   display: grid;
-  -webkit-column-gap: var(--spacing-x);
-  -moz-column-gap: var(--spacing-x);
-  grid-column-gap: var(--spacing-x);
   column-gap: var(--spacing-x);
-  -webkit-row-gap: var(--spacing-y);
-  -moz-row-gap: var(--spacing-y);
-  grid-row-gap: var(--spacing-y);
   row-gap: var(--spacing-y);
   align-items: var(--grid-alignment-y);
   justify-content: var(--grid-alignment-x);
@@ -2362,13 +2255,7 @@ figure[data-variation="icon"][data-size] > * {
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -webkit-column-gap: var(--spacing-x);
-  -moz-column-gap: var(--spacing-x);
-  grid-column-gap: var(--spacing-x);
   column-gap: var(--spacing-x);
-  -webkit-row-gap: var(--spacing-y);
-  -moz-row-gap: var(--spacing-y);
-  grid-row-gap: var(--spacing-y);
   row-gap: var(--spacing-y);
   align-items: var(--flex-alignment-x);
   justify-content: var(--flex-alignment-y);
@@ -2512,7 +2399,6 @@ span[role="separator"] {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  grid-gap: 0.25rem;
   gap: 0.25rem;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -8774,13 +8660,7 @@ input[type="checkbox"][role="presentation"]:checked + .offscreen > *, input[type
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -webkit-column-gap: var(--spacing-x);
-  -moz-column-gap: var(--spacing-x);
-  grid-column-gap: var(--spacing-x);
   column-gap: var(--spacing-x);
-  -webkit-row-gap: var(--spacing-y);
-  -moz-row-gap: var(--spacing-y);
-  grid-row-gap: var(--spacing-y);
   row-gap: var(--spacing-y);
   height: 100vh;
   left: 0px;

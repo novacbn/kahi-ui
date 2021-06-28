@@ -76,7 +76,7 @@
     --placement-inset: auto 50% calc(0% - var(--spacing-y)) auto;
 
     --placement-top: 100%;
-    --placement-left: 50%;
+    --placement-left: 0%;
 
     --placement-clip-off: 0% 0% 100% 0%;
     --placement-clip-on: 0% 0% 0% 0%;

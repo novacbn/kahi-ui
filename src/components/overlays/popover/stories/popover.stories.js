@@ -7,6 +7,8 @@ import {
 import Popover from "../Popover.svelte";
 
 import PopoverDefaultStory from "./PopoverDefaultStory.svelte";
+import PopoverPlacementStory from "./PopoverPlacementStory.svelte";
+import PopoverSpacingStory from "./PopoverSpacingStory.svelte";
 
 export default {
     title: "Overlays/Popover",
@@ -20,6 +22,20 @@ export default {
 
 export const Default = (args) => ({
     Component: PopoverDefaultStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Placement = (args) => ({
+    Component: PopoverPlacementStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Spacing = (args) => ({
+    Component: PopoverSpacingStory,
     props: {
         ...args,
     },

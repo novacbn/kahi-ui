@@ -16,7 +16,7 @@
     dismissible
     hidden
 >
-    <ContextButton for="popover-default-story" palette="accent">Open Popover</ContextButton>
+    <ContextButton palette="accent">Open Popover</ContextButton>
 
     <Card.Container palette="auto" elevation="medium" max_width="content-max">
         <Card.Section>

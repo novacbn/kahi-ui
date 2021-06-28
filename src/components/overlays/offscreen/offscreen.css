@@ -7,13 +7,17 @@
     justify-content: var(--placement-alignment-x, stretch);
 
     width: var(--placement-width, max-content);
-    height: var(--placement-height, 100vh);
+    height: var(--placement-height, min(100%, 100vh));
 
     left: var(--placement-left, 0%);
     top: var(--placement-top, 0%);
 
     transform: translate(var(--placement-translation-off, -100%, 0%));
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    & > * {
+        @apply pointer-events-auto;
+    }
 }
 
 input[type="checkbox"][role="presentation"] {
@@ -27,30 +31,54 @@ input[type="checkbox"][role="presentation"] {
     }
 }
 
+/**
+ * HACK: Pretty lame have to copy all of this
+ */
+
 .offscreen[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
     @apply !flex;
+
+    & > * {
+        @apply pointer-events-none;
+    }
 }
 
 @variants <sm {
     .offscreen[data-hidden~="mobile"] {
         @apply !flex;
+
+        & > * {
+            @apply pointer-events-none;
+        }
     }
 }
 
 @variants @sm {
     .offscreen[data-hidden~="tablet"] {
         @apply !flex;
+
+        & > * {
+            @apply pointer-events-none;
+        }
     }
 }
 
 @variants @md {
     .offscreen[data-hidden~="desktop"] {
         @apply !flex;
+
+        & > * {
+            @apply pointer-events-none;
+        }
     }
 }
 
 @variants lg {
     .offscreen[data-hidden~="widescreen"] {
         @apply !flex;
+
+        & > * {
+            @apply pointer-events-none;
+        }
     }
 }

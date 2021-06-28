@@ -53,8 +53,8 @@
         logic_id="shell-aside"
         palette="dark"
         variation="sticky"
-        max_height="100"
-        height="viewport-100"
+        height="100"
+        max_height="viewport-100"
         captive
         dismissible
     >

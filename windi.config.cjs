@@ -1,6 +1,24 @@
 import {defineConfig} from "windicss/helpers";
 
 export default defineConfig({
+    /**
+     * NOTE: Really glad this apparently only worked for
+     * a quater of stuff that is autoprefixed
+     */
+    prefixer: false,
+
+    blocklist: [
+        "block",
+        "capitalize",
+        "inline",
+        "grid",
+        "lowercase",
+        "rounded",
+        "sticky",
+        "truncate",
+        "uppercase",
+    ],
+
     corePlugins: {
         container: false,
     },

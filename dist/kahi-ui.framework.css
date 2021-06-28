@@ -8827,7 +8827,7 @@ input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="chec
 }
 
 .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
-  display: block !important;
+  display: inline-block !important;
 }
 
 .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) > :last-child {
@@ -8854,7 +8854,7 @@ input[type="checkbox"][role="presentation"]:checked
 
 @media (max-width: 639.9px) {
   .popover[data-hidden~="mobile"] {
-    display: block !important;
+    display: inline-block !important;
   }
   .popover[data-hidden~="mobile"] > :last-child {
     position: absolute;
@@ -8873,7 +8873,7 @@ input[type="checkbox"][role="presentation"]:checked
 
 @media (min-width: 640px) and (max-width: 767.9px) {
   .popover[data-hidden~="tablet"] {
-    display: block !important;
+    display: inline-block !important;
   }
   .popover[data-hidden~="tablet"] > :last-child {
     position: absolute;
@@ -8892,7 +8892,7 @@ input[type="checkbox"][role="presentation"]:checked
 
 @media (min-width: 768px) and (max-width: 1023.9px) {
   .popover[data-hidden~="desktop"] {
-    display: block !important;
+    display: inline-block !important;
   }
   .popover[data-hidden~="desktop"] > :last-child {
     position: absolute;
@@ -8911,7 +8911,7 @@ input[type="checkbox"][role="presentation"]:checked
 
 @media (min-width: 1024px) {
   .popover[data-hidden~="widescreen"] {
-    display: block !important;
+    display: inline-block !important;
   }
   .popover[data-hidden~="widescreen"] > :last-child {
     position: absolute;

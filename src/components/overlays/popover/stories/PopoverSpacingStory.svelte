@@ -25,7 +25,7 @@
                 Open {spacing.toUpperCase()} Spaced Popover
             </ContextButton>
 
-            <Card.Container palette="auto" elevation="medium" max_width="content-max">
+            <Card.Container palette="auto-inverse" elevation="medium" max_width="content-max">
                 <Card.Section>
                     <Menu.Container>
                         <Menu.Button>

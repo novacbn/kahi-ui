@@ -45,7 +45,7 @@
 }
 
 .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
-    @apply !block;
+    @apply !inline-block;
 
     & > :last-child {
         @apply absolute pointer-events-none opacity-0;
@@ -77,7 +77,7 @@ input[type="checkbox"][role="presentation"] {
 
 @variants <sm {
     .popover[data-hidden~="mobile"] {
-        @apply !block;
+        @apply !inline-block;
 
         & > :last-child {
             @apply absolute pointer-events-none opacity-0;
@@ -103,7 +103,7 @@ input[type="checkbox"][role="presentation"] {
 
 @variants @sm {
     .popover[data-hidden~="tablet"] {
-        @apply !block;
+        @apply !inline-block;
 
         & > :last-child {
             @apply absolute pointer-events-none opacity-0;
@@ -129,7 +129,7 @@ input[type="checkbox"][role="presentation"] {
 
 @variants @md {
     .popover[data-hidden~="desktop"] {
-        @apply !block;
+        @apply !inline-block;
 
         & > :last-child {
             @apply absolute pointer-events-none opacity-0;
@@ -155,7 +155,7 @@ input[type="checkbox"][role="presentation"] {
 
 @variants lg {
     .popover[data-hidden~="widescreen"] {
-        @apply !block;
+        @apply !inline-block;
 
         & > :last-child {
             @apply absolute pointer-events-none opacity-0;

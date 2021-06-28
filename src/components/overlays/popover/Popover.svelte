@@ -25,8 +25,6 @@
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
-    import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
-
     const dispatch = createEventDispatcher();
 
     export let element: HTMLElement | null = null;
@@ -70,7 +68,6 @@
     export let max_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
     export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
 
-    export let captive: boolean = false;
     export let dismissible: boolean = false;
     export let logic_id: string = "";
     export let state: boolean = false;
@@ -114,10 +111,6 @@
         bind:checked={$_state}
         on:change={on_change}
     />
-
-    {#if captive}
-        <ContextBackdrop {dismissible} />
-    {/if}
 {/if}
 
 <div

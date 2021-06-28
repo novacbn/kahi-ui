@@ -37,10 +37,7 @@
             -   `<Popover logic_id="XXX">` — Used to set the HTML `id` for the state checkbox which controls when content is being shown.
             -   `<Popover placement="top/left/bottom/right">` — Defaults to `bottom`, used to control which edge to show the content along.
             -   `<Popover spacing="none/tiny/small/medium/large/huge">` — Defaults to `none`, used to control how far away the `Popover`'s floating content will appear away from the base content.
-            -   `<Popover captive>` — Enables the backdrop.
-            -   `<Popover dismissable>`
-                -   Enables the backdrop to be clickable, and dismisses the `Popover`.
-                -   Enables the `Popover` to close whenever its content are clicked outside of.
+            -   `<Popover dismissable>` — Enables the `Popover` to close whenever its content are clicked outside of.
 
 -   Updated the following Components
 

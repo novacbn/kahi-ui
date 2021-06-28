@@ -113,7 +113,7 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 > **NOTE**: When you use a [`ContextButton`](../utilities/contextbutton.md) within the `Overlay` layout, it will automatically inherit the set `logic_id` via [`id`](../stores/id.md) Svelte Store.
 
-You can make the Overlay toggleable via the `logic_id` property, and then referencing that with a [`Button`](../interactables/button.md).
+You can make the `Overlay` toggleable via the `logic_id` property, and then referencing that with a [`Button`](../interactables/button.md).
 
 ```svelte repl Overlay Logic ID
 <script>

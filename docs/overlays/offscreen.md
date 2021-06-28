@@ -5,6 +5,11 @@ description="Renders a <code>&lt;input role=\"presentation\" type=\"checkbox\" /
 types=["string"]
 
 [[properties.Offscreen]]
+name="hidden"
+description="Controls when the <code>Offscreen</code> hides its child content."
+types=["boolean", "{VIEWPORT}"]
+
+[[properties.Offscreen]]
 name="state"
 description="Controls the visible state of the <code>Offscreen</code> whenever <code>logic_id</code> is set."
 types=["boolean"]
@@ -101,7 +106,7 @@ types=["top", "left", "bottom", "right"]
 
 > **NOTE**: When you use a [`ContextButton`](../utilities/contextbutton.md) within the `Offscreen` layout, it will automatically inherit the set `logic_id` via [`id`](../stores/id.md) Svelte Store.
 
-You can make the Overlay toggleable via the `logic_id` property, and then referencing that with a [`Button`](../interactables/button.md).
+You can make the `Offscreen` toggleable via the `logic_id` property, and then referencing that with a [`Button`](../interactables/button.md).
 
 ## Hidden
 
@@ -234,7 +239,7 @@ You can optionally include a backdrop by passing via the `captive` property.
 
 You can optionally have the `Offscreen` dismissible by clicking the backdrop via the `dismissible` property.
 
-```svelte repl Offscreen Captive
+```svelte repl Offscreen Dismissible
 <script>
     import {
         Box,

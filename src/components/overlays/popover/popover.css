@@ -59,9 +59,6 @@
 
 input[type="checkbox"][role="presentation"] {
     &:checked
-        + .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]),
-    &:checked
-        + .context-backdrop
         + .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
         & > :last-child {
             @apply pointer-events-auto opacity-100;
@@ -90,8 +87,7 @@ input[type="checkbox"][role="presentation"] {
     }
 
     input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="mobile"],
-        &:checked + .context-backdrop + .popover[data-hidden~="mobile"] {
+        &:checked + .popover[data-hidden~="mobile"] {
             & > :last-child {
                 @apply pointer-events-auto opacity-100;
 
@@ -116,8 +112,7 @@ input[type="checkbox"][role="presentation"] {
     }
 
     input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="tablet"],
-        &:checked + .context-backdrop + .popover[data-hidden~="tablet"] {
+        &:checked + .popover[data-hidden~="tablet"] {
             & > :last-child {
                 @apply pointer-events-auto opacity-100;
 
@@ -142,8 +137,7 @@ input[type="checkbox"][role="presentation"] {
     }
 
     input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="desktop"],
-        &:checked + .context-backdrop + .popover[data-hidden~="desktop"] {
+        &:checked + .popover[data-hidden~="desktop"] {
             & > :last-child {
                 @apply pointer-events-auto opacity-100;
 
@@ -168,8 +162,7 @@ input[type="checkbox"][role="presentation"] {
     }
 
     input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="widescreen"],
-        &:checked + .context-backdrop + .popover[data-hidden~="widescreen"] {
+        &:checked + .popover[data-hidden~="widescreen"] {
             & > :last-child {
                 @apply pointer-events-auto opacity-100;
 

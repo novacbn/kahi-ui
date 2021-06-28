@@ -8848,9 +8848,26 @@ input[type="checkbox"][role="presentation"]:checked
   clip-path: inset(var(--placement-clip-on));
 }
 
+/**
+ * HACK: Really lame again, that this has to be copied
+ */
+
 @media (max-width: 639.9px) {
   .popover[data-hidden~="mobile"] {
     display: block !important;
+  }
+  .popover[data-hidden~="mobile"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="mobile"] > :last-child, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .popover[data-hidden~="mobile"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
   }
 }
 
@@ -8858,16 +8875,55 @@ input[type="checkbox"][role="presentation"]:checked
   .popover[data-hidden~="tablet"] {
     display: block !important;
   }
+  .popover[data-hidden~="tablet"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="tablet"] > :last-child, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .popover[data-hidden~="tablet"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023.9px) {
   .popover[data-hidden~="desktop"] {
     display: block !important;
   }
+  .popover[data-hidden~="desktop"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="desktop"] > :last-child, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .popover[data-hidden~="desktop"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
+  }
 }
 
 @media (min-width: 1024px) {
   .popover[data-hidden~="widescreen"] {
     display: block !important;
+  }
+  .popover[data-hidden~="widescreen"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="widescreen"] > :last-child, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .popover[data-hidden~="widescreen"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
   }
 }

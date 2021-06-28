@@ -71,26 +71,110 @@ input[type="checkbox"][role="presentation"] {
     }
 }
 
+/**
+ * HACK: Really lame again, that this has to be copied
+ */
+
 @variants <sm {
     .popover[data-hidden~="mobile"] {
         @apply !block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="mobile"],
+        &:checked + .context-backdrop + .popover[data-hidden~="mobile"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
     }
 }
 
 @variants @sm {
     .popover[data-hidden~="tablet"] {
         @apply !block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="tablet"],
+        &:checked + .context-backdrop + .popover[data-hidden~="tablet"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
     }
 }
 
 @variants @md {
     .popover[data-hidden~="desktop"] {
         @apply !block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="desktop"],
+        &:checked + .context-backdrop + .popover[data-hidden~="desktop"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
     }
 }
 
 @variants lg {
     .popover[data-hidden~="widescreen"] {
         @apply !block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="widescreen"],
+        &:checked + .context-backdrop + .popover[data-hidden~="widescreen"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
     }
 }

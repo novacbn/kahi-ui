@@ -67,6 +67,10 @@ nav.aside {
 
     & > section {
         @apply overflow-y-auto py-2 mb-4;
+
+        &:last-of-type {
+            @apply flex-grow;
+        }
     }
 
     & > :is(footer, header, section) {

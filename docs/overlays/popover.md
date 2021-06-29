@@ -71,7 +71,7 @@ types=["top", "left", "bottom", "right"]
     </ContextButton>
 
     <Card.Container
-        palette="auto-inverse"
+        palette="auto"
         elevation="medium"
         max_width="content-max"
     >
@@ -135,7 +135,36 @@ You can make the `Popover` toggleable via the `logic_id` property, and then refe
 `Popover` adds special handling for the `hidden` property, allowing you to instead customize when the child content is hidden or rendered normally.
 
 ```svelte repl Popover Hidden
+<script>
+    import {
+        Box,
+        ContextButton,
+        Popover,
+    } from "@kahi-ui/framework";
+</script>
 
+<Popover
+    logic_id="popover-hidden"
+    alignment_x="right"
+    hidden="mobile"
+    spacing="medium"
+    dismissible
+>
+    <ContextButton
+        palette="accent"
+        hidden={["tablet", "desktop", "widescreen"]}
+    >
+        Open HIDDEN Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding="medium"
+    >
+        This was HIDDEN on MOBILE only.
+    </Box>
+</Popover>
 ```
 
 ## Dismissible
@@ -143,15 +172,52 @@ You can make the `Popover` toggleable via the `logic_id` property, and then refe
 You can optionally have the `Popover` dismissible by clicking outside the `Popover` child content via the `dismissible` property.
 
 ```svelte repl Popover Dismissible
+<script>
+    import {
+        Box,
+        ContextButton,
+        Popover,
+    } from "@kahi-ui/framework";
+</script>
 
-```
+<Popover
+    logic_id="popover-non-dismissible"
+    alignment_x="right"
+    spacing="medium"
+    hidden
+>
+    <ContextButton palette="accent">
+        Open NON DISMISSIBLE Popover
+    </ContextButton>
 
-## Alignment
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding="medium"
+    >
+        This is a NON DISMISSIBLE Popover.
+    </Box>
+</Popover>
 
-You can align `Popover` content via the `alignment_x`, and `alignment_y` properties respectively.
+<Popover
+    logic_id="popover-is-dismissible"
+    alignment_x="right"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open DISMISSIBLE Popover
+    </ContextButton>
 
-```svelte repl Popover Alignment
-
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding="medium"
+    >
+        This is a DISMISSIBLE Popover.
+    </Box>
+</Popover>
 ```
 
 ## Placement
@@ -159,5 +225,196 @@ You can align `Popover` content via the `alignment_x`, and `alignment_y` propert
 You can adjust which side your content is placed on via the `placement` property.
 
 ```svelte repl Popover Placement
+<script>
+    import {
+        Box,
+        ContextButton,
+        Popover,
+    } from "@kahi-ui/framework";
+</script>
 
+<Popover
+    logic_id="popover-placement-right"
+    alignment_y="bottom"
+    placement="right"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open RIGHT Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding="medium"
+    >
+        This is a RIGHT Popover.
+    </Box>
+</Popover>
+
+<Popover
+    logic_id="popover-placement-bottom"
+    alignment_x="right"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open BOTTOM Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding="medium"
+    >
+        This is a BOTTOM Popover.
+    </Box>
+</Popover>
+```
+
+## Alignment
+
+You can align `Popover` content via the `alignment_x` and `alignment_y` properties respectively.
+
+```svelte repl Popover Alignment
+<script>
+    import {
+        Box,
+        ContextButton,
+        Popover,
+        Spacer,
+    } from "@kahi-ui/framework";
+</script>
+
+<Popover
+    logic_id="popover-alignment-right"
+    alignment_x="right"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open RIGHT Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding_x="huge"
+        padding_y="medium"
+    >
+        This is a RIGHT Popover.
+    </Box>
+</Popover>
+
+<Popover
+    logic_id="popover-alignment-center-horizontal"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open CENTER Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding_x="huge"
+        padding_y="medium"
+    >
+        This is a CENTER Popover.
+    </Box>
+</Popover>
+
+<Popover
+    logic_id="popover-alignment-left"
+    alignment_x="left"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open LEFT Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding_x="huge"
+        padding_y="medium"
+    >
+        This is a LEFT Popover.
+    </Box>
+</Popover>
+
+<Spacer spacing="huge" />
+
+<Popover
+    logic_id="popover-alignment-top"
+    alignment_y="top"
+    placement="right"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open TOP Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding_x="medium"
+        padding_y="huge"
+    >
+        This is a TOP Popover.
+    </Box>
+</Popover>
+
+<Popover
+    logic_id="popover-alignment-center-vertical"
+    placement="right"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open CENTER Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding_x="medium"
+        padding_y="huge"
+    >
+        This is a CENTER Popover.
+    </Box>
+</Popover>
+
+<Popover
+    logic_id="popover-alignment-bottom"
+    alignment_y="bottom"
+    placement="right"
+    spacing="medium"
+    dismissible
+    hidden
+>
+    <ContextButton palette="accent">
+        Open BOTTOM Popover
+    </ContextButton>
+
+    <Box
+        palette="auto-inverse"
+        max_width="content-max"
+        padding_x="medium"
+        padding_y="huge"
+    >
+        This is a BOTTOM Popover.
+    </Box>
+</Popover>
 ```

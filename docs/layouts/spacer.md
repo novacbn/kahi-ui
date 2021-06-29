@@ -62,6 +62,8 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
 
 ## Spacing
 
+> **NOTE**: By passing an array, you can set [responsive values](../framework/responsivity.md). e.g. `spacing={["medium", "tablet:small", "mobile:tiny"]}`
+
 You can adjust the spacing between the immediate siblings via the `spacing` property.
 
 ```svelte repl Spacer Spacing

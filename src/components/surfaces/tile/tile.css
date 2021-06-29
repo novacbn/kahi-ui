@@ -1,5 +1,5 @@
 .tile {
-    @apply border-1 border-solid flex rounded-md text-current shadow;
+    @apply border-2 border-solid flex rounded-md text-current shadow-sm;
 
     background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
     border-color: rgba(theme("colors.default.200"), theme("opacity.20"));

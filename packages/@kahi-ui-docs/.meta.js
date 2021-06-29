@@ -100,7 +100,8 @@ export default {
         {
             separator: "Overlays",
             items: [
-                //{href: "/docs/overlays/popover"},
+                {href: "/docs/overlays/popover"},
+                {href: "/docs/overlays/offscreen"},
                 {href: "/docs/overlays/overlay"},
             ],
         },

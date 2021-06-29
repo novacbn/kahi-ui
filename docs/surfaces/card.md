@@ -2,7 +2,7 @@
 [[properties."Card.Container"]]
 name="elevation"
 description="Alters how \"high\" the <code>Card</code> appears to be off the page."
-default="low"
+default="lowest"
 types=["lowest", "low", "medium", "high", "highest"]
 
 [[properties."Card.Container"]]
@@ -26,7 +26,7 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
     } from "@kahi-ui/framework";
 </script>
 
-<Card.Container class="card-preview">
+<Card.Container class="card-preview" palette="auto">
     <Card.Figure>
         <img src={IMAGE_BACKGROUND} />
     </Card.Figure>
@@ -282,7 +282,7 @@ You can set how "high" your `Card` will appear to be over top the page via the `
         <Card.Header>
             Ocean Rockies
             <Spacer />
-            <Badge>lowest</Badge>
+            <Badge>lowest / default</Badge>
         </Card.Header>
 
         <Card.Section>
@@ -297,7 +297,7 @@ You can set how "high" your `Card` will appear to be over top the page via the `
         </Card.Section>
     </Card.Container>
 
-    <Card.Container>
+    <Card.Container elevation="low">
         <Card.Figure>
             <img src={IMAGE_BACKGROUND} />
         </Card.Figure>
@@ -305,7 +305,7 @@ You can set how "high" your `Card` will appear to be over top the page via the `
         <Card.Header>
             Ocean Rockies
             <Spacer />
-            <Badge>low / default</Badge>
+            <Badge>low</Badge>
         </Card.Header>
 
         <Card.Section>

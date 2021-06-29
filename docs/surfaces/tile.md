@@ -2,7 +2,7 @@
 [[properties."Tile.Container"]]
 name="elevation"
 description="Alters how \"high\" the <code>Tile</code> appears to be off the page."
-default="low"
+default="lowest"
 types=["lowest", "low", "medium", "high", "highest"]
 
 [[properties."Tile.Container"]]
@@ -24,7 +24,7 @@ types=["accent", "dark", "light", "alert", "affirmative", "negative"]
     } from "@kahi-ui/framework";
 </script>
 
-<Tile.Container width="content-max">
+<Tile.Container palette="auto" width="content-max">
     <Tile.Figure shape="pill">
         <img src={IMAGE_AVATAR} />
     </Tile.Figure>
@@ -277,11 +277,14 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
         </Tile.Section>
 
         <Tile.Footer>
-            <Text is="small">lowest</Text>
+            <Text is="small">lowest / default</Text>
         </Tile.Footer>
     </Tile.Container>
 
-    <Tile.Container width="content-max">
+    <Tile.Container
+        elevation="low"
+        width="content-max"
+    >
         <Tile.Figure shape="pill">
             <img src={IMAGE_AVATAR} />
         </Tile.Figure>
@@ -298,7 +301,7 @@ You can set how "high" your `Tile` will appear to be over top the page via the `
         </Tile.Section>
 
         <Tile.Footer>
-            <Text is="small">low / default</Text>
+            <Text is="small">low</Text>
         </Tile.Footer>
     </Tile.Container>
 

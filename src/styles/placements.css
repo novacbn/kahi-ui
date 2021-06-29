@@ -12,8 +12,8 @@
     --placement-top: 0%;
     --placement-left: 0%;
 
-    --placement-clip-off: 100% 0% 0% 0%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 100% -10% -10% -10%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: 50%, -100%;
 
@@ -45,8 +45,8 @@
     --placement-top: 0%;
     --placement-left: 0%;
 
-    --placement-clip-off: 0% 0% 0% 100%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 0% -10% -10% 100%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: -100%, 50%;
 
@@ -78,8 +78,8 @@
     --placement-top: 100%;
     --placement-left: 0%;
 
-    --placement-clip-off: 0% 0% 100% 0%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 0% -10% 100% -10%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: 50%, 100%;
 
@@ -111,8 +111,8 @@
     --placement-top: 0%;
     --placement-left: 100%;
 
-    --placement-clip-off: 0% 100% 0% 0%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 0% 100% -10% -10%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: 100%, 50%;
 

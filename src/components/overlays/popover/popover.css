@@ -1,13 +1,13 @@
 .popover {
-    @apply contents relative max-w-[max-content];
+    @apply contents relative max-w-[max-content] whitespace-nowrap;
 
     /**
      * HACK: Pretty lame that this has to be copied here
      */
 
     &:not([data-placement]) {
-        --placement-clip-off: 0% 0% 100% 0%;
-        --placement-clip-on: 0% 0% 0% 0%;
+        --placement-clip-off: 0% -10% 100% -10%;
+        --placement-clip-on: 0% -10% -10% -10%;
 
         --placement-inset: auto 50% calc(0% - var(--spacing-y)) auto;
         --placement-translation: 50%, 100%;

@@ -158,7 +158,7 @@ You can make the `Offscreen` toggleable via the `logic_id` property, and then re
                 X
             </ContextButton>
 
-            I was HIDDEN on mobile!
+            I was HIDDEN on MOBILE!
         </Stack>
     </Box>
 </Offscreen>
@@ -314,6 +314,47 @@ You can optionally have the `Offscreen` dismissible by clicking the backdrop via
 </Offscreen>
 ```
 
+## Placement
+
+You can adjust which side your content is hidden on via the `placement` property.
+
+```svelte repl Offscreen Placement
+<script>
+    import {
+        Box,
+        Button,
+        ContextButton,
+        Offscreen,
+        Stack,
+    } from "@kahi-ui/framework";
+</script>
+
+<Button for="offscreen-placement" palette="accent">
+    Open PLACED Offscreen
+</Button>
+
+<Offscreen
+    logic_id="offscreen-placement"
+    placement="left"
+    hidden
+    captive
+    dismissible
+>
+    <Box palette="accent" padding="medium">
+        <Stack spacing="medium">
+            <ContextButton
+                palette="light"
+                variation="clear"
+            >
+                X
+            </ContextButton>
+
+            I was PLACED on the LEFT!
+        </Stack>
+    </Box>
+</Offscreen>
+```
+
 ## Alignment
 
 You can align `Offscreen` content via the `alignment`, `alignment_x`, and `alignment_y` properties respectively.
@@ -355,47 +396,6 @@ You can align `Offscreen` content via the `alignment`, `alignment_x`, and `align
             </ContextButton>
 
             I was ALIGNED to the RIGHT!
-        </Stack>
-    </Box>
-</Offscreen>
-```
-
-## Placement
-
-You can adjust which side your content is hidden on via the `placement` property.
-
-```svelte repl Offscreen Placement
-<script>
-    import {
-        Box,
-        Button,
-        ContextButton,
-        Offscreen,
-        Stack,
-    } from "@kahi-ui/framework";
-</script>
-
-<Button for="offscreen-placement" palette="accent">
-    Open PLACED Offscreen
-</Button>
-
-<Offscreen
-    logic_id="offscreen-placement"
-    placement="left"
-    hidden
-    captive
-    dismissible
->
-    <Box palette="accent" padding="medium">
-        <Stack spacing="medium">
-            <ContextButton
-                palette="light"
-                variation="clear"
-            >
-                X
-            </ContextButton>
-
-            I was PLACED on the LEFT!
         </Stack>
     </Box>
 </Offscreen>

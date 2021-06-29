@@ -3,14 +3,20 @@ import {
     STORYBOOK_HIDDEN_ARGUMENTS,
 } from "../../../../storybook/arguments";
 
-import List from "../OrderedList.svelte";
+import ListContainer from "../ListContainer.svelte";
 
 import ListDefaultStory from "./ListDefaultStory.svelte";
 
 export default {
     title: "Display/List",
-    component: List,
+    component: ListContainer,
     argTypes: {
+        is: {
+            options: ["ol", "ul"],
+            control: {
+                type: "select",
+            },
+        },
         character: {
             control: {
                 type: "text",

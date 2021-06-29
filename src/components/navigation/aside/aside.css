@@ -1,34 +1,14 @@
 @variants <md {
     input[type="checkbox"][role="presentation"] {
-        & + nav.aside,
-        & + .context-backdrop + nav.aside {
-            @apply fixed left-0 top-0;
-
-            transform: translateX(-100%);
-            transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-            & > .context-button {
-                @apply bottom-3 fixed -right-3;
-            }
-
-            & > .context-button {
-                transform: translateX(100%);
-            }
-        }
-
-        &:not(:checked) + nav.aside,
-        &:not(:checked) + .context-backdrop + nav.aside {
+        &:not(:checked) + .offscreen > nav.aside,
+        &:not(:checked) + .context-backdrop + .offscreen > nav.aside {
             & > .context-button:nth-last-of-type(2) {
                 display: initial;
             }
         }
 
-        &:checked + nav.aside,
-        &:checked + .context-backdrop + nav.aside {
-            transform: translateX(0%);
-
+        &:checked + .offscreen > nav.aside,
+        &:checked + .context-backdrop + .offscreen > nav.aside {
             & > .context-button:last-of-type {
                 display: initial;
             }
@@ -37,13 +17,17 @@
 }
 
 nav.aside {
-    @apply flex flex-col relative text-current z-1;
+    @apply border-r-1 border-solid flex flex-col relative text-current z-1;
 
     background-color: rgba(theme("colors.default.200"), theme("opacity.20"));
     border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
 
     &[data-palette] {
         @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
+    }
+
+    &[data-placement="right"] {
+        @apply border-l-1 border-r-0;
     }
 
     &[data-variation~="sticky"] {
@@ -59,7 +43,18 @@ nav.aside {
     }
 
     & > .context-button {
-        @apply hidden;
+        @apply bottom-3 fixed hidden pointer-events-auto -right-3;
+
+        transform: translateX(100%);
+    }
+
+    &[data-placement="right"] {
+        & > .context-button {
+            @apply -left-3;
+
+            right: unset;
+            transform: translateX(-100%);
+        }
     }
 
     & > header {
@@ -72,21 +67,13 @@ nav.aside {
 
     & > section {
         @apply overflow-y-auto py-2 mb-4;
+
+        &:last-of-type {
+            @apply flex-grow;
+        }
     }
 
     & > :is(footer, header, section) {
         @apply px-6;
     }
-}
-
-input[type="checkbox"][role="presentation"]:first-child + nav.aside,
-input[type="checkbox"][role="presentation"]:first-child + .context-backdrop + nav.aside,
-nav.aside:first-child {
-    @apply border-r-1 border-solid;
-}
-
-input[type="checkbox"][role="presentation"]:last-child + nav.aside,
-input[type="checkbox"][role="presentation"]:last-child + .context-backdrop + nav.aside,
-nav.aside:last-child {
-    @apply border-l-1 border-solid;
 }

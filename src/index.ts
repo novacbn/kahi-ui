@@ -6,6 +6,7 @@ export * from "./lib/types/fit";
 export * from "./lib/types/hidden";
 export * from "./lib/types/orientations";
 export * from "./lib/types/palettes";
+export * from "./lib/types/placements";
 export * from "./lib/types/points";
 export * from "./lib/types/positions";
 export * from "./lib/types/resizable";
@@ -58,7 +59,9 @@ export {Menu};
 import * as Omni from "./components/navigation/omni";
 export {Omni};
 
+export * from "./components/overlays/offscreen";
 export * from "./components/overlays/overlay";
+export * from "./components/overlays/popover";
 
 export * from "./components/surfaces/box";
 import * as Card from "./components/surfaces/card";

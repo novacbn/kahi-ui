@@ -24,6 +24,12 @@ export const DESIGN_SPACING_LITERALS = {
     ...get_breakpoint_delimited<DESIGN_SPACING>(DESIGN_SPACING),
 } as const;
 
+export const DESIGN_SPACING_SINGULAR_LITERALS = {
+    ...DESIGN_SPACING,
+} as const;
+
 export type DESIGN_SPACING_ARGUMENT =
     | keyof typeof DESIGN_SPACING_LITERALS
     | (keyof typeof DESIGN_SPACING_LITERALS)[];
+
+export type DESIGN_SPACING_SINGULAR_ARGUMENT = keyof typeof DESIGN_SPACING_SINGULAR_LITERALS;

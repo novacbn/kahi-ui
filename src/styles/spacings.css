@@ -1936,6 +1936,11 @@
 
 /** GLOBAL GAP */
 
+[data-spacing~="none"] {
+    --spacing-x: 0px;
+    --spacing-y: 0px;
+}
+
 [data-spacing~="tiny"] {
     --spacing-x: theme("gap.1");
     --spacing-y: theme("gap.1");
@@ -1962,6 +1967,11 @@
 }
 
 @variants <sm {
+    [data-spacing~="mobile:none"] {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+
     [data-spacing~="mobile:tiny"] {
         --spacing-x: theme("gap.1");
         --spacing-y: theme("gap.1");
@@ -1989,6 +1999,11 @@
 }
 
 @variants @sm {
+    [data-spacing~="tablet:none"] {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+
     [data-spacing~="tablet:tiny"] {
         --spacing-x: theme("gap.1");
         --spacing-y: theme("gap.1");
@@ -2016,6 +2031,11 @@
 }
 
 @variants @md {
+    [data-spacing~="desktop:none"] {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+
     [data-spacing~="desktop:tiny"] {
         --spacing-x: theme("gap.1");
         --spacing-y: theme("gap.1");
@@ -2043,6 +2063,11 @@
 }
 
 @variants lg {
+    [data-spacing~="widescreen:none"] {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+
     [data-spacing~="widescreen:tiny"] {
         --spacing-x: theme("gap.1");
         --spacing-y: theme("gap.1");
@@ -2069,6 +2094,10 @@
     }
 }
 
+[data-spacing-x~="none"] {
+    --spacing-x: 0px;
+}
+
 [data-spacing-x~="tiny"] {
     --spacing-x: theme("gap.1");
 }
@@ -2090,6 +2119,10 @@
 }
 
 @variants <sm {
+    [data-spacing-x~="mobile:none"] {
+        --spacing-x: 0px;
+    }
+
     [data-spacing-x~="mobile:tiny"] {
         --spacing-x: theme("gap.1");
     }
@@ -2112,6 +2145,10 @@
 }
 
 @variants @sm {
+    [data-spacing-x~="tablet:none"] {
+        --spacing-x: 0px;
+    }
+
     [data-spacing-x~="tablet:tiny"] {
         --spacing-x: theme("gap.1");
     }
@@ -2134,6 +2171,10 @@
 }
 
 @variants @md {
+    [data-spacing-x~="desktop:none"] {
+        --spacing-x: 0px;
+    }
+
     [data-spacing-x~="desktop:tiny"] {
         --spacing-x: theme("gap.1");
     }
@@ -2156,6 +2197,10 @@
 }
 
 @variants lg {
+    [data-spacing-x~="widescreen:none"] {
+        --spacing-x: 0px;
+    }
+
     [data-spacing-x~="widescreen:tiny"] {
         --spacing-x: theme("gap.1");
     }
@@ -2175,6 +2220,10 @@
     [data-spacing-x~="widescreen:huge"] {
         --spacing-x: theme("gap.16");
     }
+}
+
+[data-spacing-y~="none"] {
+    --spacing-y: 0px;
 }
 
 [data-spacing-y~="tiny"] {
@@ -2198,6 +2247,10 @@
 }
 
 @variants <sm {
+    [data-spacing-y~="mobile:none"] {
+        --spacing-y: 0px;
+    }
+
     [data-spacing-y~="mobile:tiny"] {
         --spacing-y: theme("gap.1");
     }
@@ -2220,6 +2273,10 @@
 }
 
 @variants @sm {
+    [data-spacing-y~="tablet:none"] {
+        --spacing-y: 0px;
+    }
+
     [data-spacing-y~="tablet:tiny"] {
         --spacing-y: theme("gap.1");
     }
@@ -2242,6 +2299,10 @@
 }
 
 @variants @md {
+    [data-spacing-y~="desktop:none"] {
+        --spacing-y: 0px;
+    }
+
     [data-spacing-y~="desktop:tiny"] {
         --spacing-y: theme("gap.1");
     }
@@ -2264,6 +2325,10 @@
 }
 
 @variants lg {
+    [data-spacing-y~="widescreen:none"] {
+        --spacing-y: 0px;
+    }
+
     [data-spacing-y~="widescreen:tiny"] {
         --spacing-y: theme("gap.1");
     }

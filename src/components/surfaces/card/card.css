@@ -1,5 +1,5 @@
 .card {
-    @apply flex flex-col rounded-md text-current shadow;
+    @apply flex flex-col rounded-md text-current shadow-sm;
 
     background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
 
@@ -28,7 +28,19 @@
     }
 
     & > section {
-        @apply flex-grow py-2;
+        @apply py-2;
+
+        &:first-child {
+            @apply pt-4;
+        }
+
+        &:last-child {
+            @apply pb-4;
+        }
+
+        &:last-of-type {
+            @apply flex-grow;
+        }
     }
 
     & > :is(header, footer) {
@@ -36,16 +48,16 @@
     }
 
     & > :is(footer, header, section) {
-        @apply border-l-1 border-r-1 border-solid px-6;
+        @apply border-l-2 border-r-2 border-solid px-6;
 
         border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
 
         &:first-child {
-            @apply border-t-1 rounded-t-[inherit];
+            @apply border-t-2 rounded-t-[inherit];
         }
 
         &:last-child {
-            @apply border-b-1 rounded-b-[inherit];
+            @apply border-b-2 rounded-b-[inherit];
         }
     }
 }

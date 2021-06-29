@@ -5,7 +5,7 @@
 Using a terminal inside of your project's directory, use `npm` to install the package.
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.10
+npm install github:novacbn/kahi-ui#0.2.11
 ```
 
 ## Importing Stylesheet
@@ -62,7 +62,10 @@ Some Components are multi-part patterns, so you'll need to import their namespac
     } from "@kahi-ui/framework";
 </script>
 
-<Card.Container class="getting-started-patterns">
+<Card.Container
+    class="getting-started-patterns"
+    palette="auto"
+>
     <Card.Figure>
         <img src={IMAGE_BACKGROUND} />
     </Card.Figure>

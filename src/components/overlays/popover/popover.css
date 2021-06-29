@@ -1,0 +1,173 @@
+.popover {
+    @apply contents relative max-w-[max-content] whitespace-nowrap;
+
+    /**
+     * HACK: Pretty lame that this has to be copied here
+     */
+
+    &:not([data-placement]) {
+        --placement-clip-off: 0% -10% 100% -10%;
+        --placement-clip-on: 0% -10% -10% -10%;
+
+        --placement-inset: auto 50% calc(0% - var(--spacing-y)) auto;
+        --placement-translation: 50%, 100%;
+
+        &[data-alignment-x="left"] {
+            --placement-inset: auto 0% calc(0% - var(--spacing-y)) auto;
+            --placement-translation: 0%, 100%;
+        }
+
+        &[data-alignment-x="right"] {
+            --placement-inset: auto auto calc(0% - var(--spacing-y)) 0%;
+            --placement-translation: 0%, 100%;
+        }
+    }
+
+    &:not([data-spacing]) {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+
+    & > :last-child {
+        @apply z-1;
+
+        /**
+         * HACK: This will mess with the decendent's own transitions... best
+         * we can do is fill in some of the blanks
+         */
+
+        transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            clip-path 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+}
+
+.popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
+    @apply !inline-block;
+
+    & > :last-child {
+        @apply absolute pointer-events-none opacity-0;
+
+        inset: var(--placement-inset);
+
+        clip-path: inset(var(--placement-clip-off));
+        transform: translate(var(--placement-translation));
+    }
+}
+
+input[type="checkbox"][role="presentation"] {
+    &:checked
+        + .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
+        & > :last-child {
+            @apply pointer-events-auto opacity-100;
+
+            clip-path: inset(var(--placement-clip-on));
+        }
+    }
+}
+
+/**
+ * HACK: Really lame again, that this has to be copied
+ */
+
+@variants <sm {
+    .popover[data-hidden~="mobile"] {
+        @apply !inline-block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="mobile"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
+    }
+}
+
+@variants @sm {
+    .popover[data-hidden~="tablet"] {
+        @apply !inline-block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="tablet"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
+    }
+}
+
+@variants @md {
+    .popover[data-hidden~="desktop"] {
+        @apply !inline-block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="desktop"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
+    }
+}
+
+@variants lg {
+    .popover[data-hidden~="widescreen"] {
+        @apply !inline-block;
+
+        & > :last-child {
+            @apply absolute pointer-events-none opacity-0;
+
+            inset: var(--placement-inset);
+
+            clip-path: inset(var(--placement-clip-off));
+            transform: translate(var(--placement-translation));
+        }
+    }
+
+    input[type="checkbox"][role="presentation"] {
+        &:checked + .popover[data-hidden~="widescreen"] {
+            & > :last-child {
+                @apply pointer-events-auto opacity-100;
+
+                clip-path: inset(var(--placement-clip-on));
+            }
+        }
+    }
+}

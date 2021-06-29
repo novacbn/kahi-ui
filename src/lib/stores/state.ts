@@ -10,13 +10,8 @@ export function state(default_value: boolean): IStateStore {
     return writable<boolean>(default_value);
 }
 
-export function get_state_context(): IStateStore {
-    const store = getContext<IStateStore | undefined>(CONTEXT_STATE);
-    if (!store) {
-        throw new Error("bad dispatch to 'get_state_context' (Svelte Context not previously set)");
-    }
-
-    return store;
+export function get_state_context(): IStateStore | undefined {
+    return getContext<IStateStore | undefined>(CONTEXT_STATE);
 }
 
 export function make_state_context(default_value: boolean): IStateStore {

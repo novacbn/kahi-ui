@@ -17,7 +17,7 @@ Displayed in the main landing page of [kahi-ui.nbn.dev](https://kahi-ui.nbn.dev)
     } from "@kahi-ui/framework";
 </script>
 
-<Card.Container class="landing-preview">
+<Card.Container class="landing-preview" palette="auto">
     <Card.Header>
         Ocean Rockies
         <Spacer />

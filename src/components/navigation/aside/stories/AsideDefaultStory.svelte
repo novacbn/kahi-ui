@@ -7,7 +7,6 @@
     import ContextButton from "../../../utilities/contextbutton/ContextButton.svelte";
 
     import * as Aside from "../index";
-
 </script>
 
 <Aside.Container

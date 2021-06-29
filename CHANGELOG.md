@@ -1,6 +1,85 @@
 # CHANGELOG
 
-## v0.2.10 -
+## v0.2.11 - 2021/??/??
+
+-   Bump Browser minimum version requirements.
+
+    -   Utilizing [`inset`](https://developer.mozilla.org/en-US/docs/Web/CSS/inset) in `Popover`.
+
+        -   Chrome 87+ _(November 2020)_
+        -   Edge 87+ _(November 2020)_
+        -   Firefox 66+ _(March 2019)_
+
+            -   Minimum was already Firefox 67+.
+
+        -   Safari 14.1+ _(April 2021)_
+
+            -   Minimum was already Safari 14.1+.
+
+-   Added `<XXX spacing="{VIEWPORT}:none">` / `<XXX spacing-{AXIS}="{VIEWPORT}:none">` support for Components that needed the zero pixel variable.
+-   Added the following Components
+
+    -   Overlays
+
+        -   `Offscreen` — Useful for wrapping excess content offscreen that the end-user can show via buttons on the Viewport edges.
+
+            -   `<Offscreen alignment="center/stretch" alignment_x="left/right/center/stretch" alignment_y="top/bottom/center/stretch">` — Defaults to `stretch`, used to align the content.
+            -   `<Offscreen hidden="true/mobile/tablet/desktop/widescreen">` — Used to control which Viewports the excess content is hidden on.
+            -   `<Offscreen logic_id="XXX">` — Used to set the HTML `id` for the state checkbox which controls when content is being shown.
+            -   `<Offscreen placement="top/left/bottom/right">` — Defaults to `left`, used to control which edge to show the content along.
+            -   `<Offscreen captive>` — Enables the backdrop.
+            -   `<Offscreen dismissable>` — Enables the backdrop to be clickable, and dismisses the `Offscreen`.
+            -   `<Offscreen on:active>` — Fires whenever the `Offscreen` is made active, either via scripting or the end-user.
+            -   `<Offscreen on:dismiss>` — Fires whenever the `Offscreen` is dismissed, either via scripting or the end-user.
+
+        -   `Popover` — Useful for creating overflow menus that the end-user can show via buttons.
+
+            -   `<Popover alignment_x="left/right/center" alignment_y="top/bottom/center">` — Defaults to `center`, used to align the content.
+            -   `<Popover hidden="true/mobile/tablet/desktop/widescreen">` — Used to control which Viewports the excess content is hidden on.
+            -   `<Popover logic_id="XXX">` — Used to set the HTML `id` for the state checkbox which controls when content is being shown.
+            -   `<Popover placement="top/left/bottom/right">` — Defaults to `bottom`, used to control which edge to show the content along.
+            -   `<Popover spacing="none/tiny/small/medium/large/huge">` — Defaults to `none`, used to control how far away the `Popover`'s floating content will appear away from the base content.
+            -   `<Popover dismissable>` — Enables the `Popover` to close whenever its content are clicked outside of.
+            -   `<Popover on:active>` — Fires whenever the `Popover` is made active, either via scripting or the end-user.
+            -   `<Popover on:dismiss>` — Fires whenever the `Popover` is dismissed, either via scripting or the end-user.
+
+-   Updated the following Components
+
+    -   Navigation
+
+        -   `Aside`
+
+            -   Added `<Aside.Container placement="left/right">` — Used to control which Viewport edge the `Aside` will be on when collapsed on Mobile / Tablet.
+            -   Added `<Aside.Container on:active>` — Fires whenever the `Aside` is made active, either via scripting or the end-user.
+            -   Added `<Aside.Container on:dismiss>` — Fires whenever the `Aside` is dismissed, either via scripting or the end-user.
+            -   Migrated `<Aside.Container>` to internally use `Offscreen` for collapsing functionality.
+            -   Updated last `<Aside.Section>` to flew grow to parent height.
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   Fixed `Overlay` potentially resetting between viewport changes.
+
+    -   Surfaces
+
+        -   `Card`
+
+            -   Updated `<Card.Section>` to have increased y-axis padding when the first / last child of a `<Card.Container>`.
+            -   Updated only last `<Card.Section>` to only flex grow parent height.
+
+        -   `Card` / `Tile`
+
+            -   Updated border size slightly for better Dark Mode readability.
+            -   Updated default elevation to be `lowest` instead of `low`.
+
+-   Updated the following Stores / Contexts
+
+    -   `get_state_context(): Writable<boolean>`
+
+        -   `get_state_context(): Writable<boolean>` -> `get_state_context(): Writable<boolean> | undefined` — No longer throws an error when the Svelte Context cannot be found.
+
+## v0.2.10 - 2021/06/26
 
 -   Updated the following Components
 
@@ -336,7 +415,7 @@
 
 -   Added Stores / Contexts used by some Components for progressive enhancements
 
-    -   `state(default_value: boolean): Writable<boolean>` / `get_state_context(): Writable<string>`
+    -   `state(default_value: boolean): Writable<boolean>` / `get_state_context(): Writable<boolean>`
 
         -   Used for providing contextual boolean state access, e.g. `<ContextBackdrop>` will read this from an `<Aside.Container>` to enable Scroll Lock
 

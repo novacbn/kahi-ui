@@ -8,7 +8,6 @@
     } from "../../../lib/types/alignments";
     import {make_id_context} from "../../../lib/stores/id";
     import {make_state_context} from "../../../lib/stores/state";
-    import {viewports} from "../../../lib/stores/viewport";
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
@@ -76,7 +75,6 @@
 
     const _logic_id = make_id_context(logic_id);
     const _state = make_state_context(state);
-    const _viewports = viewports({mobile: true, tablet: true});
 
     let _previous_state = state;
 
@@ -84,7 +82,6 @@
         state = (event.target as HTMLInputElement).checked;
     }
 
-    $: if (!$_viewports) state = false;
     $: $_state = state;
 
     $: {

@@ -5,10 +5,12 @@
 
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
+    import type {DESIGN_PLACEMENT_X_ARGUMENT} from "../../../lib/types/placements";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
+    import Offscreen from "../../overlays/offscreen/Offscreen.svelte";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
 
@@ -60,38 +62,32 @@
     export let state: boolean = false;
     export let variation: "sticky" | undefined = undefined;
 
+    export let placement: DESIGN_PLACEMENT_X_ARGUMENT | undefined = undefined;
+
     const _logic_id = make_id_context(logic_id);
     const _state = make_state_context(state);
     const _viewports = viewports({mobile: true, tablet: true});
 
-    function on_input(event: Event) {
-        state = (event.target as HTMLInputElement).checked;
-    }
-
     $: if (!$_viewports) state = false;
     $: $_state = state;
-
 </script>
 
-{#if $_logic_id}
-    <input
-        role="presentation"
-        id={$_logic_id}
-        type="checkbox"
-        bind:checked={$_state}
-        on:input={on_input}
-    />
-
-    {#if captive}
-        <ContextBackdrop {dismissible} />
-    {/if}
-{/if}
-
-<nav
-    bind:this={element}
-    {...map_global_attributes($$props)}
-    class="aside {_class}"
-    {...map_data_attributes({palette, variation})}
+<Offscreen
+    hidden={$_logic_id ? ["mobile", "tablet"] : undefined}
+    logic_id={$_logic_id}
+    bind:state
+    {captive}
+    {dismissible}
+    {placement}
+    on:active
+    on:dismiss
 >
-    <slot />
-</nav>
+    <nav
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        class="aside {_class}"
+        {...map_data_attributes({palette, placement, variation})}
+    >
+        <slot />
+    </nav>
+</Offscreen>

@@ -1227,6 +1227,13 @@ nav.aside > section {
   margin-bottom: 1rem;
 }
 
+nav.aside > section:last-of-type {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+
 nav.aside > :is(footer, header, section) {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1600,7 +1607,7 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   flex-direction: column;
   border-radius: 0.375rem;
   color: currentColor;
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   background-color: rgba(240, 241, 243, 0.1);
@@ -1640,10 +1647,6 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
 }
 
 .card > section {
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  -webkit-flex-grow: 1;
-  flex-grow: 1;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -1654,6 +1657,13 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
 
 .card > section:last-child {
   padding-bottom: 1rem;
+}
+
+.card > section:last-of-type {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
 }
 
 .card > :is(header, footer) {
@@ -1671,8 +1681,8 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
 }
 
 .card > :is(footer, header, section) {
-  border-left-width: 1px;
-  border-right-width: 1px;
+  border-left-width: 2px;
+  border-right-width: 2px;
   border-style: solid;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1680,13 +1690,13 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
 }
 
 .card > :is(footer, header, section):first-child {
-  border-top-width: 1px;
+  border-top-width: 2px;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 
 .card > :is(footer, header, section):last-child {
-  border-bottom-width: 1px;
+  border-bottom-width: 2px;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
@@ -1784,7 +1794,7 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
 }
 
 .tile {
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1792,7 +1802,7 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   display: flex;
   border-radius: 0.375rem;
   color: currentColor;
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   background-color: rgba(240, 241, 243, 0.1);
@@ -4003,8 +4013,8 @@ html[data-palette="dark"] [data-palette="negative"] {
     --placement-top: 0%;
     --placement-left: 0%;
 
-    --placement-clip-off: 100% 0% 0% 0%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 100% -10% -10% -10%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: 50%, -100%;
 
@@ -4036,8 +4046,8 @@ html[data-palette="dark"] [data-palette="negative"] {
     --placement-top: 0%;
     --placement-left: 0%;
 
-    --placement-clip-off: 0% 0% 0% 100%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 0% -10% -10% 100%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: -100%, 50%;
 
@@ -4069,8 +4079,8 @@ html[data-palette="dark"] [data-palette="negative"] {
     --placement-top: 100%;
     --placement-left: 0%;
 
-    --placement-clip-off: 0% 0% 100% 0%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 0% -10% 100% -10%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: 50%, 100%;
 
@@ -4102,8 +4112,8 @@ html[data-palette="dark"] [data-palette="negative"] {
     --placement-top: 0%;
     --placement-left: 100%;
 
-    --placement-clip-off: 0% 100% 0% 0%;
-    --placement-clip-on: 0% 0% 0% 0%;
+    --placement-clip-off: 0% 100% -10% -10%;
+    --placement-clip-on: 0% -10% -10% -10%;
 
     --placement-translation: 100%, 50%;
 
@@ -8696,11 +8706,12 @@ input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="chec
   display: contents;
   position: relative;
   max-width: max-content;
+  white-space: nowrap;
 }
 
 .popover:not([data-placement]) {
-        --placement-clip-off: 0% 0% 100% 0%;
-        --placement-clip-on: 0% 0% 0% 0%;
+        --placement-clip-off: 0% -10% 100% -10%;
+        --placement-clip-on: 0% -10% -10% -10%;
 
         --placement-inset: auto 50% calc(0% - var(--spacing-y)) auto;
         --placement-translation: 50%, 100%

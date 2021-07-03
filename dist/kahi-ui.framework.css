@@ -1,7 +1,7 @@
 /*!
  * Kahi UI - Framework
  *
- * v0.2.11
+ * v0.2.12
  */
 
 *, ::before, ::after {
@@ -994,8 +994,6 @@ html[data-palette="dark"] [type="radio"]:not([data-palette]) {
 [type="email"], [type="password"], [type="text"], [type="search"], [type="url"], textarea {
   --palette-background-bg: 166, 173, 184;
   --palette-foreground-bg: 128, 138, 153;
-  --size-text: inherit;
-  --size-line-height: inherit;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1008,8 +1006,10 @@ html[data-palette="dark"] [type="radio"]:not([data-palette]) {
   padding-bottom: 0.5em;
   position: relative;
   border-radius: 0.5rem;
-  line-height: var(--size-line-height);
-  font-size: var(--size-text);
+  font-size: var(--size-text, inherit);
+  line-height: var(--size-line-height, inherit);
+  text-align: var(--align-text, inherit);
+  text-transform: var(--transform-text, inherit);
   outline: none !important;
 }
 
@@ -1225,6 +1225,12 @@ nav.aside > section {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+}
+
+nav.aside > section:not(:last-of-type) {
+  -ms-flex-negative: 0;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 nav.aside > section:last-of-type {
@@ -1922,6 +1928,8 @@ pre > code {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  text-align: var(--align-text, inherit);
+  text-transform: var(--transform-text, inherit);
 }
 
 h1 {
@@ -1984,23 +1992,33 @@ h6[data-variation~="headline"] {
   line-height: 2rem;
 }
 
-abbr[data-palette], b[data-palette], del[data-palette], em[data-palette], h1[data-palette], h2[data-palette], h3[data-palette], h4[data-palette], h5[data-palette], h6[data-palette], i[data-palette], ins[data-palette], kbd[data-palette], mark[data-palette], p[data-palette], pre[data-palette], s[data-palette], samp[data-palette], small[data-palette], span:not([class])[data-palette], strong[data-palette], sub[data-palette], sup[data-palette], u[data-palette] {
+abbr,
+b,
+del,
+em,
+i,
+ins,
+kbd,
+mark,
+p,
+pre,
+s,
+samp,
+small,
+span:not([class]),
+strong,
+sub,
+sup,
+u {
+    text-align: var(--align-text, inherit);
+    text-transform: var(--transform-text, inherit)
+}
+
+abbr[data-palette], b[data-palette], del[data-palette], em[data-palette], i[data-palette], ins[data-palette], kbd[data-palette], mark[data-palette], p[data-palette], pre[data-palette], s[data-palette], samp[data-palette], small[data-palette], span:not([class])[data-palette], strong[data-palette], sub[data-palette], sup[data-palette], u[data-palette] {
         color: rgb(var(--palette-foreground-bg));
     }
 
-abbr[data-transform="capitalize"], b[data-transform="capitalize"], del[data-transform="capitalize"], em[data-transform="capitalize"], h1[data-transform="capitalize"], h2[data-transform="capitalize"], h3[data-transform="capitalize"], h4[data-transform="capitalize"], h5[data-transform="capitalize"], h6[data-transform="capitalize"], i[data-transform="capitalize"], ins[data-transform="capitalize"], kbd[data-transform="capitalize"], mark[data-transform="capitalize"], p[data-transform="capitalize"], pre[data-transform="capitalize"], s[data-transform="capitalize"], samp[data-transform="capitalize"], small[data-transform="capitalize"], span:not([class])[data-transform="capitalize"], strong[data-transform="capitalize"], sub[data-transform="capitalize"], sup[data-transform="capitalize"], u[data-transform="capitalize"] {
-  text-transform: capitalize;
-}
-
-abbr[data-transform="lowercase"], b[data-transform="lowercase"], del[data-transform="lowercase"], em[data-transform="lowercase"], h1[data-transform="lowercase"], h2[data-transform="lowercase"], h3[data-transform="lowercase"], h4[data-transform="lowercase"], h5[data-transform="lowercase"], h6[data-transform="lowercase"], i[data-transform="lowercase"], ins[data-transform="lowercase"], kbd[data-transform="lowercase"], mark[data-transform="lowercase"], p[data-transform="lowercase"], pre[data-transform="lowercase"], s[data-transform="lowercase"], samp[data-transform="lowercase"], small[data-transform="lowercase"], span:not([class])[data-transform="lowercase"], strong[data-transform="lowercase"], sub[data-transform="lowercase"], sup[data-transform="lowercase"], u[data-transform="lowercase"] {
-  text-transform: lowercase;
-}
-
-abbr[data-transform="uppercase"], b[data-transform="uppercase"], del[data-transform="uppercase"], em[data-transform="uppercase"], h1[data-transform="uppercase"], h2[data-transform="uppercase"], h3[data-transform="uppercase"], h4[data-transform="uppercase"], h5[data-transform="uppercase"], h6[data-transform="uppercase"], i[data-transform="uppercase"], ins[data-transform="uppercase"], kbd[data-transform="uppercase"], mark[data-transform="uppercase"], p[data-transform="uppercase"], pre[data-transform="uppercase"], s[data-transform="uppercase"], samp[data-transform="uppercase"], small[data-transform="uppercase"], span:not([class])[data-transform="uppercase"], strong[data-transform="uppercase"], sub[data-transform="uppercase"], sup[data-transform="uppercase"], u[data-transform="uppercase"] {
-  text-transform: uppercase;
-}
-
-abbr[data-variation~="truncate"], b[data-variation~="truncate"], del[data-variation~="truncate"], em[data-variation~="truncate"], h1[data-variation~="truncate"], h2[data-variation~="truncate"], h3[data-variation~="truncate"], h4[data-variation~="truncate"], h5[data-variation~="truncate"], h6[data-variation~="truncate"], i[data-variation~="truncate"], ins[data-variation~="truncate"], kbd[data-variation~="truncate"], mark[data-variation~="truncate"], p[data-variation~="truncate"], pre[data-variation~="truncate"], s[data-variation~="truncate"], samp[data-variation~="truncate"], small[data-variation~="truncate"], span:not([class])[data-variation~="truncate"], strong[data-variation~="truncate"], sub[data-variation~="truncate"], sup[data-variation~="truncate"], u[data-variation~="truncate"] {
+abbr[data-variation~="truncate"], b[data-variation~="truncate"], del[data-variation~="truncate"], em[data-variation~="truncate"], i[data-variation~="truncate"], ins[data-variation~="truncate"], kbd[data-variation~="truncate"], mark[data-variation~="truncate"], p[data-variation~="truncate"], pre[data-variation~="truncate"], s[data-variation~="truncate"], samp[data-variation~="truncate"], small[data-variation~="truncate"], span:not([class])[data-variation~="truncate"], strong[data-variation~="truncate"], sub[data-variation~="truncate"], sup[data-variation~="truncate"], u[data-variation~="truncate"] {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -2011,22 +2029,6 @@ abbr[data-size], b[data-size], del[data-size], em[data-size], i[data-size], ins[
         font-size: var(--size-text);
         line-height: var(--size-line-height);
     }
-
-h1[data-align="center"], h2[data-align="center"], h3[data-align="center"], h4[data-align="center"], h5[data-align="center"], h6[data-align="center"], p[data-align="center"], span:not([class])[data-align="center"] {
-  text-align: center;
-}
-
-h1[data-align="left"], h2[data-align="left"], h3[data-align="left"], h4[data-align="left"], h5[data-align="left"], h6[data-align="left"], p[data-align="left"], span:not([class])[data-align="left"] {
-  text-align: left;
-}
-
-h1[data-align="justify"], h2[data-align="justify"], h3[data-align="justify"], h4[data-align="justify"], h5[data-align="justify"], h6[data-align="justify"], p[data-align="justify"], span:not([class])[data-align="justify"] {
-  text-align: justify;
-}
-
-h1[data-align="right"], h2[data-align="right"], h3[data-align="right"], h4[data-align="right"], h5[data-align="right"], h6[data-align="right"], p[data-align="right"], span:not([class])[data-align="right"] {
-  text-align: right;
-}
 
 kbd {
   --palette-foreground-bg: 128, 138, 153;
@@ -2543,6 +2545,302 @@ span.spacer[data-orientation~="vertical"] {
     margin-top: var(--spacing-y);
     margin-bottom: var(--spacing-y);
   }
+}
+
+.offscreen {
+  display: contents;
+  position: fixed;
+  height: 100vh;
+  pointer-events: none;
+  width: 100vw;
+  z-index: 2;
+  flex-direction: var(--placement-orientation, row);
+  align-items: var(--placement-alignment-y, stretch);
+  justify-content: var(--placement-alignment-x, stretch);
+  width: var(--placement-width, max-content);
+  height: var(--placement-height, min(100%, 100vh));
+  left: var(--placement-left, 0%);
+  top: var(--placement-top, 0%);
+  transform: translate(var(--placement-translation-off, -100%, 0%));
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.offscreen > * {
+  pointer-events: auto;
+}
+
+input[type="checkbox"][role="presentation"]:checked + .offscreen,
+    input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .offscreen {
+        transform: translate(var(--placement-translation-on, 0%, 0%))
+    }
+
+input[type="checkbox"][role="presentation"]:checked + .offscreen > *, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .offscreen > * {
+  pointer-events: auto;
+}
+
+/**
+ * HACK: Pretty lame have to copy all of this
+ */
+
+.offscreen[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+}
+
+.offscreen[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) > * {
+  pointer-events: none;
+}
+
+@media (max-width: 639.9px) {
+  .offscreen[data-hidden~="mobile"] {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+  }
+  .offscreen[data-hidden~="mobile"] > * {
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767.9px) {
+  .offscreen[data-hidden~="tablet"] {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+  }
+  .offscreen[data-hidden~="tablet"] > * {
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .offscreen[data-hidden~="desktop"] {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+  }
+  .offscreen[data-hidden~="desktop"] > * {
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .offscreen[data-hidden~="widescreen"] {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+  }
+  .offscreen[data-hidden~="widescreen"] > * {
+    pointer-events: none;
+  }
+}
+
+.overlay {
+  --flex-alignment-x: center;
+  --flex-alignment-y: center;
+  --spacing-x: 0;
+  --spacing-y: 0;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  column-gap: var(--spacing-x);
+  row-gap: var(--spacing-y);
+  height: 100vh;
+  left: 0px;
+  pointer-events: none;
+  top: 0px;
+  width: 100vw;
+  z-index: 2;
+  align-items: var(--flex-alignment-x);
+  justify-content: var(--flex-alignment-y);
+  transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.overlay > * {
+  pointer-events: auto;
+}
+
+input[type="checkbox"][role="presentation"]:not(:checked) + .overlay, input[type="checkbox"][role="presentation"]:not(:checked) + .context-backdrop + .overlay {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+input[type="checkbox"][role="presentation"]:not(:checked) + .overlay > *, input[type="checkbox"][role="presentation"]:not(:checked) + .context-backdrop + .overlay > * {
+  pointer-events: none;
+}
+
+input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.popover {
+  display: contents;
+  position: relative;
+  max-width: max-content;
+  white-space: nowrap;
+}
+
+.popover:not([data-placement]) {
+        --placement-clip-off: 0% -10% 100% -10%;
+        --placement-clip-on: 0% -10% -10% -10%;
+
+        --placement-inset: auto 50% calc(0% - var(--spacing-y)) auto;
+        --placement-translation: 50%, 100%
+    }
+
+.popover:not([data-placement])[data-alignment-x="left"] {
+            --placement-inset: auto 0% calc(0% - var(--spacing-y)) auto;
+            --placement-translation: 0%, 100%;
+        }
+
+.popover:not([data-placement])[data-alignment-x="right"] {
+            --placement-inset: auto auto calc(0% - var(--spacing-y)) 0%;
+            --placement-translation: 0%, 100%;
+        }
+
+.popover:not([data-spacing]) {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+
+.popover > :last-child {
+  z-index: 1;
+  transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              clip-path 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
+  display: inline-block !important;
+}
+
+.popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) > :last-child {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  inset: var(--placement-inset);
+  clip-path: inset(var(--placement-clip-off));
+  transform: translate(var(--placement-translation));
+}
+
+input[type="checkbox"][role="presentation"]:checked
+        + .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) > :last-child {
+  pointer-events: auto;
+  opacity: 1;
+  clip-path: inset(var(--placement-clip-on));
+}
+
+/**
+ * HACK: Really lame again, that this has to be copied
+ */
+
+@media (max-width: 639.9px) {
+  .popover[data-hidden~="mobile"] {
+    display: inline-block !important;
+  }
+  .popover[data-hidden~="mobile"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="mobile"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767.9px) {
+  .popover[data-hidden~="tablet"] {
+    display: inline-block !important;
+  }
+  .popover[data-hidden~="tablet"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="tablet"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .popover[data-hidden~="desktop"] {
+    display: inline-block !important;
+  }
+  .popover[data-hidden~="desktop"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="desktop"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
+  }
+}
+
+@media (min-width: 1024px) {
+  .popover[data-hidden~="widescreen"] {
+    display: inline-block !important;
+  }
+  .popover[data-hidden~="widescreen"] > :last-child {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    inset: var(--placement-inset);
+    clip-path: inset(var(--placement-clip-off));
+    transform: translate(var(--placement-translation));
+  }
+  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="widescreen"] > :last-child {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(var(--placement-clip-on));
+  }
+}
+
+[data-align="center"] {
+    --align-text: center;
+}
+
+[data-align="justify"] {
+    --align-text: justify;
+}
+
+[data-align="left"] {
+    --align-text: left;
+}
+
+[data-align="right"] {
+    --align-text: right;
 }
 
 [data-alignment~="center"] {
@@ -8469,6 +8767,18 @@ html[data-palette="dark"] [data-palette="negative"] {
   }
 }
 
+[data-transform="capitalize"] {
+    --transform-text: capitalize;
+}
+
+[data-transform="lowercase"] {
+    --transform-text: lowercase;
+}
+
+[data-transform="uppercase"] {
+    --transform-text: uppercase;
+}
+
 [data-viewport~="prose"] {
     --viewport: 65ch;
 }
@@ -8558,285 +8868,5 @@ html[data-palette="dark"] [data-palette="negative"] {
   }
   [data-viewport~="widescreen:widescreen"] {
     --viewport: 1280px;
-  }
-}
-
-.offscreen {
-  display: contents;
-  position: fixed;
-  height: 100vh;
-  pointer-events: none;
-  width: 100vw;
-  z-index: 2;
-  flex-direction: var(--placement-orientation, row);
-  align-items: var(--placement-alignment-y, stretch);
-  justify-content: var(--placement-alignment-x, stretch);
-  width: var(--placement-width, max-content);
-  height: var(--placement-height, min(100%, 100vh));
-  left: var(--placement-left, 0%);
-  top: var(--placement-top, 0%);
-  transform: translate(var(--placement-translation-off, -100%, 0%));
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.offscreen > * {
-  pointer-events: auto;
-}
-
-input[type="checkbox"][role="presentation"]:checked + .offscreen,
-    input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .offscreen {
-        transform: translate(var(--placement-translation-on, 0%, 0%))
-    }
-
-input[type="checkbox"][role="presentation"]:checked + .offscreen > *, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .offscreen > * {
-  pointer-events: auto;
-}
-
-/**
- * HACK: Pretty lame have to copy all of this
- */
-
-.offscreen[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: -webkit-flex !important;
-  display: flex !important;
-}
-
-.offscreen[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) > * {
-  pointer-events: none;
-}
-
-@media (max-width: 639.9px) {
-  .offscreen[data-hidden~="mobile"] {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: -webkit-flex !important;
-    display: flex !important;
-  }
-  .offscreen[data-hidden~="mobile"] > * {
-    pointer-events: none;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 767.9px) {
-  .offscreen[data-hidden~="tablet"] {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: -webkit-flex !important;
-    display: flex !important;
-  }
-  .offscreen[data-hidden~="tablet"] > * {
-    pointer-events: none;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023.9px) {
-  .offscreen[data-hidden~="desktop"] {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: -webkit-flex !important;
-    display: flex !important;
-  }
-  .offscreen[data-hidden~="desktop"] > * {
-    pointer-events: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .offscreen[data-hidden~="widescreen"] {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: -webkit-flex !important;
-    display: flex !important;
-  }
-  .offscreen[data-hidden~="widescreen"] > * {
-    pointer-events: none;
-  }
-}
-
-.overlay {
-  --flex-alignment-x: center;
-  --flex-alignment-y: center;
-  --spacing-x: 0;
-  --spacing-y: 0;
-  position: fixed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  column-gap: var(--spacing-x);
-  row-gap: var(--spacing-y);
-  height: 100vh;
-  left: 0px;
-  pointer-events: none;
-  top: 0px;
-  width: 100vw;
-  z-index: 2;
-  align-items: var(--flex-alignment-x);
-  justify-content: var(--flex-alignment-y);
-  transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.overlay > * {
-  pointer-events: auto;
-}
-
-input[type="checkbox"][role="presentation"]:not(:checked) + .overlay, input[type="checkbox"][role="presentation"]:not(:checked) + .context-backdrop + .overlay {
-  opacity: 0;
-  transform: scale(0.3);
-}
-
-input[type="checkbox"][role="presentation"]:not(:checked) + .overlay > *, input[type="checkbox"][role="presentation"]:not(:checked) + .context-backdrop + .overlay > * {
-  pointer-events: none;
-}
-
-input[type="checkbox"][role="presentation"]:checked + .overlay, input[type="checkbox"][role="presentation"]:checked + .context-backdrop + .overlay {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.popover {
-  display: contents;
-  position: relative;
-  max-width: max-content;
-  white-space: nowrap;
-}
-
-.popover:not([data-placement]) {
-        --placement-clip-off: 0% -10% 100% -10%;
-        --placement-clip-on: 0% -10% -10% -10%;
-
-        --placement-inset: auto 50% calc(0% - var(--spacing-y)) auto;
-        --placement-translation: 50%, 100%
-    }
-
-.popover:not([data-placement])[data-alignment-x="left"] {
-            --placement-inset: auto 0% calc(0% - var(--spacing-y)) auto;
-            --placement-translation: 0%, 100%;
-        }
-
-.popover:not([data-placement])[data-alignment-x="right"] {
-            --placement-inset: auto auto calc(0% - var(--spacing-y)) 0%;
-            --placement-translation: 0%, 100%;
-        }
-
-.popover:not([data-spacing]) {
-        --spacing-x: 0px;
-        --spacing-y: 0px;
-    }
-
-.popover > :last-child {
-  z-index: 1;
-  transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              clip-path 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
-  display: inline-block !important;
-}
-
-.popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) > :last-child {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0;
-  inset: var(--placement-inset);
-  clip-path: inset(var(--placement-clip-off));
-  transform: translate(var(--placement-translation));
-}
-
-input[type="checkbox"][role="presentation"]:checked
-        + .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) > :last-child {
-  pointer-events: auto;
-  opacity: 1;
-  clip-path: inset(var(--placement-clip-on));
-}
-
-/**
- * HACK: Really lame again, that this has to be copied
- */
-
-@media (max-width: 639.9px) {
-  .popover[data-hidden~="mobile"] {
-    display: inline-block !important;
-  }
-  .popover[data-hidden~="mobile"] > :last-child {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    inset: var(--placement-inset);
-    clip-path: inset(var(--placement-clip-off));
-    transform: translate(var(--placement-translation));
-  }
-  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="mobile"] > :last-child {
-    pointer-events: auto;
-    opacity: 1;
-    clip-path: inset(var(--placement-clip-on));
-  }
-}
-
-@media (min-width: 640px) and (max-width: 767.9px) {
-  .popover[data-hidden~="tablet"] {
-    display: inline-block !important;
-  }
-  .popover[data-hidden~="tablet"] > :last-child {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    inset: var(--placement-inset);
-    clip-path: inset(var(--placement-clip-off));
-    transform: translate(var(--placement-translation));
-  }
-  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="tablet"] > :last-child {
-    pointer-events: auto;
-    opacity: 1;
-    clip-path: inset(var(--placement-clip-on));
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023.9px) {
-  .popover[data-hidden~="desktop"] {
-    display: inline-block !important;
-  }
-  .popover[data-hidden~="desktop"] > :last-child {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    inset: var(--placement-inset);
-    clip-path: inset(var(--placement-clip-off));
-    transform: translate(var(--placement-translation));
-  }
-  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="desktop"] > :last-child {
-    pointer-events: auto;
-    opacity: 1;
-    clip-path: inset(var(--placement-clip-on));
-  }
-}
-
-@media (min-width: 1024px) {
-  .popover[data-hidden~="widescreen"] {
-    display: inline-block !important;
-  }
-  .popover[data-hidden~="widescreen"] > :last-child {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    inset: var(--placement-inset);
-    clip-path: inset(var(--placement-clip-off));
-    transform: translate(var(--placement-translation));
-  }
-  input[type="checkbox"][role="presentation"]:checked + .popover[data-hidden~="widescreen"] > :last-child {
-    pointer-events: auto;
-    opacity: 1;
-    clip-path: inset(var(--placement-clip-on));
   }
 }

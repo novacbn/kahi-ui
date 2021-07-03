@@ -10,8 +10,8 @@
 
     import {unescape_html} from "@kahi-ui/docs-kit/shared";
 
-    import IMAGE_AVATAR from "../../../../assets/images/avatar.png";
-    import IMAGE_BACKGROUND from "../../../../assets/images/background.jpg";
+    import IMAGE_AVATAR from "../../../../assets/images/avatar.webp";
+    import IMAGE_BACKGROUND from "../../../../assets/images/background.webp";
 
     import type {IContentGet} from "../../../../shared/types/api";
 
@@ -125,7 +125,7 @@
             {highlightElement}
             dev
             bind:value
-            on:evalualationError={on_error}
+            on:evaluationError={on_error}
             on:evaluationCompile={on_compile}
         >
             <svelte:fragment slot="editor-loading">

@@ -6,6 +6,10 @@
     import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../lib/types/resizable";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {
+        DESIGN_TEXT_ALIGNMENT_ARGUMENT,
+        DESIGN_TEXT_TRANSFORM_ARGUMENT,
+    } from "../../../lib/types/text";
     import type {DESIGN_FILL_INPUT_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {
@@ -37,8 +41,10 @@
     export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 
+    export let align: DESIGN_TEXT_ALIGNMENT_ARGUMENT | undefined = undefined;
     export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
     export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
+    export let transform: DESIGN_TEXT_TRANSFORM_ARGUMENT | undefined = undefined;
     export let variation: DESIGN_FILL_INPUT_VARIATION_ARGUMENT | undefined = undefined;
 
     export let is: "input" | "textarea" = "input";
@@ -70,7 +76,7 @@
     <textarea
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({palette, resizable, size, variation})}
+        {...map_data_attributes({align, palette, resizable, size, transform, variation})}
         {...map_attributes({
             cols: characters,
             disabled,
@@ -84,8 +90,10 @@
             spellcheck: spell_check === undefined ? undefined : spell_check.toString(),
         })}
         bind:value
+        on:blur
         on:change
         on:click
+        on:focus
         on:input
     />
 {:else if type === "email"}
@@ -93,7 +101,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="email"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
             id: _form_id ? $_form_id : id,
@@ -107,8 +115,10 @@
             value,
         })}
         bind:value
+        on:blur
         on:change
         on:click
+        on:focus
         on:input
     />
 {:else if type === "password"}
@@ -116,7 +126,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="password"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
             id: _form_id ? $_form_id : id,
@@ -130,8 +140,10 @@
             value,
         })}
         bind:value
+        on:blur
         on:change
         on:click
+        on:focus
         on:input
     />
 {:else if type === "search"}
@@ -139,7 +151,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="search"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
             id: _form_id ? $_form_id : id,
@@ -153,8 +165,10 @@
             value,
         })}
         bind:value
+        on:blur
         on:change
         on:click
+        on:focus
         on:input
     />
 {:else if type === "url"}
@@ -162,7 +176,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="url"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
             id: _form_id ? $_form_id : id,
@@ -176,8 +190,10 @@
             value,
         })}
         bind:value
+        on:blur
         on:change
         on:click
+        on:focus
         on:input
     />
 {:else}
@@ -185,7 +201,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="text"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
             id: _form_id ? $_form_id : id,
@@ -199,8 +215,10 @@
             value,
         })}
         bind:value
+        on:blur
         on:change
         on:click
+        on:focus
         on:input
     />
 {/if}

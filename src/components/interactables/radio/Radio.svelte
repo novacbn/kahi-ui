@@ -86,8 +86,10 @@
                 value,
             })}
             checked={state}
+            on:blur
             on:change
             on:click
+            on:focus
             on:input
         />
 
@@ -107,8 +109,10 @@
             name: $_form_name,
             value,
         })}
+        on:blur
         on:change
         on:click
+        on:focus
         on:input
     />
 {/if}

@@ -80,7 +80,9 @@
         value,
     })}
     checked={state}
+    on:blur
     on:change
     on:click
+    on:focus
     on:input
 />

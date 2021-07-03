@@ -1,3 +1,19 @@
+[data-align="center"] {
+    --align-text: center;
+}
+
+[data-align="justify"] {
+    --align-text: justify;
+}
+
+[data-align="left"] {
+    --align-text: left;
+}
+
+[data-align="right"] {
+    --align-text: right;
+}
+
 [data-alignment~="center"] {
     --flex-alignment-x: center;
     --flex-alignment-y: center;

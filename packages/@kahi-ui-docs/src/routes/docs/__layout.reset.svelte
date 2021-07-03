@@ -16,7 +16,8 @@
 </script>
 
 <script lang="ts">
-    import {Anchor, Container, Spacer, Text} from "@kahi-ui/framework";
+    import {browser} from "$app/env";
+    import {Anchor, Aside, Container, Spacer, Text, TextInput} from "@kahi-ui/framework";
 
     import type {INavigationMenu} from "@kahi-ui/docs-kit/shared";
     import {Shell, substitute_value} from "@kahi-ui/docs-kit/shared";
@@ -28,14 +29,40 @@
         VERSION_URL,
     } from "../../shared/environment";
 
+    import DocumentationSearch from "../../components/documentation/DocumentationSearch.svelte";
     import LandingFooter from "../../components/landing/LandingFooter.svelte";
 
     export let items: INavigationMenu[] = [];
 
+    let aside_state: boolean = false;
+    let search_state: boolean = false;
+
+    function on_search_focus(event: FocusEvent) {
+        const {target} = event;
+        if (target instanceof HTMLInputElement) target.blur();
+
+        search_state = true;
+    }
+
+    $: if (search_state) aside_state = false;
+
     $: _version_url = VERSION_ENABLED ? substitute_value(VERSION_URL, VERSION_TAG) : null;
 </script>
 
-<Shell.Aside branding={META_BRANDING} {items}>
+<Shell.Aside branding={META_BRANDING} {items} bind:state={aside_state}>
+    <svelte:fragment slot="insert">
+        {#if browser}
+            <Aside.Section>
+                <TextInput
+                    placeholder="Search"
+                    variation="block"
+                    align="center"
+                    on:focus={on_search_focus}
+                />
+            </Aside.Section>
+        {/if}
+    </svelte:fragment>
+
     <svelte:fragment slot="footer">
         {#if _version_url}
             <Anchor href={_version_url} rel="noopener noreferrer" target="_blank">
@@ -63,6 +90,8 @@
         <LandingFooter />
     </main>
 </Shell.Aside>
+
+<DocumentationSearch bind:state={search_state} />
 
 <style>
     main {

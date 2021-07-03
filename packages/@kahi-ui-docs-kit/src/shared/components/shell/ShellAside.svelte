@@ -21,6 +21,7 @@
     export let branding: string = "N/A";
     export let href: string = "";
     export let items: INavigationMenu[] = [];
+    export let state: boolean = false;
 
     $: _items = map_navigation_items<INavigationMenu>(items, $page.path, false, true);
 
@@ -55,6 +56,7 @@
         variation="sticky"
         height="viewport-100"
         max_height="100"
+        bind:state
         captive
         dismissible
     >
@@ -65,6 +67,10 @@
                 {branding}
             {/if}
         </Aside.Header>
+
+        {#if $$slots["insert"]}
+            <slot name="insert" />
+        {/if}
 
         <Aside.Section>
             <DataMenu items={_items} />
@@ -96,3 +102,11 @@
 
     <slot />
 </Stack>
+
+<style>
+    :global(.shell-aside) {
+        /** HACK: Needed to prevent layout shifting whenever Browser-only content is added */
+
+        width: 30ch;
+    }
+</style>

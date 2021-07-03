@@ -1,17 +1,45 @@
-import fs from "fs";
-const {mkdir, writeFile} = fs.promises;
+import {execSync} from "child_process";
+import {existsSync, readFileSync} from "fs";
+import {arch, platform} from "os";
 
-import fetch from "node-fetch";
-import {stringify} from "@iarna/toml";
+const PACKAGE_FRAMEWORK = JSON.parse(readFileSync("../../package.json").toString());
 
-async function fetch_index() {
-    const response = await fetch("http://localhost:3000/api/v1/meta/stork.json");
-    const index = (await response.json()).data;
+const TEMPLATE_BIN_PATH = ({arch, platform, extension}) =>
+    `./bin/stork.${platform}.${arch}${extension}`;
 
-    return stringify(index);
+const TEMPLATE_COMMAND_BIN = ({bin, input, output}) =>
+    `${bin} build --input ${input} --output ${output}`;
+
+const TEMPLATE_OUTPUT_PATH = ({version}) => `./static/assets/stork/kahi-ui_docs_v${version}.st`;
+
+function get_platform_extension() {
+    switch (platform()) {
+        case "windows":
+            return ".exe";
+
+        default:
+            return "";
+    }
 }
 
-await mkdir("./build/stork", {recursive: true});
+const binary_path = TEMPLATE_BIN_PATH({
+    arch: arch(),
+    platform: platform(),
+    extension: get_platform_extension(),
+});
 
-const index = await fetch_index();
-writeFile("./build/stork/index.toml", index);
+if (!existsSync(binary_path)) {
+    throw new Error("bad platform to 'build-index' (platform is not currently supported)");
+}
+
+const output_path = TEMPLATE_OUTPUT_PATH({
+    version: PACKAGE_FRAMEWORK.version,
+});
+
+const command = TEMPLATE_COMMAND_BIN({
+    bin: binary_path,
+    input: "./build/stork/index.toml",
+    output: output_path,
+});
+
+execSync(command);

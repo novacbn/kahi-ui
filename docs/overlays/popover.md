@@ -15,11 +15,6 @@ description="Controls the visible state of the <code>Popover</code> whenever <co
 types=["boolean"]
 
 [[properties.Popover]]
-name="captive"
-description="Renders a <code>ContextBackdrop</code> as a sibling before the <code>Popover</code>, which becomes active whenever the visible state is active."
-types=["boolean"]
-
-[[properties.Popover]]
 name="dismissible"
 description="Adjusts the sibling <code>ContextBackdrop</code> to be clickable, turning off the visible state when clicked."
 types=["boolean"]

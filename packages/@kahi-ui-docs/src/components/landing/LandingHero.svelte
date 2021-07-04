@@ -15,8 +15,10 @@
 
     <Hero.Section>
         Kahi UI is a composable and flexible design library for Svelte that allows you to go from <Text
-            is="strong">0</Text
+            is="strong"
         >
+            0
+        </Text>
         to <Text is="strong">60</Text> in no time.
     </Hero.Section>
 

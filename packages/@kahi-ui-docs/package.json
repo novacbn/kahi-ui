@@ -5,6 +5,7 @@
         "build:application": "svelte-kit build",
         "dev:application": "svelte-kit dev --host 0.0.0.0",
         "index:build": "node ./scripts/build-index.js",
+        "index:generate": "node ./scripts/generate-index.js",
         "format:application": "prettier --config .prettierrc --write ./src",
         "preview:application": "svelte-kit preview --host 0.0.0.0"
     },
@@ -27,6 +28,7 @@
     "dependencies": {
         "@kahi-ui/docs-kit": "file:../@kahi-ui-docs-kit",
         "@kahi-ui/framework": "file:../..",
+        "@novacbn/svelte-stork": "github:novacbn/svelte-stork#0.0.4",
         "github-slugger": "^1.3.0",
         "gray-matter": "^4.0.3",
         "markdown-it": "^12.0.6",

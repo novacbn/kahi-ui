@@ -68,6 +68,10 @@ nav.aside {
     & > section {
         @apply overflow-y-auto py-2 mb-4;
 
+        &:not(:last-of-type) {
+            @apply flex-shrink-0;
+        }
+
         &:last-of-type {
             @apply flex-grow;
         }

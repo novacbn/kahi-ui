@@ -5,7 +5,7 @@
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
     import {CONTEXT_FORM_ID, get_id_context, make_id_context} from "../../../lib/stores/id";
-    import {map_attributes} from "../../../lib/util/attributes";
+    import {map_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     export let element: HTMLElement | null = null;
 
@@ -39,6 +39,11 @@
     $: if (_for) $_form_id = _for;
 </script>
 
-<label bind:this={element} {...$$props} {...map_attributes({for: $_form_id})} on:click>
+<label
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    {...map_attributes({for: $_form_id})}
+    on:click
+>
     <slot />
 </label>

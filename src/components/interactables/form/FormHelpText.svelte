@@ -4,6 +4,8 @@
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
+    import {map_global_attributes} from "../../../lib/util/attributes";
+
     export let element: HTMLElement | null = null;
 
     let _class: string = "";
@@ -28,6 +30,6 @@
     export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 </script>
 
-<small bind:this={element} {...$$props} class="form-help-text {_class}">
+<small bind:this={element} {...map_global_attributes($$props)} class="form-help-text {_class}">
     <slot />
 </small>

@@ -6,6 +6,8 @@
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
+    import {map_global_attributes} from "../../../lib/util/attributes";
+
     export let element: HTMLElement | null = null;
 
     let _class: string = "";
@@ -36,6 +38,6 @@
     $: $_logic_id = logic_id;
 </script>
 
-<div bind:this={element} {...$$props} class="form-control {_class}">
+<div bind:this={element} {...map_global_attributes($$props)} class="form-control {_class}">
     <slot />
 </div>

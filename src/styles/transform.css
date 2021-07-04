@@ -1,0 +1,11 @@
+[data-transform="capitalize"] {
+    --transform-text: capitalize;
+}
+
+[data-transform="lowercase"] {
+    --transform-text: lowercase;
+}
+
+[data-transform="uppercase"] {
+    --transform-text: uppercase;
+}

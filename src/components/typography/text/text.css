@@ -2,12 +2,6 @@ abbr,
 b,
 del,
 em,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 i,
 ins,
 kbd,
@@ -22,20 +16,11 @@ strong,
 sub,
 sup,
 u {
+    text-align: var(--align-text, inherit);
+    text-transform: var(--transform-text, inherit);
+
     &[data-palette] {
         color: rgb(var(--palette-foreground-bg));
-    }
-
-    &[data-transform="capitalize"] {
-        @apply capitalize;
-    }
-
-    &[data-transform="lowercase"] {
-        @apply lowercase;
-    }
-
-    &[data-transform="uppercase"] {
-        @apply uppercase;
     }
 
     &[data-variation~="truncate"] {
@@ -63,31 +48,6 @@ u {
     &[data-size] {
         font-size: var(--size-text);
         line-height: var(--size-line-height);
-    }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span:not([class]) {
-    &[data-align="center"] {
-        @apply text-center;
-    }
-
-    &[data-align="left"] {
-        @apply text-left;
-    }
-
-    &[data-align="justify"] {
-        @apply text-justify;
-    }
-
-    &[data-align="right"] {
-        @apply text-right;
     }
 }
 

@@ -56,6 +56,10 @@
 @import url("./components/layouts/divider/divider.css");
 @import url("./components/layouts/spacer/spacer.css");
 
+@import url("./components/overlays/offscreen/offscreen.css");
+@import url("./components/overlays/overlay/overlay.css");
+@import url("./components/overlays/popover/popover.css");
+
 @import url("./styles/alignments.css");
 @import url("./styles/animations.css");
 @import url("./styles/elevations.css");
@@ -69,8 +73,5 @@
 @import url("./styles/sizes.css");
 @import url("./styles/sizings.css");
 @import url("./styles/spacings.css");
+@import url("./styles/transform.css");
 @import url("./styles/viewports.css");
-
-@import url("./components/overlays/offscreen/offscreen.css");
-@import url("./components/overlays/overlay/overlay.css");
-@import url("./components/overlays/popover/popover.css");

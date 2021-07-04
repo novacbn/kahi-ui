@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.2.12 -
+## v0.2.12 - 2021/07/04
 
 -   Upgraded Storybook `6.3.0-rc.11` -> `6.3.2`.
 -   Updated the following Components

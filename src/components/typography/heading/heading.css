@@ -8,6 +8,10 @@ h6 {
 
     text-align: var(--align-text, inherit);
     text-transform: var(--transform-text, inherit);
+
+    &[data-variation~="truncate"] {
+        @apply truncate;
+    }
 }
 
 h1 {

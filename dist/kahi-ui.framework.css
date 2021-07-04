@@ -1932,6 +1932,13 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: var(--transform-text, inherit);
 }
 
+h1[data-variation~="truncate"], h2[data-variation~="truncate"], h3[data-variation~="truncate"], h4[data-variation~="truncate"], h5[data-variation~="truncate"], h6[data-variation~="truncate"] {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;

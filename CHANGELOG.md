@@ -2,6 +2,7 @@
 
 ## v0.2.12 -
 
+-   Upgraded Storybook `6.3.0-rc.11` -> `6.3.2`.
 -   Updated the following Components
 
     -   Interactables

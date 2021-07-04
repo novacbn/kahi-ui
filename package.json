@@ -23,6 +23,7 @@
     ],
     "files": [
         "dist",
+        "docs",
         "src",
         "CHANGELOG.md",
         "LICENSE",
@@ -33,13 +34,13 @@
         "url": "https://github.com/novacbn/kahi-ui"
     },
     "devDependencies": {
-        "@babel/core": "^7.14.3",
-        "@storybook/addon-actions": "^6.3.0-rc.11",
-        "@storybook/addon-essentials": "^6.3.0-rc.11",
-        "@storybook/addon-links": "^6.3.0-rc.11",
-        "@storybook/svelte": "^6.3.0-rc.11",
-        "@tsconfig/svelte": "^1.0.10",
-        "babel-loader": "^8.2.2",
+        "@storybook/addon-actions": "^6.3.2",
+        "@storybook/addon-essentials": "^6.3.2",
+        "@storybook/addon-svelte-csf": "^1.1.0",
+        "@storybook/core-common": "^6.3.2",
+        "@storybook/svelte": "^6.3.2",
+        "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
+        "@tsconfig/svelte": "^1.0.13",
         "cross-env": "^7.0.3",
         "esbuild": "^0.12.11",
         "postcss": "^8.2.15",
@@ -50,24 +51,30 @@
         "postcss-windicss": "^0.1.0",
         "prettier": "^2.3.0",
         "prettier-plugin-svelte": "^2.3.1",
-        "storybook-builder-vite": "^0.0.9",
-        "svelte-check": "^1.5.4",
-        "svelte-loader": "^3.1.1",
+        "storybook-builder-vite": "^0.0.10",
+        "svelte-check": "^1.6.0",
         "svelte-preprocess": "^4.7.3",
+        "svelte2tsx": "^0.4.1",
         "tslib": "^2.2.0",
-        "typescript": "^4.2.4",
+        "typescript": "^4.3.5",
+        "vite": "^2.3.8",
         "windicss": "^3.0.9"
     },
-    "dependencies": {
-        "svelte": "^3.38.2"
-    },
     "scripts": {
+        "build": "npm run test && npm run build:lib && npm run build:framework",
+        "build:lib": "",
         "build:framework": "cross-env NODE_ENV=production postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css ./src/index.css",
         "build:storybook": "build-storybook",
         "dev:storybook": "start-storybook --ci -p 6006",
         "format:docs": "prettier --config ./docs/.prettierrc --write ./docs",
         "format:framework": "prettier --config .prettierrc --write ./src",
         "prepublish:minify": "esbuild --outfile=./dist/kahi-ui.framework.min.css --minify ./dist/kahi-ui.framework.css",
+        "test": "npm run test:types && npm run test:svelte",
+        "test:svelte": "svelte-check --tsconfig ./tsconfig.json",
+        "test:types": "tsc --noEmit",
         "watch:framework": "postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css --watch ./src/index.css"
+    },
+    "dependencies": {
+        "svelte": "^3.38.3"
     }
 }

@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## v0.2.13 -
+
+-   Added the following Components
+
+    -   Interactables
+
+        -   `HiddenInput` — Useful for providing hidden constants for form submissions that the end-user doesn't need to modify.
+
+-   Updated the following Components
+
+    -   Feedback
+
+        -   `Ellipsis`
+
+            -   Updated to disable line wrapping on the inner characters.
+
 ## v0.2.12 - 2021/07/04
 
 -   Upgraded Storybook `6.3.0-rc.11` -> `6.3.2`.

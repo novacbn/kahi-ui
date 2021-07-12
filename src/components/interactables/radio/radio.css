@@ -80,14 +80,12 @@
     &[data-variation="flush"] {
         @apply bg-transparent;
 
-        &:enabled:hover {
-            @apply text-current;
-        }
-
-        &:enabled:active,
-        &[aria-pressed="true"],
         &:checked {
             @apply text-[rgb(var(--palette-background-bg))];
+        }
+
+        &:enabled:hover {
+            @apply text-current;
         }
 
         &:enabled:is(:active, :hover) {

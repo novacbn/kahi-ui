@@ -43,6 +43,11 @@ export type DESIGN_FILL_INPUT_VARIATION_ARGUMENT = Exclude<
     "clear" | "outline"
 >;
 
+export type DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT = Exclude<
+    DESIGN_FILL_VARIATION_ARGUMENT,
+    "block" | "clear" | "outline"
+>;
+
 export const DESIGN_TABLE_VARIATION_LITERALS = {...DESIGN_TABLE_VARIATION} as const;
 
 export type DESIGN_FLEX_VARIATION_ARGUMENT =

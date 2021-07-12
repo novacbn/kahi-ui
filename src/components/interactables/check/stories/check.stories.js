@@ -8,6 +8,7 @@ import {
 import Check from "../Check.svelte";
 
 import CheckDefaultStory from "./CheckDefaultStory.svelte";
+import CheckFlushStory from "./CheckFlushStory.svelte";
 import CheckPaletteStory from "./CheckPaletteStory.svelte";
 import CheckSizeStory from "./CheckSizeStory.svelte";
 
@@ -31,6 +32,13 @@ export const Default = (args) => ({
 
 export const Palette = (args) => ({
     Component: CheckPaletteStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Flush = (args) => ({
+    Component: CheckFlushStory,
     props: {
         ...args,
     },

@@ -16,6 +16,12 @@
 
             -   Updated to disable line wrapping on the inner characters.
 
+    -   Interactables
+
+        -   `Check` / `Radio`
+
+            -   Added `<XXX variation="flush">` — Changes the appearance to only show the inner box / circle shape.
+
 ## v0.2.12 - 2021/07/04
 
 -   Upgraded Storybook `6.3.0-rc.11` -> `6.3.2`.

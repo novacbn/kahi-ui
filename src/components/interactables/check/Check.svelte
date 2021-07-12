@@ -11,6 +11,7 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {
         map_aria_attributes,
@@ -46,6 +47,7 @@
 
     export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
     export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
+    export let variation: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT | undefined = undefined;
 
     export let active: boolean = false;
     export let disabled: boolean = false;
@@ -81,7 +83,7 @@
             bind:this={element}
             {...map_global_attributes($$props)}
             type="checkbox"
-            {...map_data_attributes({palette, size})}
+            {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({
                 disabled,
@@ -104,7 +106,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="checkbox"
-        {...map_data_attributes({palette, size})}
+        {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
             disabled,

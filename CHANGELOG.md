@@ -22,6 +22,14 @@
 
             -   Added `<XXX variation="flush">` — Changes the appearance to only show the inner box / circle shape.
 
+    -   Navigation
+
+        -   `Menu`
+
+            -   Added `<Menu.Label>` — Useful for wrapping a form Component as a Menu option.
+            -   Added property passthrough for `Menu.Anchor` / `Menu.Button` / `Menu.Divider` / `Menu.Heading` to `Menu.Item`.
+            -   Updated typings for `Menu.Anchor` / `Menu.Button` / `Menu.Divider` / `Menu.Heading`.
+
 ## v0.2.12 - 2021/07/04
 
 -   Upgraded Storybook `6.3.0-rc.11` -> `6.3.2`.

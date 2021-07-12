@@ -767,12 +767,12 @@ html[data-palette="dark"] button:not([data-palette]), html[data-palette="dark"] 
   background-color: transparent;
 }
 
-[type="checkbox"]:not([role])[data-variation="flush"]:enabled:hover {
-  color: currentColor;
+[type="checkbox"]:not([role])[data-variation="flush"]:checked {
+  color: rgb(var(--palette-background-bg));
 }
 
-[type="checkbox"]:not([role])[data-variation="flush"]:enabled:active, [type="checkbox"]:not([role])[data-variation="flush"][aria-pressed="true"], [type="checkbox"]:not([role])[data-variation="flush"]:checked {
-  color: rgb(var(--palette-background-bg));
+[type="checkbox"]:not([role])[data-variation="flush"]:enabled:hover {
+  color: currentColor;
 }
 
 [type="checkbox"]:not([role])[data-variation="flush"]:enabled:is(:active, :hover) {
@@ -898,12 +898,12 @@ html[data-palette="dark"] [type="checkbox"]:not([data-palette]) {
   background-color: transparent;
 }
 
-[type="radio"][data-variation="flush"]:enabled:hover {
-  color: currentColor;
+[type="radio"][data-variation="flush"]:checked {
+  color: rgb(var(--palette-background-bg));
 }
 
-[type="radio"][data-variation="flush"]:enabled:active, [type="radio"][data-variation="flush"][aria-pressed="true"], [type="radio"][data-variation="flush"]:checked {
-  color: rgb(var(--palette-background-bg));
+[type="radio"][data-variation="flush"]:enabled:hover {
+  color: currentColor;
 }
 
 [type="radio"][data-variation="flush"]:enabled:is(:active, :hover) {

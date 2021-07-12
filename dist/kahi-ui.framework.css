@@ -1,7 +1,7 @@
 /*!
  * Kahi UI - Framework
  *
- * v0.2.12
+ * v0.2.13
  */
 
 *, ::before, ::after {
@@ -424,8 +424,9 @@ tfoot > tr::after {
 }
 
 span.ellipsis {
-    --animation-pulse-stop-opacity: 0.3;
-    --character: "."
+  --animation-pulse-stop-opacity: 0.3;
+  --character: ".";
+  white-space: nowrap;
 }
 
 span.ellipsis > span {

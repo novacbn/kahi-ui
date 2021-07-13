@@ -5,7 +5,7 @@
 Using a terminal inside of your project's directory, use `npm` to install the package.
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.12
+npm install github:novacbn/kahi-ui#0.2.13
 ```
 
 ## Importing Stylesheet

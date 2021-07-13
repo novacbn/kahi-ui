@@ -1,7 +1,7 @@
 /*!
  * Kahi UI - Framework
  *
- * v0.2.12
+ * v0.2.13
  */
 
 *, ::before, ::after {
@@ -424,8 +424,9 @@ tfoot > tr::after {
 }
 
 span.ellipsis {
-    --animation-pulse-stop-opacity: 0.3;
-    --character: "."
+  --animation-pulse-stop-opacity: 0.3;
+  --character: ".";
+  white-space: nowrap;
 }
 
 span.ellipsis > span {
@@ -762,6 +763,22 @@ html[data-palette="dark"] button:not([data-palette]), html[data-palette="dark"] 
   background-color: rgba(var(--palette-foreground-bg), 0.75);
 }
 
+[type="checkbox"]:not([role])[data-variation="flush"] {
+  background-color: transparent;
+}
+
+[type="checkbox"]:not([role])[data-variation="flush"]:checked {
+  color: rgb(var(--palette-background-bg));
+}
+
+[type="checkbox"]:not([role])[data-variation="flush"]:enabled:hover {
+  color: currentColor;
+}
+
+[type="checkbox"]:not([role])[data-variation="flush"]:enabled:is(:active, :hover) {
+  background-color: transparent;
+}
+
 [type="checkbox"]:not([role]):is([data-size="tiny"], [data-size="small"]) {
   border-radius: 0.25rem;
 }
@@ -875,6 +892,22 @@ html[data-palette="dark"] [type="checkbox"]:not([data-palette]) {
 
 [type="radio"]:checked:enabled:hover, [type="radio"]:checked[aria-pressed="true"] {
   background-color: rgba(var(--palette-foreground-bg), 0.75);
+}
+
+[type="radio"][data-variation="flush"] {
+  background-color: transparent;
+}
+
+[type="radio"][data-variation="flush"]:checked {
+  color: rgb(var(--palette-background-bg));
+}
+
+[type="radio"][data-variation="flush"]:enabled:hover {
+  color: currentColor;
+}
+
+[type="radio"][data-variation="flush"]:enabled:is(:active, :hover) {
+  background-color: transparent;
 }
 
 [type="radio"]:is([data-size="tiny"], [data-size="small"])::before {
@@ -1707,6 +1740,27 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   border-bottom-left-radius: inherit;
 }
 
+.card[data-variation="flush"] {
+  background-color: transparent;
+  --tw-shadow: none;
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.card[data-variation="flush"] > :is(footer, header, section) {
+  border-style: none;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.card[data-variation="flush"] > :is(footer, header, section):first-child {
+  padding-top: 0px;
+}
+
+.card[data-variation="flush"] > :is(footer, header, section):last-child {
+  padding-bottom: 0px;
+}
+
 .box {
   color: currentColor;
   background-color: rgba(217, 220, 224, 0.2);
@@ -1880,6 +1934,27 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   padding-bottom: 1rem;
 }
 
+.tile[data-variation="flush"] {
+  background-color: transparent;
+  border-style: none;
+  --tw-shadow: none;
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.tile[data-variation="flush"] > * {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.tile[data-variation="flush"] > *:first-child {
+  padding-left: 0px;
+}
+
+.tile[data-variation="flush"] > *:last-child {
+  padding-right: 0px;
+}
+
 blockquote {
   --palette-background-bg: 147, 156, 168;
   border-left-width: 5px;
@@ -1930,6 +2005,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-align: var(--align-text, inherit);
   text-transform: var(--transform-text, inherit);
+}
+
+h1[data-variation~="truncate"], h2[data-variation~="truncate"], h3[data-variation~="truncate"], h4[data-variation~="truncate"], h5[data-variation~="truncate"], h6[data-variation~="truncate"] {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 h1 {

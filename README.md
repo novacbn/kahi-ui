@@ -114,7 +114,6 @@ Some Components are multi-part patterns, so you'll need to import their namespac
         <Button palette="affirmative">Open Details</Button>
     </Card.Footer>
 </Card.Container>
-
 ```
 
 ## License

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.2.13 -
+## v0.2.13 - 2021/07/13
 
 -   Added the following Components
 

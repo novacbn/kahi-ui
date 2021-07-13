@@ -41,4 +41,20 @@
     & > :is(figure, footer, section) {
         @apply flex py-4;
     }
+
+    &[data-variation="flush"] {
+        @apply bg-transparent border-none shadow-none;
+
+        & > * {
+            @apply py-0;
+
+            &:first-child {
+                @apply pl-0;
+            }
+
+            &:last-child {
+                @apply pr-0;
+            }
+        }
+    }
 }

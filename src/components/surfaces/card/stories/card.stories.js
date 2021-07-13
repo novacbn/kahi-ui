@@ -8,6 +8,7 @@ import {
 import CardContainer from "../CardContainer.svelte";
 
 import CardDefaultStory from "./CardDefaultStory.svelte";
+import CardFlushStory from "./CardFlushStory.svelte";
 import CardElevationStory from "./CardElevationStory.svelte";
 import CardPaletteStory from "./CardPaletteStory.svelte";
 
@@ -24,6 +25,13 @@ export default {
 
 export const Default = (args) => ({
     Component: CardDefaultStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Flush = (args) => ({
+    Component: CardFlushStory,
     props: {
         ...args,
     },

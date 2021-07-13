@@ -18,7 +18,9 @@
 
     export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
 
-    export let _for: string = "";
+    let _for: string = "";
+
+    export {_for as for};
 </script>
 
 <MenuItem bind:element {...$$props}>

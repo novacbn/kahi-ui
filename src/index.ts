@@ -35,6 +35,7 @@ export * from "./components/interactables/button";
 export * from "./components/interactables/check";
 import * as Form from "./components/interactables/form";
 export {Form};
+export * from "./components/interactables/hiddeninput";
 export * from "./components/interactables/radio";
 export * from "./components/interactables/switch";
 export * from "./components/interactables/textinput";

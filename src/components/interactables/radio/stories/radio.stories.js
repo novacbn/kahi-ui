@@ -8,6 +8,7 @@ import {
 import Radio from "../Radio.svelte";
 
 import RadioDefaultStory from "./RadioDefaultStory.svelte";
+import RadioFlushStory from "./RadioFlushStory.svelte";
 import RadioPaletteStory from "./RadioPaletteStory.svelte";
 import RadioSizeStory from "./RadioSizeStory.svelte";
 
@@ -31,6 +32,13 @@ export const Default = (args) => ({
 
 export const Palette = (args) => ({
     Component: RadioPaletteStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Flush = (args) => ({
+    Component: RadioFlushStory,
     props: {
         ...args,
     },

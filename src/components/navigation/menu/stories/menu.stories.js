@@ -7,6 +7,7 @@ import {
 import MenuContainer from "../MenuContainer.svelte";
 
 import MenuDefaultStory from "./MenuDefaultStory.svelte";
+import MenuLabelStory from "./MenuLabelStory.svelte";
 import MenuSubMenuStory from "./MenuSubMenuStory.svelte";
 import MenuTextDividerStory from "./MenuTextDividerStory.svelte";
 
@@ -22,6 +23,13 @@ export default {
 
 export const Default = (args) => ({
     Component: MenuDefaultStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Label = (args) => ({
+    Component: MenuLabelStory,
     props: {
         ...args,
     },

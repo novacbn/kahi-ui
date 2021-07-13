@@ -60,4 +60,20 @@
             @apply border-b-2 rounded-b-[inherit];
         }
     }
+
+    &[data-variation="flush"] {
+        @apply bg-transparent shadow-none;
+
+        & > :is(footer, header, section) {
+            @apply border-none px-0;
+
+            &:first-child {
+                @apply pt-0;
+            }
+
+            &:last-child {
+                @apply pb-0;
+            }
+        }
+    }
 }

@@ -12,6 +12,7 @@ export default defineConfig({
         "capitalize",
         "inline",
         "grid",
+        "hidden",
         "lowercase",
         "rounded",
         "sticky",

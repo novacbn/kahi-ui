@@ -10,6 +10,11 @@ description="Renders the <code>Check</code> at a different sizes."
 types=["tiny", "small", "medium", "large", "huge"]
 
 [[properties.Check]]
+name="variation"
+description="Alters the appearance of the <code>Check</code>."
+types=["flush"]
+
+[[properties.Check]]
 name="active"
 description="Renders the <code>Check</code> with <code>aria-pressed</code> attribute, and styles the <code>Check</code> as if it where being clicked."
 types=["boolean"]
@@ -284,4 +289,53 @@ You can change the size of the `Check` via the `size` property.
         display: block;
     }
 </style>
+```
+
+## Flush
+
+You can change the appearance of the `Check` to be flush with the rest of the Application content.
+
+```svelte repl Check Flush
+<script>
+    import {
+        Check,
+        Menu,
+        Spacer,
+    } from "@kahi-ui/framework";
+</script>
+
+<Menu.Container>
+    <Menu.Heading>Filter</Menu.Heading>
+
+    <Menu.Label for="check-flush-cpus">
+        CPUs
+        <Spacer />
+        <Check
+            value="cpus"
+            palette="accent"
+            variation="flush"
+        />
+    </Menu.Label>
+
+    <Menu.Label for="check-flush-hard-drives">
+        Hard Drives
+        <Spacer />
+        <Check
+            value="hard-drives"
+            palette="accent"
+            variation="flush"
+            state
+        />
+    </Menu.Label>
+
+    <Menu.Label for="check-flush-solid-state-drives">
+        Solid State Drives
+        <Spacer />
+        <Check
+            value="solid-state-drives"
+            palette="accent"
+            variation="flush"
+        />
+    </Menu.Label>
+</Menu.Container>
 ```

@@ -1,7 +1,7 @@
 <script lang="ts">
     import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
 
-    import Anchor from "../anchor/Anchor.svelte";
+    import FormLabel from "../../interactables/form/FormLabel.svelte";
 
     import MenuItem from "./MenuItem.svelte";
 
@@ -18,25 +18,13 @@
 
     export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
 
-    export let active: boolean = false;
-    export let disabled: boolean = false;
+    let _for: string = "";
 
-    export let download: string = "";
-    export let href: string = "";
-    export let rel: string = "";
-    export let target: string = "";
+    export {_for as for};
 </script>
 
 <MenuItem bind:element {...$$props}>
-    <Anchor
-        current={active ? "page" : undefined}
-        {disabled}
-        {download}
-        {href}
-        {rel}
-        {target}
-        on:click
-    >
+    <FormLabel for={_for} on:click>
         <slot />
-    </Anchor>
+    </FormLabel>
 </MenuItem>

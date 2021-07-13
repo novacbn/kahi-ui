@@ -30,7 +30,7 @@
     export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 
-    export let _for: string = "";
+    let _for: string = "";
 
     export {_for as for};
 

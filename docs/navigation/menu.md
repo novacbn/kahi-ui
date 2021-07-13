@@ -43,6 +43,11 @@ types=["boolean"]
 name="disabled"
 description="Renders the <code>Menu.Button</code> with <code>disabled</code> attributes, and styles the <code>Menu.Button</code> partially transparent."
 types=["boolean"]
+
+[[properties."Menu.Label"]]
+name="for"
+description="Sets the ID used by the <code>&lt;label&gt;</code> to target it's child form Component."
+types=["string"]
 +++
 
 # Menu
@@ -94,6 +99,7 @@ types=["boolean"]
         Divider,
         Heading,
         Item,
+        Label,
         SubMenu,
     } = Menu;
 </script>

@@ -85,6 +85,22 @@
         }
     }
 
+    &[data-variation="flush"] {
+        @apply bg-transparent;
+
+        &:checked {
+            @apply text-[rgb(var(--palette-background-bg))];
+        }
+
+        &:enabled:hover {
+            @apply text-current;
+        }
+
+        &:enabled:is(:active, :hover) {
+            @apply bg-transparent;
+        }
+    }
+
     &:is([data-size="tiny"], [data-size="small"]) {
         @apply rounded-DEFAULT;
 

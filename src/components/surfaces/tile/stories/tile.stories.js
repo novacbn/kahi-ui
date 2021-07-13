@@ -8,6 +8,7 @@ import {
 import TileContainer from "../TileContainer.svelte";
 
 import TileDefaultStory from "./TileDefaultStory.svelte";
+import TileFlushStory from "./TileFlushStory.svelte";
 import TileElevationStory from "./TileElevationStory.svelte";
 import TilePaletteStory from "./TilePaletteStory.svelte";
 
@@ -24,6 +25,13 @@ export default {
 
 export const Default = (args) => ({
     Component: TileDefaultStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Flush = (args) => ({
+    Component: TileFlushStory,
     props: {
         ...args,
     },

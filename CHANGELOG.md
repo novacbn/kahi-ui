@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## v0.2.13 - 2021/07/13
+
+-   Added the following Components
+
+    -   Interactables
+
+        -   `HiddenInput` — Useful for providing hidden constants for form submissions that the end-user doesn't need to modify.
+
+-   Updated the following Components
+
+    -   Feedback
+
+        -   `Ellipsis`
+
+            -   Updated to disable line wrapping on the inner characters.
+
+    -   Interactables
+
+        -   `Check` / `Radio`
+
+            -   Added `<XXX variation="flush">` — Changes the appearance to only show the inner box / circle shape.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   Added `<Menu.Label>` — Useful for wrapping a form Component as a Menu option.
+            -   Added property passthrough for `Menu.Anchor` / `Menu.Button` / `Menu.Divider` / `Menu.Heading` to `Menu.Item`.
+            -   Updated typings for `Menu.Anchor` / `Menu.Button` / `Menu.Divider` / `Menu.Heading`.
+
+    -   Surfaces
+
+        -   `Card` / `Tile`
+
+            -   Added `<XXX variation="flush">` — Changes the appearance to remove exterior padding, background, and box shadow.
+
 ## v0.2.12 - 2021/07/04
 
 -   Upgraded Storybook `6.3.0-rc.11` -> `6.3.2`.

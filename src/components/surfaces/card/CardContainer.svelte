@@ -4,6 +4,7 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
@@ -50,14 +51,14 @@
 
     export let elevation: DESIGN_ELEVATION_ARGUMENT | undefined = undefined;
     export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-
+    export let variation: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT | undefined = undefined;
 </script>
 
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
     class="card {_class}"
-    {...map_data_attributes({elevation, palette})}
+    {...map_data_attributes({elevation, palette, variation})}
 >
     <slot />
 </div>

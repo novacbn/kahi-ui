@@ -314,7 +314,7 @@ You can alter the `TextInput` render as an opaque block via the `variation` prop
 
 ## Flush
 
-You can have the `TextInput` to be completely flush document text with no other stylings via the `variation` property.
+You can change the appearance of the `TextInput` to be flush with the rest of the Application content.
 
 ```svelte repl TextInput Flush
 <script>

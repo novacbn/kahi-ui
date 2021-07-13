@@ -39,7 +39,7 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 Open your terminal and install via `npm`:
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.12
+npm install github:novacbn/kahi-ui#0.2.13
 ```
 
 Install current in-development code:
@@ -114,7 +114,6 @@ Some Components are multi-part patterns, so you'll need to import their namespac
         <Button palette="affirmative">Open Details</Button>
     </Card.Footer>
 </Card.Container>
-
 ```
 
 ## License

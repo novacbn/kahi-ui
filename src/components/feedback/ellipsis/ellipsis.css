@@ -2,6 +2,8 @@ span.ellipsis {
     --animation-pulse-stop-opacity: theme("opacity.30");
     --character: ".";
 
+    @apply whitespace-nowrap;
+
     & > span {
         animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 

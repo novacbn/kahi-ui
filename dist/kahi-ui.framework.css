@@ -1740,6 +1740,27 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   border-bottom-left-radius: inherit;
 }
 
+.card[data-variation="flush"] {
+  background-color: transparent;
+  --tw-shadow: none;
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.card[data-variation="flush"] > :is(footer, header, section) {
+  border-style: none;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.card[data-variation="flush"] > :is(footer, header, section):first-child {
+  padding-top: 0px;
+}
+
+.card[data-variation="flush"] > :is(footer, header, section):last-child {
+  padding-bottom: 0px;
+}
+
 .box {
   color: currentColor;
   background-color: rgba(217, 220, 224, 0.2);
@@ -1911,6 +1932,27 @@ input[type="checkbox"][role="presentation"]:last-child + nav.omni, input[type="c
   display: flex;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.tile[data-variation="flush"] {
+  background-color: transparent;
+  border-style: none;
+  --tw-shadow: none;
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.tile[data-variation="flush"] > * {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.tile[data-variation="flush"] > *:first-child {
+  padding-left: 0px;
+}
+
+.tile[data-variation="flush"] > *:last-child {
+  padding-right: 0px;
 }
 
 blockquote {

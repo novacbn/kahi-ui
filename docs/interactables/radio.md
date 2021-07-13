@@ -10,6 +10,11 @@ description="Renders the <code>Radio</code> at a different sizes."
 types=["tiny", "small", "medium", "large", "huge"]
 
 [[properties.Radio]]
+name="variation"
+description="Alters the appearance of the <code>Radio</code>."
+types=["flush"]
+
+[[properties.Radio]]
 name="active"
 description="Renders the <code>Radio</code> with <code>aria-pressed</code> attribute, and styles the <code>Radio</code> as if it where being clicked."
 types=["boolean"]
@@ -279,4 +284,48 @@ You can change the size of the `Radio` via the `size` property.
         display: block;
     }
 </style>
+```
+
+## Flush
+
+You can change the appearance of the `Radio` to be flush with the rest of the Application content.
+
+```svelte repl Radio Flush
+<script>
+    import {
+        Form,
+        Menu,
+        Radio,
+        Spacer,
+    } from "@kahi-ui/framework";
+</script>
+
+<Menu.Container>
+    <Menu.Heading>Sort By</Menu.Heading>
+
+    <Form.Group
+        logic_name="radio-flush"
+        logic_state="ascending"
+    >
+        <Menu.Label for="radio-flush-ascending">
+            Ascending
+            <Spacer />
+            <Radio
+                value="ascending"
+                palette="accent"
+                variation="flush"
+            />
+        </Menu.Label>
+
+        <Menu.Label for="radio-flush-decending">
+            Decending
+            <Spacer />
+            <Radio
+                value="decending"
+                palette="accent"
+                variation="flush"
+            />
+        </Menu.Label>
+    </Form.Group>
+</Menu.Container>
 ```

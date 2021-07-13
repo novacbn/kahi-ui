@@ -9,6 +9,11 @@ types=["lowest", "low", "medium", "high", "highest"]
 name="palette"
 description="Alters the displayed color scheme."
 types=["accent", "dark", "light", "alert", "affirmative", "negative"]
+
+[[properties."Card.Container"]]
+name="variation"
+description="Alters the appearance of the <code>Card</code>."
+types=["flush"]
 +++
 
 # Card
@@ -389,4 +394,58 @@ You can set how "high" your `Card` will appear to be over top the page via the `
         </Card.Section>
     </Card.Container>
 </Mosaic>
+```
+
+## Flush
+
+You can change the appearance of the `Card` to be flush with the rest of the Application content.
+
+```svelte repl Card Flush
+<script>
+    import {
+        Badge,
+        Button,
+        Card,
+        Spacer,
+        Text,
+    } from "@kahi-ui/framework";
+</script>
+
+<Card.Container
+    class="card-preview"
+    palette="auto"
+    variation="flush"
+>
+    <Card.Figure>
+        <img src={IMAGE_BACKGROUND} />
+    </Card.Figure>
+
+    <Card.Header>
+        Ocean Rockies
+        <Spacer />
+        <Badge palette="affirmative">AVAILABLE</Badge>
+    </Card.Header>
+
+    <Card.Section>
+        <Text>
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Proin et consectetur orci.
+            Curabitur a egestas turpis, vitae convallis
+            sapien. Sed pellentesque rutrum tellus, in
+            iaculis dolor tincidunt non. Orci varius
+            natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus.
+        </Text>
+    </Card.Section>
+
+    <Card.Footer>
+        <Button palette="accent">Book Flight</Button>
+    </Card.Footer>
+</Card.Container>
+
+<style>
+    :global(.card-preview) {
+        max-width: 35ch;
+    }
+</style>
 ```

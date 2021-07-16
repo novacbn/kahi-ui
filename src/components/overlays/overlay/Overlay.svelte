@@ -32,16 +32,6 @@
 
     export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
 
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
     export let padding: DESIGN_SPACING_ARGUMENT | undefined = undefined;
 
     export let padding_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
@@ -51,14 +41,6 @@
     export let padding_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let padding_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
     export let padding_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let height: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let max_height: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let min_height: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-
-    export let width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let max_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
 
     export let captive: boolean = false;
     export let dismissible: boolean = false;

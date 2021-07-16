@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## v0.2.14 - 2021/07/??
+
+-   Updated the following Components
+
+    -   Overlays
+
+        -   `Offscreen` / `Popover`
+
+            -   Removed unintended behavior of inheriting the current logic / state contexts.
+
+        -   `Overlay`
+
+            -   Removed unintended property typings.
+
+    -   Utilities
+
+        -   `Portal`
+
+            -   Fixed exception thrown when trying to mount `Portal` container element.
+            -   Fixed `Portal` not removing children upon being destroyed.
+
 ## v0.2.13 - 2021/07/13
 
 -   Added the following Components

@@ -4,6 +4,12 @@
 
 -   Updated the following Components
 
+    -   Navigation
+
+        -   `Aside`
+
+            -   Removed rendering of `Offscreen` wrapper when `logic_id` is not set.
+
     -   Overlays
 
         -   `Offscreen` / `Popover`

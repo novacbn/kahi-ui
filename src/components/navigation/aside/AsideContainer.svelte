@@ -10,9 +10,8 @@
     import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
-    import Offscreen from "../../overlays/offscreen/Offscreen.svelte";
 
-    import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
+    import Offscreen from "../../overlays/offscreen/Offscreen.svelte";
 
     export let element: HTMLElement | null = null;
 
@@ -72,16 +71,27 @@
     $: $_state = state;
 </script>
 
-<Offscreen
-    hidden={$_logic_id ? ["mobile", "tablet"] : undefined}
-    logic_id={$_logic_id}
-    bind:state
-    {captive}
-    {dismissible}
-    {placement}
-    on:active
-    on:dismiss
->
+{#if $_logic_id}
+    <Offscreen
+        hidden={["mobile", "tablet"]}
+        logic_id={$_logic_id}
+        bind:state
+        {captive}
+        {dismissible}
+        {placement}
+        on:active
+        on:dismiss
+    >
+        <nav
+            bind:this={element}
+            {...map_global_attributes($$props)}
+            class="aside {_class}"
+            {...map_data_attributes({palette, placement, variation})}
+        >
+            <slot />
+        </nav>
+    </Offscreen>
+{:else}
     <nav
         bind:this={element}
         {...map_global_attributes($$props)}
@@ -90,4 +100,4 @@
     >
         <slot />
     </nav>
-</Offscreen>
+{/if}

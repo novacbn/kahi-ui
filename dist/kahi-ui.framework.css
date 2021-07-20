@@ -1,7 +1,7 @@
 /*!
  * Kahi UI - Framework
  *
- * v0.2.13
+ * v0.2.14
  */
 
 *, ::before, ::after {
@@ -406,7 +406,7 @@ th, td {
   text-align: left;
 }
 
-:is(thead, tfoot) > tr::after, table[data-variation~="borders"] > tbody > tr:not(:last-child)::after {
+:is(thead, tfoot) > tr > :is(td, th)::before, table[data-variation~="borders"] > tbody > tr:not(:last-child) > :is(td, th)::before {
   position: absolute;
   display: block;
   background-color: currentColor;
@@ -414,12 +414,21 @@ th, td {
   height: 1px;
   opacity: 0.4;
   right: 0px;
-  border-radius: 0.375rem;
   width: 100%;
   content: "";
 }
 
-tfoot > tr::after {
+:is(thead, tfoot) > tr > :is(td, th):first-child::before, table[data-variation~="borders"] > tbody > tr:not(:last-child) > :is(td, th):first-child::before {
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+:is(thead, tfoot) > tr > :is(td, th):last-child::before, table[data-variation~="borders"] > tbody > tr:not(:last-child) > :is(td, th):last-child::before {
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+tfoot > tr > :is(td, th)::before {
   top: 0px;
 }
 

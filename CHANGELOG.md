@@ -1,5 +1,69 @@
 # CHANGELOG
 
+## v0.2.14 - 2021/07/20
+
+-   Updated the following Components
+
+    -   Display
+
+        -   `Table`
+
+            -   Fixed table bottom borders to use deeper nested `::before` to fix Chrome rendering bug.
+
+    -   Navigation
+
+        -   `Aside`
+
+            -   Removed rendering of `Offscreen` wrapper when `logic_id` is not set.
+
+    -   Overlays
+
+        -   `Offscreen` / `Popover`
+
+            -   Removed unintended behavior of inheriting the current logic / state contexts.
+
+        -   `Overlay`
+
+            -   Removed unintended property typings.
+
+    -   Utilities
+
+        -   `Portal`
+
+            -   Fixed exception thrown when trying to mount `Portal` container element.
+            -   Fixed `Portal` not removing children upon being destroyed.
+
+-   Updated the following Actions
+
+    -   `click_outside`
+
+        -   **(POTENTIALLY BREAKING)** Added validation check if the click target is actually inside the the DOM or off-screen.
+            -   If you had a Component which changes its DOM layout before the `click` event handler was fired, previously the action would emit a false positive.
+            -   e.g. the documentation web application's dark mode toggle icon. It changes the icon whenever clicked.
+
+-   Added the following Stores
+
+    -   `mediaquery(query: string): Readable<boolean>` / `mediaqueries(queries: string[], options: IMediaQueriesOptions): Readable<boolean>` — Returns `true` whenever any of the given Media Queries are valid.
+
+        -   `mediaqueries(queries, {behavior: "and"})` — Requires all given Media Queries to be valid instead of any.
+
+    -   `viewport(viewport: string): Readable<boolean>` — Single viewport version of `viewports`.
+
+-   Updated the following Stores
+
+    -   `attribute`
+
+        -   **(POTENTIALLY BREAKING)** Updated to remove attributes set target element if provided value is falsy.
+
+    -   `prefersscheme`
+
+        -   Updated to utilize the new `mediaquery` Store internally.
+
+    -   `viewports(viewports: Record<string, boolean>): Readable<string>`
+
+        -   Refactored implementation for quicker updates.
+        -   Only passing in a single Viewport will return an instance of `viewport`.
+
 ## v0.2.13 - 2021/07/13
 
 -   Added the following Components

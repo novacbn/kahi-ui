@@ -38,7 +38,9 @@ export function attribute(
         subscribe,
 
         set(value) {
-            element.setAttribute(attribute, value);
+            if (value) element.setAttribute(attribute, value);
+            else element.removeAttribute(attribute);
+
             set(value);
         },
 
@@ -46,7 +48,9 @@ export function attribute(
             update((value) => {
                 value = callback(value);
 
-                element.setAttribute(attribute, value);
+                if (value) element.setAttribute(attribute, value);
+                else element.removeAttribute(attribute);
+
                 return value;
             });
         },
@@ -55,6 +59,5 @@ export function attribute(
 
 export const htmlpalette = () =>
     !IS_BROWSER
-        ? // @ts-expect-error - HACK: Callback function is optional
-          (readable("") as IAttributeStore)
+        ? (readable("") as IAttributeStore)
         : attribute(document.documentElement, "data-palette", "");

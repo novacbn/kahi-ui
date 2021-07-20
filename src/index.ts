@@ -89,6 +89,7 @@ export * from "./lib/stores/component";
 export * from "./lib/stores/darkmode";
 export * from "./lib/stores/formstate";
 export * from "./lib/stores/id";
+export * from "./lib/stores/mediaquery";
 export * from "./lib/stores/prefersscheme";
 export * from "./lib/stores/scrolllock";
 export * from "./lib/stores/state";

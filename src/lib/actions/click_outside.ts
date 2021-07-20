@@ -28,9 +28,9 @@ export function click_outside(
     let {on_click_outside} = options;
 
     function on_click(event: MouseEvent) {
-        const {target} = event;
+        const target = event.target as Node;
 
-        if (!element.contains(target as Node)) on_click_outside(event);
+        if (document.contains(target) && !element.contains(target)) on_click_outside(event);
     }
 
     document.addEventListener("click", on_click);

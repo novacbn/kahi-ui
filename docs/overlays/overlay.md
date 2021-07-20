@@ -69,9 +69,9 @@ types=["tiny", "small", "medium", "large", "huge", "{VIEWPORT}:{SPACING}"]
     } from "@kahi-ui/framework";
 </script>
 
-<Button for="overlay-preview" palette="accent"
-    >Open Modal</Button
->
+<Button for="overlay-preview" palette="accent">
+    Open Modal
+</Button>
 
 <Overlay
     logic_id="overlay-preview"

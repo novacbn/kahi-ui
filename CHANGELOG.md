@@ -4,6 +4,12 @@
 
 -   Updated the following Components
 
+    -   Display
+
+        -   `Table`
+
+            -   Fixed table bottom borders to use deeper nested `::before` to fix Chrome rendering bug.
+
     -   Navigation
 
         -   `Aside`
@@ -26,6 +32,14 @@
 
             -   Fixed exception thrown when trying to mount `Portal` container element.
             -   Fixed `Portal` not removing children upon being destroyed.
+
+-   Updated the following Actions
+
+    -   `click_outside`
+
+        -   **(POTENTIALLY BREAKING)** Added validation check if the click target is actually inside the the DOM or off-screen.
+            -   If you had a Component which changes its DOM layout before the `click` event handler was fired, previously the action would emit a false positive.
+            -   e.g. the documentation web application's dark mode toggle icon. It changes the icon whenever clicked.
 
 ## v0.2.13 - 2021/07/13
 

@@ -1,7 +1,7 @@
 <script lang="ts">
     // TODO: Stories
 
-    import {onDestroy, onMount} from "svelte";
+    import {onDestroy, onMount, tick} from "svelte";
 
     export let element: HTMLElement | null = null;
 
@@ -12,7 +12,9 @@
         if (element) element.remove();
     });
 
-    onMount(() => {
+    onMount(async () => {
+        await tick();
+
         if (!element) {
             // NOTE: Technically this should never go wrong, since `onMount` is called
             // after the `HTMLElement` reference is assigned. However we should try to

@@ -117,7 +117,7 @@ types=["borders", "stripes"]
 
 You can make a `Table` have borders via the `variation` property.
 
-```svelte repl Table Preview
+```svelte repl Table Borders
 <script>
     import {
         Code,
@@ -207,7 +207,7 @@ You can make a `Table` have borders via the `variation` property.
 
 You can make a `Table` have stripes via the `variation` property.
 
-```svelte repl Table Preview
+```svelte repl Table Stripes
 <script>
     import {
         Code,
@@ -297,7 +297,7 @@ You can make a `Table` have stripes via the `variation` property.
 
 You can make a `Table` have both borders **AND** stripes via the `variation` property.
 
-```svelte repl Table Preview
+```svelte repl Table Borders + Stripes
 <script>
     import {
         Code,

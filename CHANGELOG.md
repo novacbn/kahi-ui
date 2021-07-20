@@ -51,6 +51,10 @@
 
 -   Updated the following Stores
 
+    -   `attribute`
+
+        -   **(POTENTIALLY BREAKING)** Updated to remove attributes set target element if provided value is falsy.
+
     -   `prefersscheme`
 
         -   Updated to utilize the new `mediaquery` Store internally.

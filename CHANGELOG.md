@@ -43,11 +43,17 @@
 
 -   Added the following Stores
 
-    -   `mediaquery(query: string): Readable<boolean>` / `mediaqueries(queries: string[]): Readable<boolean>` — Returns `true` whenever any of the given media queries are valid.
+    -   `mediaquery(query: string): Readable<boolean>` / `mediaqueries(queries: string[], options: IMediaQueriesOptions): Readable<boolean>` — Returns `true` whenever any of the given Media Queries are valid.
+
+        -   `mediaqueries(queries, {behavior: "and"})` — Requires all given Media Queries to be valid instead of any.
 
     -   `viewport(viewport: string): Readable<boolean>` — Single viewport version of `viewports`.
 
 -   Updated the following Stores
+
+    -   `prefersscheme`
+
+        -   Updated to utilize the new `mediaquery` Store internally.
 
     -   `viewports(viewports: Record<string, boolean>): Readable<string>`
 

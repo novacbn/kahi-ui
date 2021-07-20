@@ -1,113 +1,67 @@
 import type {Readable} from "svelte/store";
-import {derived, readable} from "svelte/store";
-import {IS_BROWSER} from "../util/environment";
 
-import {debounce} from "../util/functional";
+import {mediaquery, mediaqueries} from "./mediaquery";
 
-export interface IViewportStoreOptions {
-    desktop: boolean;
+export enum VIEWPORT_NAMES {
+    mobile = "mobile",
 
-    mobile: boolean;
+    tablet = "tablet",
 
-    tablet: boolean;
+    desktop = "desktop",
 
-    widescreen: boolean;
+    widescreen = "widescreen",
 }
 
-export interface IViewportValues {
+interface IViewportValues {
     max: string;
 
     min: string;
 }
 
+export type IViewportStoreOptions = Record<keyof typeof VIEWPORT_NAMES, boolean>;
+
 export type IViewportStore = Readable<boolean>;
 
-function get_viewport_values() {
+function get_viewport_variables(viewport: keyof typeof VIEWPORT_NAMES): IViewportValues {
     const computed = getComputedStyle(document.documentElement);
 
     return {
-        mobile: {
-            max: computed.getPropertyValue("--viewport-mobile-max"),
-            min: computed.getPropertyValue("--viewport-mobile-min"),
-        },
-
-        tablet: {
-            max: computed.getPropertyValue("--viewport-tablet-max"),
-            min: computed.getPropertyValue("--viewport-tablet-min"),
-        },
-
-        desktop: {
-            max: computed.getPropertyValue("--viewport-desktop-max"),
-            min: computed.getPropertyValue("--viewport-desktop-min"),
-        },
-
-        widescreen: {
-            max: computed.getPropertyValue("--viewport-widescreen-max"),
-            min: computed.getPropertyValue("--viewport-widescreen-min"),
-        },
+        max: computed.getPropertyValue(`--viewport-${viewport}-max`),
+        min: computed.getPropertyValue(`--viewport-${viewport}-min`),
     };
 }
 
-function match_viewport(values: IViewportValues): MediaQueryList {
-    return matchMedia(`(min-width: ${values.min}) and (max-width: ${values.max})`);
+function format_viewport_query(values: IViewportValues): string {
+    return `(min-width: ${values.min}) and (max-width: ${values.max})`;
 }
 
-function viewport(values: IViewportValues): IViewportStore {
-    // @ts-expect-error - Callback function is optional
-    if (!IS_BROWSER) return readable<boolean>(false);
+export function viewport(viewport: keyof typeof VIEWPORT_NAMES): IViewportStore {
+    const values = get_viewport_variables(viewport);
+    const query = format_viewport_query(values);
 
-    return readable<boolean>(false, (set) => {
-        function on_change(event: MediaQueryListEvent) {
-            set(event.matches);
-        }
-
-        const query = match_viewport(values);
-        set(query.matches);
-
-        query.addEventListener("change", on_change);
-        return () => query.removeEventListener("change", on_change);
-    });
+    return mediaquery(query);
 }
 
 export function viewports(options: Partial<IViewportStoreOptions> = {}): IViewportStore {
-    // @ts-expect-error - HACK: Callback function is optional
-    if (!IS_BROWSER) return readable<boolean>(false);
+    const entries = Object.entries(options);
+    if (entries.length > 1) {
+        const queries = entries
+            .map((entry) => {
+                const [viewport, enabled] = entry;
+                if (!enabled) return null;
 
-    const {desktop = false, mobile = false, tablet = false, widescreen = false} = options;
-    const values = get_viewport_values();
+                const values = get_viewport_variables(viewport as keyof typeof VIEWPORT_NAMES);
+                return format_viewport_query(values);
+            })
+            .filter((query) => !!query);
 
-    const desktop_store = desktop ? viewport(values.desktop) : null;
-    const mobile_store = mobile ? viewport(values.mobile) : null;
-    const tablet_store = tablet ? viewport(values.tablet) : null;
-    const widescreen_store = widescreen ? viewport(values.widescreen) : null;
+        return mediaqueries(queries as string[]);
+    }
 
-    // NOTE: Whenever one Viewport store changes, it updates the derived store to inverse of its
-    // old value. But then the newly entered Viewport's store will change to `true`. Causing
-    // the following to happen in a single frame `true->false->true`. Potentially leading
-    // consuming Components to re-render / re-calculate things.
-    //
-    // So we need to debounce it, which can also delay things to 100ms or more (depending on Browser)
-    let value: boolean = false;
-    const on_update = debounce(
-        ([$desktop_store, $mobile_store, $tablet_store, $widescreen_store], set) => {
-            value = !!$desktop_store || !!$mobile_store || !!$tablet_store || !!$widescreen_store;
+    const entry = entries[0];
+    if (!entry) {
+        throw new TypeError("bad argument #0 to 'viewports' (must at least provide 1 viewport)");
+    }
 
-            set(value);
-        }
-    );
-
-    // HACK: It would look cleaner if the debounced callback was just hoisted into the `derived`
-    // function, instead of being a variable. However in `derived` doesn't apparently filter out
-    // returns of `void` (e.g. no returns at all). So we need cache the previous value and return
-    // that until the debounced callback calls the setter its self
-
-    // @ts-expect-error - HACK: ?
-    return derived(
-        [desktop_store, mobile_store, tablet_store, widescreen_store],
-        ([$desktop_store, $mobile_store, $tablet_store, $widescreen_store], set) => {
-            on_update([$desktop_store, $mobile_store, $tablet_store, $widescreen_store], set);
-
-            return value;
-        }
-    );
+    return viewport(entry[0] as keyof typeof VIEWPORT_NAMES);
 }

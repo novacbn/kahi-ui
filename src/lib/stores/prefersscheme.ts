@@ -1,25 +1,17 @@
 import type {Readable} from "svelte/store";
-import {readable} from "svelte/store";
 
-import {IS_BROWSER} from "../util/environment";
+import {mediaquery} from "./mediaquery";
 
 export type IPrefersSchemeStore = Readable<boolean>;
 
+function format_scheme_query(scheme: string): string {
+    return `(prefers-color-scheme: ${scheme})`;
+}
+
 export function prefersscheme(scheme: "dark" | "light"): IPrefersSchemeStore {
-    // @ts-expect-error - HACK: Callback function is optional
-    if (!IS_BROWSER) return readable<boolean>(false);
+    const query = format_scheme_query(scheme);
 
-    return readable<boolean>(false, (set) => {
-        function on_change(event: MediaQueryListEvent) {
-            set(event.matches);
-        }
-
-        const query = matchMedia(`(prefers-color-scheme: ${scheme})`);
-        set(query.matches);
-
-        query.addEventListener("change", on_change);
-        return () => query.removeEventListener("change", on_change);
-    });
+    return mediaquery(query);
 }
 
 export const prefersdark = () => prefersscheme("dark");

@@ -3,7 +3,17 @@ import {readable} from "svelte/store";
 
 import {IS_BROWSER} from "../util/environment";
 
+export enum MEDIA_QUERIES_BEHAVIORS {
+    and = "and",
+
+    or = "or",
+}
+
 export type IMediaQueryStore = Readable<boolean>;
+
+export interface IMediaQueriesOptions {
+    behavior: keyof typeof MEDIA_QUERIES_BEHAVIORS;
+}
 
 export function mediaquery(query: string): IMediaQueryStore {
     if (!IS_BROWSER) return readable<boolean>(false);
@@ -21,16 +31,31 @@ export function mediaquery(query: string): IMediaQueryStore {
     });
 }
 
-export function mediaqueries(queries: string[]): IMediaQueryStore {
+export function mediaqueries(
+    queries: string[],
+    options: Partial<IMediaQueriesOptions> = {}
+): IMediaQueryStore {
     if (!IS_BROWSER) return readable<boolean>(false);
+
+    const {behavior = MEDIA_QUERIES_BEHAVIORS.or} = options;
 
     return readable<boolean>(false, (set) => {
         function has_match() {
-            for (const list of lists) {
-                if (list.matches) return true;
-            }
+            switch (behavior) {
+                case MEDIA_QUERIES_BEHAVIORS.and:
+                    for (const list of lists) {
+                        if (!list.matches) return false;
+                    }
 
-            return false;
+                    return true;
+
+                default:
+                    for (const list of lists) {
+                        if (list.matches) return true;
+                    }
+
+                    return false;
+            }
         }
 
         function on_change(event: MediaQueryListEvent) {

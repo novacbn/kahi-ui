@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.2.14 - 2021/07/??
+## v0.2.14 - 2021/07/20
 
 -   Updated the following Components
 

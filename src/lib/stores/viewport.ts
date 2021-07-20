@@ -1,4 +1,7 @@
 import type {Readable} from "svelte/store";
+import {readable} from "svelte/store";
+
+import {IS_BROWSER} from "../util/environment";
 
 import {mediaquery, mediaqueries} from "./mediaquery";
 
@@ -12,17 +15,17 @@ export enum VIEWPORT_NAMES {
     widescreen = "widescreen",
 }
 
-interface IViewportValues {
+interface IViewportDimensions {
     max: string;
 
     min: string;
 }
 
-export type IViewportStoreOptions = Record<keyof typeof VIEWPORT_NAMES, boolean>;
+export type IViewportValues = Record<keyof typeof VIEWPORT_NAMES, boolean>;
 
 export type IViewportStore = Readable<boolean>;
 
-function get_viewport_variables(viewport: keyof typeof VIEWPORT_NAMES): IViewportValues {
+function get_viewport_variables(viewport: keyof typeof VIEWPORT_NAMES): IViewportDimensions {
     const computed = getComputedStyle(document.documentElement);
 
     return {
@@ -31,19 +34,23 @@ function get_viewport_variables(viewport: keyof typeof VIEWPORT_NAMES): IViewpor
     };
 }
 
-function format_viewport_query(values: IViewportValues): string {
+function format_viewport_query(values: IViewportDimensions): string {
     return `(min-width: ${values.min}) and (max-width: ${values.max})`;
 }
 
 export function viewport(viewport: keyof typeof VIEWPORT_NAMES): IViewportStore {
+    if (!IS_BROWSER) return readable<boolean>(false);
+
     const values = get_viewport_variables(viewport);
     const query = format_viewport_query(values);
 
     return mediaquery(query);
 }
 
-export function viewports(options: Partial<IViewportStoreOptions> = {}): IViewportStore {
-    const entries = Object.entries(options);
+export function viewports(viewports: Partial<IViewportValues> = {}): IViewportStore {
+    if (!IS_BROWSER) return readable<boolean>(false);
+
+    const entries = Object.entries(viewports);
     if (entries.length > 1) {
         const queries = entries
             .map((entry) => {

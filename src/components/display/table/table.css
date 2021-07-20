@@ -46,18 +46,29 @@ td {
     @apply align-center px-4 py-3 text-left;
 }
 
-:is(thead, tfoot) > tr,
-table[data-variation~="borders"] > tbody > tr:not(:last-child) {
-    &::after {
-        @apply absolute block bg-current bottom-0 h-[1px] opacity-40 right-0
-        rounded-md w-full;
+:is(thead, tfoot) > tr > :is(td, th),
+table[data-variation~="borders"] > tbody > tr:not(:last-child) > :is(td, th) {
+    &::before {
+        @apply absolute block bg-current bottom-0 h-[1px] opacity-40 right-0 w-full;
 
         content: "";
     }
+
+    &:first-child {
+        &::before {
+            @apply rounded-l-md;
+        }
+    }
+
+    &:last-child {
+        &::before {
+            @apply rounded-r-md;
+        }
+    }
 }
 
-tfoot > tr {
-    &::after {
+tfoot > tr > :is(td, th) {
+    &::before {
         @apply top-0;
     }
 }

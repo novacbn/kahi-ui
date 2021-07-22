@@ -19,6 +19,8 @@
 
 ## Documentation
 
+> Looking for documentation source? Visit [github.com/kahi-framework/kahi-ui.nbn.dev](https://github.com/kahi-framework/kahi-ui.nbn.dev).
+
 Visit the documentation at [kahi-ui.nbn.dev](https://kahi-ui.nbn.dev).
 
 ## F.A.Q.

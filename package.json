@@ -52,8 +52,8 @@
         "prettier-plugin-svelte": "^2.3.1",
         "storybook-builder-vite": "^0.0.10",
         "svelte-check": "^1.6.0",
-        "svelte-preprocess": "^4.7.3",
-        "svelte2tsx": "^0.4.1",
+        "svelte-preprocess": "^4.7.4",
+        "svelte2tsx": "^0.4.2",
         "tslib": "^2.2.0",
         "typescript": "^4.3.5",
         "vite": "^2.3.8",
@@ -74,6 +74,6 @@
         "watch:framework": "postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css --watch ./src/index.css"
     },
     "dependencies": {
-        "svelte": "^3.38.3"
+        "svelte": "^3.40.2"
     }
 }

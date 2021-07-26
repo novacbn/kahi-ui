@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Updated the following Components
+
+    -   \*
+
+        -   Converted all Components to internally use new experiemental [`$$Props`](https://github.com/dummdidumm/rfcs/blob/683fe6d12051b1c9107cfe76cfb90af5efe2fc43/text/ts-typing-props-slots-events.md) TypeScript type aliasing.
+        -   Fixed Svelte Compiler warning for unused exports.
+
 ## v0.2.14 - 2021/07/20
 
 -   Updated the following Components

@@ -33,3 +33,27 @@ export type DESIGN_SPACING_ARGUMENT =
     | (keyof typeof DESIGN_SPACING_LITERALS)[];
 
 export type DESIGN_SPACING_SINGULAR_ARGUMENT = keyof typeof DESIGN_SPACING_SINGULAR_LITERALS;
+
+export interface IMarginProperties {
+    margin?: DESIGN_SPACING_ARGUMENT;
+
+    margin_x?: DESIGN_SPACING_ARGUMENT;
+    margin_y?: DESIGN_SPACING_ARGUMENT;
+
+    margin_top?: DESIGN_SPACING_ARGUMENT;
+    margin_left?: DESIGN_SPACING_ARGUMENT;
+    margin_bottom?: DESIGN_SPACING_ARGUMENT;
+    margin_right?: DESIGN_SPACING_ARGUMENT;
+}
+
+export interface IPaddingProperties {
+    padding?: DESIGN_SPACING_ARGUMENT;
+
+    padding_x?: DESIGN_SPACING_ARGUMENT;
+    padding_y?: DESIGN_SPACING_ARGUMENT;
+
+    padding_top?: DESIGN_SPACING_ARGUMENT;
+    padding_left?: DESIGN_SPACING_ARGUMENT;
+    padding_bottom?: DESIGN_SPACING_ARGUMENT;
+    padding_right?: DESIGN_SPACING_ARGUMENT;
+}

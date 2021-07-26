@@ -8,7 +8,7 @@
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     type $$Props = {
-        element?: HTMLElement;
+        element?: HTMLDivElement;
 
         palette?: DESIGN_PALETTE_ARGUMENT;
     } & IHTML5Properties &

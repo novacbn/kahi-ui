@@ -4,7 +4,6 @@
     import Stack from "../../stack/Stack.svelte";
 
     import Divider from "../Divider.svelte";
-
 </script>
 
 <Stack orientation="horizontal" spacing="medium" variation="wrap">
@@ -24,7 +23,7 @@
         <Text is="strong">VERTICAL</Text>
 
         <Box palette="dark" padding="small" style="width:min-content;height:6rem;">
-            <Divider orientation="vertical" {...$$props} />
+            <Divider {...$$props} orientation="vertical" />
         </Box>
     </div>
 </Stack>

@@ -1,67 +1,66 @@
 <script lang="ts">
+    /**
+     * TODO: Now that `Popover` exists, need to redo the collapse functionality of
+     * `Omni.Container` to something specialized. Thinking a full-screen blinder that
+     * uses `clip-path` as the effect.
+     *
+     * Ideally it's something that should be convertable into a standalone Overlays Component
+     * so it's reusable elsewhere as a wrapper transition. However with `Omni`, the wrapper would
+     * have to be nested in the `Omni.Container` layout. Rather than used as a wrapper like how
+     * `Aside.Container` is set up...
+     */
+
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
+    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
+    import type {IIntrinsicProperties} from "../../../lib/types/sizings";
+    import type {IMarginProperties, IPaddingProperties} from "../../../lib/types/spacings";
+
     import {make_id_context} from "../../../lib/stores/id";
     import {make_state_context} from "../../../lib/stores/state";
     import {viewports} from "../../../lib/stores/viewport";
-
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
-    import type {DESIGN_INTRINSIC_SIZING_ARGUMENT} from "../../../lib/types/sizings";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
 
-    export let element: HTMLElement | null = null;
+    type $$Events = {
+        active: CustomEvent<void>;
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+        dismiss: CustomEvent<void>;
+    };
 
+    type $$Props = {
+        element?: HTMLElement;
+
+        captive?: boolean;
+        dismissible?: boolean;
+        logic_id?: string;
+        state?: boolean;
+
+        palette?: DESIGN_PALETTE_ARGUMENT;
+        variation?: "sticky";
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IIntrinsicProperties &
+        IMarginProperties &
+        IPaddingProperties;
+
+    export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+    export let captive: $$Props["captive"] = false;
+    export let dismissible: $$Props["dismissible"] = false;
+    export let logic_id: $$Props["logic_id"] = "";
+    export let state: $$Props["state"] = false;
 
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let palette: $$Props["palette"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let padding: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let padding_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let padding_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let padding_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let padding_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let padding_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let padding_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let height: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let max_height: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let min_height: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-
-    export let width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let max_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-    export let min_width: DESIGN_INTRINSIC_SIZING_ARGUMENT | undefined = undefined;
-
-    export let captive: boolean = false;
-    export let dismissible: boolean = false;
-    export let logic_id: string = "";
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let state: boolean = false;
-    export let variation: "sticky" | undefined = undefined;
-
-    const _logic_id = make_id_context(logic_id);
-    const _state = make_state_context(state);
+    const _logic_id = make_id_context(logic_id as string);
+    const _state = make_state_context(state as boolean);
     const _viewports = viewports({mobile: true, tablet: true});
 
     function on_input(event: Event) {
@@ -69,8 +68,7 @@
     }
 
     $: if (!$_viewports) state = false;
-    $: $_state = state;
-
+    $: $_state = state as boolean;
 </script>
 
 {#if $_logic_id}

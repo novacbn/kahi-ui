@@ -2,12 +2,20 @@
 
 ## UNRELEASED
 
+-   Deprecated the following Components / Component Features
+
+    -   Navigation
+
+        -   `Omni`
+
+            -   `<Omni.Container logic_id="XXX">` — Current behavior is deprecated in favor of using `Popover` in combination with global modifiers like `hidden`.
+
 -   Updated the following Components
 
     -   \*
 
         -   Migrated all Components to internally use new experiemental [`$$Props`](https://github.com/dummdidumm/rfcs/blob/683fe6d12051b1c9107cfe76cfb90af5efe2fc43/text/ts-typing-props-slots-events.md) TypeScript type aliasing.
-        -   Fixed Svelte Compiler warning for unused exports.
+        -   Fixed Svelte Compiler warnings for unused exports.
 
 ## v0.2.14 - 2021/07/20
 

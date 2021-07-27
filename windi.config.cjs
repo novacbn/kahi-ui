@@ -16,6 +16,7 @@ export default defineConfig({
         "lowercase",
         "rounded",
         "sticky",
+        "transform",
         "truncate",
         "uppercase",
     ],

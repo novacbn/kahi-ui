@@ -1,6 +1,4 @@
 <script lang="ts">
-    // TODO: Inherit `for` from context if available
-
     import type {IGlobalProperties} from "../../../lib/types/global";
     import type {IHTML5Properties} from "../../../lib/types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";

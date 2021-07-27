@@ -1,11 +1,13 @@
 <script lang="ts">
-    import {get_formstate_context, make_formstate_context} from "../../../lib/stores/formstate";
-    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../lib/stores/id";
-
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {IMarginProperties} from "../../../lib/types/spacings";
+    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../lib/types/variations";
+
+    import {get_formstate_context} from "../../../lib/stores/formstate";
+    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../lib/stores/id";
 
     import {
         map_aria_attributes,
@@ -14,36 +16,41 @@
         map_global_attributes,
     } from "../../../lib/util/attributes";
 
-    export let element: HTMLInputElement | null = null;
+    type $$Events = {
+        blur: FocusEvent;
+        change: InputEvent;
+        click: MouseEvent;
+        focus: FocusEvent;
+        input: InputEvent;
+    };
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+    type $$Props = {
+        element?: HTMLInputElement;
 
-    export {_class as class};
+        active?: boolean;
+        disabled?: boolean;
+        state?: boolean;
+        value?: string;
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+        palette?: DESIGN_PALETTE_ARGUMENT;
+        size?: DESIGN_SIZE_ARGUMENT;
+        variation?: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties;
 
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let element: $$Props["element"] = undefined;
 
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let id: $$Props["id"] = "";
+    export let name: $$Props["name"] = "";
 
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let active: $$Props["active"] = false;
+    export let disabled: $$Props["disabled"] = false;
+    export let state: $$Props["state"] = false;
+    export let value: $$Props["value"] = "";
 
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-
-    export let active: boolean = false;
-    export let disabled: boolean = false;
-    export let state: boolean = false;
-    export let value: string = "";
+    export let palette: $$Props["palette"] = undefined;
+    export let size: $$Props["size"] = undefined;
 
     const _form_id = get_id_context(CONTEXT_FORM_ID);
     const _form_name = get_id_context(CONTEXT_FORM_NAME);
@@ -51,8 +58,8 @@
 
     $: {
         if (_form_state) {
-            if (state) _form_state.push_value(value);
-            else _form_state.remove_value(value);
+            if (state) _form_state.push_value(value as string);
+            else _form_state.remove_value(value as string);
         }
     }
 

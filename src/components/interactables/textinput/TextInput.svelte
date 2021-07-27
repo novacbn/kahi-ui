@@ -1,16 +1,17 @@
 <script lang="ts">
-    import {CONTEXT_FORM_ID, get_id_context} from "../../../lib/stores/id";
-
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../lib/types/resizable";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {IMarginProperties} from "../../../lib/types/spacings";
     import type {
         DESIGN_TEXT_ALIGNMENT_ARGUMENT,
         DESIGN_TEXT_TRANSFORM_ARGUMENT,
     } from "../../../lib/types/text";
     import type {DESIGN_FILL_INPUT_VARIATION_ARGUMENT} from "../../../lib/types/variations";
+
+    import {CONTEXT_FORM_ID, get_id_context} from "../../../lib/stores/id";
 
     import {
         map_attributes,
@@ -18,58 +19,79 @@
         map_global_attributes,
     } from "../../../lib/util/attributes";
 
-    export let element: HTMLInputElement | HTMLTextAreaElement | null = null;
+    type $$Events = {
+        blur: FocusEvent;
+        change: InputEvent;
+        click: MouseEvent;
+        focus: FocusEvent;
+        input: InputEvent;
+    };
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+    type $$Props = {
+        element?: HTMLInputElement | HTMLTextAreaElement;
 
-    export {_class as class};
+        is?: "input" | "textarea";
+        type?: "email" | "password" | "text" | "search" | "url";
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+        disabled?: boolean;
+        required?: boolean;
+        readonly?: boolean;
 
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+        placeholder?: string;
+        value?: string;
 
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+        max_length?: number | undefined;
+        min_length?: number | undefined;
+        pattern?: RegExp | string;
 
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+        characters?: number;
 
-    export let align: DESIGN_TEXT_ALIGNMENT_ARGUMENT | undefined = undefined;
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let transform: DESIGN_TEXT_TRANSFORM_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_FILL_INPUT_VARIATION_ARGUMENT | undefined = undefined;
+        lines?: number;
+        resizable?: DESIGN_RESIZEABLE_ARGUMENT;
+        spell_check?: boolean;
 
-    export let is: "input" | "textarea" = "input";
-    export let type: "email" | "password" | "text" | "search" | "url" = "text";
+        align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
+        palette?: DESIGN_PALETTE_ARGUMENT;
+        size?: DESIGN_SIZE_ARGUMENT;
+        transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
+        variation?: DESIGN_FILL_INPUT_VARIATION_ARGUMENT;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties;
 
-    export let disabled: boolean = false;
-    export let required: boolean = false;
-    export let readonly: boolean = false;
+    export let element: $$Props["element"] = undefined;
 
-    export let max_length: number | undefined = undefined;
-    export let min_length: number | undefined = undefined;
-    export let pattern: RegExp | string = "";
+    export let id: $$Props["id"] = "";
 
-    export let placeholder: string = "";
-    export let value: string = "";
+    export let is: $$Props["is"] = "input";
+    export let type: $$Props["type"] = "text";
 
-    export let characters: number | undefined = undefined;
+    export let disabled: $$Props["disabled"] = false;
+    export let required: $$Props["required"] = false;
+    export let readonly: $$Props["readonly"] = false;
 
-    export let lines: number | undefined = undefined;
-    export let resizable: DESIGN_RESIZEABLE_ARGUMENT = false;
-    export let spell_check: boolean | undefined = undefined;
+    export let placeholder: $$Props["placeholder"] = "";
+    export let value: $$Props["value"] = "";
+
+    export let max_length: $$Props["max_length"] = undefined;
+    export let min_length: $$Props["min_length"] = undefined;
+    export let pattern: $$Props["pattern"] = "";
+
+    export let characters: $$Props["characters"] = undefined;
+
+    export let lines: $$Props["lines"] = undefined;
+    export let resizable: $$Props["resizable"] = false;
+    export let spell_check: $$Props["spell_check"] = undefined;
+
+    export let align: $$Props["align"] = undefined;
+    export let palette: $$Props["palette"] = undefined;
+    export let size: $$Props["size"] = undefined;
+    export let transform: $$Props["transform"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 
     const _form_id = get_id_context(CONTEXT_FORM_ID);
 
-    $: _pattern = typeof pattern === "string" ? pattern : pattern.source;
+    $: _pattern = typeof pattern === "string" ? pattern : (pattern as RegExp).source;
 </script>
 
 {#if is === "textarea"}

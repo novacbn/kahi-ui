@@ -1,30 +1,37 @@
 <script lang="ts">
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
 
     import Anchor from "../anchor/Anchor.svelte";
 
     import MenuItem from "./MenuItem.svelte";
 
-    export let element: HTMLLIElement | null = null;
+    type $$Events = {
+        click: MouseEvent;
+    };
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+    type $$Props = {
+        element?: HTMLLIElement;
 
-    export {_class as class};
+        active?: boolean;
+        disabled?: boolean;
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+        download?: string;
+        href?: string;
+        rel?: string;
+        target?: string;
+    } & IHTML5Properties &
+        IGlobalProperties;
 
-    export let active: boolean = false;
-    export let disabled: boolean = false;
+    export let element: $$Props["element"] = undefined;
 
-    export let download: string = "";
-    export let href: string = "";
-    export let rel: string = "";
-    export let target: string = "";
+    export let active: $$Props["active"] = false;
+    export let disabled: $$Props["disabled"] = false;
+
+    export let download: $$Props["download"] = "";
+    export let href: $$Props["href"] = "";
+    export let rel: $$Props["rel"] = "";
+    export let target: $$Props["target"] = "";
 </script>
 
 <MenuItem bind:element {...$$props}>

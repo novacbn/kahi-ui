@@ -1,22 +1,17 @@
 <script lang="ts">
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
 
     import Divider from "../../layouts/divider/Divider.svelte";
 
     import MenuItem from "./MenuItem.svelte";
 
-    export let element: HTMLLIElement | null = null;
+    type $$Props = {
+        element?: HTMLLIElement;
+    } & IHTML5Properties &
+        IGlobalProperties;
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
-
-    export {_class as class};
-
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+    export let element: $$Props["element"] = undefined;
 </script>
 
 <MenuItem bind:element {...$$props}>

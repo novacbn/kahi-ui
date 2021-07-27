@@ -1,12 +1,22 @@
 <script lang="ts">
     // TODO: Stories
 
+    // TODO: Dispatch event for when the containing `<div>` has
+    // been moved
+
     import {onDestroy, onMount, tick} from "svelte";
 
-    export let element: HTMLElement | null = null;
+    type $$Props = {
+        element?: HTMLDivElement;
 
-    export let prepend = false;
-    export let target: HTMLElement | string = typeof window !== "object" ? "" : document.body;
+        prepend?: boolean;
+        target?: HTMLElement | string;
+    };
+
+    export let element: $$Props["element"] = undefined;
+
+    export let prepend: $$Props["prepend"] = false;
+    export let target: $$Props["target"] = typeof window !== "object" ? "" : document.body;
 
     onDestroy(() => {
         if (element) element.remove();
@@ -21,7 +31,7 @@
             // satisfy TypeScript
 
             throw new TypeError(
-                "bad attribute 'element' on 'Portal' (failed to access container element)"
+                "bad attribute 'element' on 'Portal' (failed to reference container element)"
             );
         }
 

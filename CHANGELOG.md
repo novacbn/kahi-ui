@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.2.15 - 2021/07/27
 
 -   Deprecated the following Components / Component Features
 

@@ -65,7 +65,6 @@
         "build:framework": "cross-env NODE_ENV=production postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css ./src/index.css",
         "build:storybook": "build-storybook",
         "dev:storybook": "start-storybook --ci -p 6006",
-        "format:docs": "prettier --config ./docs/.prettierrc --write ./docs",
         "format:framework": "prettier --config .prettierrc --write ./src",
         "prepublish:minify": "esbuild --outfile=./dist/kahi-ui.framework.min.css --minify ./dist/kahi-ui.framework.css",
         "test": "npm run test:types && npm run test:svelte",

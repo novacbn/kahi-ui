@@ -1,37 +1,27 @@
 <script lang="ts">
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
     import type {DESIGN_ORIENTATION_HORIZONTAL_ARGUMENT} from "../../../lib/types/orientations";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {IIntrinsicProperties} from "../../../lib/types/sizings";
+    import type {IMarginProperties} from "../../../lib/types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
-    export let element: HTMLElement | null = null;
+    type $$Props = {
+        element?: HTMLHRElement | HTMLSpanElement;
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+        palette?: DESIGN_PALETTE_ARGUMENT;
+        orientation?: DESIGN_ORIENTATION_HORIZONTAL_ARGUMENT;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IIntrinsicProperties &
+        IMarginProperties;
 
-    export {_class as class};
+    export let element: $$Props["element"] = undefined;
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
-
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let orientation: DESIGN_ORIENTATION_HORIZONTAL_ARGUMENT | undefined = undefined;
-
+    export let palette: $$Props["palette"] = undefined;
+    export let orientation: $$Props["orientation"] = undefined;
 </script>
 
 {#if $$slots["default"]}

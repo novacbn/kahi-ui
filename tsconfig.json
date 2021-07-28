@@ -9,7 +9,6 @@
         "downlevelIteration": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "resolveJsonModule": true,
         "declarationDir": "types"
     },
     "include": ["src/**/*"],

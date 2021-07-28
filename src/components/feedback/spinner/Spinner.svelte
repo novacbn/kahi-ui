@@ -1,38 +1,30 @@
 <script lang="ts">
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {IMarginProperties} from "../../../lib/types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
-    export let element: HTMLElement | null = null;
+    type $$Props = {
+        element?: HTMLSpanElement;
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+        palette?: DESIGN_PALETTE_ARGUMENT;
+        size?: DESIGN_SIZE_ARGUMENT;
+        variation?: "dual";
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties;
 
+    export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
-
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let variation: "dual" | undefined = undefined;
-
+    export let palette: $$Props["palette"] = undefined;
+    export let size: $$Props["size"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 </script>
 
 <span

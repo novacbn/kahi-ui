@@ -1,20 +1,25 @@
 <script lang="ts">
+    /**
+     * TODO: Stories (?)
+     */
+
+    import type {IHTML5Properties} from "../../../lib/types/html5";
+
     import {CONTEXT_FORM_ID, get_id_context} from "../../../lib/stores/id";
 
     import {map_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
-    // TODO: Stories?
+    type $$Props = {
+        element?: HTMLInputElement;
 
-    export let element: HTMLInputElement | null = null;
+        value?: string;
+    } & IHTML5Properties;
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
+    export let element: $$Props["element"] = undefined;
 
-    export {_class as class};
+    export let id: $$Props["id"] = "";
 
-    export let value: string = "";
+    export let value: $$Props["value"] = "";
 
     const _form_id = get_id_context(CONTEXT_FORM_ID);
 </script>

@@ -1,4 +1,11 @@
 <script lang="ts">
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
+    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
+    import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
+    import type {IMarginProperties} from "../../../lib/types/spacings";
+    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../lib/types/variations";
+
     import {get_formstate_context, make_formstate_context} from "../../../lib/stores/formstate";
     import {
         CONTEXT_FORM_ID,
@@ -6,12 +13,6 @@
         get_id_context,
         make_id_context,
     } from "../../../lib/stores/id";
-
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
-    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {
         map_aria_attributes,
@@ -22,49 +23,56 @@
 
     import FormLabel from "../form/FormLabel.svelte";
 
-    export let element: HTMLInputElement | null = null;
+    type $$Events = {
+        blur: FocusEvent;
+        change: InputEvent;
+        click: MouseEvent;
+        focus: FocusEvent;
+        input: InputEvent;
+    };
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+    type $$Props = {
+        element?: HTMLInputElement;
 
-    export {_class as class};
+        active?: boolean;
+        disabled?: boolean;
+        state?: boolean;
+        value?: string;
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+        palette?: DESIGN_PALETTE_ARGUMENT;
+        size?: DESIGN_SIZE_ARGUMENT;
+        variation?: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties;
 
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let element: $$Props["element"] = undefined;
 
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let id: $$Props["id"] = "";
+    export let name: $$Props["name"] = "";
 
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let active: $$Props["active"] = false;
+    export let disabled: $$Props["disabled"] = false;
+    export let state: $$Props["state"] = false;
+    export let value: $$Props["value"] = "";
 
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT | undefined = undefined;
+    export let palette: $$Props["palette"] = undefined;
+    export let size: $$Props["size"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 
-    export let active: boolean = false;
-    export let disabled: boolean = false;
-    export let value: string = "";
-    export let state: boolean = false;
-
-    const _form_id = get_id_context(CONTEXT_FORM_ID) ?? make_id_context(id, CONTEXT_FORM_ID);
+    const _form_id =
+        get_id_context(CONTEXT_FORM_ID) ?? make_id_context(id as string, CONTEXT_FORM_ID);
     const _form_name =
-        get_id_context(CONTEXT_FORM_NAME) ?? make_id_context(name, CONTEXT_FORM_NAME);
-    const _form_state = get_formstate_context() ?? make_formstate_context(state ? value : "");
+        get_id_context(CONTEXT_FORM_NAME) ?? make_id_context(name as string, CONTEXT_FORM_NAME);
+    const _form_state =
+        get_formstate_context() ?? make_formstate_context(state ? (value as string) : "");
 
     $: if (id) $_form_id = id;
     $: if (name) $_form_name = name;
 
     $: if (state) {
         _form_state.clear();
-        _form_state.push_value(value);
+        _form_state.push_value(value as string);
     }
 
     $: if (value) state = $_form_state === value;

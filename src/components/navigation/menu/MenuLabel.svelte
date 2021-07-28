@@ -1,25 +1,21 @@
 <script lang="ts">
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
 
     import FormLabel from "../../interactables/form/FormLabel.svelte";
 
     import MenuItem from "./MenuItem.svelte";
 
-    export let element: HTMLLIElement | null = null;
+    type $$Props = {
+        element?: HTMLLIElement;
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+        for?: string;
+    } & IHTML5Properties &
+        IGlobalProperties;
 
-    export {_class as class};
+    export let element: $$Props["element"] = undefined;
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
-
-    let _for: string = "";
-
+    let _for: $$Props["for"] = "";
     export {_for as for};
 </script>
 

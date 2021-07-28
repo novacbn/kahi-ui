@@ -15,7 +15,7 @@
 -   **Composable**: While 30+ prebuilt Components are available, Kahi UI also provides primitives to design your Application's UI without touching CSS.
 -   **Dark Mode**: Components in Kahi UI change colors when a compatible Browser views w/ Dark Mode.
 -   **Framework Independent**: Even though Svelte-first, there is no hard toolchain dependencies required. You can just take the built CSS files and use with React or in a traditional SSR environment.
--   **Typescript Compatible**: Kahi UI should be fully typed, so you get easy IDE autocomplete.
+-   **Typescript Native**: Kahi UI tries to be fully typed by using TypeScript as its base language, so you get a complete IDE experience.
 
 ## Documentation
 
@@ -41,7 +41,7 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 Open your terminal and install via `npm`:
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.14
+npm install github:novacbn/kahi-ui#0.2.15
 ```
 
 Install current in-development code:

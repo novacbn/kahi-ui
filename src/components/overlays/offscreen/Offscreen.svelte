@@ -6,44 +6,60 @@
         DESIGN_ALIGNMENT_X_ARGUMENT,
         DESIGN_ALIGNMENT_Y_ARGUMENT,
     } from "../../../lib/types/alignments";
+
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
+    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../lib/types/placements";
+
     import {make_id_context} from "../../../lib/stores/id";
     import {make_state_context} from "../../../lib/stores/state";
-
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
-    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../lib/types/placements";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
 
+    type $$Events = {
+        active: CustomEvent<void>;
+
+        dismiss: CustomEvent<void>;
+    };
+
+    type $$Props = {
+        element?: HTMLDivElement;
+
+        captive?: boolean;
+        dismissible?: boolean;
+        logic_id?: string;
+        state?: boolean;
+
+        placement?: DESIGN_PLACEMENT_ARGUMENT;
+
+        alignment?: DESIGN_ALIGNMENT_ARGUMENT;
+        alignment_x?: DESIGN_ALIGNMENT_X_ARGUMENT;
+        alignment_y?: DESIGN_ALIGNMENT_Y_ARGUMENT;
+    } & IHTML5Properties &
+        IGlobalProperties;
+
     const dispatch = createEventDispatcher();
 
-    export let element: HTMLElement | null = null;
+    export let element: $$Props["element"] = undefined;
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
-
+    let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+    export let captive: $$Props["captive"] = false;
+    export let dismissible: $$Props["dismissible"] = false;
+    export let logic_id: $$Props["logic_id"] = "";
+    export let state: $$Props["state"] = false;
 
-    export let captive: boolean = false;
-    export let dismissible: boolean = false;
-    export let logic_id: string = "";
-    export let state: boolean = false;
+    export let placement: $$Props["placement"] = undefined;
 
-    export let placement: DESIGN_PLACEMENT_ARGUMENT | undefined = undefined;
+    export let alignment: $$Props["alignment"] = undefined;
+    export let alignment_x: $$Props["alignment_x"] = undefined;
+    export let alignment_y: $$Props["alignment_y"] = undefined;
 
-    export let alignment: DESIGN_ALIGNMENT_ARGUMENT | undefined = undefined;
-    export let alignment_x: DESIGN_ALIGNMENT_X_ARGUMENT | undefined = undefined;
-    export let alignment_y: DESIGN_ALIGNMENT_Y_ARGUMENT | undefined = undefined;
-
-    const _logic_id = make_id_context(logic_id);
-    const _state = make_state_context(state);
+    const _logic_id = make_id_context(logic_id as string);
+    const _state = make_state_context(state as boolean);
 
     let _previous_state = state;
 
@@ -51,7 +67,7 @@
         state = (event.target as HTMLInputElement).checked;
     }
 
-    $: $_state = state;
+    $: $_state = state as boolean;
 
     $: {
         if (_previous_state !== state) {

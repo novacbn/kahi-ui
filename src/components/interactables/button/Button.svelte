@@ -1,8 +1,9 @@
 <script lang="ts">
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {IMarginProperties} from "../../../lib/types/spacings";
     import type {DESIGN_FILL_BUTTON_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {
@@ -12,48 +13,53 @@
         map_global_attributes,
     } from "../../../lib/util/attributes";
 
-    export let element: HTMLElement | null = null;
+    type $$Events = {
+        click: MouseEvent;
+    };
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+    type $$Props = {
+        element?: HTMLAnchorElement | HTMLButtonElement | HTMLInputElement | HTMLLabelElement;
 
-    export {_class as class};
+        active?: boolean;
+        disabled?: boolean;
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+        type?: "submit";
+        value?: string;
 
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+        download?: string;
+        href?: string;
+        rel?: string;
+        target?: string;
 
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+        for?: boolean | string;
 
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+        palette?: DESIGN_PALETTE_ARGUMENT;
+        size?: DESIGN_SIZE_ARGUMENT;
+        variation?: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties;
 
-    export let palette: DESIGN_PALETTE_ARGUMENT | undefined = undefined;
-    export let shape: undefined = undefined;
-    export let size: DESIGN_SIZE_ARGUMENT | undefined = undefined;
-    export let variation: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT | undefined = undefined;
+    export let element: $$Props["element"] = undefined;
 
-    export let active: boolean = false;
-    export let disabled: boolean = false;
+    export let active: $$Props["active"] = false;
+    export let disabled: $$Props["disabled"] = false;
 
-    export let type: "submit" | undefined = undefined;
-    export let value: string = "";
+    export let type: $$Props["type"] = undefined;
+    export let value: $$Props["value"] = "";
 
-    export let download: string = "";
-    export let href: string = "";
-    export let rel: string = "";
-    export let target: string = "";
+    export let download: $$Props["download"] = "";
+    export let href: $$Props["href"] = "";
+    export let rel: $$Props["rel"] = "";
+    export let target: $$Props["target"] = "";
 
-    export let _for: boolean | string = false;
+    let _for: $$Props["for"] = false;
 
     export {_for as for};
+
+    export let palette: $$Props["palette"] = undefined;
+    export let size: $$Props["size"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 </script>
 
 {#if href}
@@ -61,7 +67,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         role="button"
-        {...map_data_attributes({palette, shape, size, variation})}
+        {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({active, disabled})}
         {...map_attributes({download, href, rel, target})}
         on:click
@@ -74,7 +80,7 @@
             bind:this={element}
             {...map_global_attributes($$props)}
             role="button"
-            {...map_data_attributes({palette, shape, size, variation})}
+            {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({disabled, pressed: active})}
             on:click
         >
@@ -86,7 +92,7 @@
             {...map_global_attributes($$props)}
             role="button"
             for={_for}
-            {...map_data_attributes({palette, shape, size, variation})}
+            {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({disabled, pressed: active})}
             on:click
         >
@@ -99,7 +105,7 @@
             bind:this={element}
             {...map_global_attributes($$props)}
             type="submit"
-            {...map_data_attributes({palette, shape, size, variation})}
+            {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             on:click
@@ -109,7 +115,7 @@
             bind:this={element}
             {...map_global_attributes($$props)}
             type="button"
-            {...map_data_attributes({palette, shape, size, variation})}
+            {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             on:click
@@ -119,7 +125,7 @@
     <button
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({palette, shape, size, variation})}
+        {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({disabled})}
         on:click

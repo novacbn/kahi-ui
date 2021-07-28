@@ -1,7 +1,12 @@
 <script lang="ts">
+    /**
+     * TODO: Satisfy ARIA warnings from the Compiler by making non-optional properties
+     */
+
     import type {ARIA_CURRENT_ARGUMENT} from "../../../lib/types/aria";
-    import type {DESIGN_HIDDEN_ARGUMENT} from "../../../lib/types/hidden";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../lib/types/spacings";
+    import type {IGlobalProperties} from "../../../lib/types/global";
+    import type {IHTML5Properties} from "../../../lib/types/html5";
+    import type {IMarginProperties} from "../../../lib/types/spacings";
 
     import {
         map_aria_attributes,
@@ -9,37 +14,33 @@
         map_global_attributes,
     } from "../../../lib/util/attributes";
 
-    export let element: HTMLElement | null = null;
+    type $$Events = {
+        click: MouseEvent;
+    };
 
-    let _class: string = "";
-    export let id: string = "";
-    export let name: string = "";
-    export let style: string = "";
-    export let tabindex: number | string = "";
-    export let title: string = "";
+    type $$Props = {
+        element?: HTMLAnchorElement;
 
-    export {_class as class};
+        current?: ARIA_CURRENT_ARGUMENT;
+        disabled?: boolean;
 
-    export let hidden: DESIGN_HIDDEN_ARGUMENT = false;
+        download?: string;
+        href?: string;
+        rel?: string;
+        target?: string;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties;
 
-    export let margin: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let element: $$Props["element"] = undefined;
 
-    export let margin_x: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_y: DESIGN_SPACING_ARGUMENT | undefined = undefined;
+    export let current: $$Props["current"] = undefined;
+    export let disabled: $$Props["disabled"] = false;
 
-    export let margin_top: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_left: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_bottom: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-    export let margin_right: DESIGN_SPACING_ARGUMENT | undefined = undefined;
-
-    export let current: ARIA_CURRENT_ARGUMENT | undefined = undefined;
-    export let disabled: boolean = false;
-
-    export let download: string = "";
-    export let href: string = "";
-    export let rel: string = "";
-    export let target: string = "";
-
+    export let download: $$Props["download"] = "";
+    export let href: $$Props["href"] = "";
+    export let rel: $$Props["rel"] = "";
+    export let target: $$Props["target"] = "";
 </script>
 
 <a

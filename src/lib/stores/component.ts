@@ -1,16 +1,13 @@
-import type SvelteComponentDev from "*.svelte";
 import type {SvelteComponent} from "svelte";
 import {getContext, setContext} from "svelte";
 import type {Writable} from "svelte/store";
 import {writable} from "svelte/store";
 
-export type IComponentStore = Writable<string | SvelteComponent | SvelteComponentDev>;
+export type IComponentStore = Writable<string | typeof SvelteComponent>;
 
 export const CONTEXT_COMPONENT = Symbol.for("kahi-ui-component");
 
-export function component(
-    default_value: string | SvelteComponent | SvelteComponentDev
-): IComponentStore {
+export function component(default_value: string | typeof SvelteComponent): IComponentStore {
     return writable(default_value);
 }
 
@@ -26,7 +23,7 @@ export function get_component_context(): IComponentStore {
 }
 
 export function make_component_context(
-    default_value: string | SvelteComponent | SvelteComponentDev
+    default_value: string | typeof SvelteComponent
 ): IComponentStore {
     const store = component(default_value);
 

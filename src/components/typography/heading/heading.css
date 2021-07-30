@@ -4,10 +4,16 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-bold;
+    --palette-background-normal: currentColor;
+
+    @apply font-bold text-[var(--palette-background-normal)];
 
     text-align: var(--align-text, inherit);
     text-transform: var(--transform-text, inherit);
+
+    &[data-palette] {
+        @apply text-[rgb(var(--palette-background-normal))];
+    }
 
     &[data-variation~="truncate"] {
         @apply truncate;

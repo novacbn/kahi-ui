@@ -11,16 +11,28 @@ pre,
 s,
 samp,
 small,
-span:not([class]),
+span:not([class], [role]),
 strong,
 sub,
 sup,
 u {
-    text-align: var(--align-text, inherit);
-    text-transform: var(--transform-text, inherit);
+    --align-text: inherit;
+    --transform-text: inherit;
+
+    --palette-background-normal: currentColor;
+
+    --size-text-size: inherit;
+    --size-text-line-height: inherit;
+
+    @apply leading-[var(--size-text-line-height)] text-[var(--palette-background-normal)];
+
+    font-size: var(--size-text-size);
+
+    text-align: var(--align-text);
+    text-transform: var(--transform-text);
 
     &[data-palette] {
-        color: rgb(var(--palette-foreground-bg));
+        @apply text-[rgb(var(--palette-background-normal))];
     }
 
     &[data-variation~="truncate"] {
@@ -28,50 +40,43 @@ u {
     }
 }
 
-abbr,
-b,
-del,
-em,
-i,
-ins,
-kbd,
-mark,
-p,
-pre,
-s,
-samp,
-span:not([class]),
-strong,
-sub,
-sup,
-u {
-    &[data-size] {
-        font-size: var(--size-text);
-        line-height: var(--size-line-height);
-    }
-}
-
 kbd {
-    --palette-foreground-bg: theme("colors.default.500");
-    --palette-background-bg: theme("colors.default.400");
+    --palette-background-normal: var(--palette-neutral-normal);
 
-    --size-text: 70%;
+    --size-text-size: 70%;
 
-    @apply border-b-4 px-2 py-0.5 rounded-md text-bold whitespace-nowrap;
+    @apply border-b-4 border-[rgb(var(--palette-background-normal))] text-extrabold whitespace-nowrap;
 
-    background-color: rgba(var(--palette-background-bg), theme("opacity.20"));
-    border-color: rgba(var(--palette-foreground-bg), theme("opacity.50"));
     border-style: ridge;
 
-    font-size: var(--size-text);
+    font-size: var(--size-text-size);
 }
 
 pre {
-    @apply bg-default-400 bg-opacity-10 p-2 rounded-md overflow-x-auto;
+    @apply overflow-x-auto;
+}
+
+code,
+kbd,
+pre {
+    --palette-background-lightest: var(--palette-inverse-off-lightest);
+
+    @apply px-[var(--spacing-local-medium)] py-[var(--spacing-local-tiny)] rounded-md;
+
+    background: rgba(var(--palette-background-lightest), theme("opacity.20"));
+
+    font-family: var(--font-family-monospace);
+
+    &,
+    &[data-palette] {
+        @apply text-current;
+    }
 }
 
 small {
+    --size-text-size: 80%;
+
     @apply opacity-75;
 
-    font-size: 80%;
+    font-size: var(--size-text-size);
 }

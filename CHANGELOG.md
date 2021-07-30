@@ -48,6 +48,12 @@
 
             -   **(BREAKING)** `<Spinner size="XXX">` — `Spinner` now uses smaller text sizes instead of icon.
 
+    -   Typography
+
+        -   `Heading`
+
+            -   `<Heading palette="XXX">` — Is now supported for all the built-in semantic palettes.
+
 ## v0.2.15 - 2021/07/27
 
 -   Deprecated the following Components / Component Features

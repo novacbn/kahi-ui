@@ -1,9 +1,6 @@
 .box {
-    @apply text-current;
+    --palette-background-normal: var(--palette-auto-off-normal);
+    --palette-foreground-normal: var(--document-foreground);
 
-    background-color: rgba(theme("colors.default.100"), theme("opacity.20"));
-
-    &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
-    }
+    @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
 }

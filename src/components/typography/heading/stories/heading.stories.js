@@ -11,6 +11,7 @@ import Heading from "../Heading.svelte";
 import HeadingDefaultStory from "./HeadingDefaultStory.svelte";
 import HeadingAlignStory from "./HeadingAlignStory.svelte";
 import HeadingSizeStory from "./HeadingSizeStory.svelte";
+import HeadingHeadlineStory from "./HeadingHeadlineStory.svelte";
 import HeadingTransformStory from "./HeadingTransformStory.svelte";
 import HeadingVariationStory from "./HeadingVariationStory.svelte";
 
@@ -41,6 +42,13 @@ export const Default = (args) => ({
 
 export const Size = (args) => ({
     Component: HeadingSizeStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Headline = (args) => ({
+    Component: HeadingHeadlineStory,
     props: {
         ...args,
     },

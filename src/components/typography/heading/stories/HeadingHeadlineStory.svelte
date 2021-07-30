@@ -12,7 +12,7 @@
         <div style="max-width:25ch;">
             <Text is="strong">{tag.toUpperCase()}</Text>
 
-            <Heading {...$$props} is={tag}>
+            <Heading {...$$props} is={tag} variation="headline">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
                 Curabitur a egestas turpis, vitae convallis sapien.
             </Heading>

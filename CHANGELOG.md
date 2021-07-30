@@ -1,5 +1,53 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Fixed scrollbar not having height applied to it in WebKit / Blink.
+-   Updated scrollbar with theming for dark mode.
+-   Updated colors, spacings, and other visual modifiers.
+
+-   Added initial support for Theming CSS Variables
+
+    -   `--font-(content/headline)-(line-height/size)-(nano/tiny/small/medium/large/huge/massive)` — References the available font sizes and their associated line heights.
+
+        -   e.g. `font-size: var(--font-content-size-medium);`
+
+    -   `--palette-(auto/auto-off/inverse/inverse-off/accent/neutral/dark/off-dark/light/off-light/alert/affirmative/negative)-(lightest/light/normal/bold/boldest)` — References the available shades for the semantic color palette.
+
+        -   e.g. `color: rgb(var(--palette-accent-bold));`
+        -   **IMPORTANT**: The semantic shades naming depends on the theme used. e.g. the default theme flips light <-> dark shades around and shifts the shading scale, for dark mode.
+        -   **NOTE**: The `auto` / `auto-off` palettes are their respective `dark` / `light`, depending on if the Framework is in dark mode.
+        -   **NOTE**: The `inverse` / `inverse-off` palettes are always the opposite of the `auto` / `auto-off` palettes.
+        -   **NOTE**: The `off` palettes are "off color" variations of the `dark` / `light` palettes.
+
+    -   `--spacing-(local/root)-(nano/tiny/small/medium/large/huge/massive)` — References the available spacing levels, with `root` spacing using `rem` and `local` using `em`.
+
+        -   e.g. `padding-left: var(--spacing-root-small);`
+
+-   Deprecated the following Components / Component Features
+
+    -   Feedback
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner variation="dual">` — Will no longer be available in the future.
+
+        -   `Wave`
+
+            -   **(BREAKING)** `<Wave size="XXX">` — Will no longer be available in the future.
+
+-   Updated the following Components
+
+    -   \*
+
+        -   `<XXX palette="auto-inverse">` — Changed from `auto-inverse` -> `inverse` to be consistent with new CSS Variables.
+
+    -   Feedback
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner size="XXX">` — `Spinner` now uses smaller text sizes instead of icon.
+
 ## v0.2.15 - 2021/07/27
 
 -   Deprecated the following Components / Component Features
@@ -8,7 +56,7 @@
 
         -   `Omni`
 
-            -   `<Omni.Container logic_id="XXX">` — Current behavior is deprecated in favor of using `Popover` in combination with global modifiers like `hidden`.
+            -   **(BREAKING)** `<Omni.Container logic_id="XXX">` — Current behavior is deprecated in favor of using `Popover` in combination with global modifiers like `hidden`.
 
 -   Updated the following Components
 

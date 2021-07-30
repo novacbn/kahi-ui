@@ -5,6 +5,8 @@
  */
 
 @import url("./styles/windicss.css");
+@import url("./styles/theme.css");
+
 @import url("./styles/document.css");
 @import url("./styles/embedded.css");
 

@@ -2,38 +2,38 @@
     --size-embedded: theme("width.lg");
     --size-icon: theme("width.2");
 
-    --size-text: theme("fontSize.xs.0");
-    --size-line-height: theme("fontSize.xs.1.lineHeight");
+    --size-text-size: var(--font-content-size-nano);
+    --size-text-line-height: var(--font-content-line-height-nano);
 }
 
 [data-size="small"] {
     --size-embedded: theme("width.xl");
     --size-icon: theme("width.4");
 
-    --size-text: theme("fontSize.sm.0");
-    --size-line-height: theme("fontSize.sm.1.lineHeight");
+    --size-text-size: var(--font-content-size-small);
+    --size-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-size="medium"] {
     --size-embedded: theme("width.3xl");
     --size-icon: theme("width.8");
 
-    --size-text: theme("fontSize.lg.0");
-    --size-line-height: theme("fontSize.lg.1.lineHeight");
+    --size-text-size: var(--font-content-size-medium);
+    --size-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-size="large"] {
     --size-embedded: theme("width.5xl");
     --size-icon: theme("width.16");
 
-    --size-text: theme("fontSize.xl.0");
-    --size-line-height: theme("fontSize.xl.1.lineHeight");
+    --size-text-size: var(--font-content-size-large);
+    --size-text-line-height: var(--font-content-line-height-large);
 }
 
 [data-size="huge"] {
     --size-embedded: theme("width.7xl");
     --size-icon: theme("width.32");
 
-    --size-text: theme("fontSize.2xl.0");
-    --size-line-height: theme("fontSize.2xl.1.lineHeight");
+    --size-text-size: var(--font-content-size-huge);
+    --size-text-line-height: var(--font-content-line-height-huge);
 }

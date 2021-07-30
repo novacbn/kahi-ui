@@ -20,7 +20,7 @@
         -   **NOTE**: The `inverse` / `inverse-off` palettes are always the opposite of the `auto` / `auto-off` palettes.
         -   **NOTE**: The `off` palettes are "off color" variations of the `dark` / `light` palettes.
 
-    -   `--spacing-(local/root)-(nano/tiny/small/medium/large/huge/massive)` — References the available spacing levels, with `root` spacing using `rem` and `local` using `em`.
+    -   `--spacing-(local/root)-(tiny/small/medium/large/huge)` — References the available spacing levels, with `root` spacing using `rem` and `local` using `em`.
 
         -   e.g. `padding-left: var(--spacing-root-small);`
 

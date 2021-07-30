@@ -17,7 +17,7 @@
 }
 
 [data-width~="prose"] {
-    @apply !w-prose;
+    @apply !w-[var(--sizes-prose)];
 }
 
 [data-width~="stretch"] {
@@ -94,7 +94,7 @@
     }
 
     [data-width~="mobile:prose"] {
-        @apply !w-prose;
+        @apply !w-[var(--sizes-prose)];
     }
 
     [data-width~="mobile:stretch"] {
@@ -172,7 +172,7 @@
     }
 
     [data-width~="tablet:prose"] {
-        @apply !w-prose;
+        @apply !w-[var(--sizes-prose)];
     }
 
     [data-width~="tablet:stretch"] {
@@ -250,7 +250,7 @@
     }
 
     [data-width~="desktop:prose"] {
-        @apply !w-prose;
+        @apply !w-[var(--sizes-prose)];
     }
 
     [data-width~="desktop:stretch"] {
@@ -328,7 +328,7 @@
     }
 
     [data-width~="widescreen:prose"] {
-        @apply !w-prose;
+        @apply !w-[var(--sizes-prose)];
     }
 
     [data-width~="widescreen:stretch"] {
@@ -401,7 +401,7 @@
 }
 
 [data-max-width~="prose"] {
-    @apply !max-w-prose;
+    @apply !max-w-[var(--sizes-prose)];
 }
 
 [data-max-width~="stretch"] {
@@ -474,7 +474,7 @@
     }
 
     [data-max-width~="mobile:prose"] {
-        @apply !max-w-prose;
+        @apply !max-w-[var(--sizes-prose)];
     }
 
     [data-max-width~="mobile:stretch"] {
@@ -548,7 +548,7 @@
     }
 
     [data-max-width~="tablet:prose"] {
-        @apply !max-w-prose;
+        @apply !max-w-[var(--sizes-prose)];
     }
 
     [data-max-width~="tablet:stretch"] {
@@ -622,7 +622,7 @@
     }
 
     [data-max-width~="desktop:prose"] {
-        @apply !max-w-prose;
+        @apply !max-w-[var(--sizes-prose)];
     }
 
     [data-max-width~="desktop:stretch"] {
@@ -696,7 +696,7 @@
     }
 
     [data-max-width~="widescreen:prose"] {
-        @apply !max-w-prose;
+        @apply !max-w-[var(--sizes-prose)];
     }
 
     [data-max-width~="widescreen:stretch"] {
@@ -769,7 +769,7 @@
 }
 
 [data-min-width~="prose"] {
-    @apply !min-w-prose;
+    @apply !min-w-[var(--sizes-prose)];
 }
 
 [data-min-width~="stretch"] {
@@ -842,7 +842,7 @@
     }
 
     [data-min-width~="mobile:prose"] {
-        @apply !min-w-prose;
+        @apply !min-w-[var(--sizes-prose)];
     }
 
     [data-min-width~="mobile:stretch"] {
@@ -916,7 +916,7 @@
     }
 
     [data-min-width~="tablet:prose"] {
-        @apply !min-w-prose;
+        @apply !min-w-[var(--sizes-prose)];
     }
 
     [data-min-width~="tablet:stretch"] {
@@ -990,7 +990,7 @@
     }
 
     [data-min-width~="desktop:prose"] {
-        @apply !min-w-prose;
+        @apply !min-w-[var(--sizes-prose)];
     }
 
     [data-min-width~="desktop:stretch"] {
@@ -1064,7 +1064,7 @@
     }
 
     [data-min-width~="widescreen:prose"] {
-        @apply !min-w-prose;
+        @apply !min-w-[var(--sizes-prose)];
     }
 
     [data-min-width~="widescreen:stretch"] {
@@ -1143,7 +1143,7 @@
 }
 
 [data-height~="prose"] {
-    @apply !h-prose;
+    @apply !h-[var(--sizes-prose)];
 }
 
 [data-height~="stretch"] {
@@ -1220,7 +1220,7 @@
     }
 
     [data-height~="mobile:prose"] {
-        @apply !h-prose;
+        @apply !h-[var(--sizes-prose)];
     }
 
     [data-height~="mobile:stretch"] {
@@ -1298,7 +1298,7 @@
     }
 
     [data-height~="tablet:prose"] {
-        @apply !h-prose;
+        @apply !h-[var(--sizes-prose)];
     }
 
     [data-height~="tablet:stretch"] {
@@ -1376,7 +1376,7 @@
     }
 
     [data-height~="desktop:prose"] {
-        @apply !h-prose;
+        @apply !h-[var(--sizes-prose)];
     }
 
     [data-height~="desktop:stretch"] {
@@ -1454,7 +1454,7 @@
     }
 
     [data-height~="widescreen:prose"] {
-        @apply !h-prose;
+        @apply !h-[var(--sizes-prose)];
     }
 
     [data-height~="widescreen:stretch"] {
@@ -1527,7 +1527,7 @@
 }
 
 [data-max-height~="prose"] {
-    @apply !max-h-prose;
+    @apply !max-h-[var(--sizes-prose)];
 }
 
 [data-max-height~="stretch"] {
@@ -1600,7 +1600,7 @@
     }
 
     [data-max-height~="mobile:prose"] {
-        @apply !max-h-prose;
+        @apply !max-h-[var(--sizes-prose)];
     }
 
     [data-max-height~="mobile:stretch"] {
@@ -1674,7 +1674,7 @@
     }
 
     [data-max-height~="tablet:prose"] {
-        @apply !max-h-prose;
+        @apply !max-h-[var(--sizes-prose)];
     }
 
     [data-max-height~="tablet:stretch"] {
@@ -1748,7 +1748,7 @@
     }
 
     [data-max-height~="desktop:prose"] {
-        @apply !max-h-prose;
+        @apply !max-h-[var(--sizes-prose)];
     }
 
     [data-max-height~="desktop:stretch"] {
@@ -1822,7 +1822,7 @@
     }
 
     [data-max-height~="widescreen:prose"] {
-        @apply !max-h-prose;
+        @apply !max-h-[var(--sizes-prose)];
     }
 
     [data-max-height~="widescreen:stretch"] {
@@ -1895,7 +1895,7 @@
 }
 
 [data-min-height~="prose"] {
-    @apply !min-h-prose;
+    @apply !min-h-[var(--sizes-prose)];
 }
 
 [data-min-height~="stretch"] {
@@ -1968,7 +1968,7 @@
     }
 
     [data-min-height~="mobile:prose"] {
-        @apply !min-h-prose;
+        @apply !min-h-[var(--sizes-prose)];
     }
 
     [data-min-height~="mobile:stretch"] {
@@ -2042,7 +2042,7 @@
     }
 
     [data-min-height~="tablet:prose"] {
-        @apply !min-h-prose;
+        @apply !min-h-[var(--sizes-prose)];
     }
 
     [data-min-height~="tablet:stretch"] {
@@ -2116,7 +2116,7 @@
     }
 
     [data-min-height~="desktop:prose"] {
-        @apply !min-h-prose;
+        @apply !min-h-[var(--sizes-prose)];
     }
 
     [data-min-height~="desktop:stretch"] {
@@ -2190,7 +2190,7 @@
     }
 
     [data-min-height~="widescreen:prose"] {
-        @apply !min-h-prose;
+        @apply !min-h-[var(--sizes-prose)];
     }
 
     [data-min-height~="widescreen:stretch"] {

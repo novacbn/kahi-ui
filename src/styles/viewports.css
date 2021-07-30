@@ -1,107 +1,107 @@
 [data-viewport~="prose"] {
-    --viewport: theme("width.prose");
+    --viewport: var(--sizes-prose);
 }
 
 [data-viewport~="mobile"] {
-    --viewport: theme("screens.sm");
+    --viewport: var(--viewport-mobile-max);
 }
 
 [data-viewport~="tablet"] {
-    --viewport: theme("screens.md");
+    --viewport: var(--viewport-tablet-max);
 }
 
 [data-viewport~="desktop"] {
-    --viewport: theme("screens.lg");
+    --viewport: var(--viewport-desktop-max);
 }
 
 [data-viewport~="widescreen"] {
-    --viewport: theme("screens.xl");
+    --viewport: var(--viewport-widescreen-max);
 }
 
 @variants <sm {
     [data-viewport~="mobile:prose"] {
-        --viewport: theme("width.prose");
+        --viewport: var(--sizes-prose);
     }
 
     [data-viewport~="mobile:mobile"] {
-        --viewport: theme("screens.sm");
+        --viewport: var(--viewport-mobile-max);
     }
 
     [data-viewport~="mobile:tablet"] {
-        --viewport: theme("screens.md");
+        --viewport: var(--viewport-tablet-max);
     }
 
     [data-viewport~="mobile:desktop"] {
-        --viewport: theme("screens.lg");
+        --viewport: var(--viewport-desktop-max);
     }
 
     [data-viewport~="mobile:widescreen"] {
-        --viewport: theme("screens.xl");
+        --viewport: var(--viewport-widescreen-max);
     }
 }
 
 @variants @sm {
     [data-viewport~="tablet:prose"] {
-        --viewport: theme("width.prose");
+        --viewport: var(--sizes-prose);
     }
 
     [data-viewport~="tablet:mobile"] {
-        --viewport: theme("screens.sm");
+        --viewport: var(--viewport-mobile-max);
     }
 
     [data-viewport~="tablet:tablet"] {
-        --viewport: theme("screens.md");
+        --viewport: var(--viewport-tablet-max);
     }
 
     [data-viewport~="tablet:desktop"] {
-        --viewport: theme("screens.lg");
+        --viewport: var(--viewport-desktop-max);
     }
 
     [data-viewport~="tablet:widescreen"] {
-        --viewport: theme("screens.xl");
+        --viewport: var(--viewport-widescreen-max);
     }
 }
 
 @variants @md {
     [data-viewport~="desktop:prose"] {
-        --viewport: theme("width.prose");
+        --viewport: var(--sizes-prose);
     }
 
     [data-viewport~="desktop:mobile"] {
-        --viewport: theme("screens.sm");
+        --viewport: var(--viewport-mobile-max);
     }
 
     [data-viewport~="desktop:tablet"] {
-        --viewport: theme("screens.md");
+        --viewport: var(--viewport-tablet-max);
     }
 
     [data-viewport~="desktop:desktop"] {
-        --viewport: theme("screens.lg");
+        --viewport: var(--viewport-desktop-max);
     }
 
     [data-viewport~="desktop:widescreen"] {
-        --viewport: theme("screens.xl");
+        --viewport: var(--viewport-widescreen-max);
     }
 }
 
 @variants lg {
     [data-viewport~="widescreen:prose"] {
-        --viewport: theme("width.prose");
+        --viewport: var(--sizes-prose);
     }
 
     [data-viewport~="widescreen:mobile"] {
-        --viewport: theme("screens.sm");
+        --viewport: var(--viewport-mobile-max);
     }
 
     [data-viewport~="widescreen:tablet"] {
-        --viewport: theme("screens.md");
+        --viewport: var(--viewport-tablet-max);
     }
 
     [data-viewport~="widescreen:desktop"] {
-        --viewport: theme("screens.lg");
+        --viewport: var(--viewport-desktop-max);
     }
 
     [data-viewport~="widescreen:widescreen"] {
-        --viewport: theme("screens.xl");
+        --viewport: var(--viewport-widescreen-max);
     }
 }

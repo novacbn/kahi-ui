@@ -79,6 +79,10 @@
 
     /** */
 
+    --sizes-prose: theme("width.prose");
+
+    /** */
+
     --spacing-local-tiny: theme("lspacing.1");
     --spacing-local-small: theme("lspacing.2");
     --spacing-local-medium: theme("lspacing.4");
@@ -109,7 +113,7 @@
     --viewport-desktop-max: theme("screens.lg");
 
     --viewport-widescreen-min: calc(var(--viewport-desktop-max) + 1px);
-    --viewport-widescreen-max: 9999999px;
+    --viewport-widescreen-max: theme("screens.xl");
 
     /** */
 

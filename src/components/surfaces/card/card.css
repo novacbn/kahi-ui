@@ -1,6 +1,6 @@
 .card {
     --palette-background-normal: var(--palette-auto-off-normal);
-    --palette-foreground-normal: var(--document-foreground);
+    --palette-foreground-normal: var(--palette-inverse-normal);
 
     @apply flex flex-col rounded-md;
 

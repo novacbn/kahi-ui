@@ -1,36 +1,30 @@
 .spinner {
-    --size-icon: 1em;
+    --palette-background-bold: currentColor;
+    --size-text: 1em;
 
-    @apply align-middle border-solid border-transparent h-[var(--size-icon)] inline-block rounded-full select-none w-[var(--size-icon)];
+    @apply align-middle border-2 border-solid h-[var(--size-text)] inline-block
+    rounded-full select-none w-[var(--size-text)];
 
-    border-left-color: currentColor;
-    border-right-color: currentColor;
+    border-left-color: var(--palette-background-bold);
+    border-right-color: var(--palette-background-bold);
 
     border-top-color: transparent;
     border-bottom-color: transparent;
 
-    border-width: calc(var(--size-icon) * 0.125);
-
     animation: spin 1s linear infinite;
 
     &[data-palette] {
-        border-left-color: rgb(var(--palette-background-bg));
-        border-right-color: rgb(var(--palette-background-bg));
-    }
-
-    &:not([data-variation]) {
-        &:is([data-size="medium"], [data-size="large"], [data-size="huge"]) {
-            border-width: calc(var(--size-icon) * 0.075);
-        }
+        border-left-color: rgb(var(--palette-background-bold));
+        border-right-color: rgb(var(--palette-background-bold));
     }
 
     &[data-variation="dual"] {
         @apply border-double;
 
-        border-width: calc(var(--size-icon) * 0.25);
-
-        &[data-size="tiny"] {
-            border-width: calc(var(--size-icon) * 0.4);
+        &:is([data-size="tiny"], [data-size="small"]) {
+            border-width: 0.25em;
         }
+
+        border-width: 0.375em;
     }
 }

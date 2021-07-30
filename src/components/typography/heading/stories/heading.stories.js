@@ -10,8 +10,9 @@ import Heading from "../Heading.svelte";
 
 import HeadingDefaultStory from "./HeadingDefaultStory.svelte";
 import HeadingAlignStory from "./HeadingAlignStory.svelte";
-import HeadingSizeStory from "./HeadingSizeStory.svelte";
 import HeadingHeadlineStory from "./HeadingHeadlineStory.svelte";
+import HeadingPaletteStory from "./HeadingPaletteStory.svelte";
+import HeadingSizeStory from "./HeadingSizeStory.svelte";
 import HeadingTransformStory from "./HeadingTransformStory.svelte";
 import HeadingVariationStory from "./HeadingVariationStory.svelte";
 
@@ -35,6 +36,13 @@ export default {
 
 export const Default = (args) => ({
     Component: HeadingDefaultStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Palette = (args) => ({
+    Component: HeadingPaletteStory,
     props: {
         ...args,
     },

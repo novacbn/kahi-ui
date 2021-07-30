@@ -11,6 +11,7 @@ import Text from "../Text.svelte";
 
 import TextDefaultStory from "./TextDefaultStory.svelte";
 import TextAlignStory from "./TextAlignStory.svelte";
+import TextPaletteStory from "./TextPaletteStory.svelte";
 import TextPreStory from "./TextPreStory.svelte";
 import TextSizeStory from "./TextSizeStory.svelte";
 import TextTransformStory from "./TextTransformStory.svelte";
@@ -55,6 +56,13 @@ export default {
 
 export const Default = (args) => ({
     Component: TextDefaultStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Palette = (args) => ({
+    Component: TextPaletteStory,
     props: {
         ...args,
     },

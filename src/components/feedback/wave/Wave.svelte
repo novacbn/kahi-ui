@@ -15,6 +15,10 @@
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         position?: DESIGN_POSITION_ARGUMENT;
+
+        /**
+         * @deprecated
+         */
         size?: DESIGN_SIZE_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &

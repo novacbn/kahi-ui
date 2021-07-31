@@ -1,6 +1,6 @@
 [data-size="tiny"] {
     --size-embedded: theme("width.lg");
-    --size-icon: theme("width.2");
+    --size-icon: var(--sizes-icon-tiny);
 
     --size-text-size: var(--font-content-size-nano);
     --size-text-line-height: var(--font-content-line-height-nano);
@@ -8,7 +8,7 @@
 
 [data-size="small"] {
     --size-embedded: theme("width.xl");
-    --size-icon: theme("width.4");
+    --size-icon: var(--sizes-icon-small);
 
     --size-text-size: var(--font-content-size-small);
     --size-text-line-height: var(--font-content-line-height-small);
@@ -16,7 +16,7 @@
 
 [data-size="medium"] {
     --size-embedded: theme("width.3xl");
-    --size-icon: theme("width.8");
+    --size-icon: var(--sizes-icon-medium);
 
     --size-text-size: var(--font-content-size-medium);
     --size-text-line-height: var(--font-content-line-height-medium);
@@ -24,7 +24,7 @@
 
 [data-size="large"] {
     --size-embedded: theme("width.5xl");
-    --size-icon: theme("width.16");
+    --size-icon: var(--sizes-icon-large);
 
     --size-text-size: var(--font-content-size-large);
     --size-text-line-height: var(--font-content-line-height-large);
@@ -32,7 +32,7 @@
 
 [data-size="huge"] {
     --size-embedded: theme("width.7xl");
-    --size-icon: theme("width.32");
+    --size-icon: var(--sizes-icon-huge);
 
     --size-text-size: var(--font-content-size-huge);
     --size-text-line-height: var(--font-content-line-height-huge);

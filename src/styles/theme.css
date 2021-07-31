@@ -79,7 +79,21 @@
 
     /** */
 
+    --radius-circle: theme("borderRadius.1");
+    --radius-pill: theme("borderRadius.full");
+
+    --radius-small: theme("borderRadius.md");
+    --radius-medium: theme("borderRadius.lg");
+
+    /** */
+
     --sizes-prose: theme("width.prose");
+
+    --sizes-icon-tiny: 16px;
+    --sizes-icon-small: 24px;
+    --sizes-icon-medium: 32px;
+    --sizes-icon-large: 48px;
+    --sizes-icon-huge: 64px;
 
     /** */
 

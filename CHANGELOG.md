@@ -44,27 +44,25 @@
 
             -   **(BREAKING)** `<Spinner variation="dual">` — Will no longer be available in the future.
 
-        -   `Wave`
-
-            -   **(BREAKING)** `<Wave size="XXX">` — Will no longer be available in the future.
-
 -   Updated the following Components
 
     -   \*
 
         -   `<XXX palette="auto-inverse">` — Changed from `auto-inverse` -> `inverse` to be consistent with new CSS Variables.
 
-    -   Feedback
-
-        -   `Spinner`
-
-            -   **(BREAKING)** `<Spinner size="XXX">` — `Spinner` now uses smaller text sizes instead of icon.
-
     -   Typography
 
         -   `Heading`
 
             -   `<Heading palette="XXX">` — Is now supported for all the built-in semantic palettes.
+
+-   Deprecated the following Components / Component Features
+
+    -   Feedback
+
+        -   `Wave`
+
+            -   **(BREAKING)** `<Wave size="XXX">` — Not a useful customization, also to add consistency with `Dot`.
 
 ## v0.2.15 - 2021/07/27
 

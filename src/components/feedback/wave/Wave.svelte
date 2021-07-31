@@ -8,18 +8,11 @@
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
-    import Dot from "../dot/Dot.svelte";
-
     type $$Props = {
         element?: HTMLSpanElement;
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         position?: DESIGN_POSITION_ARGUMENT;
-
-        /**
-         * @deprecated
-         */
-        size?: DESIGN_SIZE_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -30,18 +23,17 @@
     export {_class as class};
 
     export let palette: $$Props["palette"] = undefined;
-    export let size: $$Props["size"] = undefined;
 </script>
 
 <span
     bind:this={element}
     {...map_global_attributes($$props)}
     class="wave {_class}"
-    {...map_data_attributes({palette, size})}
+    {...map_data_attributes({palette})}
 >
-    <Dot />
-    <Dot />
-    <Dot />
-    <Dot />
-    <Dot />
+    <span />
+    <span />
+    <span />
+    <span />
+    <span />
 </span>

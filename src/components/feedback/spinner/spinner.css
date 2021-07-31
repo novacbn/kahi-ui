@@ -1,9 +1,9 @@
 .spinner {
     --palette-background-bold: currentColor;
-    --size-text: 1em;
+    --size-icon: 1em;
 
-    @apply align-middle border-2 border-solid h-[var(--size-text)] inline-block
-    rounded-full select-none w-[var(--size-text)];
+    @apply align-middle border-2 border-solid h-[var(--size-icon)] inline-block
+    rounded-full select-none w-[var(--size-icon)];
 
     border-left-color: var(--palette-background-bold);
     border-right-color: var(--palette-background-bold);
@@ -21,10 +21,10 @@
     &[data-variation="dual"] {
         @apply border-double;
 
-        &:is([data-size="tiny"], [data-size="small"]) {
-            border-width: 0.25em;
+        &:is([data-size="medium"], [data-size="large"], [data-size="huge"]) {
+            border-width: 0.375em;
         }
 
-        border-width: 0.375em;
+        border-width: 0.25em;
     }
 }

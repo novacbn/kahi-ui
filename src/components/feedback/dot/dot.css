@@ -1,9 +1,8 @@
 .dot {
     --palette-background-bold: currentColor;
-    --size-text: 1rem;
 
-    @apply align-middle bg-[var(--palette-background-bold)] h-[var(--size-text)] inline-block
-    pointer-events-none relative rounded-full select-none w-[var(--size-text)];
+    @apply align-middle bg-[var(--palette-background-bold)] h-[var(--sizes-icon-tiny)] inline-block
+    pointer-events-none relative rounded-full select-none w-[var(--sizes-icon-tiny)];
 
     &[data-palette] {
         @apply bg-[rgb(var(--palette-background-bold))];

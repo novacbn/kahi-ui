@@ -8,6 +8,10 @@
 
 -   Added initial support for Theming CSS Variables
 
+    -   `--font-family-(monospace/normal)` — References the available font familes.
+
+        -   e.g. `font-family: var(--font-family-monospace);`
+
     -   `--font-(content/headline)-(line-height/size)-(nano/tiny/small/medium/large/huge/massive)` — References the available font sizes and their associated line heights.
 
         -   e.g. `font-size: var(--font-content-size-medium);`
@@ -19,6 +23,14 @@
         -   **NOTE**: The `auto` / `auto-off` palettes are their respective `dark` / `light`, depending on if the Framework is in dark mode.
         -   **NOTE**: The `inverse` / `inverse-off` palettes are always the opposite of the `auto` / `auto-off` palettes.
         -   **NOTE**: The `off` palettes are "off color" variations of the `dark` / `light` palettes.
+
+    -   `--radius-(circle/pill/small/medium)` — References the available border radius and shape associated radii.
+
+        -   e.g. `border-radius: var(--radius-medium);`
+
+    -   `--sizes-(embedded/icon)-(tiny/small/medium/large/huge)` — References the available sizing levels for Embedded Media Widths / Icon sizes.
+
+        -   e.g. `width: var(--sizes-icon-small);height: var(--sizes-icon-small);`
 
     -   `--spacing-(local/root)-(tiny/small/medium/large/huge)` — References the available spacing levels, with `root` spacing using `rem` and `local` using `em`.
 

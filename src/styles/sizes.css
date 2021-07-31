@@ -1,5 +1,5 @@
 [data-size="tiny"] {
-    --size-embedded: theme("width.lg");
+    --size-embedded: var(--sizes-embedded-tiny);
     --size-icon: var(--sizes-icon-tiny);
 
     --size-text-size: var(--font-content-size-nano);
@@ -7,7 +7,7 @@
 }
 
 [data-size="small"] {
-    --size-embedded: theme("width.xl");
+    --size-embedded: var(--sizes-embedded-small);
     --size-icon: var(--sizes-icon-small);
 
     --size-text-size: var(--font-content-size-small);
@@ -15,7 +15,7 @@
 }
 
 [data-size="medium"] {
-    --size-embedded: theme("width.3xl");
+    --size-embedded: var(--sizes-embedded-medium);
     --size-icon: var(--sizes-icon-medium);
 
     --size-text-size: var(--font-content-size-medium);
@@ -23,7 +23,7 @@
 }
 
 [data-size="large"] {
-    --size-embedded: theme("width.5xl");
+    --size-embedded: var(--sizes-embedded-large);
     --size-icon: var(--sizes-icon-large);
 
     --size-text-size: var(--font-content-size-large);
@@ -31,7 +31,7 @@
 }
 
 [data-size="huge"] {
-    --size-embedded: theme("width.7xl");
+    --size-embedded: var(--sizes-embedded-huge);
     --size-icon: var(--sizes-icon-huge);
 
     --size-text-size: var(--font-content-size-huge);

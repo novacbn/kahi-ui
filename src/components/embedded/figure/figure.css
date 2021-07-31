@@ -1,3 +1,8 @@
+/**
+ * TODO: Migrated `data-shape` to be a global modifier w/ variables. So other
+ * Components can add support. e.g. `Box`
+ */
+
 figure {
     &[data-fit="contain"] > * {
         @apply object-contain;
@@ -20,11 +25,11 @@ figure {
     }
 
     &[data-shape="pill"] > * {
-        @apply !rounded-full;
+        border-radius: var(--radius-pill) !important;
     }
 
     &[data-shape="rounded"] > * {
-        @apply !rounded-lg;
+        border-radius: var(--radius-small) !important;
     }
 
     &:not([data-variation]) {
@@ -33,7 +38,7 @@ figure {
         }
     }
 
-    &[data-variation="icon"] {
+    &[data-variation~="icon"] {
         &[data-size] > * {
             width: var(--size-icon);
             height: var(--size-icon);

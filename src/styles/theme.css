@@ -89,6 +89,12 @@
 
     --sizes-prose: theme("width.prose");
 
+    --sizes-content-tiny: theme("width.44");
+    --sizes-content-small: theme("width.52");
+    --sizes-content-medium: theme("width.60");
+    --sizes-content-large: theme("width.72");
+    --sizes-content-huge: theme("width.96");
+
     --sizes-embedded-tiny: theme("width.sm");
     --sizes-embedded-small: theme("width.lg");
     --sizes-embedded-medium: theme("width.2xl");

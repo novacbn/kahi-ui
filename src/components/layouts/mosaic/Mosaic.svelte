@@ -1,4 +1,9 @@
 <script lang="ts">
+    // TODO: Add direct support for end-developers to provide custom sizing
+    // e.g. `<Mosaic sizing="240px">`
+    //
+    // Should be a basic conditional check which use just sets `--sizing: XXX;` via style property
+
     import type {
         DESIGN_ALIGNMENT_ARGUMENT,
         DESIGN_ALIGNMENT_X_ARGUMENT,

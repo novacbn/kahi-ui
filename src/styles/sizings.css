@@ -2253,109 +2253,109 @@
 /** GLOBAL SIZINGS */
 
 [data-sizing~="tiny"] {
-    --sizing: theme("spacing.44");
+    --sizing: var(--sizes-content-tiny);
 }
 
 [data-sizing~="small"] {
-    --sizing: theme("spacing.52");
+    --sizing: var(--sizes-content-small);
 }
 
 [data-sizing~="medium"] {
-    --sizing: theme("spacing.60");
+    --sizing: var(--sizes-content-medium);
 }
 
 [data-sizing~="large"] {
-    --sizing: theme("spacing.72");
+    --sizing: var(--sizes-content-large);
 }
 
 [data-sizing~="huge"] {
-    --sizing: theme("spacing.96");
+    --sizing: var(--sizes-content-huge);
 }
 
 @variants <sm {
     [data-sizing~="mobile:tiny"] {
-        --sizing: theme("spacing.44");
+        --sizing: var(--sizes-content-tiny);
     }
 
     [data-sizing~="mobile:small"] {
-        --sizing: theme("spacing.52");
+        --sizing: var(--sizes-content-small);
     }
 
     [data-sizing~="mobile:medium"] {
-        --sizing: theme("spacing.60");
+        --sizing: var(--sizes-content-medium);
     }
 
     [data-sizing~="mobile:large"] {
-        --sizing: theme("spacing.72");
+        --sizing: var(--sizes-content-large);
     }
 
     [data-sizing~="mobile:huge"] {
-        --sizing: theme("spacing.96");
+        --sizing: var(--sizes-content-huge);
     }
 }
 
 @variants @sm {
     [data-sizing~="tablet:tiny"] {
-        --sizing: theme("spacing.44");
+        --sizing: var(--sizes-content-tiny);
     }
 
     [data-sizing~="tablet:small"] {
-        --sizing: theme("spacing.52");
+        --sizing: var(--sizes-content-small);
     }
 
     [data-sizing~="tablet:medium"] {
-        --sizing: theme("spacing.60");
+        --sizing: var(--sizes-content-medium);
     }
 
     [data-sizing~="tablet:large"] {
-        --sizing: theme("spacing.72");
+        --sizing: var(--sizes-content-large);
     }
 
     [data-sizing~="tablet:huge"] {
-        --sizing: theme("spacing.96");
+        --sizing: var(--sizes-content-huge);
     }
 }
 
 @variants @md {
     [data-sizing~="desktop:tiny"] {
-        --sizing: theme("spacing.44");
+        --sizing: var(--sizes-content-tiny);
     }
 
     [data-sizing~="desktop:small"] {
-        --sizing: theme("spacing.52");
+        --sizing: var(--sizes-content-small);
     }
 
     [data-sizing~="desktop:medium"] {
-        --sizing: theme("spacing.60");
+        --sizing: var(--sizes-content-medium);
     }
 
     [data-sizing~="desktop:large"] {
-        --sizing: theme("spacing.72");
+        --sizing: var(--sizes-content-large);
     }
 
     [data-sizing~="desktop:huge"] {
-        --sizing: theme("spacing.96");
+        --sizing: var(--sizes-content-huge);
     }
 }
 
 @variants lg {
     [data-sizing~="widescreen:tiny"] {
-        --sizing: theme("spacing.44");
+        --sizing: var(--sizes-content-tiny);
     }
 
     [data-sizing~="widescreen:small"] {
-        --sizing: theme("spacing.52");
+        --sizing: var(--sizes-content-small);
     }
 
     [data-sizing~="widescreen:medium"] {
-        --sizing: theme("spacing.60");
+        --sizing: var(--sizes-content-medium);
     }
 
     [data-sizing~="widescreen:large"] {
-        --sizing: theme("spacing.72");
+        --sizing: var(--sizes-content-large);
     }
 
     [data-sizing~="widescreen:huge"] {
-        --sizing: theme("spacing.96");
+        --sizing: var(--sizes-content-huge);
     }
 }

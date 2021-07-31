@@ -28,7 +28,7 @@
 
         -   e.g. `border-radius: var(--radius-medium);`
 
-    -   `--sizes-(embedded/icon)-(tiny/small/medium/large/huge)` — References the available sizing levels for Embedded Media Widths / Icon sizes.
+    -   `--sizes-(content/embedded/icon)-(tiny/small/medium/large/huge)` — References the available sizing levels for Content sizes, Embedded Media widths, and Icon sizes.
 
         -   e.g. `width: var(--sizes-icon-small);height: var(--sizes-icon-small);`
 

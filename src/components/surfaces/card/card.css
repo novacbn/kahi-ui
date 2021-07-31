@@ -2,7 +2,9 @@
     --palette-background-normal: var(--palette-auto-off-normal);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
-    @apply flex flex-col rounded-md;
+    @apply flex flex-col;
+
+    border-radius: var(--radius-small);
 
     & > figure {
         @apply m-0 rounded-[inherit];

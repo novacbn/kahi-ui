@@ -1,8 +1,10 @@
 blockquote {
-    --palette-background-bg: theme("colors.default.400");
+    --palette-background-lightest: var(--palette-inverse-off-lightest);
+    --palette-background-normal: var(--palette-neutral-normal);
 
-    @apply border-l-5 border-solid px-6 py-4 relative rounded-md;
+    @apply border-l-5 border-solid border-[rgb(var(--palette-background-normal))] px-[var(--spacing-root-large)]
+    py-[var(--spacing-root-medium)] relative;
 
-    border-color: rgb(var(--palette-background-bg));
-    background-color: rgba(var(--palette-background-bg), theme("opacity.10"));
+    background: rgba(var(--palette-background-lightest), theme("opacity.20"));
+    border-radius: var(--radius-small);
 }

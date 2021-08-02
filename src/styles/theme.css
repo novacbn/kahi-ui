@@ -11,11 +11,11 @@
     --palette-neutral-bold: theme("colors.neutral.400");
     --palette-neutral-boldest: theme("colors.neutral.500");
 
-    --palette-dark-lightest: theme("colors.dark.100");
-    --palette-dark-light: theme("colors.dark.200");
-    --palette-dark-normal: theme("colors.dark.300");
-    --palette-dark-bold: theme("colors.dark.400");
-    --palette-dark-boldest: theme("colors.dark.500");
+    --palette-dark-lightest: theme("colors.dark.200");
+    --palette-dark-light: theme("colors.dark.300");
+    --palette-dark-normal: theme("colors.dark.400");
+    --palette-dark-bold: theme("colors.dark.500");
+    --palette-dark-boldest: theme("colors.dark.600");
 
     --palette-off-dark-lightest: theme("colors.[off-dark].100");
     --palette-off-dark-light: theme("colors.[off-dark].200");
@@ -226,17 +226,17 @@
         --palette-neutral-bold: theme("colors.neutral.400");
         --palette-neutral-boldest: theme("colors.neutral.300");
 
-        --palette-dark-lightest: theme("colors.dark.700");
-        --palette-dark-light: theme("colors.dark.600");
-        --palette-dark-normal: theme("colors.dark.500");
-        --palette-dark-bold: theme("colors.dark.400");
-        --palette-dark-boldest: theme("colors.dark.300");
+        --palette-dark-lightest: theme("colors.dark.800");
+        --palette-dark-light: theme("colors.dark.700");
+        --palette-dark-normal: theme("colors.dark.600");
+        --palette-dark-bold: theme("colors.dark.500");
+        --palette-dark-boldest: theme("colors.dark.400");
 
-        --palette-off-dark-lightest: theme("colors.[off-dark].700");
-        --palette-off-dark-light: theme("colors.[off-dark].600");
-        --palette-off-dark-normal: theme("colors.[off-dark].500");
-        --palette-off-dark-bold: theme("colors.[off-dark].400");
-        --palette-off-dark-boldest: theme("colors.[off-dark].300");
+        --palette-off-dark-lightest: theme("colors.[off-dark].800");
+        --palette-off-dark-light: theme("colors.[off-dark].700");
+        --palette-off-dark-normal: theme("colors.[off-dark].600");
+        --palette-off-dark-bold: theme("colors.[off-dark].500");
+        --palette-off-dark-boldest: theme("colors.[off-dark].400");
 
         --palette-light-lightest: theme("colors.light.900");
         --palette-light-light: theme("colors.light.800");
@@ -312,17 +312,17 @@
     --palette-neutral-bold: theme("colors.neutral.400");
     --palette-neutral-boldest: theme("colors.neutral.300");
 
-    --palette-dark-lightest: theme("colors.dark.700");
-    --palette-dark-light: theme("colors.dark.600");
-    --palette-dark-normal: theme("colors.dark.500");
-    --palette-dark-bold: theme("colors.dark.400");
-    --palette-dark-boldest: theme("colors.dark.300");
+    --palette-dark-lightest: theme("colors.dark.800");
+    --palette-dark-light: theme("colors.dark.700");
+    --palette-dark-normal: theme("colors.dark.600");
+    --palette-dark-bold: theme("colors.dark.500");
+    --palette-dark-boldest: theme("colors.dark.400");
 
-    --palette-off-dark-lightest: theme("colors.[off-dark].700");
-    --palette-off-dark-light: theme("colors.[off-dark].600");
-    --palette-off-dark-normal: theme("colors.[off-dark].500");
-    --palette-off-dark-bold: theme("colors.[off-dark].400");
-    --palette-off-dark-boldest: theme("colors.[off-dark].300");
+    --palette-off-dark-lightest: theme("colors.[off-dark].800");
+    --palette-off-dark-light: theme("colors.[off-dark].700");
+    --palette-off-dark-normal: theme("colors.[off-dark].600");
+    --palette-off-dark-bold: theme("colors.[off-dark].500");
+    --palette-off-dark-boldest: theme("colors.[off-dark].400");
 
     --palette-light-lightest: theme("colors.light.900");
     --palette-light-light: theme("colors.light.800");

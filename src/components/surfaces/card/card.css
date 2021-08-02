@@ -1,5 +1,5 @@
 .card {
-    --palette-background-normal: var(--palette-auto-off-normal);
+    --palette-background-bold: var(--palette-auto-off-bold);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
     @apply flex flex-col;
@@ -59,7 +59,7 @@
     }
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-normal))] shadow-sm text-[rgb(var(--palette-foreground-normal))];
+        @apply bg-[rgb(var(--palette-background-bold))] shadow-sm text-[rgb(var(--palette-foreground-normal))];
 
         & > :is(footer, header, section) {
             @apply border-l-2 border-r-2 border-solid px-[var(--spacing-root-large)];

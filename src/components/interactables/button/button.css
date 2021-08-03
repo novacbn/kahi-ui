@@ -8,8 +8,8 @@ button,
     --palette-background-normal: var(--palette-neutral-normal);
     --palette-foreground-normal: var(--palette-light-normal);
 
-    --size-text-size: inherit;
-    --size-text-line-height: inherit;
+    --size-text-size: var(--document-font-size);
+    --size-text-line-height: var(--document-font-line-height);
 
     @apply align-middle border-2 border-transparent border-solid font-bold cursor-pointer
     gap-[var(--spacing-local-small)] inline-flex items-center justify-center

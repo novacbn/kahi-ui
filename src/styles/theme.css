@@ -82,6 +82,7 @@
     --radius-circle: theme("borderRadius.1");
     --radius-pill: theme("borderRadius.full");
 
+    --radius-tiny: theme("borderRadius.sm");
     --radius-small: theme("borderRadius.md");
     --radius-medium: theme("borderRadius.lg");
 

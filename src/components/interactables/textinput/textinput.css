@@ -16,8 +16,7 @@ textarea {
     --palette-foreground-bg: theme("colors.default.500");
 
     @apply appearance-none align-middle bg-transparent border-2 border-solid border-transparent 
-    leading-[var(--size-text-line-height)] px-[var(--spacing-local-medium)] py-[var(--spacing-local-small)]
-    relative;
+    leading-[var(--size-text-line-height)] p-[var(--spacing-local-small)] relative;
 
     border-radius: var(--radius-medium);
 

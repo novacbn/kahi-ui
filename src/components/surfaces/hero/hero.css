@@ -6,22 +6,21 @@
     justify-center p-[var(--spacing-root-medium)] text-center text-[rgb(var(--palette-foreground-normal))];
 
     & > header {
-        @apply font-bold;
+        @apply font-bold leading-[var(--font-headline-line-height-massive)];
 
         font-size: var(--font-headline-size-massive);
-        line-height: var(--font-headline-line-height-massive);
     }
 
     & > section {
+        @apply leading-[var(--font-headline-line-height-tiny)];
+
         font-size: var(--font-headline-size-tiny);
-        line-height: var(--font-headline-line-height-tiny);
     }
 
     & > footer {
-        @apply flex items-center gap-[var(--spacing-root-small)] max-w-[max-content];
+        @apply flex items-center gap-[var(--spacing-root-small)] leading-[var(--font-headline-line-height-nano)] max-w-[max-content];
 
         font-size: var(--font-headline-size-nano);
-        line-height: var(--font-headline-line-height-nano);
 
         &:not(:first-child) {
             @apply mt-[var(--spacing-root-large)];

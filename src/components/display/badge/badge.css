@@ -1,8 +1,8 @@
 .badge {
-    --palette-background-normal: var(--palette-neutral-normal);
+    --palette-background-bold: var(--palette-neutral-bold);
     --palette-foreground-normal: var(--palette-light-normal);
 
-    @apply align-middle bg-[rgb(var(--palette-background-normal))] font-bold gap-[var(--spacing-local-small)]
+    @apply align-middle bg-[rgb(var(--palette-background-bold))] font-bold gap-[var(--spacing-local-small)]
     inline-flex items-center justify-center leading-[var(--font-content-line-height-nano)] p-[var(--spacing-local-small)]
     relative text-[rgb(var(--palette-foreground-normal))] transform-gpu whitespace-nowrap;
 

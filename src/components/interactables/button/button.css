@@ -4,8 +4,8 @@ button,
 [type="reset"],
 [type="submit"] {
     --palette-background-light: var(--palette-neutral-light);
-    --palette-background-lightest: var(--palette-neutral-lightest);
     --palette-background-normal: var(--palette-neutral-normal);
+    --palette-background-bold: var(--palette-neutral-bold);
     --palette-foreground-normal: var(--palette-light-normal);
 
     --size-text-size: var(--document-font-size);
@@ -39,50 +39,50 @@ button,
     }
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+        @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
 
         &:not(:disabled, [aria-disabled="true"]) {
             &:is(:focus, :hover) {
-                @apply bg-[rgb(var(--palette-background-light))];
+                @apply bg-[rgb(var(--palette-background-normal))];
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                @apply bg-[rgb(var(--palette-background-lightest))];
+                @apply bg-[rgb(var(--palette-background-light))];
             }
         }
     }
 
     &[data-variation="clear"] {
-        @apply bg-transparent text-[rgb(var(--palette-background-normal))];
+        @apply bg-transparent text-[rgb(var(--palette-background-bold))];
 
         &:not(:disabled, [aria-disabled="true"]) {
             &:is(:focus, :hover) {
                 @apply;
 
-                background-color: rgba(var(--palette-background-normal), theme("opacity.10"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
                 @apply text-[rgb(var(--palette-foreground-normal))];
 
-                background-color: rgba(var(--palette-background-normal), theme("opacity.50"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
         }
     }
 
     &[data-variation="outline"] {
-        @apply bg-transparent border-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-background-normal))];
+        @apply bg-transparent border-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-background-normal))];
 
         &:not(:disabled, [aria-disabled="true"]) {
             &:is(:focus, :hover) {
                 @apply;
 
-                background-color: rgba(var(--palette-background-normal), theme("opacity.10"));
-                border-color: rgba(var(--palette-background-normal), theme("opacity.50"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+                border-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                @apply bg-[rgb(var(--palette-background-normal))] border-transparent text-[rgb(var(--palette-foreground-normal))];
+                @apply bg-[rgb(var(--palette-background-bold))] border-transparent text-[rgb(var(--palette-foreground-normal))];
             }
         }
     }

@@ -1,9 +1,9 @@
 [type="checkbox"][role="switch"] {
     @apply appearance-none align-middle cursor-pointer inline-flex items-center
     justify-center p-[var(--spacing-local-small)] relative select-none leading-[var(--size-text-line-height)]
-    text-[rgb(var(--palette-background-normal))] whitespace-nowrap;
+    text-[rgb(var(--palette-background-bold))] whitespace-nowrap;
 
-    background-color: rgba(var(--palette-background-normal), theme("opacity.20"));
+    background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
     border-radius: var(--radius-pill);
 
     font-size: var(--size-text-size);
@@ -30,7 +30,7 @@
     }
 
     &:not(:checked) {
-        @apply text-[rgb(var(--palette-background-normal))];
+        @apply text-[rgb(var(--palette-background-bold))];
 
         &::before {
             clip-path: inset(0% 50% 0% 0% round var(--radius-pill));
@@ -40,12 +40,12 @@
         &[aria-pressed="true"] {
             @apply;
 
-            background-color: rgba(var(--palette-background-normal), theme("opacity.50"));
+            background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
         }
     }
 
     &:checked {
-        @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+        @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
 
         &::before {
             clip-path: inset(0% 0% 0% 50% round var(--radius-pill));
@@ -55,7 +55,7 @@
         &[aria-pressed="true"] {
             @apply;
 
-            background-color: rgba(var(--palette-background-normal), theme("opacity.75"));
+            background-color: rgba(var(--palette-background-bold), theme("opacity.75"));
         }
     }
 

@@ -4,7 +4,7 @@
 [type="search"],
 [type="url"],
 textarea {
-    --palette-background-normal: var(--palette-neutral-normal);
+    --palette-background-bold: var(--palette-neutral-bold);
     --palette-foreground-normal: var(--palette-light-normal);
 
     --size-text-size: var(--document-font-size);
@@ -33,17 +33,17 @@ textarea {
     &:not([data-variation]) {
         @apply;
 
-        border-color: rgba(var(--palette-background-normal), theme("opacity.20"));
+        border-color: rgba(var(--palette-background-bold), theme("opacity.20"));
 
         &:enabled {
             &:hover {
                 @apply;
 
-                border-color: rgba(var(--palette-background-normal), theme("opacity.50"));
+                border-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
 
             &:is(:focus) {
-                @apply border-[rgb(var(--palette-background-normal))];
+                @apply border-[rgb(var(--palette-background-bold))];
             }
         }
     }
@@ -51,17 +51,17 @@ textarea {
     &[data-variation="block"] {
         @apply;
 
-        background-color: rgba(var(--palette-background-normal), theme("opacity.20"));
+        background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
 
         &:enabled {
             &:hover {
                 @apply;
 
-                background-color: rgba(var(--palette-background-normal), theme("opacity.50"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
 
             &:is(:focus) {
-                @apply border-[rgb(var(--palette-background-normal))];
+                @apply border-[rgb(var(--palette-background-bold))];
 
                 background-color: transparent;
             }
@@ -78,7 +78,7 @@ textarea {
         text-transform: inherit;
 
         &[data-palette] {
-            @apply text-[rgb(var(--palette-background-normal))];
+            @apply text-[rgb(var(--palette-background-bold))];
         }
     }
 

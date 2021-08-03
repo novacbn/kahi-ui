@@ -1,6 +1,6 @@
 .box {
-    --palette-background-bold: var(--palette-auto-off-bold);
+    --palette-background-normal: var(--palette-auto-off-normal);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
-    @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
+    @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
 }

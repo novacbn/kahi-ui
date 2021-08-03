@@ -1,5 +1,5 @@
 [type="radio"] {
-    --palette-background-normal: var(--palette-neutral-normal);
+    --palette-background-bold: var(--palette-neutral-bold);
     --palette-foreground-normal: var(--palette-light-normal);
 
     --size-text-size: var(--document-font-size);
@@ -56,53 +56,53 @@
     }
 
     &:not([data-variation]) {
-        @apply text-[rgb(var(--palette-background-normal))];
+        @apply text-[rgb(var(--palette-background-bold))];
 
-        background-color: rgba(var(--palette-background-normal), theme("opacity.20"));
+        background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
 
         &:not(:checked) {
-            @apply text-[rgb(var(--palette-background-normal))];
+            @apply text-[rgb(var(--palette-background-bold))];
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
                 @apply;
 
-                background-color: rgba(var(--palette-background-normal), theme("opacity.50"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
         }
 
         &:checked {
-            @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+            @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
                 @apply;
 
-                background-color: rgba(var(--palette-background-normal), theme("opacity.75"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.75"));
             }
         }
     }
 
     &[data-variation="flush"] {
         &:not(:checked) {
-            @apply text-[rgb(var(--palette-background-normal))];
+            @apply text-[rgb(var(--palette-background-bold))];
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
                 @apply;
 
-                color: rgba(var(--palette-background-normal), theme("opacity.50"));
+                color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
         }
 
         &:checked {
-            @apply text-[rgb(var(--palette-background-normal))];
+            @apply text-[rgb(var(--palette-background-bold))];
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
                 @apply;
 
-                color: rgba(var(--palette-background-normal), theme("opacity.75"));
+                color: rgba(var(--palette-background-bold), theme("opacity.75"));
             }
         }
     }

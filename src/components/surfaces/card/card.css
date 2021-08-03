@@ -1,4 +1,6 @@
 .card {
+    --elevation: var(--elevation-lowest);
+
     --palette-background-normal: var(--palette-auto-off-normal);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
@@ -59,7 +61,9 @@
     }
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-normal))] shadow-sm text-[rgb(var(--palette-foreground-normal))];
+        @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+
+        box-shadow: var(--elevation);
 
         & > :is(footer, header, section) {
             @apply border-l-2 border-r-2 border-solid px-[var(--spacing-root-large)];

@@ -1,32 +1,32 @@
 .tile {
-    @apply border-2 border-solid flex rounded-md text-current shadow-sm;
+    --elevation: var(--elevation-lowest);
 
-    background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
-    border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
+    --palette-background-normal: var(--palette-auto-off-normal);
+    --palette-foreground-normal: var(--palette-inverse-normal);
 
-    &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
-    }
+    @apply flex;
+
+    border-radius: var(--radius-small);
 
     & > figure {
         & > * {
-            @apply h-16 w-16;
+            @apply h-[var(--sizes-icon-large)] w-[var(--sizes-icon-large)];
         }
     }
 
     & > footer {
-        @apply gap-4 justify-end ml-auto;
+        @apply gap-[var(--spacing-root-small)] justify-end ml-auto;
     }
 
     & > section {
-        @apply flex-col justify-center px-2;
+        @apply flex-col justify-center;
 
-        &:first-child {
-            @apply pl-4;
+        &:not(:first-child) {
+            @apply ml-[var(--spacing-root-large)];
         }
 
-        &:last-child {
-            @apply pr-4;
+        &:not(:last-child) {
+            @apply mr-[var(--spacing-root-large)];
         }
 
         & > header {
@@ -35,26 +35,19 @@
     }
 
     & > :is(figure, footer) {
-        @apply items-center px-4;
+        @apply items-center;
     }
 
     & > :is(figure, footer, section) {
-        @apply flex py-4;
+        @apply flex;
     }
 
-    &[data-variation="flush"] {
-        @apply bg-transparent border-none shadow-none;
+    &:not([data-variation]) {
+        @apply bg-[rgb(var(--palette-background-normal))] border-2 border-solid p-[var(--spacing-root-medium)]
+        text-[rgb(var(--palette-foreground-normal))];
 
-        & > * {
-            @apply py-0;
+        border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
 
-            &:first-child {
-                @apply pl-0;
-            }
-
-            &:last-child {
-                @apply pr-0;
-            }
-        }
+        box-shadow: var(--elevation);
     }
 }

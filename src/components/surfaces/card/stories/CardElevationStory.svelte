@@ -8,111 +8,39 @@
 
     import * as Card from "../index";
 
+    const ELEVATIONS = [
+        ["lowest", true],
+        ["low", false],
+        ["medium", false],
+        ["high", false],
+        ["highest", false],
+    ];
 </script>
 
 <Mosaic sizing="huge" spacing="large">
-    <Card.Container {...$$props} elevation="lowest">
-        <Card.Figure>
-            <img src={IMAGE_BACKGROUND} />
-        </Card.Figure>
+    {#each ELEVATIONS as [elevation, is_default] (elevation)}
+        <Card.Container {...$$props} {elevation}>
+            <Card.Figure>
+                <img src={IMAGE_BACKGROUND} />
+            </Card.Figure>
 
-        <Card.Header>
-            Ocean Rockies
-            <Spacer />
-            <Badge>lowest</Badge>
-        </Card.Header>
+            <Card.Header>
+                Ocean Rockies
+                <Spacer />
+                <Badge>
+                    {elevation}
+                    {is_default ? " / default" : ""}
+                </Badge>
+            </Card.Header>
 
-        <Card.Section>
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Card.Section>
-    </Card.Container>
-
-    <Card.Container {...$$props}>
-        <Card.Figure>
-            <img src={IMAGE_BACKGROUND} />
-        </Card.Figure>
-
-        <Card.Header>
-            Ocean Rockies
-            <Spacer />
-            <Badge>low / default</Badge>
-        </Card.Header>
-
-        <Card.Section>
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Card.Section>
-    </Card.Container>
-
-    <Card.Container {...$$props} elevation="medium">
-        <Card.Figure>
-            <img src={IMAGE_BACKGROUND} />
-        </Card.Figure>
-
-        <Card.Header>
-            Ocean Rockies
-            <Spacer />
-            <Badge>medium</Badge>
-        </Card.Header>
-
-        <Card.Section>
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Card.Section>
-    </Card.Container>
-
-    <Card.Container {...$$props} elevation="high">
-        <Card.Figure>
-            <img src={IMAGE_BACKGROUND} />
-        </Card.Figure>
-
-        <Card.Header>
-            Ocean Rockies
-            <Spacer />
-            <Badge>high</Badge>
-        </Card.Header>
-
-        <Card.Section>
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Card.Section>
-    </Card.Container>
-
-    <Card.Container {...$$props} elevation="highest">
-        <Card.Figure>
-            <img src={IMAGE_BACKGROUND} />
-        </Card.Figure>
-
-        <Card.Header>
-            Ocean Rockies
-            <Spacer />
-            <Badge>highest</Badge>
-        </Card.Header>
-
-        <Card.Section>
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Card.Section>
-    </Card.Container>
+            <Card.Section>
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Card.Section>
+        </Card.Container>
+    {/each}
 </Mosaic>

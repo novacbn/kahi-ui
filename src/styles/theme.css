@@ -193,6 +193,14 @@
 
     /** */
 
+    --elevation-lowest: theme("boxShadow.sm");
+    --elevation-low: theme("boxShadow.DEFAULT");
+    --elevation-medium: theme("boxShadow.md");
+    --elevation-high: theme("boxShadow.lg");
+    --elevation-highest: theme("boxShadow.xl");
+
+    /** */
+
     --scrollbar-background: var(--palette-off-dark-lightest);
     --scrollbar-foreground: var(--palette-dark-normal);
     --scrollbar-size: theme("width.1");

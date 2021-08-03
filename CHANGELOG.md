@@ -58,8 +58,12 @@
 
         -   `Button`
 
-            -   `<Button value="XXX">` — Fixed `<input />`-based `Button`s not rendering properly.
             -   `<Button type="reset" value="XXX">` — Added support for rendering `<input type="reset" />`.
+            -   `<Button value="XXX">` — Fixed `<input />`-based `Button`s not rendering properly.
+
+        -   `TextInput`
+
+            -   `<TextInput palette="XXX" variation="flush" />` — Added support for text colors in `flush` variations.
 
     -   Typography
 

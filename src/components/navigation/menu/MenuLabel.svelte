@@ -6,6 +6,10 @@
 
     import MenuItem from "./MenuItem.svelte";
 
+    type $$Events = {
+        click: MouseEvent;
+    };
+
     type $$Props = {
         element?: HTMLLIElement;
 

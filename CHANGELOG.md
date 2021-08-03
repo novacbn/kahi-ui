@@ -61,15 +61,31 @@
             -   `<Button type="reset" value="XXX">` — Added support for rendering `<input type="reset" />`.
             -   `<Button value="XXX">` — Fixed `<input />`-based `Button`s not rendering properly.
 
+        -   `Form`
+
+            -   `<Form.Control on:click>` — Added missing event typing definitions.
+
         -   `TextInput`
 
             -   `<TextInput palette="XXX" variation="flush" />` — Added support for text colors in `flush` variations.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   `<Menu.Label>` — Added missing event typing definitions.
 
     -   Typography
 
         -   `Heading`
 
             -   `<Heading palette="XXX">` — Is now supported for all the built-in semantic palettes.
+
+    -   Utilities
+
+        -   `ContextBackdrop`
+
+            -   `<ContextBackdrop on:click>` — Added missing event typing definitions.
 
 ## v0.2.15 - 2021/07/27
 

@@ -8,6 +8,10 @@
     import {CONTEXT_FORM_ID, get_id_context, make_id_context} from "../../../lib/stores/id";
     import {map_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
+    type $$Events = {
+        click: MouseEvent;
+    };
+
     type $$Props = {
         element?: HTMLLabelElement;
 

@@ -170,26 +170,26 @@
     --font-content-size-massive: theme("fontSize.3xl.0");
     --font-content-line-height-massive: theme("fontSize.3xl.1.lineHeight");
 
-    --font-headline-size-nano: theme("fontSize.base.0");
-    --font-headline-line-height-nano: theme("fontSize.base.1.lineHeight");
+    --font-headline-size-nano: theme("fontSize.lg.0");
+    --font-headline-line-height-nano: theme("fontSize.lg.1.lineHeight");
 
-    --font-headline-size-tiny: theme("fontSize.lg.0");
-    --font-headline-line-height-tiny: theme("fontSize.lg.1.lineHeight");
+    --font-headline-size-tiny: theme("fontSize.xl.0");
+    --font-headline-line-height-tiny: theme("fontSize.xl.1.lineHeight");
 
-    --font-headline-size-small: theme("fontSize.xl.0");
-    --font-headline-line-height-small: theme("fontSize.xl.1.lineHeight");
+    --font-headline-size-small: theme("fontSize.2xl.0");
+    --font-headline-line-height-small: theme("fontSize.2xl.1.lineHeight");
 
-    --font-headline-size-medium: theme("fontSize.2xl.0");
-    --font-headline-line-height-medium: theme("fontSize.2xl.1.lineHeight");
+    --font-headline-size-medium: theme("fontSize.3xl.0");
+    --font-headline-line-height-medium: theme("fontSize.3xl.1.lineHeight");
 
-    --font-headline-size-large: theme("fontSize.3xl.0");
-    --font-headline-line-height-large: theme("fontSize.3xl.1.lineHeight");
+    --font-headline-size-large: theme("fontSize.4xl.0");
+    --font-headline-line-height-large: theme("fontSize.4xl.1.lineHeight");
 
-    --font-headline-size-huge: theme("fontSize.4xl.0");
-    --font-headline-line-height-huge: theme("fontSize.4xl.1.lineHeight");
+    --font-headline-size-huge: theme("fontSize.5xl.0");
+    --font-headline-line-height-huge: theme("fontSize.5xl.1.lineHeight");
 
-    --font-headline-size-massive: theme("fontSize.5xl.0");
-    --font-headline-line-height-massive: theme("fontSize.5xl.1.lineHeight");
+    --font-headline-size-massive: theme("fontSize.6xl.0");
+    --font-headline-line-height-massive: theme("fontSize.6xl.1.lineHeight");
 
     /** */
 

@@ -1,49 +1,38 @@
 .hero {
-    @apply flex flex-col gap-2 items-center justify-center text-center text-current;
+    --palette-background-normal: var(--palette-auto-off-normal);
+    --palette-foreground-normal: var(--palette-inverse-normal);
 
-    background-color: rgba(theme("colors.default.100"), theme("opacity.20"));
-
-    &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
-    }
+    @apply bg-[rgb(var(--palette-background-normal))] flex flex-col items-center
+    justify-center p-[var(--spacing-root-medium)] text-center text-[rgb(var(--palette-foreground-normal))];
 
     & > header {
-        @apply font-bold text-7xl;
+        @apply font-bold;
+
+        font-size: var(--font-headline-size-massive);
+        line-height: var(--font-headline-line-height-massive);
     }
 
     & > section {
-        @apply px-6 py-1 text-xl;
+        font-size: var(--font-headline-size-tiny);
+        line-height: var(--font-headline-line-height-tiny);
     }
 
     & > footer {
-        @apply flex gap-4 max-w-[max-content];
-    }
+        @apply flex items-center gap-[var(--spacing-root-small)] max-w-[max-content];
 
-    & > :is(footer, header) {
-        @apply px-6 py-4;
+        font-size: var(--font-headline-size-nano);
+        line-height: var(--font-headline-line-height-nano);
+
+        &:not(:first-child) {
+            @apply mt-[var(--spacing-root-large)];
+        }
     }
 
     & > :is(header, section) {
         @apply max-w-prose;
-    }
-}
 
-@variants <sm {
-    .hero {
-        & > header {
-            @apply text-5xl;
-        }
-
-        & > section {
-            @apply text-lg;
-        }
-    }
-}
-
-@variants @sm {
-    .hero {
-        & > header {
-            @apply text-6xl;
+        &:not(:first-child) {
+            @apply mt-[var(--spacing-root-small)];
         }
     }
 }

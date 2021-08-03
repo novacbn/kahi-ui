@@ -4,7 +4,6 @@
     import Text from "../../../typography/text/Text.svelte";
 
     import Badge from "../Badge.svelte";
-
 </script>
 
 <Stack spacing="medium">

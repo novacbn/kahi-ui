@@ -1,12 +1,17 @@
 .badge {
-    --palette-background-bold: var(--palette-neutral-bold);
+    --palette-background-normal: var(--palette-neutral-normal);
     --palette-foreground-normal: var(--palette-light-normal);
 
-    @apply align-middle bg-[rgb(var(--palette-background-bold))] font-bold gap-[var(--spacing-local-small)]
-    inline-flex items-center justify-center leading-[var(--font-content-line-height-nano)] p-[var(--spacing-local-small)]
-    relative text-[rgb(var(--palette-foreground-normal))] transform-gpu whitespace-nowrap;
+    @apply align-middle bg-[rgb(var(--palette-background-normal))] font-bold gap-[var(--spacing-local-small)] inline-flex items-center
+    justify-center leading-[var(--font-content-line-height-nano)] p-[var(--spacing-local-small)]
+    relative text-[rgb(var(--palette-foreground-normal))] whitespace-nowrap;
 
     font-size: var(--font-content-size-nano);
+
+    text-shadow: 0px 0px 0px rgb(var(--palette-foreground-normal));
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &[data-position] {
         @apply pointer-events-none rounded-4xl select-none;

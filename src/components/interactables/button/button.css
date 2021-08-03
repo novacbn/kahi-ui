@@ -13,7 +13,7 @@ button,
 
     @apply align-middle border-2 border-transparent border-solid font-bold cursor-pointer
     gap-[var(--spacing-local-small)] inline-flex items-center justify-center
-    leading-[var(--size-text-line-height)] px-[var(--spacing-local-medium)] py-[var(--spacing-local-small)]
+    leading-[var(--size-text-line-height)] px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)]
     relative select-none whitespace-nowrap z-0;
 
     border-radius: var(--radius-medium);

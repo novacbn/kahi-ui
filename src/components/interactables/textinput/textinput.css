@@ -11,7 +11,7 @@ textarea {
     --size-text-line-height: var(--document-font-line-height);
 
     @apply appearance-none align-middle bg-transparent border-2 border-solid border-transparent 
-    leading-[var(--size-text-line-height)] p-[var(--spacing-local-small)] relative;
+    leading-[var(--size-text-line-height)] px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)] relative;
 
     border-radius: var(--radius-medium);
 

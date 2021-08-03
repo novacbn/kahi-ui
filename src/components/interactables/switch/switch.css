@@ -20,7 +20,7 @@
     }
 
     &::before {
-        @apply h-[0.75em] w-[1.5em];
+        @apply h-[0.625em] w-[1.25em];
 
         content: "";
 

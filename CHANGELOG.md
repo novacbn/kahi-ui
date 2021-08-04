@@ -37,6 +37,35 @@
 
         -   e.g. `padding-left: var(--spacing-root-small);`
 
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button type="reset" value="XXX">` — Added support for rendering `<input type="reset" />`.
+
+        -   `TextInput`
+
+            -   `<TextInput palette="XXX" variation="flush" />` — Added support for text colors in `flush` variations.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   `<Menu.Container sizing="XXX">` — Added support for setting sizing for menu content.
+            -   `<Menu.Anchor palette="XXX">` / `<Menu.Button palette="XXX">` / `<Menu.Label palette="XXX">` — Added support for palettes.
+
+    -   Typography
+
+        -   `Heading`
+
+            -   `<Heading palette="XXX">` — Is now supported for all the built-in semantic palettes.
+
+        -   `Text`
+
+            -   `<Text variation="headline">` - Is now supported for all headline sizes.
+
 -   Deprecated the following Components / Component Features
 
     -   Feedback
@@ -59,34 +88,17 @@
 
         -   `Button`
 
-            -   `<Button type="reset" value="XXX">` — Added support for rendering `<input type="reset" />`.
             -   `<Button value="XXX">` — Fixed `<input />`-based `Button`s not rendering properly.
 
         -   `Form`
 
             -   `<Form.Control on:click>` — Added missing event typing definitions.
 
-        -   `TextInput`
-
-            -   `<TextInput palette="XXX" variation="flush" />` — Added support for text colors in `flush` variations.
-
     -   Navigation
 
         -   `Menu`
 
-            -   `<Menu.Container sizing="XXX">` — Added support for setting sizing for menu content.
             -   `<Menu.Label>` — Added missing event typing definitions.
-            -   `<Menu.Anchor palette="XXX">` / `<Menu.Button palette="XXX">` / `<Menu.Label palette="XXX">` — Added support for palettes.
-
-    -   Typography
-
-        -   `Heading`
-
-            -   `<Heading palette="XXX">` — Is now supported for all the built-in semantic palettes.
-
-        -   `Text`
-
-            -   `<Text variation="headline">` - Is now supported for all headline sizes.
 
     -   Utilities
 

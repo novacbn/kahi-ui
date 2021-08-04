@@ -84,6 +84,10 @@
 
             -   `<Heading palette="XXX">` — Is now supported for all the built-in semantic palettes.
 
+        -   `Text`
+
+            -   `<Text variation="headline">` - Is now supported for all headline sizes.
+
     -   Utilities
 
         -   `ContextBackdrop`

@@ -751,9 +751,7 @@ h6[data-variation~="headline"] {
 
 abbr, b, del, em, i, ins, kbd, mark, p, pre, s, samp, small, span:not([class], [role]), strong, sub, sup, u {
   --palette-background-normal: currentColor;
-  line-height: var(--size-text-line-height);
   color: var(--palette-background-normal);
-  font-size: var(--size-text-size);
   text-align: var(--align-text);
   text-transform: var(--transform-text);
   transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -765,6 +763,16 @@ abbr:not([data-align]), b:not([data-align]), del:not([data-align]), em:not([data
 
 abbr[data-palette], b[data-palette], del[data-palette], em[data-palette], i[data-palette], ins[data-palette], kbd[data-palette], mark[data-palette], p[data-palette], pre[data-palette], s[data-palette], samp[data-palette], small[data-palette], span:not([class], [role])[data-palette], strong[data-palette], sub[data-palette], sup[data-palette], u[data-palette] {
   color: rgb(var(--palette-background-normal));
+}
+
+abbr:not([data-variation]), b:not([data-variation]), del:not([data-variation]), em:not([data-variation]), i:not([data-variation]), ins:not([data-variation]), kbd:not([data-variation]), mark:not([data-variation]), p:not([data-variation]), pre:not([data-variation]), s:not([data-variation]), samp:not([data-variation]), small:not([data-variation]), span:not([class], [role]):not([data-variation]), strong:not([data-variation]), sub:not([data-variation]), sup:not([data-variation]), u:not([data-variation]) {
+  line-height: var(--size-text-line-height);
+  font-size: var(--size-text-size);
+}
+
+abbr[data-variation~="headline"], b[data-variation~="headline"], del[data-variation~="headline"], em[data-variation~="headline"], i[data-variation~="headline"], ins[data-variation~="headline"], kbd[data-variation~="headline"], mark[data-variation~="headline"], p[data-variation~="headline"], pre[data-variation~="headline"], s[data-variation~="headline"], samp[data-variation~="headline"], small[data-variation~="headline"], span:not([class], [role])[data-variation~="headline"], strong[data-variation~="headline"], sub[data-variation~="headline"], sup[data-variation~="headline"], u[data-variation~="headline"] {
+  line-height: var(--size-headline-line-height);
+  font-size: var(--size-headline-size);
 }
 
 abbr:not([data-size]), b:not([data-size]), del:not([data-size]), em:not([data-size]), i:not([data-size]), ins:not([data-size]), kbd:not([data-size]), mark:not([data-size]), p:not([data-size]), pre:not([data-size]), s:not([data-size]), samp:not([data-size]), small:not([data-size]), span:not([class], [role]):not([data-size]), strong:not([data-size]), sub:not([data-size]), sup:not([data-size]), u:not([data-size]) {
@@ -4690,6 +4698,9 @@ input[type="checkbox"][role="presentation"] {
     --size-embedded: var(--sizes-embedded-tiny);
     --size-icon: var(--sizes-icon-tiny);
 
+    --size-headline-size: var(--font-headline-size-small);
+    --size-headline-line-height: var(--font-headline-line-height-small);
+
     --size-text-size: var(--font-content-size-nano);
     --size-text-line-height: var(--font-content-line-height-nano);
 }
@@ -4697,6 +4708,9 @@ input[type="checkbox"][role="presentation"] {
 [data-size="small"] {
     --size-embedded: var(--sizes-embedded-small);
     --size-icon: var(--sizes-icon-small);
+
+    --size-headline-size: var(--font-headline-size-medium);
+    --size-headline-line-height: var(--font-headline-line-height-medium);
 
     --size-text-size: var(--font-content-size-tiny);
     --size-text-line-height: var(--font-content-line-height-tiny);
@@ -4706,6 +4720,9 @@ input[type="checkbox"][role="presentation"] {
     --size-embedded: var(--sizes-embedded-medium);
     --size-icon: var(--sizes-icon-medium);
 
+    --size-headline-size: var(--font-headline-size-large);
+    --size-headline-line-height: var(--font-headline-line-height-large);
+
     --size-text-size: var(--font-content-size-small);
     --size-text-line-height: var(--font-content-line-height-small);
 }
@@ -4714,6 +4731,9 @@ input[type="checkbox"][role="presentation"] {
     --size-embedded: var(--sizes-embedded-large);
     --size-icon: var(--sizes-icon-large);
 
+    --size-headline-size: var(--font-headline-size-huge);
+    --size-headline-line-height: var(--font-headline-line-height-huge);
+
     --size-text-size: var(--font-content-size-medium);
     --size-text-line-height: var(--font-content-line-height-medium);
 }
@@ -4721,6 +4741,9 @@ input[type="checkbox"][role="presentation"] {
 [data-size="huge"] {
     --size-embedded: var(--sizes-embedded-huge);
     --size-icon: var(--sizes-icon-huge);
+
+    --size-headline-size: var(--font-headline-size-massive);
+    --size-headline-line-height: var(--font-headline-line-height-massive);
 
     --size-text-size: var(--font-content-size-large);
     --size-text-line-height: var(--font-content-line-height-large);

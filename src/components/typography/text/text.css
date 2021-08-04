@@ -23,9 +23,7 @@ sup,
 u {
     --palette-background-normal: currentColor;
 
-    @apply leading-[var(--size-text-line-height)] text-[var(--palette-background-normal)];
-
-    font-size: var(--size-text-size);
+    @apply text-[var(--palette-background-normal)];
 
     text-align: var(--align-text);
     text-transform: var(--transform-text);
@@ -38,6 +36,18 @@ u {
 
     &[data-palette] {
         @apply text-[rgb(var(--palette-background-normal))];
+    }
+
+    &:not([data-variation]) {
+        @apply leading-[var(--size-text-line-height)];
+
+        font-size: var(--size-text-size);
+    }
+
+    &[data-variation~="headline"] {
+        @apply leading-[var(--size-headline-line-height)];
+
+        font-size: var(--size-headline-size);
     }
 
     &:not([data-size]) {

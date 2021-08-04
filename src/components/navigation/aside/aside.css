@@ -25,6 +25,7 @@
     border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
 
     transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &[data-variation~="sticky"] {

@@ -5,6 +5,9 @@ blockquote {
     @apply border-l-5 border-solid border-[rgb(var(--palette-background-normal))] px-[var(--spacing-root-large)]
     py-[var(--spacing-root-medium)] relative;
 
-    background: rgba(var(--palette-background-lightest), theme("opacity.20"));
+    background-color: rgba(var(--palette-background-lightest), theme("opacity.20"));
     border-radius: var(--radius-small);
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

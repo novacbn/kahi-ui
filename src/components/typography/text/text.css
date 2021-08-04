@@ -31,6 +31,8 @@ u {
     text-align: var(--align-text);
     text-transform: var(--transform-text);
 
+    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
     &[data-palette] {
         @apply text-[rgb(var(--palette-background-normal))];
     }

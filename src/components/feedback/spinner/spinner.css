@@ -5,17 +5,15 @@
     @apply align-middle border-2 border-solid h-[var(--size-icon)] inline-block
     rounded-full select-none w-[var(--size-icon)];
 
-    border-left-color: var(--palette-background-bold);
-    border-right-color: var(--palette-background-bold);
-
-    border-top-color: transparent;
-    border-bottom-color: transparent;
+    border-color: currentColor transparent;
+    color: var(--palette-background-bold);
 
     animation: spin 1s linear infinite;
 
+    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
     &[data-palette] {
-        border-left-color: rgb(var(--palette-background-bold));
-        border-right-color: rgb(var(--palette-background-bold));
+        color: rgb(var(--palette-background-bold));
     }
 
     &[data-variation="dual"] {

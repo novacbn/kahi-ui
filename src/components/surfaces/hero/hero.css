@@ -5,6 +5,9 @@
     @apply bg-[rgb(var(--palette-background-normal))] flex flex-col items-center
     justify-center p-[var(--spacing-root-medium)] text-center text-[rgb(var(--palette-foreground-normal))];
 
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
     & > header {
         @apply font-bold leading-[var(--font-headline-line-height-massive)];
 

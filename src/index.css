@@ -10,6 +10,11 @@
 @import url("./styles/document.css");
 @import url("./styles/embedded.css");
 
+@import url("./components/typography/blockquote/blockquote.css");
+@import url("./components/typography/code/code.css");
+@import url("./components/typography/heading/heading.css");
+@import url("./components/typography/text/text.css");
+
 @import url("./components/display/badge/badge.css");
 @import url("./components/display/list/list.css");
 @import url("./components/display/table/table.css");
@@ -37,11 +42,6 @@
 @import url("./components/surfaces/box/box.css");
 @import url("./components/surfaces/hero/hero.css");
 @import url("./components/surfaces/tile/tile.css");
-
-@import url("./components/typography/blockquote/blockquote.css");
-@import url("./components/typography/code/code.css");
-@import url("./components/typography/heading/heading.css");
-@import url("./components/typography/text/text.css");
 
 @import url("./components/utilities/contextbackdrop/contextbackdrop.css");
 @import url("./components/utilities/portal/portal.css");

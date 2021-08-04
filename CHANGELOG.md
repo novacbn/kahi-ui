@@ -2,7 +2,8 @@
 
 ## UNRELEASED
 
--   Fixed scrollbar not having height applied to it in WebKit / Blink.
+-   Fixed dark mode transition being laggy on WebKit / Blink Browsers.
+-   Fixed scrollbar not having height applied to it on WebKit / Blink Browsers.
 -   Updated scrollbar with theming for dark mode.
 -   Updated colors, spacings, and other visual modifiers.
 

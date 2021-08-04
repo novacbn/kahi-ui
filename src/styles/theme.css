@@ -113,14 +113,14 @@
     --spacing-local-tiny: theme("lspacing.1");
     --spacing-local-small: theme("lspacing.2");
     --spacing-local-medium: theme("lspacing.4");
-    --spacing-local-large: theme("lspacing.6");
-    --spacing-local-huge: theme("lspacing.8");
+    --spacing-local-large: theme("lspacing.8");
+    --spacing-local-huge: theme("lspacing.16");
 
     --spacing-root-tiny: theme("spacing.1");
     --spacing-root-small: theme("spacing.2");
     --spacing-root-medium: theme("spacing.4");
-    --spacing-root-large: theme("spacing.6");
-    --spacing-root-huge: theme("spacing.8");
+    --spacing-root-large: theme("spacing.8");
+    --spacing-root-huge: theme("spacing.16");
 
     /** */
 

@@ -1,3 +1,8 @@
+/**
+ * TODO: A bit lame having to use `:not` selectors due to the `span` selector. Need to
+ * update to use `:where`, when support is better.
+ */
+
 abbr,
 b,
 del,
@@ -16,13 +21,7 @@ strong,
 sub,
 sup,
 u {
-    --align-text: inherit;
-    --transform-text: inherit;
-
     --palette-background-normal: currentColor;
-
-    --size-text-size: inherit;
-    --size-text-line-height: inherit;
 
     @apply leading-[var(--size-text-line-height)] text-[var(--palette-background-normal)];
 
@@ -33,8 +32,21 @@ u {
 
     transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+    &:not([data-align]) {
+        --align-text: inherit;
+    }
+
     &[data-palette] {
         @apply text-[rgb(var(--palette-background-normal))];
+    }
+
+    &:not([data-size]) {
+        --size-text-size: inherit;
+        --size-text-line-height: inherit;
+    }
+
+    &:not([data-transform]) {
+        --transform-text: inherit;
     }
 
     &[data-variation~="truncate"] {

@@ -10,7 +10,7 @@
                 /** TODO: FIX OVERFLOW PUSHING BEYOND TOP BOUNDARY */
                 @apply absolute border-l-2 border-b-2 border-solid bottom-0 flex flex-col
                 gap-[var(--spacing-local-small)] items-stretch justify-center right-0 overflow-y-auto
-                px-[var(--spacing-root-huge)] py-[var(--spacing-root-medium)];
+                px-[var(--spacing-root-large)] py-[var(--spacing-root-medium)];
 
                 background-color: inherit;
                 border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
@@ -59,7 +59,7 @@
     --palette-background-normal: var(--palette-auto-off-normal);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
-    @apply bg-[rgb(var(--palette-background-normal))] flex px-[var(--spacing-root-huge)]
+    @apply bg-[rgb(var(--palette-background-normal))] flex px-[var(--spacing-root-large)]
     py-[var(--spacing-root-medium)] relative text-[rgb(var(--palette-foreground-normal))] z-1;
 
     border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));

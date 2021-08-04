@@ -34,7 +34,9 @@
         }
 
         & > header {
-            @apply font-bold text-xl;
+            @apply font-bold leading-[var(--font-content-line-height-large)];
+
+            font-size: var(--font-content-size-large);
         }
     }
 

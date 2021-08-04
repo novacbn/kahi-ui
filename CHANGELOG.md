@@ -74,6 +74,7 @@
 
         -   `Menu`
 
+            -   `<Menu.Container sizing="XXX">` — Added support for setting sizing for menu content.
             -   `<Menu.Label>` — Added missing event typing definitions.
             -   `<Menu.Anchor palette="XXX">` / `<Menu.Button palette="XXX">` / `<Menu.Label palette="XXX">` — Added support for palettes.
 

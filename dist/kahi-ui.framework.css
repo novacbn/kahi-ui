@@ -399,8 +399,8 @@ textarea::placeholder {
     --document-background: var(--palette-auto-off-lightest);
     --document-foreground: var(--palette-inverse-normal);
 
-    --document-font-size: var(--font-content-size-small);
-    --document-font-line-height: var(--font-content-line-height-small);
+    --document-font-size: 16px;
+    --document-font-line-height: 1.5rem;
 
     --selection-background: var(--palette-accent-boldest);
     --selection-foreground: var(--palette-light-normal);
@@ -653,7 +653,7 @@ blockquote {
 }
 
 code {
-  --size-text-size: 80%;
+  --size-text-size: 80% !important;
   overflow-wrap: break-word;
   font-size: var(--size-text-size);
 }
@@ -785,7 +785,7 @@ abbr[data-variation~="truncate"], b[data-variation~="truncate"], del[data-variat
 
 kbd {
   --palette-background-normal: var(--palette-neutral-normal);
-  --size-text-size: 70%;
+  --size-text-size: 70% !important;
   border-bottom-width: 4px;
   --tw-border-opacity: 1;
   border-color: rgb(var(--palette-background-normal));
@@ -814,7 +814,7 @@ code, code[data-palette], kbd, kbd[data-palette], pre, pre[data-palette] {
 }
 
 small {
-  --size-text-size: 80%;
+  --size-text-size: 80% !important;
   opacity: 0.75;
   font-size: var(--size-text-size);
 }
@@ -4698,32 +4698,32 @@ input[type="checkbox"][role="presentation"] {
     --size-embedded: var(--sizes-embedded-small);
     --size-icon: var(--sizes-icon-small);
 
-    --size-text-size: var(--font-content-size-small);
-    --size-text-line-height: var(--font-content-line-height-small);
+    --size-text-size: var(--font-content-size-tiny);
+    --size-text-line-height: var(--font-content-line-height-tiny);
 }
 
 [data-size="medium"] {
     --size-embedded: var(--sizes-embedded-medium);
     --size-icon: var(--sizes-icon-medium);
 
-    --size-text-size: var(--font-content-size-medium);
-    --size-text-line-height: var(--font-content-line-height-medium);
+    --size-text-size: var(--font-content-size-small);
+    --size-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-size="large"] {
     --size-embedded: var(--sizes-embedded-large);
     --size-icon: var(--sizes-icon-large);
 
-    --size-text-size: var(--font-content-size-large);
-    --size-text-line-height: var(--font-content-line-height-large);
+    --size-text-size: var(--font-content-size-medium);
+    --size-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-size="huge"] {
     --size-embedded: var(--sizes-embedded-huge);
     --size-icon: var(--sizes-icon-huge);
 
-    --size-text-size: var(--font-content-size-huge);
-    --size-text-line-height: var(--font-content-line-height-huge);
+    --size-text-size: var(--font-content-size-large);
+    --size-text-line-height: var(--font-content-line-height-large);
 }
 
 /** GLOBAL WIDTH */
@@ -6777,36 +6777,36 @@ input[type="checkbox"][role="presentation"] {
 [data-sizing~="tiny"] {
     --sizing-content: var(--sizes-content-tiny);
 
-    --sizing-text-size: var(--font-content-size-tiny);
-    --sizing-text-line-height: var(--font-content-line-height-tiny);
+    --sizing-text-size: var(--font-content-size-nano);
+    --sizing-text-line-height: var(--font-content-line-height-nano);
 }
 
 [data-sizing~="small"] {
     --sizing-content: var(--sizes-content-small);
 
-    --sizing-text-size: var(--font-content-size-small);
-    --sizing-text-line-height: var(--font-content-line-height-small);
+    --sizing-text-size: var(--font-content-size-tiny);
+    --sizing-text-line-height: var(--font-content-line-height-tiny);
 }
 
 [data-sizing~="medium"] {
     --sizing-content: var(--sizes-content-medium);
 
-    --sizing-text-size: var(--font-content-size-medium);
-    --sizing-text-line-height: var(--font-content-line-height-medium);
+    --sizing-text-size: var(--font-content-size-small);
+    --sizing-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-sizing~="large"] {
     --sizing-content: var(--sizes-content-large);
 
-    --sizing-text-size: var(--font-content-size-large);
-    --sizing-text-line-height: var(--font-content-line-height-large);
+    --sizing-text-size: var(--font-content-size-medium);
+    --sizing-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-sizing~="huge"] {
     --sizing-content: var(--sizes-content-huge);
 
-    --sizing-text-size: var(--font-content-size-huge);
-    --sizing-text-line-height: var(--font-content-line-height-huge);
+    --sizing-text-size: var(--font-content-size-large);
+    --sizing-text-line-height: var(--font-content-line-height-large);
 }
 
 @media (max-width: 639.9px) {

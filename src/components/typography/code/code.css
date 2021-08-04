@@ -1,5 +1,5 @@
 code {
-    --size-text-size: 80%;
+    --size-text-size: 80% !important;
 
     @apply break-words;
 

@@ -10,30 +10,30 @@
     --size-embedded: var(--sizes-embedded-small);
     --size-icon: var(--sizes-icon-small);
 
-    --size-text-size: var(--font-content-size-small);
-    --size-text-line-height: var(--font-content-line-height-small);
+    --size-text-size: var(--font-content-size-tiny);
+    --size-text-line-height: var(--font-content-line-height-tiny);
 }
 
 [data-size="medium"] {
     --size-embedded: var(--sizes-embedded-medium);
     --size-icon: var(--sizes-icon-medium);
 
-    --size-text-size: var(--font-content-size-medium);
-    --size-text-line-height: var(--font-content-line-height-medium);
+    --size-text-size: var(--font-content-size-small);
+    --size-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-size="large"] {
     --size-embedded: var(--sizes-embedded-large);
     --size-icon: var(--sizes-icon-large);
 
-    --size-text-size: var(--font-content-size-large);
-    --size-text-line-height: var(--font-content-line-height-large);
+    --size-text-size: var(--font-content-size-medium);
+    --size-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-size="huge"] {
     --size-embedded: var(--sizes-embedded-huge);
     --size-icon: var(--sizes-icon-huge);
 
-    --size-text-size: var(--font-content-size-huge);
-    --size-text-line-height: var(--font-content-line-height-huge);
+    --size-text-size: var(--font-content-size-large);
+    --size-text-line-height: var(--font-content-line-height-large);
 }

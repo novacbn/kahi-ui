@@ -210,8 +210,8 @@
     --document-background: var(--palette-auto-off-lightest);
     --document-foreground: var(--palette-inverse-normal);
 
-    --document-font-size: var(--font-content-size-small);
-    --document-font-line-height: var(--font-content-line-height-small);
+    --document-font-size: 16px;
+    --document-font-line-height: 1.5rem;
 
     --selection-background: var(--palette-accent-boldest);
     --selection-foreground: var(--palette-light-normal);

@@ -2255,36 +2255,36 @@
 [data-sizing~="tiny"] {
     --sizing-content: var(--sizes-content-tiny);
 
-    --sizing-text-size: var(--font-content-size-tiny);
-    --sizing-text-line-height: var(--font-content-line-height-tiny);
+    --sizing-text-size: var(--font-content-size-nano);
+    --sizing-text-line-height: var(--font-content-line-height-nano);
 }
 
 [data-sizing~="small"] {
     --sizing-content: var(--sizes-content-small);
 
-    --sizing-text-size: var(--font-content-size-small);
-    --sizing-text-line-height: var(--font-content-line-height-small);
+    --sizing-text-size: var(--font-content-size-tiny);
+    --sizing-text-line-height: var(--font-content-line-height-tiny);
 }
 
 [data-sizing~="medium"] {
     --sizing-content: var(--sizes-content-medium);
 
-    --sizing-text-size: var(--font-content-size-medium);
-    --sizing-text-line-height: var(--font-content-line-height-medium);
+    --sizing-text-size: var(--font-content-size-small);
+    --sizing-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-sizing~="large"] {
     --sizing-content: var(--sizes-content-large);
 
-    --sizing-text-size: var(--font-content-size-large);
-    --sizing-text-line-height: var(--font-content-line-height-large);
+    --sizing-text-size: var(--font-content-size-medium);
+    --sizing-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-sizing~="huge"] {
     --sizing-content: var(--sizes-content-huge);
 
-    --sizing-text-size: var(--font-content-size-huge);
-    --sizing-text-line-height: var(--font-content-line-height-huge);
+    --sizing-text-size: var(--font-content-size-large);
+    --sizing-text-line-height: var(--font-content-line-height-large);
 }
 
 @variants <sm {

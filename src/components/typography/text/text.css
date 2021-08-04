@@ -57,7 +57,7 @@ u {
 kbd {
     --palette-background-normal: var(--palette-neutral-normal);
 
-    --size-text-size: 70%;
+    --size-text-size: 70% !important;
 
     @apply border-b-4 border-[rgb(var(--palette-background-normal))] text-extrabold whitespace-nowrap;
 
@@ -88,7 +88,7 @@ pre {
 }
 
 small {
-    --size-text-size: 80%;
+    --size-text-size: 80% !important;
 
     @apply opacity-75;
 

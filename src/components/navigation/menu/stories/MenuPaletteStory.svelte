@@ -20,20 +20,20 @@
     {#each PALETTES as [palette, is_default] (palette)}
         <Menu.Container>
             <Menu.Heading>
-                {palette.toUpperCase()}
+                {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 <svelte:fragment slot="sub-menu">
                     <Menu.SubMenu>
-                        <Menu.Label palette={is_default ? undefined : palette} active>
+                        <Menu.Button palette={is_default ? undefined : palette} active>
                             Dot
                             <Spacer />
                             <span>ICON</span>
-                        </Menu.Label>
+                        </Menu.Button>
 
-                        <Menu.Label palette={is_default ? undefined : palette}>
+                        <Menu.Button palette={is_default ? undefined : palette}>
                             Spinner
                             <Spacer />
                             <span>ICON</span>
-                        </Menu.Label>
+                        </Menu.Button>
                     </Menu.SubMenu>
                 </svelte:fragment>
             </Menu.Heading>

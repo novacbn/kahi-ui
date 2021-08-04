@@ -16,49 +16,60 @@
     }
 }
 
-nav.aside {
-    @apply border-r-1 border-solid flex flex-col relative text-current z-1;
+.aside {
+    --palette-background-normal: var(--palette-auto-off-normal);
+    --palette-foreground-normal: var(--palette-inverse-normal);
 
-    background-color: rgba(theme("colors.default.200"), theme("opacity.20"));
-    border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
+    @apply bg-[rgb(var(--palette-background-normal))] border-solid flex flex-col relative text-[rgb(var(--palette-foreground-normal))] z-1;
 
-    &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
-    }
+    border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
 
-    &[data-placement="right"] {
-        @apply border-l-1 border-r-0;
-    }
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &[data-variation~="sticky"] {
         @apply sticky top-0;
     }
 
+    & > .context-button {
+        @apply bottom-3 fixed hidden pointer-events-auto;
+    }
+
+    &:not([data-placement]) {
+        @apply border-r-2;
+
+        & > .context-button {
+            @apply -right-3;
+
+            /** TODO: Fix button support, this transform is clashing with the built-in transform */
+            transform: translateX(100%);
+        }
+    }
+
+    &[data-placement="right"] {
+        @apply border-l-2;
+
+        & > .context-button {
+            @apply -left-3;
+
+            transform: translateX(-100%);
+        }
+    }
+
     & > footer {
-        @apply items-center flex gap-4 justify-center mt-auto pb-4;
+        @apply items-center flex gap-[var(--spacing-root-small)] justify-center mt-auto
+        pb-[var(--spacing-root-medium)];
 
         & > a {
             @apply !text-current;
         }
     }
 
-    & > .context-button {
-        @apply bottom-3 fixed hidden pointer-events-auto -right-3;
-
-        transform: translateX(100%);
-    }
-
-    &[data-placement="right"] {
-        & > .context-button {
-            @apply -left-3;
-
-            right: unset;
-            transform: translateX(-100%);
-        }
-    }
-
     & > header {
-        @apply font-bold py-8 select-none text-center text-5xl tracking-widest whitespace-nowrap;
+        @apply font-bold leading-[var(--font-headline-line-height-huge)] py-[var(--spacing-root-huge)]
+        select-none text-center tracking-widest whitespace-nowrap;
+
+        font-size: var(--font-headline-size-huge);
 
         & > a {
             @apply !text-current;
@@ -66,7 +77,7 @@ nav.aside {
     }
 
     & > section {
-        @apply overflow-y-auto py-2 mb-4;
+        @apply overflow-y-auto py-[var(--spacing-root-small)] mb-[var(--spacing-root-medium)];
 
         &:not(:last-of-type) {
             @apply flex-shrink-0;
@@ -78,6 +89,6 @@ nav.aside {
     }
 
     & > :is(footer, header, section) {
-        @apply px-6;
+        @apply px-[var(--spacing-root-huge)];
     }
 }

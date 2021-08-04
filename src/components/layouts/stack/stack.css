@@ -1,74 +1,21 @@
 .stack {
+    --orientation-direction: column;
+
+    --orientation-flex-alignment-x: var(--flex-alignment-x);
+    --orientation-flex-alignment-y: var(--flex-alignment-y);
+
     --flex-alignment-x: initial;
     --flex-alignment-y: initial;
 
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply flex flex-col gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)];
+    @apply flex gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] items-[var(--orientation-flex-alignment-x)]
+    justify-[var(--orientation-flex-alignment-y)];
 
-    align-items: var(--flex-alignment-x);
-    justify-content: var(--flex-alignment-y);
-
-    &:not([data-orientation]) {
-        & > * {
-            @apply my-0;
-        }
-    }
-
-    &[data-orientation~="horizontal"] {
-        @apply flex-row;
-
-        align-items: var(--flex-alignment-y);
-        justify-content: var(--flex-alignment-x);
-
-        & > * {
-            @apply mx-0;
-        }
-    }
+    flex-direction: var(--orientation-direction);
 
     &[data-variation~="wrap"] {
         @apply flex-wrap;
-    }
-}
-
-/**
- * NOTE: WindCSS and `postcss-nesting` don't play well together
- * when media selectors are being used
- */
-
-@variants <sm {
-    .stack[data-orientation~="mobile:horizontal"] {
-        @apply flex-row;
-
-        align-items: var(--flex-alignment-y);
-        justify-content: var(--flex-alignment-x);
-    }
-}
-
-@variants @sm {
-    .stack[data-orientation~="tablet:horizontal"] {
-        @apply flex-row;
-
-        align-items: var(--flex-alignment-y);
-        justify-content: var(--flex-alignment-x);
-    }
-}
-
-@variants @md {
-    .stack[data-orientation~="desktop:horizontal"] {
-        @apply flex-row;
-
-        align-items: var(--flex-alignment-y);
-        justify-content: var(--flex-alignment-x);
-    }
-}
-
-@variants lg {
-    .stack[data-orientation~="widescreen:horizontal"] {
-        @apply flex-row;
-
-        align-items: var(--flex-alignment-y);
-        justify-content: var(--flex-alignment-x);
     }
 }

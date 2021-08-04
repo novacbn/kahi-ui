@@ -1,8 +1,13 @@
 .dot {
     --palette-background-bold: currentColor;
 
-    @apply align-middle bg-[var(--palette-background-bold)] h-[var(--sizes-icon-tiny)] inline-block
-    pointer-events-none relative rounded-full select-none w-[var(--sizes-icon-tiny)];
+    @apply align-middle bg-[var(--palette-background-bold)] h-[1em] inline-block
+    leading-[var(--font-content-line-height-nano)] pointer-events-none relative
+    select-none w-[1em];
+
+    border-radius: var(--radius-circle);
+
+    font-size: var(--font-content-size-nano);
 
     transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 

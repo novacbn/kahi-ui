@@ -63,7 +63,7 @@ kbd,
 pre {
     --palette-background-lightest: var(--palette-inverse-off-lightest);
 
-    @apply px-[var(--spacing-local-medium)] py-[var(--spacing-local-tiny)] rounded-md;
+    @apply px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)] rounded-md;
 
     background: rgba(var(--palette-background-lightest), theme("opacity.20"));
 

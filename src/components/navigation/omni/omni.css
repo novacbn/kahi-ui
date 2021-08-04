@@ -81,11 +81,13 @@
     }
 
     & > header {
-        @apply font-bold gap-[var(--spacing-local-small)] text-3xl select-none tracking-widest
-        whitespace-nowrap;
+        @apply font-bold gap-[var(--spacing-local-small)] select-none tracking-widest whitespace-nowrap;
+
+        font-size: var(--font-headline-size-medium);
+        line-height: var(--font-headline-line-height-medium);
 
         & > a {
-            @apply !text-current;
+            @apply inline-flex items-center text-current;
         }
 
         & > .context-button {

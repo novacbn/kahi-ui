@@ -10,8 +10,10 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply flex gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] items-[var(--orientation-flex-alignment-x)]
-    justify-[var(--orientation-flex-alignment-y)];
+    @apply flex gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)];
+
+    align-items: var(--orientation-flex-alignment-x);
+    justify-content: var(--orientation-flex-alignment-y);
 
     flex-direction: var(--orientation-direction);
 

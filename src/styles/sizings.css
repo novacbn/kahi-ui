@@ -2253,109 +2253,184 @@
 /** GLOBAL SIZINGS */
 
 [data-sizing~="tiny"] {
-    --sizing: var(--sizes-content-tiny);
+    --sizing-content: var(--sizes-content-tiny);
+
+    --sizing-text-size: var(--font-content-size-tiny);
+    --sizing-text-line-height: var(--font-content-line-height-tiny);
 }
 
 [data-sizing~="small"] {
-    --sizing: var(--sizes-content-small);
+    --sizing-content: var(--sizes-content-small);
+
+    --sizing-text-size: var(--font-content-size-small);
+    --sizing-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-sizing~="medium"] {
-    --sizing: var(--sizes-content-medium);
+    --sizing-content: var(--sizes-content-medium);
+
+    --sizing-text-size: var(--font-content-size-medium);
+    --sizing-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-sizing~="large"] {
-    --sizing: var(--sizes-content-large);
+    --sizing-content: var(--sizes-content-large);
+
+    --sizing-text-size: var(--font-content-size-large);
+    --sizing-text-line-height: var(--font-content-line-height-large);
 }
 
 [data-sizing~="huge"] {
-    --sizing: var(--sizes-content-huge);
+    --sizing-content: var(--sizes-content-huge);
+
+    --sizing-text-size: var(--font-content-size-huge);
+    --sizing-text-line-height: var(--font-content-line-height-huge);
 }
 
 @variants <sm {
     [data-sizing~="mobile:tiny"] {
-        --sizing: var(--sizes-content-tiny);
+        --sizing-content: var(--sizes-content-tiny);
+
+        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="mobile:small"] {
-        --sizing: var(--sizes-content-small);
+        --sizing-content: var(--sizes-content-small);
+
+        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="mobile:medium"] {
-        --sizing: var(--sizes-content-medium);
+        --sizing-content: var(--sizes-content-medium);
+
+        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="mobile:large"] {
-        --sizing: var(--sizes-content-large);
+        --sizing-content: var(--sizes-content-large);
+
+        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="mobile:huge"] {
-        --sizing: var(--sizes-content-huge);
+        --sizing-content: var(--sizes-content-huge);
+
+        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }
 
 @variants @sm {
     [data-sizing~="tablet:tiny"] {
-        --sizing: var(--sizes-content-tiny);
+        --sizing-content: var(--sizes-content-tiny);
+
+        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="tablet:small"] {
-        --sizing: var(--sizes-content-small);
+        --sizing-content: var(--sizes-content-small);
+
+        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="tablet:medium"] {
-        --sizing: var(--sizes-content-medium);
+        --sizing-content: var(--sizes-content-medium);
+
+        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="tablet:large"] {
-        --sizing: var(--sizes-content-large);
+        --sizing-content: var(--sizes-content-large);
+
+        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="tablet:huge"] {
-        --sizing: var(--sizes-content-huge);
+        --sizing-content: var(--sizes-content-huge);
+
+        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }
 
 @variants @md {
     [data-sizing~="desktop:tiny"] {
-        --sizing: var(--sizes-content-tiny);
+        --sizing-content: var(--sizes-content-tiny);
+
+        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="desktop:small"] {
-        --sizing: var(--sizes-content-small);
+        --sizing-content: var(--sizes-content-small);
+
+        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="desktop:medium"] {
-        --sizing: var(--sizes-content-medium);
+        --sizing-content: var(--sizes-content-medium);
+
+        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="desktop:large"] {
-        --sizing: var(--sizes-content-large);
+        --sizing-content: var(--sizes-content-large);
+
+        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="desktop:huge"] {
-        --sizing: var(--sizes-content-huge);
+        --sizing-content: var(--sizes-content-huge);
+
+        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }
 
 @variants lg {
     [data-sizing~="widescreen:tiny"] {
-        --sizing: var(--sizes-content-tiny);
+        --sizing-content: var(--sizes-content-tiny);
+
+        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="widescreen:small"] {
-        --sizing: var(--sizes-content-small);
+        --sizing-content: var(--sizes-content-small);
+
+        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="widescreen:medium"] {
-        --sizing: var(--sizes-content-medium);
+        --sizing-content: var(--sizes-content-medium);
+
+        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="widescreen:large"] {
-        --sizing: var(--sizes-content-large);
+        --sizing-content: var(--sizes-content-large);
+
+        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="widescreen:huge"] {
-        --sizing: var(--sizes-content-huge);
+        --sizing-content: var(--sizes-content-huge);
+
+        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }

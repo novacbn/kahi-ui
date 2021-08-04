@@ -1,6 +1,5 @@
 table {
-    --palette-background-bg: theme("colors.default.300");
-    --palette-foreground-bg: theme("colors.default.500");
+    --palette-background-lightest: var(--palette-neutral-lightest);
 
     @apply border-collapse w-full;
 }
@@ -11,17 +10,19 @@ table {
 
 table[data-variation~="borders"] {
     & :is(td, th):not(:last-child)::after {
-        @apply absolute block bg-current h-full opacity-40 right-0 top-0 w-[1px];
+        @apply absolute block bg-current h-full opacity-40 right-0 top-0 w-px;
 
         content: "";
     }
 
     & > :is(tbody, thead, tfoot):first-child :is(td, th):not(:last-child)::after {
-        @apply rounded-t-md;
+        border-top-left-radius: var(--radius-medium);
+        border-top-right-radius: var(--radius-medium);
     }
 
     & > :is(tbody, thead, tfoot):last-child :is(td, th):not(:last-child)::after {
-        @apply rounded-b-md;
+        border-bottom-left-radius: var(--radius-medium);
+        border-bottom-right-radius: var(--radius-medium);
     }
 }
 
@@ -29,7 +30,7 @@ table[data-variation~="stripes"] {
     & > tbody > tr:nth-child(2n + 1) {
         @apply;
 
-        background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
+        background-color: rgba(var(--palette-background-lightest), theme("opacity.20"));
     }
 }
 
@@ -43,26 +44,28 @@ tr {
 
 th,
 td {
-    @apply align-center px-4 py-3 text-left;
+    @apply align-center px-[var(--spacing-root-medium)] py-[var(--spacing-root-small)] text-left;
 }
 
 :is(thead, tfoot) > tr > :is(td, th),
 table[data-variation~="borders"] > tbody > tr:not(:last-child) > :is(td, th) {
     &::before {
-        @apply absolute block bg-current bottom-0 h-[1px] opacity-40 right-0 w-full;
+        @apply absolute block bg-current bottom-0 h-px opacity-40 right-0 w-full;
 
         content: "";
     }
 
     &:first-child {
         &::before {
-            @apply rounded-l-md;
+            border-top-left-radius: var(--radius-medium);
+            border-bottom-left-radius: var(--radius-medium);
         }
     }
 
     &:last-child {
         &::before {
-            @apply rounded-r-md;
+            border-top-right-radius: var(--radius-medium);
+            border-bottom-right-radius: var(--radius-medium);
         }
     }
 }

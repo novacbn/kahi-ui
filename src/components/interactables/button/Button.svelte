@@ -104,7 +104,7 @@
         <input
             bind:this={element}
             {...map_global_attributes($$props)}
-            type="submit"
+            type="reset"
             {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}

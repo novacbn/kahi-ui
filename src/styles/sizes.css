@@ -1,39 +1,54 @@
 [data-size="tiny"] {
-    --size-embedded: theme("width.lg");
-    --size-icon: theme("width.2");
+    --size-embedded: var(--sizes-embedded-tiny);
+    --size-icon: var(--sizes-icon-tiny);
 
-    --size-text: theme("fontSize.xs.0");
-    --size-line-height: theme("fontSize.xs.1.lineHeight");
+    --size-headline-size: var(--font-headline-size-small);
+    --size-headline-line-height: var(--font-headline-line-height-small);
+
+    --size-text-size: var(--font-content-size-nano);
+    --size-text-line-height: var(--font-content-line-height-nano);
 }
 
 [data-size="small"] {
-    --size-embedded: theme("width.xl");
-    --size-icon: theme("width.4");
+    --size-embedded: var(--sizes-embedded-small);
+    --size-icon: var(--sizes-icon-small);
 
-    --size-text: theme("fontSize.sm.0");
-    --size-line-height: theme("fontSize.sm.1.lineHeight");
+    --size-headline-size: var(--font-headline-size-medium);
+    --size-headline-line-height: var(--font-headline-line-height-medium);
+
+    --size-text-size: var(--font-content-size-tiny);
+    --size-text-line-height: var(--font-content-line-height-tiny);
 }
 
 [data-size="medium"] {
-    --size-embedded: theme("width.3xl");
-    --size-icon: theme("width.8");
+    --size-embedded: var(--sizes-embedded-medium);
+    --size-icon: var(--sizes-icon-medium);
 
-    --size-text: theme("fontSize.lg.0");
-    --size-line-height: theme("fontSize.lg.1.lineHeight");
+    --size-headline-size: var(--font-headline-size-large);
+    --size-headline-line-height: var(--font-headline-line-height-large);
+
+    --size-text-size: var(--font-content-size-small);
+    --size-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-size="large"] {
-    --size-embedded: theme("width.5xl");
-    --size-icon: theme("width.16");
+    --size-embedded: var(--sizes-embedded-large);
+    --size-icon: var(--sizes-icon-large);
 
-    --size-text: theme("fontSize.xl.0");
-    --size-line-height: theme("fontSize.xl.1.lineHeight");
+    --size-headline-size: var(--font-headline-size-huge);
+    --size-headline-line-height: var(--font-headline-line-height-huge);
+
+    --size-text-size: var(--font-content-size-medium);
+    --size-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-size="huge"] {
-    --size-embedded: theme("width.7xl");
-    --size-icon: theme("width.32");
+    --size-embedded: var(--sizes-embedded-huge);
+    --size-icon: var(--sizes-icon-huge);
 
-    --size-text: theme("fontSize.2xl.0");
-    --size-line-height: theme("fontSize.2xl.1.lineHeight");
+    --size-headline-size: var(--font-headline-size-massive);
+    --size-headline-line-height: var(--font-headline-line-height-massive);
+
+    --size-text-size: var(--font-content-size-large);
+    --size-text-line-height: var(--font-content-line-height-large);
 }

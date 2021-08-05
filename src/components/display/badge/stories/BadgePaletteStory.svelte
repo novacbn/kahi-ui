@@ -3,16 +3,22 @@
 
     import Badge from "../Badge.svelte";
 
+    const PALETTES = [
+        ["neutral", true],
+        ["auto", false],
+        ["inverse", false],
+        ["dark", false],
+        ["light", false],
+        ["alert", false],
+        ["affirmative", false],
+        ["negative", false],
+    ];
 </script>
 
 <Stack spacing="medium" orientation="horizontal" variation="wrap">
-    <Badge {...$$props}>This is a DEFAULT Badge</Badge>
-    <Badge {...$$props} palette="accent">This is a ACCENT Badge</Badge>
-
-    <Badge {...$$props} palette="dark">This is a DARK Badge</Badge>
-    <Badge {...$$props} palette="light">This is a LIGHT Badge</Badge>
-
-    <Badge {...$$props} palette="alert">This is a ALERT Badge</Badge>
-    <Badge {...$$props} palette="affirmative">This is a AFFIRMATIVE Badge</Badge>
-    <Badge {...$$props} palette="negative">This is a NEGATIVE Badge</Badge>
+    {#each PALETTES as [palette, is_default] (palette)}
+        <Badge {...$$props} palette={is_default ? undefined : palette}>
+            This is a {palette.toUpperCase()} Badge
+        </Badge>
+    {/each}
 </Stack>

@@ -13,6 +13,7 @@ import ButtonDefaultStory from "./ButtonDefaultStory.svelte";
 import ButtonPaletteStory from "./ButtonPaletteStory.svelte";
 import ButtonOutlineStory from "./ButtonOutlineStory.svelte";
 import ButtonSizeStory from "./ButtonSizeStory.svelte";
+import ButtonTypesStory from "./ButtonTypesStory.svelte";
 
 export default {
     title: "Interactable/Button",
@@ -56,6 +57,13 @@ export const Outline = (args) => ({
 
 export const Size = (args) => ({
     Component: ButtonSizeStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Types = (args) => ({
+    Component: ButtonTypesStory,
     props: {
         ...args,
     },

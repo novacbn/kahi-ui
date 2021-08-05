@@ -8,19 +8,22 @@
 
             & > footer {
                 /** TODO: FIX OVERFLOW PUSHING BEYOND TOP BOUNDARY */
-                @apply absolute border-l-1 border-b-1 border-solid bottom-0 bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))] flex
-                flex-col gap-4 items-stretch justify-center right-0 rounded-bl-md overflow-y-auto px-6 py-4;
+                @apply absolute border-l-2 border-b-2 border-solid bottom-0 flex flex-col
+                gap-[var(--spacing-local-small)] items-stretch justify-center right-0 overflow-y-auto
+                px-[var(--spacing-root-large)] py-[var(--spacing-root-medium)];
+
+                background-color: inherit;
+                border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
+                border-bottom-left-radius: var(--radius-small);
 
                 max-height: min(85vh, 60ex);
 
                 border-color: inherit;
 
-                clip-path: inset(0% 0% 100% 0% round 0% 0% 0% theme("borderRadius.md"));
+                clip-path: inset(0% 0% 100% 0% round 0% 0% 0% var(--radius-small));
                 transform: translateY(100%);
 
-                transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    clip-path 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                transition: clip-path 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
                 & > section {
                     @apply flex-col m-0;
@@ -46,22 +49,24 @@
             }
 
             & > footer {
-                clip-path: inset(0% 0% 0% 0% round 0% 0% 0% theme("borderRadius.md"));
+                clip-path: inset(0% 0% 0% 0% round 0% 0% 0% var(--radius-small));
             }
         }
     }
 }
 
-nav.omni {
-    @apply flex px-6 py-4 relative text-current z-1;
+.omni {
+    --palette-background-normal: var(--palette-auto-off-normal);
+    --palette-foreground-normal: var(--palette-inverse-normal);
 
-    /** TODO: When this is a sticky, the background transparency for the default palette looks terrible **/
-    background-color: rgba(theme("colors.default.200"), theme("opacity.20"));
-    border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
+    @apply bg-[rgb(var(--palette-background-normal))] flex px-[var(--spacing-root-large)]
+    py-[var(--spacing-root-medium)] relative text-[rgb(var(--palette-foreground-normal))] z-1;
 
-    &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
-    }
+    border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &[data-variation~="sticky"] {
         @apply sticky top-0 z-1;
@@ -71,15 +76,18 @@ nav.omni {
         @apply flex-grow;
 
         & > section {
-            @apply flex gap-4 ml-auto;
+            @apply flex gap-[var(--spacing-local-small)] ml-auto;
         }
     }
 
     & > header {
-        @apply font-bold gap-4 text-3xl select-none tracking-widest whitespace-nowrap;
+        @apply font-bold gap-[var(--spacing-local-small)] select-none tracking-widest whitespace-nowrap;
+
+        font-size: var(--font-headline-size-medium);
+        line-height: var(--font-headline-line-height-medium);
 
         & > a {
-            @apply !text-current;
+            @apply inline-flex items-center text-current;
         }
 
         & > .context-button {
@@ -101,11 +109,11 @@ nav.omni {
 input[type="checkbox"][role="presentation"]:first-child + nav.omni,
 input[type="checkbox"][role="presentation"]:first-child + .context-backdrop + nav.omni,
 nav.omni:first-child {
-    @apply border-b-1 border-solid;
+    @apply border-b-2 border-solid;
 }
 
 input[type="checkbox"][role="presentation"]:last-child + nav.omni,
 input[type="checkbox"][role="presentation"]:last-child + .context-backdrop + nav.omni,
 nav.omni:last-child {
-    @apply border-t-1 border-solid;
+    @apply border-t-2 border-solid;
 }

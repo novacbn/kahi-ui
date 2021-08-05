@@ -14,6 +14,10 @@
     import {map_global_attributes} from "../../../lib/util/attributes";
     import {IS_BROWSER} from "../../../lib/util/environment";
 
+    type $$Events = {
+        click: MouseEvent;
+    };
+
     type $$Props = {
         element?: HTMLDivElement | HTMLLabelElement;
 

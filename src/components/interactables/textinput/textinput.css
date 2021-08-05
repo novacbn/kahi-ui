@@ -4,19 +4,27 @@
 [type="search"],
 [type="url"],
 textarea {
-    --palette-background-bg: theme("colors.default.300");
-    --palette-foreground-bg: theme("colors.default.500");
+    --palette-background-bold: var(--palette-neutral-bold);
+    --palette-foreground-normal: var(--palette-light-normal);
 
-    @apply appearance-none align-middle border-2 border-solid px-[0.75em] py-[0.5em] relative
-    rounded-lg;
+    --size-text-size: var(--document-font-size);
+    --size-text-line-height: var(--document-font-line-height);
 
-    font-size: var(--size-text, inherit);
-    line-height: var(--size-line-height, inherit);
+    @apply appearance-none align-middle bg-transparent border-2 border-solid border-transparent 
+    leading-[var(--size-text-line-height)] px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)] relative;
 
-    text-align: var(--align-text, inherit);
-    text-transform: var(--transform-text, inherit);
+    border-radius: var(--radius-medium);
+
+    font-size: var(--size-text-size);
+
+    text-align: var(--align-text);
+    text-transform: var(--transform-text);
 
     outline: none !important;
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &:disabled {
         @apply cursor-not-allowed opacity-40;
@@ -27,21 +35,19 @@ textarea {
     }
 
     &:not([data-variation]) {
-        @apply bg-transparent;
+        @apply;
 
-        border-color: rgba(var(--palette-background-bg), theme("opacity.25"));
+        border-color: rgba(var(--palette-background-bold), theme("opacity.20"));
 
         &:enabled {
             &:hover {
                 @apply;
 
-                border-color: rgba(var(--palette-background-bg), theme("opacity.50"));
+                border-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
 
             &:is(:focus) {
-                @apply;
-
-                border-color: rgba(var(--palette-foreground-bg), theme("opacity.75"));
+                @apply border-[rgb(var(--palette-background-bold))];
             }
         }
     }
@@ -49,27 +55,35 @@ textarea {
     &[data-variation="block"] {
         @apply;
 
-        background-color: rgba(var(--palette-background-bg), theme("opacity.25"));
-        border-color: transparent;
+        background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
 
         &:enabled {
             &:hover {
                 @apply;
 
-                background-color: rgba(var(--palette-foreground-bg), theme("opacity.30"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
 
             &:is(:focus) {
-                @apply;
+                @apply border-[rgb(var(--palette-background-bold))];
 
                 background-color: transparent;
-                border-color: rgba(var(--palette-foreground-bg), theme("opacity.75"));
             }
         }
     }
 
     &[data-variation="flush"] {
-        @apply align-top bg-transparent border-0 p-0 rounded-none;
+        @apply align-top border-0 p-0 rounded-none;
+
+        font-size: inherit;
+        line-height: inherit;
+
+        text-align: inherit;
+        text-transform: inherit;
+
+        &[data-palette] {
+            @apply text-[rgb(var(--palette-background-bold))];
+        }
     }
 
     &:not([cols], [size]) {

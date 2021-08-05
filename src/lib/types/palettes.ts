@@ -4,7 +4,7 @@
 export enum DESIGN_PALETTE {
     auto = "auto",
 
-    "auto-inverse" = "auto-inverse",
+    inverse = "inverse",
 
     inherit = "inherit",
 

@@ -3,132 +3,86 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-    --palette-background-bg: theme("colors.default.300");
-    --palette-foreground-bg: theme("colors.default.500");
-    --palette-foreground-text: theme("colors.light.200");
+    --palette-background-light: var(--palette-neutral-light);
+    --palette-background-normal: var(--palette-neutral-normal);
+    --palette-background-bold: var(--palette-neutral-bold);
+    --palette-foreground-normal: var(--palette-light-normal);
 
-    --size-text: inherit;
-    --size-line-height: inherit;
+    --size-text-size: var(--document-font-size);
+    --size-text-line-height: var(--document-font-line-height);
 
-    @apply align-middle border-0 font-bold gap-3 inline-flex items-center justify-center
-    px-[0.75em] py-[0.5em] relative rounded-lg select-none leading-[var(--size-line-height)]
-    whitespace-nowrap z-0;
+    @apply align-middle border-2 border-transparent border-solid font-bold cursor-pointer
+    gap-[var(--spacing-local-small)] inline-flex items-center justify-center
+    leading-[var(--size-text-line-height)] px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)]
+    relative select-none whitespace-nowrap z-0;
 
-    border-color: rgba(0, 0, 0, 0);
+    border-radius: var(--radius-medium);
 
-    font-size: var(--size-text);
+    font-size: var(--size-text-size);
     outline: none !important;
+
+    transform: scale(1);
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &:is(:disabled, [aria-disabled="true"]) {
         @apply cursor-not-allowed opacity-40;
     }
 
-    &::before {
-        @apply absolute h-full left-0 rounded-lg top-0 w-full -z-1;
-
-        content: "";
-
-        transform: scale(1);
-        transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
     &:not(:disabled, [aria-disabled="true"]) {
-        &:is(:active, [aria-current], [aria-pressed="true"])::before {
+        &:is(:active, [aria-current], [aria-pressed="true"]) {
             transform: scale(0.95);
         }
     }
 
     &:not([data-variation]) {
-        @apply text-[rgb(var(--palette-foreground-text))];
-
-        &::before {
-            @apply bg-[rgb(var(--palette-foreground-bg))];
-        }
+        @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
 
         &:not(:disabled, [aria-disabled="true"]) {
-            &:is(:focus, :hover)::before {
-                @apply bg-[rgb(var(--palette-background-bg))];
+            &:is(:focus, :hover) {
+                @apply bg-[rgb(var(--palette-background-normal))];
             }
 
-            &:is(:active, [aria-current], [aria-pressed="true"])::before {
-                @apply;
-
-                background-color: rgba(var(--palette-background-bg), theme("opacity.75"));
+            &:is(:active, [aria-current], [aria-pressed="true"]) {
+                @apply bg-[rgb(var(--palette-background-light))];
             }
         }
     }
 
     &[data-variation="clear"] {
-        @apply text-[rgb(var(--palette-foreground-bg))];
+        @apply bg-transparent text-[rgb(var(--palette-background-bold))];
 
         &:not(:disabled, [aria-disabled="true"]) {
-            &:is(:focus, :hover)::before {
+            &:is(:focus, :hover) {
                 @apply;
 
-                background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                @apply text-[rgb(var(--palette-foreground-text))];
+                @apply text-[rgb(var(--palette-foreground-normal))];
 
-                &::before {
-                    @apply;
-
-                    background-color: rgba(var(--palette-foreground-bg), theme("opacity.50"));
-                }
+                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
         }
     }
 
     &[data-variation="outline"] {
-        @apply text-[rgb(var(--palette-foreground-bg))];
-
-        &::before {
-            @apply border-2 border-[rgb(var(--palette-foreground-bg))] border-solid;
-        }
+        @apply bg-transparent border-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-background-normal))];
 
         &:not(:disabled, [aria-disabled="true"]) {
-            &:is(:focus, :hover)::before {
+            &:is(:focus, :hover) {
                 @apply;
 
-                background-color: rgba(var(--palette-foreground-bg), theme("opacity.10"));
-                border-color: rgba(var(--palette-foreground-bg), theme("opacity.50"));
+                background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+                border-color: rgba(var(--palette-background-bold), theme("opacity.50"));
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                @apply text-[rgb(var(--palette-foreground-text))];
-
-                &::before {
-                    @apply bg-[rgb(var(--palette-foreground-bg))] border-transparent;
-                }
-            }
-        }
-    }
-}
-
-html[data-palette="dark"] {
-    & button,
-    & [role="button"],
-    & [type="button"],
-    & [type="reset"],
-    & [type="submit"] {
-        &:not([data-palette]) {
-            --palette-background-bg: theme("colors.default.700");
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    html:not([data-palette]) {
-        & button,
-        & [role="button"],
-        & [type="button"],
-        & [type="reset"],
-        & [type="submit"] {
-            &:not([data-palette]) {
-                --palette-background-bg: theme("colors.default.700");
+                @apply bg-[rgb(var(--palette-background-bold))] border-transparent text-[rgb(var(--palette-foreground-normal))];
             }
         }
     }

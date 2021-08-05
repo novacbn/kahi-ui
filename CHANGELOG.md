@@ -1,5 +1,111 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Fixed dark mode transition being laggy on WebKit / Blink Browsers.
+-   Fixed scrollbar not having height applied to it on WebKit / Blink Browsers.
+-   Updated scrollbar with theming for dark mode.
+-   Updated colors, spacings, and other visual modifiers.
+
+-   Added initial support for Theming CSS Variables
+
+    -   `--font-family-(monospace/normal)` — References the available font familes.
+
+        -   e.g. `font-family: var(--font-family-monospace);`
+
+    -   `--font-(content/headline)-(line-height/size)-(nano/tiny/small/medium/large/huge/massive)` — References the available font sizes and their associated line heights.
+
+        -   e.g. `font-size: var(--font-content-size-medium);`
+
+    -   `--palette-(auto/auto-off/inverse/inverse-off/accent/neutral/dark/off-dark/light/off-light/alert/affirmative/negative)-(lightest/light/normal/bold/boldest)` — References the available shades for the semantic color palette.
+
+        -   e.g. `color: rgb(var(--palette-accent-bold));`
+        -   **IMPORTANT**: The semantic shades naming depends on the theme used. e.g. the default theme flips light <-> dark shades around and shifts the shading scale, for dark mode.
+        -   **NOTE**: The `auto` / `auto-off` palettes are their respective `dark` / `light`, depending on if the Framework is in dark mode.
+        -   **NOTE**: The `inverse` / `inverse-off` palettes are always the opposite of the `auto` / `auto-off` palettes.
+        -   **NOTE**: The `off` palettes are "off color" variations of the `dark` / `light` palettes.
+
+    -   `--radius-(circle/pill/small/medium)` — References the available border radius and shape associated radii.
+
+        -   e.g. `border-radius: var(--radius-medium);`
+
+    -   `--sizes-(content/embedded/icon)-(tiny/small/medium/large/huge)` — References the available sizing levels for Content sizes, Embedded Media widths, and Icon sizes.
+
+        -   e.g. `width: var(--sizes-icon-small);height: var(--sizes-icon-small);`
+
+    -   `--spacing-(local/root)-(tiny/small/medium/large/huge)` — References the available spacing levels, with `root` spacing using `rem` and `local` using `em`.
+
+        -   e.g. `padding-left: var(--spacing-root-small);`
+
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button type="reset" value="XXX">` — Added support for rendering `<input type="reset" />`.
+
+        -   `TextInput`
+
+            -   `<TextInput palette="XXX" variation="flush" />` — Added support for text colors in `flush` variations.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   `<Menu.Container sizing="XXX">` — Added support for setting sizing for menu content.
+            -   `<Menu.Anchor palette="XXX">` / `<Menu.Button palette="XXX">` / `<Menu.Label palette="XXX">` — Added support for palettes.
+
+    -   Typography
+
+        -   `Heading`
+
+            -   `<Heading palette="XXX">` — Is now supported for all the built-in semantic palettes.
+
+        -   `Text`
+
+            -   `<Text variation="headline">` - Is now supported for all headline sizes.
+
+-   Deprecated the following Components / Component Features
+
+    -   Feedback
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner variation="dual">` — Will no longer be available in the future.
+
+        -   `Wave`
+
+            -   **(BREAKING)** `<Wave size="XXX">` — Not a useful modifier, also to add consistency with `Dot`.
+
+-   Updated the following Components / Component Features
+
+    -   \*
+
+        -   `<XXX palette="auto-inverse">` — Changed from `auto-inverse` -> `inverse` to be consistent with new CSS Variables.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button value="XXX">` — Fixed `<input />`-based `Button`s not rendering properly.
+
+        -   `Form`
+
+            -   `<Form.Control on:click>` — Added missing event typing definitions.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   `<Menu.Label>` — Added missing event typing definitions.
+
+    -   Utilities
+
+        -   `ContextBackdrop`
+
+            -   `<ContextBackdrop on:click>` — Added missing event typing definitions.
+
 ## v0.2.15 - 2021/07/27
 
 -   Deprecated the following Components / Component Features
@@ -8,7 +114,7 @@
 
         -   `Omni`
 
-            -   `<Omni.Container logic_id="XXX">` — Current behavior is deprecated in favor of using `Popover` in combination with global modifiers like `hidden`.
+            -   **(BREAKING)** `<Omni.Container logic_id="XXX">` — Current behavior is deprecated in favor of using `Popover` in combination with global modifiers like `hidden`.
 
 -   Updated the following Components
 

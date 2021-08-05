@@ -9,7 +9,6 @@ import Wave from "../Wave.svelte";
 
 import WaveDefaultStory from "./WaveDefaultStory.svelte";
 import WavePaletteStory from "./WavePaletteStory.svelte";
-import WaveSizeStory from "./WaveSizeStory.svelte";
 
 export default {
     title: "Feedback/Wave",
@@ -31,13 +30,6 @@ export const Default = (args) => ({
 
 export const Palette = (args) => ({
     Component: WavePaletteStory,
-    props: {
-        ...args,
-    },
-});
-
-export const Size = (args) => ({
-    Component: WaveSizeStory,
     props: {
         ...args,
     },

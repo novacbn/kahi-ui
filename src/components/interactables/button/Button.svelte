@@ -23,7 +23,7 @@
         active?: boolean;
         disabled?: boolean;
 
-        type?: "submit";
+        type?: "reset" | "submit";
         value?: string;
 
         download?: string;
@@ -100,7 +100,17 @@
         </label>
     {/if}
 {:else if value}
-    {#if type === "submit"}
+    {#if type === "reset"}
+        <input
+            bind:this={element}
+            {...map_global_attributes($$props)}
+            type="reset"
+            {...map_data_attributes({palette, size, variation})}
+            {...map_aria_attributes({pressed: active})}
+            {...map_attributes({disabled, value})}
+            on:click
+        />
+    {:else if type === "submit"}
         <input
             bind:this={element}
             {...map_global_attributes($$props)}

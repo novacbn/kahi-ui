@@ -12,6 +12,10 @@
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         size?: DESIGN_SIZE_ARGUMENT;
+
+        /**
+         * @deprecated
+         */
         variation?: "dual";
     } & IHTML5Properties &
         IGlobalProperties &

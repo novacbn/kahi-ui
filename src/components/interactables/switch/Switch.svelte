@@ -4,7 +4,6 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../lib/types/sizes";
     import type {IMarginProperties} from "../../../lib/types/spacings";
-    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../lib/types/variations";
 
     import {get_formstate_context} from "../../../lib/stores/formstate";
     import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../lib/stores/id";
@@ -34,7 +33,6 @@
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         size?: DESIGN_SIZE_ARGUMENT;
-        variation?: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

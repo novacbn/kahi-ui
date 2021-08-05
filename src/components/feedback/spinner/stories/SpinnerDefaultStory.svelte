@@ -1,6 +1,10 @@
 <script>
-    import Spinner from "../Spinner.svelte";
+    import Button from "../../../interactables/button/Button.svelte";
 
+    import Spinner from "../Spinner.svelte";
 </script>
 
-<Spinner {...$$props} />
+<Button disabled>
+    Submit
+    <Spinner {...$$props} />
+</Button>

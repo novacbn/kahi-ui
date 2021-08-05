@@ -1,25 +1,19 @@
-/**
- * TODO: This could probably be cleaned up
- */
-
 [type="checkbox"] {
-    --palette-background-bg: theme("colors.default.300");
-    --palette-foreground-bg: theme("colors.default.500");
-    --palette-foreground-text: theme("colors.light.200");
+    --palette-background-bold: var(--palette-neutral-bold);
+    --palette-foreground-normal: var(--palette-light-normal);
 
-    --radius: theme("borderRadius.sm");
-
-    --size-text: inherit;
-    --size-line-height: inherit;
+    --size-text-size: var(--document-font-size);
+    --size-text-line-height: var(--document-font-line-height);
 }
 
 [type="checkbox"]:not([role]) {
-    @apply appearance-none align-middle bg-transparent cursor-pointer inline-flex items-center
-    justify-center p-[0.5em] relative rounded-md select-none leading-[var(--size-line-height)] whitespace-nowrap;
+    @apply appearance-none align-middle cursor-pointer inline-flex items-center
+    justify-center p-[var(--spacing-local-small)] relative select-none leading-[var(--size-text-line-height)]
+    whitespace-nowrap;
 
-    background-color: rgba(var(--palette-background-bg), theme("opacity.25"));
+    border-radius: var(--radius-small);
 
-    font-size: var(--size-text);
+    font-size: var(--size-text-size);
 
     outline: none !important;
     transform: scale(1);
@@ -33,13 +27,13 @@
     }
 
     &::before {
-        @apply h-[1.5ex] w-[1.5ex];
+        @apply h-[0.625em] w-[0.625em];
 
         content: "";
 
         background-color: currentColor;
 
-        clip-path: inset(50% 50% 50% 50% round var(--radius));
+        clip-path: inset(50% 50% 50% 50% round 0.2em);
         transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -49,90 +43,68 @@
     }
 
     &:not(:checked) {
-        @apply text-[rgb(var(--palette-background-bg))];
-
-        &:enabled:hover,
-        &[aria-pressed="true"] {
-            &::before {
-                @apply;
-
-                clip-path: inset(0% 0% 0% 0% round var(--radius));
-            }
-        }
-
         &:enabled:is(:active, :hover),
         &[aria-pressed="true"] {
-            @apply;
-
-            background-color: rgba(var(--palette-background-bg), theme("opacity.50"));
+            &::before {
+                clip-path: inset(0% 0% 0% 0% round 0.2em);
+            }
         }
     }
 
     &:checked {
-        @apply bg-[rgb(var(--palette-foreground-bg))] text-[rgb(var(--palette-foreground-text))];
-
         &::before {
-            @apply;
+            clip-path: inset(0% 0% 0% 0% round 0.2em);
+        }
+    }
 
-            clip-path: inset(0% 0% 0% 0% round var(--radius));
+    &:not([data-variation]) {
+        @apply text-[rgb(var(--palette-background-bold))];
+
+        background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+
+        &:not(:checked) {
+            @apply text-[rgb(var(--palette-background-bold))];
+
+            &:enabled:is(:active, :hover),
+            &[aria-pressed="true"] {
+                @apply;
+
+                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+            }
         }
 
-        &:enabled:hover,
-        &[aria-pressed="true"] {
-            @apply;
+        &:checked {
+            @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
 
-            background-color: rgba(var(--palette-foreground-bg), theme("opacity.75"));
+            &:enabled:is(:active, :hover),
+            &[aria-pressed="true"] {
+                @apply;
+
+                background-color: rgba(var(--palette-background-bold), theme("opacity.75"));
+            }
         }
     }
 
     &[data-variation="flush"] {
-        @apply bg-transparent;
+        &:not(:checked) {
+            @apply text-[rgb(var(--palette-background-bold))];
+
+            &:enabled:is(:active, :hover),
+            &[aria-pressed="true"] {
+                @apply;
+
+                color: rgba(var(--palette-background-bold), theme("opacity.50"));
+            }
+        }
 
         &:checked {
-            @apply text-[rgb(var(--palette-background-bg))];
-        }
+            @apply text-[rgb(var(--palette-background-bold))];
 
-        &:enabled:hover {
-            @apply text-current;
-        }
+            &:enabled:is(:active, :hover),
+            &[aria-pressed="true"] {
+                @apply;
 
-        &:enabled:is(:active, :hover) {
-            @apply bg-transparent;
-        }
-    }
-
-    &:is([data-size="tiny"], [data-size="small"]) {
-        @apply rounded-DEFAULT;
-
-        &::before {
-            @apply h-[1ex] w-[1ex];
-        }
-    }
-
-    &:is([data-size="large"], [data-size="huge"]) {
-        --radius: theme("borderRadius.md");
-
-        @apply rounded-lg;
-
-        &::before {
-            @apply h-[2ex] w-[2ex];
-        }
-    }
-}
-
-html[data-palette="dark"] {
-    & [type="checkbox"] {
-        &:not([data-palette]) {
-            --palette-background-bg: theme("colors.default.700");
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    html:not([data-palette]) {
-        &[type="checkbox"] {
-            &:not([data-palette]) {
-                --palette-background-bg: theme("colors.default.700");
+                color: rgba(var(--palette-background-bold), theme("opacity.75"));
             }
         }
     }

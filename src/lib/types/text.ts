@@ -20,11 +20,9 @@ export enum DESIGN_TEXT_TRANSFORM {
 }
 
 export enum DESIGN_TEXT_VARIATION {
-    truncate = "truncate",
-}
-
-export enum DESIGN_HEADING_VARIATION {
     headline = "headline",
+
+    truncate = "truncate",
 }
 
 export const DESIGN_TEXT_ALIGNMENT_LITERALS = {
@@ -39,10 +37,6 @@ export const DESIGN_TEXT_VARIATION_LITERALS = {
     ...DESIGN_TEXT_VARIATION,
 } as const;
 
-export const DESIGN_HEADING_VARIATION_LITERALS = {
-    ...DESIGN_HEADING_VARIATION,
-} as const;
-
 export type DESIGN_TEXT_ALIGNMENT_ARGUMENT = keyof typeof DESIGN_TEXT_ALIGNMENT_LITERALS;
 
 export type DESIGN_TEXT_TRANSFORM_ARGUMENT = keyof typeof DESIGN_TEXT_TRANSFORM_LITERALS;
@@ -50,11 +44,3 @@ export type DESIGN_TEXT_TRANSFORM_ARGUMENT = keyof typeof DESIGN_TEXT_TRANSFORM_
 export type DESIGN_TEXT_VARIATION_ARGUMENT =
     | keyof typeof DESIGN_TEXT_VARIATION_LITERALS
     | (keyof typeof DESIGN_TEXT_VARIATION_LITERALS)[];
-
-export type DESIGN_HEADING_VARIATION_ARGUMENT =
-    | keyof typeof DESIGN_HEADING_VARIATION_LITERALS
-    | keyof typeof DESIGN_TEXT_VARIATION_LITERALS
-    | (
-          | keyof typeof DESIGN_HEADING_VARIATION_LITERALS
-          | keyof typeof DESIGN_TEXT_VARIATION_LITERALS
-      )[];

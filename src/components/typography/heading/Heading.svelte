@@ -4,9 +4,9 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {IMarginProperties} from "../../../lib/types/spacings";
     import type {
-        DESIGN_HEADING_VARIATION_ARGUMENT,
         DESIGN_TEXT_ALIGNMENT_ARGUMENT,
         DESIGN_TEXT_TRANSFORM_ARGUMENT,
+        DESIGN_TEXT_VARIATION_ARGUMENT,
     } from "../../../lib/types/text";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
@@ -20,7 +20,7 @@
         transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
 
         palette?: DESIGN_PALETTE_ARGUMENT;
-        variation?: DESIGN_HEADING_VARIATION_ARGUMENT;
+        variation?: DESIGN_TEXT_VARIATION_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

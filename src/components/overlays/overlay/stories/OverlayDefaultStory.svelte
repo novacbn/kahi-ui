@@ -6,7 +6,6 @@
     import ContextButton from "../../../utilities/contextbutton/ContextButton.svelte";
 
     import Overlay from "../Overlay.svelte";
-
 </script>
 
 <Button for="overlay-default-story" palette="accent">Open Modal</Button>
@@ -23,7 +22,7 @@
         </Card.Section>
 
         <Card.Footer>
-            <ContextButton variation="clear">Cancel</ContextButton>
+            <ContextButton palette="inverse" variation="clear">Cancel</ContextButton>
             <Button palette="negative">Delete</Button>
         </Card.Footer>
     </Card.Container>

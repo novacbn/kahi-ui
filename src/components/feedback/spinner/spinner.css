@@ -1,36 +1,28 @@
 .spinner {
+    --palette-background-bold: currentColor;
     --size-icon: 1em;
 
-    @apply align-middle border-solid border-transparent h-[var(--size-icon)] inline-block rounded-full select-none w-[var(--size-icon)];
+    @apply align-middle border-2 border-solid h-[var(--size-icon)] inline-block
+    rounded-full select-none w-[var(--size-icon)];
 
-    border-left-color: currentColor;
-    border-right-color: currentColor;
-
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-
-    border-width: calc(var(--size-icon) * 0.125);
+    border-color: currentColor transparent;
+    color: var(--palette-background-bold);
 
     animation: spin 1s linear infinite;
 
-    &[data-palette] {
-        border-left-color: rgb(var(--palette-background-bg));
-        border-right-color: rgb(var(--palette-background-bg));
-    }
+    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    &:not([data-variation]) {
-        &:is([data-size="medium"], [data-size="large"], [data-size="huge"]) {
-            border-width: calc(var(--size-icon) * 0.075);
-        }
+    &[data-palette] {
+        color: rgb(var(--palette-background-bold));
     }
 
     &[data-variation="dual"] {
         @apply border-double;
 
-        border-width: calc(var(--size-icon) * 0.25);
-
-        &[data-size="tiny"] {
-            border-width: calc(var(--size-icon) * 0.4);
+        &:is([data-size="medium"], [data-size="large"], [data-size="huge"]) {
+            border-width: 0.375em;
         }
+
+        border-width: 0.25em;
     }
 }

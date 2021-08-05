@@ -1,10 +1,12 @@
 [type="checkbox"][role="switch"] {
-    @apply appearance-none align-middle bg-transparent cursor-pointer inline-flex items-center
-    justify-center p-[0.5em] relative rounded-full select-none leading-[var(--size-line-height)] whitespace-nowrap;
+    @apply appearance-none align-middle cursor-pointer inline-flex items-center
+    justify-center p-[var(--spacing-local-small)] relative select-none leading-[var(--size-text-line-height)]
+    text-[rgb(var(--palette-background-bold))] whitespace-nowrap;
 
-    background-color: rgba(var(--palette-background-bg), theme("opacity.25"));
+    background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+    border-radius: var(--radius-pill);
 
-    font-size: var(--size-text);
+    font-size: var(--size-text-size);
 
     outline: none !important;
     transform: scale(1);
@@ -18,7 +20,7 @@
     }
 
     &::before {
-        @apply h-[1.5ex] w-[3ex];
+        @apply h-[0.625em] w-[1.25em];
 
         content: "";
 
@@ -28,36 +30,32 @@
     }
 
     &:not(:checked) {
-        @apply text-[rgb(var(--palette-background-bg))];
+        @apply text-[rgb(var(--palette-background-bold))];
 
         &::before {
-            @apply;
-
-            clip-path: inset(0% 50% 0% 0% round theme("borderRadius.full"));
+            clip-path: inset(0% 50% 0% 0% round var(--radius-pill));
         }
 
         &:enabled:is(:active, :hover),
         &[aria-pressed="true"] {
             @apply;
 
-            background-color: rgba(var(--palette-background-bg), theme("opacity.50"));
+            background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
         }
     }
 
     &:checked {
-        @apply bg-[rgb(var(--palette-foreground-bg))] text-[rgb(var(--palette-foreground-text))];
+        @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
 
         &::before {
-            @apply;
-
-            clip-path: inset(0% 0% 0% 50% round theme("borderRadius.full"));
+            clip-path: inset(0% 0% 0% 50% round var(--radius-pill));
         }
 
         &:enabled:is(:active, :hover),
         &[aria-pressed="true"] {
             @apply;
 
-            background-color: rgba(var(--palette-foreground-bg), theme("opacity.75"));
+            background-color: rgba(var(--palette-background-bold), theme("opacity.75"));
         }
     }
 
@@ -66,21 +64,7 @@
         transform: scale(0.95);
 
         &::before {
-            @apply;
-
-            clip-path: inset(0% 25% 0% 25% round theme("borderRadius.full"));
-        }
-    }
-
-    &:is([data-size="tiny"], [data-size="small"]) {
-        &::before {
-            @apply h-[1ex] w-[2ex];
-        }
-    }
-
-    &:is([data-size="large"], [data-size="huge"]) {
-        &::before {
-            @apply h-[2ex] w-[4ex];
+            clip-path: inset(0% 25% 0% 25% round var(--radius-pill));
         }
     }
 }

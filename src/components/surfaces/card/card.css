@@ -1,11 +1,16 @@
 .card {
-    @apply flex flex-col rounded-md text-current shadow-sm;
+    --elevation: var(--elevation-lowest);
 
-    background-color: rgba(theme("colors.default.50"), theme("opacity.10"));
+    --palette-background-normal: var(--palette-auto-off-normal);
+    --palette-foreground-normal: var(--palette-inverse-normal);
 
-    &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bg))] text-[rgb(var(--palette-background-text))];
-    }
+    @apply flex flex-col;
+
+    border-radius: var(--radius-small);
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     & > figure {
         @apply m-0 rounded-[inherit];
@@ -21,21 +26,29 @@
 
     & > footer {
         @apply justify-end;
+
+        &:not(:first-child) {
+            @apply pt-[var(--spacing-root-large)];
+        }
     }
 
     & > header {
-        @apply font-bold text-xl;
+        @apply font-bold leading-[var(--font-content-line-height-large)];
+
+        font-size: var(--font-content-size-large);
+
+        &:first-child {
+            @apply pb-[var(--spacing-root-medium)];
+        }
+
+        &:not(:first-child) {
+            @apply pt-[var(--spacing-root-medium)];
+        }
     }
 
     & > section {
-        @apply py-2;
-
-        &:first-child {
-            @apply pt-4;
-        }
-
-        &:last-child {
-            @apply pb-4;
+        &:not(:first-child) {
+            @apply pt-[var(--spacing-root-small)];
         }
 
         &:last-of-type {
@@ -44,35 +57,35 @@
     }
 
     & > :is(header, footer) {
-        @apply flex gap-4 items-center py-4;
+        @apply flex gap-[var(--spacing-root-small)] items-center;
     }
 
     & > :is(footer, header, section) {
-        @apply border-l-2 border-r-2 border-solid px-6;
-
-        border-color: rgba(theme("colors.default.200"), theme("opacity.20"));
-
         &:first-child {
-            @apply border-t-2 rounded-t-[inherit];
+            @apply rounded-t-[inherit];
         }
 
         &:last-child {
-            @apply border-b-2 rounded-b-[inherit];
+            @apply rounded-b-[inherit];
         }
     }
 
-    &[data-variation="flush"] {
-        @apply bg-transparent shadow-none;
+    &:not([data-variation]) {
+        @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+
+        box-shadow: var(--elevation);
 
         & > :is(footer, header, section) {
-            @apply border-none px-0;
+            @apply border-l-2 border-r-2 border-solid px-[var(--spacing-root-large)];
+
+            border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
 
             &:first-child {
-                @apply pt-0;
+                @apply border-t-2 pt-[var(--spacing-root-medium)];
             }
 
             &:last-child {
-                @apply pb-0;
+                @apply border-b-2 pb-[var(--spacing-root-medium)];
             }
         }
     }

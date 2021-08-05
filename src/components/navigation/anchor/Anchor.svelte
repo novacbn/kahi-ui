@@ -6,11 +6,13 @@
     import type {ARIA_CURRENT_ARGUMENT} from "../../../lib/types/aria";
     import type {IGlobalProperties} from "../../../lib/types/global";
     import type {IHTML5Properties} from "../../../lib/types/html5";
+    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
     import type {IMarginProperties} from "../../../lib/types/spacings";
 
     import {
         map_aria_attributes,
         map_attributes,
+        map_data_attributes,
         map_global_attributes,
     } from "../../../lib/util/attributes";
 
@@ -28,6 +30,8 @@
         href?: string;
         rel?: string;
         target?: string;
+
+        palette?: DESIGN_PALETTE_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -41,6 +45,8 @@
     export let href: $$Props["href"] = "";
     export let rel: $$Props["rel"] = "";
     export let target: $$Props["target"] = "";
+
+    export let palette: $$Props["palette"] = undefined;
 </script>
 
 <a
@@ -48,6 +54,7 @@
     {...map_global_attributes($$props)}
     {...map_aria_attributes({current, disabled})}
     {...map_attributes({download, href, rel, target})}
+    {...map_data_attributes({palette})}
     on:click
 >
     <slot />

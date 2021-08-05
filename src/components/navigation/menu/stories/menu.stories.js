@@ -8,6 +8,8 @@ import MenuContainer from "../MenuContainer.svelte";
 
 import MenuDefaultStory from "./MenuDefaultStory.svelte";
 import MenuLabelStory from "./MenuLabelStory.svelte";
+import MenuOrientationStory from "./MenuOrientationStory.svelte";
+import MenuPaletteStory from "./MenuPaletteStory.svelte";
 import MenuSubMenuStory from "./MenuSubMenuStory.svelte";
 import MenuTextDividerStory from "./MenuTextDividerStory.svelte";
 
@@ -44,6 +46,20 @@ export const SubMenu = (args) => ({
 
 export const TextDivider = (args) => ({
     Component: MenuTextDividerStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Palette = (args) => ({
+    Component: MenuPaletteStory,
+    props: {
+        ...args,
+    },
+});
+
+export const Orientation = (args) => ({
+    Component: MenuOrientationStory,
     props: {
         ...args,
     },

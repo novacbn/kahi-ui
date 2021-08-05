@@ -1,19 +1,19 @@
 [data-elevation="lowest"] {
-    @apply shadow-sm;
+    --elevation: var(--elevation-lowest);
 }
 
 [data-elevation="low"] {
-    @apply shadow;
+    --elevation: var(--elevation-low);
 }
 
 [data-elevation="medium"] {
-    @apply shadow-md;
+    --elevation: var(--elevation-medium);
 }
 
 [data-elevation="high"] {
-    @apply shadow-lg;
+    --elevation: var(--elevation-high);
 }
 
 [data-elevation="highest"] {
-    @apply shadow-xl;
+    --elevation: var(--elevation-highest);
 }

@@ -1,15 +1,22 @@
 .wave {
-    --size-icon: 1em;
+    --palette-background-bold: currentColor;
 
-    @apply align-middle inline-block whitespace-nowrap;
+    @apply align-middle inline-flex items-center leading-[var(--font-content-line-height-nano)]
+    pointer-events-none select-none text-[var(--palette-background-bold)] whitespace-nowrap;
 
-    font-size: var(--size-icon);
+    font-size: var(--font-content-size-nano);
 
-    &[data-palette] > .dot {
-        @apply bg-[rgb(var(--palette-background-bg))];
+    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &[data-palette] {
+        @apply text-[rgb(var(--palette-background-bold))];
     }
 
-    & > .dot {
+    & > span {
+        @apply bg-current h-[1em] inline-block w-[1em];
+
+        border-radius: var(--radius-circle);
+
         animation: wave 1s infinite;
 
         &:nth-child(2) {

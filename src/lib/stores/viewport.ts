@@ -28,9 +28,14 @@ export type IViewportStore = Readable<boolean>;
 function get_viewport_variables(viewport: keyof typeof VIEWPORT_NAMES): IViewportDimensions {
     const computed = getComputedStyle(document.documentElement);
 
+    // HACK: The "infinity" number is needed as a quick hack to disable
+    // maximum resolution conditional
     return {
         max: computed.getPropertyValue(`--viewport-${viewport}-max`),
-        min: computed.getPropertyValue(`--viewport-${viewport}-min`),
+        min:
+            viewport === "widescreen"
+                ? `${Number.MAX_SAFE_INTEGER}px`
+                : computed.getPropertyValue(`--viewport-${viewport}-min`),
     };
 }
 

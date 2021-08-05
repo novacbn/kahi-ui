@@ -3,10 +3,9 @@
     import Text from "../../../typography/text/Text.svelte";
 
     import Spinner from "../Spinner.svelte";
-
 </script>
 
-<Stack spacing="medium" orientation="horizontal">
+<Stack spacing="medium" orientation="horizontal" variation="wrap">
     <div>
         <Text>
             <Text is="strong">DEFAULT</Text>

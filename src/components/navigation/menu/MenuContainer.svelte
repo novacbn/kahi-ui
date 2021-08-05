@@ -2,13 +2,15 @@
     import type {IGlobalProperties} from "../../../lib/types/global";
     import type {IHTML5Properties} from "../../../lib/types/html5";
     import type {DESIGN_ORIENTATION_VERTICAL_ARGUMENT} from "../../../lib/types/orientations";
-    import type {IIntrinsicProperties} from "../../../lib/types/sizings";
+    import type {DESIGN_SIZING_ARGUMENT, IIntrinsicProperties} from "../../../lib/types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../lib/types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../lib/util/attributes";
 
     type $$Props = {
         element?: HTMLElement;
+
+        sizing?: DESIGN_SIZING_ARGUMENT;
 
         orientation?: DESIGN_ORIENTATION_VERTICAL_ARGUMENT;
     } & IHTML5Properties &
@@ -22,6 +24,8 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    export let sizing: $$Props["sizing"] = undefined;
+
     export let orientation: $$Props["orientation"] = undefined;
 </script>
 
@@ -29,7 +33,7 @@
     class="menu {_class}"
     bind:this={element}
     {...map_global_attributes($$props)}
-    {...map_data_attributes({orientation})}
+    {...map_data_attributes({orientation, sizing})}
 >
     <ul>
         <slot />

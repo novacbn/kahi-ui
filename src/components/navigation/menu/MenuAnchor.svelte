@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../lib/types/global";
     import type {IHTML5Properties} from "../../../lib/types/html5";
+    import type {DESIGN_PALETTE_ARGUMENT} from "../../../lib/types/palettes";
 
     import Anchor from "../anchor/Anchor.svelte";
 
@@ -20,6 +21,8 @@
         href?: string;
         rel?: string;
         target?: string;
+
+        palette?: DESIGN_PALETTE_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -32,6 +35,8 @@
     export let href: $$Props["href"] = "";
     export let rel: $$Props["rel"] = "";
     export let target: $$Props["target"] = "";
+
+    export let palette: $$Props["palette"] = undefined;
 </script>
 
 <MenuItem bind:element {...$$props}>
@@ -41,6 +46,7 @@
         {download}
         {href}
         {rel}
+        {palette}
         {target}
         on:click
     >

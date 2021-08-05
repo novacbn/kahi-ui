@@ -46,11 +46,11 @@
 
     &[data-variation~="stacked"] {
         &[data-orientation~="vertical"] > :not(:last-child) {
-            @apply -mb-2;
+            margin-bottom: calc(var(--spacing-root-small) * -1);
         }
 
         &:not([data-orientation~="vertical"]) > :not(:last-child) {
-            @apply -mr-2;
+            margin-right: calc(var(--spacing-root-small) * -1);
         }
     }
 }

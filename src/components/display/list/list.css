@@ -1,6 +1,6 @@
 ol,
 ul {
-    @apply ml-[1em];
+    @apply ml-[var(--spacing-local-medium)];
 }
 
 ol {

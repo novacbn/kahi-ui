@@ -2,7 +2,7 @@
     --grid-alignment-x: initial;
     --grid-alignment-y: initial;
 
-    --sizing: initial;
+    --sizing-content: initial;
 
     --spacing-x: 0;
     --spacing-y: 0;
@@ -12,7 +12,7 @@
     align-items: var(--grid-alignment-y);
     justify-content: var(--grid-alignment-x);
 
-    grid-template-columns: repeat(auto-fill, minmax(var(--sizing), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--sizing-content), 1fr));
 
     & > * {
         @apply m-0;

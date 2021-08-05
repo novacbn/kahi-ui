@@ -1,77 +1,33 @@
-:root {
-    --scrollbar-color-thumb: theme("colors.dark.300");
-    --scrollbar-color-track: theme("colors.dark.100");
-    --scrollbar-width: theme("width.1");
-
-    --viewport-mobile-min: 0px;
-    --viewport-mobile-max: theme("screens.sm");
-
-    --viewport-tablet-min: calc(var(--viewport-mobile-max) + 1px);
-    --viewport-tablet-max: theme("screens.md");
-
-    --viewport-desktop-min: calc(var(--viewport-tablet-max) + 1px);
-    --viewport-desktop-max: theme("screens.lg");
-
-    --viewport-widescreen-min: calc(var(--viewport-desktop-max) + 1px);
-    --viewport-widescreen-max: 9999999px;
-}
-
-:root,
-:root[data-palette="light"] {
-    --palette-background-bg: theme("colors.light.200");
-    --palette-background-text: theme("colors.dark.400");
-
-    --palette-foreground-bg: theme("colors.light.500");
-    --palette-foreground-text: theme("colors.dark.500");
-}
-
-:root[data-palette="dark"] {
-    --palette-background-bg: theme("colors.dark.500");
-    --palette-background-text: theme("colors.light.900");
-
-    --palette-foreground-bg: theme("colors.dark.500");
-    --palette-foreground-text: theme("colors.light.200");
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-palette]) {
-        --palette-background-bg: theme("colors.dark.500");
-        --palette-background-text: theme("colors.light.900");
-
-        --palette-foreground-bg: theme("colors.dark.500");
-        --palette-foreground-text: theme("colors.light.200");
-    }
-}
-
 html {
-    @apply bg-[rgb(var(--palette-background-bg))] text-base text-[rgb(var(--palette-background-text))];
+    @apply bg-[rgb(var(--document-background))] leading-[var(--document-font-line-height)] text-[rgb(var(--document-foreground))];
+
+    font-size: var(--document-font-size);
+
+    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     & ::selection {
-        @apply bg-accent-700 text-light-200;
+        @apply bg-[rgb(var(--selection-background))] text-[rgb(var(--selection-foreground))];
     }
 }
 
 * {
+    /** TODO: Remove after adding ARIA / Accessibility support */
+
     -webkit-tap-highlight-color: transparent;
 
     scrollbar-width: auto;
-    scrollbar-color: rgb(var(--scrollbar-color-thumb)) rgb(var(--scrollbar-color-track));
-
-    &,
-    &::before,
-    &::after {
-        @apply transition duration-200 ease-out-quad;
-    }
+    scrollbar-color: rgb(var(--scrollbar-foreground)) rgb(var(--scrollbar-background));
 }
 
 ::-webkit-scrollbar {
-    @apply w-[var(--scrollbar-width)];
+    @apply h-[var(--scrollbar-size)] w-[var(--scrollbar-size)];
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-[rgb(var(--scrollbar-color-track))];
+    @apply bg-[rgb(var(--scrollbar-background))];
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-[rgb(var(--scrollbar-color-thumb))];
+    @apply bg-[rgb(var(--scrollbar-foreground))];
 }

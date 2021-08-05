@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.2.16 - 2021/08/04
 
 -   Fixed dark mode transition being laggy on WebKit / Blink Browsers.
 -   Fixed scrollbar not having height applied to it on WebKit / Blink Browsers.

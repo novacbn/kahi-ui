@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.3.0 - 2021/08/10
+
+-   First NPM release, install via `npm install @kahi-ui/framework`.
+
 ## v0.2.16 - 2021/08/04
 
 -   Fixed dark mode transition being laggy on WebKit / Blink Browsers.

@@ -34,7 +34,7 @@ jobs:
               run: npm run build:framework
 
             - name: Minify
-              run: npm run prepublish:minify
+              run: npm run build:minify
 
             - name: Release Artifacts
               uses: softprops/action-gh-release@v1

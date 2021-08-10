@@ -4,11 +4,12 @@
     "author": "novacbn",
     "version": "0.2.16",
     "type": "module",
-    "main": "./src/index.ts",
-    "svelte": "./src/index.ts",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "svelte": "index.js",
     "exports": {
         "./package.json": "./package.json",
-        ".": "./src/index.ts",
+        ".": "./index.js",
         "./dist/kahi-ui.framework.css": "./dist/kahi-ui.framework.css",
         "./dist/kahi-ui.framework.min.css": "./dist/kahi-ui.framework.min.css"
     },
@@ -22,15 +23,21 @@
         "windicss"
     ],
     "files": [
+        "actions",
         "dist",
-        "src",
+        "components",
+        "stores",
+        "types",
+        "util",
         "CHANGELOG.md",
         "LICENSE",
-        "README.md"
+        "README.md",
+        "index.js",
+        "index.d.ts"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/novacbn/kahi-ui"
+        "url": "https://github.com/novacbn/kahi-ui.git"
     },
     "devDependencies": {
         "@storybook/addon-actions": "^6.3.2",
@@ -38,6 +45,7 @@
         "@storybook/addon-svelte-csf": "^1.1.0",
         "@storybook/core-common": "^6.3.2",
         "@storybook/svelte": "^6.3.2",
+        "@sveltejs/kit": "^1.0.0-next.146",
         "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
         "@tsconfig/svelte": "^1.0.13",
         "cross-env": "^7.0.3",
@@ -60,17 +68,22 @@
         "windicss": "^3.0.9"
     },
     "scripts": {
-        "build": "npm run test && npm run build:lib && npm run build:framework",
-        "build:lib": "",
-        "build:framework": "cross-env NODE_ENV=production postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css ./src/index.css",
+        "build": "npm run build:lib && npm run build:framework && npm run build:minify",
+        "build:lib": "svelte-kit package",
+        "build:framework": "cross-env NODE_ENV=production postcss --config postcss.config.cjs --output ./package/dist/kahi-ui.framework.css ./src/framework/index.css",
+        "build:minify": "esbuild --outfile=./package/dist/kahi-ui.framework.min.css --minify ./package/dist/kahi-ui.framework.css",
         "build:storybook": "build-storybook",
         "dev:storybook": "start-storybook --ci -p 6006",
-        "format:framework": "prettier --config .prettierrc --write ./src",
-        "prepublish:minify": "esbuild --outfile=./dist/kahi-ui.framework.min.css --minify ./dist/kahi-ui.framework.css",
+        "lint": "npm run lint:format",
+        "lint:format": "prettier --config .prettierrc --check ./",
+        "format:source": "prettier --config .prettierrc --write ./src",
+        "postversion": "git push && git push --tags && npm run release",
+        "release": "npm run build && npm run release:publish",
+        "release:publish": "npm publish ./package",
         "test": "npm run test:types && npm run test:svelte",
         "test:svelte": "svelte-check --tsconfig ./tsconfig.json",
         "test:types": "tsc --noEmit",
-        "watch:framework": "postcss --config postcss.config.cjs --output ./dist/kahi-ui.framework.css --watch ./src/index.css"
+        "watch:framework": "postcss --config postcss.config.cjs --output ./package/dist/kahi-ui.framework.css --watch ./src/index.css"
     },
     "dependencies": {
         "svelte": "^3.40.2"

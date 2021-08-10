@@ -4,8 +4,6 @@
 
 <br />
 
-> **IMPORTANT**: [`svelte-preprocess`](https://github.com/sveltejs/svelte-preprocess) is required to use this library, as it is built in Typescript with no packaging build step. That will be fixed when [SvelteKit](https://kit.svelte.dev)'s [package command](https://kit.svelte.dev/docs#packaging) supports type generation.
-
 > **WARNING**: This library is a work-in-progress, use at your own discretion!
 
 ## Features
@@ -41,13 +39,7 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 Open your terminal and install via `npm`:
 
 ```bash
-npm install github:novacbn/kahi-ui#0.2.16
-```
-
-Install current in-development code:
-
-```bash
-npm install github:novacbn/kahi-ui
+npm install @kahi-ui/framework
 ```
 
 ## Usage

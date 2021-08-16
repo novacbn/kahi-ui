@@ -1,0 +1,91 @@
+.tab {
+    --sizing-text-size: var(--document-font-size);
+    --sizing-text-line-height: var(--document-font-line-height);
+
+    @apply flex flex-wrap;
+
+    & > [type="radio"][role="presentation"] {
+        @apply hidden;
+
+        &:not(:checked) + :is(a, label) {
+            @apply;
+
+            border-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+
+            & + section {
+                @apply hidden;
+            }
+        }
+
+        &:checked + :is(a, label) {
+            border-color: rgb(var(--palette-background-bold));
+        }
+    }
+
+    &[data-variation~="borders"] {
+        & > [type="radio"][role="presentation"] {
+            @apply hidden;
+
+            &:not(:checked) + :is(a, label) {
+                @apply;
+
+                border-top-color: transparent;
+                border-left-color: transparent;
+                border-right-color: transparent;
+            }
+
+            &:checked + :is(a, label) {
+                @apply;
+
+                border-bottom-color: transparent;
+            }
+        }
+    }
+
+    & > :is(a, label) {
+        all: unset;
+
+        @apply border-solid flex-grow inline-flex justify-center gap-[var(--spacing-local-small)]
+        leading-[var(--sizing-text-line-height)] px-[var(--spacing-local-small)]
+        py-[var(--spacing-local-tiny)];
+
+        border-width: 0px 0px theme("borderWidth.2") 0px;
+
+        font-size: var(--sizing-text-size);
+
+        transition: border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        &:not([data-palette]) {
+            --palette-background-bold: var(--palette-neutral-bold);
+        }
+    }
+
+    & > section {
+        @apply order-last w-full;
+
+        transition: border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:not([data-variation~="borders"]) {
+        & > :is(a, label) {
+            @apply;
+
+            border-width: 0px 0px theme("borderWidth.2") 0px;
+        }
+    }
+
+    &[data-variation~="borders"] {
+        & > :is(a, label) {
+            @apply border-2;
+
+            border-top-left-radius: var(--radius-small);
+            border-top-right-radius: var(--radius-small);
+        }
+
+        & > section {
+            @apply border-b-2 border-x-2;
+
+            border-color: rgba(var(--palette-neutral-bold), theme("opacity.20"));
+        }
+    }
+}

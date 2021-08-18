@@ -42,7 +42,7 @@
 
     &:not([data-variation~="borders"]) {
         & > :is(a, label) {
-            @apply relative;
+            @apply !no-underline relative text-current;
 
             &::before {
                 @apply absolute border-x-0 border-b-2 border-solid border-current;

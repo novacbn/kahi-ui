@@ -84,6 +84,46 @@
     </Tab.Container>
 </Story>
 
+<Story name="Anchor">
+    <Tab.Container logic_name="tab-anchor" logic_state="tab-1" alignment_x="stretch">
+        <Tab.Anchor href="#" current="page" palette="accent">Tab One <span>ICON</span></Tab.Anchor>
+        <Tab.Section>
+            <Heading>Tab One Content</Heading>
+
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
+                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus.
+            </Text>
+        </Tab.Section>
+
+        <Tab.Anchor href="#" palette="accent">Tab Two <span>ICON</span></Tab.Anchor>
+        <Tab.Section>
+            <Heading>Tab Two Content</Heading>
+
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
+                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus.
+            </Text>
+        </Tab.Section>
+
+        <Tab.Anchor href="#" palette="accent">Tab Three <span>ICON</span></Tab.Anchor>
+        <Tab.Section>
+            <Heading>Tab Three Content</Heading>
+
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
+                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
+                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus.
+            </Text>
+        </Tab.Section>
+    </Tab.Container>
+</Story>
+
 <Story name="Palette">
     <Tab.Container logic_name="tab-palette" logic_state="tab-default">
         {#each PALETTES as [palette, is_default] (palette)}

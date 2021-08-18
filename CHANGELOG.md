@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Tab`
+
+            -   `<Tab.Container>` — Wrapper Component which provides stylings and Svelte Contexts for radio button functionality.
+
+                -   `<Tab.Container logic_name="XXX">` — Used to synchronize the form name between each radio button.
+                -   `<Tab.Container logic_state="XXX">` — Used to set which form ID is the current active tab.
+
+            -   `<Tab.Group>` — Used for grouping together `<Tab.Label>` / `<Tab.Section>` Components.
+
+                -   `<Tab.Group logic_id="XXX">` — Used to synchronize the form IDs between the radio buttons, tab content, and Svelte Contexts.
+
+            -   `<Tab.Label>` — Used for providing radio buttons for navigating tabs without Javascript.
+
+                -   `<Tab.Label state>` — Wrapper around `<input type="radio" checked={false/true}>`, used to make the tab active.
+
+            -   `<Tab.Anchor>` — Used for providing page-based navigation buttons.
+
+                -   `<Tab.Anchor current="XXX">` — Wrapper around `aria-current`, used to make the tab active.
+
+            -   `<Tab.Section>` — Used for wrapping tab content that will render when active.
+
+                -   `<Tab.Section loading="lazy">` — When paired with `<Tab.Group>` / `<Tab.Label>`, disables rendering of tab content to DOM when not active.
+
 ## v0.3.0 - 2021/08/10
 
 -   First NPM release, install via `npm install @kahi-ui/framework`.

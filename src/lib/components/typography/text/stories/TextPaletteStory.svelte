@@ -5,9 +5,9 @@
 
     const PALETTES = [
         "default",
+        "accent",
         "auto",
         "inverse",
-        "accent",
         "dark",
         "light",
         "alert",

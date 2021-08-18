@@ -6,6 +6,7 @@
 
     const PALETTES = [
         ["default", true],
+        ["accent", false],
         ["auto", false],
         ["inverse", false],
         ["dark", false],

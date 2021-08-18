@@ -4,7 +4,7 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
 
     import {get_formstate_context} from "../../../stores/formstate";
-    import {CONTEXT_FORM_NAME, get_id_context} from "../../../stores/id";
+    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../stores/id";
 
     import FormLabel from "../../interactables/form/FormLabel.svelte";
 
@@ -14,8 +14,6 @@
 
     type $$Props = {
         element?: HTMLLabelElement;
-
-        id: string;
 
         active?: boolean;
         disabled?: boolean;
@@ -27,16 +25,21 @@
 
     export let element: $$Props["element"] = undefined;
 
-    export let id: $$Props["id"];
-
     export let active: $$Props["active"] = false;
     export let disabled: $$Props["disabled"] = false;
     export let state: $$Props["state"] = false;
 
     export let palette: $$Props["palette"] = undefined;
 
+    const _form_id = get_id_context(CONTEXT_FORM_ID);
     const _form_name = get_id_context(CONTEXT_FORM_NAME);
     const _form_state = get_formstate_context();
+
+    if (!_form_id) {
+        throw new ReferenceError(
+            "bad initialization to `Tab.Label` (failed to get `formid` Svelte Store from context)"
+        );
+    }
 
     if (!_form_name) {
         throw new ReferenceError(
@@ -57,22 +60,22 @@
 
     $: if (state) {
         _form_state.clear();
-        _form_state.push_value(id as string);
+        _form_state.push_value($_form_id as string);
     }
 
-    $: if (id) state = $_form_state === id;
+    $: state = $_form_state === $_form_id;
 </script>
 
 <input
     role="presentation"
     type="radio"
+    id={$_form_id}
     name={$_form_name}
     checked={state}
-    {id}
     on:change={on_change}
     on:change
 />
 
-<FormLabel bind:element for={id} {active} {disabled} {palette} on:click>
+<FormLabel bind:element for={$_form_id} {active} {disabled} {palette} on:click>
     <slot />
 </FormLabel>

@@ -46,41 +46,93 @@
 
 <Story name="Default">
     <Tab.Container logic_name="tab-default" logic_state="tab-1" alignment_x="stretch">
-        <Tab.Label id="tab-1" palette="accent">Tab One <span>ICON</span></Tab.Label>
-        <Tab.Section>
-            <Heading>Tab One Content</Heading>
+        <Tab.Group logic_id="tab-1">
+            <Tab.Label palette="accent">Tab One <span>ICON</span></Tab.Label>
+            <Tab.Section>
+                <Heading>Tab One Content</Heading>
 
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Tab.Section>
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
 
-        <Tab.Label id="tab-2" palette="accent">Tab Two <span>ICON</span></Tab.Label>
-        <Tab.Section>
-            <Heading>Tab Two Content</Heading>
+        <Tab.Group logic_id="tab-2">
+            <Tab.Label palette="accent">Tab Two <span>ICON</span></Tab.Label>
+            <Tab.Section>
+                <Heading>Tab Two Content</Heading>
 
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Tab.Section>
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
 
-        <Tab.Label id="tab-3" palette="accent">Tab Three <span>ICON</span></Tab.Label>
-        <Tab.Section>
-            <Heading>Tab Three Content</Heading>
+        <Tab.Group logic_id="tab-3">
+            <Tab.Label palette="accent">Tab Three <span>ICON</span></Tab.Label>
+            <Tab.Section>
+                <Heading>Tab Three Content</Heading>
 
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Tab.Section>
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
+    </Tab.Container>
+</Story>
+
+<Story name="Lazy">
+    <Tab.Container logic_name="tab-lazy" logic_state="tab-1" alignment_x="stretch">
+        <Tab.Group logic_id="tab-1">
+            <Tab.Label palette="accent">Tab One <span>ICON</span></Tab.Label>
+            <Tab.Section loading="lazy">
+                <Heading>Tab One Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
+
+        <Tab.Group logic_id="tab-2">
+            <Tab.Label palette="accent">Tab Two <span>ICON</span></Tab.Label>
+            <Tab.Section loading="lazy">
+                <Heading>Tab Two Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
+
+        <Tab.Group logic_id="tab-3">
+            <Tab.Label palette="accent">Tab Three <span>ICON</span></Tab.Label>
+            <Tab.Section loading="lazy">
+                <Heading>Tab Three Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
     </Tab.Container>
 </Story>
 
@@ -127,23 +179,22 @@
 <Story name="Palette">
     <Tab.Container logic_name="tab-palette" logic_state="tab-default">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Tab.Label
-                id="tab-{is_default ? 'default' : palette}"
-                palette={is_default ? undefined : palette}
-            >
-                Tab {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-            </Tab.Label>
+            <Tab.Group logic_id="tab-{is_default ? 'default' : palette}">
+                <Tab.Label palette={is_default ? undefined : palette}>
+                    Tab {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Tab.Label>
 
-            <Tab.Section>
-                <Heading>Tab {palette.toUpperCase()} Content</Heading>
+                <Tab.Section>
+                    <Heading>Tab {palette.toUpperCase()} Content</Heading>
 
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
-                </Text>
-            </Tab.Section>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Tab.Section>
+            </Tab.Group>
         {/each}
     </Tab.Container>
 </Story>
@@ -162,21 +213,23 @@
                     sizing={is_default ? undefined : sizing}
                 >
                     {#each TABS as tab (tab)}
-                        <Tab.Label id="tab-{tab}-{sizing}">
-                            Tab {tab}
-                        </Tab.Label>
+                        <Tab.Group logic_id="tab-{tab}-{sizing}">
+                            <Tab.Label>
+                                Tab {tab}
+                            </Tab.Label>
 
-                        <Tab.Section>
-                            <Heading>Tab {tab} Content</Heading>
+                            <Tab.Section>
+                                <Heading>Tab {tab} Content</Heading>
 
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
-                                consectetur orci. Curabitur a egestas turpis, vitae convallis
-                                sapien. Sed pellentesque rutrum tellus, in iaculis dolor tincidunt
-                                non. Orci varius natoque penatibus et magnis dis parturient montes,
-                                nascetur ridiculus mus.
-                            </Text>
-                        </Tab.Section>
+                                <Text>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                                    et consectetur orci. Curabitur a egestas turpis, vitae convallis
+                                    sapien. Sed pellentesque rutrum tellus, in iaculis dolor
+                                    tincidunt non. Orci varius natoque penatibus et magnis dis
+                                    parturient montes, nascetur ridiculus mus.
+                                </Text>
+                            </Tab.Section>
+                        </Tab.Group>
                     {/each}
                 </Tab.Container>
             </div>
@@ -198,21 +251,23 @@
                     alignment_x={is_default ? undefined : alignment_x}
                 >
                     {#each TABS as tab (tab)}
-                        <Tab.Label id="tab-{tab}-{alignment_x}">
-                            Tab {tab}
-                        </Tab.Label>
+                        <Tab.Group logic_id="tab-{tab}-{alignment_x}">
+                            <Tab.Label>
+                                Tab {tab}
+                            </Tab.Label>
 
-                        <Tab.Section>
-                            <Heading>Tab {tab} Content</Heading>
+                            <Tab.Section>
+                                <Heading>Tab {tab} Content</Heading>
 
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
-                                consectetur orci. Curabitur a egestas turpis, vitae convallis
-                                sapien. Sed pellentesque rutrum tellus, in iaculis dolor tincidunt
-                                non. Orci varius natoque penatibus et magnis dis parturient montes,
-                                nascetur ridiculus mus.
-                            </Text>
-                        </Tab.Section>
+                                <Text>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                                    et consectetur orci. Curabitur a egestas turpis, vitae convallis
+                                    sapien. Sed pellentesque rutrum tellus, in iaculis dolor
+                                    tincidunt non. Orci varius natoque penatibus et magnis dis
+                                    parturient montes, nascetur ridiculus mus.
+                                </Text>
+                            </Tab.Section>
+                        </Tab.Group>
                     {/each}
                 </Tab.Container>
             </div>

@@ -1,0 +1,95 @@
+.tab {
+    --flex-alignment-x: initial;
+
+    --sizing-text-size: var(--document-font-size);
+    --sizing-text-line-height: var(--document-font-line-height);
+
+    @apply flex flex-wrap;
+
+    justify-content: var(--flex-alignment-x);
+
+    & > [type="radio"] {
+        @apply hidden;
+    }
+
+    & > :is(a, label) {
+        all: unset;
+
+        @apply cursor-pointer inline-flex justify-center gap-[var(--spacing-local-small)]
+        leading-[var(--sizing-text-line-height)] px-[var(--spacing-local-small)]
+        py-[var(--spacing-local-tiny)];
+
+        font-size: var(--sizing-text-size);
+
+        transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    & > section {
+        @apply order-last w-full;
+    }
+
+    & > :is(a:not([aria-current]), [type="radio"]:not(:checked) + label) + section {
+        @apply hidden;
+    }
+
+    &[data-alignment-x="stretch"] {
+        & > :is(a, label) {
+            @apply flex-grow;
+        }
+    }
+
+    &:not([data-variation~="borders"]) {
+        & > :is(a, label) {
+            @apply !no-underline relative text-current;
+
+            &::before {
+                @apply absolute border-x-0 border-b-2 border-solid border-current;
+
+                content: "";
+
+                inset: 0 0 -2px 0;
+
+                color: transparent;
+
+                transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+        }
+
+        & > :is(a, label):is(:focus, :hover, [aria-pressed="true"]) {
+            @apply opacity-50;
+
+            &[data-palette] {
+                @apply text-[rgb(var(--palette-background-bold))];
+            }
+
+            &::before {
+                @apply text-current;
+            }
+        }
+
+        & > :is(a, label):is(:active, [aria-current]),
+        & > [type="radio"]:checked + label {
+            @apply opacity-100;
+
+            &[data-palette] {
+                @apply text-[rgb(var(--palette-background-bold))];
+            }
+
+            &::before {
+                @apply text-current;
+            }
+        }
+
+        & > :is(a, label)[aria-disabled="true"] {
+            @apply cursor-not-allowed opacity-40;
+        }
+
+        & > section {
+            @apply border-t-2 border-solid;
+
+            border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.40"));
+        }
+    }
+}

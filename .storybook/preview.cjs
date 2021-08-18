@@ -1,4 +1,4 @@
-import "../dist/kahi-ui.framework.css";
+import "../package/dist/kahi-ui.framework.css";
 
 export const parameters = {
     layout: "fullscreen",

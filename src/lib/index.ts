@@ -18,6 +18,9 @@ export * from "./types/text";
 export * from "./types/variations";
 export * from "./types/viewports";
 
+import * as Tab from "./components/disclosure/tab";
+export {Tab};
+
 export * from "./components/display/badge";
 import * as List from "./components/display/list";
 export {List};

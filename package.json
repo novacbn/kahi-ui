@@ -83,7 +83,7 @@
         "test": "npm run test:types && npm run test:svelte",
         "test:svelte": "svelte-check --tsconfig ./tsconfig.json",
         "test:types": "tsc --noEmit",
-        "watch:framework": "postcss --config postcss.config.cjs --output ./package/dist/kahi-ui.framework.css --watch ./src/index.css"
+        "watch:framework": "postcss --config postcss.config.cjs --output ./package/dist/kahi-ui.framework.css --watch ./src/framework/index.css"
     },
     "dependencies": {
         "svelte": "^3.40.2"

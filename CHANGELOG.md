@@ -29,6 +29,12 @@
 
                 -   `<Tab.Section loading="lazy">` — When paired with `<Tab.Group>` / `<Tab.Label>`, disables rendering of tab content to DOM when not active.
 
+-   Added the following Actions / Action Features
+
+    -   `keybind(HTMLElement, {binds: string | string[], on_bind: (event: IKeybindEvent) => void}): IKeybindAction` — Used to bind multiple key combinations to activate a keybind callback.
+
+        -   `keybind(HTMLElement, {repeat?: boolean, repeat_throttle?: number})` — Used to control if the `on_bind` callback is repeated for held down active keybinds, and how long between each repeat call.
+
 ## v0.3.0 - 2021/08/10
 
 -   First NPM release, install via `npm install @kahi-ui/framework`.

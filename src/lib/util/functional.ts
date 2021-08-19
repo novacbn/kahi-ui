@@ -2,33 +2,31 @@ export function debounce<F extends (...args: any[]) => void | Promise<void>>(
     func: F,
     duration: number = 0
 ): (...args: Parameters<F>) => void | Promise<void> {
-    let destroy: (() => void) | null;
+    let identifier: number | undefined;
 
     return (...args: any[]) => {
-        if (destroy) {
-            destroy();
-            destroy = null;
+        if (identifier !== undefined) {
+            clearTimeout(identifier);
+            identifier = undefined;
         }
 
-        destroy = timeout(() => func(...args), duration);
+        // @ts-ignore - HACK: NodeJS doesn't follow spec
+        identifier = setTimeout(() => func(...args), duration);
     };
 }
 
-export function timeout(callback: () => void, duration: number = 0): () => void {
-    // @ts-expect-error - HACK: meh, it's been around for years
-    if (typeof requestIdleCallback !== "undefined") {
-        const identifier =
-            duration > 0
-                ? // @ts-expect-error
-                  requestIdleCallback(() => callback(), {timeout: duration})
-                : // @ts-expect-error
-                  requestIdleCallback(() => callback());
+export function throttle<F extends (...args: any[]) => void | Promise<void>>(
+    func: F,
+    duration: number = 0
+): (...args: Parameters<F>) => void | Promise<void> {
+    let identifier: number | undefined;
 
-        // @ts-expect-error
-        return () => cancelIdleCallback(identifier);
-    } else {
-        const identifier = setTimeout(() => callback(), duration);
+    return (...args: any[]) => {
+        if (identifier === undefined) {
+            func(...args);
 
-        return () => clearTimeout(identifier);
-    }
+            // @ts-ignore - HACK: NodeJS doesn't follow spec
+            identifier = setTimeout(() => (identifier = undefined), duration);
+        }
+    };
 }

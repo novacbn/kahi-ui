@@ -1,6 +1,11 @@
 import type {IActionHandle} from "./actions";
 
 /**
+ * Represents the Svelte Action handle returned by [[click_outside]] is called
+ */
+export type IClickOutsideAction = IActionHandle<IClickOutsideOptions>;
+
+/**
  * Represents the options passable to the [[click_outside]] Svelte Action
  */
 export interface IClickOutsideOptions {
@@ -11,11 +16,10 @@ export interface IClickOutsideOptions {
     on_click_outside: (event: MouseEvent) => void;
 }
 
-export type IClickOutsideAction = IActionHandle<IClickOutsideOptions>;
-
 /**
- * Listens to `click` events in the entire document, calling the passed [[IClickOutsideOptions.on_click_outside]]
- * callback whenever document element is clicked and is not a child of the targetted element
+ * Listens to [`click`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) events in the entire
+ * document, calling the passed [[IClickOutsideOptions.on_click_outside]] callback whenever document element
+ * is clicked and is not a child of the targetted element
  *
  * @param element
  * @param options

@@ -2,7 +2,7 @@
     "name": "@kahi-ui/framework",
     "description": "Straight-forward Svelte UI for the Web",
     "author": "novacbn",
-    "version": "0.2.16",
+    "version": "0.3.0",
     "type": "module",
     "main": "index.js",
     "types": "index.d.ts",

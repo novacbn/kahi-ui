@@ -86,6 +86,7 @@ export * from "./components/utilities/contextbutton";
 export * from "./components/utilities/portal";
 
 export * from "./actions/click_outside";
+export * from "./actions/keybind";
 
 export * from "./stores/attribute";
 export * from "./stores/component";

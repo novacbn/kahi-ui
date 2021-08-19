@@ -61,8 +61,8 @@ export interface IKeybindOptions {
      * import {keybind} from "@kahi-ui/framework";
      *
      * function on_bind(event) {
-     *     if (!event.active) console.log("I was deactivated!");
-     *     else if (!event.repeat) console.log("I was activated!");
+     *     if (!event.detail.active) console.log("I was deactivated!");
+     *     else if (!event.detail.repeat) console.log("I was activated!");
      *
      *     console.log("I was activated, again!");
      * }
@@ -77,7 +77,7 @@ export interface IKeybindOptions {
      * times in milliseconds should the [[IKeybindOptions.on_bind]] callback should
      * be called on repeats
      *
-     * **DEFAULT**: 100ms
+     * **DEFAULT**: 0ms
      *
      * ```javascript
      * import {keybind} from "@kahi-ui/framework";
@@ -94,7 +94,7 @@ export interface IKeybindOptions {
      * import {keybind} from "@kahi-ui/framework";
      *
      * function on_bind(event) {
-     *     console.log("The bind was", event.active ? "activated!" : "deactivated!");
+     *     console.log("The bind was", event.detail.active ? "activated!" : "deactivated!");
      * }
      *
      * const action = keybind(..., {on_bind});
@@ -172,13 +172,11 @@ function bindstate(binds: string | string[]): IBindState {
  *     import {keybind} from "@kahi-ui/framework";
  *
  *     function on_bind(event) {
- *         console.log("The bind was", event.active ? "activated!" : "deactivated!");
+ *         console.log("The bind was", event.detail.active ? "activated!" : "deactivated!");
  *     }
  * </script>
  *
- * <div use:keybind={{binds: "control+k", on_bind}}>
- *     Hello World
- * </div>
+ * <input type="text" placeholder="Hello World" use:keybind={{binds: "control+enter", on_bind}} />
  * ```
  *
  * @param element
@@ -186,11 +184,11 @@ function bindstate(binds: string | string[]): IBindState {
  * @returns
  */
 export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybindAction {
-    let {binds, repeat = false, repeat_throttle = 100, on_bind} = options;
+    let {binds, repeat = false, repeat_throttle = 0, on_bind} = options;
 
     let cache = false;
     let state = bindstate(binds);
-    let throttled_on_bind = throttle(on_bind, repeat_throttle);
+    let throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
 
     function make_key_listener(is_down: boolean): (event: KeyboardEvent) => void {
         return (event) => {
@@ -228,9 +226,10 @@ export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybin
         },
 
         update(options) {
-            ({binds, repeat = false, on_bind} = options);
+            ({binds, repeat = false, repeat_throttle = 0, on_bind} = options);
 
             state = bindstate(binds);
+            throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
         },
     };
 }

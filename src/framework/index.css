@@ -23,6 +23,7 @@
 
 @import url("../lib/components/feedback/ellipsis/ellipsis.css");
 @import url("../lib/components/feedback/dot/dot.css");
+@import url("../lib/components/feedback/progress/progress.css");
 @import url("../lib/components/feedback/spinner/spinner.css");
 @import url("../lib/components/feedback/wave/wave.css");
 

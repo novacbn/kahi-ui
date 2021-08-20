@@ -1,0 +1,37 @@
+[role="progressbar"] {
+    --palette-background-bold: var(--palette-neutral-bold);
+    --palette-foreground-normal: var(--palette-light-normal);
+
+    --value: 0;
+
+    @apply align-middle inline-flex h-[var(--spacing-root-tiny)] justify-center items-center
+    relative select-none text-bold text-[rgb(var(--palette-foreground-normal))] w-full;
+
+    border-radius: var(--radius-pill);
+
+    &::after,
+    &::before {
+        @apply absolute block;
+
+        content: "";
+
+        inset: 0;
+
+        border-radius: var(--radius-pill);
+
+        transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            max-width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &::before {
+        @apply;
+
+        background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+    }
+
+    &::after {
+        max-width: calc(var(--value) * 100%);
+
+        background-color: rgb(var(--palette-background-bold));
+    }
+}

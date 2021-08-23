@@ -65,6 +65,15 @@ type IPropPrimitive = boolean | null | number | string | undefined;
 export type IProps = Record<string, IPropPrimitive | IPropPrimitive[]>;
 
 /**
+ * Returns if the value is not undefined or empty string
+ * @param value
+ * @returns
+ */
+function is_truthy(value: any): boolean {
+    return value !== undefined && value !== "";
+}
+
+/**
  * Returns the mapped the input [[props]] to output props, filtering out props with
  * falsy values or not matched against the input [[set]] of valid props. Also prefixes
  * attributes with the given [[prefix]] string if available
@@ -80,7 +89,7 @@ export function map_attributes(props: IProps, set?: Set<string>, prefix: string 
         attribute = ATTRIBUTE_REMAP[attribute] ?? attribute;
 
         if (set && !set.has(attribute)) return false;
-        return Array.isArray(value) ? value.length > 0 : !!value;
+        return Array.isArray(value) ? value.length > 0 : is_truthy(value);
     });
 
     entries = entries.map((entry) => {

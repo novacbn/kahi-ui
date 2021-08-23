@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+-   Fixed some internal Component typings.
+
 -   Added the following Components / Component Features
 
     -   Disclosure
@@ -12,6 +14,7 @@
 
                 -   `<Tab.Container logic_name="XXX">` — Used to synchronize the form name between each radio button.
                 -   `<Tab.Container logic_state="XXX">` — Used to set which form ID is the current active tab.
+                -   `<Tab.Container sizing="tiny/small/medium/large/huge">` — Used to change how large the children buttons renders as.
 
             -   `<Tab.Group>` — Used for grouping together `<Tab.Label>` / `<Tab.Section>` Components.
 
@@ -25,9 +28,24 @@
 
                 -   `<Tab.Anchor current="XXX">` — Wrapper around `aria-current`, used to make the tab active.
 
+            -   `<Tab.Anchor>` / `<Tab.Label>`
+
+                -   `<Tab.XXX palette="accent/dark/light/alert/affirmative/negative">` — Used to change the rendered color palette.
+
             -   `<Tab.Section>` — Used for wrapping tab content that will render when active.
 
                 -   `<Tab.Section loading="lazy">` — When paired with `<Tab.Group>` / `<Tab.Label>`, disables rendering of tab content to DOM when not active.
+
+    -   Feedback
+
+        -   `Progress`
+
+            -   `<Progress>` — Used for displaying the process of an ongoing action to the end-user.
+
+                -   `<Progress palette="accent/dark/light/alert/affirmative/negative">` — Used to change the rendered color palette.
+                -   `<Progress shape="circle">` — Used to change the rendering of the Component to be a circle.
+                -   `<Progress size="tiny/small/medium/large/huge">` — Used to change how large the Component renders as.
+                -   `<Progress value="0.0...1.0">` — Used to control the current percent displayed.
 
 -   Added the following Actions / Action Features
 

@@ -3,6 +3,7 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
+    import Stack from "../../layouts/stack/Stack.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import Progress from "./Progress.svelte";
@@ -17,6 +18,15 @@
         ["alert", false],
         ["affirmative", false],
         ["negative", false],
+    ];
+
+    const SIZES = [
+        ["default", true],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
     ];
 
     let value = 0.5;
@@ -37,13 +47,96 @@
 </Template>
 
 <Story name="Default">
-    <Progress {value}>55%</Progress>
+    <Progress shape="circle" {value} />
+    <Progress {value} />
 
     <Button palette="negative" on:click={on_subtract_click}>-</Button>
     <Button palette="affirmative" on:click={on_add_click}>+</Button>
 </Story>
 
 <Story name="Palette">
+    <Stack spacing="medium">
+        <Stack orientation="horizontal" spacing="medium">
+            {#each PALETTES as [palette, is_default] (palette)}
+                <div>
+                    <Text is="strong">
+                        {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Text>
+
+                    <br />
+
+                    <Progress
+                        shape="circle"
+                        value="0.5"
+                        palette={is_default ? undefined : palette}
+                    />
+                </div>
+            {/each}
+        </Stack>
+
+        <Mosaic sizing="medium" spacing="medium">
+            {#each PALETTES as [palette, is_default] (palette)}
+                <div>
+                    <Text is="strong">
+                        {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Text>
+
+                    <br />
+
+                    <Progress value="0.5" palette={is_default ? undefined : palette} />
+                </div>
+            {/each}
+        </Mosaic>
+    </Stack>
+</Story>
+
+<Story name="Size">
+    <Stack spacing="medium">
+        <Stack orientation="horizontal" spacing="medium">
+            {#each SIZES as [size, is_default] (size)}
+                <div>
+                    <Text is="strong">
+                        {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Text>
+
+                    <br />
+
+                    <Progress shape="circle" value="0.5" size={is_default ? undefined : size} />
+                </div>
+            {/each}
+        </Stack>
+
+        <Mosaic sizing="medium" spacing="medium">
+            {#each SIZES as [size, is_default] (size)}
+                <div>
+                    <Text is="strong">
+                        {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Text>
+
+                    <br />
+
+                    <Progress value="0.5" size={is_default ? undefined : size} />
+                </div>
+            {/each}
+        </Mosaic>
+    </Stack>
+</Story>
+
+<Story name="Indeterminate">
+    <Stack orientation="horizontal" spacing="medium">
+        {#each PALETTES as [palette, is_default] (palette)}
+            <div>
+                <Text is="strong">
+                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <br />
+
+                <Progress shape="circle" palette={is_default ? undefined : palette} />
+            </div>
+        {/each}
+    </Stack>
+
     <Mosaic sizing="medium" spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <div>
@@ -51,7 +144,9 @@
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Progress value="0.5" palette={is_default ? undefined : palette} />
+                <br />
+
+                <Progress palette={is_default ? undefined : palette} />
             </div>
         {/each}
     </Mosaic>

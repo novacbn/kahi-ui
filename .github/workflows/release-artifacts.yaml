@@ -40,5 +40,5 @@ jobs:
               uses: softprops/action-gh-release@v1
               with:
                   files: |
-                      ./dist/kahi-ui.framework.css
-                      ./dist/kahi-ui.framework.min.css
+                      ./package/dist/kahi-ui.framework.css
+                      ./package/dist/kahi-ui.framework.min.css

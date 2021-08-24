@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.3.1 - 2021/08/24
 
 -   Fixed some internal Component typings.
 

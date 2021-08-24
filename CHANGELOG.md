@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.3.2 - 2021/08/24
+
+-   Fixed attribute mapping not rejecting `false` values.
+
 ## v0.3.1 - 2021/08/24
 
 -   Fixed some internal Component typings.

@@ -2,6 +2,7 @@
     "name": "@kahi-ui/framework",
     "description": "Straight-forward Svelte UI for the Web",
     "author": "novacbn",
+    "license": "MIT",
     "version": "0.3.0",
     "type": "module",
     "main": "index.js",

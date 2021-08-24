@@ -6,6 +6,11 @@ import type {IActionHandle} from "./actions";
 export type IClickOutsideAction = IActionHandle<IClickOutsideOptions>;
 
 /**
+ * Represents the typing for the [[IClickOutsideOptions.on_click_outside]] callback
+ */
+export type IClickOutsideCallback = (event: MouseEvent) => void;
+
+/**
  * Represents the options passable to the [[click_outside]] Svelte Action
  */
 export interface IClickOutsideOptions {
@@ -13,7 +18,7 @@ export interface IClickOutsideOptions {
      * Represents the event callback called whenever target element
      * was clicked outside of its children
      */
-    on_click_outside: (event: MouseEvent) => void;
+    on_click_outside: IClickOutsideCallback;
 }
 
 /**

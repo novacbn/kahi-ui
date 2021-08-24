@@ -7,6 +7,11 @@ import type {IActionHandle} from "./actions";
  */
 export type IKeybindAction = IActionHandle<IKeybindOptions>;
 
+/**
+ * Represents the typing for the [[IKeybindOptions.on_bind]] callback
+ */
+export type IKeybindCallback = (event: IKeybindEvent) => void;
+
 interface IBindState {
     is_active(): boolean;
 
@@ -100,7 +105,7 @@ export interface IKeybindOptions {
      * const action = keybind(..., {on_bind});
      * ```
      */
-    on_bind: (event: IKeybindEvent) => void;
+    on_bind: IKeybindCallback;
 }
 
 /**

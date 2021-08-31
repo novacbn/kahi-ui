@@ -4,7 +4,7 @@
 
 -   Fixed `viewport("widescreen")` / `viewports({widescreen: true})` using incorrect values.
 
--   Fix the following Components / Component Features
+-   Fixed the following Components / Component Features
 
     -   Navigation
 

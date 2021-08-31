@@ -31,16 +31,16 @@ function get_viewport_variables(viewport: keyof typeof VIEWPORT_NAMES): IViewpor
     // HACK: The "infinity" number is needed as a quick hack to disable
     // maximum resolution conditional
     return {
-        max: computed.getPropertyValue(`--viewport-${viewport}-max`),
-        min:
+        max:
             viewport === "widescreen"
                 ? `${Number.MAX_SAFE_INTEGER}px`
-                : computed.getPropertyValue(`--viewport-${viewport}-min`),
+                : computed.getPropertyValue(`--viewport-${viewport}-max`),
+        min: computed.getPropertyValue(`--viewport-${viewport}-min`),
     };
 }
 
 function format_viewport_query(values: IViewportDimensions): string {
-    return `(min-width: ${values.min}) and (max-width: ${values.max})`;
+    return `(min-width:${values.min}) and (max-width:${values.max})`;
 }
 
 export function viewport(viewport: keyof typeof VIEWPORT_NAMES): IViewportStore {

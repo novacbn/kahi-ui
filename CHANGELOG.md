@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Fixed `viewport("widescreen")` / `viewports({widescreen: true})` using incorrect values.
+
 ## v0.3.2 - 2021/08/24
 
 -   Fixed attribute mapping not rejecting `false` values.

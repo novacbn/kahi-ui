@@ -28,14 +28,14 @@
         @apply justify-end;
 
         &:not(:first-child) {
-            @apply pt-[var(--spacing-root-large)];
+            @apply pt-[var(--spacing-root-medium)];
         }
     }
 
     & > header {
-        @apply font-bold leading-[var(--font-content-line-height-large)];
+        @apply font-bold leading-[var(--font-content-line-height-medium)];
 
-        font-size: var(--font-content-size-large);
+        font-size: var(--font-content-size-medium);
 
         &:first-child {
             @apply pb-[var(--spacing-root-medium)];
@@ -76,7 +76,7 @@
         box-shadow: var(--elevation);
 
         & > :is(footer, header, section) {
-            @apply border-l-2 border-r-2 border-solid px-[var(--spacing-root-large)];
+            @apply border-l-2 border-r-2 border-solid px-[var(--spacing-root-medium)];
 
             border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
 

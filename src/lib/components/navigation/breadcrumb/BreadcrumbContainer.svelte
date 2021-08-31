@@ -13,7 +13,7 @@
     type $$Props = {
         element?: HTMLElement;
 
-        separator: string | typeof SvelteComponent;
+        separator?: string | typeof SvelteComponent;
     } & IHTML5Properties &
         IGlobalProperties &
         IIntrinsicProperties &
@@ -27,9 +27,9 @@
 
     export let separator: $$Props["separator"] = "/";
 
-    const _separator = make_component_context(separator);
+    const _separator = make_component_context(separator ?? "/");
 
-    $: $_separator = separator;
+    $: $_separator = separator ?? "/";
 </script>
 
 <nav

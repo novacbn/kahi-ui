@@ -4,6 +4,22 @@
 
 -   Fixed `viewport("widescreen")` / `viewports({widescreen: true})` using incorrect values.
 
+-   Fixed the following Components / Component Features
+
+    -   Navigation
+
+        -   `Breadcrumb`
+
+            -   `<Breadcrumb.Container separator="XXX">` — Fixed typings to not error on no value being present.
+
+-   Updated the following Components / Component Features
+
+    -   Navigation
+
+        -   `Breadcrumb`
+
+            -   Updated spacing for separators `small` -> `tiny` tier.
+
 ## v0.3.2 - 2021/08/24
 
 -   Fixed attribute mapping not rejecting `false` values.

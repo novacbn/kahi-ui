@@ -10,7 +10,7 @@ nav.breadcrumb {
             }
 
             & > [role="presentation"] {
-                @apply mx-[var(--spacing-local-small)] opacity-30 pointer-events-none select-none;
+                @apply mx-[var(--spacing-local-tiny)] opacity-30 pointer-events-none select-none;
             }
         }
     }

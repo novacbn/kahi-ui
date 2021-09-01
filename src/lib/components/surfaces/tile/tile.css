@@ -7,7 +7,7 @@
     --sizing-text-size: var(--document-font-size);
     --sizing-text-line-height: var(--document-font-line-height);
 
-    @apply flex leading-[var(--sizing-text-line-height)];
+    @apply flex leading-[var(--sizing-text-line-height)] overflow-hidden;
 
     border-radius: var(--radius-small);
 

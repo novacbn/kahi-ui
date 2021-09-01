@@ -32,6 +32,11 @@
 
     -   Surfaces
 
+        -   `Card`
+
+            -   `<Card.Figure>` — non-fullbleed media is now centered on both axis.
+            -   Updated border / spacing handling to work better with `<Card.Figure>` with non-fullbleed media.
+
         -   `Card` / `Tile`
 
             -   `<Card.Header>` / `<Tile.Header>` — Updated font size `large` -> `medium`

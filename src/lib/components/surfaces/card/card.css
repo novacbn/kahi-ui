@@ -7,7 +7,7 @@
     --sizing-text-size: var(--document-font-size);
     --sizing-text-line-height: var(--document-font-line-height);
 
-    @apply flex flex-col leading-[var(--sizing-text-line-height)];
+    @apply flex flex-col leading-[var(--sizing-text-line-height)] overflow-hidden;
 
     border-radius: var(--radius-small);
 
@@ -18,42 +18,22 @@
         color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     & > figure {
-        @apply m-0 rounded-[inherit];
-
-        &:first-child > * {
-            @apply rounded-t-[inherit];
-        }
-
-        &:last-child > * {
-            @apply rounded-b-[inherit];
-        }
+        @apply align-center flex justify-center;
     }
 
     & > footer {
         @apply justify-end;
-
-        &:not(:first-child) {
-            @apply pt-[var(--spacing-local-medium)];
-        }
     }
 
     & > header {
         @apply font-bold leading-[var(--font-content-line-height-medium)];
 
         font-size: var(--font-content-size-local-medium);
-
-        &:first-child {
-            @apply pb-[var(--spacing-local-medium)];
-        }
-
-        &:not(:first-child) {
-            @apply pt-[var(--spacing-local-medium)];
-        }
     }
 
     & > section {
         &:not(:first-child) {
-            @apply pt-[var(--spacing-local-small)];
+            @apply mt-[var(--spacing-local-small)];
         }
 
         &:last-of-type {
@@ -65,32 +45,28 @@
         @apply flex gap-[var(--spacing-local-small)] items-center;
     }
 
-    & > :is(footer, header, section) {
-        &:first-child {
-            @apply rounded-t-[inherit];
-        }
-
-        &:last-child {
-            @apply rounded-b-[inherit];
+    & > :is(figure, footer, header) {
+        &:not(:first-child) {
+            @apply mt-[var(--spacing-local-medium)];
         }
     }
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+        @apply bg-[rgb(var(--palette-background-normal))] border-2 border-solid text-[rgb(var(--palette-foreground-normal))];
+
+        border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
 
         box-shadow: var(--elevation);
 
         & > :is(footer, header, section) {
-            @apply border-l-2 border-r-2 border-solid px-[var(--spacing-local-medium)];
-
-            border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
+            @apply mx-[var(--spacing-local-medium)];
 
             &:first-child {
-                @apply border-t-2 pt-[var(--spacing-local-medium)];
+                @apply mt-[var(--spacing-local-medium)];
             }
 
             &:last-child {
-                @apply border-b-2 pb-[var(--spacing-local-medium)];
+                @apply mb-[var(--spacing-local-medium)];
             }
         }
     }

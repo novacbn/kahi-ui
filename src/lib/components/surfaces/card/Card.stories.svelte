@@ -111,11 +111,7 @@
                 </Card.Figure>
 
                 <Card.Header>
-                    Ocean Rockies
-                    <Spacer />
-                    <Badge>
-                        {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-                    </Badge>
+                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
 
                 <Card.Section>
@@ -126,10 +122,6 @@
                         natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                     </Text>
                 </Card.Section>
-
-                <Card.Footer>
-                    <Button>Book Flight</Button>
-                </Card.Footer>
             </Card.Container>
         {/each}
     </Mosaic>
@@ -144,11 +136,7 @@
                 </Card.Figure>
 
                 <Card.Header>
-                    Ocean Rockies
-                    <Spacer />
-                    <Badge>
-                        {`${elevation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-                    </Badge>
+                    {`${elevation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
 
                 <Card.Section>
@@ -159,10 +147,6 @@
                         natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                     </Text>
                 </Card.Section>
-
-                <Card.Footer>
-                    <Button>Book Flight</Button>
-                </Card.Footer>
             </Card.Container>
         {/each}
     </Mosaic>
@@ -173,11 +157,7 @@
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <Card.Container style="max-width:25rem;" {sizing}>
                 <Card.Header>
-                    Ocean Rockies
-                    <Spacer />
-                    <Badge style="font-size:0.75em;">
-                        {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-                    </Badge>
+                    {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
 
                 <Card.Section>
@@ -188,10 +168,6 @@
                         natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                     </Text>
                 </Card.Section>
-
-                <Card.Footer>
-                    <Button size={sizing}>Book Flight</Button>
-                </Card.Footer>
             </Card.Container>
         {/each}
     </Stack>

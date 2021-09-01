@@ -83,7 +83,7 @@
     & > header {
         @apply font-bold gap-[var(--spacing-local-small)] select-none tracking-widest whitespace-nowrap;
 
-        font-size: var(--font-headline-size-medium);
+        font-size: var(--font-headline-size-root-medium);
         line-height: var(--font-headline-line-height-medium);
 
         & > a {

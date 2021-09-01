@@ -4,7 +4,7 @@
     @apply align-middle inline-flex items-center leading-[var(--font-content-line-height-nano)]
     pointer-events-none select-none text-[var(--palette-background-bold)] whitespace-nowrap;
 
-    font-size: var(--font-content-size-nano);
+    font-size: var(--font-content-size-root-nano);
 
     transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 

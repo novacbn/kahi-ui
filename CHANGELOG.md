@@ -2,7 +2,17 @@
 
 ## UNRELEASED
 
+-   Added `--font-content-size-local-*` / `--font-headline-size-local-*` properties, which use `em` values instead of `rem`.
 -   Fixed `viewport("widescreen")` / `viewports({widescreen: true})` using incorrect values.
+-   Updated `--font-content-size-*` / `--font-headline-size-*` CSS variables to `--font-content-size-root-*` / `--font-headline-size-root-*`.
+
+-   Added the following Components / Component Features
+
+    -   Surfaces
+
+        -   `Card` / `Tile`
+
+            -   `<Card.Container sizing="tiny/small/medium/large/huge">` / `<Tile.Container sizing="tiny/small/medium/large/huge">` — Added support for modifying the text sizing / spacings of all children.
 
 -   Fixed the following Components / Component Features
 
@@ -19,6 +29,18 @@
         -   `Breadcrumb`
 
             -   Updated spacing for separators `small` -> `tiny` tier.
+
+    -   Surfaces
+
+        -   `Card`
+
+            -   `<Card.Figure>` — non-fullbleed media is now centered on both axis.
+            -   Updated border / spacing handling to work better with `<Card.Figure>` with non-fullbleed media.
+
+        -   `Card` / `Tile`
+
+            -   `<Card.Header>` / `<Tile.Header>` — Updated font size `large` -> `medium`
+            -   Updated spacing to be slightly more compact.
 
 ## v0.3.2 - 2021/08/24
 

@@ -4,9 +4,14 @@
     --palette-background-normal: var(--palette-auto-off-normal);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
-    @apply flex;
+    --sizing-text-size: var(--document-font-size);
+    --sizing-text-line-height: var(--document-font-line-height);
+
+    @apply flex leading-[var(--sizing-text-line-height)] overflow-hidden;
 
     border-radius: var(--radius-small);
+
+    font-size: var(--sizing-text-size);
 
     transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -14,29 +19,30 @@
 
     & > figure {
         & > * {
-            @apply h-[var(--sizes-icon-large)] w-[var(--sizes-icon-large)];
+            /** HACK: This should really point to variables made element sizing, but it'll do for now */
+            @apply h-[var(--font-headline-size-local-huge)] w-[var(--font-headline-size-local-huge)];
         }
     }
 
     & > footer {
-        @apply gap-[var(--spacing-root-small)] justify-end ml-auto;
+        @apply gap-[var(--spacing-local-small)] justify-end ml-auto;
     }
 
     & > section {
         @apply flex-col justify-center;
 
         &:not(:first-child) {
-            @apply ml-[var(--spacing-root-large)];
+            @apply ml-[var(--spacing-local-medium)];
         }
 
         &:not(:last-child) {
-            @apply mr-[var(--spacing-root-large)];
+            @apply mr-[var(--spacing-local-medium)];
         }
 
         & > header {
-            @apply font-bold leading-[var(--font-content-line-height-large)];
+            @apply font-bold leading-[var(--font-content-line-height-medium)];
 
-            font-size: var(--font-content-size-large);
+            font-size: var(--font-content-size-local-medium);
         }
     }
 
@@ -49,7 +55,7 @@
     }
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-normal))] border-2 border-solid p-[var(--spacing-root-medium)]
+        @apply bg-[rgb(var(--palette-background-normal))] border-2 border-solid p-[var(--spacing-local-medium)]
         text-[rgb(var(--palette-foreground-normal))];
 
         border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));

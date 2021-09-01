@@ -12,19 +12,19 @@
     & > header {
         @apply font-bold leading-[var(--font-headline-line-height-massive)];
 
-        font-size: var(--font-headline-size-massive);
+        font-size: var(--font-headline-size-root-massive);
     }
 
     & > section {
         @apply leading-[var(--font-headline-line-height-tiny)];
 
-        font-size: var(--font-headline-size-tiny);
+        font-size: var(--font-headline-size-root-tiny);
     }
 
     & > footer {
         @apply flex items-center gap-[var(--spacing-root-small)] leading-[var(--font-headline-line-height-nano)] max-w-[max-content];
 
-        font-size: var(--font-headline-size-nano);
+        font-size: var(--font-headline-size-root-nano);
 
         &:not(:first-child) {
             @apply mt-[var(--spacing-root-large)];

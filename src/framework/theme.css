@@ -149,46 +149,60 @@
 
     /** */
 
-    --font-content-size-nano: theme("fontSize.xs.0");
+    --font-content-size-local-nano: theme("lfontSize.xs.0");
+    --font-content-size-root-nano: theme("fontSize.xs.0");
     --font-content-line-height-nano: theme("fontSize.xs.1.lineHeight");
 
-    --font-content-size-tiny: theme("fontSize.sm.0");
+    --font-content-size-local-tiny: theme("lfontSize.sm.0");
+    --font-content-size-root-tiny: theme("fontSize.sm.0");
     --font-content-line-height-tiny: theme("fontSize.sm.1.lineHeight");
 
-    --font-content-size-small: theme("fontSize.base.0");
+    --font-content-size-local-small: theme("lfontSize.base.0");
+    --font-content-size-root-small: theme("fontSize.base.0");
     --font-content-line-height-small: theme("fontSize.base.1.lineHeight");
 
-    --font-content-size-medium: theme("fontSize.lg.0");
+    --font-content-size-local-medium: theme("lfontSize.lg.0");
+    --font-content-size-root-medium: theme("fontSize.lg.0");
     --font-content-line-height-medium: theme("fontSize.lg.1.lineHeight");
 
-    --font-content-size-large: theme("fontSize.xl.0");
+    --font-content-size-local-large: theme("lfontSize.xl.0");
+    --font-content-size-root-large: theme("fontSize.xl.0");
     --font-content-line-height-large: theme("fontSize.xl.1.lineHeight");
 
-    --font-content-size-huge: theme("fontSize.2xl.0");
+    --font-content-size-local-huge: theme("lfontSize.2xl.0");
+    --font-content-size-root-huge: theme("fontSize.2xl.0");
     --font-content-line-height-huge: theme("fontSize.2xl.1.lineHeight");
 
-    --font-content-size-massive: theme("fontSize.3xl.0");
+    --font-content-size-local-massive: theme("lfontSize.3xl.0");
+    --font-content-size-root-massive: theme("fontSize.3xl.0");
     --font-content-line-height-massive: theme("fontSize.3xl.1.lineHeight");
 
-    --font-headline-size-nano: theme("fontSize.lg.0");
+    --font-headline-size-local-nano: theme("lfontSize.lg.0");
+    --font-headline-size-root-nano: theme("fontSize.lg.0");
     --font-headline-line-height-nano: theme("fontSize.lg.1.lineHeight");
 
-    --font-headline-size-tiny: theme("fontSize.xl.0");
+    --font-headline-size-local-tiny: theme("lfontSize.xl.0");
+    --font-headline-size-root-tiny: theme("fontSize.xl.0");
     --font-headline-line-height-tiny: theme("fontSize.xl.1.lineHeight");
 
-    --font-headline-size-small: theme("fontSize.2xl.0");
+    --font-headline-size-local-small: theme("lfontSize.2xl.0");
+    --font-headline-size-root-small: theme("fontSize.2xl.0");
     --font-headline-line-height-small: theme("fontSize.2xl.1.lineHeight");
 
-    --font-headline-size-medium: theme("fontSize.3xl.0");
+    --font-headline-size-local-medium: theme("lfontSize.3xl.0");
+    --font-headline-size-root-medium: theme("fontSize.3xl.0");
     --font-headline-line-height-medium: theme("fontSize.3xl.1.lineHeight");
 
-    --font-headline-size-large: theme("fontSize.4xl.0");
+    --font-headline-size-local-large: theme("lfontSize.4xl.0");
+    --font-headline-size-root-large: theme("fontSize.4xl.0");
     --font-headline-line-height-large: theme("fontSize.4xl.1.lineHeight");
 
-    --font-headline-size-huge: theme("fontSize.5xl.0");
+    --font-headline-size-local-huge: theme("lfontSize.5xl.0");
+    --font-headline-size-root-huge: theme("fontSize.5xl.0");
     --font-headline-line-height-huge: theme("fontSize.5xl.1.lineHeight");
 
-    --font-headline-size-massive: theme("fontSize.6xl.0");
+    --font-headline-size-local-massive: theme("lfontSize.6xl.0");
+    --font-headline-size-root-massive: theme("fontSize.6xl.0");
     --font-headline-line-height-massive: theme("fontSize.6xl.1.lineHeight");
 
     /** */

@@ -26,17 +26,17 @@
         @apply flex-col justify-center;
 
         &:not(:first-child) {
-            @apply ml-[var(--spacing-root-large)];
+            @apply ml-[var(--spacing-root-medium)];
         }
 
         &:not(:last-child) {
-            @apply mr-[var(--spacing-root-large)];
+            @apply mr-[var(--spacing-root-medium)];
         }
 
         & > header {
-            @apply font-bold leading-[var(--font-content-line-height-large)];
+            @apply font-bold leading-[var(--font-content-line-height-medium)];
 
-            font-size: var(--font-content-size-large);
+            font-size: var(--font-content-size-medium);
         }
     }
 

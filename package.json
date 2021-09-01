@@ -15,12 +15,20 @@
         "./dist/kahi-ui.framework.min.css": "./dist/kahi-ui.framework.min.css"
     },
     "keywords": [
+        "component-library",
         "css",
         "css-framework",
         "html",
         "kahi-ui",
+        "javascript",
         "svelte",
+        "sveltejs",
         "svelte-components",
+        "typescript",
+        "typescript-definitions",
+        "ui-components",
+        "ui-library",
+        "ui-kit",
         "windicss"
     ],
     "files": [

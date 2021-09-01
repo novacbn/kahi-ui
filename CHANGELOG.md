@@ -20,6 +20,13 @@
 
             -   Updated spacing for separators `small` -> `tiny` tier.
 
+    -   Surfaces
+
+        -   `Card` / `Tile`
+
+            -   `<Card.Header>` / `<Tile.Header>` — Updated font size `large` -> `medium`
+            -   Updated spacing to be slightly more compact.
+
 ## v0.3.2 - 2021/08/24
 
 -   Fixed attribute mapping not rejecting `false` values.

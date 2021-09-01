@@ -30,7 +30,7 @@ h1 {
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-massive)];
 
-        font-size: var(--font-headline-size-massive);
+        font-size: var(--font-headline-size-root-massive);
     }
 }
 
@@ -42,7 +42,7 @@ h2 {
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-huge)];
 
-        font-size: var(--font-headline-size-huge);
+        font-size: var(--font-headline-size-root-huge);
     }
 }
 
@@ -54,7 +54,7 @@ h3 {
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-large)];
 
-        font-size: var(--font-headline-size-large);
+        font-size: var(--font-headline-size-root-large);
     }
 }
 
@@ -66,7 +66,7 @@ h4 {
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-medium)];
 
-        font-size: var(--font-headline-size-medium);
+        font-size: var(--font-headline-size-root-medium);
     }
 }
 
@@ -78,7 +78,7 @@ h5 {
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-small)];
 
-        font-size: var(--font-headline-size-small);
+        font-size: var(--font-headline-size-root-small);
     }
 }
 
@@ -90,6 +90,6 @@ h6 {
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-tiny)];
 
-        font-size: var(--font-headline-size-tiny);
+        font-size: var(--font-headline-size-root-tiny);
     }
 }

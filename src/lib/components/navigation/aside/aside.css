@@ -70,7 +70,7 @@
         @apply font-bold leading-[var(--font-headline-line-height-huge)] py-[var(--spacing-root-large)]
         select-none text-center tracking-widest whitespace-nowrap;
 
-        font-size: var(--font-headline-size-huge);
+        font-size: var(--font-headline-size-root-huge);
 
         & > a {
             @apply !text-current;

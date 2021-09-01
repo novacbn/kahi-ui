@@ -2,7 +2,7 @@
     --size-embedded: var(--sizes-embedded-tiny);
     --size-icon: var(--sizes-icon-tiny);
 
-    --size-headline-size: var(--font-headline-size-small);
+    --size-headline-size: var(--font-headline-size-root-small);
     --size-headline-line-height: var(--font-headline-line-height-small);
 
     --size-text-size: var(--font-content-size-root-nano);
@@ -13,7 +13,7 @@
     --size-embedded: var(--sizes-embedded-small);
     --size-icon: var(--sizes-icon-small);
 
-    --size-headline-size: var(--font-headline-size-medium);
+    --size-headline-size: var(--font-headline-size-root-medium);
     --size-headline-line-height: var(--font-headline-line-height-medium);
 
     --size-text-size: var(--font-content-size-root-tiny);
@@ -24,7 +24,7 @@
     --size-embedded: var(--sizes-embedded-medium);
     --size-icon: var(--sizes-icon-medium);
 
-    --size-headline-size: var(--font-headline-size-large);
+    --size-headline-size: var(--font-headline-size-root-large);
     --size-headline-line-height: var(--font-headline-line-height-large);
 
     --size-text-size: var(--font-content-size-root-small);
@@ -35,7 +35,7 @@
     --size-embedded: var(--sizes-embedded-large);
     --size-icon: var(--sizes-icon-large);
 
-    --size-headline-size: var(--font-headline-size-huge);
+    --size-headline-size: var(--font-headline-size-root-huge);
     --size-headline-line-height: var(--font-headline-line-height-huge);
 
     --size-text-size: var(--font-content-size-root-medium);
@@ -46,7 +46,7 @@
     --size-embedded: var(--sizes-embedded-huge);
     --size-icon: var(--sizes-icon-huge);
 
-    --size-headline-size: var(--font-headline-size-massive);
+    --size-headline-size: var(--font-headline-size-root-massive);
     --size-headline-line-height: var(--font-headline-line-height-massive);
 
     --size-text-size: var(--font-content-size-root-large);

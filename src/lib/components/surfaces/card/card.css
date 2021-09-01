@@ -4,9 +4,14 @@
     --palette-background-normal: var(--palette-auto-off-normal);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
-    @apply flex flex-col;
+    --sizing-text-size: var(--document-font-size);
+    --sizing-text-line-height: var(--document-font-line-height);
+
+    @apply flex flex-col leading-[var(--sizing-text-line-height)];
 
     border-radius: var(--radius-small);
+
+    font-size: var(--sizing-text-size);
 
     transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -28,27 +33,27 @@
         @apply justify-end;
 
         &:not(:first-child) {
-            @apply pt-[var(--spacing-root-medium)];
+            @apply pt-[var(--spacing-local-medium)];
         }
     }
 
     & > header {
         @apply font-bold leading-[var(--font-content-line-height-medium)];
 
-        font-size: var(--font-content-size-root-medium);
+        font-size: var(--font-content-size-local-medium);
 
         &:first-child {
-            @apply pb-[var(--spacing-root-medium)];
+            @apply pb-[var(--spacing-local-medium)];
         }
 
         &:not(:first-child) {
-            @apply pt-[var(--spacing-root-medium)];
+            @apply pt-[var(--spacing-local-medium)];
         }
     }
 
     & > section {
         &:not(:first-child) {
-            @apply pt-[var(--spacing-root-small)];
+            @apply pt-[var(--spacing-local-small)];
         }
 
         &:last-of-type {
@@ -57,7 +62,7 @@
     }
 
     & > :is(header, footer) {
-        @apply flex gap-[var(--spacing-root-small)] items-center;
+        @apply flex gap-[var(--spacing-local-small)] items-center;
     }
 
     & > :is(footer, header, section) {
@@ -76,16 +81,16 @@
         box-shadow: var(--elevation);
 
         & > :is(footer, header, section) {
-            @apply border-l-2 border-r-2 border-solid px-[var(--spacing-root-medium)];
+            @apply border-l-2 border-r-2 border-solid px-[var(--spacing-local-medium)];
 
             border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
 
             &:first-child {
-                @apply border-t-2 pt-[var(--spacing-root-medium)];
+                @apply border-t-2 pt-[var(--spacing-local-medium)];
             }
 
             &:last-child {
-                @apply border-b-2 pb-[var(--spacing-root-medium)];
+                @apply border-b-2 pb-[var(--spacing-local-medium)];
             }
         }
     }

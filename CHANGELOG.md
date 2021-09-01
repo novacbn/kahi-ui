@@ -2,7 +2,17 @@
 
 ## UNRELEASED
 
+-   Added `--font-content-size-local-*` / `--font-headline-size-local-*` properties, which use `em` values instead of `rem`.
 -   Fixed `viewport("widescreen")` / `viewports({widescreen: true})` using incorrect values.
+-   Updated `--font-content-size-*` / `--font-headline-size-*` CSS variables to `--font-content-size-root-*` / `--font-headline-size-root-*`.
+
+-   Added the following Components / Component Features
+
+    -   Surfaces
+
+        -   `Card` / `Tile`
+
+            -   `<Card.Container sizing="tiny/small/medium/large/huge>` / `<Tile.Container sizing="tiny/small/medium/large/huge>` — Added support for modifying the text sizing / spacings of all children.
 
 -   Fixed the following Components / Component Features
 

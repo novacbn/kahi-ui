@@ -12,7 +12,7 @@
 
         -   `Card` / `Tile`
 
-            -   `<Card.Container sizing="tiny/small/medium/large/huge>` / `<Tile.Container sizing="tiny/small/medium/large/huge>` — Added support for modifying the text sizing / spacings of all children.
+            -   `<Card.Container sizing="tiny/small/medium/large/huge">` / `<Tile.Container sizing="tiny/small/medium/large/huge">` — Added support for modifying the text sizing / spacings of all children.
 
 -   Fixed the following Components / Component Features
 

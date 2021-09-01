@@ -4,13 +4,13 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Badge from "../../display/badge/Badge.svelte";
+    import Button from "../../interactables/button/Button.svelte";
+    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
+    import Stack from "../../layouts/stack/Stack.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Card from "./index";
-    import Button from "../../interactables/button/Button.svelte";
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
 
     const ELEVATIONS = [
         ["lowest", true],

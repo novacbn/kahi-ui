@@ -2255,35 +2255,35 @@
 [data-sizing~="tiny"] {
     --sizing-content: var(--sizes-content-tiny);
 
-    --sizing-text-size: var(--font-content-size-nano);
+    --sizing-text-size: var(--font-content-size-root-nano);
     --sizing-text-line-height: var(--font-content-line-height-nano);
 }
 
 [data-sizing~="small"] {
     --sizing-content: var(--sizes-content-small);
 
-    --sizing-text-size: var(--font-content-size-tiny);
+    --sizing-text-size: var(--font-content-size-root-tiny);
     --sizing-text-line-height: var(--font-content-line-height-tiny);
 }
 
 [data-sizing~="medium"] {
     --sizing-content: var(--sizes-content-medium);
 
-    --sizing-text-size: var(--font-content-size-small);
+    --sizing-text-size: var(--font-content-size-root-small);
     --sizing-text-line-height: var(--font-content-line-height-small);
 }
 
 [data-sizing~="large"] {
     --sizing-content: var(--sizes-content-large);
 
-    --sizing-text-size: var(--font-content-size-medium);
+    --sizing-text-size: var(--font-content-size-root-medium);
     --sizing-text-line-height: var(--font-content-line-height-medium);
 }
 
 [data-sizing~="huge"] {
     --sizing-content: var(--sizes-content-huge);
 
-    --sizing-text-size: var(--font-content-size-large);
+    --sizing-text-size: var(--font-content-size-root-large);
     --sizing-text-line-height: var(--font-content-line-height-large);
 }
 
@@ -2291,35 +2291,35 @@
     [data-sizing~="mobile:tiny"] {
         --sizing-content: var(--sizes-content-tiny);
 
-        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-size: var(--font-content-size-root-tiny);
         --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="mobile:small"] {
         --sizing-content: var(--sizes-content-small);
 
-        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-size: var(--font-content-size-root-small);
         --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="mobile:medium"] {
         --sizing-content: var(--sizes-content-medium);
 
-        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-size: var(--font-content-size-root-medium);
         --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="mobile:large"] {
         --sizing-content: var(--sizes-content-large);
 
-        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-size: var(--font-content-size-root-large);
         --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="mobile:huge"] {
         --sizing-content: var(--sizes-content-huge);
 
-        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-size: var(--font-content-size-root-huge);
         --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }
@@ -2328,35 +2328,35 @@
     [data-sizing~="tablet:tiny"] {
         --sizing-content: var(--sizes-content-tiny);
 
-        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-size: var(--font-content-size-root-tiny);
         --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="tablet:small"] {
         --sizing-content: var(--sizes-content-small);
 
-        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-size: var(--font-content-size-root-small);
         --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="tablet:medium"] {
         --sizing-content: var(--sizes-content-medium);
 
-        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-size: var(--font-content-size-root-medium);
         --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="tablet:large"] {
         --sizing-content: var(--sizes-content-large);
 
-        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-size: var(--font-content-size-root-large);
         --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="tablet:huge"] {
         --sizing-content: var(--sizes-content-huge);
 
-        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-size: var(--font-content-size-root-huge);
         --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }
@@ -2365,35 +2365,35 @@
     [data-sizing~="desktop:tiny"] {
         --sizing-content: var(--sizes-content-tiny);
 
-        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-size: var(--font-content-size-root-tiny);
         --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="desktop:small"] {
         --sizing-content: var(--sizes-content-small);
 
-        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-size: var(--font-content-size-root-small);
         --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="desktop:medium"] {
         --sizing-content: var(--sizes-content-medium);
 
-        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-size: var(--font-content-size-root-medium);
         --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="desktop:large"] {
         --sizing-content: var(--sizes-content-large);
 
-        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-size: var(--font-content-size-root-large);
         --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="desktop:huge"] {
         --sizing-content: var(--sizes-content-huge);
 
-        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-size: var(--font-content-size-root-huge);
         --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }
@@ -2402,35 +2402,35 @@
     [data-sizing~="widescreen:tiny"] {
         --sizing-content: var(--sizes-content-tiny);
 
-        --sizing-text-size: var(--font-content-size-tiny);
+        --sizing-text-size: var(--font-content-size-root-tiny);
         --sizing-text-line-height: var(--font-content-line-height-tiny);
     }
 
     [data-sizing~="widescreen:small"] {
         --sizing-content: var(--sizes-content-small);
 
-        --sizing-text-size: var(--font-content-size-small);
+        --sizing-text-size: var(--font-content-size-root-small);
         --sizing-text-line-height: var(--font-content-line-height-small);
     }
 
     [data-sizing~="widescreen:medium"] {
         --sizing-content: var(--sizes-content-medium);
 
-        --sizing-text-size: var(--font-content-size-medium);
+        --sizing-text-size: var(--font-content-size-root-medium);
         --sizing-text-line-height: var(--font-content-line-height-medium);
     }
 
     [data-sizing~="widescreen:large"] {
         --sizing-content: var(--sizes-content-large);
 
-        --sizing-text-size: var(--font-content-size-large);
+        --sizing-text-size: var(--font-content-size-root-large);
         --sizing-text-line-height: var(--font-content-line-height-large);
     }
 
     [data-sizing~="widescreen:huge"] {
         --sizing-content: var(--sizes-content-huge);
 
-        --sizing-text-size: var(--font-content-size-huge);
+        --sizing-text-size: var(--font-content-size-root-huge);
         --sizing-text-line-height: var(--font-content-line-height-huge);
     }
 }

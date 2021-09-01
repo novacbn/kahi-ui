@@ -5,7 +5,7 @@
     --size-headline-size: var(--font-headline-size-small);
     --size-headline-line-height: var(--font-headline-line-height-small);
 
-    --size-text-size: var(--font-content-size-nano);
+    --size-text-size: var(--font-content-size-root-nano);
     --size-text-line-height: var(--font-content-line-height-nano);
 }
 
@@ -16,7 +16,7 @@
     --size-headline-size: var(--font-headline-size-medium);
     --size-headline-line-height: var(--font-headline-line-height-medium);
 
-    --size-text-size: var(--font-content-size-tiny);
+    --size-text-size: var(--font-content-size-root-tiny);
     --size-text-line-height: var(--font-content-line-height-tiny);
 }
 
@@ -27,7 +27,7 @@
     --size-headline-size: var(--font-headline-size-large);
     --size-headline-line-height: var(--font-headline-line-height-large);
 
-    --size-text-size: var(--font-content-size-small);
+    --size-text-size: var(--font-content-size-root-small);
     --size-text-line-height: var(--font-content-line-height-small);
 }
 
@@ -38,7 +38,7 @@
     --size-headline-size: var(--font-headline-size-huge);
     --size-headline-line-height: var(--font-headline-line-height-huge);
 
-    --size-text-size: var(--font-content-size-medium);
+    --size-text-size: var(--font-content-size-root-medium);
     --size-text-line-height: var(--font-content-line-height-medium);
 }
 
@@ -49,6 +49,6 @@
     --size-headline-size: var(--font-headline-size-massive);
     --size-headline-line-height: var(--font-headline-line-height-massive);
 
-    --size-text-size: var(--font-content-size-large);
+    --size-text-size: var(--font-content-size-root-large);
     --size-text-line-height: var(--font-content-line-height-large);
 }

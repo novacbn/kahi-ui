@@ -25,7 +25,7 @@ h6 {
 h1 {
     @apply leading-[var(--font-content-line-height-massive)];
 
-    font-size: var(--font-content-size-massive);
+    font-size: var(--font-content-size-root-massive);
 
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-massive)];
@@ -37,7 +37,7 @@ h1 {
 h2 {
     @apply leading-[var(--font-content-line-height-huge)];
 
-    font-size: var(--font-content-size-huge);
+    font-size: var(--font-content-size-root-huge);
 
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-huge)];
@@ -49,7 +49,7 @@ h2 {
 h3 {
     @apply leading-[var(--font-content-line-height-large)];
 
-    font-size: var(--font-content-size-large);
+    font-size: var(--font-content-size-root-large);
 
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-large)];
@@ -61,7 +61,7 @@ h3 {
 h4 {
     @apply leading-[var(--font-content-line-height-medium)];
 
-    font-size: var(--font-content-size-medium);
+    font-size: var(--font-content-size-root-medium);
 
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-medium)];
@@ -73,7 +73,7 @@ h4 {
 h5 {
     @apply leading-[var(--font-content-line-height-small)];
 
-    font-size: var(--font-content-size-small);
+    font-size: var(--font-content-size-root-small);
 
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-small)];
@@ -85,7 +85,7 @@ h5 {
 h6 {
     @apply leading-[var(--font-content-line-height-tiny)];
 
-    font-size: var(--font-content-size-tiny);
+    font-size: var(--font-content-size-root-tiny);
 
     &[data-variation~="headline"] {
         @apply leading-[var(--font-headline-line-height-tiny)];

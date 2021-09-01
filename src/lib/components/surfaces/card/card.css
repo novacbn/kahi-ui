@@ -35,7 +35,7 @@
     & > header {
         @apply font-bold leading-[var(--font-content-line-height-medium)];
 
-        font-size: var(--font-content-size-medium);
+        font-size: var(--font-content-size-root-medium);
 
         &:first-child {
             @apply pb-[var(--spacing-root-medium)];

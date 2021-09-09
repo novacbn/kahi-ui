@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Updated the following Components / Component Features
+
+    -   \*
+
+        -   Added [slot typing](https://github.com/dummdidumm/rfcs/blob/683fe6d12051b1c9107cfe76cfb90af5efe2fc43/text/ts-typing-props-slots-events.md#typing-slots) to all Components.
+
 ## v0.3.3 - 2021/08/01
 
 -   Added `--font-content-size-local-*` / `--font-headline-size-local-*` properties, which use `em` values instead of `rem`.

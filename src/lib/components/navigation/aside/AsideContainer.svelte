@@ -38,6 +38,13 @@
         IMarginProperties &
         IPaddingProperties;
 
+    type $$Slots = {
+        default: {};
+
+        close: {};
+        open: {};
+    };
+
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -79,6 +86,9 @@
             {...map_data_attributes({palette, placement, variation})}
         >
             <slot />
+
+            <slot name="open" />
+            <slot name="close" />
         </nav>
     </Offscreen>
 {:else}
@@ -89,5 +99,8 @@
         {...map_data_attributes({palette, placement, variation})}
     >
         <slot />
+
+        <slot name="open" />
+        <slot name="close" />
     </nav>
 {/if}

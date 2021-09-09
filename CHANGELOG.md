@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Utilities
+
+        -   `Portal`
+
+            -   `<Portal on:mount>` — Dispatches whenever the `Portal` Component successfully mounts.
+
+-   Updated the following Components / Component Features
+
+    -   Utilities
+
+        -   `Portal`
+
+            -   Updated to hide content whenever not yet mounted.
+
 ## v0.3.3 - 2021/08/01
 
 -   Added `--font-content-size-local-*` / `--font-headline-size-local-*` properties, which use `em` values instead of `rem`.

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `Form`
+
+            -   `<Form.Group on:change>` — Dispatches whenever the `<Form.Group logic_state>` value changes via Svelte Context.
+
 ## v0.3.3 - 2021/08/01
 
 -   Added `--font-content-size-local-*` / `--font-headline-size-local-*` properties, which use `em` values instead of `rem`.

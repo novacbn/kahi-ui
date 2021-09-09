@@ -12,6 +12,10 @@
         logic_state?: IFormStateValue;
     };
 
+    type $$Slots = {
+        default: {};
+    };
+
     export let logic_name: $$Props["logic_name"] = "";
     export let logic_state: $$Props["logic_state"] = "";
 

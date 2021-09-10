@@ -43,6 +43,10 @@
         IGlobalProperties &
         IPaddingProperties;
 
+    type $$Slots = {
+        default: {};
+    };
+
     const dispatch = createEventDispatcher();
 
     export let element: $$Props["element"] = undefined;

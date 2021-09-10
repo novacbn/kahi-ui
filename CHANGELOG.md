@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+-   Fixed `keybind({repeat: true})` Svelte Action dispatching `on_bind` before all keys of combinations are pressed.
+
 -   Added the following Components / Component Features
 
     -   Utilities

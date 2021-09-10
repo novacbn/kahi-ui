@@ -12,21 +12,14 @@
     let element;
 
     export let is_active = false;
-
-    let action;
-    $: {
-        // HACK: With the CSF format, we can't really use `<svelte:body>`. But
-        // we can imitate it!
-        if (element) {
-            action = keybind(document.body, {
-                binds: "control+/",
-                on_bind,
-            });
-        } else if (action) {
-            action.destroy();
-        }
-    }
 </script>
+
+<svelte:window
+    use:keybind={{
+        binds: "control+/",
+        on_bind,
+    }}
+/>
 
 <Meta title="Actions/keybind" />
 
@@ -46,7 +39,7 @@
     />
 </Story>
 
-<Story name="svelte:body">
+<Story name="svelte:window">
     <div
         bind:this={element}
         class="box"

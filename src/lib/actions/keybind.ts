@@ -201,7 +201,7 @@ export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybin
             state.update(event.key, is_down);
 
             const active = state.is_active();
-            if (cache !== active || repeat) {
+            if (cache !== active || (active && repeat)) {
                 const detail: IKeybindEvent["detail"] = {active, repeat: event.repeat};
                 const custom_event: IKeybindEvent = new CustomEvent("bind", {
                     cancelable: true,

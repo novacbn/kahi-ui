@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Fixed `keybind({repeat: true})` Svelte Action dispatching `on_bind` before all keys of combinations are pressed.
+
 ## v0.3.3 - 2021/08/01
 
 -   Added `--font-content-size-local-*` / `--font-headline-size-local-*` properties, which use `em` values instead of `rem`.

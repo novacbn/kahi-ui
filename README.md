@@ -25,6 +25,10 @@ Visit the documentation at [kahi-ui.nbn.dev](https://kahi-ui.nbn.dev).
 
 Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/faq](https://kahi-ui.nbn.dev/docs/framework/faq).
 
+## Need Help?
+
+File [a new issue](https://github.com/novacbn/kahi-ui/issues/new) or visit the official [Discord Server](https://kahi-ui.nbn.dev/chat).
+
 ## Browser Support
 
 -   Chrome 87+ — November 2020

@@ -31,9 +31,9 @@ File [a new issue](https://github.com/novacbn/kahi-ui/issues/new) or visit the o
 
 ## Browser Support
 
--   Chrome 87+ — November 2020
--   Edge 87+ — November 2020
--   Firefox 67+ — May 2019
+-   Chrome 88+ — January 2021
+-   Edge 88+ — January 2021
+-   Firefox 84+ — December 2020
 -   Safari 14.1+ — April 2021
 -   Edge _(Pre Chromium)_ — **UNSUPPORTED**
 -   Internet Explorer — **UNSUPPORTED**

@@ -23,6 +23,10 @@
     } & IHTML5Properties &
         IGlobalProperties;
 
+    type $$Slots = {
+        default: {};
+    };
+
     export let element: $$Props["element"] = undefined;
 
     export let active: $$Props["active"] = false;

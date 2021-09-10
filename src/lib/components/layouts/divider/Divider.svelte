@@ -18,6 +18,10 @@
         IIntrinsicProperties &
         IMarginProperties;
 
+    type $$Slots = {
+        default: {};
+    };
+
     export let element: $$Props["element"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;

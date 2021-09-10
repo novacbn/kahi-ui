@@ -12,6 +12,10 @@
 
 -   Updated the following Components / Component Features
 
+    -   \*
+
+        -   Added [slot typing](https://github.com/dummdidumm/rfcs/blob/683fe6d12051b1c9107cfe76cfb90af5efe2fc43/text/ts-typing-props-slots-events.md#typing-slots) to all Components.
+
     -   Utilities
 
         -   `Portal`

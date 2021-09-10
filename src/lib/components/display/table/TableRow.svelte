@@ -14,6 +14,10 @@
         IMarginProperties &
         IPaddingProperties;
 
+    type $$Slots = {
+        default: {};
+    };
+
     export let element: $$Props["element"] = undefined;
 </script>
 

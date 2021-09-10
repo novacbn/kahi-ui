@@ -16,6 +16,10 @@
         logic_state?: IFormStateValue;
     };
 
+    type $$Slots = {
+        default: {};
+    };
+
     const dispatch = createEventDispatcher();
 
     export let logic_name: $$Props["logic_name"] = "";

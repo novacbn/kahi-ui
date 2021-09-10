@@ -55,6 +55,11 @@
         </Anchor>
     </Aside.Footer>
 
-    <ContextButton variation="clear">+</ContextButton>
-    <ContextButton palette="dark" variation="clear">x</ContextButton>
+    <svelte:fragment slot="open">
+        <ContextButton variation="clear">+</ContextButton>
+    </svelte:fragment>
+
+    <svelte:fragment slot="close">
+        <ContextButton palette="dark" variation="clear">x</ContextButton>
+    </svelte:fragment>
 </Aside.Container>

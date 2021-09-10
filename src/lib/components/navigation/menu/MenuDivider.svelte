@@ -11,6 +11,12 @@
     } & IHTML5Properties &
         IGlobalProperties;
 
+    type $$Slots = {
+        default: {};
+
+        "sub-menu": {};
+    };
+
     export let element: $$Props["element"] = undefined;
 </script>
 

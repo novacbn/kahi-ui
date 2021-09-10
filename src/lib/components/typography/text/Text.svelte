@@ -45,6 +45,10 @@
         IGlobalProperties &
         IMarginProperties;
 
+    type $$Slots = {
+        default: {};
+    };
+
     export let element: $$Props["element"] = undefined;
 
     export let is: $$Props["is"] = "p";

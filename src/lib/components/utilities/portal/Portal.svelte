@@ -1,10 +1,9 @@
 <script lang="ts">
-    // TODO: Stories
+    import {createEventDispatcher, onDestroy, onMount, tick} from "svelte";
 
-    // TODO: Dispatch event for when the containing `<div>` has
-    // been moved
-
-    import {onDestroy, onMount, tick} from "svelte";
+    type $$Events = {
+        mount: CustomEvent<void>;
+    };
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -12,6 +11,12 @@
         prepend?: boolean;
         target?: HTMLElement | string;
     };
+
+    type $$Slots = {
+        default: {};
+    };
+
+    const dispatch = createEventDispatcher();
 
     export let element: $$Props["element"] = undefined;
 
@@ -44,9 +49,12 @@
 
         if (prepend) queried_target.prepend(element);
         else queried_target.append(element);
+
+        element.hidden = false;
+        dispatch("mount");
     });
 </script>
 
-<div bind:this={element} class="portal">
+<div bind:this={element} class="portal" hidden>
     <slot />
 </div>

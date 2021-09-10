@@ -23,6 +23,10 @@
         IMarginProperties &
         IPaddingProperties;
 
+    type $$Slots = {
+        default: {};
+    };
+
     export let element: $$Props["element"] = undefined;
 
     export let fit: $$Props["fit"] = undefined;

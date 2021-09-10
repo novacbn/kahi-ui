@@ -6,6 +6,12 @@
 
 -   Added the following Components / Component Features
 
+    -   Interactables
+
+        -   `Form`
+
+            -   `<Form.Group on:change>` — Dispatches whenever the `<Form.Group logic_state>` value changes via Svelte Context.
+
     -   Utilities
 
         -   `Portal`

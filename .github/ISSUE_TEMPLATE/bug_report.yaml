@@ -1,0 +1,35 @@
+name: Bug Report
+description: Report an issue with Kahi UI
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If you intend to submit a PR for this issue, mention that in the description. Thanks!
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the Bug
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Describe in full, steps to reproduce the bug. Ideally provide a reproduction repository as well.
+    validations:
+      required: true
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Info
+      description: Output of `npx envinfo --system --binaries --browsers`
+      render: shell
+      placeholder: System, Binaries, Browsers
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Mention anything not covered above or something you think might be important.

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+...
+
 ## v0.3.4 - 2021/09/10
 
 -   Fixed `keybind({repeat: true})` Svelte Action dispatching `on_bind` before all keys of combinations are pressed.

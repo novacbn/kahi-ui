@@ -27,7 +27,11 @@ Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/
 
 ## Need Help?
 
-File [a new issue](https://github.com/novacbn/kahi-ui/issues/new) or visit the official [Discord Server](https://kahi-ui.nbn.dev/chat).
+File [a new issue](https://github.com/novacbn/kahi-ui/issues/new/choose) or visit the official [Discord Server](https://kahi-ui.nbn.dev/chat).
+
+## Want to Contribute?
+
+Visit the [`CONTRIBUTING.md`](./CONTRIBUTING.md) for information on getting started.
 
 ## Browser Support
 

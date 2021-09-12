@@ -1,0 +1,11 @@
+name: Question
+description: Ask a question about how to use Kahi UI
+labels: [question]
+body:
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe the Question
+      description: Provide a clear description of the issue you're facing.
+    validations:
+      required: true

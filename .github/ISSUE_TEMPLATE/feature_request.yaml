@@ -10,7 +10,7 @@ body:
     id: feature-description
     attributes:
       label: Describe the Request
-      description: Provide a clear description of the issue you're facing and your proprosed solution.
+      description: Provide a clear description of the feature and the problem you're trying to solve.
     validations:
       required: true
   - type: textarea

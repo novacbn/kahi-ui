@@ -1,6 +1,6 @@
 name: Documentation Improvement
 description: Request an improvement to the Documentation.
-labels: [kahi-ui-documentation]
+labels: [kahi-ui-docs]
 body:
   - type: markdown
     attributes:

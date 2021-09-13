@@ -40,30 +40,13 @@ jobs:
               if: github.event_name == 'pull_request'
               run: npm run build:storybook
 
+            - name: Stash Pull Request
+              if: github.event_name == 'pull_request'
+              run: echo ${{github.event.number}} > ./storybook-static/PULL_REQUEST
+
             - name: Upload Storybook Preview
               uses: actions/upload-artifact@v2
               if: github.event_name == 'pull_request'
               with:
                   name: storybook-build
                   path: storybook-static
-
-    preview:
-        runs-on: ubuntu-latest
-        needs: test-and-build
-        if: github.event_name == 'pull_request'
-
-        steps:
-            - name: Download Storybook Preview
-              uses: actions/download-artifact@v2
-              with:
-                  name: storybook-build
-                  path: storybook-static
-
-            - name: Upload to Surge
-              uses: afc163/surge-preview@v1
-              with:
-                  github_token: ${{secrets.GITHUB_TOKEN}}
-                  surge_token: ${{secrets.SURGE_TOKEN}}
-                  dist: storybook-static
-                  build: echo 'noop'
-                  failOnError: true

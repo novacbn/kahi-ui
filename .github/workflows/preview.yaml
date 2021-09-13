@@ -1,0 +1,68 @@
+name: Preview
+
+on:
+    workflow_run:
+        workflows: ["Continuous Integration"]
+        types:
+            - completed
+
+jobs:
+    preview:
+        runs-on: ubuntu-latest
+        if: |
+            github.event.workflow_run.event == 'pull_request' &&
+            github.event.workflow_run.conclusion == 'success'
+
+        steps:
+            - name: Download Documentation Build
+              uses: actions/github-script@v3.1.0
+              env:
+                  ARTIFACT_NAME: storybook-build
+              with:
+                  script: |
+                      const fs = require("fs");
+
+                      const artifacts = await github.actions.listWorkflowRunArtifacts({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        run_id: ${{github.event.workflow_run.id}},
+                      });
+
+                      const artifact = artifacts.data.artifacts.filter((artifact) => {
+                        return artifact.name == process.env.ARTIFACT_NAME
+                      })[0];
+
+                      const download = await github.actions.downloadArtifact({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        artifact_id: artifact.id,
+                        archive_format: 'zip',
+                      });
+
+                      fs.writeFileSync('${{github.workspace}}/artifact.zip', Buffer.from(download.data));
+
+            - name: Unzip Artifact
+              env:
+                  ARTIFACT_PATH: storybook-static
+              run: unzip -d $ARTIFACT_PATH ./artifact.zip
+
+            - name: Set Pull Request Variable
+              run: echo "PULL_REQUEST=$(<./storybook-static/PULL_REQUEST)" >> $GITHUB_ENV
+
+            - name: Set Preview Domain Variable
+              run: echo "PREVIEW_DOMAIN=https://${{github.repository_owner}}-${{github.event.repository.name}}-pr-${{env.PULL_REQUEST}}-run-${{github.run_number}}.surge.sh" >> $GITHUB_ENV
+
+            - name: Upload to Surge
+              run: npx surge --project ./storybook-static --domain $PREVIEW_DOMAIN --token ${{secrets.SURGE_TOKEN}}
+
+            - name: Comment PR w/ Preview
+              uses: actions/github-script@0.3.0
+              with:
+                  github-token: ${{secrets.GITHUB_TOKEN}}
+                  script: |
+                      await github.issues.createComment({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          issue_number: process.env.PULL_REQUEST,
+                          body: `Preview: ${process.env.PREVIEW_DOMAIN}`
+                      });

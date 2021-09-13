@@ -6,7 +6,7 @@ name: Continuous Integration
 on: [push, pull_request]
 
 concurrency:
-    group: ${{github.head_ref}}
+    group: ${{github.head_ref || github.ref}}
     cancel-in-progress: true
 
 jobs:
@@ -30,6 +30,8 @@ jobs:
 
             - name: Install
               run: npm ci
+
+            ## TODO: Add `svelte-check` / `tsc` step here
 
             - name: Build Library
               run: npm run build

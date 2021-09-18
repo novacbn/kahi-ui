@@ -2,7 +2,13 @@
 
 ## UNRELEASED
 
-...
+-   Updated the following Components / Component Features
+
+    -   Utilities
+
+        -   `Portal`
+
+            -   `<Portal loading="lazy">` — Disables rendering to HTML of the default slot content when not active / mounted.
 
 ## v0.3.4 - 2021/09/10
 

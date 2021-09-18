@@ -8,7 +8,13 @@
 
         -   `Overlay`
 
-            -   `<Overlay orientation="horizontal/mobile:horizontal/tablet:horizontal/desktop:horizontal/widescreen:horizontal">` - Lays content out horizontally.
+            -   `<Overlay orientation="horizontal/mobile:horizontal/tablet:horizontal/desktop:horizontal/widescreen:horizontal">` — Lays content out horizontally.
+
+    -   Surfaces
+
+        -   `Card`
+
+            -   `<Card.Footer orientation="vertical/mobile:vertical/tablet:vertical/desktop:vertical/widescreen:vertical">` — Lays content out vertically.
 
     -   Utilities
 

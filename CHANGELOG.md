@@ -4,6 +4,10 @@
 
 -   Added the following Components / Component Features
 
+    -   \*
+
+        -   `<XXX elevation="none">` — Removes elevation from the Component.
+
     -   Overlays
 
         -   `Overlay`
@@ -14,7 +18,7 @@
 
         -   `Box`
 
-            -   `<Box elevation="lowest/low/medium/high/highest">` — Changes the background box shadow for facsimile of elevated height off the page.
+            -   `<Box elevation="none/lowest/low/medium/high/highest">` — Changes the background box shadow for facsimile of elevated height off the page.
 
         -   `Card` / `Tile`
 

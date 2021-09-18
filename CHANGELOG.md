@@ -12,6 +12,10 @@
 
     -   Surfaces
 
+        -   `Box`
+
+            -   `<Box elevation="lowest/low/medium/high/highest">` — Changes the background box shadow for facsimile of elevated height off the page.
+
         -   `Card` / `Tile`
 
             -   `<XXX.Footer orientation="vertical/mobile:vertical/tablet:vertical/desktop:vertical/widescreen:vertical">` — Lays content out vertically.

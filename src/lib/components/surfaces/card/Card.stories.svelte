@@ -20,6 +20,11 @@
         ["highest", false],
     ];
 
+    const ORIENTATIONS = [
+        ["horizontal", true],
+        ["vertical", false],
+    ];
+
     const PALETTES = [
         ["neutral", true],
         ["accent", false],
@@ -171,4 +176,34 @@
             </Card.Container>
         {/each}
     </Stack>
+</Story>
+
+<Story name="Footer Orientation">
+    <Mosaic sizing="huge" spacing="medium">
+        {#each ORIENTATIONS as [orientation, is_default] (orientation)}
+            <Card.Container>
+                <Card.Figure>
+                    <img src={IMAGE_BACKGROUND} />
+                </Card.Figure>
+
+                <Card.Header>
+                    {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Card.Header>
+
+                <Card.Section>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Card.Section>
+
+                <Card.Footer {orientation}>
+                    <Button variation="clear">Cancel</Button>
+                    <Button palette="accent">Confirm</Button>
+                </Card.Footer>
+            </Card.Container>
+        {/each}
+    </Mosaic>
 </Story>

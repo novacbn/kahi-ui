@@ -9,6 +9,8 @@
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
+    import type {DESIGN_ORIENTATION_VERTICAL_ARGUMENT} from "../../../types/orientations";
+    import type {DESIGN_SPACING_ARGUMENT, IPaddingProperties} from "../../../types/spacings";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -16,7 +18,6 @@
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
-    import type {DESIGN_SPACING_ARGUMENT, IPaddingProperties} from "../../../types/spacings";
 
     type $$Events = {
         active: CustomEvent<void>;
@@ -31,6 +32,8 @@
         dismissible?: boolean;
         logic_id?: string;
         state?: boolean;
+
+        orientation?: DESIGN_ORIENTATION_VERTICAL_ARGUMENT;
 
         alignment?: DESIGN_ALIGNMENT_ARGUMENT;
         alignment_x?: DESIGN_ALIGNMENT_X_ARGUMENT;
@@ -58,6 +61,8 @@
     export let dismissible: $$Props["dismissible"] = false;
     export let logic_id: $$Props["logic_id"] = "";
     export let state: $$Props["state"] = false;
+
+    export let orientation: $$Props["orientation"] = undefined;
 
     export let alignment: $$Props["alignment"] = undefined;
     export let alignment_x: $$Props["alignment_x"] = undefined;
@@ -109,6 +114,7 @@
         alignment,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
+        orientation,
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,

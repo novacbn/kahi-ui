@@ -2,7 +2,20 @@
 
 ## UNRELEASED
 
--   Updated the following Components / Component Features
+-   Added the following Components / Component Features
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   `<Overlay orientation="horizontal/mobile:horizontal/tablet:horizontal/desktop:horizontal/widescreen:horizontal">` — Lays content out horizontally.
+
+    -   Surfaces
+
+        -   `Card` / `Tile`
+
+            -   `<XXX.Footer orientation="vertical/mobile:vertical/tablet:vertical/desktop:vertical/widescreen:vertical">` — Lays content out vertically.
+            -   `<XXX alignment="center/stretch" alignment_x="left/right/center/stretch" alignment_y="top/bottom/center/stretch">` — Used to align the content.
 
     -   Utilities
 

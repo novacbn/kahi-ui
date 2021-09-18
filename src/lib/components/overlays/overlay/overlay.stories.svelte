@@ -2,12 +2,18 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Button from "../../interactables/button/Button.svelte";
+    import Box from "../../surfaces/box/Box.svelte";
     import * as Card from "../../surfaces/card";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
     import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
 
     import Overlay from "./Overlay.svelte";
+
+    const ORIENTATIONS = [
+        ["vertical", true],
+        ["horizontal", false],
+    ];
 </script>
 
 <Meta title="Overlays/Overlay" />
@@ -36,4 +42,26 @@
             </Card.Footer>
         </Card.Container>
     </Overlay>
+</Story>
+
+<Story name="Orientation">
+    {#each ORIENTATIONS as [orientation, is_default] (orientation)}
+        <Button for="overlay-orientation-story-{orientation}" palette="accent">
+            Open {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Modal
+        </Button>
+
+        <Overlay
+            logic_id="overlay-orientation-story-{orientation}"
+            spacing="medium"
+            {orientation}
+            captive
+            dismissible
+        >
+            <Box palette="inverse">
+                I was oriented {orientation.toUpperCase()}!
+            </Box>
+
+            <Box palette="inverse">And I am a sibling!</Box>
+        </Overlay>
+    {/each}
 </Story>

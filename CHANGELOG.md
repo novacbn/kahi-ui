@@ -2,7 +2,13 @@
 
 ## UNRELEASED
 
--   Updated the following Components / Component Features
+-   Added the following Components / Component Features
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   `<Overlay orientation="horizontal/mobile:horizontal/tablet:horizontal/desktop:horizontal/widescreen:horizontal">` - Lays content out horizontally.
 
     -   Utilities
 

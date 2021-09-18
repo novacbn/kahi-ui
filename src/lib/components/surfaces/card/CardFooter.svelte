@@ -6,7 +6,7 @@
     } from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_ORIENTATION_VERTICAL_ARGUMENT} from "../../../types/orientations";
+    import type {DESIGN_ORIENTATION_HORIZONTAL_ARGUMENT} from "../../../types/orientations";
     import type {IIntrinsicProperties} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
@@ -15,7 +15,7 @@
     type $$Props = {
         element?: HTMLElement;
 
-        orientation?: DESIGN_ORIENTATION_VERTICAL_ARGUMENT;
+        orientation?: DESIGN_ORIENTATION_HORIZONTAL_ARGUMENT;
 
         alignment?: DESIGN_ALIGNMENT_ARGUMENT;
         alignment_x?: DESIGN_ALIGNMENT_X_ARGUMENT;

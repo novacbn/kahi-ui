@@ -17,6 +17,11 @@
         ["highest", false],
     ];
 
+    const ORIENTATIONS = [
+        ["horizontal", true],
+        ["vertical", false],
+    ];
+
     const PALETTES = [
         ["neutral", true],
         ["accent", false],
@@ -154,6 +159,35 @@
                         </Text>
                     </Text>
                 </Tile.Section>
+            </Tile.Container>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Footer Orientation">
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each ORIENTATIONS as [orientation, is_default] (orientation)}
+            <Tile.Container width="content-max">
+                <Tile.Figure shape="pill">
+                    <img src={IMAGE_AVATAR} />
+                </Tile.Figure>
+
+                <Tile.Section>
+                    <Tile.Header>
+                        {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Tile.Header>
+
+                    <Text>
+                        <Text is="small">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </Text>
+                    </Text>
+                </Tile.Section>
+
+                <Tile.Footer {orientation}>
+                    <Button palette="affirmative" size="small">Confirm</Button>
+                    <Button palette="negative" size="small">Cancel</Button>
+                </Tile.Footer>
             </Tile.Container>
         {/each}
     </Stack>

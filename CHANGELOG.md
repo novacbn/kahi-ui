@@ -19,6 +19,7 @@
         -   `Box`
 
             -   `<Box elevation="none/lowest/low/medium/high/highest">` — Changes the background box shadow for facsimile of elevated height off the page.
+            -   `<Box shape="none/pill/rounded">` — Changes the border radius shape of the Component.
 
         -   `Card` / `Tile`
 

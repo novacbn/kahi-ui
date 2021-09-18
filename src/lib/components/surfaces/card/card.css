@@ -1,4 +1,12 @@
 .card {
+    --orientation-direction: row;
+
+    --orientation-flex-alignment-x: var(--flex-alignment-x);
+    --orientation-flex-alignment-y: var(--flex-alignment-y);
+
+    --flex-alignment-x: flex-end;
+    --flex-alignment-y: center;
+
     --elevation: var(--elevation-lowest);
 
     --palette-background-normal: var(--palette-auto-off-normal);
@@ -22,11 +30,14 @@
     }
 
     & > footer {
-        @apply justify-end;
+        align-items: var(--orientation-flex-alignment-x);
+        justify-content: var(--orientation-flex-alignment-y);
+
+        flex-direction: var(--orientation-direction);
     }
 
     & > header {
-        @apply font-bold leading-[var(--font-content-line-height-medium)];
+        @apply font-bold items-center leading-[var(--font-content-line-height-medium)];
 
         font-size: var(--font-content-size-local-medium);
     }
@@ -42,7 +53,7 @@
     }
 
     & > :is(header, footer) {
-        @apply flex gap-[var(--spacing-local-small)] items-center;
+        @apply flex gap-[var(--spacing-local-small)];
     }
 
     & > :is(figure, footer, header) {

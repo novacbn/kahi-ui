@@ -91,7 +91,7 @@
                             Open {placement.toUpperCase()}x{alignment.toUpperCase()} Popover
                         </ContextButton>
 
-                        <Card.Container palette="auto" elevation="high" max_width="content-max">
+                        <Card.Container palette="inverse" elevation="high" max_width="content-max">
                             <Card.Section>
                                 <Menu.Container>
                                     <Menu.Button>
@@ -137,7 +137,7 @@
                     Open {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Spaced Popover
                 </ContextButton>
 
-                <Card.Container palette="auto-inverse" elevation="high" max_width="content-max">
+                <Card.Container palette="inverse" elevation="high" max_width="content-max">
                     <Card.Section>
                         <Menu.Container>
                             <Menu.Button>

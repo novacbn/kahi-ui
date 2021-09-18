@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type {DESIGN_ELEVATION_ARGUMENT} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
@@ -10,6 +11,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        elevation?: DESIGN_ELEVATION_ARGUMENT;
         palette?: DESIGN_PALETTE_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -26,6 +28,7 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    export let elevation: $$Props["elevation"] = undefined;
     export let palette: $$Props["palette"] = undefined;
 </script>
 
@@ -33,7 +36,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="box {_class}"
-    {...map_data_attributes({palette})}
+    {...map_data_attributes({elevation, palette})}
 >
     <slot />
 </div>

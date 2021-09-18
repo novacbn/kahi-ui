@@ -11,6 +11,7 @@
 
     const ELEVATIONS = [
         ["lowest", true],
+        ["none", false],
         ["low", false],
         ["medium", false],
         ["high", false],

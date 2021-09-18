@@ -1,6 +1,9 @@
 <script lang="ts">
     import {createEventDispatcher, onDestroy, onMount, tick} from "svelte";
 
+    import type {LOADING_BEHAVIORS_ARGUMENT} from "../../../types/loading";
+    import {LOADING_BEHAVIORS} from "../../../types/loading";
+
     type $$Events = {
         mount: CustomEvent<void>;
     };
@@ -8,6 +11,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        loading?: LOADING_BEHAVIORS_ARGUMENT;
         prepend?: boolean;
         target?: HTMLElement | string;
     };
@@ -18,8 +22,11 @@
 
     const dispatch = createEventDispatcher();
 
+    let hidden: boolean | undefined = true;
+
     export let element: $$Props["element"] = undefined;
 
+    export let loading: $$Props["loading"] = undefined;
     export let prepend: $$Props["prepend"] = false;
     export let target: $$Props["target"] = typeof window !== "object" ? "" : document.body;
 
@@ -50,11 +57,13 @@
         if (prepend) queried_target.prepend(element);
         else queried_target.append(element);
 
-        element.hidden = false;
+        hidden = undefined;
         dispatch("mount");
     });
 </script>
 
-<div bind:this={element} class="portal" hidden>
-    <slot />
+<div bind:this={element} class="portal" {hidden}>
+    {#if loading !== LOADING_BEHAVIORS.lazy || !hidden}
+        <slot />
+    {/if}
 </div>

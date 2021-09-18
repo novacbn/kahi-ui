@@ -21,3 +21,11 @@
         <Box padding="small">And I was moved to here!</Box>
     </Portal>
 </Story>
+
+<Story name="Lazy">
+    <Box bind:element palette="accent" padding="small">I am the new container element!</Box>
+
+    <Portal target={element} loading="lazy">
+        <Box padding="small">And I was moved to here!</Box>
+    </Portal>
+</Story>

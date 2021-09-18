@@ -26,6 +26,12 @@
         ["affirmative", false],
         ["negative", false],
     ];
+
+    const SHAPES = [
+        ["none", true],
+        ["pill", false],
+        ["rounded", false],
+    ];
 </script>
 
 <Meta title="Surfaces/Box" />
@@ -53,9 +59,21 @@
 <Story name="Elevation">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
-            <Box {elevation}>
+            <Box palette="inverse" {elevation}>
                 This is a <Text is="strong">
                     {`${elevation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text> Box!
+            </Box>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Shape">
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each SHAPES as [shape, is_default] (shape)}
+            <Box palette="inverse" padding="huge" {shape}>
+                This is a <Text is="strong">
+                    {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text> Box!
             </Box>
         {/each}

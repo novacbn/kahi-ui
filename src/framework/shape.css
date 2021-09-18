@@ -1,0 +1,11 @@
+[data-shape~="none"] {
+    --shape-radius: none;
+}
+
+[data-shape~="pill"] {
+    --shape-radius: var(--radius-pill);
+}
+
+[data-shape~="rounded"] {
+    --shape-radius: var(--radius-small);
+}

@@ -1,8 +1,15 @@
 .box {
+    --elevation: none;
+
+    --shape-radius: none;
+
     --palette-background-normal: var(--palette-auto-off-normal);
     --palette-foreground-normal: var(--palette-inverse-normal);
 
     @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+
+    border-radius: var(--shape-radius);
+    box-shadow: var(--elevation);
 
     transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);

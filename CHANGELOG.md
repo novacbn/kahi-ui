@@ -4,6 +4,10 @@
 
 -   Added the following Components / Component Features
 
+    -   \*
+
+        -   `<XXX elevation="none">` — Removes elevation from the Component.
+
     -   Overlays
 
         -   `Overlay`
@@ -11,6 +15,11 @@
             -   `<Overlay orientation="horizontal/mobile:horizontal/tablet:horizontal/desktop:horizontal/widescreen:horizontal">` — Lays content out horizontally.
 
     -   Surfaces
+
+        -   `Box`
+
+            -   `<Box elevation="none/lowest/low/medium/high/highest">` — Changes the background box shadow for facsimile of elevated height off the page.
+            -   `<Box shape="none/pill/rounded">` — Changes the border radius shape of the Component.
 
         -   `Card` / `Tile`
 

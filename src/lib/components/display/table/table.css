@@ -1,7 +1,12 @@
 table {
     --palette-background-lightest: var(--palette-neutral-lightest);
 
-    @apply border-collapse w-full;
+    --sizing-text-size: var(--document-font-size);
+    --sizing-text-line-height: var(--document-font-line-height);
+
+    @apply border-collapse leading-[var(--sizing-text-line-height)] w-full;
+
+    font-size: var(--sizing-text-size);
 }
 
 /**
@@ -44,7 +49,7 @@ tr {
 
 th,
 td {
-    @apply align-center px-[var(--spacing-root-medium)] py-[var(--spacing-root-small)] text-left;
+    @apply align-center px-[var(--spacing-local-medium)] py-[var(--spacing-local-small)] text-left;
 }
 
 :is(thead, tfoot) > tr > :is(td, th),

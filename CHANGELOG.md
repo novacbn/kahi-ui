@@ -2,6 +2,10 @@
 
 ## UNRELEASED
 
+...
+
+## 0.3.5 - 2021/09/19
+
 -   Added the following Components / Component Features
 
     -   \*

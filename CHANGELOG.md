@@ -2,7 +2,7 @@
 
 ## UNRELEASED
 
-...
+-   Fixed `<XXX sizing="{VIEWPORT}:{SIZING}>` modifiers not having correct values.
 
 ## 0.3.5 - 2021/09/19
 

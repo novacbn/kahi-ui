@@ -14,6 +14,8 @@
 @import url("../lib/components/feedback/spinner/spinner.theme.css");
 @import url("../lib/components/feedback/wave/wave.theme.css");
 @import url("../lib/components/surfaces/box/box.theme.css");
+@import url("../lib/components/surfaces/card/card.theme.css");
+@import url("../lib/components/surfaces/hero/hero.theme.css");
 
 @import url("./document.css");
 @import url("./embedded.css");

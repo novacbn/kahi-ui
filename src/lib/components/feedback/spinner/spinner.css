@@ -1,28 +1,39 @@
 .spinner {
-    --palette-background-bold: currentColor;
     --size-icon: 1em;
 
-    @apply align-middle border-2 border-solid h-[var(--size-icon)] inline-block
-    rounded-full select-none w-[var(--size-icon)];
+    display: inline-block;
+
+    width: 1em;
+    height: 1em;
+
+    border-radius: var(--spinner-border-radius);
+    border-style: solid;
+    border-width: var(--spinner-border-width);
+    font-size: var(--size-icon);
 
     border-color: currentColor transparent;
-    color: var(--palette-background-bold);
+    color: currentColor;
 
-    animation: spin 1s linear infinite;
+    vertical-align: middle;
 
-    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    user-select: none;
+
+    animation: spinner-rotate var(--spinner-animation-duration) var(--spinner-animation-function)
+        infinite;
+    transition: color var(--animation-visual-duration) var(--animation-visual-function);
 
     &[data-palette] {
         color: rgb(var(--palette-background-bold));
     }
+}
 
-    &[data-variation="dual"] {
-        @apply border-double;
+@keyframes spinner-rotate {
+    from {
+        transform: rotate(0deg);
+    }
 
-        &:is([data-size="medium"], [data-size="large"], [data-size="huge"]) {
-            border-width: 0.375em;
-        }
-
-        border-width: 0.25em;
+    to {
+        transform: rotate(360deg);
     }
 }

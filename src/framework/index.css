@@ -16,6 +16,7 @@
 @import url("../lib/components/surfaces/box/box.theme.css");
 @import url("../lib/components/surfaces/card/card.theme.css");
 @import url("../lib/components/surfaces/hero/hero.theme.css");
+@import url("../lib/components/surfaces/tile/tile.theme.css");
 
 @import url("./document.css");
 @import url("./embedded.css");

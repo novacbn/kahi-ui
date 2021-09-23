@@ -8,6 +8,7 @@
     --card-sizing-text-line-height: var(--document-font-line-height);
 
     --card-border-color: var(--palette-inverse-off-lightest);
+    --card-border-radius: var(--radius-small);
     --card-border-opacity: 0.1;
     --card-border-width: 2px;
     --card-padding: var(--spacing-local-medium);

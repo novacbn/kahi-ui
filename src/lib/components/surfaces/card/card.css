@@ -18,8 +18,6 @@
     display: flex;
     flex-direction: column;
 
-    border-radius: var(--radius-small);
-
     font-size: var(--sizing-text-size);
     line-height: var(--sizing-text-line-height);
 
@@ -32,6 +30,7 @@
     &:not([data-variation]) {
         border: var(--card-border-width) rgba(var(--card-border-color), var(--card-border-opacity))
             solid;
+        border-radius: var(--card-border-radius);
 
         background: rgb(var(--palette-background-normal));
         color: rgb(var(--palette-foreground-normal));

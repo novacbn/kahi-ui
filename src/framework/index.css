@@ -5,7 +5,15 @@
  */
 
 @import url("./windicss.css");
+
 @import url("./theme.css");
+@import url("../lib/components/display/badge/badge.theme.css");
+@import url("../lib/components/feedback/dot/dot.theme.css");
+@import url("../lib/components/feedback/ellipsis/ellipsis.theme.css");
+@import url("../lib/components/feedback/progress/progress.theme.css");
+@import url("../lib/components/feedback/spinner/spinner.theme.css");
+@import url("../lib/components/feedback/wave/wave.theme.css");
+@import url("../lib/components/surfaces/box/box.theme.css");
 
 @import url("./document.css");
 @import url("./embedded.css");

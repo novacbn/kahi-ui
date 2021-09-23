@@ -105,15 +105,15 @@ src/lib/components/surfaces/card
 When creating / modifying [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) for theming Components, make sure to follow the following format for naming:
 
 ```css
---[component]-[variation?]-[state?]-[pattern?]-[declaration]: ...;
+--[component]-[pattern?]-[variation?]-[state?]-[declaration]: ...;
 ```
 
 Which can be broken down into:
 
 -   `component` — Name of the Component.
+-   `pattern?` — Nested pattern Component, if applicable. e.g. `--card-section`
 -   `variation?` — Variation of the Component, if applicable. e.g. `--button-clear`, `--button-outline`, `--card-flush`
 -   `state?` — State of the Component, if applicable. e.g. `--anchor-hover`, `--anchor-active`, or if composite state, `--button-pressed`
--   `pattern?` — Nested pattern Component, if applicable. e.g. `--card-section`
 -   `declaration` — Generally this is the CSS declaration being applied. e.g. `--badge-font-size`
 
 ### Actions Layout

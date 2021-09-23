@@ -2,7 +2,13 @@
 
 ## UNRELEASED
 
-...
+-   Removed the following Components / Component Features
+
+    -   Feedback
+
+        -   `Spinner`
+
+            -   `<Spinner variation="dual">` — Removed previously deprecated feature.
 
 ## 0.3.5 - 2021/09/19
 

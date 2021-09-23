@@ -1,0 +1,19 @@
+:root {
+    /** */
+
+    --ellipsis-character: ".";
+
+    /** */
+
+    --ellipsis-content-first-animation-delay: calc(
+        -1 * (var(--animation-attention-duration) * 2 / 3)
+    );
+    --ellipsis-content-second-animation-delay: calc(
+        -1 * (var(--animation-attention-duration) * 1 / 3)
+    );
+
+    /** */
+
+    --ellipsis-pulse-end-opacity: 0.3;
+    --ellipsis-pulse-start-opacity: 1;
+}

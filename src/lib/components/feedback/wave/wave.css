@@ -1,38 +1,59 @@
 .wave {
-    --palette-background-bold: currentColor;
+    display: inline-flex;
+    align-items: center;
 
-    @apply align-middle inline-flex items-center leading-[var(--font-content-line-height-nano)]
-    pointer-events-none select-none text-[var(--palette-background-bold)] whitespace-nowrap;
+    font-size: var(--wave-font-size);
 
-    font-size: var(--font-content-size-root-nano);
+    vertical-align: middle;
+    white-space: nowrap;
 
-    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    user-select: none;
+
+    transition: color var(--animation-visual-duration) var(--animation-visual-function);
 
     &[data-palette] {
-        @apply text-[rgb(var(--palette-background-bold))];
+        color: rgb(var(--palette-background-bold));
     }
 
     & > span {
-        @apply bg-current h-[1em] inline-block w-[1em];
+        display: inline-block;
 
-        border-radius: var(--radius-circle);
+        width: 1em;
+        height: 1em;
 
-        animation: wave 1s infinite;
+        background: currentColor;
+        border-radius: var(--wave-border-radius);
+
+        animation: wave-bounce var(--animation-attention-duration) infinite;
 
         &:nth-child(2) {
-            animation-delay: -0.2s;
+            animation-delay: var(--wave-content-second-animation-delay);
         }
 
         &:nth-child(3) {
-            animation-delay: -0.4s;
+            animation-delay: var(--wave-content-third-animation-delay);
         }
 
         &:nth-child(4) {
-            animation-delay: -0.6s;
+            animation-delay: var(--wave-content-fourth-animation-delay);
         }
 
         &:last-child {
-            animation-delay: -0.8s;
+            animation-delay: var(--wave-content-fifth-animation-delay);
         }
+    }
+}
+
+@keyframes wave-bounce {
+    0%,
+    100% {
+        transform: translateY(-15%);
+        animation-timing-function: var(--wave-bounce-top-animation-function);
+    }
+
+    50% {
+        transform: translateY(15%);
+        animation-timing-function: var(--wave-bounce-bottom-animation-function);
     }
 }

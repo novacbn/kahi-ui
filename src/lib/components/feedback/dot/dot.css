@@ -1,17 +1,24 @@
 .dot {
-    --palette-background-bold: currentColor;
+    display: inline-block;
 
-    @apply align-middle bg-[var(--palette-background-bold)] h-[1em] inline-block
-    leading-[var(--font-content-line-height-nano)] pointer-events-none relative
-    select-none w-[1em];
+    width: 1em;
+    height: 1em;
 
-    border-radius: var(--radius-circle);
+    position: relative;
 
-    font-size: var(--font-content-size-root-nano);
+    background: currentColor;
+    border-radius: var(--dot-border-radius);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: var(--dot-font-size);
+
+    vertical-align: middle;
+
+    user-select: none;
+    pointer-events: none;
+
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function);
 
     &[data-palette] {
-        @apply bg-[rgb(var(--palette-background-bold))];
+        color: rgb(var(--palette-background-bold));
     }
 }

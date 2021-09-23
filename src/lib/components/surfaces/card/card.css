@@ -1,84 +1,106 @@
 .card {
-    --orientation-direction: row;
+    --orientation-direction: var(--card-footer-orientation-direction);
 
-    --orientation-flex-alignment-x: var(--flex-alignment-y);
-    --orientation-flex-alignment-y: var(--flex-alignment-x);
+    --orientation-flex-alignment-x: var(--card-footer-flex-alignment-y);
+    --orientation-flex-alignment-y: var(--card-footer-flex-alignment-x);
 
-    --flex-alignment-x: flex-end;
-    --flex-alignment-y: center;
+    --flex-alignment-x: var(--card-footer-flex-alignment-x);
+    --flex-alignment-y: var(--card-footer-flex-alignment-y);
 
-    --elevation: var(--elevation-lowest);
+    --elevation: var(--card-elevation);
 
-    --palette-background-normal: var(--palette-auto-off-normal);
-    --palette-foreground-normal: var(--palette-inverse-normal);
+    --palette-background-normal: var(--card-palette-background-normal);
+    --palette-foreground-normal: var(--card-palette-foreground-normal);
 
-    --sizing-text-size: var(--document-font-size);
-    --sizing-text-line-height: var(--document-font-line-height);
+    --sizing-text-size: var(--card-sizing-text-size);
+    --sizing-text-line-height: var(--card-sizing-text-line-height);
 
-    @apply flex flex-col leading-[var(--sizing-text-line-height)] overflow-hidden;
+    display: flex;
+    flex-direction: column;
 
     border-radius: var(--radius-small);
 
     font-size: var(--sizing-text-size);
+    line-height: var(--sizing-text-line-height);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
 
-    & > figure {
-        @apply align-center flex justify-center;
-    }
-
-    & > footer {
-        align-items: var(--orientation-flex-alignment-x);
-        justify-content: var(--orientation-flex-alignment-y);
-
-        flex-direction: var(--orientation-direction);
-    }
-
-    & > header {
-        @apply font-bold items-center leading-[var(--font-content-line-height-medium)];
-
-        font-size: var(--font-content-size-local-medium);
-    }
-
-    & > section {
-        &:not(:first-child) {
-            @apply mt-[var(--spacing-local-small)];
-        }
-
-        &:last-of-type {
-            @apply flex-grow;
-        }
-    }
-
-    & > :is(header, footer) {
-        @apply flex gap-[var(--spacing-local-small)];
-    }
-
-    & > :is(figure, footer, header) {
-        &:not(:first-child) {
-            @apply mt-[var(--spacing-local-medium)];
-        }
-    }
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        border-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-normal))] border-2 border-solid text-[rgb(var(--palette-foreground-normal))];
+        border: var(--card-border-width) rgba(var(--card-border-color), var(--card-border-opacity))
+            solid;
 
-        border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
+        background: rgb(var(--palette-background-normal));
+        color: rgb(var(--palette-foreground-normal));
 
         box-shadow: var(--elevation);
 
         & > :is(footer, header, section) {
-            @apply mx-[var(--spacing-local-medium)];
+            margin-left: var(--card-padding);
+            margin-right: var(--card-padding);
 
             &:first-child {
-                @apply mt-[var(--spacing-local-medium)];
+                margin-top: var(--card-padding);
             }
 
             &:last-child {
-                @apply mb-[var(--spacing-local-medium)];
+                margin-bottom: var(--card-padding);
             }
         }
+    }
+}
+
+.card > figure {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    &:not(:first-child) {
+        margin-top: var(--card-figure-margin-top);
+    }
+}
+
+.card > footer {
+    display: flex;
+
+    flex-direction: var(--orientation-direction);
+
+    align-items: var(--orientation-flex-alignment-x);
+    justify-content: var(--orientation-flex-alignment-y);
+
+    gap: var(--card-footer-gap);
+
+    &:not(:first-child) {
+        margin-top: var(--card-footer-margin-top);
+    }
+}
+
+.card > header {
+    display: flex;
+
+    align-items: center;
+
+    gap: var(--card-header-gap);
+
+    font-size: var(--card-header-font-size);
+    font-weight: var(--card-header-font-weight);
+    line-height: var(--card-header-line-height);
+
+    &:not(:first-child) {
+        margin-top: var(--card-header-margin-top);
+    }
+}
+
+.card > section {
+    &:not(:first-child) {
+        margin-top: var(--card-section-margin-top);
+    }
+
+    &:last-of-type {
+        flex-grow: 1;
     }
 }

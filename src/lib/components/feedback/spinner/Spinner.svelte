@@ -12,11 +12,6 @@
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         size?: DESIGN_SIZE_ARGUMENT;
-
-        /**
-         * @deprecated
-         */
-        variation?: "dual";
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -28,12 +23,11 @@
 
     export let palette: $$Props["palette"] = undefined;
     export let size: $$Props["size"] = undefined;
-    export let variation: $$Props["variation"] = undefined;
 </script>
 
 <span
     bind:this={element}
     {...map_global_attributes($$props)}
     class="spinner {_class}"
-    {...map_data_attributes({palette, size, variation})}
+    {...map_data_attributes({palette, size})}
 />

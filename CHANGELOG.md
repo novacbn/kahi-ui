@@ -2,13 +2,46 @@
 
 ## UNRELEASED
 
+-   Added CSS Theming Variables to the following Components: `Anchor`. `Badge`, `Box`, `Breadcrumb`, `Card`, `Container`, `Divider`, `Dot`, `Ellipsis`, `Hero`, `Progress`, `Spinner`, `Tile`, `Wave`.
+
+-   Added the following Components / Component Features
+
+    -   Navigation
+
+        -   `Anchor`
+
+            -   `<Anchor palette="accent/dark/light/alert/affirmative/negative">` — Used to change the rendered color palette.
+
+    -   Utilities
+
+        -   `<Transition>` — Encapsulates the child content within an controllable animation.
+
+            -   `<Transition delay="number|string">` — Provide a percentage decimal (e.g. `1.2` which means `120%`) to control how long of the transition duration to wait before playing.
+            -   `<Transition direction="bottom/left/right/top">` — On supported animations, controls the direction in which the animation moves towards. With most animations defaulting to `bottom`.
+            -   `<Transition state="false/true/undefined">` — If `true`, the enter animation plays. If `false`, exit animation plays. No animation plays when provided `undefined`.
+
+            -   `<Transition animation="XXX">` — Controls which animation is played.
+
+                -   `<Transition animation="clip">` — Sets to a `clip-path` / `opacity` "blinders" animation.
+                -   `<Transition animation="fade">` — Sets to a simple `opacity` "fade in" / "fade out" animation.
+                -   `<Transition animation="scale">` — Sets to a `transform: scale` / `opacity` "zoom in" / "zoom out" animation.
+                -   `<Transition animation="slide">` — Sets to a `transform: translate` / `opacity` sliding movement animation.
+
+-   Updated the following Components / Component Features
+
+    -   Navigation
+
+        -   `Breadcrumb`
+
+            -   `<Breadcrumb.Item active>` — Changed from a `active={true}` being bolded, to `active={false}` being lower opacity. Works better in situations where a parent container has bolded text.
+
 -   Removed the following Components / Component Features
 
     -   Feedback
 
         -   `Spinner`
 
-            -   `<Spinner variation="dual">` — Removed previously deprecated feature.
+            -   **(BREAKING)** `<Spinner variation="dual">` — Removed previously deprecated feature.
 
 ## 0.3.5 - 2021/09/19
 

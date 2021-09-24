@@ -1,49 +1,67 @@
 hr,
 span[role="separator"] {
-    --palette-background-bold: currentColor;
+    display: block;
 
-    @apply block opacity-40 select-none text-[var(--palette-background-bold)];
+    color: currentColor;
 
-    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: var(--divider-opacity);
+    pointer-events: none;
+    user-select: none;
+
+    transition: color var(--animation-visual-duration) var(--animation-visual-function),
+        opacity var(--animation-visual-duration) var(--animation-visual-function);
 
     &[data-palette] {
-        @apply text-[rgb(var(--palette-background-bold))];
+        color: rgb(var(--palette-background-bold));
     }
 
     &:not([data-orientation]) {
-        @apply my-[var(--spacing-root-medium)] w-full;
+        width: 100%;
+        margin: var(--divider-margin) 0;
     }
 
     &[data-orientation="vertical"] {
-        @apply h-full mx-[var(--spacing-root-medium)];
+        height: 100%;
+        margin: 0 var(--divider-margin);
     }
 }
 
 hr {
-    @apply border-0 bg-current;
-
-    border-radius: var(--radius-small);
+    border: none;
+    background: currentColor;
+    border-radius: var(--divider-border-radius);
 
     &:not([data-orientation]) {
-        @apply h-px;
+        height: var(--divider-width);
     }
 
     &[data-orientation="vertical"] {
-        @apply w-px;
+        width: var(--divider-width);
     }
 }
 
 span[role="separator"] {
-    @apply font-bold inline-flex items-center gap-[var(--spacing-local-small)] justify-center
-    text-center tracking-widest whitespace-nowrap;
+    display: inline-flex;
 
-    font-size: 80%;
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--divider-text-gap);
+
+    font-size: var(--divider-text-font-size);
+    font-weight: var(--divider-text-font-weight);
+    letter-spacing: var(--divider-text-letter-spacing);
+
+    text-align: center;
+    white-space: nowrap;
 
     &::before,
     &::after {
-        @apply bg-current block flex-grow;
+        display: block;
+        flex-grow: 1;
 
-        border-radius: var(--radius-small);
+        background: currentColor;
+        border-radius: var(--divider-border-radius);
 
         content: "";
     }
@@ -51,22 +69,16 @@ span[role="separator"] {
     &:not([data-orientation]) {
         &::before,
         &::after {
-            @apply h-px;
+            height: var(--divider-width);
         }
     }
 
     &[data-orientation="vertical"] {
-        /**
-         * HACK: Might be missing something, but `@apply write-vertical-right` doesn't seem to work?
-         */
-
-        -webkit-writing-mode: vertical-rl;
-        -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
 
         &::before,
         &::after {
-            @apply w-px;
+            width: var(--divider-width);
         }
     }
 }

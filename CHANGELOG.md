@@ -2,7 +2,7 @@
 
 ## UNRELEASED
 
--   Added CSS Theming Variables to the following Components: `Anchor`. `Badge`, `Box`, `Breadcrumb`, `Card`, `Container`, `Divider`, `Dot`, `Ellipsis`, `Hero`, `List`, `Progress`, `Spinner`, `Tile`, `Wave`.
+-   Added CSS Theming Variables to the following Components: `Anchor`. `Badge`, `Box`, `Breadcrumb`, `Card`, `Container`, `Divider`, `Dot`, `Ellipsis`, `Group`, `Hero`, `List`, `Progress`, `Spinner`, `Table`, `Tile`, `Wave`.
 
 -   Added the following Components / Component Features
 

@@ -16,7 +16,7 @@
         delay?: number | string;
         direction?: "bottom" | "left" | "right" | "top";
         state?: boolean;
-        transition?: "clip" | "scale" | "slide";
+        transition?: "clip" | "fade" | "scale" | "slide";
     } & IHTML5Properties &
         IGlobalProperties;
 

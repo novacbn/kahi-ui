@@ -48,6 +48,16 @@
     }
 }
 
+.transition[data-transition="fade"] {
+    &[data-state="false"] {
+        --animation: transition-fade-exit;
+    }
+
+    &[data-state="true"] {
+        --animation: transition-fade-enter;
+    }
+}
+
 .transition[data-transition="scale"] {
     &[data-state="false"] {
         --animation: transition-scale-exit;
@@ -224,6 +234,26 @@
 
     100% {
         clip-path: inset(var(--transition-clip-top-start-clip-path));
+        opacity: 0;
+    }
+}
+
+@keyframes transition-fade-enter {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes transition-fade-exit {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
         opacity: 0;
     }
 }

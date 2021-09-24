@@ -64,6 +64,24 @@
     </Grid.Container>
 </Story>
 
+<Story name="Fade">
+    <Button on:click={on_state_click}>Toggle State</Button>
+
+    <Transition transition="fade" {state}>
+        <Box palette="inverse" padding="huge">hello world!</Box>
+    </Transition>
+</Story>
+
+<Story name="Fade Grid">
+    <Grid.Container points="4" spacing="medium">
+        {#each new Array(20) as _, index (index)}
+            <Transition transition="fade" delay={Math.floor(index / 4) * 0.5} state={true}>
+                <Box palette="inverse" padding="large">hello world!</Box>
+            </Transition>
+        {/each}
+    </Grid.Container>
+</Story>
+
 <Story name="Scale">
     <Button on:click={on_state_click}>Toggle State</Button>
 

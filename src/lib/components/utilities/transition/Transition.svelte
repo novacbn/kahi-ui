@@ -13,10 +13,10 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        animation?: "clip" | "fade" | "scale" | "slide";
         delay?: number | string;
         direction?: "bottom" | "left" | "right" | "top";
         state?: boolean;
-        transition?: "clip" | "fade" | "scale" | "slide";
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -31,17 +31,17 @@
 
     export {_class as class};
 
+    export let animation: $$Props["animation"] = undefined;
     export let delay: $$Props["delay"] = undefined;
     export let direction: $$Props["direction"] = undefined;
     export let state: $$Props["state"] = undefined;
-    export let transition: $$Props["transition"] = undefined;
 </script>
 
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
     class="transition {_class}"
-    {...map_data_attributes({direction, transition, state})}
+    {...map_data_attributes({animation, direction, state})}
     on:animationend
     on:animationstart
     style={delay ? `${style}--delay:${delay};` : style}

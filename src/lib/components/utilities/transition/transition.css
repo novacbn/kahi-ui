@@ -6,7 +6,7 @@
         calc(var(--animation-reveal-duration) * var(--delay)) both;
 }
 
-.transition[data-transition="clip"] {
+.transition[data-animation="clip"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
         &[data-state="false"] {
             --animation: transition-clip-bottom-exit;
@@ -48,7 +48,7 @@
     }
 }
 
-.transition[data-transition="fade"] {
+.transition[data-animation="fade"] {
     &[data-state="false"] {
         --animation: transition-fade-exit;
     }
@@ -58,7 +58,7 @@
     }
 }
 
-.transition[data-transition="scale"] {
+.transition[data-animation="scale"] {
     &[data-state="false"] {
         --animation: transition-scale-exit;
     }
@@ -68,7 +68,7 @@
     }
 }
 
-.transition[data-transition="slide"] {
+.transition[data-animation="slide"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
         &[data-state="false"] {
             --animation: transition-slide-bottom-exit;

@@ -30,7 +30,7 @@
 <Story name="Default">
     <Button on:click={on_state_click}>Toggle State</Button>
 
-    <Transition transition="clip" {state}>
+    <Transition animation="clip" {state}>
         <Box palette="inverse" padding="huge">hello world!</Box>
     </Transition>
 </Story>
@@ -40,7 +40,7 @@
 
     <Grid.Container points={["4", "desktop:3", "tablet:2", "mobile:1"]} spacing="medium">
         {#each DIRECTIONS as [direction, is_default] (direction)}
-            <Transition transition="clip" {direction} {state}>
+            <Transition animation="clip" {direction} {state}>
                 <Box palette="inverse" padding="huge">
                     Clip {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Box>
@@ -53,7 +53,7 @@
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition
-                transition="clip"
+                animation="clip"
                 direction="bottom"
                 delay={Math.floor(index / 4) * 0.5}
                 state={true}
@@ -67,7 +67,7 @@
 <Story name="Fade">
     <Button on:click={on_state_click}>Toggle State</Button>
 
-    <Transition transition="fade" {state}>
+    <Transition animation="fade" {state}>
         <Box palette="inverse" padding="huge">hello world!</Box>
     </Transition>
 </Story>
@@ -75,7 +75,7 @@
 <Story name="Fade Grid">
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
-            <Transition transition="fade" delay={Math.floor(index / 4) * 0.5} state={true}>
+            <Transition animation="fade" delay={Math.floor(index / 4) * 0.5} state={true}>
                 <Box palette="inverse" padding="large">hello world!</Box>
             </Transition>
         {/each}
@@ -85,7 +85,7 @@
 <Story name="Scale">
     <Button on:click={on_state_click}>Toggle State</Button>
 
-    <Transition transition="scale" {state}>
+    <Transition animation="scale" {state}>
         <Box palette="inverse" padding="huge">hello world!</Box>
     </Transition>
 </Story>
@@ -93,7 +93,7 @@
 <Story name="Scale Grid">
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
-            <Transition transition="scale" delay={Math.floor(index / 4) * 0.5} state={true}>
+            <Transition animation="scale" delay={Math.floor(index / 4) * 0.5} state={true}>
                 <Box palette="inverse" padding="large">hello world!</Box>
             </Transition>
         {/each}
@@ -109,7 +109,7 @@
         margin_top="huge"
     >
         {#each DIRECTIONS as [direction, is_default] (direction)}
-            <Transition transition="slide" {direction} {state}>
+            <Transition animation="slide" {direction} {state}>
                 <Box palette="inverse" padding="huge">
                     Slide {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Box>
@@ -121,7 +121,7 @@
 <Story name="Slide Grid">
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
-            <Transition transition="slide" delay={Math.floor(index / 4) * 0.5} state={true}>
+            <Transition animation="slide" delay={Math.floor(index / 4) * 0.5} state={true}>
                 <Box palette="inverse" padding="large">hello world!</Box>
             </Transition>
         {/each}

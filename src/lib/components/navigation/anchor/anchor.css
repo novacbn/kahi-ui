@@ -1,9 +1,16 @@
-a:not([role]) {
-    @apply cursor-pointer no-underline text-[rgb(var(--palette-accent-boldest))];
+a {
+    --palette-background-boldest: var(--anchor-palette-background-boldest);
+}
 
-    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+a:not([role]) {
+    color: rgb(var(--palette-background-boldest));
+    text-decoration: var(--anchor-text-decoration);
+
+    cursor: pointer;
+
+    transition: color var(--animation-visual-duration) var(--animation-visual-function);
 
     &:hover {
-        @apply underline;
+        text-decoration: var(--anchor-hover-text-decoration);
     }
 }

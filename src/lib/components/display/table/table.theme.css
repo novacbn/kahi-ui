@@ -1,0 +1,21 @@
+:root {
+    /** */
+
+    --table-palette-background-lightest: var(--palette-neutral-lightest);
+    --table-sizing-text-size: var(--document-font-size);
+    --table-sizing-text-line-height: var(--document-font-line-height);
+
+    /** */
+
+    --table-borders-border-radius: var(--radius-medium);
+    --table-borders-opacity: 0.4;
+    --table-borders-width: 1px;
+
+    /** */
+
+    --table-stripes-opacity: 0.2;
+
+    /** */
+
+    --table-column-padding: var(--spacing-local-small) var(--spacing-local-medium);
+}

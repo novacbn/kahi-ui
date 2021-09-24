@@ -1,116 +1,101 @@
 .transition {
+    --animation: unset;
     --delay: 0;
-    --delay-calc: calc(var(--animation-reveal-duration) * var(--delay));
+
+    animation: var(--animation) var(--animation-reveal-duration) var(--animation-reveal-function)
+        calc(var(--animation-reveal-duration) * var(--delay)) both;
 }
 
 .transition[data-transition="clip"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
         &[data-state="false"] {
-            animation: transition-clip-bottom-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-bottom-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-clip-bottom-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-bottom-enter;
         }
     }
 
     &[data-direction="top"] {
         &[data-state="false"] {
-            animation: transition-clip-top-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-top-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-clip-top-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-top-enter;
         }
     }
 
     &[data-direction="left"] {
         &[data-state="false"] {
-            animation: transition-clip-left-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-left-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-clip-left-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-left-enter;
         }
     }
 
     &[data-direction="right"] {
         &[data-state="false"] {
-            animation: transition-clip-right-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-right-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-clip-right-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-clip-right-enter;
         }
     }
 }
 
 .transition[data-transition="scale"] {
     &[data-state="false"] {
-        animation: transition-scale-exit var(--animation-reveal-duration)
-            var(--animation-reveal-function) var(--delay-calc) both;
+        --animation: transition-scale-exit;
     }
 
     &[data-state="true"] {
-        animation: transition-scale-enter var(--animation-reveal-duration)
-            var(--animation-reveal-function) var(--delay-calc) both;
+        --animation: transition-scale-enter;
     }
 }
 
 .transition[data-transition="slide"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
         &[data-state="false"] {
-            animation: transition-slide-bottom-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-bottom-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-slide-bottom-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-bottom-enter;
         }
     }
 
     &[data-direction="top"] {
         &[data-state="false"] {
-            animation: transition-slide-top-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-top-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-slide-top-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-top-enter;
         }
     }
 
     &[data-direction="left"] {
         &[data-state="false"] {
-            animation: transition-slide-left-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-left-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-slide-left-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-left-enter;
         }
     }
 
     &[data-direction="right"] {
         &[data-state="false"] {
-            animation: transition-slide-right-exit var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-right-exit;
         }
 
         &[data-state="true"] {
-            animation: transition-slide-right-enter var(--animation-reveal-duration)
-                var(--animation-reveal-function) var(--delay-calc) both;
+            --animation: transition-slide-right-enter;
         }
     }
 }

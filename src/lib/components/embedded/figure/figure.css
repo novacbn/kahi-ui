@@ -1,35 +1,10 @@
-/**
- * TODO: Migrated `data-shape` to be a global modifier w/ variables. So other
- * Components can add support. e.g. `Box`
- */
-
 figure {
-    &[data-fit="contain"] > * {
-        @apply object-contain;
+    &[data-fit] > * {
+        object-fit: var(--fit-object);
     }
 
-    &[data-fit="cover"] > * {
-        @apply object-cover;
-    }
-
-    &[data-fit="fill"] > * {
-        @apply object-fill;
-    }
-
-    &[data-fit="none"] > * {
-        @apply object-none;
-    }
-
-    &[data-fit="scale-down"] > * {
-        @apply object-scale-down;
-    }
-
-    &[data-shape="pill"] > * {
-        border-radius: var(--radius-pill) !important;
-    }
-
-    &[data-shape="rounded"] > * {
-        border-radius: var(--radius-small) !important;
+    &[data-shape] > * {
+        border-radius: var(--shape-radius);
     }
 
     &:not([data-variation]) {

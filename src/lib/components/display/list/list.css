@@ -1,12 +1,12 @@
 ol,
 ul {
-    @apply ml-[var(--spacing-local-medium)];
+    margin-left: var(--list-margin-left);
 }
 
 ol {
-    @apply list-decimal;
+    list-style-type: decimal;
 }
 
 ul {
-    @apply list-disc;
+    list-style-type: disc;
 }

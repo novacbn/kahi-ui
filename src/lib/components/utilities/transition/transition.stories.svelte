@@ -31,7 +31,7 @@
     <Button on:click={on_state_click}>Toggle State</Button>
 
     <Transition transition="clip" {state}>
-        <Box class="box" padding="huge">hello world!</Box>
+        <Box palette="inverse" padding="huge">hello world!</Box>
     </Transition>
 </Story>
 
@@ -41,7 +41,7 @@
     <Grid.Container points={["4", "desktop:3", "tablet:2", "mobile:1"]} spacing="medium">
         {#each DIRECTIONS as [direction, is_default] (direction)}
             <Transition transition="clip" {direction} {state}>
-                <Box padding="huge">
+                <Box palette="inverse" padding="huge">
                     Clip {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Box>
             </Transition>
@@ -58,7 +58,7 @@
                 delay={Math.floor(index / 4) * 0.5}
                 state={true}
             >
-                <Box padding="large">hello world!</Box>
+                <Box palette="inverse" padding="large">hello world!</Box>
             </Transition>
         {/each}
     </Grid.Container>
@@ -68,7 +68,7 @@
     <Button on:click={on_state_click}>Toggle State</Button>
 
     <Transition transition="scale" {state}>
-        <Box padding="huge">hello world!</Box>
+        <Box palette="inverse" padding="huge">hello world!</Box>
     </Transition>
 </Story>
 
@@ -76,7 +76,7 @@
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition transition="scale" delay={Math.floor(index / 4) * 0.5} state={true}>
-                <Box padding="large">hello world!</Box>
+                <Box palette="inverse" padding="large">hello world!</Box>
             </Transition>
         {/each}
     </Grid.Container>
@@ -92,7 +92,7 @@
     >
         {#each DIRECTIONS as [direction, is_default] (direction)}
             <Transition transition="slide" {direction} {state}>
-                <Box padding="huge">
+                <Box palette="inverse" padding="huge">
                     Slide {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Box>
             </Transition>
@@ -104,7 +104,7 @@
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition transition="slide" delay={Math.floor(index / 4) * 0.5} state={true}>
-                <Box padding="large">hello world!</Box>
+                <Box palette="inverse" padding="large">hello world!</Box>
             </Transition>
         {/each}
     </Grid.Container>

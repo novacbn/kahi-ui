@@ -17,6 +17,7 @@
 @import url("../lib/components/surfaces/card/card.theme.css");
 @import url("../lib/components/surfaces/hero/hero.theme.css");
 @import url("../lib/components/surfaces/tile/tile.theme.css");
+@import url("../lib/components/utilities/transition/transition.theme.css");
 
 @import url("./document.css");
 @import url("./embedded.css");
@@ -59,6 +60,7 @@
 
 @import url("../lib/components/utilities/contextbackdrop/contextbackdrop.css");
 @import url("../lib/components/utilities/portal/portal.css");
+@import url("../lib/components/utilities/transition/transition.css");
 
 @import url("../lib/components/embedded/figure/figure.css");
 
@@ -79,6 +81,7 @@
 @import url("./alignments.css");
 @import url("./animations.css");
 @import url("./elevations.css");
+@import url("./fit.css");
 @import url("./grid.css");
 @import url("./hidden.css");
 @import url("./logic.css");

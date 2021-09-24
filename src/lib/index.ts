@@ -85,6 +85,7 @@ export * from "./components/typography/text";
 export * from "./components/utilities/contextbackdrop";
 export * from "./components/utilities/contextbutton";
 export * from "./components/utilities/portal";
+export * from "./components/utilities/transition";
 
 export * from "./actions/click_outside";
 export * from "./actions/keybind";

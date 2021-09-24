@@ -227,6 +227,9 @@
     --animation-movement-duration: 0.25s;
     --animation-movement-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+    --animation-reveal-duration: 0.3s;
+    --animation-reveal-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
     --animation-visual-duration: 0.2s;
     --animation-visual-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 

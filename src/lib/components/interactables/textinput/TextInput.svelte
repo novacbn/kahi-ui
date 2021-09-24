@@ -66,9 +66,9 @@
     export let is: $$Props["is"] = "input";
     export let type: $$Props["type"] = "text";
 
-    export let disabled: $$Props["disabled"] = false;
-    export let required: $$Props["required"] = false;
-    export let readonly: $$Props["readonly"] = false;
+    export let disabled: $$Props["disabled"] = undefined;
+    export let required: $$Props["required"] = undefined;
+    export let readonly: $$Props["readonly"] = undefined;
 
     export let placeholder: $$Props["placeholder"] = "";
     export let value: $$Props["value"] = "";
@@ -80,7 +80,7 @@
     export let characters: $$Props["characters"] = undefined;
 
     export let lines: $$Props["lines"] = undefined;
-    export let resizable: $$Props["resizable"] = false;
+    export let resizable: $$Props["resizable"] = undefined;
     export let spell_check: $$Props["spell_check"] = undefined;
 
     export let align: $$Props["align"] = undefined;

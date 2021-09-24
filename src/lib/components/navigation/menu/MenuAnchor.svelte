@@ -32,8 +32,8 @@
 
     export let element: $$Props["element"] = undefined;
 
-    export let active: $$Props["active"] = false;
-    export let disabled: $$Props["disabled"] = false;
+    export let active: $$Props["active"] = undefined;
+    export let disabled: $$Props["disabled"] = undefined;
 
     export let download: $$Props["download"] = "";
     export let href: $$Props["href"] = "";

@@ -70,7 +70,7 @@ export type IProps = Record<string, IPropPrimitive | IPropPrimitive[]>;
  * @returns
  */
 function is_truthy(value: any): boolean {
-    return value !== undefined && value !== "" && value !== false;
+    return value !== undefined && value !== "";
 }
 
 /**

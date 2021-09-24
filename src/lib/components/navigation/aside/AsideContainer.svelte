@@ -50,10 +50,10 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let captive: $$Props["captive"] = false;
-    export let dismissible: $$Props["dismissible"] = false;
+    export let captive: $$Props["captive"] = undefined;
+    export let dismissible: $$Props["dismissible"] = undefined;
     export let logic_id: $$Props["logic_id"] = "";
-    export let state: $$Props["state"] = false;
+    export let state: $$Props["state"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
     export let variation: $$Props["variation"] = undefined;

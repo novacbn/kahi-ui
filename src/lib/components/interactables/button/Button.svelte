@@ -46,8 +46,8 @@
 
     export let element: $$Props["element"] = undefined;
 
-    export let active: $$Props["active"] = false;
-    export let disabled: $$Props["disabled"] = false;
+    export let active: $$Props["active"] = undefined;
+    export let disabled: $$Props["disabled"] = undefined;
 
     export let type: $$Props["type"] = undefined;
     export let value: $$Props["value"] = "";
@@ -57,7 +57,7 @@
     export let rel: $$Props["rel"] = "";
     export let target: $$Props["target"] = "";
 
-    let _for: $$Props["for"] = false;
+    let _for: $$Props["for"] = undefined;
 
     export {_for as for};
 

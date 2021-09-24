@@ -27,7 +27,7 @@
     export let element: $$Props["element"] = undefined;
 
     export let loading: $$Props["loading"] = undefined;
-    export let prepend: $$Props["prepend"] = false;
+    export let prepend: $$Props["prepend"] = undefined;
     export let target: $$Props["target"] = typeof window !== "object" ? "" : document.body;
 
     onDestroy(() => {

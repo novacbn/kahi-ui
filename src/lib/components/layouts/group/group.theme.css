@@ -1,0 +1,5 @@
+:root {
+    /** */
+
+    --group-item-margin: calc(var(--spacing-root-small) * -1);
+}

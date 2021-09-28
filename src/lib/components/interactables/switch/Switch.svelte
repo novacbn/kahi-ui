@@ -42,9 +42,9 @@
     export let id: $$Props["id"] = "";
     export let name: $$Props["name"] = "";
 
-    export let active: $$Props["active"] = false;
-    export let disabled: $$Props["disabled"] = false;
-    export let state: $$Props["state"] = false;
+    export let active: $$Props["active"] = undefined;
+    export let disabled: $$Props["disabled"] = undefined;
+    export let state: $$Props["state"] = undefined;
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;

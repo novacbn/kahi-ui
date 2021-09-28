@@ -1,8 +1,8 @@
 .overlay {
     --orientation-direction: column;
 
-    --orientation-flex-alignment-x: var(--flex-alignment-x);
-    --orientation-flex-alignment-y: var(--flex-alignment-y);
+    --orientation-align: var(--flex-alignment-x);
+    --orientation-justify: var(--flex-alignment-y);
 
     --flex-alignment-x: center;
     --flex-alignment-y: center;
@@ -13,8 +13,8 @@
     @apply fixed flex flex-col gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] h-screen
     left-0 pointer-events-none top-0 w-screen z-2;
 
-    align-items: var(--orientation-flex-alignment-x);
-    justify-content: var(--orientation-flex-alignment-y);
+    align-items: var(--orientation-align);
+    justify-content: var(--orientation-justify);
 
     flex-direction: var(--orientation-direction);
 

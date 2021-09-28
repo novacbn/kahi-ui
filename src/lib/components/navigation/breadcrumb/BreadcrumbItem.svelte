@@ -21,7 +21,7 @@
 
     export let element: $$Props["element"] = undefined;
 
-    export let active: $$Props["active"] = false;
+    export let active: $$Props["active"] = undefined;
 
     const _component = get_component_context();
 </script>

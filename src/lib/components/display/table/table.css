@@ -1,12 +1,15 @@
 table {
-    --palette-background-lightest: var(--palette-neutral-lightest);
+    --palette-background-lightest: var(--table-palette-background-lightest);
 
-    --sizing-text-size: var(--document-font-size);
-    --sizing-text-line-height: var(--document-font-line-height);
+    --sizing-text-size: var(--table-sizing-text-size);
+    --sizing-text-line-height: var(--table-sizing-text-line-height);
 
-    @apply border-collapse leading-[var(--sizing-text-line-height)] w-full;
+    width: 100%;
+
+    border-collapse: collapse;
 
     font-size: var(--sizing-text-size);
+    line-height: var(--sizing-text-line-height);
 }
 
 /**
@@ -15,27 +18,36 @@ table {
 
 table[data-variation~="borders"] {
     & :is(td, th):not(:last-child)::after {
-        @apply absolute block bg-current h-full opacity-40 right-0 top-0 w-px;
-
+        display: block;
         content: "";
+
+        position: absolute;
+
+        right: 0;
+        top: 0;
+
+        width: var(--table-borders-width);
+        height: 100%;
+
+        background: currentColor;
+
+        opacity: var(--table-borders-opacity);
     }
 
     & > :is(tbody, thead, tfoot):first-child :is(td, th):not(:last-child)::after {
-        border-top-left-radius: var(--radius-medium);
-        border-top-right-radius: var(--radius-medium);
+        border-top-left-radius: var(--table-borders-border-radius);
+        border-top-right-radius: var(--table-borders-border-radius);
     }
 
     & > :is(tbody, thead, tfoot):last-child :is(td, th):not(:last-child)::after {
-        border-bottom-left-radius: var(--radius-medium);
-        border-bottom-right-radius: var(--radius-medium);
+        border-bottom-left-radius: var(--table-borders-border-radius);
+        border-bottom-right-radius: var(--table-borders-border-radius);
     }
 }
 
 table[data-variation~="stripes"] {
     & > tbody > tr:nth-child(2n + 1) {
-        @apply;
-
-        background-color: rgba(var(--palette-background-lightest), theme("opacity.20"));
+        background: rgba(var(--palette-background-lightest), var(--table-stripes-opacity));
     }
 }
 
@@ -44,39 +56,53 @@ thead,
 td,
 tfoot,
 tr {
-    @apply relative;
+    position: relative;
 }
 
 th,
 td {
-    @apply align-center px-[var(--spacing-local-medium)] py-[var(--spacing-local-small)] text-left;
+    padding: var(--table-column-padding-y) var(--table-column-padding-x);
+
+    vertical-align: middle;
+    text-align: left;
 }
 
-:is(thead, tfoot) > tr > :is(td, th),
-table[data-variation~="borders"] > tbody > tr:not(:last-child) > :is(td, th) {
+:is(thead, tfoot) :is(td, th),
+table[data-variation~="borders"] > tbody > :not(:last-child) > :is(td, th) {
     &::before {
-        @apply absolute block bg-current bottom-0 h-px opacity-40 right-0 w-full;
-
+        display: block;
         content: "";
+
+        position: absolute;
+
+        bottom: 0;
+        right: 0;
+
+        width: 100%;
+        height: var(--table-borders-width);
+
+        background: currentColor;
+
+        opacity: var(--table-borders-opacity);
     }
 
     &:first-child {
         &::before {
-            border-top-left-radius: var(--radius-medium);
-            border-bottom-left-radius: var(--radius-medium);
+            border-top-left-radius: var(--table-borders-border-radius);
+            border-bottom-left-radius: var(--table-borders-border-radius);
         }
     }
 
     &:last-child {
         &::before {
-            border-top-right-radius: var(--radius-medium);
-            border-bottom-right-radius: var(--radius-medium);
+            border-top-right-radius: var(--table-borders-border-radius);
+            border-bottom-right-radius: var(--table-borders-border-radius);
         }
     }
 }
 
 tfoot > tr > :is(td, th) {
     &::before {
-        @apply top-0;
+        top: 0;
     }
 }

@@ -1,0 +1,7 @@
+:root {
+    /** */
+
+    --container-viewport: var(--sizes-prose);
+
+    --container-padding-x: var(--spacing-root-large);
+}

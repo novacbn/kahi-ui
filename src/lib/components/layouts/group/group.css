@@ -4,53 +4,51 @@
  */
 
 [role="group"] {
-    @apply flex-row inline-flex items-stretch;
+    display: inline-flex;
+
+    &:not([data-orientation~="vertical"]) {
+        flex-direction: row;
+        align-items: stretch;
+
+        & > :first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        & > :last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &[data-variation~="stacked"] > :not(:last-child) {
+            margin-right: var(--group-stacked-item-margin);
+        }
+    }
 
     &[data-orientation~="vertical"] {
-        @apply flex-col items-[unset] justify-[stretch];
+        flex-direction: column;
+        justify-content: stretch;
+
+        & > :first-child {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        & > :last-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        &[data-variation~="stacked"] > :not(:last-child) {
+            margin-bottom: var(--group-stacked-item-margin);
+        }
     }
 
     & > * {
-        @apply m-0;
+        margin: 0;
     }
 
-    & > :not(:first-child, :last-child),
-    & > :not(:first-child, :last-child)::before,
-    & > :not(:first-child, :last-child)::after {
-        @apply rounded-none;
-    }
-
-    &:not([data-orientation~="vertical"]) > :first-child,
-    &:not([data-orientation~="vertical"]) > :first-child::before,
-    &:not([data-orientation~="vertical"]) > :first-child::after {
-        @apply rounded-r-none;
-    }
-
-    &:not([data-orientation~="vertical"]) > :last-child,
-    &:not([data-orientation~="vertical"]) > :last-child::before,
-    &:not([data-orientation~="vertical"]) > :last-child::after {
-        @apply rounded-l-none;
-    }
-
-    &[data-orientation~="vertical"] > :first-child,
-    &[data-orientation~="vertical"] > :first-child::before,
-    &[data-orientation~="vertical"] > :first-child::after {
-        @apply rounded-b-none;
-    }
-
-    &[data-orientation~="vertical"] > :last-child,
-    &[data-orientation~="vertical"] > :last-child::before,
-    &[data-orientation~="vertical"] > :last-child::after {
-        @apply rounded-t-none;
-    }
-
-    &[data-variation~="stacked"] {
-        &[data-orientation~="vertical"] > :not(:last-child) {
-            margin-bottom: calc(var(--spacing-root-small) * -1);
-        }
-
-        &:not([data-orientation~="vertical"]) > :not(:last-child) {
-            margin-right: calc(var(--spacing-root-small) * -1);
-        }
+    & > :not(:first-child, :last-child) {
+        border-radius: 0;
     }
 }

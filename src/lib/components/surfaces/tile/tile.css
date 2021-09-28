@@ -1,76 +1,86 @@
 .tile {
-    --orientation-direction: row;
+    --orientation-direction: var(--tile-footer-orientation-direction);
 
-    --orientation-flex-alignment-x: var(--flex-alignment-y);
-    --orientation-flex-alignment-y: var(--flex-alignment-x);
+    --orientation-align: var(--tile-footer-flex-alignment-y);
+    --orientation-justify: var(--tile-footer-flex-alignment-x);
 
-    --flex-alignment-x: center;
-    --flex-alignment-y: center;
+    --flex-alignment-x: var(--tile-footer-flex-alignment-x);
+    --flex-alignment-y: var(--tile-footer-flex-alignment-y);
 
-    --elevation: var(--elevation-lowest);
+    --elevation: var(--tile-elevation);
 
-    --palette-background-normal: var(--palette-auto-off-normal);
-    --palette-foreground-normal: var(--palette-inverse-normal);
+    --palette-background-normal: var(--tile-palette-background-normal);
+    --palette-foreground-normal: var(--tile-palette-foreground-normal);
 
-    --sizing-text-size: var(--document-font-size);
-    --sizing-text-line-height: var(--document-font-line-height);
+    --sizing-text-size: var(--tile-sizing-text-size);
+    --sizing-text-line-height: var(--tile-sizing-text-line-height);
 
-    @apply flex leading-[var(--sizing-text-line-height)] overflow-hidden;
+    display: flex;
 
-    border-radius: var(--radius-small);
+    gap: var(--tile-gap);
 
     font-size: var(--sizing-text-size);
+    line-height: var(--sizing-text-line-height);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-    & > figure {
-        @apply items-center;
-
-        & > * {
-            /** HACK: This should really point to variables made element sizing, but it'll do for now */
-            @apply h-[var(--font-headline-size-local-huge)] w-[var(--font-headline-size-local-huge)];
-        }
-    }
-
-    & > footer {
-        @apply gap-[var(--spacing-local-small)] ml-auto;
-
-        align-items: var(--orientation-flex-alignment-x);
-        justify-content: var(--orientation-flex-alignment-y);
-
-        flex-direction: var(--orientation-direction);
-    }
-
-    & > section {
-        @apply flex-col justify-center;
-
-        &:not(:first-child) {
-            @apply ml-[var(--spacing-local-medium)];
-        }
-
-        &:not(:last-child) {
-            @apply mr-[var(--spacing-local-medium)];
-        }
-
-        & > header {
-            @apply font-bold leading-[var(--font-content-line-height-medium)];
-
-            font-size: var(--font-content-size-local-medium);
-        }
-    }
-
-    & > :is(figure, footer, section) {
-        @apply flex;
-    }
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        border-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-normal))] border-2 border-solid p-[var(--spacing-local-medium)]
-        text-[rgb(var(--palette-foreground-normal))];
+        padding: var(--tile-padding-y) var(--tile-padding-x);
 
-        border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
+        border: var(--tile-border-width) rgba(var(--tile-border-color), var(--tile-border-opacity))
+            solid;
+        border-radius: var(--tile-border-radius);
+
+        background: rgb(var(--palette-background-normal));
+        color: rgb(var(--palette-foreground-normal));
 
         box-shadow: var(--elevation);
+    }
+}
+
+.tile > figure {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: var(--tile-figure-font-size);
+
+    & > * {
+        /** HACK: This should really point to variables made for element sizing, but it'll do for now */
+        width: 1em;
+        height: 1em;
+    }
+}
+
+.tile > footer {
+    display: flex;
+    flex-direction: var(--orientation-direction);
+
+    align-items: var(--orientation-align);
+    justify-content: var(--orientation-justify);
+
+    gap: var(--tile-footer-gap);
+
+    margin-left: auto;
+}
+
+.tile > section {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    & > header {
+        display: flex;
+        align-items: center;
+
+        gap: var(--tile-header-gap);
+
+        font-size: var(--tile-header-font-size);
+        font-weight: var(--tile-header-font-weight);
+        line-height: var(--tile-header-line-height);
     }
 }

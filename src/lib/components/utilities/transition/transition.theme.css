@@ -1,0 +1,34 @@
+:root {
+    /** */
+
+    --transition-clip-bottom-end-clip-path: 0% -10% -10% -10%;
+    --transition-clip-bottom-start-clip-path: 0% -10% 100% -10%;
+
+    --transition-clip-left-end-clip-path: 0% -10% -10% -10%;
+    --transition-clip-left-start-clip-path: 0% -10% -10% 100%;
+
+    --transition-clip-right-end-clip-path: 0% -10% -10% -10%;
+    --transition-clip-right-start-clip-path: 0% 100% -10% -10%;
+
+    --transition-clip-top-end-clip-path: 0% -10% -10% -10%;
+    --transition-clip-top-start-clip-path: 100% -10% -10% -10%;
+
+    /** */
+
+    --transition-scale-end-scale: 1;
+    --transition-scale-start-scale: 0.5;
+
+    /** */
+
+    --transition-slide-bottom-end-translate: 0%, 0%;
+    --transition-slide-bottom-start-translate: 0%, 100%;
+
+    --transition-slide-left-end-translate: 0%, 0%;
+    --transition-slide-left-start-translate: -100%, 0%;
+
+    --transition-slide-right-end-translate: 0%, 0%;
+    --transition-slide-right-start-translate: 100%, 0%;
+
+    --transition-slide-top-end-translate: 0%, 0%;
+    --transition-slide-top-start-translate: 0%, -100%;
+}

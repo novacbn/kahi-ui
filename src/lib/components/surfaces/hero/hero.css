@@ -1,41 +1,59 @@
 .hero {
-    --palette-background-normal: var(--palette-auto-off-normal);
-    --palette-foreground-normal: var(--palette-inverse-normal);
+    --palette-background-normal: var(--hero-palette-background-normal);
+    --palette-foreground-normal: var(--hero-palette-foreground-normal);
 
-    @apply bg-[rgb(var(--palette-background-normal))] flex flex-col items-center
-    justify-center px-[var(--spacing-root-medium)] py-[var(--spacing-root-large)]
-    text-center text-[rgb(var(--palette-foreground-normal))];
+    display: flex;
+    flex-direction: column;
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    align-items: center;
+    justify-content: center;
 
-    & > header {
-        @apply font-bold leading-[var(--font-headline-line-height-massive)];
+    padding: var(--hero-padding-y) var(--hero-padding-x);
 
-        font-size: var(--font-headline-size-root-massive);
+    background: rgb(var(--palette-background-normal));
+    color: rgb(var(--palette-foreground-normal));
+
+    text-align: center;
+
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
+}
+
+.hero > footer {
+    display: flex;
+    align-items: center;
+
+    gap: var(--hero-footer-gap);
+
+    max-width: var(--hero-footer-max-width);
+
+    font-size: var(--hero-footer-font-size);
+    line-height: var(--hero-footer-line-height);
+
+    &:not(:first-child) {
+        margin-top: var(--hero-footer-margin-top);
     }
+}
 
-    & > section {
-        @apply leading-[var(--font-headline-line-height-tiny)];
+.hero > header {
+    max-width: var(--hero-header-max-width);
 
-        font-size: var(--font-headline-size-root-tiny);
+    font-size: var(--hero-header-font-size);
+    font-weight: var(--hero-header-font-weight);
+    line-height: var(--hero-header-line-height);
+
+    &:not(:first-child) {
+        margin-top: var(--hero-header-margin-top);
     }
+}
 
-    & > footer {
-        @apply flex items-center gap-[var(--spacing-root-small)] leading-[var(--font-headline-line-height-nano)] max-w-[max-content];
+.hero > section {
+    max-width: var(--hero-section-max-width);
 
-        font-size: var(--font-headline-size-root-nano);
+    font-size: var(--hero-section-font-size);
+    line-height: var(--hero-section-line-height);
 
-        &:not(:first-child) {
-            @apply mt-[var(--spacing-root-large)];
-        }
-    }
-
-    & > :is(header, section) {
-        @apply max-w-prose;
-
-        &:not(:first-child) {
-            @apply mt-[var(--spacing-root-small)];
-        }
+    &:not(:first-child) {
+        margin-top: var(--hero-section-margin-top);
     }
 }

@@ -1,17 +1,31 @@
 .badge {
-    --palette-background-normal: var(--palette-neutral-normal);
-    --palette-foreground-normal: var(--palette-light-normal);
+    --palette-background-normal: var(--badge-palette-background-normal);
+    --palette-foreground-normal: var(--badge-palette-foreground-normal);
 
-    @apply align-middle bg-[rgb(var(--palette-background-normal))] font-bold gap-[var(--spacing-local-small)] inline-flex items-center
-    justify-center leading-[var(--font-content-line-height-nano)] p-[var(--spacing-local-small)]
-    relative text-[rgb(var(--palette-foreground-normal))] whitespace-nowrap;
+    display: inline-flex;
 
-    font-size: var(--font-content-size-root-nano);
+    align-items: center;
+    justify-content: center;
 
-    text-shadow: 0px 0px 0px rgb(var(--palette-foreground-normal));
+    gap: var(--badge-gap);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: var(--badge-padding-y) var(--badge-padding-x);
+
+    position: relative;
+
+    background: rgb(var(--palette-background-normal));
+    color: rgb(var(--palette-foreground-normal));
+
+    font-size: var(--badge-font-size);
+    font-weight: var(--badge-font-weight);
+    line-height: var(--badge-line-height);
+
+    text-shadow: var(--badge-text-shadow) rgb(var(--palette-foreground-normal));
+    vertical-align: middle;
+    white-space: nowrap;
+
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
 
     &[data-position] {
         @apply pointer-events-none rounded-4xl select-none;

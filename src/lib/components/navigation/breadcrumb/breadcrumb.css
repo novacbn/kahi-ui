@@ -16,7 +16,8 @@
     }
 
     & > [role="presentation"] {
-        margin: 0 var(--breadcrumb-separator-margin);
+        margin-left: var(--breadcrumb-separator-margin-x);
+        margin-right: var(--breadcrumb-separator-margin-x);
 
         opacity: var(--breadcrumb-separator-opacity);
     }

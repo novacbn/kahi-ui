@@ -4,7 +4,8 @@
     --hero-palette-background-normal: var(--palette-auto-off-normal);
     --hero-palette-foreground-normal: var(--palette-inverse-normal);
 
-    --hero-padding: var(--spacing-root-large) var(--spacing-root-medium);
+    --hero-padding-x: var(--spacing-root-medium);
+    --hero-padding-y: var(--spacing-root-large);
 
     /** */
 

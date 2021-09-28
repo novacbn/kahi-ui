@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
 
-    padding: var(--hero-padding);
+    padding: var(--hero-padding-y) var(--hero-padding-x);
 
     background: rgb(var(--palette-background-normal));
     color: rgb(var(--palette-foreground-normal));

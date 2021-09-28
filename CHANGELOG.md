@@ -3,6 +3,7 @@
 ## UNRELEASED
 
 -   Added CSS Theming Variables to the following Components: `Anchor`, `Badge`, `Box`, `Breadcrumb`, `Card`, `Container`, `Divider`, `Dot`, `Ellipsis`, `Group`, `Hero`, `List`, `Progress`, `Spinner`, `Table`, `Tile`, `Wave`.
+-   Fixed `<XXX sizing="{VIEWPORT}:{SIZING}>` modifiers not having correct values.
 
 -   Added the following Components / Component Features
 

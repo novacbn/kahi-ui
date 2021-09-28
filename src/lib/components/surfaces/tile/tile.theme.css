@@ -12,7 +12,8 @@
     --tile-border-opacity: 0.1;
     --tile-border-width: 2px;
     --tile-gap: var(--spacing-local-medium);
-    --tile-padding: var(--spacing-local-medium);
+    --tile-padding-x: var(--spacing-local-medium);
+    --tile-padding-y: var(--spacing-local-medium);
 
     /** */
 
@@ -32,5 +33,6 @@
 
     --tile-header-font-size: var(--font-content-size-local-medium);
     --tile-header-font-weight: bold;
+    --tile-header-gap: var(--spacing-local-small);
     --tile-header-line-height: var(--font-content-line-height-medium);
 }

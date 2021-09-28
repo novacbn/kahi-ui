@@ -22,14 +22,12 @@
     font-size: var(--sizing-text-size);
     line-height: var(--sizing-text-line-height);
 
-    overflow: hidden;
-
     transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
         border-color var(--animation-visual-duration) var(--animation-visual-function),
         color var(--animation-visual-duration) var(--animation-visual-function);
 
     &:not([data-variation]) {
-        padding: var(--tile-padding);
+        padding: var(--tile-padding-y) var(--tile-padding-x);
 
         border: var(--tile-border-width) rgba(var(--tile-border-color), var(--tile-border-opacity))
             solid;
@@ -76,6 +74,11 @@
     justify-content: center;
 
     & > header {
+        display: flex;
+        align-items: center;
+
+        gap: var(--tile-header-gap);
+
         font-size: var(--tile-header-font-size);
         font-weight: var(--tile-header-font-weight);
         line-height: var(--tile-header-line-height);

@@ -38,15 +38,15 @@
         box-shadow: var(--elevation);
 
         & > :is(footer, header, section) {
-            margin-left: var(--card-padding);
-            margin-right: var(--card-padding);
+            margin-left: var(--card-padding-x);
+            margin-right: var(--card-padding-x);
 
             &:first-child {
-                margin-top: var(--card-padding);
+                margin-top: var(--card-padding-y);
             }
 
             &:last-child {
-                margin-bottom: var(--card-padding);
+                margin-bottom: var(--card-padding-y);
             }
         }
     }
@@ -80,7 +80,6 @@
 
 .card > header {
     display: flex;
-
     align-items: center;
 
     gap: var(--card-header-gap);

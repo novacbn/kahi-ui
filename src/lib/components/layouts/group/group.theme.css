@@ -1,5 +1,5 @@
 :root {
     /** */
 
-    --group-item-margin: calc(var(--spacing-root-small) * -1);
+    --group-stacked-item-margin: calc(var(--spacing-root-small) * -1);
 }

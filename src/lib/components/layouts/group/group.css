@@ -21,7 +21,7 @@
         }
 
         &[data-variation~="stacked"] > :not(:last-child) {
-            margin-right: var(--group-item-margin);
+            margin-right: var(--group-stacked-item-margin);
         }
     }
 
@@ -40,7 +40,7 @@
         }
 
         &[data-variation~="stacked"] > :not(:last-child) {
-            margin-bottom: var(--group-item-margin);
+            margin-bottom: var(--group-stacked-item-margin);
         }
     }
 

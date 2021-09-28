@@ -1,0 +1,19 @@
+[data-fit="none"] {
+    --fit-object: none;
+}
+
+[data-fit="contain"] {
+    --fit-object: contain;
+}
+
+[data-fit="cover"] {
+    --fit-object: cover;
+}
+
+[data-fit="fill"] {
+    --fit-object: fill;
+}
+
+[data-fit="scale-down"] {
+    --fit-object: scale-down;
+}

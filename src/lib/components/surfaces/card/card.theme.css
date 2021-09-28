@@ -1,0 +1,42 @@
+:root {
+    /** */
+
+    --card-elevation: var(--elevation-lowest);
+    --card-palette-background-normal: var(--palette-auto-off-normal);
+    --card-palette-foreground-normal: var(--palette-inverse-normal);
+    --card-sizing-text-size: var(--document-font-size);
+    --card-sizing-text-line-height: var(--document-font-line-height);
+
+    --card-border-color: var(--palette-inverse-off-lightest);
+    --card-border-radius: var(--radius-small);
+    --card-border-opacity: 0.1;
+    --card-border-width: 2px;
+    --card-padding-x: var(--spacing-local-medium);
+    --card-padding-y: var(--spacing-local-medium);
+
+    /** */
+
+    --card-figure-margin-top: var(--spacing-local-medium);
+
+    /** */
+
+    --card-footer-flex-alignment-x: flex-end;
+    --card-footer-flex-alignment-y: center;
+    --card-footer-gap: var(--spacing-local-small);
+    --card-footer-orientation-direction: row;
+    --card-footer-orientation-align: var(--flex-alignment-y);
+    --card-footer-orientation-justify: var(--flex-alignment-x);
+    --card-footer-margin-top: var(--spacing-local-medium);
+
+    /** */
+
+    --card-header-font-size: var(--font-content-size-local-medium);
+    --card-header-font-weight: bold;
+    --card-header-gap: var(--spacing-local-small);
+    --card-header-line-height: var(--font-content-line-height-medium);
+    --card-header-margin-top: var(--spacing-local-medium);
+
+    /** */
+
+    --card-section-margin-top: var(--spacing-local-small);
+}

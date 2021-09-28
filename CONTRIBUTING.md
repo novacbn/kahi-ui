@@ -67,9 +67,10 @@ Components should have the following directory structure:
 src/lib/components/:category/:component
 │
 └───:component.css // CSS Styling for Component
+└───:component.theme.css // Default Theme Variables for Component
 └───:Component.svelte // Component Implementation
 └───:Component.stories.svelte // Storybook Tests
-└───index.js // Exports Entry Point
+└───index.ts // Exports Entry Point
 ```
 
 If you're working with a singular Component, it might look like this:
@@ -78,9 +79,10 @@ If you're working with a singular Component, it might look like this:
 src/lib/components/surfaces/box
 │
 └───box.css
+└───box.theme.css
 └───Box.stories.svelte
 └───Box.svelte
-└───index.js
+└───index.ts
 ```
 
 Or, if the Component is a multi-part pattern, it also might look like this:
@@ -97,6 +99,22 @@ src/lib/components/surfaces/card
 └───CardSection.svelte
 └───index.ts
 ```
+
+### Component CSS Theming Variables
+
+When creating / modifying [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) for theming Components, make sure to follow the following format for naming:
+
+```css
+--[component]-[pattern?]-[variation?]-[state?]-[declaration]: ...;
+```
+
+Which can be broken down into:
+
+-   `component` — Name of the Component.
+-   `pattern?` — Nested pattern Component, if applicable. e.g. `--card-section`
+-   `variation?` — Variation of the Component, if applicable. e.g. `--button-clear`, `--button-outline`, `--card-flush`
+-   `state?` — State of the Component, if applicable. e.g. `--anchor-hover`, `--anchor-active`, or if composite state, `--button-pressed`
+-   `declaration` — Generally this is the CSS declaration being applied. e.g. `--badge-font-size`
 
 ### Actions Layout
 

@@ -1,17 +1,24 @@
-nav.breadcrumb {
-    & > ol {
-        @apply flex ml-0;
+.breadcrumb ol {
+    display: flex;
+    margin: 0;
+}
 
-        & > li {
-            @apply inline-flex items-center;
+.breadcrumb li {
+    display: inline-flex;
+    align-items: center;
 
-            & > a[aria-current] {
-                @apply font-bold;
-            }
+    /**
+        TODO: Next major version, change to detect `role=button`
+    */
 
-            & > [role="presentation"] {
-                @apply mx-[var(--spacing-local-tiny)] opacity-30 pointer-events-none select-none;
-            }
-        }
+    & > a:not([aria-current]) {
+        opacity: var(--breadcrumb-button-inactive-opacity);
+    }
+
+    & > [role="presentation"] {
+        margin-left: var(--breadcrumb-separator-margin-x);
+        margin-right: var(--breadcrumb-separator-margin-x);
+
+        opacity: var(--breadcrumb-separator-opacity);
     }
 }

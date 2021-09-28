@@ -1,0 +1,9 @@
+:root {
+    /** */
+
+    --anchor-palette-background-boldest: var(--palette-accent-boldest);
+
+    --anchor-text-decoration: none;
+
+    --anchor-hover-text-decoration: underline;
+}

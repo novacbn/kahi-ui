@@ -1,54 +1,57 @@
 [role="progressbar"] {
-    --palette-background-bold: var(--palette-neutral-bold);
-    --size-icon: var(--sizes-icon-medium);
+    --palette-background-bold: var(--progress-palette-background-bold);
+    --size-icon: var(--progress-size-icon);
 
     --value: 0;
 
-    &:empty {
-        @apply w-full;
+    pointer-events: none;
+    user-select: none;
 
+    &:empty {
+        width: 100%;
         height: calc(var(--size-icon) * 0.25);
 
-        border-radius: var(--radius-pill);
+        border-radius: var(--progress-border-radius);
 
         background-image: linear-gradient(
             to right,
             rgb(var(--palette-background-bold)) 50%,
-            rgba(var(--palette-background-bold), theme("opacity.50")) 50%
+            rgba(var(--palette-background-bold), var(--progress-background-opacity)) 50%
         );
         background-position: calc(100% - var(--value) * 100%) 0%;
         background-size: 200% 100%;
 
-        transition: background-image 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            background-position 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: background-image var(--animation-visual-duration)
+                var(--animation-visual-function),
+            background-position var(--animation-movement-duration)
+                var(--animation-movement-function);
 
         &:not([aria-valuenow]) {
-            animation: progress-bar-indeterminate 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            animation: progress-bar-indeterminate var(--animation-attention-duration)
+                var(--animation-attention-function) infinite;
         }
     }
 
     &:not(:empty) {
         & svg {
-            @apply h-[var(--size-icon)] w-[var(--size-icon)];
+            width: var(--size-icon);
+            height: var(--size-icon);
         }
 
         & circle {
-            @apply;
-
             fill: transparent;
-            stroke-width: theme("borderWidth.4");
+            stroke-width: 4px;
 
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
 
-            transition: stroke 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                stroke-dashoffset 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: stroke var(--animation-visual-duration) var(--animation-visual-function),
+                stroke-dashoffset var(--animation-movement-duration)
+                    var(--animation-movement-function);
         }
 
         & circle:first-child {
-            @apply;
-
-            stroke: rgba(var(--palette-background-bold), theme("opacity.50"));
+            stroke: rgba(var(--palette-background-bold), var(--progress-background-opacity));
         }
 
         & circle:last-child {
@@ -59,8 +62,8 @@
 
         &:not([aria-valuenow]) {
             & circle:last-child {
-                animation: progress-circle-indeterminate 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-                    infinite;
+                animation: progress-circle-indeterminate var(--animation-attention-duration)
+                    var(--animation-attention-function) infinite;
             }
         }
     }

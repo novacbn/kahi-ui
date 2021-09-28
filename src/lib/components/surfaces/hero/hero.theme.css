@@ -1,0 +1,32 @@
+:root {
+    /** */
+
+    --hero-palette-background-normal: var(--palette-auto-off-normal);
+    --hero-palette-foreground-normal: var(--palette-inverse-normal);
+
+    --hero-padding-x: var(--spacing-root-medium);
+    --hero-padding-y: var(--spacing-root-large);
+
+    /** */
+
+    --hero-footer-gap: var(--spacing-root-small);
+    --hero-footer-max-width: max-content;
+    --hero-footer-font-size: var(--font-headline-size-root-nano);
+    --hero-footer-line-height: var(--font-headline-line-height-nano);
+    --hero-footer-margin-top: var(--spacing-root-large);
+
+    /** */
+
+    --hero-header-max-width: var(--sizes-prose);
+    --hero-header-font-size: var(--font-headline-size-root-massive);
+    --hero-header-font-weight: bold;
+    --hero-header-line-height: var(--font-headline-line-height-massive);
+    --hero-header-margin-top: var(--spacing-root-small);
+
+    /** */
+
+    --hero-section-max-width: var(--sizes-prose);
+    --hero-section-font-size: var(--font-headline-size-root-tiny);
+    --hero-section-line-height: var(--font-headline-line-height-tiny);
+    --hero-section-margin-top: var(--spacing-root-small);
+}

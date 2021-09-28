@@ -1,0 +1,10 @@
+:root {
+    /** */
+
+    --breadcrumb-button-inactive-opacity: 0.6;
+
+    /** */
+
+    --breadcrumb-separator-margin-x: var(--spacing-local-tiny);
+    --breadcrumb-separator-opacity: 0.3;
+}

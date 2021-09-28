@@ -1,7 +1,12 @@
 .container {
     --viewport: var(--sizes-prose);
 
-    @apply mx-auto px-[var(--spacing-root-large)] w-full;
-
+    width: 100%;
     max-width: min(var(--viewport), 100vw);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
 }

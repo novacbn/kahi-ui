@@ -1,0 +1,8 @@
+:root {
+    /** */
+
+    --spinner-animation-duration: 1s;
+    --spinner-animation-function: linear;
+    --spinner-border-radius: var(--radius-circle);
+    --spinner-border-width: 2px;
+}

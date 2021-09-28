@@ -1,0 +1,15 @@
+:root {
+    /** */
+
+    --divider-border-radius: var(--radius-small);
+    --divider-margin: var(--spacing-root-medium);
+    --divider-opacity: 0.4;
+    --divider-width: 1px;
+
+    /** */
+
+    --divider-text-font-size: 80%;
+    --divider-text-font-weight: bold;
+    --divider-text-gap: var(--spacing-local-small);
+    --divider-text-letter-spacing: 0.1em;
+}

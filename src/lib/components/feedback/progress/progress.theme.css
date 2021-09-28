@@ -1,0 +1,9 @@
+:root {
+    /** */
+
+    --progress-palette-background-bold: var(--palette-neutral-bold);
+    --progress-size-icon: var(--sizes-icon-medium);
+
+    --progress-background-opacity: 0.5;
+    --progress-border-radius: var(--radius-pill);
+}

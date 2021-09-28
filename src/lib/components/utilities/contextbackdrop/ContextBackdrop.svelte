@@ -31,7 +31,7 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let dismissible: $$Props["dismissible"] = false;
+    export let dismissible: $$Props["dismissible"] = undefined;
 
     const _logic_id = get_id_context();
     const _scrolllock = scrolllock();

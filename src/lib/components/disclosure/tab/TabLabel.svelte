@@ -29,9 +29,9 @@
 
     export let element: $$Props["element"] = undefined;
 
-    export let active: $$Props["active"] = false;
-    export let disabled: $$Props["disabled"] = false;
-    export let state: $$Props["state"] = false;
+    export let active: $$Props["active"] = undefined;
+    export let disabled: $$Props["disabled"] = undefined;
+    export let state: $$Props["state"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 

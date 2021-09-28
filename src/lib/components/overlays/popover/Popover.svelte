@@ -56,9 +56,9 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let dismissible: $$Props["dismissible"] = false;
+    export let dismissible: $$Props["dismissible"] = undefined;
     export let logic_id: $$Props["logic_id"] = "";
-    export let state: $$Props["state"] = false;
+    export let state: $$Props["state"] = undefined;
 
     export let placement: $$Props["placement"] = undefined;
 

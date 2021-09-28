@@ -1,16 +1,16 @@
 .box {
-    --elevation: none;
+    --elevation: var(--box-elevation);
+    --shape-radius: var(--box-shape-radius);
 
-    --shape-radius: none;
+    --palette-background-normal: var(--box-palette-background-normal);
+    --palette-foreground-normal: var(--box-palette-foreground-normal);
 
-    --palette-background-normal: var(--palette-auto-off-normal);
-    --palette-foreground-normal: var(--palette-inverse-normal);
-
-    @apply bg-[rgb(var(--palette-background-normal))] text-[rgb(var(--palette-foreground-normal))];
+    background: rgb(var(--palette-background-normal));
+    color: rgb(var(--palette-foreground-normal));
 
     border-radius: var(--shape-radius);
     box-shadow: var(--elevation);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
 }

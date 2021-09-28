@@ -18,7 +18,7 @@
 
             -   `<Transition delay="number|string">` — Provide a percentage decimal (e.g. `1.2` which means `120%`) to control how long of the transition duration to wait before playing.
             -   `<Transition direction="bottom/left/right/top">` — On supported animations, controls the direction in which the animation moves towards. With most animations defaulting to `bottom`.
-            -   `<Transition state="false/true/undefined">` — If `true`, the enter animation plays. If `false`, exit animation plays. No animation plays when provided `undefined`.
+            -   `<Transition variation="enter/exit/undefined">` — If `enter`, the enter animation plays. If `exit`, exit animation plays. No animation plays when provided `undefined`.
             -   `<Transition on:animationend on:animationstart>` — Passthrough of the Browser [`animationend`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event) / [`animationstart`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationstart_event) events.
 
             -   `<Transition animation="XXX">` — Controls which animation is played.

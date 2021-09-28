@@ -8,104 +8,104 @@
 
 .transition[data-animation="clip"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
-        &[data-state="false"] {
-            --animation: transition-clip-bottom-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-clip-bottom-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-clip-bottom-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-clip-bottom-exit;
         }
     }
 
     &[data-direction="top"] {
-        &[data-state="false"] {
-            --animation: transition-clip-top-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-clip-top-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-clip-top-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-clip-top-exit;
         }
     }
 
     &[data-direction="left"] {
-        &[data-state="false"] {
-            --animation: transition-clip-left-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-clip-left-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-clip-left-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-clip-left-exit;
         }
     }
 
     &[data-direction="right"] {
-        &[data-state="false"] {
-            --animation: transition-clip-right-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-clip-right-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-clip-right-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-clip-right-exit;
         }
     }
 }
 
 .transition[data-animation="fade"] {
-    &[data-state="false"] {
-        --animation: transition-fade-exit;
+    &[data-variation~="enter"] {
+        --animation: transition-fade-enter;
     }
 
-    &[data-state="true"] {
-        --animation: transition-fade-enter;
+    &[data-variation~="exit"] {
+        --animation: transition-fade-exit;
     }
 }
 
 .transition[data-animation="scale"] {
-    &[data-state="false"] {
-        --animation: transition-scale-exit;
+    &[data-variation~="enter"] {
+        --animation: transition-scale-enter;
     }
 
-    &[data-state="true"] {
-        --animation: transition-scale-enter;
+    &[data-variation~="exit"] {
+        --animation: transition-scale-exit;
     }
 }
 
 .transition[data-animation="slide"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
-        &[data-state="false"] {
-            --animation: transition-slide-bottom-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-slide-bottom-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-slide-bottom-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-slide-bottom-exit;
         }
     }
 
     &[data-direction="top"] {
-        &[data-state="false"] {
-            --animation: transition-slide-top-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-slide-top-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-slide-top-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-slide-top-exit;
         }
     }
 
     &[data-direction="left"] {
-        &[data-state="false"] {
-            --animation: transition-slide-left-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-slide-left-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-slide-left-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-slide-left-exit;
         }
     }
 
     &[data-direction="right"] {
-        &[data-state="false"] {
-            --animation: transition-slide-right-exit;
+        &[data-variation~="enter"] {
+            --animation: transition-slide-right-enter;
         }
 
-        &[data-state="true"] {
-            --animation: transition-slide-right-enter;
+        &[data-variation~="exit"] {
+            --animation: transition-slide-right-exit;
         }
     }
 }

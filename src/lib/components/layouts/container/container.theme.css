@@ -3,5 +3,5 @@
 
     --container-viewport: var(--sizes-prose);
 
-    --container-padding: var(--spacing-root-large);
+    --container-padding-x: var(--spacing-root-large);
 }

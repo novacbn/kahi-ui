@@ -9,7 +9,7 @@
 
     gap: var(--badge-gap);
 
-    padding: var(--badge-padding);
+    padding: var(--badge-padding-y) var(--badge-padding-x);
 
     position: relative;
 

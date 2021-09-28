@@ -8,6 +8,7 @@
     --badge-font-weight: bold;
     --badge-gap: var(--spacing-local-small);
     --badge-line-height: var(--font-content-line-height-nano);
-    --badge-padding: var(--spacing-local-small);
+    --badge-padding-x: var(--spacing-local-small);
+    --badge-padding-y: var(--spacing-local-small);
     --badge-text-shadow: 0px 0px 0px;
 }

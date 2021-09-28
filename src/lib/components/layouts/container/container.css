@@ -4,6 +4,9 @@
     width: 100%;
     max-width: min(var(--viewport), 100vw);
 
-    margin: 0 auto;
-    padding: var(--container-padding);
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: var(--container-padding-x);
+    padding-right: var(--container-padding-x);
 }

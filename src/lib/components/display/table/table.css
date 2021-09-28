@@ -61,7 +61,7 @@ tr {
 
 th,
 td {
-    padding: var(--table-column-padding);
+    padding: var(--table-column-padding-y) var(--table-column-padding-x);
 
     vertical-align: middle;
     text-align: left;

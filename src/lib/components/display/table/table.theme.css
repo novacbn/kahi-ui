@@ -17,5 +17,6 @@
 
     /** */
 
-    --table-column-padding: var(--spacing-local-small) var(--spacing-local-medium);
+    --table-column-padding-x: var(--spacing-local-medium);
+    --table-column-padding-y: var(--spacing-local-small);
 }

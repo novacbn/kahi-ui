@@ -1,8 +1,8 @@
 .tile {
     --orientation-direction: var(--tile-footer-orientation-direction);
 
-    --orientation-flex-alignment-x: var(--tile-footer-flex-alignment-y);
-    --orientation-flex-alignment-y: var(--tile-footer-flex-alignment-x);
+    --orientation-align: var(--tile-footer-flex-alignment-y);
+    --orientation-justify: var(--tile-footer-flex-alignment-x);
 
     --flex-alignment-x: var(--tile-footer-flex-alignment-x);
     --flex-alignment-y: var(--tile-footer-flex-alignment-y);
@@ -59,8 +59,8 @@
     display: flex;
     flex-direction: var(--orientation-direction);
 
-    align-items: var(--orientation-flex-alignment-x);
-    justify-content: var(--orientation-flex-alignment-y);
+    align-items: var(--orientation-align);
+    justify-content: var(--orientation-justify);
 
     gap: var(--tile-footer-gap);
 

@@ -1,8 +1,8 @@
 .card {
     --orientation-direction: var(--card-footer-orientation-direction);
 
-    --orientation-flex-alignment-x: var(--card-footer-flex-alignment-y);
-    --orientation-flex-alignment-y: var(--card-footer-flex-alignment-x);
+    --orientation-align: var(--card-footer-flex-alignment-y);
+    --orientation-justify: var(--card-footer-flex-alignment-x);
 
     --flex-alignment-x: var(--card-footer-flex-alignment-x);
     --flex-alignment-y: var(--card-footer-flex-alignment-y);
@@ -68,8 +68,8 @@
 
     flex-direction: var(--orientation-direction);
 
-    align-items: var(--orientation-flex-alignment-x);
-    justify-content: var(--orientation-flex-alignment-y);
+    align-items: var(--orientation-align);
+    justify-content: var(--orientation-justify);
 
     gap: var(--card-footer-gap);
 

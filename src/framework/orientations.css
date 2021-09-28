@@ -2,16 +2,16 @@
     --orientation-direction: row;
     --orientation-spacing: 0 0 0 var(--spacing-x);
 
-    --orientation-flex-alignment-x: var(--flex-alignment-y);
-    --orientation-flex-alignment-y: var(--flex-alignment-x);
+    --orientation-align: var(--flex-alignment-y);
+    --orientation-justify: var(--flex-alignment-x);
 }
 
 [data-orientation~="vertical"] {
     --orientation-direction: column;
     --orientation-spacing: var(--spacing-y) 0 0 0;
 
-    --orientation-flex-alignment-x: var(--flex-alignment-x);
-    --orientation-flex-alignment-y: var(--flex-alignment-y);
+    --orientation-align: var(--flex-alignment-x);
+    --orientation-justify: var(--flex-alignment-y);
 }
 
 @variants <sm {
@@ -19,16 +19,16 @@
         --orientation-direction: row;
         --orientation-spacing: 0 0 0 var(--spacing-x);
 
-        --orientation-flex-alignment-x: var(--flex-alignment-y);
-        --orientation-flex-alignment-y: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y);
+        --orientation-justify: var(--flex-alignment-x);
     }
 
     [data-orientation~="mobile:vertical"] {
         --orientation-direction: column;
         --orientation-spacing: var(--spacing-y) 0 0 0;
 
-        --orientation-flex-alignment-x: var(--flex-alignment-x);
-        --orientation-flex-alignment-y: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x);
+        --orientation-justify: var(--flex-alignment-y);
     }
 }
 
@@ -37,16 +37,16 @@
         --orientation-direction: row;
         --orientation-spacing: 0 0 0 var(--spacing-x);
 
-        --orientation-flex-alignment-x: var(--flex-alignment-y);
-        --orientation-flex-alignment-y: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y);
+        --orientation-justify: var(--flex-alignment-x);
     }
 
     [data-orientation~="tablet:vertical"] {
         --orientation-direction: column;
         --orientation-spacing: var(--spacing-y) 0 0 0;
 
-        --orientation-flex-alignment-x: var(--flex-alignment-x);
-        --orientation-flex-alignment-y: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x);
+        --orientation-justify: var(--flex-alignment-y);
     }
 }
 
@@ -55,16 +55,16 @@
         --orientation-direction: row;
         --orientation-spacing: 0 0 0 var(--spacing-x);
 
-        --orientation-flex-alignment-x: var(--flex-alignment-y);
-        --orientation-flex-alignment-y: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y);
+        --orientation-justify: var(--flex-alignment-x);
     }
 
     [data-orientation~="desktop:vertical"] {
         --orientation-direction: column;
         --orientation-spacing: var(--spacing-y) 0 0 0;
 
-        --orientation-flex-alignment-x: var(--flex-alignment-x);
-        --orientation-flex-alignment-y: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x);
+        --orientation-justify: var(--flex-alignment-y);
     }
 }
 
@@ -73,15 +73,15 @@
         --orientation-direction: row;
         --orientation-spacing: 0 0 0 var(--spacing-x);
 
-        --orientation-flex-alignment-x: var(--flex-alignment-y);
-        --orientation-flex-alignment-y: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y);
+        --orientation-justify: var(--flex-alignment-x);
     }
 
     [data-orientation~="widescreen:vertical"] {
         --orientation-direction: column;
         --orientation-spacing: var(--spacing-y) 0 0 0;
 
-        --orientation-flex-alignment-x: var(--flex-alignment-x);
-        --orientation-flex-alignment-y: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x);
+        --orientation-justify: var(--flex-alignment-y);
     }
 }

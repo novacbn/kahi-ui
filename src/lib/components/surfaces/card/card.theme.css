@@ -24,8 +24,8 @@
     --card-footer-flex-alignment-y: center;
     --card-footer-gap: var(--spacing-local-small);
     --card-footer-orientation-direction: row;
-    --card-footer-orientation-flex-alignment-x: var(--flex-alignment-y);
-    --card-footer-orientation-flex-alignment-y: var(--flex-alignment-x);
+    --card-footer-orientation-align: var(--flex-alignment-y);
+    --card-footer-orientation-justify: var(--flex-alignment-x);
     --card-footer-margin-top: var(--spacing-local-medium);
 
     /** */

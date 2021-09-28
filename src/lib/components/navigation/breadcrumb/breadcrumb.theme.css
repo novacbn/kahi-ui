@@ -5,6 +5,6 @@
 
     /** */
 
-    --breadcrumb-divider-margin: var(--spacing-local-tiny);
-    --breadcrumb-divider-opacity: 0.3;
+    --breadcrumb-separator-margin: var(--spacing-local-tiny);
+    --breadcrumb-separator-opacity: 0.3;
 }

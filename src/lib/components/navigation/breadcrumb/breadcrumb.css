@@ -16,11 +16,8 @@
     }
 
     & > [role="presentation"] {
-        margin: 0 var(--breadcrumb-divider-margin);
+        margin: 0 var(--breadcrumb-separator-margin);
 
-        opacity: var(--breadcrumb-divider-opacity);
-
-        pointer-events: none;
-        user-select: none;
+        opacity: var(--breadcrumb-separator-opacity);
     }
 }

@@ -84,6 +84,7 @@ export * from "./components/typography/text";
 
 export * from "./components/utilities/contextbackdrop";
 export * from "./components/utilities/contextbutton";
+export * from "./components/utilities/lazyrender";
 export * from "./components/utilities/nobrowser";
 export * from "./components/utilities/noserver";
 export * from "./components/utilities/portal";
@@ -91,6 +92,8 @@ export * from "./components/utilities/transition";
 
 export * from "./actions/click_outside";
 export * from "./actions/keybind";
+export * from "./actions/intersection_observer";
+export * from "./actions/mutation_observer";
 
 export * from "./stores/attribute";
 export * from "./stores/component";

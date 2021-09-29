@@ -2,7 +2,29 @@
 
 ## UNRELEASED
 
-...
+-   Added `IS_SERVER: boolean` constant.
+
+-   Added the following Actions / Action Features
+
+    -   `intersection_observer(HTMLElement, {options: IntersectionObserverInit, on_intersect: (intersections: IntersectionObserverEntry[]) => void}): IIntersectionObserverAction` — Light Svelte Action wrapper around the [`IntersectionObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+    -   `mutation_observer(HTMLElement, {options: MutationObserverInit, on_intersect: (mutations: MutationRecord[]) => void}): IMutationObserverAction` — Light Svelte Action wrapper around the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
+
+-   Added the following Components / Component Features
+
+    -   Utilities
+
+        -   `LazyRender` — Starts rendering the child content whenever the content intersects the viewport, via a [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+            -   `<LazyRender loading="eager">` — Changes behavior to stop rendering the child content whenever it leaves the viewport, instead of persisting.
+            -   `<LazyRender has_intersected={boolean}>` — Is `true` after the child content has intersected once.
+            -   `<LazyRender is_intersecting={boolean}>` — Is `true` whenever the child content is intersecting.
+            -   `<LazyRender root>` — Maps to [`IntersectionObserverInit.root`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/root).
+            -   `<LazyRender root_margin>` — Maps to [`IntersectionObserverInit.rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin).
+            -   `<LazyRender threshold>` — Maps to [`IntersectionObserverInit.threshold`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds).
+
+        -   `NoBrowser` — Disables rendering of child content whenever Component is initialized on the Browser.
+        -   `NoServer` — Disables rendering of child content whenever Component is initialized on a Server.
 
 ## 0.4.0 - 2021/09/28
 

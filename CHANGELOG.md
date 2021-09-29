@@ -6,9 +6,9 @@
 
 -   Added the following Actions / Action Features
 
-    -   `intersection_observer(HTMLElement, {options: IntersectionObserverInit, on_intersect: (intersections: IntersectionObserverEntry[]) => void}): IIntersectionObserverAction` — Light Svelte Action wrapper around the [`IntersectionObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+    -   `intersection_observer(HTMLElement, {on_intersect: (intersections: IntersectionObserverEntry[]) => void}): IIntersectionObserverAction` — Light Svelte Action wrapper around the [`IntersectionObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-    -   `mutation_observer(HTMLElement, {options: MutationObserverInit, on_intersect: (mutations: MutationRecord[]) => void}): IMutationObserverAction` — Light Svelte Action wrapper around the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
+    -   `mutation_observer(HTMLElement, {on_intersect: (mutations: MutationRecord[]) => void}): IMutationObserverAction` — Light Svelte Action wrapper around the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
 
 -   Added the following Components / Component Features
 

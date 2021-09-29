@@ -21,9 +21,7 @@ export function htmlpalette(): IHTMLPaletteStore {
 
         const action = mutation_observer(document.documentElement, {
             on_mutate,
-            options: {
-                attributes: true,
-            },
+            attributes: true,
         });
 
         set(document.documentElement.getAttribute("data-palette") ?? "");

@@ -6,6 +6,7 @@
     import type {IIntrinsicProperties} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
+    import type {IIntersectionObserverOptions} from "../../../actions/intersection_observer";
     import {intersection_observer} from "../../../actions/intersection_observer";
 
     import {map_global_attributes} from "../../../util/attributes";
@@ -23,9 +24,9 @@
         has_intersected?: boolean;
         is_intersecting?: boolean;
 
-        root?: IntersectionObserverInit["root"];
-        root_margin?: IntersectionObserverInit["rootMargin"];
-        threshold?: IntersectionObserverInit["threshold"];
+        root?: IIntersectionObserverOptions["root"];
+        root_margin?: IIntersectionObserverOptions["root_margin"];
+        threshold?: IIntersectionObserverOptions["threshold"];
     } & IHTML5Properties &
         IGlobalProperties &
         IIntrinsicProperties &
@@ -63,11 +64,9 @@
     class="lazy-render"
     use:intersection_observer={{
         on_intersect,
-        options: {
-            root,
-            rootMargin: root_margin,
-            threshold,
-        },
+        root,
+        root_margin,
+        threshold,
     }}
 >
     {#if has_intersected}

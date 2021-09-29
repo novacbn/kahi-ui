@@ -17,12 +17,42 @@ export interface IMutationObserverOptions {
     /**
      *
      */
+    attributes?: MutationObserverInit["attributes"];
+
+    /**
+     *
+     */
+    attribute_filter?: MutationObserverInit["attributeFilter"];
+
+    /**
+     *
+     */
+    attribute_old_value?: MutationObserverInit["attributeOldValue"];
+
+    /**
+     *
+     */
+    character_data?: MutationObserverInit["characterData"];
+
+    /**
+     *
+     */
+    character_data_old_value?: MutationObserverInit["characterDataOldValue"];
+
+    /**
+     *
+     */
+    child_list?: MutationObserverInit["childList"];
+
+    /**
+     *
+     */
     on_mutate: IMutationObserverCallback;
 
     /**
      *
      */
-    options?: MutationObserverInit;
+    subtree?: MutationObserverInit["subtree"];
 }
 
 /**
@@ -36,20 +66,54 @@ export function mutation_observer(
     element: HTMLElement,
     options: IMutationObserverOptions
 ): IMutationObserverAction {
-    let {on_mutate, options: mutation_options} = options;
+    let {
+        attributes,
+        attribute_filter,
+        attribute_old_value,
+        character_data,
+        character_data_old_value,
+        child_list,
+        on_mutate,
+        subtree,
+    } = options;
 
     const observer = new MutationObserver((mutations) => {
         on_mutate(mutations);
     });
 
-    observer.observe(element, mutation_options);
+    observer.observe(element, {
+        attributes,
+        attributeFilter: attribute_filter,
+        attributeOldValue: attribute_old_value,
+        characterData: character_data,
+        characterDataOldValue: character_data_old_value,
+        childList: child_list,
+        subtree,
+    });
 
     return {
         update(options: IMutationObserverOptions) {
-            ({on_mutate, options: mutation_options} = options);
+            ({
+                attributes,
+                attribute_filter,
+                attribute_old_value,
+                character_data,
+                character_data_old_value,
+                child_list,
+                on_mutate,
+                subtree,
+            } = options);
 
             observer.disconnect();
-            observer.observe(element, mutation_options);
+            observer.observe(element, {
+                attributes,
+                attributeFilter: attribute_filter,
+                attributeOldValue: attribute_old_value,
+                characterData: character_data,
+                characterDataOldValue: character_data_old_value,
+                childList: child_list,
+                subtree,
+            });
         },
 
         destroy() {

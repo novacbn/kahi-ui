@@ -9,28 +9,28 @@
     -   `intersection_observer(HTMLElement, {on_intersect: (intersections: IntersectionObserverEntry[]) => void}): IIntersectionObserverAction` — Light Svelte Action wrapper around the [`IntersectionObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
         -   `intersection_observer({...: IntersectionObserverInit})` — Pass [`IntersectionObserverInit`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties) options.
-        -   **NOTE**: properties map to snake_case, e.g. `rootMargin` -> `root_margin`
+        -   **NOTE**: Properties map to snake_case, e.g. `rootMargin` -> `root_margin`
 
     -   `mutation_observer(HTMLElement, {on_mutate: (mutations: MutationRecord[]) => void}): IMutationObserverAction` — Light Svelte Action wrapper around the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
 
         -   `mutation_observer({...: MutationObserverInit})` — Pass [`MutationObserverInit`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit) options.
-        -   **NOTE**: properties map to snake_case, e.g. `attributeFilter` -> `attribute_filter`
+        -   **NOTE**: Properties map to snake_case, e.g. `attributeFilter` -> `attribute_filter`
 
 -   Added the following Components / Component Features
 
     -   Utilities
 
-        -   `LazyRender` — Starts rendering the child content whenever the content intersects the viewport, via a [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+        -   `BrowserRender` — Disables rendering of child content whenever Component is initialized on a Server.
+        -   `ServerRender` — Disables rendering of child content whenever Component is initialized on the Browser.
 
-            -   `<LazyRender loading="eager">` — Changes behavior to stop rendering the child content whenever it leaves the viewport, instead of persisting.
-            -   `<LazyRender has_intersected={boolean}>` — Is `true` after the child content has intersected once.
-            -   `<LazyRender is_intersecting={boolean}>` — Is `true` whenever the child content is intersecting.
-            -   `<LazyRender root>` — Maps to [`IntersectionObserverInit.root`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/root).
-            -   `<LazyRender root_margin>` — Maps to [`IntersectionObserverInit.rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin).
-            -   `<LazyRender threshold>` — Maps to [`IntersectionObserverInit.threshold`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds).
+        -   `IntersectionRender` — Starts rendering the child content whenever the content intersects the viewport, via a [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-        -   `NoBrowser` — Disables rendering of child content whenever Component is initialized on the Browser.
-        -   `NoServer` — Disables rendering of child content whenever Component is initialized on a Server.
+            -   `<IntersectionRender loading="eager">` — Changes behavior to stop rendering the child content whenever it leaves the viewport, instead of persisting.
+            -   `<IntersectionRender has_intersected={boolean}>` — Is `true` after the child content has intersected once.
+            -   `<IntersectionRender is_intersecting={boolean}>` — Is `true` whenever the child content is intersecting.
+            -   `<IntersectionRender root>` — Maps to [`IntersectionObserverInit.root`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/root).
+            -   `<IntersectionRender root_margin>` — Maps to [`IntersectionObserverInit.rootMargin`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin).
+            -   `<IntersectionRender threshold>` — Maps to [`IntersectionObserverInit.threshold`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds).
 
 ## 0.4.0 - 2021/09/28
 

@@ -7,12 +7,12 @@
 
     import Transition from "../transition/Transition.svelte";
 
-    import LazyRender from "./LazyRender.svelte";
+    import IntersectionRender from "./IntersectionRender.svelte";
 
     let is_intersecting = false;
 </script>
 
-<Meta title="Utilities/LazyRender" />
+<Meta title="Utilities/IntersectionRender" />
 
 <Template>
     <slot />
@@ -38,11 +38,11 @@
     <Spacer spacing="huge" />
     <Spacer spacing="huge" />
 
-    <LazyRender threshold={0.5} bind:is_intersecting>
+    <IntersectionRender threshold={0.5} bind:is_intersecting>
         <Transition animation="scale" variation="enter">
             <Box palette="inverse" padding="small">I am in view!</Box>
         </Transition>
-    </LazyRender>
+    </IntersectionRender>
 
     <Spacer spacing="huge" />
     <Spacer spacing="huge" />
@@ -84,11 +84,11 @@
     <Spacer spacing="huge" />
     <Spacer spacing="huge" />
 
-    <LazyRender loading="eager" threshold={0.5} bind:is_intersecting>
+    <IntersectionRender loading="eager" threshold={0.5} bind:is_intersecting>
         <Transition animation="scale" variation="enter">
             <Box palette="inverse" padding="small">I am in view!</Box>
         </Transition>
-    </LazyRender>
+    </IntersectionRender>
 
     <Spacer spacing="huge" />
     <Spacer spacing="huge" />

@@ -1,15 +1,15 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import NoServer from "./NoServer.svelte";
+    import ServerRender from "./ServerRender.svelte";
 </script>
 
-<Meta title="Utilities/NoServer" />
+<Meta title="Utilities/ServerRender" />
 
 <Template>
     <slot />
 </Template>
 
 <Story name="Default">
-    <NoServer>This will only render on Browser.</NoServer>
+    <ServerRender>This will only render on Server.</ServerRender>
 </Story>

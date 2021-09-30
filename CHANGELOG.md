@@ -8,7 +8,13 @@
 
     -   `intersection_observer(HTMLElement, {on_intersect: (intersections: IntersectionObserverEntry[]) => void}): IIntersectionObserverAction` — Light Svelte Action wrapper around the [`IntersectionObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-    -   `mutation_observer(HTMLElement, {on_intersect: (mutations: MutationRecord[]) => void}): IMutationObserverAction` — Light Svelte Action wrapper around the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
+        -   `intersection_observer({...: IntersectionObserverInit})` — Pass [`IntersectionObserverInit`](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver#properties) options.
+        -   **NOTE**: properties map to snake_case, e.g. `rootMargin` -> `root_margin`
+
+    -   `mutation_observer(HTMLElement, {on_mutate: (mutations: MutationRecord[]) => void}): IMutationObserverAction` — Light Svelte Action wrapper around the [`MutationObserver API`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
+
+        -   `mutation_observer({...: MutationObserverInit})` — Pass [`MutationObserverInit`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit) options.
+        -   **NOTE**: properties map to snake_case, e.g. `attributeFilter` -> `attribute_filter`
 
 -   Added the following Components / Component Features
 

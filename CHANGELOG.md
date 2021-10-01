@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.4.1 - 2021/10/01
 
 -   Added `IS_SERVER: boolean` constant.
 

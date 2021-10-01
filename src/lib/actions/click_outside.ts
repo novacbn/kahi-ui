@@ -1,7 +1,7 @@
 import type {IActionHandle} from "./actions";
 
 /**
- * Represents the Svelte Action handle returned by [[click_outside]] is called
+ * Represents the Svelte Action handle returned by [[click_outside]]
  */
 export type IClickOutsideAction = IActionHandle<IClickOutsideOptions>;
 

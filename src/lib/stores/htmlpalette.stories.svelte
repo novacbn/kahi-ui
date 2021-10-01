@@ -5,12 +5,12 @@
     import Heading from "../components/typography/heading/Heading.svelte";
     import Text from "../components/typography/text/Text.svelte";
 
-    import {htmlpalette} from "./attribute";
+    import {htmlpalette} from "./htmlpalette";
 
     const palette_store = htmlpalette();
 </script>
 
-<Meta title="Stores/attribute" />
+<Meta title="Stores/htmlpalette" />
 
 <Template>
     <slot />

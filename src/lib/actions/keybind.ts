@@ -3,7 +3,7 @@ import {throttle} from "../util/functional";
 import type {IActionHandle} from "./actions";
 
 /**
- * Represents the Svelte Action handle returned by [[keybind]] is called
+ * Represents the Svelte Action handle returned by [[keybind]]
  */
 export type IKeybindAction = IActionHandle<IKeybindOptions>;
 

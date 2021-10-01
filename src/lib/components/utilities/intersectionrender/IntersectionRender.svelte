@@ -10,6 +10,7 @@
     import {intersection_observer} from "../../../actions/intersection_observer";
 
     import {map_global_attributes} from "../../../util/attributes";
+    import {IS_SERVER} from "../../../util/environment";
 
     type $$Events = {
         intersectionend: CustomEvent<IntersectionObserverEntry[]>;
@@ -20,6 +21,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        fallthrough?: boolean;
         loading?: "eager";
         has_intersected?: boolean;
         is_intersecting?: boolean;
@@ -41,6 +43,10 @@
 
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
+    export let fallthrough: $$Props["fallthrough"] = undefined;
     export let loading: $$Props["loading"] = undefined;
     export let has_intersected: $$Props["has_intersected"] = undefined;
     export let is_intersecting: $$Props["is_intersecting"] = undefined;
@@ -61,7 +67,7 @@
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="lazy-render"
+    class="intersection-render {_class}"
     use:intersection_observer={{
         on_intersect,
         root,
@@ -69,7 +75,7 @@
         threshold,
     }}
 >
-    {#if has_intersected}
+    {#if has_intersected || (IS_SERVER && fallthrough)}
         <slot />
     {/if}
 </div>

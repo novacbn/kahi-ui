@@ -25,6 +25,7 @@
 
         -   `IntersectionRender` — Starts rendering the child content whenever the content intersects the viewport, via a [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
+            -   `<IntersectionRender fallthrough={boolean}>` — When `true`, always renders content in SSR environments, e.g. SvelteKit
             -   `<IntersectionRender loading="eager">` — Changes behavior to stop rendering the child content whenever it leaves the viewport, instead of persisting.
             -   `<IntersectionRender has_intersected={boolean}>` — Is `true` after the child content has intersected once.
             -   `<IntersectionRender is_intersecting={boolean}>` — Is `true` whenever the child content is intersecting.

@@ -91,6 +91,7 @@ export * from "./components/utilities/serverrender";
 export * from "./components/utilities/transition";
 
 export * from "./actions/click_outside";
+export * from "./actions/clipping";
 export * from "./actions/keybind";
 export * from "./actions/intersection_observer";
 export * from "./actions/mutation_observer";

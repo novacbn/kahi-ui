@@ -84,7 +84,7 @@
     <Spacer spacing="huge" />
     <Spacer spacing="huge" />
 
-    <IntersectionRender loading="eager" threshold={0.5} bind:is_intersecting>
+    <IntersectionRender loading="eager" threshold={0.5} style="height:40px;" bind:is_intersecting>
         <Transition animation="scale" variation="enter">
             <Box palette="inverse" padding="small">I am in view!</Box>
         </Transition>

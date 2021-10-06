@@ -29,6 +29,9 @@
 
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let variation: $$Props["variation"] = undefined;
 
     export let alignment_x: $$Props["alignment_x"] = undefined;
@@ -36,9 +39,9 @@
 </script>
 
 <div
-    class="position"
     bind:this={element}
     {...map_global_attributes($$props)}
+    class="position {_class}"
     {...map_data_attributes({
         "alignment-x": alignment_x,
         placement,

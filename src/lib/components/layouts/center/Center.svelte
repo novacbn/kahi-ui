@@ -19,8 +19,11 @@
     };
 
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 </script>
 
-<div class="center" bind:this={element} {...map_global_attributes($$props)}>
+<div bind:this={element} {...map_global_attributes($$props)} class="center {_class}">
     <slot />
 </div>

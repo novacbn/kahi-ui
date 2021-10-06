@@ -71,9 +71,11 @@
 
 @import url("../lib/components/embedded/figure/figure.css");
 
+@import url("../lib/components/layouts/center/center.css");
 @import url("../lib/components/layouts/grid/grid.css");
 @import url("../lib/components/layouts/group/group.css");
 @import url("../lib/components/layouts/mosaic/mosaic.css");
+@import url("../lib/components/layouts/position/position.css");
 @import url("../lib/components/layouts/scrollable/scrollable.css");
 @import url("../lib/components/layouts/stack/stack.css");
 

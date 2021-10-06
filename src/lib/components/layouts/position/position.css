@@ -1,0 +1,54 @@
+.position {
+    display: inline-block;
+    position: relative;
+
+    &[data-variation="floated"] {
+        position: absolute;
+
+        &[data-placement="top"] {
+            top: 0;
+
+            &[data-alignment-x="left"] {
+                left: 0;
+                transform: translate(-50%, -50%);
+            }
+
+            &[data-alignment-x="right"] {
+                right: 0;
+                transform: translate(50%, -50%);
+            }
+        }
+
+        &[data-placement="bottom"] {
+            bottom: 0;
+
+            &[data-alignment-x="left"] {
+                left: 0;
+                transform: translate(-50%, 50%);
+            }
+
+            &[data-alignment-x="right"] {
+                right: 0;
+                transform: translate(50%, 50%);
+            }
+        }
+    }
+
+    &[data-variation="raised"] {
+        &[data-placement="top"] {
+            transform: translateY(-50%);
+        }
+
+        &[data-placement="bottom"] {
+            transform: translateY(50%);
+        }
+
+        &[data-placement="left"] {
+            transform: translateX(-50%);
+        }
+
+        &[data-placement="right"] {
+            transform: translateX(50%);
+        }
+    }
+}

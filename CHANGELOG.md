@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Utilities
+
+        -   `<Transition>`
+
+            -   `<Transition duration="number|string">` — Provide a percentage decimal (e.g. `1.2` which means `120%`) to control how long of the theme's animation duration is played.
+
 ## v0.4.1 - 2021/10/01
 
 -   Added `IS_SERVER: boolean` constant.

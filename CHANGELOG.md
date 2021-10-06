@@ -12,8 +12,7 @@
             -   `<Position variation="floated">` — Positions the child content in a corner of the containing parent without affecting layout.
 
                 -   `<Position variation="floated" placement="bottom/top" alignment_x="left/right">` — Positions the child content in a top / bottom corner.
-
-            -   `<Position variation="raised" placement="bottom/left/right/top">` — Positions the child content while affecting the layout.
+                -   `<Position variation="raised" placement="bottom/left/right/top">` — Positions the child content while affecting the layout.
 
 -   Deprecated the following Components / Component Features
 

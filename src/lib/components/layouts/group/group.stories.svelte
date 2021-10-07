@@ -8,6 +8,7 @@
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
+    import Center from "../center/Center.svelte";
     import Stack from "../stack/Stack.svelte";
 
     import Group from "./Group.svelte";
@@ -74,14 +75,12 @@
                         <img src={IMAGE_AVATAR} />
                     </Figure>
 
-                    <!-- TODO: replace w/ `Center` Component -->
-                    <div
-                        data-padding-x={orientation === "horizontal" ? "small" : "undefined"}
-                        data-padding-y={orientation === "vertical" ? "small" : "undefined"}
-                        style="display:flex;align-items:center;justify-content:center;"
+                    <Center
+                        padding-x={orientation === "horizontal" ? "small" : undefined}
+                        padding-y={orientation === "vertical" ? "small" : undefined}
                     >
                         <Text is="small">+7</Text>
-                    </div>
+                    </Center>
                 </Group>
             </div>
         {/each}

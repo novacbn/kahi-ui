@@ -37,7 +37,7 @@
         <div>
             <Text is="strong">BLOCK / DEFAULT</Text>
 
-            <Box palette="dark" margin_top="small" padding="small">
+            <Box palette="inverse" margin_top="small" padding="small">
                 TOP
                 <Spacer spacing="huge" />
                 BOTTOM
@@ -47,7 +47,7 @@
         <div>
             <Text is="strong">INLINE</Text>
 
-            <Box palette="dark" margin_top="small" padding="small">
+            <Box palette="inverse" margin_top="small" padding="small">
                 LEFT
                 <Spacer variation="inline" spacing="huge" />
                 RIGHT

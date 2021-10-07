@@ -1,5 +1,5 @@
 <script>
-    import IMAGE_AVATAR from "../../../../../storybook/assets/images/avatar.png";
+    import IMAGE_AVATAR from "../../../../../../.storybook/assets/avatar.webp";
 
     import Figure from "../../../embedded/figure/Figure.svelte";
     import Text from "../../../typography/text/Text.svelte";

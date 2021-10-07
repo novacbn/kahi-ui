@@ -35,6 +35,50 @@
     </Transition>
 </Story>
 
+<Story name="Delay">
+    <Button on:click={on_state_click}>Toggle Variation</Button>
+
+    <Transition animation="clip" {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+
+    <Transition animation="clip" delay={0.5} {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+
+    <Transition animation="clip" delay={1.0} {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+
+    <Transition animation="clip" delay={1.5} {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+</Story>
+
+<Story name="Duration">
+    <Button on:click={on_state_click}>Toggle Variation</Button>
+
+    <Transition animation="clip" duration={0.25} {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+
+    <Transition animation="clip" {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+
+    <Transition animation="clip" duration={1.75} {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+
+    <Transition animation="clip" duration={2.5} {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+
+    <Transition animation="clip" duration={3.25} {variation}>
+        <Box palette="inverse" padding="medium">hello world!</Box>
+    </Transition>
+</Story>
+
 <Story name="Clip">
     <Button on:click={on_state_click}>Toggle Variation</Button>
 
@@ -58,7 +102,7 @@
                 delay={Math.floor(index / 4) * 0.5}
                 variation="enter"
             >
-                <Box palette="inverse" padding="large">hello world!</Box>
+                <Box palette="inverse" padding="medium">hello world!</Box>
             </Transition>
         {/each}
     </Grid.Container>
@@ -76,7 +120,7 @@
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition animation="fade" delay={Math.floor(index / 4) * 0.5} variation="enter">
-                <Box palette="inverse" padding="large">hello world!</Box>
+                <Box palette="inverse" padding="medium">hello world!</Box>
             </Transition>
         {/each}
     </Grid.Container>
@@ -94,7 +138,7 @@
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition animation="scale" delay={Math.floor(index / 4) * 0.5} variation="enter">
-                <Box palette="inverse" padding="large">hello world!</Box>
+                <Box palette="inverse" padding="medium">hello world!</Box>
             </Transition>
         {/each}
     </Grid.Container>
@@ -122,7 +166,7 @@
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition animation="slide" delay={Math.floor(index / 4) * 0.5} variation="enter">
-                <Box palette="inverse" padding="large">hello world!</Box>
+                <Box palette="inverse" padding="medium">hello world!</Box>
             </Transition>
         {/each}
     </Grid.Container>

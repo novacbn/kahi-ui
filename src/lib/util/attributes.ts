@@ -74,6 +74,18 @@ function is_truthy(value: any): boolean {
 }
 
 /**
+ * Returns all the CSS variables concated
+ * @param props
+ * @returns
+ */
+export function format_css_variables(props: IProps): string {
+    return Object.entries(props)
+        .filter(([variable, value]) => is_truthy(value))
+        .map(([variable, value]) => `--${variable}:${value}`)
+        .join(";");
+}
+
+/**
  * Returns the mapped the input [[props]] to output props, filtering out props with
  * falsy values or not matched against the input [[set]] of valid props. Also prefixes
  * attributes with the given [[prefix]] string if available

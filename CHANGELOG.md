@@ -20,6 +20,12 @@
                 -   `<Position variation="floated" placement="bottom/top" alignment_x="left/right">` — Positions the child content in a top / bottom corner.
                 -   `<Position variation="raised" placement="bottom/left/right/top">` — Positions the child content while affecting the layout.
 
+    -   Utilities
+
+        -   `<Transition>`
+
+            -   `<Transition duration="number|string">` — Provide a percentage decimal (e.g. `1.2` which means `120%`) to control how long of the theme's animation duration is played.
+
 -   Deprecated the following Components / Component Features
 
     -   Display

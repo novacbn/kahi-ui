@@ -1,9 +1,10 @@
 .transition {
     --animation: unset;
     --delay: 0;
+    --duration: 1;
 
-    animation: var(--animation) var(--animation-reveal-duration) var(--animation-reveal-function)
-        calc(var(--animation-reveal-duration) * var(--delay)) both;
+    animation: var(--animation) calc(var(--animation-reveal-duration) * var(--duration))
+        var(--animation-reveal-function) calc(var(--animation-reveal-duration) * var(--delay)) both;
 }
 
 .transition[data-animation="clip"] {

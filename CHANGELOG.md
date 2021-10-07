@@ -22,7 +22,7 @@
 
     -   Utilities
 
-        -   `<Transition>`
+        -   `Transition`
 
             -   `<Transition duration="number|string">` — Provide a percentage decimal (e.g. `1.2` which means `120%`) to control how long of the theme's animation duration is played.
 

@@ -55,7 +55,11 @@ npm install @kahi-ui/framework
 First if your toolchain supports it, import the required CSS files from `@kahi-ui/framework/dist`:
 
 ```javascript
+// For non-minified:
 import "@kahi-ui/framework/dist/kahi-ui.framework.css";
+
+// For minified:
+import "@kahi-ui/framework/dist/kahi-ui.framework.min.css";
 ```
 
 Otherwise download the required CSS files from [Releases](https://github.com/novacbn/kahi-ui/releases/latest) and use `<link rel="stylesheet">`:
@@ -63,7 +67,11 @@ Otherwise download the required CSS files from [Releases](https://github.com/nov
 ```html
 <html>
     <head>
+        <!-- For non-minified: -->
         <link rel="stylesheet" href="/path/to/kahi-ui.framework.css" />
+
+        <!-- For minified: -->
+        <link rel="stylesheet" href="/path/to/kahi-ui.framework.min.css" />
     </head>
 </html>
 ```

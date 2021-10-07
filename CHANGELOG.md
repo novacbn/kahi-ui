@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.4.2 - 2021/10/07
 
 -   Added the following Components / Component Features
 

@@ -1,4 +1,6 @@
 .badge {
+    --shape-radius: none;
+
     --palette-background-normal: var(--badge-palette-background-normal);
     --palette-foreground-normal: var(--badge-palette-foreground-normal);
 
@@ -15,6 +17,8 @@
 
     background: rgb(var(--palette-background-normal));
     color: rgb(var(--palette-foreground-normal));
+
+    border-radius: var(--shape-radius);
 
     font-size: var(--badge-font-size);
     font-weight: var(--badge-font-weight);

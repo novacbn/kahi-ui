@@ -44,12 +44,14 @@ export * from "./components/interactables/radio";
 export * from "./components/interactables/switch";
 export * from "./components/interactables/textinput";
 
+export * from "./components/layouts/center";
 export * from "./components/layouts/container";
 export * from "./components/layouts/divider";
 import * as Grid from "./components/layouts/grid";
 export {Grid};
 export * from "./components/layouts/group";
 export * from "./components/layouts/mosaic";
+export * from "./components/layouts/position";
 export * from "./components/layouts/scrollable";
 export * from "./components/layouts/spacer";
 export * from "./components/layouts/stack";

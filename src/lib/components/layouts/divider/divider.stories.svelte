@@ -52,7 +52,7 @@
             <Text is="strong">HORIZONTAL / DEFAULT</Text>
 
             <Box
-                palette="dark"
+                palette="inverse"
                 padding="small"
                 style="display:flex;align-items:center;height:2rem;width:6rem;"
             >
@@ -63,7 +63,7 @@
         <div>
             <Text is="strong">VERTICAL</Text>
 
-            <Box palette="dark" padding="small" width="content-min" style="height:6rem;">
+            <Box palette="inverse" padding="small" width="content-min" style="height:6rem;">
                 <Divider orientation="vertical" />
             </Box>
         </div>
@@ -72,12 +72,12 @@
 
 <Story name="Text">
     <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        <Box palette="dark" padding="small" style="width:12rem;">
+        <Box palette="inverse" padding="small" style="width:12rem;">
             <Divider>HORIZONTAL</Divider>
         </Box>
 
         <Box
-            palette="dark"
+            palette="inverse"
             padding="small"
             style="display:inline-flex;justify-content:center;width:3rem;height:12rem;"
         >

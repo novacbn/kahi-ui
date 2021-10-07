@@ -4,6 +4,12 @@
 
 -   Added the following Components / Component Features
 
+    -   Display
+
+        -   `Badge`
+
+            -   `<Badge shape="none/pill/rounded">` — Changes the border radius shape of the Component.
+
     -   Layout
 
         -   `Center` — Centers the child content within its self using Flexbox.

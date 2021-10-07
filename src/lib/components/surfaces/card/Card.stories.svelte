@@ -1,5 +1,5 @@
 <script>
-    import IMAGE_BACKGROUND from "../../../../storybook/assets/images/background.jpg";
+    import IMAGE_BACKGROUND from "../../../../../.storybook/assets/background.webp";
 
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 

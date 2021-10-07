@@ -10,6 +10,30 @@
 
             -   `<Badge shape="none/pill/rounded">` — Changes the border radius shape of the Component.
 
+    -   Layout
+
+        -   `Center` — Centers the child content within its self using Flexbox.
+        -   `Position` — Applies special positioning rules to child content depending `<Position variation>`.
+
+            -   `<Position variation="floated">` — Positions the child content in a corner of the containing parent without affecting layout.
+
+                -   `<Position variation="floated" placement="bottom/top" alignment_x="left/right">` — Positions the child content in a top / bottom corner.
+                -   `<Position variation="raised" placement="bottom/left/right/top">` — Positions the child content while affecting the layout.
+
+-   Deprecated the following Components / Component Features
+
+    -   Display
+
+        -   `Badge`
+
+            -   **(BREAKING)** `<Badge position="floated/raised">` — Current behavior is deprecated in favor of using `Position`.
+
+    -   Feedback
+
+        -   `Dot`
+
+            -   **(BREAKING)** `<Dot position="floated/raised">` — Current behavior is deprecated in favor of using `Position`.
+
 ## v0.4.1 - 2021/10/01
 
 -   Added `IS_SERVER: boolean` constant.

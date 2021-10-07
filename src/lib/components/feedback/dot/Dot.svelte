@@ -13,6 +13,7 @@
 
         animation?: DESIGN_ANIMATION_ARGUMENT;
         palette?: DESIGN_PALETTE_ARGUMENT;
+        /** @deprecated */
         position?: DESIGN_POSITION_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -25,6 +26,7 @@
 
     export let animation: $$Props["animation"] = undefined;
     export let palette: $$Props["palette"] = undefined;
+    /** @deprecated */
     export let position: $$Props["position"] = undefined;
 </script>
 

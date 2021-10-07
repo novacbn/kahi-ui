@@ -25,12 +25,10 @@
 </Template>
 
 <Story name="Default">
-    <Box palette="inverse" padding="small">
-        <Stack orientation="horizontal">
-            LEFT
-            <Spacer />
-            RIGHT
-        </Stack>
+    <Box palette="inverse" padding="small" max_width="content-max">
+        LEFT
+        <Spacer variation="inline" spacing="huge" />
+        RIGHT
     </Box>
 </Story>
 
@@ -51,7 +49,7 @@
 
             <Box palette="dark" margin_top="small" padding="small">
                 LEFT
-                <Spacer variation="inline" orientation="horizontal" spacing="huge" />
+                <Spacer variation="inline" spacing="huge" />
                 RIGHT
             </Box>
         </div>

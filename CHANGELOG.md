@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Display
+
+        -   `Badge`
+
+            -   `<Badge shape="none/pill/rounded">` — Changes the border radius shape of the Component.
+
 ## v0.4.1 - 2021/10/01
 
 -   Added `IS_SERVER: boolean` constant.

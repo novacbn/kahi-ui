@@ -3,86 +3,112 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-    --palette-background-light: var(--palette-neutral-light);
-    --palette-background-normal: var(--palette-neutral-normal);
-    --palette-background-bold: var(--palette-neutral-bold);
-    --palette-foreground-normal: var(--palette-light-normal);
+    --palette-background-light: var(--button-palette-background-light);
+    --palette-background-normal: var(--button-palette-background-normal);
+    --palette-background-bold: var(--button-palette-background-bold);
+    --palette-foreground-normal: var(--button-palette-foreground-normal);
 
-    --size-text-size: var(--document-font-size);
-    --size-text-line-height: var(--document-font-line-height);
+    --size-text-size: var(--button-size-text-size);
+    --size-text-line-height: var(--button-size-text-line-height);
 
-    @apply align-middle border-2 border-transparent border-solid font-bold cursor-pointer
-    gap-[var(--spacing-local-small)] inline-flex items-center justify-center
-    leading-[var(--size-text-line-height)] px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)]
-    relative select-none whitespace-nowrap z-0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    border-radius: var(--radius-medium);
+    position: relative;
 
-    font-size: var(--size-text-size);
+    gap: var(--button-gap);
+    padding: var(--button-padding-y) var(--button-padding-x);
+
+    border: solid var(--button-border-width) transparent;
+    border-radius: var(--button-border-radius);
     outline: none !important;
 
-    transform: scale(1);
+    font-size: var(--size-text-size);
+    font-weight: var(--button-font-weight);
+    line-height: var(--size-text-line-height);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    user-select: none;
+
+    vertical-align: middle;
+    white-space: nowrap;
+
+    transform: scale(1);
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        border-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function),
+        transform var(--animation-movement-duration) var(--animation-movement-function);
 
     &:is(:disabled, [aria-disabled="true"]) {
-        @apply cursor-not-allowed opacity-40;
+        cursor: not-allowed;
+        opacity: var(--button-disabled-opacity);
     }
 
     &:not(:disabled, [aria-disabled="true"]) {
         &:is(:active, [aria-current], [aria-pressed="true"]) {
-            transform: scale(0.95);
+            transform: scale(var(--button-active-scale));
         }
     }
 
     &:not([data-variation]) {
-        @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
+        background: rgb(var(--palette-background-bold));
+        color: rgb(var(--palette-foreground-normal));
 
         &:not(:disabled, [aria-disabled="true"]) {
             &:is(:focus, :hover) {
-                @apply bg-[rgb(var(--palette-background-normal))];
+                background: rgb(var(--palette-background-normal));
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                @apply bg-[rgb(var(--palette-background-light))];
+                background: rgb(var(--palette-background-light));
             }
         }
     }
 
     &[data-variation="clear"] {
-        @apply bg-transparent text-[rgb(var(--palette-background-bold))];
+        background: transparent;
+        color: rgb(var(--palette-background-bold));
 
         &:not(:disabled, [aria-disabled="true"]) {
             &:is(:focus, :hover) {
-                @apply;
-
-                background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+                background: rgba(
+                    var(--palette-background-bold),
+                    var(--button-clear-focus-background-opacity)
+                );
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                @apply text-[rgb(var(--palette-foreground-normal))];
-
-                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+                background: rgba(
+                    var(--palette-background-bold),
+                    var(--button-clear-active-background-opacity)
+                );
+                color: rgb(var(--palette-foreground-normal));
             }
         }
     }
 
     &[data-variation="outline"] {
-        @apply bg-transparent border-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-background-normal))];
+        background: transparent;
+        border-color: rgb(var(--palette-background-bold));
+        color: rgb(var(--palette-background-normal));
 
         &:not(:disabled, [aria-disabled="true"]) {
             &:is(:focus, :hover) {
-                @apply;
-
-                background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
-                border-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+                background-color: rgba(
+                    var(--palette-background-bold),
+                    var(--button-clear-focus-background-opacity)
+                );
+                border-color: rgba(
+                    var(--palette-background-bold),
+                    var(--button-clear-focus-border-opacity)
+                );
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                @apply bg-[rgb(var(--palette-background-bold))] border-transparent text-[rgb(var(--palette-foreground-normal))];
+                background: rgb(var(--palette-background-bold));
+                border-color: transparent;
+                color: rgb(var(--palette-foreground-normal));
             }
         }
     }

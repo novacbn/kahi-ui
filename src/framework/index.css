@@ -15,6 +15,7 @@
 @import url("../lib/components/feedback/progress/progress.theme.css");
 @import url("../lib/components/feedback/spinner/spinner.theme.css");
 @import url("../lib/components/feedback/wave/wave.theme.css");
+@import url("../lib/components/interactables/button/button.theme.css");
 @import url("../lib/components/layouts/container/container.theme.css");
 @import url("../lib/components/layouts/divider/divider.theme.css");
 @import url("../lib/components/layouts/group/group.theme.css");

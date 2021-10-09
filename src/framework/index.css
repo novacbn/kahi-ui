@@ -16,6 +16,9 @@
 @import url("../lib/components/feedback/spinner/spinner.theme.css");
 @import url("../lib/components/feedback/wave/wave.theme.css");
 @import url("../lib/components/interactables/button/button.theme.css");
+@import url("../lib/components/interactables/check/check.theme.css");
+@import url("../lib/components/interactables/radio/radio.theme.css");
+@import url("../lib/components/interactables/switch/switch.theme.css");
 @import url("../lib/components/layouts/container/container.theme.css");
 @import url("../lib/components/layouts/divider/divider.theme.css");
 @import url("../lib/components/layouts/group/group.theme.css");

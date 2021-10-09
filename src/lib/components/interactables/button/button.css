@@ -35,7 +35,7 @@ button,
     white-space: nowrap;
 
     transform: scale(1);
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+    transition: background var(--animation-visual-duration) var(--animation-visual-function),
         border-color var(--animation-visual-duration) var(--animation-visual-function),
         color var(--animation-visual-duration) var(--animation-visual-function),
         transform var(--animation-movement-duration) var(--animation-movement-function);

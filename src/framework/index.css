@@ -20,6 +20,7 @@
 @import url("../lib/components/interactables/form/form.theme.css");
 @import url("../lib/components/interactables/radio/radio.theme.css");
 @import url("../lib/components/interactables/switch/switch.theme.css");
+@import url("../lib/components/interactables/textinput/textinput.theme.css");
 @import url("../lib/components/layouts/container/container.theme.css");
 @import url("../lib/components/layouts/divider/divider.theme.css");
 @import url("../lib/components/layouts/group/group.theme.css");

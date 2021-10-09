@@ -6,7 +6,7 @@
 
 -   Added the following Components / Component Features
 
-    -   `Interactables`
+    -   Interactables
 
         -   `Switch`
 

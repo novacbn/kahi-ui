@@ -2,7 +2,7 @@
 
 ## UNRELEASED
 
--   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Radio`, `Switch`
+-   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`.
 
 -   Added the following Components / Component Features
 
@@ -10,7 +10,7 @@
 
         -   `Switch`
 
-            -   Providing child content in the default unnamed slot will wrap the Component and content in a `<Form.Label>` with spacing as siblings
+            -   Providing child content in the default unnamed slot will wrap the Component and content in a `<Form.Label>` with spacing as siblings.
 
 ## v0.4.2 - 2021/10/07
 

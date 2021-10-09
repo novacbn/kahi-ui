@@ -38,6 +38,20 @@
     <Switch />
 </Story>
 
+<Story name="State">
+    <Text is="strong">DEFAULT</Text>
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        <Switch id="switch-state-default">DEFAULT</Switch>
+        <Switch id="switch-state-state" state>STATE</Switch>
+
+        <Switch id="switch-state-active-no-state" active>ACTIVE NO-STATE</Switch>
+        <Switch id="switch-state-active-state" active disabled state>ACTIVE STATE</Switch>
+
+        <Switch id="switch-state-disabled-no-state" disabled>DISABLED NO-STATE</Switch>
+        <Switch id="switch-state-disabled-state" disabled state>DISABLED STATE</Switch>
+    </Stack>
+</Story>
+
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}

@@ -2,7 +2,7 @@
 
 ## UNRELEASED
 
--   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`.
+-   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`, `TextInput`.
 
 -   Added the following Components / Component Features
 

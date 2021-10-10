@@ -30,7 +30,7 @@
             </Card.Figure>
 
             <Card.Header>
-                <Clickable.Item href="#">Ocean Rockies</Clickable.Item>
+                <Clickable.Anchor href="#">Ocean Rockies</Clickable.Anchor>
                 <Spacer />
                 <Badge palette="affirmative">AVAILABLE</Badge>
             </Card.Header>
@@ -63,9 +63,9 @@
             </Tile.Section>
 
             <Tile.Footer>
-                <Clickable.Item for="clickable-label">
-                    <Switch id="clickable-label" palette="affirmative" />
-                </Clickable.Item>
+                <Clickable.Label for="clickable-label">
+                    <Switch palette="affirmative" />
+                </Clickable.Label>
             </Tile.Footer>
         </Tile.Container>
     </Clickable.Container>

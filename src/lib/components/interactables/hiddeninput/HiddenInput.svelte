@@ -1,13 +1,9 @@
 <script lang="ts">
-    /**
-     * TODO: Stories (?)
-     */
-
     import type {IHTML5Properties} from "../../../types/html5";
 
-    import {CONTEXT_FORM_ID, get_id_context} from "../../../stores/id";
-
     import {map_attributes, map_global_attributes} from "../../../util/attributes";
+
+    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME} from "../form/FormGroup.svelte";
 
     type $$Props = {
         element?: HTMLInputElement;
@@ -17,11 +13,16 @@
 
     export let element: $$Props["element"] = undefined;
 
-    export let id: $$Props["id"] = "";
+    export let id: $$Props["id"] = undefined;
+    export let name: $$Props["name"] = undefined;
 
-    export let value: $$Props["value"] = "";
+    export let value: $$Props["value"] = undefined;
 
-    const _form_id = get_id_context(CONTEXT_FORM_ID);
+    const _form_id = CONTEXT_FORM_ID.get();
+    const _form_name = CONTEXT_FORM_NAME.get();
+
+    $: _id = _form_id ? $_form_id : id;
+    $: _name = _form_name ? $_form_name : name;
 </script>
 
 <input
@@ -29,7 +30,8 @@
     {...map_global_attributes($$props)}
     type="hidden"
     {...map_attributes({
-        id: _form_id ? $_form_id : id,
+        id: _id,
+        name: _name,
     })}
     bind:value
 />

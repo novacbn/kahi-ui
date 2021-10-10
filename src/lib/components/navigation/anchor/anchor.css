@@ -1,9 +1,4 @@
-a {
-    --palette-background-boldest: var(--anchor-palette-background-boldest);
-}
-
 a:not([role]) {
-    color: rgb(var(--palette-background-boldest));
     text-decoration: var(--anchor-text-decoration);
 
     cursor: pointer;
@@ -12,5 +7,9 @@ a:not([role]) {
 
     &:hover {
         text-decoration: var(--anchor-hover-text-decoration);
+    }
+
+    &[data-palette] {
+        color: rgb(var(--palette-background-boldest));
     }
 }

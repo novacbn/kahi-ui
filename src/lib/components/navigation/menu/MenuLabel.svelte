@@ -3,6 +3,7 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
 
+    import FormGroup from "../../interactables/form/FormGroup.svelte";
     import FormLabel from "../../interactables/form/FormLabel.svelte";
 
     import MenuItem from "./MenuItem.svelte";
@@ -39,7 +40,9 @@
 </script>
 
 <MenuItem bind:element {...$$props}>
-    <FormLabel for={_for} {active} {disabled} {palette} on:click>
-        <slot />
-    </FormLabel>
+    <FormGroup logic_id={_for}>
+        <FormLabel {active} {disabled} {palette} on:click>
+            <slot />
+        </FormLabel>
+    </FormGroup>
 </MenuItem>

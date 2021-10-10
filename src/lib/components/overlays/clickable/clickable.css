@@ -4,7 +4,7 @@
     & > * {
         position: relative;
 
-        & :not(.clickable-item):is(a, button, input, label) {
+        & :not(.clickable-item):is(a[href], button, input, label[for]) {
             position: relative;
             z-index: 2;
         }

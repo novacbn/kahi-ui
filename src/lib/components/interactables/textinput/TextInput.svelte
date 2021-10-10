@@ -11,13 +11,13 @@
     } from "../../../types/text";
     import type {DESIGN_FILL_INPUT_VARIATION_ARGUMENT} from "../../../types/variations";
 
-    import {CONTEXT_FORM_ID, get_id_context} from "../../../stores/id";
-
     import {
         map_attributes,
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
+
+    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME} from "../form/FormGroup.svelte";
 
     type $$Events = {
         blur: FocusEvent;
@@ -62,6 +62,7 @@
     export let element: $$Props["element"] = undefined;
 
     export let id: $$Props["id"] = "";
+    export let name: $$Props["name"] = "";
 
     export let is: $$Props["is"] = "input";
     export let type: $$Props["type"] = "text";
@@ -89,7 +90,11 @@
     export let transform: $$Props["transform"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
-    const _form_id = get_id_context(CONTEXT_FORM_ID);
+    const _form_id = CONTEXT_FORM_ID.get();
+    const _form_name = CONTEXT_FORM_NAME.get();
+
+    $: _id = _form_id ? $_form_id : id;
+    $: _name = _form_name ? $_form_name : name;
 
     $: _pattern = typeof pattern === "string" ? pattern : (pattern as RegExp).source;
 </script>
@@ -102,9 +107,10 @@
         {...map_attributes({
             cols: characters,
             disabled,
-            id: _form_id ? $_form_id : id,
+            id: _id,
             maxlength: max_length,
             minlength: min_length,
+            name: _name,
             placeholder,
             readonly,
             required,
@@ -126,9 +132,10 @@
         {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
-            id: _form_id ? $_form_id : id,
+            id: _id,
             maxlength: max_length,
             minlength: min_length,
+            name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
@@ -151,9 +158,10 @@
         {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
-            id: _form_id ? $_form_id : id,
+            id: _id,
             maxlength: max_length,
             minlength: min_length,
+            name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
@@ -176,9 +184,10 @@
         {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
-            id: _form_id ? $_form_id : id,
+            id: _id,
             maxlength: max_length,
             minlength: min_length,
+            name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
@@ -201,9 +210,10 @@
         {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
-            id: _form_id ? $_form_id : id,
+            id: _id,
             maxlength: max_length,
             minlength: min_length,
+            name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
@@ -226,9 +236,10 @@
         {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,
-            id: _form_id ? $_form_id : id,
+            id: _id,
             maxlength: max_length,
             minlength: min_length,
+            name: _name,
             pattern: _pattern,
             placeholder,
             readonly,

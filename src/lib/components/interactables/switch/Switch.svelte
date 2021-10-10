@@ -4,9 +4,7 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
     import type {IMarginProperties} from "../../../types/spacings";
-
-    import {get_formstate_context} from "../../../stores/formstate";
-    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../stores/id";
+    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../types/variations";
 
     import {
         map_aria_attributes,
@@ -14,6 +12,13 @@
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
+
+    import FormLabel from "../form/FormLabel.svelte";
+    import FormGroup, {
+        CONTEXT_FORM_ID,
+        CONTEXT_FORM_NAME,
+        CONTEXT_FORM_STATE,
+    } from "../form/FormGroup.svelte";
 
     type $$Events = {
         blur: FocusEvent;
@@ -33,9 +38,14 @@
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         size?: DESIGN_SIZE_ARGUMENT;
+        variation?: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
+
+    type $$Slots = {
+        default: {};
+    };
 
     export let element: $$Props["element"] = undefined;
 
@@ -49,45 +59,74 @@
 
     export let palette: $$Props["palette"] = undefined;
     export let size: $$Props["size"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 
-    const _form_id = get_id_context(CONTEXT_FORM_ID);
-    const _form_name = get_id_context(CONTEXT_FORM_NAME);
-    const _form_state = get_formstate_context();
+    const _form_id = CONTEXT_FORM_ID.get();
+    const _form_name = CONTEXT_FORM_NAME.get();
+    const _form_state = CONTEXT_FORM_STATE.get();
 
-    $: {
-        if (_form_state) {
-            if (state) _form_state.push_value(value as string);
-            else _form_state.remove_value(value as string);
-        }
+    $: _id = _form_id ? $_form_id : id;
+    $: _name = _form_name ? $_form_name : name;
+
+    $: if (_form_state && value) {
+        if (state) _form_state.push(value);
+        else _form_state.remove(value);
     }
 
     $: if (_form_state && value) state = $_form_state.includes(value);
 
-    $: if (element) {
-        element.addEventListener(
-            "change",
-            (event) => (state = (event.target as HTMLInputElement).checked)
-        );
+    function on_change(event: InputEvent): void {
+        state = (event.target as HTMLInputElement).checked;
     }
 </script>
 
-<input
-    bind:this={element}
-    {...map_global_attributes($$props)}
-    role="switch"
-    type="checkbox"
-    {...map_data_attributes({palette, size})}
-    {...map_aria_attributes({pressed: active})}
-    {...map_attributes({
-        disabled,
-        id: _form_id ? $_form_id : id,
-        name: _form_name ? $_form_name : name,
-        value,
-    })}
-    checked={state}
-    on:blur
-    on:change
-    on:click
-    on:focus
-    on:input
-/>
+{#if $$slots["default"]}
+    <FormGroup logic_id={id}>
+        <FormLabel>
+            <input
+                bind:this={element}
+                {...map_global_attributes($$props)}
+                type="checkbox"
+                role="switch"
+                {...map_data_attributes({palette, size, variation})}
+                {...map_aria_attributes({pressed: active})}
+                {...map_attributes({
+                    disabled,
+                    id,
+                    name,
+                    value,
+                })}
+                checked={state}
+                on:change={on_change}
+                on:blur
+                on:change
+                on:click
+                on:focus
+                on:input
+            />
+            <slot />
+        </FormLabel>
+    </FormGroup>
+{:else}
+    <input
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        type="checkbox"
+        role="switch"
+        {...map_data_attributes({palette, size, variation})}
+        {...map_aria_attributes({pressed: active})}
+        {...map_attributes({
+            disabled,
+            id: _id,
+            name: _name,
+            value,
+        })}
+        checked={state}
+        on:change={on_change}
+        on:blur
+        on:change
+        on:click
+        on:focus
+        on:input
+    />
+{/if}

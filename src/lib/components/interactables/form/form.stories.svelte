@@ -22,7 +22,7 @@
 </Template>
 
 <Story name="Form.Control">
-    <Form.Control logic_id="form-control">
+    <Form.Control logic_id="form-control" logic_name="form-control">
         <Form.Label>Register E-Mail for Newsletter</Form.Label>
 
         <TextInput value="sample@sample.org" />

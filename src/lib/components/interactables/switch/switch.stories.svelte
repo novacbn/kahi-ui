@@ -38,6 +38,10 @@
     <Switch />
 </Story>
 
+<Story name="Slot">
+    <Switch id="switch-slot">This was slotted and wrapped in a label.</Switch>
+</Story>
+
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}

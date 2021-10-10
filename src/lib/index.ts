@@ -100,7 +100,6 @@ export * from "./actions/mutation_observer";
 
 export * from "./stores/component";
 export * from "./stores/darkmode";
-export * from "./stores/formstate";
 export * from "./stores/htmlpalette";
 export * from "./stores/id";
 export * from "./stores/mediaquery";

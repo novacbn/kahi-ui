@@ -6,14 +6,6 @@
     import type {IMarginProperties} from "../../../types/spacings";
     import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../types/variations";
 
-    import {get_formstate_context, make_formstate_context} from "../../../stores/formstate";
-    import {
-        CONTEXT_FORM_ID,
-        CONTEXT_FORM_NAME,
-        get_id_context,
-        make_id_context,
-    } from "../../../stores/id";
-
     import {
         map_aria_attributes,
         map_attributes,
@@ -22,6 +14,11 @@
     } from "../../../util/attributes";
 
     import FormLabel from "../form/FormLabel.svelte";
+    import FormGroup, {
+        CONTEXT_FORM_ID,
+        CONTEXT_FORM_NAME,
+        CONTEXT_FORM_STATE,
+    } from "../form/FormGroup.svelte";
 
     type $$Events = {
         blur: FocusEvent;
@@ -64,51 +61,52 @@
     export let size: $$Props["size"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
-    const _form_id =
-        get_id_context(CONTEXT_FORM_ID) ?? make_id_context(id as string, CONTEXT_FORM_ID);
-    const _form_name =
-        get_id_context(CONTEXT_FORM_NAME) ?? make_id_context(name as string, CONTEXT_FORM_NAME);
-    const _form_state =
-        get_formstate_context() ?? make_formstate_context(state ? (value as string) : "");
+    const _form_id = CONTEXT_FORM_ID.get();
+    const _form_name = CONTEXT_FORM_NAME.get();
+    const _form_state = CONTEXT_FORM_STATE.get();
 
-    $: if (id) $_form_id = id;
-    $: if (name) $_form_name = name;
+    $: _id = _form_id ? $_form_id : id;
+    $: _name = _form_name ? $_form_name : name;
 
-    $: if (state) {
+    $: if (_form_state && state && value) {
         _form_state.clear();
-        _form_state.push_value(value as string);
+        _form_state.push(value);
     }
 
-    $: if (value) state = $_form_state === value;
+    $: if (_form_state && value) state = $_form_state === value;
 
-    // HACK: We can't directly bind `checked` on `type="radio"`, so we need to watch events
-    $: if (element) element.addEventListener("change", (event) => (state = true));
+    function on_change(event: InputEvent): void {
+        state = true;
+    }
 </script>
 
 {#if $$slots["default"]}
-    <FormLabel>
-        <input
-            bind:this={element}
-            {...map_global_attributes($$props)}
-            type="radio"
-            {...map_data_attributes({palette, size, variation})}
-            {...map_aria_attributes({pressed: active})}
-            {...map_attributes({
-                disabled,
-                id: $_form_id,
-                name: $_form_name,
-                value,
-            })}
-            checked={state}
-            on:blur
-            on:change
-            on:click
-            on:focus
-            on:input
-        />
+    <FormGroup logic_id={id}>
+        <FormLabel>
+            <input
+                bind:this={element}
+                {...map_global_attributes($$props)}
+                type="radio"
+                {...map_data_attributes({palette, size, variation})}
+                {...map_aria_attributes({pressed: active})}
+                {...map_attributes({
+                    disabled,
+                    id,
+                    name,
+                    value,
+                })}
+                checked={state}
+                on:change={on_change}
+                on:blur
+                on:change
+                on:click
+                on:focus
+                on:input
+            />
 
-        <slot />
-    </FormLabel>
+            <slot />
+        </FormLabel>
+    </FormGroup>
 {:else}
     <input
         bind:this={element}
@@ -117,12 +115,13 @@
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
-            checked: state,
             disabled,
-            id: $_form_id,
-            name: $_form_name,
+            id: _id,
+            name: _name,
             value,
         })}
+        checked={state}
+        on:change={on_change}
         on:blur
         on:change
         on:click

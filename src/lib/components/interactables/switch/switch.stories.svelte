@@ -38,8 +38,11 @@
     <Switch />
 </Story>
 
+<Story name="Slot">
+    <Switch id="switch-slot">This was slotted and wrapped in a label.</Switch>
+</Story>
+
 <Story name="State">
-    <Text is="strong">DEFAULT</Text>
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         <Switch id="switch-state-default">DEFAULT</Switch>
         <Switch id="switch-state-state" state>STATE</Switch>

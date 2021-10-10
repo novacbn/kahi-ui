@@ -6,10 +6,9 @@
     import type {IIntrinsicProperties} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {CONTEXT_FORM_ID, get_id_context} from "../../../stores/id";
-
     import {map_global_attributes} from "../../../util/attributes";
-    import {get_formstate_context} from "../../../stores/formstate";
+
+    import {CONTEXT_TAB_ID, CONTEXT_TAB_STATE} from "./TabGroup.svelte";
 
     type $$Props = {
         element?: HTMLElement;
@@ -29,12 +28,12 @@
 
     export let loading: $$Props["loading"] = undefined;
 
-    const _form_id = get_id_context(CONTEXT_FORM_ID);
-    const _form_state = get_formstate_context();
+    const _tab_id = CONTEXT_TAB_ID.get();
+    const _tab_state = CONTEXT_TAB_STATE.get();
 
     let state: boolean = true;
-    $: if (_form_id && _form_state && loading === LOADING_BEHAVIORS.lazy)
-        state = $_form_state === $_form_id;
+    $: if (_tab_id && _tab_state && loading === LOADING_BEHAVIORS.lazy)
+        state = $_tab_state === $_tab_id;
 </script>
 
 <section bind:this={element} {...map_global_attributes($$props)}>

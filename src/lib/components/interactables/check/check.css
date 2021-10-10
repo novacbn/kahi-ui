@@ -1,110 +1,130 @@
 [type="checkbox"] {
-    --palette-background-bold: var(--palette-neutral-bold);
-    --palette-foreground-normal: var(--palette-light-normal);
+    --palette-background-bold: var(--check-palette-background-bold);
+    --palette-foreground-normal: var(--check-palette-foreground-normal);
 
-    --size-text-size: var(--document-font-size);
-    --size-text-line-height: var(--document-font-line-height);
+    --size-text-size: var(--check-size-text-size);
+    --size-text-line-height: var(--check-size-text-line-height);
 }
 
 [type="checkbox"]:not([role]) {
-    @apply appearance-none align-middle cursor-pointer inline-flex items-center
-    justify-center p-[var(--spacing-local-small)] relative select-none leading-[var(--size-text-line-height)]
-    whitespace-nowrap;
+    appearance: none;
 
-    border-radius: var(--radius-small);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: var(--check-padding);
+
+    border-radius: var(--check-border-radius);
 
     font-size: var(--size-text-size);
+    line-height: var(--size-text-line-height);
+
+    cursor: pointer;
+    user-select: none;
+
+    vertical-align: middle;
+    white-space: nowrap;
 
     outline: none !important;
     transform: scale(1);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function),
+        transform var(--animation-movement-duration) var(--animation-movement-function);
 
     &:disabled {
-        @apply cursor-not-allowed opacity-40;
+        cursor: not-allowed;
+        opacity: var(--check-disabled-opacity);
     }
 
     &::before {
-        @apply h-[0.625em] w-[0.625em];
-
         content: "";
 
-        background-color: currentColor;
+        width: 1em;
+        height: 1em;
 
-        clip-path: inset(50% 50% 50% 50% round 0.2em);
-        transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background: currentColor;
+        font-size: var(--check-dot-font-size);
+
+        clip-path: inset(var(--check-dot-unchecked-clip-path));
+        transition: clip-path var(--animation-movement-duration) var(--animation-movement-function);
     }
 
     &:enabled:active,
     &[aria-pressed="true"] {
-        transform: scale(0.95);
+        transform: scale(var(--check-active-scale));
     }
 
     &:not(:checked) {
         &:enabled:is(:active, :hover),
         &[aria-pressed="true"] {
             &::before {
-                clip-path: inset(0% 0% 0% 0% round 0.2em);
+                clip-path: inset(var(--check-dot-active-clip-path));
             }
         }
     }
 
     &:checked {
         &::before {
-            clip-path: inset(0% 0% 0% 0% round 0.2em);
+            clip-path: inset(var(--check-dot-checked-clip-path));
         }
     }
 
     &:not([data-variation]) {
-        @apply text-[rgb(var(--palette-background-bold))];
-
-        background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+        background: rgba(var(--palette-background-bold), var(--check-block-background-opacity));
+        color: rgb(var(--palette-background-bold));
 
         &:not(:checked) {
-            @apply text-[rgb(var(--palette-background-bold))];
+            color: rgb(var(--palette-background-bold));
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
-                @apply;
-
-                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+                background: rgba(
+                    var(--palette-background-bold),
+                    var(--check-block-unchecked-active-background-opacity)
+                );
             }
         }
 
         &:checked {
-            @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
+            background: rgb(var(--palette-background-bold));
+            color: rgb(var(--palette-foreground-normal));
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
-                @apply;
-
-                background-color: rgba(var(--palette-background-bold), theme("opacity.75"));
+                background: rgba(
+                    var(--palette-background-bold),
+                    var(--check-block-checked-active-background-opacity)
+                );
             }
         }
     }
 
     &[data-variation="flush"] {
         &:not(:checked) {
-            @apply text-[rgb(var(--palette-background-bold))];
+            color: rgb(var(--palette-background-bold));
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
-                @apply;
-
-                color: rgba(var(--palette-background-bold), theme("opacity.50"));
+                color: rgba(
+                    var(--palette-background-bold),
+                    var(--check-flush-unchecked-active-color-opacity)
+                );
             }
         }
 
         &:checked {
-            @apply text-[rgb(var(--palette-background-bold))];
+            color: rgb(var(--palette-background-bold));
 
             &:enabled:is(:active, :hover),
             &[aria-pressed="true"] {
-                @apply;
-
-                color: rgba(var(--palette-background-bold), theme("opacity.75"));
+                color: rgba(
+                    var(--palette-background-bold),
+                    var(--check-flush-checked-active-color-opacity)
+                );
             }
         }
     }

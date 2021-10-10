@@ -73,7 +73,7 @@
         else _form_state.remove(value);
     }
 
-    $: if (_form_state && value) state = $_form_state.includes(value);
+    $: if (value) state = $_form_state.includes(value);
 
     function on_change(event: InputEvent): void {
         state = (event.target as HTMLInputElement).checked;

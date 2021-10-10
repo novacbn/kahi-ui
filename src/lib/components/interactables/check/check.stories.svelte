@@ -42,6 +42,40 @@
     <Check id="check-slot">This was slotted and wrapped in a label.</Check>
 </Story>
 
+<Story name="State">
+    <Text is="strong">DEFAULT</Text>
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        <Check id="check-state-block-default">DEFAULT</Check>
+        <Check id="check-state-block-state" state>STATE</Check>
+
+        <Check id="check-state-block-active-no-state" active>ACTIVE NO-STATE</Check>
+        <Check id="check-state-block-active-state" active disabled state>ACTIVE STATE</Check>
+
+        <Check id="check-state-block-disabled-no-state" disabled>DISABLED NO-STATE</Check>
+        <Check id="check-state-block-disabled-state" disabled state>DISABLED STATE</Check>
+    </Stack>
+
+    <Text is="strong">FLUSH</Text>
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        <Check id="check-state-flush-default" variation="flush">DEFAULT</Check>
+        <Check id="check-state-flush-state" variation="flush" state>STATE</Check>
+
+        <Check id="check-state-flush-active-no-state" variation="flush" active>
+            ACTIVE NO-STATE
+        </Check>
+        <Check id="check-state-flush-active-state" variation="flush" active disabled state>
+            ACTIVE STATE
+        </Check>
+
+        <Check id="check-state-flush-disabled-no-state" variation="flush" disabled>
+            DISABLED NO-STATE
+        </Check>
+        <Check id="check-state-flush-disabled-state" variation="flush" disabled state>
+            DISABLED STATE
+        </Check>
+    </Stack>
+</Story>
+
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}

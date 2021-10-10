@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`, `TextInput`.
+-   Revamped internal context handling for `Check`, `Form`, `HiddenInput`, `Radio`, `Switch`, `Tab`, `TextInput`.
+
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `Switch`
+
+            -   Providing child content in the default unnamed slot will wrap the Component and content in a `<Form.Label>` with spacing as siblings.
+
 ## v0.4.2 - 2021/10/07
 
 -   Added the following Components / Component Features

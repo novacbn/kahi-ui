@@ -4,76 +4,85 @@
 [type="search"],
 [type="url"],
 textarea {
-    --palette-background-bold: var(--palette-neutral-bold);
-    --palette-foreground-normal: var(--palette-light-normal);
+    --palette-background-bold: var(--textinput-palette-background-bold);
+    --palette-foreground-normal: var(--textinput-palette-foreground-normal);
 
-    --size-text-size: var(--document-font-size);
-    --size-text-line-height: var(--document-font-line-height);
+    --size-text-size: var(--textinput-size-text-size);
+    --size-text-line-height: var(--textinput-size-text-line-height);
 
-    @apply appearance-none align-middle bg-transparent border-2 border-solid border-transparent 
-    leading-[var(--size-text-line-height)] px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)] relative;
+    appearance: none;
 
-    border-radius: var(--radius-medium);
+    position: relative;
+
+    padding: var(--textinput-padding-y) var(--textinput-padding-x);
+
+    background: transparent;
+    border: solid var(--textinput-border-width) transparent;
+    border-radius: var(--textinput-border-radius);
 
     font-size: var(--size-text-size);
+    line-height: var(--size-text-line-height);
 
     text-align: var(--align-text);
     text-transform: var(--transform-text);
 
     outline: none !important;
+    vertical-align: middle;
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background var(--animation-visual-duration) var(--animation-visual-function),
+        border-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
 
     &:disabled {
-        @apply cursor-not-allowed opacity-40;
+        cursor: not-allowed;
+        opacity: var(--textinput-disabled-opacity);
     }
 
     &::placeholder {
-        @apply opacity-50 text-current;
+        color: currentColor;
+        opacity: var(--textinput-placeholder-opacity);
     }
 
     &:not([data-variation]) {
-        @apply;
-
-        border-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+        border-color: rgba(var(--palette-background-bold), var(--textinput-outline-border-opacity));
 
         &:enabled {
             &:hover {
-                @apply;
-
-                border-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+                border-color: rgba(
+                    var(--palette-background-bold),
+                    var(--textinput-outline-hover-border-opacity)
+                );
             }
 
-            &:is(:focus) {
-                @apply border-[rgb(var(--palette-background-bold))];
+            &:is(:active, :focus) {
+                border-color: rgb(var(--palette-background-bold));
             }
         }
     }
 
     &[data-variation="block"] {
-        @apply;
-
-        background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
+        background: rgba(var(--palette-background-bold), var(--textinput-block-background-opacity));
 
         &:enabled {
             &:hover {
-                @apply;
-
-                background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+                background: rgba(
+                    var(--palette-background-bold),
+                    var(--textinput-block-hover-background-opacity)
+                );
             }
 
-            &:is(:focus) {
-                @apply border-[rgb(var(--palette-background-bold))];
-
-                background-color: transparent;
+            &:is(:active, :focus) {
+                background: transparent;
+                border-color: rgb(var(--palette-background-bold));
             }
         }
     }
 
     &[data-variation="flush"] {
-        @apply align-top border-0 p-0 rounded-none;
+        padding: 0;
+
+        border: none;
+        border-radius: none;
 
         font-size: inherit;
         line-height: inherit;
@@ -81,16 +90,21 @@ textarea {
         text-align: inherit;
         text-transform: inherit;
 
+        vertical-align: top;
+
         &[data-palette] {
-            @apply text-[rgb(var(--palette-background-bold))];
+            color: rgb(var(--palette-background-bold));
         }
     }
 
     &:not([cols], [size]) {
-        @apply w-full;
+        width: 100%;
     }
 }
 
 textarea {
-    @apply max-h-full resize-none max-w-full;
+    max-width: 100%;
+    max-height: 100%;
+
+    resize: none;
 }

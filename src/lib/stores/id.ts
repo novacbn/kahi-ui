@@ -6,10 +6,6 @@ export type IIDStore = Writable<string>;
 
 export const CONTEXT_ID = Symbol.for("kahi-ui-id");
 
-export const CONTEXT_FORM_ID = Symbol.for("kahi-ui-form-id");
-
-export const CONTEXT_FORM_NAME = Symbol.for("kahi-ui-form-name");
-
 export function id(default_value: string): IIDStore {
     return writable(default_value);
 }

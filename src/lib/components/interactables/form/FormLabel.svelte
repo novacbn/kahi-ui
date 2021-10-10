@@ -6,13 +6,14 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
     import type {IPaddingProperties} from "../../../types/spacings";
 
-    import {CONTEXT_FORM_ID, get_id_context, make_id_context} from "../../../stores/id";
     import {
         map_aria_attributes,
         map_attributes,
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
+
+    import {CONTEXT_FORM_ID} from "./FormGroup.svelte";
 
     type $$Events = {
         click: MouseEvent;
@@ -45,16 +46,15 @@
 
     export let palette: $$Props["palette"] = undefined;
 
-    const _form_id =
-        get_id_context(CONTEXT_FORM_ID) ?? make_id_context(_for as string, CONTEXT_FORM_ID);
+    const _form_id = CONTEXT_FORM_ID.get();
 
-    $: if (_for) $_form_id = _for;
+    $: _logic_for = _form_id ? $_form_id : _for;
 </script>
 
 <label
     bind:this={element}
     {...map_global_attributes($$props)}
-    {...map_attributes({for: $_form_id})}
+    {...map_attributes({for: _logic_for})}
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
     on:click

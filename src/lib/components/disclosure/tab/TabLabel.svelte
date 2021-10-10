@@ -1,12 +1,18 @@
 <script lang="ts">
+    import {afterUpdate} from "svelte";
+
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
 
-    import {get_formstate_context} from "../../../stores/formstate";
-    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME, get_id_context} from "../../../stores/id";
+    import {
+        map_aria_attributes,
+        map_attributes,
+        map_data_attributes,
+        map_global_attributes,
+    } from "../../../util/attributes";
 
-    import FormLabel from "../../interactables/form/FormLabel.svelte";
+    import {CONTEXT_TAB_ID, CONTEXT_TAB_NAME, CONTEXT_TAB_STATE} from "./TabGroup.svelte";
 
     type $$Events = {
         click: MouseEvent;
@@ -35,25 +41,25 @@
 
     export let palette: $$Props["palette"] = undefined;
 
-    const _form_id = get_id_context(CONTEXT_FORM_ID);
-    const _form_name = get_id_context(CONTEXT_FORM_NAME);
-    const _form_state = get_formstate_context();
+    const _tab_id = CONTEXT_TAB_ID.get();
+    const _tab_name = CONTEXT_TAB_NAME.get();
+    const _tab_state = CONTEXT_TAB_STATE.get();
 
-    if (!_form_id) {
+    if (!_tab_id) {
         throw new ReferenceError(
-            "bad initialization to `Tab.Label` (failed to get `formid` Svelte Store from context)"
+            "bad initialization to `Tab.Label` (failed to get `tab_id` Svelte Store from context)"
         );
     }
 
-    if (!_form_name) {
+    if (!_tab_name) {
         throw new ReferenceError(
-            "bad initialization to `Tab.Label` (failed to get `formname` Svelte Store from context)"
+            "bad initialization to `Tab.Label` (failed to get `tab_name` Svelte Store from context)"
         );
     }
 
-    if (!_form_state) {
+    if (!_tab_state) {
         throw new ReferenceError(
-            "bad initialization to `Tab.Label` (failed to get `formstate` Svelte Store from context)"
+            "bad initialization to `Tab.Label` (failed to get `tab_state` Svelte Store from context)"
         );
     }
 
@@ -62,24 +68,30 @@
         state = true;
     }
 
-    $: if (state) {
-        _form_state.clear();
-        _form_state.push_value($_form_id as string);
-    }
+    afterUpdate(() => {
+        if (state) $_tab_state = $_tab_id;
+    });
 
-    $: state = $_form_state === $_form_id;
+    $: state = $_tab_state === $_tab_id;
 </script>
 
 <input
     role="presentation"
     type="radio"
-    id={$_form_id}
-    name={$_form_name}
+    id={$_tab_id}
+    name={$_tab_name}
     checked={state}
     on:change={on_change}
     on:change
 />
 
-<FormLabel bind:element for={$_form_id} {active} {disabled} {palette} on:click>
+<label
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    {...map_attributes({for: $_tab_id})}
+    {...map_data_attributes({palette})}
+    {...map_aria_attributes({disabled, pressed: active})}
+    on:click
+>
     <slot />
-</FormLabel>
+</label>

@@ -13,6 +13,24 @@
 
             -   Providing child content in the default unnamed slot will wrap the Component and content in a `<Form.Label>` with spacing as siblings.
 
+    -   Overlays
+
+        -   `Clickable` — Increases clickable area of child `<Clickable.Anchor>` / `<Clickable.Label>` to the entirety of parent. Surfacing any other interactable Components above that.
+
+            -   `<Clickable.Container>` — Wrapper `display: contents` Component which sets `position: relative` on immedidate children.
+            -   `<Clickable.Anchor>` — Works like a regular `<Anchor>` but with `clickable-item` class preset.
+            -   `<Clickable.Label>` — Works like a regular `<Form.Label>` but with `clickable-item` class preset. And sets the Form ID context to match `<Clickable.Label for>`.
+
+-   Updated the following Components / Component Features
+
+    -   Navigation
+
+        -   `Anchor`
+
+            -   **(BREAKING)** Changed link coloring to inherit current color. Works better in most composable situations, e.g. w/ `Clickable`
+
+                -   Use `<Anchor palette="XXX">` to color links according to palette.
+
 ## v0.4.2 - 2021/10/07
 
 -   Added the following Components / Component Features

@@ -26,6 +26,7 @@
 @import url("../lib/components/layouts/group/group.theme.css");
 @import url("../lib/components/navigation/anchor/anchor.theme.css");
 @import url("../lib/components/navigation/breadcrumb/breadcrumb.theme.css");
+@import url("../lib/components/overlays/clickable/clickable.theme.css");
 @import url("../lib/components/surfaces/box/box.theme.css");
 @import url("../lib/components/surfaces/card/card.theme.css");
 @import url("../lib/components/surfaces/hero/hero.theme.css");
@@ -89,6 +90,7 @@
 @import url("../lib/components/layouts/divider/divider.css");
 @import url("../lib/components/layouts/spacer/spacer.css");
 
+@import url("../lib/components/overlays/clickable/clickable.css");
 @import url("../lib/components/overlays/offscreen/offscreen.css");
 @import url("../lib/components/overlays/overlay/overlay.css");
 @import url("../lib/components/overlays/popover/popover.css");

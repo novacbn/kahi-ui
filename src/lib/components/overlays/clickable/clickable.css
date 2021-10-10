@@ -1,0 +1,23 @@
+.clickable {
+    display: contents;
+
+    & > * {
+        position: relative;
+
+        & :not(.clickable-item):is(a[href], button, input, label[for]) {
+            position: relative;
+            z-index: var(--clickable-content-z-index);
+        }
+    }
+}
+
+.clickable-item::before {
+    display: block;
+    position: absolute;
+
+    content: "";
+
+    inset: 0;
+
+    z-index: var(--clickable-item-z-index);
+}

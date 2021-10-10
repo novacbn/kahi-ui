@@ -33,7 +33,7 @@
 
     export let element: $$Props["element"] = undefined;
 
-    let _class: $$Props["class"] = undefined;
+    let _class: $$Props["class"] = "";
     export {_class as class};
 
     export let active: $$Props["active"] = undefined;

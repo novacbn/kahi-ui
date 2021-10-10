@@ -1,0 +1,9 @@
+:root {
+    /** */
+
+    --form-control-gap: var(--spacing-local-small);
+
+    /** */
+
+    --form-label-gap: var(--spacing-local-small);
+}

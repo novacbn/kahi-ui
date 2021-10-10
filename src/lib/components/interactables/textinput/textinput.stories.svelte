@@ -88,5 +88,5 @@
 </Story>
 
 <Story name="TextArea">
-    <TextInput is="textarea" value="This is a TextArea" characters="20" lines="10" />
+    <TextInput is="textarea" value="This is a TextArea" characters="20" lines="5" />
 </Story>

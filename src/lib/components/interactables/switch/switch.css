@@ -1,70 +1,96 @@
-[type="checkbox"][role="switch"] {
-    @apply appearance-none align-middle cursor-pointer inline-flex items-center
-    justify-center p-[var(--spacing-local-small)] relative select-none leading-[var(--size-text-line-height)]
-    text-[rgb(var(--palette-background-bold))] whitespace-nowrap;
+[role="switch"] {
+    --palette-background-bold: var(--switch-palette-background-bold);
+    --palette-foreground-normal: var(--switch-palette-foreground-normal);
 
-    background-color: rgba(var(--palette-background-bold), theme("opacity.20"));
-    border-radius: var(--radius-pill);
+    --size-text-size: var(--switch-size-text-size);
+    --size-text-line-height: var(--switch-size-text-line-height);
+
+    appearance: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: var(--switch-padding);
+
+    background: rgba(var(--palette-background-bold), var(--switch-block-background-opacity));
+    border-radius: var(--switch-border-radius);
+    color: rgb(var(--palette-background-bold));
 
     font-size: var(--size-text-size);
+    line-height: var(--size-text-line-height);
+
+    cursor: pointer;
+    user-select: none;
+
+    vertical-align: middle;
+    white-space: nowrap;
 
     outline: none !important;
     transform: scale(1);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function),
+        transform var(--animation-movement-duration) var(--animation-movement-function);
 
     &:disabled {
-        @apply cursor-not-allowed opacity-40;
+        cursor: not-allowed;
+        opacity: var(--switch-disabled-opacity);
     }
 
     &::before {
-        @apply h-[0.625em] w-[1.25em];
-
         content: "";
 
-        background-color: currentColor;
+        width: 2em;
+        height: 1em;
 
-        transition: clip-path 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background: currentColor;
+        font-size: var(--switch-dot-font-size);
+
+        transition: clip-path var(--animation-movement-duration) var(--animation-movement-function);
     }
 
     &:not(:checked) {
-        @apply text-[rgb(var(--palette-background-bold))];
+        color: rgb(var(--palette-background-bold));
 
         &::before {
-            clip-path: inset(0% 50% 0% 0% round var(--radius-pill));
+            clip-path: inset(var(--switch-dot-unchecked-clip-path));
         }
 
         &:enabled:is(:active, :hover),
         &[aria-pressed="true"] {
-            @apply;
-
-            background-color: rgba(var(--palette-background-bold), theme("opacity.50"));
+            background: rgba(
+                var(--palette-background-bold),
+                var(--switch-block-unchecked-active-background-opacity)
+            );
         }
     }
 
     &:checked {
-        @apply bg-[rgb(var(--palette-background-bold))] text-[rgb(var(--palette-foreground-normal))];
+        background: rgb(var(--palette-background-bold));
+        color: rgb(var(--palette-foreground-normal));
 
         &::before {
-            clip-path: inset(0% 0% 0% 50% round var(--radius-pill));
+            clip-path: inset(var(--switch-dot-checked-clip-path));
         }
 
         &:enabled:is(:active, :hover),
         &[aria-pressed="true"] {
-            @apply;
-
-            background-color: rgba(var(--palette-background-bold), theme("opacity.75"));
+            background: rgba(
+                var(--palette-background-bold),
+                var(--switch-block-checked-active-background-opacity)
+            );
         }
     }
 
     &:enabled:active,
     &[aria-pressed="true"] {
-        transform: scale(0.95);
+        transform: scale(var(--switch-active-scale));
 
         &::before {
-            clip-path: inset(0% 25% 0% 25% round var(--radius-pill));
+            clip-path: inset(var(--switch-dot-active-clip-path));
         }
     }
 }

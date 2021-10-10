@@ -4,7 +4,6 @@
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
     import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
     import type {IMarginProperties} from "../../../types/spacings";
-    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../types/variations";
 
     import {
         map_aria_attributes,
@@ -38,7 +37,6 @@
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         size?: DESIGN_SIZE_ARGUMENT;
-        variation?: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -59,7 +57,6 @@
 
     export let palette: $$Props["palette"] = undefined;
     export let size: $$Props["size"] = undefined;
-    export let variation: $$Props["variation"] = undefined;
 
     const _form_id = CONTEXT_FORM_ID.get();
     const _form_name = CONTEXT_FORM_NAME.get();
@@ -73,7 +70,7 @@
         else _form_state.remove(value);
     }
 
-    $: if (value) state = $_form_state.includes(value);
+    $: if (_form_state && value) state = $_form_state.includes(value);
 
     function on_change(event: InputEvent): void {
         state = (event.target as HTMLInputElement).checked;
@@ -88,7 +85,7 @@
                 {...map_global_attributes($$props)}
                 type="checkbox"
                 role="switch"
-                {...map_data_attributes({palette, size, variation})}
+                {...map_data_attributes({palette, size})}
                 {...map_aria_attributes({pressed: active})}
                 {...map_attributes({
                     disabled,
@@ -104,6 +101,7 @@
                 on:focus
                 on:input
             />
+
             <slot />
         </FormLabel>
     </FormGroup>
@@ -113,7 +111,7 @@
         {...map_global_attributes($$props)}
         type="checkbox"
         role="switch"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({palette, size})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
             disabled,

@@ -1,0 +1,23 @@
+.clickable {
+    display: contents;
+
+    & > * {
+        position: relative;
+
+        & :not(.clickable-item):is(a, button, input, label) {
+            position: relative;
+            z-index: 2;
+        }
+    }
+}
+
+.clickable-item::before {
+    display: block;
+    position: absolute;
+
+    content: "";
+
+    inset: 0;
+
+    z-index: 2;
+}

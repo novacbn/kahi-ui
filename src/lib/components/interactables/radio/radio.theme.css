@@ -3,8 +3,8 @@
 
     --radio-palette-background-bold: var(--palette-neutral-bold);
     --radio-palette-foreground-normal: var(--palette-light-normal);
-    --radio-text-size: var(--document-font-size);
-    --radio-text-line-height: var(--document-font-line-height);
+    --radio-size-text-size: var(--document-font-size);
+    --radio-size-text-line-height: var(--document-font-line-height);
 
     --radio-border-radius: var(--radius-circle);
     --radio-padding: var(--spacing-local-small);

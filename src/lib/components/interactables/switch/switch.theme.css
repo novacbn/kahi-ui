@@ -3,8 +3,8 @@
 
     --switch-palette-background-bold: var(--palette-neutral-bold);
     --switch-palette-foreground-normal: var(--palette-light-normal);
-    --switch-text-size: var(--document-font-size);
-    --switch-text-line-height: var(--document-font-line-height);
+    --switch-size-text-size: var(--document-font-size);
+    --switch-size-text-line-height: var(--document-font-line-height);
 
     --switch-border-radius: var(--radius-pill);
     --switch-padding: var(--spacing-local-small);

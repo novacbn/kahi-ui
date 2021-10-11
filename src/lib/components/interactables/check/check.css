@@ -62,7 +62,7 @@
         &:enabled:is(:active, :hover),
         &[aria-pressed="true"] {
             &::before {
-                clip-path: inset(var(--check-dot-active-clip-path));
+                clip-path: inset(var(--check-dot-checked-clip-path));
             }
         }
     }

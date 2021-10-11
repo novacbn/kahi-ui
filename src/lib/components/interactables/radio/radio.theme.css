@@ -3,8 +3,8 @@
 
     --radio-palette-background-bold: var(--palette-neutral-bold);
     --radio-palette-foreground-normal: var(--palette-light-normal);
-    --radio-text-size: var(--document-font-size);
-    --radio-text-line-height: var(--document-font-line-height);
+    --radio-size-text-size: var(--document-font-size);
+    --radio-size-text-line-height: var(--document-font-line-height);
 
     --radio-border-radius: var(--radius-circle);
     --radio-padding: var(--spacing-local-small);
@@ -14,7 +14,6 @@
 
     /** */
 
-    --radio-dot-active-clip-path: 0% 0% 0% 0% round var(--radio-border-radius);
     --radio-dot-checked-clip-path: 0% 0% 0% 0% round var(--radio-border-radius);
     --radio-dot-unchecked-clip-path: 50% 50% 50% 50% round var(--radio-border-radius);
     --radio-dot-font-size: 0.625em;

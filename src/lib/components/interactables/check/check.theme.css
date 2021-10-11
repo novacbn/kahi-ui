@@ -3,8 +3,8 @@
 
     --check-palette-background-bold: var(--palette-neutral-bold);
     --check-palette-foreground-normal: var(--palette-light-normal);
-    --check-text-size: var(--document-font-size);
-    --check-text-line-height: var(--document-font-line-height);
+    --check-size-text-size: var(--document-font-size);
+    --check-size-text-line-height: var(--document-font-line-height);
 
     --check-border-radius: var(--radius-small);
     --check-padding: var(--spacing-local-small);
@@ -14,7 +14,6 @@
 
     /** */
 
-    --check-dot-active-clip-path: 0% 0% 0% 0% round 0.3em;
     --check-dot-checked-clip-path: 0% 0% 0% 0% round 0.3em;
     --check-dot-unchecked-clip-path: 50% 50% 50% 50% round 0.3em;
     --check-dot-font-size: 0.625em;

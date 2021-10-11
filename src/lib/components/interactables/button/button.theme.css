@@ -15,8 +15,6 @@
     --button-padding-x: var(--spacing-local-small);
     --button-padding-y: var(--spacing-local-tiny);
 
-    /** */
-
     --button-active-scale: 0.95;
     --button-disabled-opacity: 0.4;
 

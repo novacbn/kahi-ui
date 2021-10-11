@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.4.3 - 2021/10/11
 
 -   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`, `TextInput`.
 -   Revamped internal context handling for `Check`, `Form`, `HiddenInput`, `Radio`, `Switch`, `Tab`, `TextInput`.

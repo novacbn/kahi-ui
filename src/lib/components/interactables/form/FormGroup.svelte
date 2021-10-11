@@ -101,8 +101,6 @@
 </script>
 
 <script lang="ts">
-    // TODO: Stories (?)
-
     import {afterUpdate, createEventDispatcher} from "svelte";
 
     type $$Events = {

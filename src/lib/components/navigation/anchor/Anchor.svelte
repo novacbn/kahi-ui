@@ -11,7 +11,6 @@
 
     import {
         map_aria_attributes,
-        map_attributes,
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
@@ -59,8 +58,11 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     {...map_aria_attributes({pressed: active, current, disabled})}
-    {...map_attributes({download, href, rel, target})}
     {...map_data_attributes({palette})}
+    {download}
+    {href}
+    {rel}
+    {target}
     on:click
 >
     <slot />

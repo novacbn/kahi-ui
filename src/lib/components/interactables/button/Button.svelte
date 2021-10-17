@@ -31,7 +31,7 @@
         rel?: string;
         target?: string;
 
-        for?: boolean | string;
+        for?: string;
 
         palette?: DESIGN_PALETTE_ARGUMENT;
         size?: DESIGN_SIZE_ARGUMENT;
@@ -45,6 +45,9 @@
     };
 
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = undefined;
+    export {_class as class};
 
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
@@ -71,38 +74,30 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         role="button"
+        class="button {_class}"
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({active, disabled})}
-        {...map_attributes({download, href, rel, target})}
+        {download}
+        {href}
+        {rel}
+        {target}
         on:click
     >
         <slot />
     </a>
 {:else if _for}
-    {#if _for === true}
-        <label
-            bind:this={element}
-            {...map_global_attributes($$props)}
-            role="button"
-            {...map_data_attributes({palette, size, variation})}
-            {...map_aria_attributes({disabled, pressed: active})}
-            on:click
-        >
-            <slot />
-        </label>
-    {:else}
-        <label
-            bind:this={element}
-            {...map_global_attributes($$props)}
-            role="button"
-            for={_for}
-            {...map_data_attributes({palette, size, variation})}
-            {...map_aria_attributes({disabled, pressed: active})}
-            on:click
-        >
-            <slot />
-        </label>
-    {/if}
+    <label
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        role="button"
+        class="button {_class}"
+        for={_for}
+        {...map_data_attributes({palette, size, variation})}
+        {...map_aria_attributes({disabled, pressed: active})}
+        on:click
+    >
+        <slot />
+    </label>
 {:else if value}
     {#if type === "reset"}
         <input

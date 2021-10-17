@@ -4,6 +4,22 @@
 
 -   Moved base element styles earlier in stylesheet imports, to reduce specificity conflicts.
 
+-   Removed the following Components / Component Features
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button for="XXX">` — Removed the ability to set empty `<label for>` via `true` value.
+
+-   Updated the following Components / Component Features
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button for>` / `<Button href>` — Changed from using `role=button` to `.button` class as the selector.
+
 ## v0.4.3 - 2021/10/11
 
 -   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`, `TextInput`.

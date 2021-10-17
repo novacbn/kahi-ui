@@ -44,8 +44,8 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="clickable-item {_class}"
-    {...map_attributes({for: _for})}
     {...map_aria_attributes({disabled, pressed: active})}
+    for={_for}
     on:click
 >
     <FormGroup logic_id={_for}>

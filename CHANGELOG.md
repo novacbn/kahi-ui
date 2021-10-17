@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Moved base element styles earlier in stylesheet imports, to reduce specificity conflicts.
+
 ## v0.4.3 - 2021/10/11
 
 -   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`, `TextInput`.

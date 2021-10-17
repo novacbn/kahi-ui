@@ -2,7 +2,16 @@
 
 ## UNRELEASED
 
+-   Fixed Svelte Compiler ARIA warnings about missing `href` attribute, even if provided by developer.
 -   Moved base element styles earlier in stylesheet imports, to reduce specificity conflicts.
+
+-   Added the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Tab`
+
+            -   `<Tab.Anchor>` — Fixed text coloring being inherited from base `<Anchor>` styles.
 
 -   Removed the following Components / Component Features
 

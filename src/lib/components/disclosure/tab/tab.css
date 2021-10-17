@@ -8,7 +8,7 @@
 
     justify-content: var(--flex-alignment-x);
 
-    & > [type="radio"] {
+    & > [role="presentation"] {
         @apply hidden;
     }
 

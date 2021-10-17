@@ -3,7 +3,11 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
 
-    import Anchor from "../anchor/Anchor.svelte";
+    import {
+        map_aria_attributes,
+        map_data_attributes,
+        map_global_attributes,
+    } from "../../../util/attributes";
 
     import MenuItem from "./MenuItem.svelte";
 
@@ -44,16 +48,16 @@
 </script>
 
 <MenuItem bind:element {...$$props}>
-    <Anchor
-        current={active ? "page" : undefined}
-        {disabled}
+    <a
+        {...map_global_attributes($$props)}
+        {...map_aria_attributes({pressed: active, current: active ? "page" : undefined, disabled})}
+        {...map_data_attributes({palette})}
         {download}
         {href}
         {rel}
-        {palette}
         {target}
         on:click
     >
         <slot />
-    </Anchor>
+    </a>
 </MenuItem>

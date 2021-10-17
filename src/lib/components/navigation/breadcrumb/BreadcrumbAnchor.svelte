@@ -3,7 +3,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IMarginProperties} from "../../../types/spacings";
 
-    import Anchor from "../anchor/Anchor.svelte";
+    import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
 
     import BreadcrumbItem from "./BreadcrumbItem.svelte";
 
@@ -39,7 +39,15 @@
 </script>
 
 <BreadcrumbItem bind:element {...$$props}>
-    <Anchor current={active ? "page" : undefined} {download} {href} {rel} {target} on:click>
+    <a
+        {...map_global_attributes($$props)}
+        {...map_aria_attributes({pressed: active, current: active ? "page" : undefined})}
+        {download}
+        {href}
+        {rel}
+        {target}
+        on:click
+    >
         <slot />
-    </Anchor>
+    </a>
 </BreadcrumbItem>

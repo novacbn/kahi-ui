@@ -2,8 +2,12 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-
-    import Button from "../../interactables/button/Button.svelte";
+    import {
+        map_aria_attributes,
+        map_attributes,
+        map_data_attributes,
+        map_global_attributes,
+    } from "../../../util/attributes";
 
     import MenuItem from "./MenuItem.svelte";
 
@@ -34,7 +38,13 @@
 </script>
 
 <MenuItem bind:element {...$$props}>
-    <Button {active} {disabled} {palette} on:click>
+    <button
+        {...map_global_attributes($$props)}
+        {...map_data_attributes({palette})}
+        {...map_aria_attributes({pressed: active})}
+        {...map_attributes({disabled})}
+        on:click
+    >
         <slot />
-    </Button>
+    </button>
 </MenuItem>

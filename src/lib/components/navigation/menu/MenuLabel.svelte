@@ -2,9 +2,13 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import {
+        map_aria_attributes,
+        map_data_attributes,
+        map_global_attributes,
+    } from "../../../util/attributes";
 
     import FormGroup from "../../interactables/form/FormGroup.svelte";
-    import FormLabel from "../../interactables/form/FormLabel.svelte";
 
     import MenuItem from "./MenuItem.svelte";
 
@@ -41,8 +45,14 @@
 
 <MenuItem bind:element {...$$props}>
     <FormGroup logic_id={_for}>
-        <FormLabel {active} {disabled} {palette} on:click>
+        <label
+            {...map_global_attributes($$props)}
+            {...map_data_attributes({palette})}
+            {...map_aria_attributes({disabled, pressed: active})}
+            for={_for}
+            on:click
+        >
             <slot />
-        </FormLabel>
+        </label>
     </FormGroup>
 </MenuItem>

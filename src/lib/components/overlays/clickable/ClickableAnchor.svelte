@@ -51,7 +51,10 @@
     {...map_global_attributes($$props)}
     class="clickable-item {_class}"
     {...map_aria_attributes({pressed: active, current, disabled})}
-    {...map_attributes({download, href, rel, target})}
+    {download}
+    {href}
+    {rel}
+    {target}
     on:click
 >
     <slot />

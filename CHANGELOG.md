@@ -2,7 +2,7 @@
 
 ## UNRELEASED
 
--   Fixed Svelte Compiler ARIA warnings about missing `href` attribute, even if provided by developer.
+-   Fixed Svelte Compiler ARIA warnings about missing `for` / `href` attribute, even if provided by developer.
 -   Moved base element styles earlier in stylesheet imports, to reduce specificity conflicts.
 
 -   Added the following Components / Component Features

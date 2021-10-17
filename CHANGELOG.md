@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Display
+
+        -   Table
+
+            -   `<Table.Column colspan={number | string} rowspan={number | string}>` / `<Table.Heading colspan={number | string} rowspan={number | string}>` — Bindings to [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) / [`rowspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-rowspan) attributes.
+
+-   Updated the following Components / Component Features
+
+    -   Display
+
+        -   Table
+
+            -   `<Table.Column bind:element>` / `<Table.Heading bind:element>` — Changed from deprecated `HTMLTableDataCellElement` / `HTMLTableHeaderCellElement` -> `HTMLTableCellElement`.
+
 ## v0.4.3 - 2021/10/11
 
 -   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`, `TextInput`.

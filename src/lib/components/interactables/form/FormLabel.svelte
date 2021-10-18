@@ -1,14 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
     import type {IPaddingProperties} from "../../../types/spacings";
 
-    import {
-        map_aria_attributes,
-        map_attributes,
-        map_global_attributes,
-    } from "../../../util/attributes";
+    import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
 
     import FormGroup, {CONTEXT_FORM_ID} from "./FormGroup.svelte";
 

@@ -2,7 +2,16 @@
 
 ## UNRELEASED
 
+-   Fixed Svelte Compiler ARIA warnings about missing `for` / `href` attribute, even if provided by developer.
+-   Moved base element styles earlier in stylesheet imports, to reduce specificity conflicts.
+
 -   Added the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Tab`
+
+            -   `<Tab.Anchor>` — Fixed text coloring being inherited from base `<Anchor>` styles.
 
     -   Display
 
@@ -18,6 +27,14 @@
 
             -   `<Form.Label for="XXX">` — Fixed authoritive context not being set when no parent context is found.
 
+-   Removed the following Components / Component Features
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button for="XXX">` — Removed the ability to set empty `<label for>` via `true` value.
+
 -   Updated the following Components / Component Features
 
     -   Display
@@ -25,6 +42,12 @@
         -   `Table`
 
             -   `<Table.Column bind:element>` / `<Table.Heading bind:element>` — Changed from deprecated `HTMLTableDataCellElement` / `HTMLTableHeaderCellElement` -> `HTMLTableCellElement`.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button for>` / `<Button href>` — Changed from using `role=button` to `.button` class as the selector.
 
 ## v0.4.3 - 2021/10/11
 

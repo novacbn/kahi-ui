@@ -21,7 +21,7 @@
         disabled?: boolean;
 
         download?: string;
-        href?: string;
+        href: string;
         rel?: string;
         target?: string;
     } & IHTML5Properties &
@@ -41,7 +41,7 @@
     export let disabled: $$Props["disabled"] = undefined;
 
     export let download: $$Props["download"] = undefined;
-    export let href: $$Props["href"] = undefined;
+    export let href: $$Props["href"];
     export let rel: $$Props["rel"] = undefined;
     export let target: $$Props["target"] = undefined;
 </script>
@@ -51,7 +51,10 @@
     {...map_global_attributes($$props)}
     class="clickable-item {_class}"
     {...map_aria_attributes({pressed: active, current, disabled})}
-    {...map_attributes({download, href, rel, target})}
+    {download}
+    {href}
+    {rel}
+    {target}
     on:click
 >
     <slot />

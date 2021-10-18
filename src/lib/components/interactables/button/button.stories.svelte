@@ -3,6 +3,7 @@
 
     import Stack from "../../layouts/stack/Stack.svelte";
     import Text from "../../typography/text/Text.svelte";
+    import Check from "../check/Check.svelte";
 
     import Button from "./Button.svelte";
 
@@ -116,8 +117,12 @@
             This is an ANCHOR Button!
         </Button>
 
+        <Button for="button-type-check">This is a LABEL Button!</Button>
+
         <Button value="This is an INPUT Button!" />
         <Button type="submit" value="This is a SUBMIT Button!" />
         <Button type="reset" value="This is a RESET Button!" />
     </Stack>
+
+    <Check id="button-type-check" />
 </Story>

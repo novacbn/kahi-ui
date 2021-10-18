@@ -1,15 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
     import type {IPaddingProperties} from "../../../types/spacings";
 
-    import {
-        map_aria_attributes,
-        map_attributes,
-        map_data_attributes,
-        map_global_attributes,
-    } from "../../../util/attributes";
+    import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
 
     import FormGroup, {CONTEXT_FORM_ID} from "./FormGroup.svelte";
 
@@ -24,8 +18,6 @@
         disabled?: boolean;
 
         for?: string;
-
-        palette?: DESIGN_PALETTE_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IPaddingProperties;
@@ -42,8 +34,6 @@
     let _for: $$Props["for"] = "";
     export {_for as for};
 
-    export let palette: $$Props["palette"] = undefined;
-
     const _form_id = CONTEXT_FORM_ID.get();
 
     $: _logic_for = _form_id ? $_form_id : _for;
@@ -52,9 +42,8 @@
 <label
     bind:this={element}
     {...map_global_attributes($$props)}
-    {...map_attributes({for: _logic_for})}
-    {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
+    for={_logic_for}
     on:click
 >
     {#if !_form_id && _for}

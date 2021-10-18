@@ -11,7 +11,6 @@
 
     import {
         map_aria_attributes,
-        map_attributes,
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
@@ -28,7 +27,7 @@
         disabled?: boolean;
 
         download?: string;
-        href?: string;
+        href: string;
         rel?: string;
         target?: string;
 
@@ -47,10 +46,10 @@
     export let current: $$Props["current"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
-    export let download: $$Props["download"] = "";
-    export let href: $$Props["href"] = "";
-    export let rel: $$Props["rel"] = "";
-    export let target: $$Props["target"] = "";
+    export let download: $$Props["download"] = undefined;
+    export let href: $$Props["href"];
+    export let rel: $$Props["rel"] = undefined;
+    export let target: $$Props["target"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 </script>
@@ -59,8 +58,11 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     {...map_aria_attributes({pressed: active, current, disabled})}
-    {...map_attributes({download, href, rel, target})}
     {...map_data_attributes({palette})}
+    {download}
+    {href}
+    {rel}
+    {target}
     on:click
 >
     <slot />

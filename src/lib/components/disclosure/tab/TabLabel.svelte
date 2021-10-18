@@ -7,7 +7,6 @@
 
     import {
         map_aria_attributes,
-        map_attributes,
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
@@ -88,9 +87,9 @@
 <label
     bind:this={element}
     {...map_global_attributes($$props)}
-    {...map_attributes({for: $_tab_id})}
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
+    for={$_tab_id}
     on:click
 >
     <slot />

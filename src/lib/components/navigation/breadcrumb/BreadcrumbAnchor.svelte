@@ -3,7 +3,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IMarginProperties} from "../../../types/spacings";
 
-    import Anchor from "../anchor/Anchor.svelte";
+    import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
 
     import BreadcrumbItem from "./BreadcrumbItem.svelte";
 
@@ -17,7 +17,7 @@
         active?: boolean;
 
         download?: string;
-        href?: string;
+        href: string;
         rel?: string;
         target?: string;
     } & IHTML5Properties &
@@ -32,14 +32,22 @@
 
     export let active: boolean = false;
 
-    export let download: $$Props["download"] = "";
-    export let href: $$Props["href"] = "";
-    export let rel: $$Props["rel"] = "";
-    export let target: $$Props["target"] = "";
+    export let download: $$Props["download"] = undefined;
+    export let href: $$Props["href"];
+    export let rel: $$Props["rel"] = undefined;
+    export let target: $$Props["target"] = undefined;
 </script>
 
 <BreadcrumbItem bind:element {...$$props}>
-    <Anchor current={active ? "page" : undefined} {download} {href} {rel} {target} on:click>
+    <a
+        {...map_global_attributes($$props)}
+        {...map_aria_attributes({pressed: active, current: active ? "page" : undefined})}
+        {download}
+        {href}
+        {rel}
+        {target}
+        on:click
+    >
         <slot />
-    </Anchor>
+    </a>
 </BreadcrumbItem>

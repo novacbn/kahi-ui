@@ -1,11 +1,18 @@
 <script lang="ts">
-    import type {ARIA_CURRENT_ARGUMENT} from "../../../types/aria";
+    /**
+     * TODO: Satisfy ARIA warnings from the Compiler by making non-optional properties
+     */
 
+    import type {ARIA_CURRENT_ARGUMENT} from "../../../types/aria";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
 
-    import Anchor from "../../navigation/anchor/Anchor.svelte";
+    import {
+        map_aria_attributes,
+        map_data_attributes,
+        map_global_attributes,
+    } from "../../../util/attributes";
 
     type $$Events = {
         click: MouseEvent;
@@ -18,7 +25,8 @@
         current?: ARIA_CURRENT_ARGUMENT;
         disabled?: boolean;
 
-        href?: string;
+        download?: string;
+        href: string;
         rel?: string;
         target?: string;
 
@@ -36,13 +44,24 @@
     export let current: $$Props["current"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
-    export let href: $$Props["href"] = "";
-    export let rel: $$Props["rel"] = "";
-    export let target: $$Props["target"] = "";
+    export let download: $$Props["download"] = undefined;
+    export let href: $$Props["href"];
+    export let rel: $$Props["rel"] = undefined;
+    export let target: $$Props["target"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 </script>
 
-<Anchor bind:element {current} {active} {disabled} {href} {rel} {palette} {target} on:click>
+<a
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    {...map_aria_attributes({pressed: active, current, disabled})}
+    {...map_data_attributes({palette})}
+    {download}
+    {href}
+    {rel}
+    {target}
+    on:click
+>
     <slot />
-</Anchor>
+</a>

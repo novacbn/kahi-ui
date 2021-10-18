@@ -7,12 +7,6 @@
 
 -   Added the following Components / Component Features
 
-    -   Disclosure
-
-        -   `Tab`
-
-            -   `<Tab.Anchor>` — Fixed text coloring being inherited from base `<Anchor>` styles.
-
     -   Display
 
         -   `Table`
@@ -20,6 +14,12 @@
             -   `<Table.Column colspan={number | string} rowspan={number | string}>` / `<Table.Heading colspan={number | string} rowspan={number | string}>` — Bindings to [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) / [`rowspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-rowspan) attributes.
 
 -   Fixed the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Tab`
+
+            -   `<Tab.Anchor>` — Fixed text coloring being inherited from base `<Anchor>` styles.
 
     -   Interactables
 

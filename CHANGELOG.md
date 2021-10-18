@@ -6,15 +6,23 @@
 
     -   Display
 
-        -   Table
+        -   `Table`
 
             -   `<Table.Column colspan={number | string} rowspan={number | string}>` / `<Table.Heading colspan={number | string} rowspan={number | string}>` — Bindings to [`colspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-colspan) / [`rowspan`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attr-rowspan) attributes.
+
+-   Fixed the following Components / Component Features
+
+    -   Interactables
+
+        -   `Form`
+
+            -   `<Form.Label for="XXX">` — Fixed authoritive context not being set when no parent context is found.
 
 -   Updated the following Components / Component Features
 
     -   Display
 
-        -   Table
+        -   `Table`
 
             -   `<Table.Column bind:element>` / `<Table.Heading bind:element>` — Changed from deprecated `HTMLTableDataCellElement` / `HTMLTableHeaderCellElement` -> `HTMLTableCellElement`.
 

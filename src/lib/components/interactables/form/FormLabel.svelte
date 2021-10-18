@@ -1,6 +1,4 @@
 <script lang="ts">
-    // TODO: Stories (?)
-
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
@@ -13,7 +11,7 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
-    import {CONTEXT_FORM_ID} from "./FormGroup.svelte";
+    import FormGroup, {CONTEXT_FORM_ID} from "./FormGroup.svelte";
 
     type $$Events = {
         click: MouseEvent;
@@ -59,5 +57,11 @@
     {...map_aria_attributes({disabled, pressed: active})}
     on:click
 >
-    <slot />
+    {#if !_form_id && _for}
+        <FormGroup logic_id={_for}>
+            <slot />
+        </FormGroup>
+    {:else}
+        <slot />
+    {/if}
 </label>

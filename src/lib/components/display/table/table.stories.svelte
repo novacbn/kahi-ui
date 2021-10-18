@@ -252,3 +252,31 @@
         {/each}
     </Stack>
 </Story>
+
+<Story name="colspan + rowspan">
+    <Table.Container>
+        <Table.Header>
+            <Table.Row>
+                <Table.Heading colspan={2}>colspan 2 x rowspan 1</Table.Heading>
+                <Table.Heading>colspan 1 x rowspan 1</Table.Heading>
+            </Table.Row>
+        </Table.Header>
+
+        <Table.Section>
+            <Table.Row>
+                <Table.Column>colspan 1 x rowspan 1</Table.Column>
+                <Table.Column rowspan={2}>colspan 1 x rowspan 2</Table.Column>
+            </Table.Row>
+
+            <Table.Row>
+                <Table.Column colspan={2}>colspan 2 x rowspan 1</Table.Column>
+            </Table.Row>
+        </Table.Section>
+
+        <Table.Footer>
+            <Table.Row>
+                <Table.Heading colspan={3}>colspan 3 x rowspan 1</Table.Heading>
+            </Table.Row>
+        </Table.Footer>
+    </Table.Container>
+</Story>

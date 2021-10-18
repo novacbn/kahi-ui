@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.4.4 - 2021/10/17
 
 -   Fixed Svelte Compiler ARIA warnings about missing `for` / `href` attribute, even if provided by developer.
 -   Moved base element styles earlier in stylesheet imports, to reduce specificity conflicts.

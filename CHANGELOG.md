@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Fixed the following Components / Component Features
+
+    -   Interactables
+
+        -   `Form`
+
+            -   `<Form.Label for="XXX">` — Fixed authoritive context not being set when no parent context is found.
+
 ## v0.4.3 - 2021/10/11
 
 -   Added CSS Theming Variables to the following Components: `Button`, `Check`, `Form`, `Radio`, `Switch`, `TextInput`.

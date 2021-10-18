@@ -82,3 +82,10 @@
         </Form.Group>
     </Stack>
 </Story>
+
+<Story name="Form.Label Group">
+    <Form.Label for="form-label-group">
+        <Check />
+        Click me!
+    </Form.Label>
+</Story>

@@ -22,7 +22,7 @@
         disabled?: boolean;
 
         download?: string;
-        href?: string;
+        href: string;
         rel?: string;
         target?: string;
 
@@ -39,10 +39,10 @@
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
-    export let download: $$Props["download"] = "";
-    export let href: $$Props["href"] = "";
-    export let rel: $$Props["rel"] = "";
-    export let target: $$Props["target"] = "";
+    export let download: $$Props["download"] = undefined;
+    export let href: $$Props["href"];
+    export let rel: $$Props["rel"] = undefined;
+    export let target: $$Props["target"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 </script>

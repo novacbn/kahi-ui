@@ -55,13 +55,12 @@
     export let type: $$Props["type"] = undefined;
     export let value: $$Props["value"] = "";
 
-    export let download: $$Props["download"] = "";
-    export let href: $$Props["href"] = "";
-    export let rel: $$Props["rel"] = "";
-    export let target: $$Props["target"] = "";
+    export let download: $$Props["download"] = undefined;
+    export let href: $$Props["href"] = undefined;
+    export let rel: $$Props["rel"] = undefined;
+    export let target: $$Props["target"] = undefined;
 
     let _for: $$Props["for"] = undefined;
-
     export {_for as for};
 
     export let palette: $$Props["palette"] = undefined;

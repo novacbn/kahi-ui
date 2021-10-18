@@ -21,7 +21,7 @@
         disabled?: boolean;
 
         download?: string;
-        href?: string;
+        href: string;
         rel?: string;
         target?: string;
     } & IHTML5Properties &
@@ -41,7 +41,7 @@
     export let disabled: $$Props["disabled"] = undefined;
 
     export let download: $$Props["download"] = undefined;
-    export let href: $$Props["href"] = undefined;
+    export let href: $$Props["href"];
     export let rel: $$Props["rel"] = undefined;
     export let target: $$Props["target"] = undefined;
 </script>

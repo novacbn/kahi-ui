@@ -17,7 +17,7 @@
         active?: boolean;
 
         download?: string;
-        href?: string;
+        href: string;
         rel?: string;
         target?: string;
     } & IHTML5Properties &
@@ -32,10 +32,10 @@
 
     export let active: boolean = false;
 
-    export let download: $$Props["download"] = "";
-    export let href: $$Props["href"] = "";
-    export let rel: $$Props["rel"] = "";
-    export let target: $$Props["target"] = "";
+    export let download: $$Props["download"] = undefined;
+    export let href: $$Props["href"];
+    export let rel: $$Props["rel"] = undefined;
+    export let target: $$Props["target"] = undefined;
 </script>
 
 <BreadcrumbItem bind:element {...$$props}>

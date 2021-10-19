@@ -93,6 +93,7 @@
         & > .transition {
             --animation: var(--animation-enter);
 
+            /** HACK: Wish could use something else here, but values like `auto` or `max-content` don't transition */
             max-height: 9999999px;
             transition: max-height 0s var(--animation-function);
         }

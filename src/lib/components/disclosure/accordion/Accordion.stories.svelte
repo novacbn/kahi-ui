@@ -1,12 +1,25 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Heading from "../../typography/heading/Heading.svelte";
     import Text from "../../typography/text/Text.svelte";
     import Transition from "../../utilities/transition/Transition.svelte";
 
     import * as Accordion from "./index";
 
     const ACCORDIONS = ["One", "Two", "Three"];
+
+    const PALETTES = [
+        ["neutral", true],
+        ["accent", false],
+        ["auto", false],
+        ["inverse", false],
+        ["dark", false],
+        ["light", false],
+        ["alert", false],
+        ["affirmative", false],
+        ["negative", false],
+    ];
 </script>
 
 <Meta title="Disclosure/Accordion" />
@@ -31,6 +44,8 @@
             </Accordion.Label>
 
             <Accordion.Section>
+                <Heading>Tab One Content</Heading>
+
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
@@ -54,6 +69,8 @@
             </Accordion.Label>
 
             <Accordion.Section>
+                <Heading>Tab Two Content</Heading>
+
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
@@ -77,6 +94,8 @@
             </Accordion.Label>
 
             <Accordion.Section>
+                <Heading>Tab Three Content</Heading>
+
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
@@ -105,6 +124,39 @@
                 </Accordion.Label>
 
                 <Accordion.Section>
+                    <Heading>Tab {name} Content</Heading>
+
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Accordion.Section>
+            </Accordion.Group>
+        {/each}
+    </Accordion.Container>
+</Story>
+
+<Story name="Palette">
+    <Accordion.Container logic_name="accordion-palette">
+        {#each PALETTES as [palette, is_default], index (palette)}
+            <Accordion.Group logic_id="accordion-palette-{index + 1}">
+                <Accordion.Label {palette}>
+                    Section {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+
+                    <svelte:fragment slot="close">
+                        <Text is="span">&blacktriangledown;</Text>
+                    </svelte:fragment>
+
+                    <svelte:fragment slot="open">
+                        <Text is="span">&blacktriangleright;</Text>
+                    </svelte:fragment>
+                </Accordion.Label>
+
+                <Accordion.Section>
+                    <Heading>Tab {palette.toUpperCase()} Content</Heading>
+
                     <Text>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
                         consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
@@ -135,6 +187,8 @@
 
                 <Accordion.Section>
                     <Transition animation="fade" direction="top">
+                        <Heading>Tab {name} Content</Heading>
+
                         <Text>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
                             consectetur orci. Curabitur a egestas turpis, vitae convallis sapien.
@@ -167,6 +221,8 @@
 
                 <Accordion.Section>
                     <Transition animation="fade" direction="top">
+                        <Heading>Tab {name} Content</Heading>
+
                         <Text>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
                             consectetur orci. Curabitur a egestas turpis, vitae convallis sapien.

@@ -92,7 +92,7 @@
     <Accordion.Container behavior="inclusive" logic_name="accordion-inclusive">
         {#each ACCORDIONS as name, index}
             <Accordion.Group logic_id="accordion-inclusive-{index + 1}">
-                <Accordion.Label palette="accent">
+                <Accordion.Label>
                     Section {name}
 
                     <svelte:fragment slot="close">
@@ -121,7 +121,7 @@
     <Accordion.Container logic_name="accordion-transition-exclusive">
         {#each ACCORDIONS as name, index}
             <Accordion.Group logic_id="accordion-transition-exclusive-{index + 1}">
-                <Accordion.Label palette="accent">
+                <Accordion.Label>
                     Section {name}
 
                     <svelte:fragment slot="close">
@@ -134,7 +134,7 @@
                 </Accordion.Label>
 
                 <Accordion.Section>
-                    <Transition animation="slide" direction="top">
+                    <Transition animation="fade" direction="top">
                         <Text>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
                             consectetur orci. Curabitur a egestas turpis, vitae convallis sapien.
@@ -153,7 +153,7 @@
     <Accordion.Container behavior="inclusive" logic_name="accordion-transition-inclusive">
         {#each ACCORDIONS as name, index}
             <Accordion.Group logic_id="accordion-transition-inclusive-{index + 1}">
-                <Accordion.Label palette="accent">
+                <Accordion.Label>
                     Section {name}
 
                     <svelte:fragment slot="close">
@@ -166,7 +166,7 @@
                 </Accordion.Label>
 
                 <Accordion.Section>
-                    <Transition animation="slide" direction="top">
+                    <Transition animation="fade" direction="top">
                         <Text>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
                             consectetur orci. Curabitur a egestas turpis, vitae convallis sapien.

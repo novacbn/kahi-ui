@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Accordion` — Presents child content in a stack, where each item can be selectively clicked to be revealed.
+
+            -   `<Accordion.Container>` — Wrapper Component which provides stylings and Svelte Contexts for radio / checkbox button functionality.
+
+                -   `<Accordion.Container behavior="inclusive/exclusive">` — Used to switch the `Accordion` between checkbox (`inclusive`) and radio (`exclusive`) button modes.
+                -   `<Accordion.Container logic_name="XXX">` — Used to synchronize the form name between each radio / checkbox button.
+                -   `<Accordion.Container logic_state="XXX">` — Used to set which form ID(s) is the currently active accordion item(s).
+
+            -   `<Accordion.Group>` — Used for grouping together `<Accordion.Label>` / `<Accordion.Section>` Components.
+
+                -   `<Tab.Group logic_id="XXX">` — Used to synchronize the form IDs between the radio buttons, tab content, and Svelte Contexts.
+
+            -   `<Accordion.Label>` — Used for creating radio / checkbox buttons for selecting the active accordion item(s).
+
+                -   `<Accordion.Label state>` — Wrapper around `<input type="checkbox/radio" checked={false/true}>`, used to make the item active.
+                -   `<Accordion.Label palette="accent/dark/light/alert/affirmative/negative">` — Used to change the rendered color palette.
+
+            -   `<Accordion.Section>` — Used for wrapping accordion item content that will render when active.
+
+                -   ~~`<Accordion.Section loading="lazy">` — Disables rendering of item content to DOM when not active.~~
+
+-   Updated the following Components / Component Features
+
+    -   Utilities
+
+        -   `Transition`
+
+            -   `<Transition animation="clip">` — Reversed `direction` property handling so `enter` variations come from their `direction`, rather than expand to their `direction`. Matching the `<Transition animation="slide">` variations.
+
 ## v0.4.4 - 2021/10/17
 
 -   Fixed Svelte Compiler ARIA warnings about missing `for` / `href` attribute, even if provided by developer.

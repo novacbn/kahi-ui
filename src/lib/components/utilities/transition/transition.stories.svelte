@@ -98,7 +98,7 @@
         {#each new Array(20) as _, index (index)}
             <Transition
                 animation="clip"
-                direction="bottom"
+                direction="top"
                 delay={Math.floor(index / 4) * 0.5}
                 variation="enter"
             >

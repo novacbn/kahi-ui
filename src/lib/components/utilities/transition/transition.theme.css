@@ -2,16 +2,16 @@
     /** */
 
     --transition-clip-bottom-end-clip-path: 0% -10% -10% -10%;
-    --transition-clip-bottom-start-clip-path: 0% -10% 100% -10%;
+    --transition-clip-bottom-start-clip-path: 100% -10% -10% -10%;
 
     --transition-clip-left-end-clip-path: 0% -10% -10% -10%;
-    --transition-clip-left-start-clip-path: 0% -10% -10% 100%;
+    --transition-clip-left-start-clip-path: 0% 100% -10% -10%;
 
     --transition-clip-right-end-clip-path: 0% -10% -10% -10%;
-    --transition-clip-right-start-clip-path: 0% 100% -10% -10%;
+    --transition-clip-right-start-clip-path: 0% -10% -10% 100%;
 
     --transition-clip-top-end-clip-path: 0% -10% -10% -10%;
-    --transition-clip-top-start-clip-path: 100% -10% -10% -10%;
+    --transition-clip-top-start-clip-path: 0% -10% 100% -10%;
 
     /** */
 

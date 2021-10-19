@@ -57,7 +57,7 @@
             }
         }
 
-        & > :is(a, label):is(:focus, :hover, [aria-pressed="true"]) {
+        & > :is(a, label):is(:focus, :hover) {
             @apply opacity-50;
 
             &[data-palette] {
@@ -69,7 +69,7 @@
             }
         }
 
-        & > :is(a, label):is(:active, [aria-current]),
+        & > :is(a, label):is(:active, [aria-current], [aria-pressed="true"]),
         & > [type="radio"]:checked + label {
             @apply opacity-100;
 

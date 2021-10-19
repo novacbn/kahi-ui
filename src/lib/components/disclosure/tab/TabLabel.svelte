@@ -80,6 +80,7 @@
     id={$_tab_id}
     name={$_tab_name}
     checked={state}
+    value={$_tab_id}
     on:change={on_change}
     on:change
 />

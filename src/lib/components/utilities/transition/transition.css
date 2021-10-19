@@ -1,13 +1,16 @@
 .transition {
-    --animation: unset;
-    --animation-enter: unset;
-    --animation-exit: unset;
-
     --delay: 0;
     --duration: 1;
 
-    animation: var(--animation) calc(var(--animation-reveal-duration) * var(--duration))
-        var(--animation-reveal-function) calc(var(--animation-reveal-duration) * var(--delay)) both;
+    --animation: unset;
+    --animation-duration: calc(var(--animation-reveal-duration) * var(--duration));
+    --animation-delay: calc(var(--animation-reveal-duration) * var(--delay));
+    --animation-enter: unset;
+    --animation-exit: unset;
+    --animation-function: var(--animation-reveal-function);
+
+    animation: var(--animation) var(--animation-duration) var(--animation-function)
+        var(--animation-delay) both;
 
     &[data-variation~="enter"] {
         --animation: var(--animation-enter);

@@ -1,0 +1,15 @@
+:root {
+    /** */
+
+    /** */
+
+    --accordion-item-palette-background-bold: var(--document-foreground);
+
+    --accordion-item-border-opacity: 0.4;
+    --accordion-item-border-width: 1px;
+    --accordion-item-gap: var(--spacing-root-small);
+    --accordion-item-padding-x: var(--spacing-root-small);
+    --accordion-item-padding-y: var(--spacing-root-tiny);
+
+    --accordion-item-focus-color-opacity: 0.5;
+}

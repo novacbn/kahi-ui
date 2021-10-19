@@ -1,17 +1,71 @@
 .accordion {
+    --palette-background-bold: var(--accordion-item-palette-background-bold);
+
+    display: flex;
+    flex-direction: column;
 }
 
 .accordion > label {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding: var(--accordion-item-padding-y) var(--accordion-item-padding-x);
+
+    gap: var(--accordion-item-gap);
+
+    color: var(--palette-background-bold);
+
+    transition: background var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
+
+    & > :is(:first-child, :last-child) {
+        margin-left: auto;
+    }
+
+    &::before {
+        display: block;
+        position: absolute;
+
+        content: "";
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: var(--accordion-item-border-width);
+
+        background: currentColor;
+        opacity: var(--accordion-item-border-opacity);
+    }
+
+    &:is(:focus, :hover) {
+        color: rgba(var(--palette-background-bold), var(--accordion-item-focus-color-opacity));
+    }
+}
+
+.accordion > [role="presentation"]:checked + label,
+.accordion > label:is(:active, [aria-pressed="true"]) {
+    color: rgb(var(--palette-background-bold));
 }
 
 .accordion > section {
     display: block;
 
-    overflow: hidden;
+    & > .transition {
+        overflow: hidden;
+    }
 }
 
 .accordion > [role="presentation"] {
     display: none;
+
+    &:not(:checked) + label {
+        & > :last-child {
+            display: none;
+        }
+    }
 
     &:not(:checked) + label + section {
         & > .transition {
@@ -19,10 +73,17 @@
 
             /** HACK: Well `display` isn't transitionable, so we have to use `max-height` so as a substitute */
             max-height: 0;
+
             transition: max-height 0s var(--animation-function) var(--animation-duration);
         }
 
         & > :not(.transition) {
+            display: none;
+        }
+    }
+
+    &:checked + label {
+        & > :first-child {
             display: none;
         }
     }

@@ -35,6 +35,9 @@
 
     type $$Slots = {
         default: {};
+
+        close: {};
+        open: {};
     };
 
     export let element: $$Props["element"] = undefined;
@@ -123,4 +126,7 @@
     on:click
 >
     <slot />
+
+    <slot name="open" />
+    <slot name="close" />
 </label>

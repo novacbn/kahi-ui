@@ -15,7 +15,7 @@
         element?: HTMLDivElement;
 
         logic_name?: string;
-        logic_state?: string;
+        logic_state?: string | string[];
 
         behavior?: "exclusive" | "inclusive";
     } & IHTML5Properties &

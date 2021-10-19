@@ -15,10 +15,13 @@
 
     gap: var(--accordion-item-gap);
 
-    color: var(--palette-background-bold);
+    color: currentColor;
+    cursor: pointer;
 
-    transition: background var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function);
+    user-select: none;
+
+    transition: color var(--animation-visual-duration) var(--animation-visual-function),
+        opacity var(--animation-visual-duration) var(--animation-visual-function);
 
     & > :is(:first-child, :last-child) {
         margin-left: auto;
@@ -40,13 +43,18 @@
         opacity: var(--accordion-item-border-opacity);
     }
 
-    &:is(:focus, :hover) {
+    &[aria-disabled="true"] {
+        pointer-events: none;
+        opacity: var(--accordion-item-disabled-opacity);
+    }
+
+    &:not([aria-disabled]):is(:focus, :hover) {
         color: rgba(var(--palette-background-bold), var(--accordion-item-focus-color-opacity));
     }
 }
 
-.accordion > [role="presentation"]:checked + label,
-.accordion > label:is(:active, [aria-pressed="true"]) {
+.accordion > [role="presentation"]:checked + label:not([aria-disabled]),
+.accordion > label:not([aria-disabled]):is(:active, [aria-pressed="true"]) {
     color: rgb(var(--palette-background-bold));
 }
 

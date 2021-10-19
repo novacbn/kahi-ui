@@ -45,8 +45,8 @@
 </Template>
 
 <Story name="Default">
-    <Tab.Container logic_name="tab-default" logic_state="tab-1" alignment_x="stretch">
-        <Tab.Group logic_id="tab-1">
+    <Tab.Container logic_name="tab-default" logic_state="tab-default-1" alignment_x="stretch">
+        <Tab.Group logic_id="tab-default-1">
             <Tab.Label palette="accent">Tab One <span>ICON</span></Tab.Label>
             <Tab.Section>
                 <Heading>Tab One Content</Heading>
@@ -60,7 +60,7 @@
             </Tab.Section>
         </Tab.Group>
 
-        <Tab.Group logic_id="tab-2">
+        <Tab.Group logic_id="tab-default-2">
             <Tab.Label palette="accent">Tab Two <span>ICON</span></Tab.Label>
             <Tab.Section>
                 <Heading>Tab Two Content</Heading>
@@ -74,7 +74,7 @@
             </Tab.Section>
         </Tab.Group>
 
-        <Tab.Group logic_id="tab-3">
+        <Tab.Group logic_id="tab-default-3">
             <Tab.Label palette="accent">Tab Three <span>ICON</span></Tab.Label>
             <Tab.Section>
                 <Heading>Tab Three Content</Heading>
@@ -91,95 +91,50 @@
 </Story>
 
 <Story name="Lazy">
-    <Tab.Container logic_name="tab-lazy" logic_state="tab-1" alignment_x="stretch">
-        <Tab.Group logic_id="tab-1">
-            <Tab.Label palette="accent">Tab One <span>ICON</span></Tab.Label>
-            <Tab.Section loading="lazy">
-                <Heading>Tab One Content</Heading>
+    <Tab.Container logic_name="tab-lazy" logic_state="tab-lazy-1">
+        {#each TABS as name, index}
+            <Tab.Group logic_id="tab-lazy-{index + 1}">
+                <Tab.Label>Tab {name} <span>ICON</span></Tab.Label>
+                <Tab.Section loading="lazy">
+                    <Heading>Tab {name} Content</Heading>
 
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
-                </Text>
-            </Tab.Section>
-        </Tab.Group>
-
-        <Tab.Group logic_id="tab-2">
-            <Tab.Label palette="accent">Tab Two <span>ICON</span></Tab.Label>
-            <Tab.Section loading="lazy">
-                <Heading>Tab Two Content</Heading>
-
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
-                </Text>
-            </Tab.Section>
-        </Tab.Group>
-
-        <Tab.Group logic_id="tab-3">
-            <Tab.Label palette="accent">Tab Three <span>ICON</span></Tab.Label>
-            <Tab.Section loading="lazy">
-                <Heading>Tab Three Content</Heading>
-
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
-                </Text>
-            </Tab.Section>
-        </Tab.Group>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Tab.Section>
+            </Tab.Group>
+        {/each}
     </Tab.Container>
 </Story>
 
 <Story name="Anchor">
-    <Tab.Container logic_name="tab-anchor" logic_state="tab-1" alignment_x="stretch">
-        <Tab.Anchor href="#" current="page" palette="accent">Tab One <span>ICON</span></Tab.Anchor>
-        <Tab.Section>
-            <Heading>Tab One Content</Heading>
+    <Tab.Container>
+        {#each TABS as name, index}
+            <Tab.Anchor href="#" current={index === 0 ? "page" : undefined}>
+                Tab {name} <span>ICON</span>
+            </Tab.Anchor>
 
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Tab.Section>
+            <Tab.Section>
+                <Heading>Tab {name} Content</Heading>
 
-        <Tab.Anchor href="#" palette="accent">Tab Two <span>ICON</span></Tab.Anchor>
-        <Tab.Section>
-            <Heading>Tab Two Content</Heading>
-
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Tab.Section>
-
-        <Tab.Anchor href="#" palette="accent">Tab Three <span>ICON</span></Tab.Anchor>
-        <Tab.Section>
-            <Heading>Tab Three Content</Heading>
-
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-                Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus,
-                in iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus.
-            </Text>
-        </Tab.Section>
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        {/each}
     </Tab.Container>
 </Story>
 
 <Story name="Palette">
-    <Tab.Container logic_name="tab-palette" logic_state="tab-default">
-        {#each PALETTES as [palette, is_default] (palette)}
-            <Tab.Group logic_id="tab-{is_default ? 'default' : palette}">
+    <Tab.Container logic_name="tab-palette" logic_state="tab-palette-1">
+        {#each PALETTES as [palette, is_default], index (palette)}
+            <Tab.Group logic_id="tab-palette-{index + 1}">
                 <Tab.Label palette={is_default ? undefined : palette}>
                     Tab {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Tab.Label>
@@ -209,11 +164,11 @@
 
                 <Tab.Container
                     logic_name="tab-sizing-{sizing}"
-                    logic_state="tab-One-{sizing}"
+                    logic_state="tab-sizing-{sizing}-1"
                     sizing={is_default ? undefined : sizing}
                 >
-                    {#each TABS as tab (tab)}
-                        <Tab.Group logic_id="tab-{tab}-{sizing}">
+                    {#each TABS as tab, index (tab)}
+                        <Tab.Group logic_id="tab-sizing-{sizing}-{index + 1}">
                             <Tab.Label>
                                 Tab {tab}
                             </Tab.Label>
@@ -247,11 +202,11 @@
 
                 <Tab.Container
                     logic_name="tab-alignment-{alignment_x}"
-                    logic_state="tab-One-{alignment_x}"
+                    logic_state="tab-alignment-{alignment_x}-1"
                     alignment_x={is_default ? undefined : alignment_x}
                 >
-                    {#each TABS as tab (tab)}
-                        <Tab.Group logic_id="tab-{tab}-{alignment_x}">
+                    {#each TABS as tab, index (tab)}
+                        <Tab.Group logic_id="tab-alignment-{alignment_x}-{index + 1}">
                             <Tab.Label>
                                 Tab {tab}
                             </Tab.Label>

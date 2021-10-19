@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+-   Added CSS Theming Variables to the following Components: `Tab`.
+
 -   Added the following Components / Component Features
 
     -   Disclosure

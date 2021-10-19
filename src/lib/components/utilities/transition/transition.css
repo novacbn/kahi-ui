@@ -1,113 +1,74 @@
 .transition {
     --animation: unset;
+    --animation-enter: unset;
+    --animation-exit: unset;
+
     --delay: 0;
     --duration: 1;
 
     animation: var(--animation) calc(var(--animation-reveal-duration) * var(--duration))
         var(--animation-reveal-function) calc(var(--animation-reveal-duration) * var(--delay)) both;
+
+    &[data-variation~="enter"] {
+        --animation: var(--animation-enter);
+    }
+
+    &[data-variation~="exit"] {
+        --animation: var(--animation-exit);
+    }
 }
 
 .transition[data-animation="clip"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
-        &[data-variation~="enter"] {
-            --animation: transition-clip-bottom-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-clip-bottom-exit;
-        }
+        --animation-enter: transition-clip-bottom-enter;
+        --animation-exit: transition-clip-bottom-exit;
     }
 
     &[data-direction="top"] {
-        &[data-variation~="enter"] {
-            --animation: transition-clip-top-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-clip-top-exit;
-        }
+        --animation-enter: transition-clip-top-enter;
+        --animation-exit: transition-clip-top-exit;
     }
 
     &[data-direction="left"] {
-        &[data-variation~="enter"] {
-            --animation: transition-clip-left-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-clip-left-exit;
-        }
+        --animation-enter: transition-clip-left-enter;
+        --animation-exit: transition-clip-left-exit;
     }
 
     &[data-direction="right"] {
-        &[data-variation~="enter"] {
-            --animation: transition-clip-right-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-clip-right-exit;
-        }
+        --animation-enter: transition-clip-right-enter;
+        --animation-exit: transition-clip-right-exit;
     }
 }
 
 .transition[data-animation="fade"] {
-    &[data-variation~="enter"] {
-        --animation: transition-fade-enter;
-    }
-
-    &[data-variation~="exit"] {
-        --animation: transition-fade-exit;
-    }
+    --animation-enter: transition-fade-enter;
+    --animation-exit: transition-fade-exit;
 }
 
 .transition[data-animation="scale"] {
-    &[data-variation~="enter"] {
-        --animation: transition-scale-enter;
-    }
-
-    &[data-variation~="exit"] {
-        --animation: transition-scale-exit;
-    }
+    --animation-enter: transition-scale-enter;
+    --animation-exit: transition-scale-exit;
 }
 
 .transition[data-animation="slide"] {
     &:is(:not([data-direction]), [data-direction="bottom"]) {
-        &[data-variation~="enter"] {
-            --animation: transition-slide-bottom-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-slide-bottom-exit;
-        }
+        --animation-enter: transition-slide-bottom-enter;
+        --animation-exit: transition-slide-bottom-exit;
     }
 
     &[data-direction="top"] {
-        &[data-variation~="enter"] {
-            --animation: transition-slide-top-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-slide-top-exit;
-        }
+        --animation-enter: transition-slide-top-enter;
+        --animation-exit: transition-slide-top-exit;
     }
 
     &[data-direction="left"] {
-        &[data-variation~="enter"] {
-            --animation: transition-slide-left-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-slide-left-exit;
-        }
+        --animation-enter: transition-slide-left-enter;
+        --animation-exit: transition-slide-left-exit;
     }
 
     &[data-direction="right"] {
-        &[data-variation~="enter"] {
-            --animation: transition-slide-right-enter;
-        }
-
-        &[data-variation~="exit"] {
-            --animation: transition-slide-right-exit;
-        }
+        --animation-enter: transition-slide-right-enter;
+        --animation-exit: transition-slide-right-exit;
     }
 }
 

@@ -1,95 +1,116 @@
 .tab {
+    --palette-background-bold: var(--tab-item-palette-background-bold);
+
     --flex-alignment-x: initial;
 
-    --sizing-text-size: var(--document-font-size);
-    --sizing-text-line-height: var(--document-font-line-height);
+    --sizing-text-size: var(--tab-item-sizing-text-size);
+    --sizing-text-line-height: var(--tab-item-sizing-text-line-height);
 
-    @apply flex flex-wrap;
+    display: flex;
+    flex-wrap: wrap;
 
     justify-content: var(--flex-alignment-x);
+}
 
-    & > [role="presentation"] {
-        @apply hidden;
+.tab > :is(a, label) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    gap: var(--tab-item-gap);
+
+    padding: var(--tab-item-padding-y) var(--tab-item-padding-x);
+
+    color: currentColor;
+    cursor: pointer;
+
+    font-size: var(--sizing-text-size);
+    line-height: var(--sizing-text-line-height);
+
+    text-decoration: none !important;
+    user-select: none;
+
+    transition: color var(--animation-visual-duration) var(--animation-visual-function),
+        opacity var(--animation-visual-duration) var(--animation-visual-function);
+
+    &::before {
+        display: block;
+        position: absolute;
+
+        content: "";
+
+        bottom: calc(var(--tab-item-border-width) * -1);
+        left: 0;
+
+        width: 100%;
+        height: var(--tab-item-border-width);
+
+        background: transparent;
+
+        transition: background var(--animation-visual-duration) var(--animation-visual-function);
     }
 
+    &[aria-disabled="true"] {
+        pointer-events: none;
+        opacity: var(--tab-item-disabled-opacity);
+    }
+
+    &:not([aria-disabled]):is(:focus, :hover) {
+        color: rgba(var(--palette-background-bold), var(--tab-item-focus-color-opacity));
+
+        &::before {
+            background: rgba(var(--palette-background-bold), var(--tab-item-focus-color-opacity));
+        }
+    }
+}
+
+.tab > [role="presentation"]:checked + label:not([aria-disabled]),
+.tab > :is(a, label):not([aria-disabled]):is(:active, [aria-current], [aria-pressed="true"]) {
+    color: rgb(var(--palette-background-bold));
+
+    &::before {
+        background: rgb(var(--palette-background-bold));
+    }
+}
+
+.tab[data-alignment-x="stretch"] {
     & > :is(a, label) {
-        all: unset;
-
-        @apply cursor-pointer inline-flex justify-center gap-[var(--spacing-local-small)]
-        leading-[var(--sizing-text-line-height)] px-[var(--spacing-local-small)]
-        py-[var(--spacing-local-tiny)];
-
-        font-size: var(--sizing-text-size);
-
-        transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        flex-grow: 1;
     }
+}
 
-    & > section {
-        @apply order-last w-full;
+.tab > section {
+    position: relative;
+
+    order: 9999;
+
+    width: 100%;
+
+    &::before {
+        display: block;
+        position: absolute;
+
+        content: "";
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: var(--tab-section-border-width);
+
+        background: currentColor;
+        opacity: var(--tab-section-border-opacity);
+
+        z-index: -1;
     }
+}
 
-    & > :is(a:not([aria-current]), [type="radio"]:not(:checked) + label) + section {
-        @apply hidden;
-    }
+.tab > [role="presentation"] {
+    display: none;
+}
 
-    &[data-alignment-x="stretch"] {
-        & > :is(a, label) {
-            @apply flex-grow;
-        }
-    }
-
-    &:not([data-variation~="borders"]) {
-        & > :is(a, label) {
-            @apply !no-underline relative text-current;
-
-            &::before {
-                @apply absolute border-x-0 border-b-2 border-solid border-current;
-
-                content: "";
-
-                inset: 0 0 -2px 0;
-
-                color: transparent;
-
-                transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            }
-        }
-
-        & > :is(a, label):is(:focus, :hover) {
-            @apply opacity-50;
-
-            &[data-palette] {
-                @apply text-[rgb(var(--palette-background-bold))];
-            }
-
-            &::before {
-                @apply text-current;
-            }
-        }
-
-        & > :is(a, label):is(:active, [aria-current], [aria-pressed="true"]),
-        & > [type="radio"]:checked + label {
-            @apply opacity-100;
-
-            &[data-palette] {
-                @apply text-[rgb(var(--palette-background-bold))];
-            }
-
-            &::before {
-                @apply text-current;
-            }
-        }
-
-        & > :is(a, label)[aria-disabled="true"] {
-            @apply cursor-not-allowed opacity-40;
-        }
-
-        & > section {
-            @apply border-t-2 border-solid;
-
-            border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.40"));
-        }
-    }
+.tab > :is(a:not([aria-current]), [type="radio"]:not(:checked) + label) + section {
+    display: none;
 }

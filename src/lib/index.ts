@@ -18,6 +18,8 @@ export * from "./types/text";
 export * from "./types/variations";
 export * from "./types/viewports";
 
+import * as Accordion from "./components/disclosure/accordion";
+export {Accordion};
 import * as Tab from "./components/disclosure/tab";
 export {Tab};
 

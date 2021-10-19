@@ -53,6 +53,7 @@
 
 @import url("../lib/components/embedded/figure/figure.css");
 
+@import url("../lib/components/disclosure/accordion/accordion.css");
 @import url("../lib/components/disclosure/tab/tab.css");
 
 @import url("../lib/components/display/badge/badge.css");

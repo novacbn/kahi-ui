@@ -44,7 +44,7 @@
             </Accordion.Label>
 
             <Accordion.Section>
-                <Heading>Tab One Content</Heading>
+                <Heading>Item One Content</Heading>
 
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
@@ -69,7 +69,7 @@
             </Accordion.Label>
 
             <Accordion.Section>
-                <Heading>Tab Two Content</Heading>
+                <Heading>Item Two Content</Heading>
 
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
@@ -94,7 +94,7 @@
             </Accordion.Label>
 
             <Accordion.Section>
-                <Heading>Tab Three Content</Heading>
+                <Heading>Item Three Content</Heading>
 
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
@@ -124,7 +124,7 @@
                 </Accordion.Label>
 
                 <Accordion.Section>
-                    <Heading>Tab {name} Content</Heading>
+                    <Heading>Item {name} Content</Heading>
 
                     <Text>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
@@ -155,7 +155,7 @@
                 </Accordion.Label>
 
                 <Accordion.Section>
-                    <Heading>Tab {palette.toUpperCase()} Content</Heading>
+                    <Heading>Item {palette.toUpperCase()} Content</Heading>
 
                     <Text>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
@@ -187,7 +187,7 @@
 
                 <Accordion.Section>
                     <Transition animation="fade" direction="top">
-                        <Heading>Tab {name} Content</Heading>
+                        <Heading>Item {name} Content</Heading>
 
                         <Text>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
@@ -221,7 +221,7 @@
 
                 <Accordion.Section>
                     <Transition animation="fade" direction="top">
-                        <Heading>Tab {name} Content</Heading>
+                        <Heading>Item {name} Content</Heading>
 
                         <Text>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et

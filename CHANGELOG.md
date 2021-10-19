@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Updated the following Components / Component Features
+
+    -   Utilities
+
+        -   `Transition`
+
+            -   `<Transition animation="clip">` — Reversed `direction` property handling so `enter` variations come from their `direction`, rather than expand to their `direction`. Matching the `<Transition animation="slide">` variations.
+
 ## v0.4.4 - 2021/10/17
 
 -   Fixed Svelte Compiler ARIA warnings about missing `for` / `href` attribute, even if provided by developer.

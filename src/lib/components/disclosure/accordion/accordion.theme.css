@@ -1,8 +1,6 @@
 :root {
     /** */
 
-    /** */
-
     --accordion-item-palette-background-bold: var(--document-foreground);
 
     --accordion-item-border-opacity: 0.4;

@@ -15,10 +15,13 @@
 
     gap: var(--accordion-item-gap);
 
-    color: var(--palette-background-bold);
+    color: currentColor;
     cursor: pointer;
 
-    transition: color var(--animation-visual-duration) var(--animation-visual-function);
+    user-select: none;
+
+    transition: color var(--animation-visual-duration) var(--animation-visual-function),
+        opacity var(--animation-visual-duration) var(--animation-visual-function);
 
     & > :is(:first-child, :last-child) {
         margin-left: auto;

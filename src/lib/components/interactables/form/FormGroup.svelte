@@ -1,43 +1,8 @@
 <script context="module" lang="ts">
-    import type {Writable} from "svelte/store";
-    import {get, writable} from "svelte/store";
+    import {state} from "../../../stores/state2";
+    import type {IStateStore, IStateValue} from "../../../stores/state2";
 
     import {make_scoped_store} from "../../../util/store";
-
-    /**
-     * Represents the values containable in [[IFormStateStore]]
-     */
-    export type IFormStateValue = string | string[];
-
-    /**
-     * Represents the Svelte Store created by [[create_form_state]]
-     */
-    export interface IFormStateStore extends Writable<IFormStateValue> {
-        /**
-         * Resets the Svelte Store to an empty string
-         */
-        clear(): void;
-
-        /**
-         * Pushes a value to the Svelte Store
-         *
-         * **NOTE**: If the Store is an empty string, then the value is set as a string
-         * **NOTE**: If the Store is a non-empty string, then the Store is set to an Array containing previous value and new value
-         * **NOTE**: If the Store is an array, then the value is pushed into the array
-         *
-         * @param value
-         */
-        push(value: string): void;
-
-        /**
-         * Removes a value from the Svelte Store
-         *
-         * **NOTE**: If the Store is an array, then the value is removed. If the array is N = 1, then the Store is set to a string with remaining value
-         * **NOTE**: If the Store is a non-empty string, then the Store is set to an empty string
-         * @param value
-         */
-        remove(value: string): void;
-    }
 
     const SYMBOL_FORM_ID = Symbol.for("kahi-ui-form-id");
 
@@ -49,54 +14,9 @@
 
     export const CONTEXT_FORM_NAME = make_scoped_store<string>(SYMBOL_FORM_NAME);
 
-    export const CONTEXT_FORM_STATE = make_scoped_store<IFormStateValue, IFormStateStore>(
+    export const CONTEXT_FORM_STATE = make_scoped_store<IStateValue, IStateStore>(
         SYMBOL_FORM_STATE,
-        (default_value) => {
-            const store = writable(default_value);
-            const {set, subscribe, update} = store;
-
-            return {
-                set,
-                subscribe,
-                update,
-
-                clear() {
-                    set("");
-                },
-
-                push(value) {
-                    let cache = get(store);
-                    if (cache.includes(value)) return;
-
-                    if (cache) {
-                        if (typeof cache === "string") cache = [cache, value];
-                        else cache.push(value);
-
-                        set([...cache]);
-                    } else {
-                        cache = value;
-                        set(value);
-                    }
-                },
-
-                remove(value) {
-                    let cache = get(store);
-                    if (cache) {
-                        if (typeof cache === "string") {
-                            if (cache === value) set("");
-                        } else {
-                            const index = cache.indexOf(value);
-                            if (index > -1) {
-                                cache = [...cache];
-                                cache.splice(index, 1);
-
-                                set(cache.length > 1 ? cache : cache[0]);
-                            }
-                        }
-                    }
-                },
-            };
-        }
+        (default_value) => state(default_value)
     );
 </script>
 
@@ -110,7 +30,7 @@
     type $$Props = {
         logic_id?: string;
         logic_name?: string;
-        logic_state?: IFormStateValue;
+        logic_state?: IStateValue;
     };
 
     type $$Slots = {

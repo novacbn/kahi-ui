@@ -121,7 +121,17 @@
     <Accordion.Container logic_name="accordion-transition-exclusive">
         {#each ACCORDIONS as name, index}
             <Accordion.Group logic_id="accordion-transition-exclusive-{index + 1}">
-                <Accordion.Label palette="accent">Section {name}</Accordion.Label>
+                <Accordion.Label palette="accent">
+                    Section {name}
+
+                    <svelte:fragment slot="close">
+                        <Text is="span">&blacktriangledown;</Text>
+                    </svelte:fragment>
+
+                    <svelte:fragment slot="open">
+                        <Text is="span">&blacktriangleright;</Text>
+                    </svelte:fragment>
+                </Accordion.Label>
 
                 <Accordion.Section>
                     <Transition animation="slide" direction="top">
@@ -143,7 +153,17 @@
     <Accordion.Container behavior="inclusive" logic_name="accordion-transition-inclusive">
         {#each ACCORDIONS as name, index}
             <Accordion.Group logic_id="accordion-transition-inclusive-{index + 1}">
-                <Accordion.Label palette="accent">Section {name}</Accordion.Label>
+                <Accordion.Label palette="accent">
+                    Section {name}
+
+                    <svelte:fragment slot="close">
+                        <Text is="span">&blacktriangledown;</Text>
+                    </svelte:fragment>
+
+                    <svelte:fragment slot="open">
+                        <Text is="span">&blacktriangleright;</Text>
+                    </svelte:fragment>
+                </Accordion.Label>
 
                 <Accordion.Section>
                     <Transition animation="slide" direction="top">

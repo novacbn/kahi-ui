@@ -74,6 +74,7 @@
             /** HACK: Well `display` isn't transitionable, so we have to use `max-height` so as a substitute */
             max-height: 0;
 
+            pointer-events: none;
             transition: max-height 0s var(--animation-function) var(--animation-duration);
         }
 

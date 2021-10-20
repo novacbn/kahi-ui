@@ -78,8 +78,7 @@
     }
 
     function on_change(event: Event): void {
-        // HACK: We can't directly bind `checked` on `type="radio"`, so we need to watch events
-        state = true;
+        state = (event.target as HTMLInputElement).checked;
     }
 
     afterUpdate(() => {
@@ -90,7 +89,6 @@
     });
 
     $: state = $_accordion_state.includes($_accordion_id);
-    $: console.log({state, accordion_state: $_accordion_state, accordion_id: $_accordion_id});
 </script>
 
 {#if $_accordion_behavior === "inclusive"}

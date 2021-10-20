@@ -269,7 +269,7 @@
             </Table.Row>
 
             <Table.Row>
-                <Table.Column colspan={2}>colspan 2 x rowspan 1</Table.Column>
+                <Table.Column>colspan 1 x rowspan 1</Table.Column>
             </Table.Row>
         </Table.Section>
 

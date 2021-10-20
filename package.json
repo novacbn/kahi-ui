@@ -28,8 +28,7 @@
         "typescript-definitions",
         "ui-components",
         "ui-library",
-        "ui-kit",
-        "windicss"
+        "ui-kit"
     ],
     "files": [
         "actions",

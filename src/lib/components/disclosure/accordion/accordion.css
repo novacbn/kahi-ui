@@ -60,11 +60,6 @@
 
 .accordion > section {
     display: block;
-
-    & > .transition {
-        overflow: hidden;
-        will-change: max-height;
-    }
 }
 
 .accordion > [role="presentation"] {

@@ -31,12 +31,15 @@
     const _accordion_id = CONTEXT_ACCORDION_ID.get();
     const _accordion_state = CONTEXT_ACCORDION_STATE.get();
 
+    // TODO: `Transition` support for `loading=lazy`
+
     let state: boolean = true;
     $: if (_accordion_id && _accordion_state && loading === LOADING_BEHAVIORS.lazy)
         state = $_accordion_state.includes($_accordion_id);
 </script>
 
 <section bind:this={element} {...map_global_attributes($$props)}>
-    <!-- TODO: `loading` support -->
-    <slot />
+    {#if state}
+        <slot />
+    {/if}
 </section>

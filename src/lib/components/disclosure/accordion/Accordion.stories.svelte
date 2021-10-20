@@ -114,7 +114,7 @@
         To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
     </Box>
 
-    <Accordion.Container logic_name="accordion-inclusive">
+    <Accordion.Container behavior="inclusive" logic_name="accordion-inclusive">
         {#each ACCORDIONS as name, index}
             <Accordion.Group logic_id="accordion-inclusive-{index + 1}">
                 <Accordion.Label>

@@ -1,4 +1,4 @@
-a:not([role]) {
+a {
     text-decoration: var(--anchor-text-decoration);
 
     cursor: pointer;

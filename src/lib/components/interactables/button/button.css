@@ -28,6 +28,8 @@ button,
     font-weight: var(--button-font-weight);
     line-height: var(--size-text-line-height);
 
+    text-decoration: none !important;
+
     cursor: pointer;
     user-select: none;
 

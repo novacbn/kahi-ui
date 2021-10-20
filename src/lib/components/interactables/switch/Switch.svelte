@@ -62,6 +62,10 @@
     const _form_name = CONTEXT_FORM_NAME.get();
     const _form_state = CONTEXT_FORM_STATE.get();
 
+    function on_change(event: InputEvent): void {
+        state = (event.target as HTMLInputElement).checked;
+    }
+
     $: _id = _form_id ? $_form_id : id;
     $: _name = _form_name ? $_form_name : name;
 
@@ -71,10 +75,6 @@
     }
 
     $: if (_form_state && value) state = $_form_state.includes(value);
-
-    function on_change(event: InputEvent): void {
-        state = (event.target as HTMLInputElement).checked;
-    }
 </script>
 
 {#if $$slots["default"]}

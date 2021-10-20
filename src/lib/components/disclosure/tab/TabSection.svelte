@@ -31,6 +31,8 @@
     const _tab_id = CONTEXT_TAB_ID.get();
     const _tab_state = CONTEXT_TAB_STATE.get();
 
+    // TODO: `Transition` support for `loading=lazy`
+
     let state: boolean = true;
     $: if (_tab_id && _tab_state && loading === LOADING_BEHAVIORS.lazy)
         state = $_tab_state === $_tab_id;

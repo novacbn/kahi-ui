@@ -2,8 +2,11 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import * as Grid from "../../layouts/grid";
+    import Box from "../../surfaces/box/Box.svelte";
+    import Code from "../../typography/code/Code.svelte";
     import Heading from "../../typography/heading/Heading.svelte";
     import Text from "../../typography/text/Text.svelte";
+    import Transition from "../../utilities/transition/Transition.svelte";
 
     import * as Tab from "./index";
 
@@ -91,6 +94,10 @@
 </Story>
 
 <Story name="Lazy">
+    <Box palette="negative" margin_bottom="medium">
+        To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
+    </Box>
+
     <Tab.Container logic_name="tab-lazy" logic_state="tab-lazy-1">
         {#each TABS as name, index}
             <Tab.Group logic_id="tab-lazy-{index + 1}">
@@ -228,4 +235,27 @@
             </div>
         {/each}
     </Grid.Container>
+</Story>
+
+<Story name="Transition">
+    <Tab.Container logic_name="tab-transition" logic_state="tab-transition-1">
+        {#each TABS as name, index}
+            <Tab.Group logic_id="tab-transition-{index + 1}">
+                <Tab.Label>Tab {name} <span>ICON</span></Tab.Label>
+                <Tab.Section>
+                    <Transition animation="fade" variation="enter">
+                        <Heading>Tab {name} Content</Heading>
+
+                        <Text>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                            consectetur orci. Curabitur a egestas turpis, vitae convallis sapien.
+                            Sed pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci
+                            varius natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.
+                        </Text>
+                    </Transition>
+                </Tab.Section>
+            </Tab.Group>
+        {/each}
+    </Tab.Container>
 </Story>

@@ -2,6 +2,8 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import * as Grid from "../../layouts/grid";
+    import Box from "../../surfaces/box/Box.svelte";
+    import Code from "../../typography/code/Code.svelte";
     import Heading from "../../typography/heading/Heading.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -91,6 +93,10 @@
 </Story>
 
 <Story name="Lazy">
+    <Box palette="negative" margin_bottom="medium">
+        To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
+    </Box>
+
     <Tab.Container logic_name="tab-lazy" logic_state="tab-lazy-1">
         {#each TABS as name, index}
             <Tab.Group logic_id="tab-lazy-{index + 1}">

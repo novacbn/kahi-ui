@@ -1,6 +1,8 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Box from "../../surfaces/box/Box.svelte";
+    import Code from "../../typography/code/Code.svelte";
     import Heading from "../../typography/heading/Heading.svelte";
     import Text from "../../typography/text/Text.svelte";
     import Transition from "../../utilities/transition/Transition.svelte";
@@ -104,6 +106,41 @@
                 </Text>
             </Accordion.Section>
         </Accordion.Group>
+    </Accordion.Container>
+</Story>
+
+<Story name="Lazy">
+    <Box palette="negative" margin_bottom="medium">
+        To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
+    </Box>
+
+    <Accordion.Container logic_name="accordion-inclusive">
+        {#each ACCORDIONS as name, index}
+            <Accordion.Group logic_id="accordion-inclusive-{index + 1}">
+                <Accordion.Label>
+                    Section {name}
+
+                    <svelte:fragment slot="close">
+                        <Text is="span">&blacktriangledown;</Text>
+                    </svelte:fragment>
+
+                    <svelte:fragment slot="open">
+                        <Text is="span">&blacktriangleright;</Text>
+                    </svelte:fragment>
+                </Accordion.Label>
+
+                <Accordion.Section loading="lazy">
+                    <Heading>Item {name} Content</Heading>
+
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Accordion.Section>
+            </Accordion.Group>
+        {/each}
     </Accordion.Container>
 </Story>
 

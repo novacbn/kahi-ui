@@ -223,7 +223,7 @@
                 </Accordion.Label>
 
                 <Accordion.Section>
-                    <Transition animation="fade" direction="top">
+                    <Transition animation="fade" variation="enter">
                         <Heading>Item {name} Content</Heading>
 
                         <Text>
@@ -257,7 +257,7 @@
                 </Accordion.Label>
 
                 <Accordion.Section>
-                    <Transition animation="fade" direction="top">
+                    <Transition animation="fade" variation="enter">
                         <Heading>Item {name} Content</Heading>
 
                         <Text>

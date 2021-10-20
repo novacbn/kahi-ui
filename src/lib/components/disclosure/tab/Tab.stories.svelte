@@ -6,6 +6,7 @@
     import Code from "../../typography/code/Code.svelte";
     import Heading from "../../typography/heading/Heading.svelte";
     import Text from "../../typography/text/Text.svelte";
+    import Transition from "../../utilities/transition/Transition.svelte";
 
     import * as Tab from "./index";
 
@@ -234,4 +235,27 @@
             </div>
         {/each}
     </Grid.Container>
+</Story>
+
+<Story name="Transition">
+    <Tab.Container logic_name="tab-transition" logic_state="tab-transition-1">
+        {#each TABS as name, index}
+            <Tab.Group logic_id="tab-transition-{index + 1}">
+                <Tab.Label>Tab {name} <span>ICON</span></Tab.Label>
+                <Tab.Section>
+                    <Transition animation="fade" variation="enter">
+                        <Heading>Tab {name} Content</Heading>
+
+                        <Text>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                            consectetur orci. Curabitur a egestas turpis, vitae convallis sapien.
+                            Sed pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci
+                            varius natoque penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus.
+                        </Text>
+                    </Transition>
+                </Tab.Section>
+            </Tab.Group>
+        {/each}
+    </Tab.Container>
 </Story>

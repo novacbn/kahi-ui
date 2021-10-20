@@ -63,6 +63,7 @@
 
     & > .transition {
         overflow: hidden;
+        will-change: max-height;
     }
 }
 
@@ -73,20 +74,8 @@
         & > :last-child {
             display: none;
         }
-    }
 
-    &:not(:checked) + label + section {
-        & > .transition {
-            --animation: var(--animation-exit);
-
-            /** HACK: Well `display` isn't transitionable, so we have to use `max-height` so as a substitute */
-            max-height: 0;
-
-            pointer-events: none;
-            transition: max-height 0s var(--animation-function) var(--animation-duration);
-        }
-
-        & > :not(.transition) {
+        & + section {
             display: none;
         }
     }
@@ -94,16 +83,6 @@
     &:checked + label {
         & > :first-child {
             display: none;
-        }
-    }
-
-    &:checked + label + section {
-        & > .transition {
-            --animation: var(--animation-enter);
-
-            /** HACK: Wish could use something else here, but values like `auto` or `max-content` don't transition */
-            max-height: 9999999px;
-            transition: max-height 0s var(--animation-function);
         }
     }
 }

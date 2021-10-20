@@ -82,6 +82,7 @@
 }
 
 .tab > section {
+    display: block;
     position: relative;
 
     order: 9999;
@@ -111,6 +112,6 @@
     display: none;
 }
 
-.tab > :is(a:not([aria-current]), [type="radio"]:not(:checked) + label) + section {
+.tab > :is(a:not([aria-current]), [role="presentation"]:not(:checked) + label) + section {
     display: none;
 }

@@ -27,7 +27,7 @@
 
             -   `<Accordion.Section>` — Used for wrapping accordion item content that will render when active.
 
-                -   ~~`<Accordion.Section loading="lazy">` — Disables rendering of item content to DOM when not active.~~
+                -   `<Accordion.Section loading="lazy">` — Disables rendering of item content to DOM when not active.
 
 -   Updated the following Components / Component Features
 

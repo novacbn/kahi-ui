@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Updated the following Components / Component Features
+
+    -   Feedback
+
+        -   `Ellipsis`
+
+            -   **(BREAKING)** `<Ellipsis character />` — Changed from property to default slot, to support icons and other non-text characters.
+
 ## v0.4.5 - 2021/10/20
 
 -   Added CSS Theming Variables to the following Components: `Tab`.

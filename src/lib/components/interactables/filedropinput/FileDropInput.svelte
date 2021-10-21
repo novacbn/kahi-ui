@@ -36,8 +36,11 @@
 
     export let element: $$Props["element"] = undefined;
 
-    export let id: $$Props["id"] = "";
-    export let name: $$Props["name"] = "";
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
+    export let id: $$Props["id"] = undefined;
+    export let name: $$Props["name"] = undefined;
 
     export let disabled: $$Props["disabled"] = undefined;
 
@@ -56,7 +59,7 @@
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="file-drop-input"
+    class="file-drop-input {_class}"
     {...map_data_attributes({palette})}
 >
     <slot />

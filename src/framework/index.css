@@ -46,6 +46,7 @@
 
 @import url("../lib/components/interactables/button/button.css");
 @import url("../lib/components/interactables/check/check.css");
+@import url("../lib/components/interactables/filedropinput/filedropinput.css");
 @import url("../lib/components/interactables/radio/radio.css");
 @import url("../lib/components/interactables/switch/switch.css");
 @import url("../lib/components/interactables/textinput/textinput.css");

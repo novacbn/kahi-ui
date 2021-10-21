@@ -39,6 +39,7 @@ export * from "./components/embedded/figure";
 
 export * from "./components/interactables/button";
 export * from "./components/interactables/check";
+export * from "./components/interactables/filedropinput";
 import * as Form from "./components/interactables/form";
 export {Form};
 export * from "./components/interactables/hiddeninput";

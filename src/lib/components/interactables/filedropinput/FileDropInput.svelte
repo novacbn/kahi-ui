@@ -23,6 +23,8 @@
         element?: HTMLInputElement;
 
         disabled?: boolean;
+
+        accept?: string;
         multiple?: boolean;
 
         palette?: DESIGN_PALETTE_ARGUMENT;
@@ -38,6 +40,8 @@
     export let name: $$Props["name"] = "";
 
     export let disabled: $$Props["disabled"] = undefined;
+
+    export let accept: $$Props["accept"] = undefined;
     export let multiple: $$Props["multiple"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
@@ -61,6 +65,7 @@
     <input
         type="file"
         {...map_attributes({
+            accept,
             disabled,
             id: _id,
             multiple,

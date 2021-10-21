@@ -20,7 +20,7 @@
     };
 
     type $$Props = {
-        element?: HTMLInputElement;
+        element?: HTMLDivElement;
 
         disabled?: boolean;
 
@@ -58,7 +58,6 @@
     {...map_global_attributes($$props)}
     class="file-drop-input"
     {...map_data_attributes({palette})}
-    on:click
 >
     <slot />
 
@@ -72,6 +71,7 @@
             name: _name,
         })}
         on:change
+        on:click
         on:input
     />
 </div>

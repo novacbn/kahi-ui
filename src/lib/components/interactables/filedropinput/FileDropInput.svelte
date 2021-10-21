@@ -23,6 +23,7 @@
         element?: HTMLInputElement;
 
         disabled?: boolean;
+        multiple?: boolean;
 
         palette?: DESIGN_PALETTE_ARGUMENT;
     } & IHTML5Properties &
@@ -37,6 +38,7 @@
     export let name: $$Props["name"] = "";
 
     export let disabled: $$Props["disabled"] = undefined;
+    export let multiple: $$Props["multiple"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 
@@ -61,6 +63,7 @@
         {...map_attributes({
             disabled,
             id: _id,
+            multiple,
             name: _name,
         })}
         on:change

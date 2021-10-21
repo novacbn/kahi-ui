@@ -1,0 +1,69 @@
+<script lang="ts">
+    import type {IGlobalProperties} from "../../../types/global";
+    import type {IHTML5Properties} from "../../../types/html5";
+    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+
+    import {
+        map_attributes,
+        map_data_attributes,
+        map_global_attributes,
+    } from "../../../util/attributes";
+
+    import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME} from "../form/FormGroup.svelte";
+
+    type $$Events = {
+        change: InputEvent;
+        click: MouseEvent;
+        input: InputEvent;
+    };
+
+    type $$Props = {
+        element?: HTMLInputElement;
+
+        disabled?: boolean;
+
+        palette?: DESIGN_PALETTE_ARGUMENT;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IIntrinsicProperties &
+        IMarginProperties &
+        IPaddingProperties;
+
+    export let element: $$Props["element"] = undefined;
+
+    export let id: $$Props["id"] = "";
+    export let name: $$Props["name"] = "";
+
+    export let disabled: $$Props["disabled"] = undefined;
+
+    export let palette: $$Props["palette"] = undefined;
+
+    const _form_id = CONTEXT_FORM_ID.get();
+    const _form_name = CONTEXT_FORM_NAME.get();
+
+    $: _id = _form_id ? $_form_id : id;
+    $: _name = _form_name ? $_form_name : name;
+</script>
+
+<div
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    class="file-drop-input"
+    {...map_data_attributes({palette})}
+    on:click
+>
+    <slot />
+
+    <input
+        type="file"
+        {...map_attributes({
+            disabled,
+            id: _id,
+            name: _name,
+        })}
+        on:change
+        on:input
+    />
+</div>

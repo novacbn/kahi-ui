@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `FileDropInput` — Renders a stylized box that accepts file drops and clicks to open file open prompt.
+
+            -   `<FileDropInput accept={string}>` — Used to set an accepted allow list of file types in file open prompt. Binding to [`accept`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
+            -   `<FileDropInput multiple={boolean}>` — Used to enable the underlying `<input type="file" />` to accept multiple files at once.
+            -   `<FileDropInput palette="accent/dark/light/alert/affirmative/negative">` — Used to change the rendered color palette.
+
 ## v0.4.5 - 2021/10/20
 
 -   Added CSS Theming Variables to the following Components: `Tab`.

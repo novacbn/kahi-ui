@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Revamped internal context handling for: `Breadcrumb`.
+
 ## v0.4.5 - 2021/10/20
 
 -   Added CSS Theming Variables to the following Components: `Tab`.

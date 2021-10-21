@@ -3,9 +3,9 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
 
-    import {get_component_context} from "../../../stores/component";
-
     import {map_global_attributes} from "../../../util/attributes";
+
+    import {CONTEXT_BREADCRUMB_SEPARATOR} from "./BreadcrumbGroup.svelte";
 
     type $$Props = {
         element?: HTMLLIElement;
@@ -23,18 +23,24 @@
 
     export let active: $$Props["active"] = undefined;
 
-    const _component = get_component_context();
+    const _breadcrumb_separator = CONTEXT_BREADCRUMB_SEPARATOR.get();
+
+    if (!_breadcrumb_separator) {
+        throw new ReferenceError(
+            "bad initialization to `Breadcrumb.Item` (failed to get `breadcrumb_separator` Svelte Store from context)"
+        );
+    }
 </script>
 
 <li bind:this={element} {...map_global_attributes($$props)}>
     <slot />
 
-    {#if $_component && !active}
+    {#if !active}
         <span role="presentation">
-            {#if typeof $_component === "string"}
-                {$_component}
+            {#if typeof $_breadcrumb_separator === "string"}
+                {$_breadcrumb_separator}
             {:else}
-                <svelte:component this={$_component} />
+                <svelte:component this={$_breadcrumb_separator} />
             {/if}
         </span>
     {/if}

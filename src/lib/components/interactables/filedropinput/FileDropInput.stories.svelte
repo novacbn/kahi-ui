@@ -36,7 +36,7 @@
         Drop files into box and read output in devtools.
     </Box>
 
-    <FileDropInput on:change={on_change}>
+    <FileDropInput multiple on:change={on_change}>
         <Stack spacing="medium">
             <Text is="strong" style="font-size:3em;">&uparrow;</Text>
             <Text>Drag-and-drop files here...</Text>

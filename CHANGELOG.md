@@ -4,6 +4,17 @@
 
 -   Added the following Components / Component Features
 
+    -   Disclosure
+
+        -   `Carousel` — Renders children as a carousel of slide elements, with snap scrolling.
+
+            -   `<Carousel.Container>` — Wrapper Component providing the scrolling context.
+
+                -   `<Carousel.Container orientation="vertical">` — Used to set the slide items to scroll vertically, instead of horizontally.
+                -   `<Carousel.Container spacing spacing_x spacing_y>` — Used to configure gap spacing between each slide item.
+
+            -   `<Carousel.Section>` — Used for wrapping `Carousel` slides.
+
     -   Interactables
 
         -   `FileDropInput` — Renders a stylized box that accepts file drops and clicks to open file open prompt.

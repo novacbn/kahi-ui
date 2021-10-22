@@ -20,6 +20,8 @@ export * from "./types/viewports";
 
 import * as Accordion from "./components/disclosure/accordion";
 export {Accordion};
+import * as Carousel from "./components/disclosure/carousel";
+export {Carousel};
 import * as Tab from "./components/disclosure/tab";
 export {Tab};
 

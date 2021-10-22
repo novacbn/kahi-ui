@@ -7,8 +7,8 @@
     import Stack from "./Stack.svelte";
 
     const ORIENTATIONS = [
-        ["horizontal", true],
-        ["vertical", false],
+        ["vertical", true],
+        ["horizontal", false],
     ];
 
     const SPACINGS = [

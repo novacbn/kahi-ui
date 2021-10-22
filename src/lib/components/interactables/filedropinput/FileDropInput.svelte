@@ -34,6 +34,10 @@
         IMarginProperties &
         IPaddingProperties;
 
+    type $$Slots = {
+        default: {};
+    };
+
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";

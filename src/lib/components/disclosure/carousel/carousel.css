@@ -1,10 +1,17 @@
 .carousel {
+    --spacing-x: 0;
+    --spacing-y: 0;
+
     display: flex;
     align-items: center;
 
+    position: relative;
+
+    gap: var(--spacing-y) var(--spacing-x);
+
     scroll-behavior: smooth;
 
-    &:not([data-orientation]) {
+    &:is([data-orientation="horizontal"], :not([data-orientation])) {
         flex-direction: row;
 
         scroll-snap-type: x mandatory;

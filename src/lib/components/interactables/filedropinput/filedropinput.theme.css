@@ -1,0 +1,11 @@
+:root {
+    /** */
+
+    --filedropinput-palette-background-lightest: var(--palette-neutral-lightest);
+    --filedropinput-palette-background-bold: var(--document-foreground);
+
+    --filedropinput-background-opacity: 0.2;
+    --filedropinput-border-width: 3px;
+    --filedropinput-padding-x: var(--spacing-root-large);
+    --filedropinput-padding-y: var(--spacing-root-large);
+}

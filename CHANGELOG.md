@@ -4,6 +4,27 @@
 
 -   Revamped internal context handling for: `Breadcrumb`.
 
+-   Added the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Carousel` — Renders children as a carousel of slide elements, with snap scrolling.
+
+            -   `<Carousel.Container>` — Wrapper Component providing the scrolling context.
+
+                -   `<Carousel.Container orientation="vertical">` — Used to set the slide items to scroll vertically, instead of horizontally.
+                -   `<Carousel.Container spacing spacing_x spacing_y>` — Used to configure gap spacing between each slide item.
+
+            -   `<Carousel.Section>` — Used for wrapping `Carousel` slides.
+
+    -   Interactables
+
+        -   `FileDropInput` — Renders a stylized box that accepts file drops and clicks to open file open prompt.
+
+            -   `<FileDropInput accept={string}>` — Used to set an accepted allow list of file types in file open prompt. Binding to [`accept`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept).
+            -   `<FileDropInput multiple={boolean}>` — Used to enable the underlying `<input type="file" />` to accept multiple files at once. Binding to [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple).
+            -   `<FileDropInput palette="accent/dark/light/alert/affirmative/negative">` — Used to change the rendered color palette.
+
 ## v0.4.5 - 2021/10/20
 
 -   Added CSS Theming Variables to the following Components: `Tab`.

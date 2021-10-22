@@ -20,6 +20,8 @@ export * from "./types/viewports";
 
 import * as Accordion from "./components/disclosure/accordion";
 export {Accordion};
+import * as Carousel from "./components/disclosure/carousel";
+export {Carousel};
 import * as Tab from "./components/disclosure/tab";
 export {Tab};
 
@@ -39,6 +41,7 @@ export * from "./components/embedded/figure";
 
 export * from "./components/interactables/button";
 export * from "./components/interactables/check";
+export * from "./components/interactables/filedropinput";
 import * as Form from "./components/interactables/form";
 export {Form};
 export * from "./components/interactables/hiddeninput";

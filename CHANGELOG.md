@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Carousel` — Renders children as a carousel of slide elements, with snap scrolling.
+
+            -   `<Carousel.Container>` — Wrapper Component providing the scrolling context.
+
+                -   `<Carousel.Container orientation="vertical">` — Used to set the slide items to scroll vertically, instead of horizontally.
+                -   `<Carousel.Container spacing spacing_x spacing_y>` — Used to configure gap spacing between each slide item.
+
+            -   `<Carousel.Section>` — Used for wrapping `Carousel` slides.
+
 ## v0.4.5 - 2021/10/20
 
 -   Added CSS Theming Variables to the following Components: `Tab`.

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.4.6 - 2021/10/22
 
 -   Revamped internal context handling for: `Breadcrumb`.
 
@@ -13,7 +13,7 @@
             -   `<Carousel.Container>` — Wrapper Component providing the scrolling context.
 
                 -   `<Carousel.Container orientation="vertical">` — Used to set the slide items to scroll vertically, instead of horizontally.
-                -   `<Carousel.Container spacing spacing_x spacing_y>` — Used to configure gap spacing between each slide item.
+                -   `<Carousel.Container spacing="tiny/small/medium/large/huge" spacing_x="tiny/small/medium/large/huge" spacing_y="tiny/small/medium/large/huge">` — Used to configure gap spacing between each slide item.
 
             -   `<Carousel.Section>` — Used for wrapping `Carousel` slides.
 

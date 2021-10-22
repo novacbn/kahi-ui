@@ -6,9 +6,9 @@
     import type {IIntrinsicProperties} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {make_component_context} from "../../../stores/component";
-
     import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
+
+    import BreadcrumbGroup from "./BreadcrumbGroup.svelte";
 
     type $$Props = {
         element?: HTMLElement;
@@ -30,10 +30,6 @@
     export {_class as class};
 
     export let separator: $$Props["separator"] = "/";
-
-    const _separator = make_component_context(separator ?? "/");
-
-    $: $_separator = separator ?? "/";
 </script>
 
 <nav
@@ -43,6 +39,8 @@
     {...map_aria_attributes({label: "breadcrumb"})}
 >
     <ol>
-        <slot />
+        <BreadcrumbGroup {separator}>
+            <slot />
+        </BreadcrumbGroup>
     </ol>
 </nav>

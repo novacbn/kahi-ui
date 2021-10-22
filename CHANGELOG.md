@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+-   Revamped internal context handling for: `Breadcrumb`.
+
 -   Added the following Components / Component Features
 
     -   Disclosure

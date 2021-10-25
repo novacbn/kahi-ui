@@ -41,7 +41,7 @@
     const TABS = ["One", "Two", "Three"];
 </script>
 
-<Meta title="Disclosure/Tab" component={Tab.Container} />
+<Meta title="Disclosure/Tab" />
 
 <Template>
     <slot />

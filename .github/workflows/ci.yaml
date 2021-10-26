@@ -31,8 +31,6 @@ jobs:
             - name: Install
               run: npm ci
 
-            ## TODO: Add `svelte-check` after Fixed
-
             - name: Test Library
               run: npm run test
 

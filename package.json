@@ -67,7 +67,7 @@
         "prettier": "^2.3.0",
         "prettier-plugin-svelte": "^2.3.1",
         "storybook-builder-vite": "^0.1.2",
-        "svelte-check": "^1.6.0",
+        "svelte-check": "^2.2.7",
         "svelte-preprocess": "^4.9.8",
         "svelte2tsx": "^0.4.7",
         "tslib": "^2.2.0",
@@ -88,7 +88,7 @@
         "postversion": "git push && git push --tags && npm run release",
         "release": "npm run build && npm run release:publish",
         "release:publish": "npm publish ./package",
-        "test": "npm run test:types",
+        "test": "npm run test:types && npm run test:svelte",
         "test:svelte": "svelte-check --tsconfig ./tsconfig.json",
         "test:types": "tsc --noEmit",
         "watch:framework": "postcss --config postcss.config.cjs --output ./package/dist/kahi-ui.framework.css --watch ./src/framework/index.css"

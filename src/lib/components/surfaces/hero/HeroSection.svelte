@@ -10,9 +10,9 @@
         element?: HTMLElement;
     } & IHTML5Properties &
         IGlobalProperties &
-        ISizeProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

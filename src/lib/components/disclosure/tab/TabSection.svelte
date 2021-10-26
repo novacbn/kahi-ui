@@ -16,9 +16,9 @@
         loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
     } & IHTML5Properties &
         IGlobalProperties &
-        ISizeProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

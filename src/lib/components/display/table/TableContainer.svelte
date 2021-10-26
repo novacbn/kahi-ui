@@ -17,9 +17,9 @@
         variation?: PROPERTY_VARIATION_TABLE;
     } & IHTML5Properties &
         IGlobalProperties &
-        ISizeProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

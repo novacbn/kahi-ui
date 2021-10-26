@@ -13,9 +13,9 @@
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties &
-        ISizeProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

@@ -11,7 +11,8 @@
     } from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {PROPERTY_SIZING_BREAKPOINT, ISizeProperties} from "../../../types/sizings";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {
         PROPERTY_SPACING_BREAKPOINT,
         IMarginProperties,
@@ -34,9 +35,9 @@
         spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        ISizeProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

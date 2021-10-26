@@ -15,8 +15,8 @@
         orientation?: PROPERTY_ORIENTATION_X_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        ISizeProperties &
-        IMarginProperties;
+        IMarginProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

@@ -1,4 +1,4 @@
-import type {LiteralEnum} from "./util";
+import type {ArrayEnum, LiteralEnum} from "./util";
 import {TOKENS_VIEWPORT} from "./viewports";
 
 /**
@@ -8,4 +8,4 @@ export const TOKENS_HIDDEN = {
     ...TOKENS_VIEWPORT,
 } as const;
 
-export type PROPERTY_HIDDEN = LiteralEnum<keyof typeof TOKENS_HIDDEN>;
+export type PROPERTY_HIDDEN = ArrayEnum<LiteralEnum<keyof typeof TOKENS_HIDDEN>>;

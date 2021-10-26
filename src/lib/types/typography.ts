@@ -1,4 +1,4 @@
-import type {LiteralEnum} from "./util";
+import type {ArrayEnum, LiteralEnum} from "./util";
 
 export enum TOKENS_HEADING_VARIATION {
     headline = "headline",
@@ -31,10 +31,10 @@ export enum TOKENS_TEXT_VARIATION {
     truncate = "truncate",
 }
 
-export type PROPERTY_HEADING_VARIATION = LiteralEnum<TOKENS_HEADING_VARIATION>;
+export type PROPERTY_HEADING_VARIATION = ArrayEnum<LiteralEnum<TOKENS_HEADING_VARIATION>>;
 
 export type PROPERTY_TEXT_ALIGNMENT = LiteralEnum<TOKENS_TEXT_ALIGNMENT>;
 
 export type PROPERTY_TEXT_TRANSFORM = LiteralEnum<TOKENS_TEXT_TRANSFORM>;
 
-export type PROPERTY_TEXT_VARIATION = LiteralEnum<TOKENS_TEXT_VARIATION>;
+export type PROPERTY_TEXT_VARIATION = ArrayEnum<LiteralEnum<TOKENS_TEXT_VARIATION>>;

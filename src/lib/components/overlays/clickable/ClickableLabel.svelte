@@ -2,11 +2,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
 
-    import {
-        map_aria_attributes,
-        map_attributes,
-        map_global_attributes,
-    } from "../../../util/attributes";
+    import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
 
     import FormGroup from "../../interactables/form/FormGroup.svelte";
 

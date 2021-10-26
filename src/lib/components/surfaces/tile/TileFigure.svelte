@@ -3,7 +3,6 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_SHAPE} from "../../../types/shapes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 

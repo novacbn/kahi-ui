@@ -4,7 +4,7 @@ import type {BreakpointEnum} from "./viewports";
 /**
  * Represents the tiers of intrinsic sizes tokens that can be applied to Framework Components
  */
-export const DESIGN_SIZE = {
+export const TOKENS_SIZE = {
     auto: "auto",
     "content-fit": "content-fit",
     "content-max": "content-max",
@@ -26,9 +26,9 @@ export const DESIGN_SIZE = {
     "viewport-100": "viewport-100",
 } as const;
 
-export type PROPERTY_SIZE = LiteralEnum<keyof typeof DESIGN_SIZE>;
+export type PROPERTY_SIZE = LiteralEnum<keyof typeof TOKENS_SIZE>;
 
-export type PROPERTY_SIZE_BREAKPOINT = BreakpointEnum<keyof typeof DESIGN_SIZE>;
+export type PROPERTY_SIZE_BREAKPOINT = BreakpointEnum<keyof typeof TOKENS_SIZE>;
 
 export interface ISizeProperties {
     height?: PROPERTY_SIZE_BREAKPOINT;

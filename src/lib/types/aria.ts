@@ -3,7 +3,7 @@ import type {LiteralEnum} from "./util";
 /**
  * Represents the acceptable values for `aria-current` that can be applied to Framework Components
  */
-export enum ARIA_CURRENT {
+export enum TOKENS_ARIA_CURRENT {
     /**
      * Represents the current date within a collection of dates.
      */
@@ -35,4 +35,4 @@ export enum ARIA_CURRENT {
     true = "true",
 }
 
-export type PROPERTY_ARIA_CURRENT = LiteralEnum<ARIA_CURRENT>;
+export type PROPERTY_ARIA_CURRENT = LiteralEnum<TOKENS_ARIA_CURRENT>;

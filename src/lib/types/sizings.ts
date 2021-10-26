@@ -3,7 +3,7 @@ import type {LiteralEnum} from "./util";
 /**
  * Represents the tiers of sizing tokens that can be applied to Framework Components
  */
-export enum DESIGN_SIZING {
+export enum TOKENS_SIZING {
     tiny = "tiny",
 
     small = "small",
@@ -15,4 +15,4 @@ export enum DESIGN_SIZING {
     huge = "huge",
 }
 
-export type PROPERTY_SIZING = LiteralEnum<DESIGN_SIZING>;
+export type PROPERTY_SIZING = LiteralEnum<TOKENS_SIZING>;

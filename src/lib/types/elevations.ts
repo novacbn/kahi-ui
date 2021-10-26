@@ -3,7 +3,7 @@ import type {LiteralEnum} from "./util";
 /**
  * Represents the tiers of elevation (box-shadow) tokens that can be applied to Framework Components
  */
-export enum DESIGN_ELEVATION {
+export enum TOKENS_ELEVATION {
     lowest = "lowest",
 
     low = "low",
@@ -15,4 +15,4 @@ export enum DESIGN_ELEVATION {
     highest = "highest",
 }
 
-export type PROPERTY_ELEVATION = LiteralEnum<DESIGN_ELEVATION>;
+export type PROPERTY_ELEVATION = LiteralEnum<TOKENS_ELEVATION>;

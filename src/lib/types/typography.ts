@@ -1,6 +1,6 @@
 import type {LiteralEnum} from "./util";
 
-export enum DESIGN_HEADING_VARIATION {
+export enum TOKENS_HEADING_VARIATION {
     headline = "headline",
 
     truncate = "truncate",
@@ -9,7 +9,7 @@ export enum DESIGN_HEADING_VARIATION {
 /**
  * Represents the tiers of text alignment tokens that can be applied to Framework Components
  */
-export enum DESIGN_TEXT_ALIGNMENT {
+export enum TOKENS_TEXT_ALIGNMENT {
     center = "center",
 
     justify = "justify",
@@ -19,7 +19,7 @@ export enum DESIGN_TEXT_ALIGNMENT {
     right = "right",
 }
 
-export enum DESIGN_TEXT_TRANSFORM {
+export enum TOKENS_TEXT_TRANSFORM {
     capitalize = "capitalize",
 
     lowercase = "lowercase",
@@ -27,14 +27,14 @@ export enum DESIGN_TEXT_TRANSFORM {
     uppercase = "uppercase",
 }
 
-export enum DESIGN_TEXT_VARIATION {
+export enum TOKENS_TEXT_VARIATION {
     truncate = "truncate",
 }
 
-export type PROPERTY_HEADING_VARIATION = LiteralEnum<DESIGN_HEADING_VARIATION>;
+export type PROPERTY_HEADING_VARIATION = LiteralEnum<TOKENS_HEADING_VARIATION>;
 
-export type PROPERTY_TEXT_ALIGNMENT = LiteralEnum<DESIGN_TEXT_ALIGNMENT>;
+export type PROPERTY_TEXT_ALIGNMENT = LiteralEnum<TOKENS_TEXT_ALIGNMENT>;
 
-export type PROPERTY_TEXT_TRANSFORM = LiteralEnum<DESIGN_TEXT_TRANSFORM>;
+export type PROPERTY_TEXT_TRANSFORM = LiteralEnum<TOKENS_TEXT_TRANSFORM>;
 
-export type PROPERTY_TEXT_VARIATION = LiteralEnum<DESIGN_TEXT_VARIATION>;
+export type PROPERTY_TEXT_VARIATION = LiteralEnum<TOKENS_TEXT_VARIATION>;

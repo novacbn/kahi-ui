@@ -4,7 +4,7 @@ import type {BreakpointEnum} from "./viewports";
 /**
  * Represents the tiers of grid points tokens that can be applied to Framework Components
  */
-export const DESIGN_POINTS = {
+export const TOKENS_POINTS = {
     "1": "1",
     "2": "2",
     "3": "3",
@@ -19,6 +19,6 @@ export const DESIGN_POINTS = {
     "12": "12",
 } as const;
 
-export type PROPERTY_POINTS = LiteralEnum<keyof typeof DESIGN_POINTS>;
+export type PROPERTY_POINTS = LiteralEnum<keyof typeof TOKENS_POINTS>;
 
-export type PROPERTY_POINTS_BREAKPOINT = BreakpointEnum<keyof typeof DESIGN_POINTS>;
+export type PROPERTY_POINTS_BREAKPOINT = BreakpointEnum<keyof typeof TOKENS_POINTS>;

@@ -3,10 +3,10 @@ import type {LiteralEnum} from "./util";
 /**
  * Represents the preset border radius tokens that can be applied to Framework Components
  */
-export enum DESIGN_SHAPE {
+export enum TOKENS_SHAPE {
     pill = "pill",
 
     rounded = "rounded",
 }
 
-export type PROPERTY_SHAPE = LiteralEnum<DESIGN_SHAPE>;
+export type PROPERTY_SHAPE = LiteralEnum<TOKENS_SHAPE>;

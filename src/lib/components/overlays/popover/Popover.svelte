@@ -11,7 +11,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
-    import type {DESIGN_SPACING_SINGULAR_ARGUMENT} from "../../../types/spacings";
+    import type {PROPERTY_SPACING} from "../../../types/spacings";
 
     import {click_outside} from "../../../actions/click_outside";
 
@@ -38,7 +38,7 @@
         alignment_x?: PROPERTY_ALIGNMENT_X;
         alignment_y?: PROPERTY_ALIGNMENT_Y;
 
-        spacing?: DESIGN_SPACING_SINGULAR_ARGUMENT;
+        spacing?: PROPERTY_SPACING;
     } & IHTML5Properties &
         IGlobalProperties;
 

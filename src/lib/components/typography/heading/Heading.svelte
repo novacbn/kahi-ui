@@ -4,10 +4,10 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {
-        DESIGN_TEXT_ALIGNMENT_ARGUMENT,
-        DESIGN_TEXT_TRANSFORM_ARGUMENT,
-        DESIGN_TEXT_VARIATION_ARGUMENT,
-    } from "../../../types/text";
+        PROPERTY_TEXT_ALIGNMENT,
+        PROPERTY_TEXT_TRANSFORM,
+        PROPERTY_TEXT_VARIATION,
+    } from "../../../types/typography";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
@@ -16,11 +16,11 @@
 
         is?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-        align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
-        transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
+        align?: PROPERTY_TEXT_ALIGNMENT;
+        transform?: PROPERTY_TEXT_TRANSFORM;
 
         palette?: PROPERTY_PALETTE;
-        variation?: DESIGN_TEXT_VARIATION_ARGUMENT;
+        variation?: PROPERTY_TEXT_VARIATION;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

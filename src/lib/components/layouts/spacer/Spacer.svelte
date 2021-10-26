@@ -1,15 +1,15 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_ORIENTATION_ARGUMENT} from "../../../types/orientations";
-    import type {PROPERTY_PALETTE} from "../../../types/spacings";
+    import type {PROPERTY_ORIENTATION_BREAKPOINT} from "../../../types/orientations";
+    import type {PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     type $$Props = {
         element?: HTMLDivElement | HTMLSpanElement;
 
-        orientation?: DESIGN_ORIENTATION_ARGUMENT;
+        orientation?: PROPERTY_ORIENTATION_BREAKPOINT;
         variation?: "inline";
 
         spacing?: PROPERTY_SPACING_BREAKPOINT;

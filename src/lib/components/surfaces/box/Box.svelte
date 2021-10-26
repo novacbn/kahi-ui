@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {DESIGN_ELEVATION_ARGUMENT} from "../../../types/elevations";
+    import type {PROPERTY_ELEVATION} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
@@ -12,7 +12,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        elevation?: DESIGN_ELEVATION_ARGUMENT;
+        elevation?: PROPERTY_ELEVATION;
         palette?: PROPERTY_PALETTE;
         shape?: PROPERTY_SHAPE;
     } & IHTML5Properties &

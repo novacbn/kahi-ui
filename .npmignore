@@ -1,0 +1,5 @@
+/package/
+/node_modules/
+/storybook-static/
+
+*.svelte.stories

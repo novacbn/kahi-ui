@@ -1,7 +1,6 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Button from "../../interactables/button/Button.svelte";
     import Divider from "../../layouts/divider/Divider.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";

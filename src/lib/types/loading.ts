@@ -1,3 +1,5 @@
+import type {LiteralEnum} from "./util";
+
 /**
  * Represents the valid loading behaviors that can be applied to Framework Components
  */
@@ -8,6 +10,4 @@ export enum LOADING_BEHAVIORS {
     lazy = "lazy",
 }
 
-export const LOADING_BEHAVIORS_LITERALS = {...LOADING_BEHAVIORS} as const;
-
-export type LOADING_BEHAVIORS_ARGUMENT = keyof typeof LOADING_BEHAVIORS_LITERALS;
+export type PROPERTY_LOADING_BEHAVIOR = LiteralEnum<LOADING_BEHAVIORS>;

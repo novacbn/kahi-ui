@@ -1,15 +1,5 @@
-/**
- * Represents placement tokens to show content at specific relative locations that can be applied to Framework Components
- */
-export enum DESIGN_PLACEMENT {
-    top = "top",
-
-    left = "left",
-
-    bottom = "bottom",
-
-    right = "right",
-}
+import type {LiteralEnum} from "./util";
+import type {BreakpointEnum} from "./viewports";
 
 /**
  * Represents placement tokens to show content at specific x-axis relative locations that can be applied to Framework Components
@@ -32,24 +22,19 @@ export enum DESIGN_PLACEMENT_Y {
 /**
  * Represents placement tokens to show content at specific relative locations that can be applied to Framework Components
  */
-export enum DESIGN_PLACEMENT_ALIGNMENT {
-    start = "start",
+export const DESIGN_PLACEMENT = {
+    ...DESIGN_PLACEMENT_X,
+    ...DESIGN_PLACEMENT_Y,
+} as const;
 
-    center = "center",
+export type PROPERTY_PLACEMENT = LiteralEnum<keyof typeof DESIGN_PLACEMENT>;
 
-    end = "end",
-}
+export type PROPERTY_PLACEMENT_BREAKPOINT = BreakpointEnum<keyof typeof DESIGN_PLACEMENT>;
 
-export const DESIGN_PLACEMENT_LITERALS = {...DESIGN_PLACEMENT} as const;
+export type PROPERTY_PLACEMENT_X = LiteralEnum<DESIGN_PLACEMENT_X>;
 
-export const DESIGN_PLACEMENT_X_LITERALS = {...DESIGN_PLACEMENT_X} as const;
+export type PROPERTY_PLACEMENT_X_BREAKPOINT = BreakpointEnum<DESIGN_PLACEMENT_X>;
 
-export const DESIGN_PLACEMENT_Y_LITERALS = {...DESIGN_PLACEMENT_Y} as const;
+export type PROPERTY_PLACEMENT_Y = LiteralEnum<DESIGN_PLACEMENT_Y>;
 
-export type DESIGN_PLACEMENT_ARGUMENT = keyof typeof DESIGN_PLACEMENT_LITERALS;
-
-export type DESIGN_PLACEMENT_X_ARGUMENT = keyof typeof DESIGN_PLACEMENT_X_LITERALS;
-
-export type DESIGN_PLACEMENT_Y_ARGUMENT = keyof typeof DESIGN_PLACEMENT_Y_LITERALS;
-
-export type DESIGN_PLACEMENT_ALIGNMENT_ARGUMENT = keyof typeof DESIGN_PLACEMENT_LITERALS;
+export type PROPERTY_PLACEMENT_Y_BREAKPOINT = BreakpointEnum<DESIGN_PLACEMENT_Y>;

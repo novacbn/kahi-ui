@@ -6,11 +6,12 @@
         "strict": true,
         "declaration": true,
         "allowSyntheticDefaultImports": true,
+        "allowJs": true,
         "downlevelIteration": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "declarationDir": "types"
     },
     "include": ["src/**/*"],
-    "exclude": ["node_modules/*", "**/*.stories.svelte"]
+    "exclude": ["node_modules/*"]
 }

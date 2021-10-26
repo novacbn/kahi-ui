@@ -1,14 +1,14 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {
-        DESIGN_TEXT_ALIGNMENT_ARGUMENT,
-        DESIGN_TEXT_TRANSFORM_ARGUMENT,
-        DESIGN_TEXT_VARIATION_ARGUMENT,
-    } from "../../../types/text";
+        PROPERTY_TEXT_ALIGNMENT,
+        PROPERTY_TEXT_TRANSFORM,
+        PROPERTY_TEXT_VARIATION,
+    } from "../../../types/typography";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
@@ -35,12 +35,12 @@
             | "sup"
             | "u";
 
-        align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
-        transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
-        size?: DESIGN_SIZE_ARGUMENT;
+        align?: PROPERTY_TEXT_ALIGNMENT;
+        transform?: PROPERTY_TEXT_TRANSFORM;
+        size?: PROPERTY_SIZING;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        variation?: DESIGN_TEXT_VARIATION_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
+        variation?: PROPERTY_TEXT_VARIATION;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

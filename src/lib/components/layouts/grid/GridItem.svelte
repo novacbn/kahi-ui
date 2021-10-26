@@ -1,16 +1,16 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_POINTS_ARGUMENT} from "../../../types/points";
+    import type {PROPERTY_POINTS_BREAKPOINT} from "../../../types/points";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     type $$Props = {
         element?: HTMLDivElement;
 
-        span?: DESIGN_POINTS_ARGUMENT;
-        span_x?: DESIGN_POINTS_ARGUMENT;
-        span_y?: DESIGN_POINTS_ARGUMENT;
+        span?: PROPERTY_POINTS_BREAKPOINT;
+        span_x?: PROPERTY_POINTS_BREAKPOINT;
+        span_y?: PROPERTY_POINTS_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties;
 

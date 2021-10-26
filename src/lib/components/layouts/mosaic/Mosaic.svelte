@@ -5,15 +5,16 @@
     // Should be a basic conditional check which use just sets `--sizing: XXX;` via style property
 
     import type {
-        DESIGN_ALIGNMENT_ARGUMENT,
-        DESIGN_ALIGNMENT_X_ARGUMENT,
-        DESIGN_ALIGNMENT_Y_ARGUMENT,
+        PROPERTY_ALIGNMENT_BREAKPOINT,
+        PROPERTY_ALIGNMENT_X_BREAKPOINT,
+        PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_SIZING_ARGUMENT, IIntrinsicProperties} from "../../../types/sizings";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {
-        DESIGN_SPACING_ARGUMENT,
+        PROPERTY_SPACING_BREAKPOINT,
         IMarginProperties,
         IPaddingProperties,
     } from "../../../types/spacings";
@@ -23,20 +24,20 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        sizing?: DESIGN_SIZING_ARGUMENT;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
 
-        alignment?: DESIGN_ALIGNMENT_ARGUMENT;
-        alignment_x?: DESIGN_ALIGNMENT_X_ARGUMENT;
-        alignment_y?: DESIGN_ALIGNMENT_Y_ARGUMENT;
+        alignment?: PROPERTY_ALIGNMENT_BREAKPOINT;
+        alignment_x?: PROPERTY_ALIGNMENT_X_BREAKPOINT;
+        alignment_y?: PROPERTY_ALIGNMENT_Y_BREAKPOINT;
 
-        spacing?: DESIGN_SPACING_ARGUMENT;
-        spacing_x?: DESIGN_SPACING_ARGUMENT;
-        spacing_y?: DESIGN_SPACING_ARGUMENT;
+        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_x?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

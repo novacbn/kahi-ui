@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type {DESIGN_ELEVATION_ARGUMENT} from "../../../types/elevations";
+    import type {PROPERTY_ELEVATION} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SHAPE_ARGUMENT} from "../../../types/shapes";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_SHAPE} from "../../../types/shapes";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
@@ -12,14 +12,14 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        elevation?: DESIGN_ELEVATION_ARGUMENT;
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        shape?: DESIGN_SHAPE_ARGUMENT;
+        elevation?: PROPERTY_ELEVATION;
+        palette?: PROPERTY_PALETTE;
+        shape?: PROPERTY_SHAPE;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

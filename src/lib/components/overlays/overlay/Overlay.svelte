@@ -2,15 +2,15 @@
     import {createEventDispatcher} from "svelte";
 
     import type {
-        DESIGN_ALIGNMENT_ARGUMENT,
-        DESIGN_ALIGNMENT_X_ARGUMENT,
-        DESIGN_ALIGNMENT_Y_ARGUMENT,
+        PROPERTY_ALIGNMENT_BREAKPOINT,
+        PROPERTY_ALIGNMENT_X_BREAKPOINT,
+        PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_ORIENTATION_VERTICAL_ARGUMENT} from "../../../types/orientations";
-    import type {DESIGN_SPACING_ARGUMENT, IPaddingProperties} from "../../../types/spacings";
+    import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
+    import type {IPaddingProperties, PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -33,15 +33,15 @@
         logic_id?: string;
         state?: boolean;
 
-        orientation?: DESIGN_ORIENTATION_VERTICAL_ARGUMENT;
+        orientation?: PROPERTY_ORIENTATION_Y_BREAKPOINT;
 
-        alignment?: DESIGN_ALIGNMENT_ARGUMENT;
-        alignment_x?: DESIGN_ALIGNMENT_X_ARGUMENT;
-        alignment_y?: DESIGN_ALIGNMENT_Y_ARGUMENT;
+        alignment?: PROPERTY_ALIGNMENT_BREAKPOINT;
+        alignment_x?: PROPERTY_ALIGNMENT_X_BREAKPOINT;
+        alignment_y?: PROPERTY_ALIGNMENT_Y_BREAKPOINT;
 
-        spacing?: DESIGN_SPACING_ARGUMENT;
-        spacing_x?: DESIGN_SPACING_ARGUMENT;
-        spacing_y?: DESIGN_SPACING_ARGUMENT;
+        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_x?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IPaddingProperties;

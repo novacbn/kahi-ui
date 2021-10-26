@@ -1,9 +1,10 @@
-import {get_breakpoint_delimited} from "./viewports";
+import type {LiteralEnum} from "./util";
+import type {BreakpointEnum} from "./viewports";
 
 /**
  * Represents the tiers of spacing tokens that can be applied to Framework Components
  */
-export enum DESIGN_SPACING {
+export enum TOKENS_SPACING {
     none = "none",
 
     auto = "auto",
@@ -19,41 +20,30 @@ export enum DESIGN_SPACING {
     huge = "huge",
 }
 
-export const DESIGN_SPACING_LITERALS = {
-    ...DESIGN_SPACING,
-    ...get_breakpoint_delimited<DESIGN_SPACING>(DESIGN_SPACING),
-} as const;
+export type PROPERTY_SPACING = LiteralEnum<TOKENS_SPACING>;
 
-export const DESIGN_SPACING_SINGULAR_LITERALS = {
-    ...DESIGN_SPACING,
-} as const;
-
-export type DESIGN_SPACING_ARGUMENT =
-    | keyof typeof DESIGN_SPACING_LITERALS
-    | (keyof typeof DESIGN_SPACING_LITERALS)[];
-
-export type DESIGN_SPACING_SINGULAR_ARGUMENT = keyof typeof DESIGN_SPACING_SINGULAR_LITERALS;
+export type PROPERTY_SPACING_BREAKPOINT = BreakpointEnum<TOKENS_SPACING>;
 
 export interface IMarginProperties {
-    margin?: DESIGN_SPACING_ARGUMENT;
+    margin?: PROPERTY_SPACING_BREAKPOINT;
 
-    margin_x?: DESIGN_SPACING_ARGUMENT;
-    margin_y?: DESIGN_SPACING_ARGUMENT;
+    margin_x?: PROPERTY_SPACING_BREAKPOINT;
+    margin_y?: PROPERTY_SPACING_BREAKPOINT;
 
-    margin_top?: DESIGN_SPACING_ARGUMENT;
-    margin_left?: DESIGN_SPACING_ARGUMENT;
-    margin_bottom?: DESIGN_SPACING_ARGUMENT;
-    margin_right?: DESIGN_SPACING_ARGUMENT;
+    margin_top?: PROPERTY_SPACING_BREAKPOINT;
+    margin_left?: PROPERTY_SPACING_BREAKPOINT;
+    margin_bottom?: PROPERTY_SPACING_BREAKPOINT;
+    margin_right?: PROPERTY_SPACING_BREAKPOINT;
 }
 
 export interface IPaddingProperties {
-    padding?: DESIGN_SPACING_ARGUMENT;
+    padding?: PROPERTY_SPACING_BREAKPOINT;
 
-    padding_x?: DESIGN_SPACING_ARGUMENT;
-    padding_y?: DESIGN_SPACING_ARGUMENT;
+    padding_x?: PROPERTY_SPACING_BREAKPOINT;
+    padding_y?: PROPERTY_SPACING_BREAKPOINT;
 
-    padding_top?: DESIGN_SPACING_ARGUMENT;
-    padding_left?: DESIGN_SPACING_ARGUMENT;
-    padding_bottom?: DESIGN_SPACING_ARGUMENT;
-    padding_right?: DESIGN_SPACING_ARGUMENT;
+    padding_top?: PROPERTY_SPACING_BREAKPOINT;
+    padding_left?: PROPERTY_SPACING_BREAKPOINT;
+    padding_bottom?: PROPERTY_SPACING_BREAKPOINT;
+    padding_right?: PROPERTY_SPACING_BREAKPOINT;
 }

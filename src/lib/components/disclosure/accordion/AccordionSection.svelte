@@ -1,9 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {LOADING_BEHAVIORS_ARGUMENT} from "../../../types/loading";
-    import {LOADING_BEHAVIORS} from "../../../types/loading";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
+    import {TOKENS_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {map_global_attributes} from "../../../util/attributes";
@@ -13,12 +13,12 @@
     type $$Props = {
         element?: HTMLElement;
 
-        loading?: LOADING_BEHAVIORS_ARGUMENT;
+        loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};
@@ -34,7 +34,7 @@
     // TODO: `Transition` support for `loading=lazy`
 
     let state: boolean = true;
-    $: if (_accordion_id && _accordion_state && loading === LOADING_BEHAVIORS.lazy)
+    $: if (_accordion_id && _accordion_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy)
         state = $_accordion_state.includes($_accordion_id);
 </script>
 

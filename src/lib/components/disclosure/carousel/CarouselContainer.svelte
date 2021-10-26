@@ -1,9 +1,10 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_ORIENTATION_X} from "../../../types/orientations";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {
-        DESIGN_SPACING_ARGUMENT,
+        PROPERTY_SPACING_BREAKPOINT,
         IMarginProperties,
         IPaddingProperties,
     } from "../../../types/spacings";
@@ -13,16 +14,16 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        orientation?: "vertical";
+        orientation?: PROPERTY_ORIENTATION_X;
 
-        spacing?: DESIGN_SPACING_ARGUMENT;
-        spacing_x?: DESIGN_SPACING_ARGUMENT;
-        spacing_y?: DESIGN_SPACING_ARGUMENT;
+        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_x?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

@@ -1,7 +1,9 @@
+import type {LiteralEnum} from "./util";
+
 /**
  * Represents the `object-fit` configuration tokens that can be applied to Framework Components
  */
-export enum DESIGN_FIT {
+export enum TOKENS_FIT {
     contain = "contain",
 
     cover = "cover",
@@ -13,6 +15,4 @@ export enum DESIGN_FIT {
     "scale-down" = "scale-down",
 }
 
-export const DESIGN_FIT_LITERALS = {...DESIGN_FIT} as const;
-
-export type DESIGN_FIT_ARGUMENT = keyof typeof DESIGN_FIT_LITERALS;
+export type PROPERTY_FIT = LiteralEnum<TOKENS_FIT>;

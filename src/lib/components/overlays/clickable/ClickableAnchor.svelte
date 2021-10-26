@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {ARIA_CURRENT_ARGUMENT} from "../../../types/aria";
+    import type {PROPERTY_ARIA_CURRENT} from "../../../types/aria";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
 
@@ -17,7 +17,7 @@
         element?: HTMLAnchorElement;
 
         active?: boolean;
-        current?: ARIA_CURRENT_ARGUMENT;
+        current?: PROPERTY_ARIA_CURRENT;
         disabled?: boolean;
 
         download?: string;

@@ -1,18 +1,11 @@
+import type {LiteralEnum} from "./util";
+import {TOKENS_VIEWPORT} from "./viewports";
+
 /**
  * Represents viewport tokens to hide content that can be applied to Framework Components
  */
-export enum DESIGN_HIDDEN {
-    mobile = "mobile",
+export const TOKENS_HIDDEN = {
+    ...TOKENS_VIEWPORT,
+} as const;
 
-    tablet = "tablet",
-
-    desktop = "desktop",
-
-    widescreen = "widescreen",
-}
-
-export const DESIGN_HIDDEN_LITERALS = {...DESIGN_HIDDEN} as const;
-
-export type DESIGN_HIDDEN_ARGUMENT =
-    | (boolean | keyof typeof DESIGN_HIDDEN_LITERALS)
-    | (keyof typeof DESIGN_HIDDEN_LITERALS)[];
+export type PROPERTY_HIDDEN = LiteralEnum<keyof typeof TOKENS_HIDDEN>;

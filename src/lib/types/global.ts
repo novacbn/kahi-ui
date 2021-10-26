@@ -1,5 +1,5 @@
-import type {DESIGN_HIDDEN_ARGUMENT} from "./hidden";
+import type {PROPERTY_HIDDEN} from "./hidden";
 
 export interface IGlobalProperties {
-    hidden?: DESIGN_HIDDEN_ARGUMENT;
+    hidden?: PROPERTY_HIDDEN;
 }

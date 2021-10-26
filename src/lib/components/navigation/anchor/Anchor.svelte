@@ -3,10 +3,10 @@
      * TODO: Satisfy ARIA warnings from the Compiler by making non-optional properties
      */
 
-    import type {ARIA_CURRENT_ARGUMENT} from "../../../types/aria";
+    import type {PROPERTY_ARIA_CURRENT} from "../../../types/aria";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import {
@@ -23,7 +23,7 @@
         element?: HTMLAnchorElement;
 
         active?: boolean;
-        current?: ARIA_CURRENT_ARGUMENT;
+        current?: PROPERTY_ARIA_CURRENT;
         disabled?: boolean;
 
         download?: string;
@@ -31,7 +31,7 @@
         rel?: string;
         target?: string;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

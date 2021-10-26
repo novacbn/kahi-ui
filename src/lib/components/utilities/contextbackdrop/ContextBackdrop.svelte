@@ -5,7 +5,7 @@
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {ISizeProperties} from "../../../types/sizes";
 
     import {get_id_context} from "../../../stores/id";
     import {get_state_context} from "../../../stores/state";
@@ -24,7 +24,7 @@
         dismissible?: boolean;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties;
+        ISizeProperties;
 
     export let element: $$Props["element"] = undefined;
 

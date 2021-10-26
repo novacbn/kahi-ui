@@ -1,24 +1,25 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SIZING_ARGUMENT, IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
-    import type {DESIGN_TABLE_VARIATION_ARGUMENT} from "../../../types/variations";
+    import type {PROPERTY_VARIATION_TABLE} from "../../../types/variations";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     type $$Props = {
         element?: HTMLTableElement;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        sizing?: DESIGN_SIZING_ARGUMENT;
-        variation?: DESIGN_TABLE_VARIATION_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
+        sizing?: PROPERTY_SIZING;
+        variation?: PROPERTY_VARIATION_TABLE;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

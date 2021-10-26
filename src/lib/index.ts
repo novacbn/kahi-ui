@@ -1,6 +1,7 @@
 export * from "./types/alignments";
 export * from "./types/animations";
 export * from "./types/aria";
+export * from "./types/behaviors";
 export * from "./types/elevations";
 export * from "./types/fit";
 export * from "./types/hidden";
@@ -14,7 +15,7 @@ export * from "./types/shapes";
 export * from "./types/sizes";
 export * from "./types/sizings";
 export * from "./types/spacings";
-export * from "./types/text";
+export * from "./types/typography";
 export * from "./types/variations";
 export * from "./types/viewports";
 

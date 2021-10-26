@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Revamped internal library typings.
+
 ## v0.4.6 - 2021/10/22
 
 -   Revamped internal context handling for: `Breadcrumb`.

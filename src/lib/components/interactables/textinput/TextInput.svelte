@@ -1,15 +1,12 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../types/resizable";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_RESIZEABLE} from "../../../types/resizable";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
-    import type {
-        DESIGN_TEXT_ALIGNMENT_ARGUMENT,
-        DESIGN_TEXT_TRANSFORM_ARGUMENT,
-    } from "../../../types/text";
-    import type {DESIGN_FILL_INPUT_VARIATION_ARGUMENT} from "../../../types/variations";
+    import type {PROPERTY_TEXT_ALIGNMENT, PROPERTY_TEXT_TRANSFORM} from "../../../types/typography";
+    import type {PROPERTY_VARIATION_INPUT} from "../../../types/variations";
 
     import {
         map_attributes,
@@ -47,14 +44,14 @@
         characters?: number;
 
         lines?: number;
-        resizable?: DESIGN_RESIZEABLE_ARGUMENT;
+        resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
 
-        align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        size?: DESIGN_SIZE_ARGUMENT;
-        transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
-        variation?: DESIGN_FILL_INPUT_VARIATION_ARGUMENT;
+        align?: PROPERTY_TEXT_ALIGNMENT;
+        palette?: PROPERTY_PALETTE;
+        size?: PROPERTY_SIZING;
+        transform?: PROPERTY_TEXT_TRANSFORM;
+        variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

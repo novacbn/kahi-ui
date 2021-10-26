@@ -1,4 +1,4 @@
-import type {LiteralEnum} from "./util";
+import type {ArrayEnum, LiteralEnum} from "./util";
 
 /**
  * Represents the tiers of flex variations tokens that can be applied to Framework Components
@@ -49,12 +49,12 @@ export const TOKENS_VARIATION_TOGGLE = {
 
 export type PROPERTY_VARIATION_BUTTON = LiteralEnum<keyof typeof TOKENS_VARIATION_BUTTON>;
 
-export type PROPERTY_VARIATION_FLEX = LiteralEnum<TOKENS_VARIATION_FLEX>;
+export type PROPERTY_VARIATION_FLEX = ArrayEnum<LiteralEnum<TOKENS_VARIATION_FLEX>>;
 
 export type PROPERTY_VARIATION_INPUT = LiteralEnum<keyof typeof TOKENS_VARIATION_INPUT>;
 
 export type PROPERTY_VARIATION_SURFACE = LiteralEnum<keyof typeof TOKENS_VARIATION_SURFACE>;
 
-export type PROPERTY_VARIATION_TABLE = LiteralEnum<TOKENS_VARIATION_TABLE>;
+export type PROPERTY_VARIATION_TABLE = ArrayEnum<LiteralEnum<TOKENS_VARIATION_TABLE>>;
 
 export type PROPERTY_VARIATION_TOGGLE = LiteralEnum<keyof typeof TOKENS_VARIATION_TOGGLE>;

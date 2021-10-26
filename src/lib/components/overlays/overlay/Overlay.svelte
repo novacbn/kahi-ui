@@ -10,7 +10,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
-    import type {PROPERTY_PALETTE, IPaddingProperties} from "../../../types/spacings";
+    import type {IPaddingProperties, PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";

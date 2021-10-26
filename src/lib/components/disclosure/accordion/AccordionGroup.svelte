@@ -1,4 +1,6 @@
 <script context="module" lang="ts">
+    import type {PROPERTY_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
+
     import type {IStateStore, IStateValue} from "../../../stores/state2";
     import {state} from "../../../stores/state2";
 
@@ -13,7 +15,7 @@
     const SYMBOL_ACCORDION_STATE = Symbol.for("kahi-ui-accordion-state");
 
     export const CONTEXT_ACCORDION_BEHAVIOR =
-        make_scoped_store<"exclusive" | "inclusive">(SYMBOL_ACCORDION_BEHAVIOR);
+        make_scoped_store<PROPERTY_BEHAVIOR_TOGGLE>(SYMBOL_ACCORDION_BEHAVIOR);
 
     export const CONTEXT_ACCORDION_ID = make_scoped_store<string>(SYMBOL_ACCORDION_ID);
 
@@ -28,6 +30,8 @@
 <script lang="ts">
     import {afterUpdate, createEventDispatcher} from "svelte";
 
+    import {TOKENS_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
+
     type $$Events = {
         change: CustomEvent<void>;
     };
@@ -37,7 +41,7 @@
         logic_name?: string;
         logic_state?: string | string[];
 
-        behavior?: "exclusive" | "inclusive";
+        behavior?: PROPERTY_BEHAVIOR_TOGGLE;
     };
 
     type $$Slots = {
@@ -66,7 +70,7 @@
         });
     }
 
-    $: if (_accordion_behavior) $_accordion_behavior = behavior ?? "exclusive";
+    $: if (_accordion_behavior) $_accordion_behavior = behavior ?? TOKENS_BEHAVIOR_TOGGLE.exclusive;
     $: if (_accordion_id) $_accordion_id = logic_id ?? "";
     $: if (_accordion_name) $_accordion_name = logic_name ?? "";
 

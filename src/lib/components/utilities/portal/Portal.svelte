@@ -1,8 +1,8 @@
 <script lang="ts">
     import {createEventDispatcher, onDestroy, onMount, tick} from "svelte";
 
-    import type {PROPERTY_BEHAVIOR_LOADING} from "../../../types/behaviors";
-    import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
+    import type {PROPERTY_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
+    import {TOKENS_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
 
     type $$Events = {
         mount: CustomEvent<void>;
@@ -11,7 +11,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        loading?: PROPERTY_BEHAVIOR_LOADING;
+        loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
         prepend?: boolean;
         target?: HTMLElement | string;
     };
@@ -63,7 +63,7 @@
 </script>
 
 <div bind:this={element} class="portal" {hidden}>
-    {#if loading !== TOKENS_BEHAVIOR_LOADING.lazy || !hidden}
+    {#if loading !== TOKENS_BEHAVIOR_LOADING_LAZY.lazy || !hidden}
         <slot />
     {/if}
 </div>

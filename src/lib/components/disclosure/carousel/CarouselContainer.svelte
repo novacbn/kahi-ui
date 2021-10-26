@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_ORIENTATION_X} from "../../../types/orientations";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {
         PROPERTY_SPACING_BREAKPOINT,
@@ -13,7 +14,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        orientation?: "vertical";
+        orientation?: PROPERTY_ORIENTATION_X;
 
         spacing?: PROPERTY_SPACING_BREAKPOINT;
         spacing_x?: PROPERTY_SPACING_BREAKPOINT;

@@ -1,8 +1,8 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {PROPERTY_BEHAVIOR_LOADING} from "../../../types/behaviors";
-    import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
+    import type {PROPERTY_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
+    import {TOKENS_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
@@ -13,7 +13,7 @@
     type $$Props = {
         element?: HTMLElement;
 
-        loading?: PROPERTY_BEHAVIOR_LOADING;
+        loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
     } & IHTML5Properties &
         IGlobalProperties &
         ISizeProperties &
@@ -34,7 +34,7 @@
     // TODO: `Transition` support for `loading=lazy`
 
     let state: boolean = true;
-    $: if (_accordion_id && _accordion_state && loading === TOKENS_BEHAVIOR_LOADING.lazy)
+    $: if (_accordion_id && _accordion_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy)
         state = $_accordion_state.includes($_accordion_id);
 </script>
 

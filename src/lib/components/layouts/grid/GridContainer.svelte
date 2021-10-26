@@ -1,15 +1,15 @@
 <script lang="ts">
     import type {
-        DESIGN_ALIGNMENT_ARGUMENT,
-        DESIGN_ALIGNMENT_X_ARGUMENT,
-        DESIGN_ALIGNMENT_Y_ARGUMENT,
+        PROPERTY_ALIGNMENT_BREAKPOINT,
+        PROPERTY_ALIGNMENT_X_BREAKPOINT,
+        PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_POINTS_ARGUMENT} from "../../../types/points";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_POINTS_BREAKPOINT} from "../../../types/points";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {
-        DESIGN_SPACING_ARGUMENT,
+        PROPERTY_SPACING_BREAKPOINT,
         IMarginProperties,
         IPaddingProperties,
     } from "../../../types/spacings";
@@ -19,18 +19,18 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        points?: DESIGN_POINTS_ARGUMENT;
+        points?: PROPERTY_POINTS_BREAKPOINT;
 
-        alignment?: DESIGN_ALIGNMENT_ARGUMENT;
-        alignment_x?: DESIGN_ALIGNMENT_X_ARGUMENT;
-        alignment_y?: DESIGN_ALIGNMENT_Y_ARGUMENT;
+        alignment?: PROPERTY_ALIGNMENT_BREAKPOINT;
+        alignment_x?: PROPERTY_ALIGNMENT_X_BREAKPOINT;
+        alignment_y?: PROPERTY_ALIGNMENT_Y_BREAKPOINT;
 
-        spacing?: DESIGN_SPACING_ARGUMENT;
-        spacing_x?: DESIGN_SPACING_ARGUMENT;
-        spacing_y?: DESIGN_SPACING_ARGUMENT;
+        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_x?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties &
         IPaddingProperties;
 

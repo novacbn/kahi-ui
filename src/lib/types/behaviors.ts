@@ -13,7 +13,7 @@ export enum TOKENS_BEHAVIOR_LOADING {
 export enum TOKENS_BEHAVIOR_TOGGLE {
     exclusive = "exclusive",
 
-    "inclusive" = "inclusive",
+    inclusive = "inclusive",
 }
 
 export type PROPERTY_BEHAVIOR_LOADING = LiteralEnum<TOKENS_BEHAVIOR_LOADING>;

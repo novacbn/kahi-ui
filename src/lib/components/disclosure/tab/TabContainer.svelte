@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type {DESIGN_ALIGNMENT_X_SINGULAR_ARGUMENT} from "../../../types/alignments";
+    import type {PROPERTY_ALIGNMENT_X} from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_SIZING_ARGUMENT} from "../../../types/sizings";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
@@ -19,9 +19,9 @@
         logic_name?: string;
         logic_state?: string;
 
-        sizing?: DESIGN_SIZING_ARGUMENT;
+        sizing?: PROPERTY_SIZING;
 
-        alignment_x?: DESIGN_ALIGNMENT_X_SINGULAR_ARGUMENT;
+        alignment_x?: PROPERTY_ALIGNMENT_X;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

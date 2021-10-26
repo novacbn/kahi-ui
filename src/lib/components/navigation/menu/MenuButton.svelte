@@ -1,7 +1,7 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import {
         map_aria_attributes,
         map_attributes,
@@ -21,7 +21,7 @@
         active?: boolean;
         disabled?: boolean;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties;
 

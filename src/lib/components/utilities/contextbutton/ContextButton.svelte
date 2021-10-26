@@ -3,10 +3,10 @@
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
-    import type {DESIGN_FILL_BUTTON_VARIATION_ARGUMENT} from "../../../types/variations";
+    import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
 
     import {get_id_context} from "../../../stores/id";
 
@@ -22,9 +22,9 @@
         active?: boolean;
         disabled?: boolean;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        size?: DESIGN_SIZE_ARGUMENT;
-        variation?: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
+        size?: PROPERTY_SIZING;
+        variation?: PROPERTY_VARIATION_BUTTON;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

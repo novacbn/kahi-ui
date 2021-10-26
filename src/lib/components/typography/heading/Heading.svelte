@@ -1,7 +1,7 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {
         DESIGN_TEXT_ALIGNMENT_ARGUMENT,
@@ -19,7 +19,7 @@
         align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
         transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
         variation?: DESIGN_TEXT_VARIATION_ARGUMENT;
     } & IHTML5Properties &
         IGlobalProperties &

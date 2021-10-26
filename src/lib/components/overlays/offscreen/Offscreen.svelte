@@ -2,14 +2,14 @@
     import {createEventDispatcher} from "svelte";
 
     import type {
-        DESIGN_ALIGNMENT_ARGUMENT,
-        DESIGN_ALIGNMENT_X_ARGUMENT,
-        DESIGN_ALIGNMENT_Y_ARGUMENT,
+        PROPERTY_ALIGNMENT_BREAKPOINT,
+        PROPERTY_ALIGNMENT_X_BREAKPOINT,
+        PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../types/placements";
+    import type {PROPERTY_PLACEMENT} from "../../../types/placements";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -32,11 +32,11 @@
         logic_id?: string;
         state?: boolean;
 
-        placement?: DESIGN_PLACEMENT_ARGUMENT;
+        placement?: PROPERTY_PLACEMENT;
 
-        alignment?: DESIGN_ALIGNMENT_ARGUMENT;
-        alignment_x?: DESIGN_ALIGNMENT_X_ARGUMENT;
-        alignment_y?: DESIGN_ALIGNMENT_Y_ARGUMENT;
+        alignment?: PROPERTY_ALIGNMENT_BREAKPOINT;
+        alignment_x?: PROPERTY_ALIGNMENT_X_BREAKPOINT;
+        alignment_y?: PROPERTY_ALIGNMENT_Y_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties;
 

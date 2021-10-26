@@ -1,9 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_ORIENTATION_HORIZONTAL_ARGUMENT} from "../../../types/orientations";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_ORIENTATION_X_BREAKPOINT} from "../../../types/orientations";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
@@ -11,11 +11,11 @@
     type $$Props = {
         element?: HTMLHRElement | HTMLSpanElement;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        orientation?: DESIGN_ORIENTATION_HORIZONTAL_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
+        orientation?: PROPERTY_ORIENTATION_X_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties;
 
     type $$Slots = {

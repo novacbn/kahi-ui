@@ -1,11 +1,9 @@
 <script lang="ts">
+    import type {PROPERTY_ALIGNMENT_X} from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {
-        DESIGN_PLACEMENT_ARGUMENT,
-        DESIGN_PLACEMENT_X_ARGUMENT,
-    } from "../../../types/placements";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_PLACEMENT} from "../../../types/placements";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
@@ -15,11 +13,11 @@
 
         variation?: "floated" | "raised";
 
-        alignment_x?: DESIGN_PLACEMENT_X_ARGUMENT;
-        placement?: DESIGN_PLACEMENT_ARGUMENT;
+        alignment_x?: PROPERTY_ALIGNMENT_X;
+        placement?: PROPERTY_PLACEMENT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties &
         IPaddingProperties;
 

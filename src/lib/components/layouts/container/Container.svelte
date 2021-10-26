@@ -1,9 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
-    import type {DESIGN_VIEWPORT_ARGUMENT} from "../../../types/viewports";
+    import type {PROPERTY_VIEWPORT_BREAKPOINT} from "../../../types/viewports";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
@@ -12,10 +12,10 @@
 
         is?: "div" | "main";
 
-        viewport?: DESIGN_VIEWPORT_ARGUMENT;
+        viewport?: PROPERTY_VIEWPORT_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties &
         IPaddingProperties;
 

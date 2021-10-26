@@ -1,9 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_PLACEMENT_X_ARGUMENT} from "../../../types/placements";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_PLACEMENT_X} from "../../../types/placements";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {make_id_context} from "../../../stores/id";
@@ -28,13 +28,13 @@
         logic_id?: string;
         state?: boolean;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
         variation?: "sticky";
 
-        placement?: DESIGN_PLACEMENT_X_ARGUMENT;
+        placement?: PROPERTY_PLACEMENT_X;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties &
         IPaddingProperties;
 

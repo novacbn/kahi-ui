@@ -1,9 +1,9 @@
 <script lang="ts">
-    import type {DESIGN_ANIMATION_ARGUMENT} from "../../../types/animations";
+    import type {PROPERTY_ANIMATION_FEEDBACK} from "../../../types/animations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_POSITION_ARGUMENT} from "../../../types/positions";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_POSITION} from "../../../types/positions";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
@@ -11,10 +11,10 @@
     type $$Props = {
         element?: HTMLSpanElement;
 
-        animation?: DESIGN_ANIMATION_ARGUMENT;
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        animation?: PROPERTY_ANIMATION_FEEDBACK;
+        palette?: PROPERTY_PALETTE;
         /** @deprecated */
-        position?: DESIGN_POSITION_ARGUMENT;
+        position?: PROPERTY_POSITION;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

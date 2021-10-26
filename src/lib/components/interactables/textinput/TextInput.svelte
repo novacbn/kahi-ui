@@ -1,9 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../types/resizable";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {
         DESIGN_TEXT_ALIGNMENT_ARGUMENT,
@@ -51,8 +51,8 @@
         spell_check?: boolean;
 
         align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        size?: DESIGN_SIZE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
+        size?: PROPERTY_SIZING;
         transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
         variation?: DESIGN_FILL_INPUT_VARIATION_ARGUMENT;
     } & IHTML5Properties &

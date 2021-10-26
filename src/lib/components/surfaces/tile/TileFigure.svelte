@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type {DESIGN_FIT_ARGUMENT} from "../../../types/fit";
+    import type {PROPERTY_FIT} from "../../../types/fit";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_SHAPE_ARGUMENT} from "../../../types/shapes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_SHAPE} from "../../../types/shapes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import Figure from "../../embedded/figure/Figure.svelte";
@@ -15,11 +15,11 @@
     type $$Props = {
         element?: HTMLElement;
 
-        fit?: DESIGN_FIT_ARGUMENT;
-        shape?: DESIGN_SHAPE_ARGUMENT;
+        fit?: PROPERTY_FIT;
+        shape?: PROPERTY_SHAPE;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties &
         IPaddingProperties;
 

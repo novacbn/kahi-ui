@@ -6,14 +6,11 @@
 
     import {createEventDispatcher} from "svelte";
 
-    import type {
-        DESIGN_ALIGNMENT_X_SINGULAR_ARGUMENT,
-        DESIGN_ALIGNMENT_Y_SINGULAR_ARGUMENT,
-    } from "../../../types/alignments";
+    import type {PROPERTY_ALIGNMENT_X, PROPERTY_ALIGNMENT_Y} from "../../../types/alignments";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../types/placements";
+    import type {PROPERTY_PLACEMENT} from "../../../types/placements";
     import type {DESIGN_SPACING_SINGULAR_ARGUMENT} from "../../../types/spacings";
 
     import {click_outside} from "../../../actions/click_outside";
@@ -36,10 +33,10 @@
         logic_id?: string;
         state?: boolean;
 
-        placement?: DESIGN_PLACEMENT_ARGUMENT;
+        placement?: PROPERTY_PLACEMENT;
 
-        alignment_x?: DESIGN_ALIGNMENT_X_SINGULAR_ARGUMENT;
-        alignment_y?: DESIGN_ALIGNMENT_Y_SINGULAR_ARGUMENT;
+        alignment_x?: PROPERTY_ALIGNMENT_X;
+        alignment_y?: PROPERTY_ALIGNMENT_Y;
 
         spacing?: DESIGN_SPACING_SINGULAR_ARGUMENT;
     } & IHTML5Properties &

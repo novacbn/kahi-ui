@@ -1,8 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_ORIENTATION_VERTICAL_ARGUMENT} from "../../../types/orientations";
-    import type {DESIGN_SIZING_ARGUMENT, IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
@@ -10,12 +11,12 @@
     type $$Props = {
         element?: HTMLElement;
 
-        sizing?: DESIGN_SIZING_ARGUMENT;
+        sizing?: PROPERTY_SIZING;
 
-        orientation?: DESIGN_ORIENTATION_VERTICAL_ARGUMENT;
+        orientation?: PROPERTY_ORIENTATION_Y_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties &
         IPaddingProperties;
 

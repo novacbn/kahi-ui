@@ -3,7 +3,7 @@
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import type {IIntersectionObserverOptions} from "../../../actions/intersection_observer";
@@ -31,7 +31,7 @@
         threshold?: IIntersectionObserverOptions["threshold"];
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
+        ISizeProperties &
         IMarginProperties &
         IPaddingProperties;
 

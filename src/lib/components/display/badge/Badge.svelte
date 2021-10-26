@@ -1,9 +1,9 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_POSITION_ARGUMENT} from "../../../types/positions";
-    import type {DESIGN_SHAPE_ARGUMENT} from "../../../types/shapes";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_POSITION} from "../../../types/positions";
+    import type {PROPERTY_SHAPE} from "../../../types/shapes";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
@@ -11,10 +11,10 @@
     type $$Props = {
         element?: HTMLSpanElement;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
         /** @deprecated */
-        position?: DESIGN_POSITION_ARGUMENT;
-        shape?: DESIGN_SHAPE_ARGUMENT;
+        position?: PROPERTY_POSITION;
+        shape?: PROPERTY_SHAPE;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

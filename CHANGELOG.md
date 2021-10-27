@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.4.8 - 2021/10/27
+
+-   Fixed `.npmignore` using mixed up ordering for Storybook `*.stories.svelte` extension.
+
+## v0.4.7 - 2021/10/27
 
 -   Revamped internal library typings.
 

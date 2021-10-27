@@ -1,6 +1,0 @@
-/package/
-/node_modules/
-/storybook-static/
-
-*.stories.svelte               
-*.stories.svelte.d.ts  

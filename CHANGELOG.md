@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.4.9 - 2021/10/27
+
+-   Hotfix for missing CSS distributables.
+
 ## v0.4.8 - 2021/10/27
 
 -   Reduced package size via fine-grained `files` field in `package.json`.

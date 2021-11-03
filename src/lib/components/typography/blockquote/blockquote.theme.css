@@ -1,0 +1,12 @@
+:root {
+    /** */
+
+    --blockquote-background-color: var(--palette-inverse-off-lightest);
+    --blockquote-background-opacity: 0.2;
+    --blockquote-border-color: var(--palette-neutral-normal);
+    --blockquote-border-style: solid;
+    --blockquote-border-width: 5px;
+    --blockquote-border-radius: var(--radius-small);
+    --blockquote-padding-x: var(--spacing-root-large);
+    --blockquote-padding-y: var(--spacing-root-medium);
+}

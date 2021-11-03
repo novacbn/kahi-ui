@@ -38,20 +38,30 @@
                 </Text>
 
                 <br />
-                <Code palette={palette === "default" ? undefined : palette}
-                    >import * as Kahi from "@kahi-ui/framework";</Code
-                >
+                <Code palette={palette === "default" ? undefined : palette}>
+                    import * as Kahi from "@kahi-ui/framework";
+                </Code>
             </div>
         {/each}
     </Stack>
 </Story>
 
 <Story name="Pre">
-    <!-- prettier-ignore -->
-    <Code is="pre">
-import math from "a-math-library";
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default]}
+            <div>
+                <Text is="strong">
+                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
 
+                <br />
+                <!-- prettier-ignore -->
+                <Code is="pre" palette={palette === "default" ? undefined : palette}>
+import math from "a-math-library";
+    
 const result = math.add(1, 1);
-console.log("Our value is:", result);
-</Code>
+console.log("Our value is:", result);</Code>
+            </div>
+        {/each}
+    </Stack>
 </Story>

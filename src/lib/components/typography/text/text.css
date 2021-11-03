@@ -1,106 +1,54 @@
-/**
- * TODO: A bit lame having to use `:not` selectors due to the `span` selector. Need to
- * update to use `:where`, when support is better.
- */
+.text {
+    color: currentColor;
+    transition: color var(--animation-visual-duration) var(--animation-visual-function);
 
-abbr,
-b,
-del,
-em,
-i,
-ins,
-kbd,
-mark,
-p,
-pre,
-s,
-samp,
-small,
-span:not([class], [role]),
-strong,
-sub,
-sup,
-u {
-    --palette-background-normal: currentColor;
-
-    @apply text-[var(--palette-background-normal)];
-
-    text-align: var(--align-text);
-    text-transform: var(--transform-text);
-
-    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-    &:not([data-align]) {
-        --align-text: inherit;
+    &[data-align] {
+        text-align: var(--align-text);
     }
 
     &[data-palette] {
-        @apply text-[rgb(var(--palette-background-normal))];
+        color: rgb(var(--palette-background-normal));
     }
 
-    &:not([data-variation]) {
-        @apply leading-[var(--size-text-line-height)];
-
+    &[data-size] {
         font-size: var(--size-text-size);
+        line-height: var(--size-text-line-height);
+    }
+
+    &[data-transform] {
+        text-transform: var(--transform-text);
     }
 
     &[data-variation~="headline"] {
-        @apply leading-[var(--size-headline-line-height)];
-
-        font-size: var(--size-headline-size);
-    }
-
-    &:not([data-size]) {
-        --size-text-size: inherit;
-        --size-text-line-height: inherit;
-    }
-
-    &:not([data-transform]) {
-        --transform-text: inherit;
+        &[data-size] {
+            font-size: var(--size-headline-size);
+            line-height: var(--size-headline-line-height);
+        }
     }
 
     &[data-variation~="truncate"] {
-        @apply truncate;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
 
 kbd {
-    --palette-background-normal: var(--palette-neutral-normal);
+    padding: var(--text-kbd-padding-y) var(--text-kbd-padding-x);
 
-    --size-text-size: 70% !important;
+    background: rgba(var(--text-kbd-background-color), var(--text-kbd-background-opacity));
+    border-bottom: var(--text-kbd-border-width) var(--text-kbd-border-style)
+        rgb(var(--text-kbd-border-color));
+    border-radius: var(--text-kbd-border-radius);
 
-    @apply border-b-4 border-[rgb(var(--palette-background-normal))] text-extrabold whitespace-nowrap;
+    font-size: var(--text-kbd-font-size);
+    font-family: var(--text-kbd-font-family);
+    font-weight: var(--text-kbd-font-weight);
 
-    border-style: ridge;
-
-    font-size: var(--size-text-size);
-}
-
-pre {
-    @apply overflow-x-auto;
-}
-
-code,
-kbd,
-pre {
-    --palette-background-lightest: var(--palette-inverse-off-lightest);
-
-    @apply px-[var(--spacing-local-small)] py-[var(--spacing-local-tiny)] rounded-md;
-
-    background: rgba(var(--palette-background-lightest), theme("opacity.20"));
-
-    font-family: var(--font-family-monospace);
-
-    &,
-    &[data-palette] {
-        @apply text-current;
-    }
+    white-space: nowrap;
 }
 
 small {
-    --size-text-size: 80% !important;
-
-    @apply opacity-75;
-
-    font-size: var(--size-text-size);
+    font-size: var(--text-small-font-size);
+    opacity: var(--text-small-opacity);
 }

@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added CSS Theming Variables to the following Components: `Blockquote`, `Code`, `Heading`, `Text`.
+
+-   Updated the following Components / Component Features
+
+    -   Typography
+
+        -   `Blockquote` / `Code` / `Heading` / `Text`
+
+            -   Added corresponding class names `blockquote` / `code` / `heading` / `text` respectively.
+
+        -   `Text`
+
+            -   Scoped attributes to `text` class to reduce CSS specificity conflict.
+
 ## v0.4.9 - 2021/10/27
 
 -   Hotfix for missing CSS distributables.

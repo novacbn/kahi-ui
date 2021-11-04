@@ -1,4 +1,6 @@
 <script lang="ts">
+    import {Temporal} from "@js-temporal/polyfill";
+
     import {get_calendar_quaters} from "../../../util/datetime";
     import {BROWSER_LOCALE} from "../../../util/locale";
 
@@ -8,27 +10,34 @@
     type $$Props = {
         multiple?: boolean;
 
-        months: number[];
         year: number;
+        value: readonly Temporal.PlainYearMonth[];
     };
 
     const date = new Date();
 
     export let multiple: $$Props["multiple"] = false;
 
-    export let months: $$Props["months"] = [];
     export let year: $$Props["year"] = date.getUTCFullYear();
+    export let value: $$Props["value"] = [];
 
-    function on_month_click(_month: number, event: MouseEvent): void {
-        if (multiple) {
-            if (months.includes(_month)) months = months.filter((value) => value !== _month);
-            else months = [...months, _month];
+    function is_month_active(
+        months: readonly Temporal.PlainYearMonth[],
+        month: Temporal.PlainYearMonth
+    ): boolean {
+        return !!months.find((entry) => month.equals(entry));
+    }
 
-            return;
+    function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {
+        if (is_month_active(value, month)) {
+            value = multiple ? value.filter((entry) => !month.equals(entry)) : [];
+        } else {
+            // NOTE: We want to prevent mutations to our internal representation, so we
+            // need to clone the output to the `value` property
+            value = multiple
+                ? [...value, Temporal.PlainYearMonth.from(month)]
+                : [Temporal.PlainYearMonth.from(month)];
         }
-
-        if (months.includes(_month)) months = [];
-        else months = [_month];
     }
 
     $: _quaters = get_calendar_quaters(year);
@@ -37,14 +46,14 @@
 <Stack spacing="small" width="content-max">
     {#each _quaters as quater}
         <Stack orientation="horizontal" spacing="small">
-            {#each quater as _month}
+            {#each quater as month}
                 <Button
                     variation="clear"
                     palette="accent"
-                    active={months.includes(_month.month)}
-                    on:click={on_month_click.bind(null, _month.month)}
+                    active={is_month_active(value, month)}
+                    on:click={on_month_click.bind(null, month)}
                 >
-                    {_month
+                    {month
                         .toLocaleString(BROWSER_LOCALE, {month: "short"})
                         .toLocaleUpperCase(BROWSER_LOCALE)}
                 </Button>

@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type {Temporal} from "@js-temporal/polyfill";
+
     import {get_calendar_month} from "../../../util/datetime";
     import {BROWSER_LOCALE} from "../../../util/locale";
 
@@ -8,28 +10,24 @@
     import Text from "../../typography/text/Text.svelte";
 
     type $$Props = {
-        year: number;
-        value: number;
+        value: Temporal.PlainYearMonth;
     };
 
     const date = new Date();
 
-    export let year: $$Props["year"] = date.getUTCFullYear();
-    export let value: $$Props["value"] = date.getUTCMonth() + 1;
+    export let value: $$Props["value"] = get_calendar_month(
+        date.getUTCFullYear(),
+        date.getUTCMonth() + 1
+    );
 
     function on_month_select(difference: number, event: MouseEvent): void {
-        const new_month = _month.add({months: difference});
-
-        year = new_month.year;
-        value = new_month.month;
+        value = value.add({months: difference});
     }
-
-    $: _month = get_calendar_month(year, value);
 </script>
 
 <Stack orientation="horizontal" spacing="small" width="content-max">
     <Text is="strong">
-        {_month.toLocaleString(BROWSER_LOCALE, {month: "long", year: "numeric"})}
+        {value.toLocaleString(BROWSER_LOCALE, {month: "long", year: "numeric"})}
     </Text>
 
     <Spacer variation="inline" />

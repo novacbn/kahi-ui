@@ -1,5 +1,6 @@
 import {Temporal} from "@js-temporal/polyfill";
 
+import {BROWSER_CALENDAR} from "./locale";
 import {wrap} from "./math";
 
 function get_calendar_day(date: Temporal.PlainDate): number {
@@ -18,11 +19,13 @@ function get_timestamp_date(timestamp: number | string): Temporal.PlainDate {
 
 export function get_calendar_weeks(year: number, month: number): Temporal.PlainDate[][] {
     const date = Temporal.PlainYearMonth.from({
+        calendar: BROWSER_CALENDAR,
         year,
         month,
     });
 
     let starting_date = Temporal.PlainDate.from({
+        calendar: BROWSER_CALENDAR,
         year: date.year,
         month: date.month,
         day: 1,
@@ -32,6 +35,7 @@ export function get_calendar_weeks(year: number, month: number): Temporal.PlainD
     });
 
     let ending_date = Temporal.PlainDate.from({
+        calendar: BROWSER_CALENDAR,
         year: date.year,
         month: date.month,
         day: date.daysInMonth,
@@ -54,13 +58,27 @@ export function get_calendar_weeks(year: number, month: number): Temporal.PlainD
         }, []);
 }
 
-export function get_calendar_quaters(year: number): Temporal.PlainYearMonth[] {
+export function get_calendar_quaters(year: number): Temporal.PlainYearMonth[][] {
     const date = Temporal.PlainYearMonth.from({
+        calendar: BROWSER_CALENDAR,
         year,
         month: 1,
     });
 
     return new Array(date.monthsInYear)
         .fill(null)
-        .map((_, index) => Temporal.PlainYearMonth.from({year: date.year, month: index + 1}));
+        .map((_, index) =>
+            Temporal.PlainYearMonth.from({
+                calendar: BROWSER_CALENDAR,
+                year: date.year,
+                month: index + 1,
+            })
+        )
+        .reduce<Temporal.PlainYearMonth[][]>((accum, date, index) => {
+            const quater_index = Math.floor(index / (date.monthsInYear / 4));
+            if (!accum[quater_index]) accum[quater_index] = [];
+
+            accum[quater_index].push(date);
+            return accum;
+        }, []);
 }

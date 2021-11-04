@@ -16,8 +16,11 @@ function get_timestamp_date(timestamp: number | string): Temporal.PlainDate {
     return Temporal.PlainDate.from(timestamp);
 }
 
-export function get_calendar_dates(timestamp: number | string): Temporal.PlainDate[][] {
-    const date = get_timestamp_date(timestamp);
+export function get_calendar_weeks(year: number, month: number): Temporal.PlainDate[][] {
+    const date = Temporal.PlainYearMonth.from({
+        year,
+        month,
+    });
 
     let starting_date = Temporal.PlainDate.from({
         year: date.year,
@@ -51,8 +54,11 @@ export function get_calendar_dates(timestamp: number | string): Temporal.PlainDa
         }, []);
 }
 
-export function get_calendar_months(timestamp: number | string): Temporal.PlainYearMonth[] {
-    const date = get_timestamp_date(timestamp);
+export function get_calendar_quaters(year: number): Temporal.PlainYearMonth[] {
+    const date = Temporal.PlainYearMonth.from({
+        year,
+        month: 1,
+    });
 
     return new Array(date.monthsInYear)
         .fill(null)

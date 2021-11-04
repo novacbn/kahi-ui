@@ -13,3 +13,7 @@
 <Story name="Default">
     <MonthPicker />
 </Story>
+
+<Story name="Multiple">
+    <MonthPicker multiple />
+</Story>

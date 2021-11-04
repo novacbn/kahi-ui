@@ -20,9 +20,7 @@ code {
 
 pre {
     overflow-x: auto;
-}
 
-pre {
     & > code {
         background: transparent;
         padding: 0;

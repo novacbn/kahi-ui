@@ -13,3 +13,7 @@
 <Story name="Default">
     <DayPicker />
 </Story>
+
+<Story name="Multiple">
+    <DayPicker multiple />
+</Story>

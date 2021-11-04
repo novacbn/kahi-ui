@@ -17,6 +17,35 @@ function get_timestamp_date(timestamp: number | string): Temporal.PlainDate {
     return Temporal.PlainDate.from(timestamp);
 }
 
+export function get_calendar_month(year: number, month: number): Temporal.PlainYearMonth {
+    return Temporal.PlainYearMonth.from({calendar: BROWSER_CALENDAR, year, month});
+}
+
+export function get_calendar_quaters(year: number): Temporal.PlainYearMonth[][] {
+    const date = Temporal.PlainYearMonth.from({
+        calendar: BROWSER_CALENDAR,
+        year,
+        month: 1,
+    });
+
+    return new Array(date.monthsInYear)
+        .fill(null)
+        .map((_, index) =>
+            Temporal.PlainYearMonth.from({
+                calendar: BROWSER_CALENDAR,
+                year: date.year,
+                month: index + 1,
+            })
+        )
+        .reduce<Temporal.PlainYearMonth[][]>((accum, date, index) => {
+            const quater_index = Math.floor(index / (date.monthsInYear / 4));
+            if (!accum[quater_index]) accum[quater_index] = [];
+
+            accum[quater_index].push(date);
+            return accum;
+        }, []);
+}
+
 export function get_calendar_weeks(year: number, month: number): Temporal.PlainDate[][] {
     const date = Temporal.PlainYearMonth.from({
         calendar: BROWSER_CALENDAR,
@@ -54,31 +83,6 @@ export function get_calendar_weeks(year: number, month: number): Temporal.PlainD
             if (!accum[week_index]) accum[week_index] = [];
 
             accum[week_index].push(date);
-            return accum;
-        }, []);
-}
-
-export function get_calendar_quaters(year: number): Temporal.PlainYearMonth[][] {
-    const date = Temporal.PlainYearMonth.from({
-        calendar: BROWSER_CALENDAR,
-        year,
-        month: 1,
-    });
-
-    return new Array(date.monthsInYear)
-        .fill(null)
-        .map((_, index) =>
-            Temporal.PlainYearMonth.from({
-                calendar: BROWSER_CALENDAR,
-                year: date.year,
-                month: index + 1,
-            })
-        )
-        .reduce<Temporal.PlainYearMonth[][]>((accum, date, index) => {
-            const quater_index = Math.floor(index / (date.monthsInYear / 4));
-            if (!accum[quater_index]) accum[quater_index] = [];
-
-            accum[quater_index].push(date);
             return accum;
         }, []);
 }

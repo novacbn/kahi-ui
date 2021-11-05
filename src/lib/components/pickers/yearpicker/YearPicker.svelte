@@ -40,11 +40,9 @@
         if (has_year(value, year)) {
             value = multiple ? value.filter((entry) => !year.equals(entry)) : [];
         } else {
-            // NOTE: We want to prevent mutations to our internal representation, so we
-            // need to clone the output to the `value` property
             value = multiple
-                ? [...value, Temporal.PlainYearMonth.from(year).toString({calendarName: "always"})]
-                : [Temporal.PlainYearMonth.from(year).toString({calendarName: "always"})];
+                ? [...value, year.toString({calendarName: "always"})]
+                : [year.toString({calendarName: "always"})];
         }
     }
 

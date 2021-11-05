@@ -34,11 +34,9 @@
         if (has_day(value, day)) {
             value = multiple ? value.filter((entry) => !day.equals(entry)) : [];
         } else {
-            // NOTE: We want to prevent mutations to our internal representation, so we
-            // need to clone the output to the `value` property
             value = multiple
-                ? [...value, Temporal.PlainDate.from(day).toString({calendarName: "always"})]
-                : [Temporal.PlainDate.from(day).toString({calendarName: "always"})];
+                ? [...value, day.toString({calendarName: "always"})]
+                : [day.toString({calendarName: "always"})];
         }
     }
 

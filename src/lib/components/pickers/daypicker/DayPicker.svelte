@@ -1,8 +1,8 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
-    import {get_calendar_weeks} from "../../../util/datetime";
-    import {BROWSER_LOCALE} from "../../../util/locale";
+    import {get_calendar_weeks, has_day} from "../../../util/datetime";
+    import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
@@ -11,36 +11,38 @@
     type $$Props = {
         multiple?: boolean;
 
+        calendar: string;
+        locale: string;
+
         month: number;
         year: number;
-        value: readonly Temporal.PlainDate[];
+        value: readonly string[];
     };
-
-    const date = new Date();
 
     export let multiple: $$Props["multiple"] = false;
 
-    export let month: $$Props["month"] = date.getUTCMonth() + 1;
-    export let year: $$Props["year"] = date.getUTCFullYear();
+    export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
+    export let locale: $$Props["locale"] = BROWSER_LOCALE;
+
+    const date = Temporal.Now.plainDate(calendar);
+
+    export let month: $$Props["month"] = date.month;
+    export let year: $$Props["year"] = date.year;
     export let value: $$Props["value"] = [];
 
-    function is_day_active(days: readonly Temporal.PlainDate[], day: Temporal.PlainDate): boolean {
-        return !!days.find((entry) => day.equals(entry));
-    }
-
     function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
-        if (is_day_active(value, day)) {
+        if (has_day(value, day)) {
             value = multiple ? value.filter((entry) => !day.equals(entry)) : [];
         } else {
             // NOTE: We want to prevent mutations to our internal representation, so we
             // need to clone the output to the `value` property
             value = multiple
-                ? [...value, Temporal.PlainDate.from(day)]
-                : [Temporal.PlainDate.from(day)];
+                ? [...value, Temporal.PlainDate.from(day).toString({calendarName: "always"})]
+                : [Temporal.PlainDate.from(day).toString({calendarName: "always"})];
         }
     }
 
-    $: _weeks = get_calendar_weeks(year, month);
+    $: _weeks = get_calendar_weeks(year, month, calendar);
 </script>
 
 <Stack spacing="small" width="content-max">
@@ -60,7 +62,7 @@
                 <Button
                     variation="clear"
                     palette={day.dayOfWeek > 5 ? undefined : "accent"}
-                    active={is_day_active(value, day)}
+                    active={has_day(value, day)}
                     on:click={on_day_click.bind(null, day)}
                 >
                     {day.day.toString().padStart(2, "0")}

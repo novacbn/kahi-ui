@@ -7,23 +7,26 @@ function get_calendar_day(date: Temporal.PlainDate): number {
     return wrap(date.dayOfWeek + 1, 1, date.daysInWeek);
 }
 
-function get_timestamp_date(timestamp: number | string): Temporal.PlainDate {
-    if (typeof timestamp === "number") {
-        const instant = Temporal.Instant.fromEpochMilliseconds(timestamp);
-
-        return Temporal.PlainDate.from(instant.toString());
-    }
-
-    return Temporal.PlainDate.from(timestamp);
+export function has_day(
+    days: readonly (string | Temporal.DateLike)[],
+    day: Temporal.PlainDate
+): boolean {
+    return !!days.find((entry) => day.equals(entry));
 }
 
-export function get_calendar_month(year: number, month: number): Temporal.PlainYearMonth {
-    return Temporal.PlainYearMonth.from({calendar: BROWSER_CALENDAR, year, month});
+export function has_month(
+    months: readonly (string | Temporal.YearMonthLike)[],
+    month: Temporal.PlainYearMonth
+): boolean {
+    return !!months.find((entry) => month.equals(entry));
 }
 
-export function get_calendar_quaters(year: number): Temporal.PlainYearMonth[][] {
+export function get_calendar_quaters(
+    year: number,
+    calendar: string = BROWSER_CALENDAR
+): Temporal.PlainYearMonth[][] {
     const date = Temporal.PlainYearMonth.from({
-        calendar: BROWSER_CALENDAR,
+        calendar,
         year,
         month: 1,
     });
@@ -46,15 +49,19 @@ export function get_calendar_quaters(year: number): Temporal.PlainYearMonth[][] 
         }, []);
 }
 
-export function get_calendar_weeks(year: number, month: number): Temporal.PlainDate[][] {
+export function get_calendar_weeks(
+    year: number,
+    month: number,
+    calendar: string = BROWSER_CALENDAR
+): Temporal.PlainDate[][] {
     const date = Temporal.PlainYearMonth.from({
-        calendar: BROWSER_CALENDAR,
+        calendar,
         year,
         month,
     });
 
     let starting_date = Temporal.PlainDate.from({
-        calendar: BROWSER_CALENDAR,
+        calendar,
         year: date.year,
         month: date.month,
         day: 1,
@@ -64,7 +71,7 @@ export function get_calendar_weeks(year: number, month: number): Temporal.PlainD
     });
 
     let ending_date = Temporal.PlainDate.from({
-        calendar: BROWSER_CALENDAR,
+        calendar,
         year: date.year,
         month: date.month,
         day: date.daysInMonth,
@@ -85,4 +92,14 @@ export function get_calendar_weeks(year: number, month: number): Temporal.PlainD
             accum[week_index].push(date);
             return accum;
         }, []);
+}
+
+export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {
+    const date = Temporal.Now.plainDate(calendar);
+
+    return Temporal.PlainYearMonth.from({calendar, year: date.year, month: 1}).toString();
+}
+
+export function get_timestamp(calendar: string = BROWSER_CALENDAR): string {
+    return Temporal.Now.zonedDateTime(calendar).toString();
 }

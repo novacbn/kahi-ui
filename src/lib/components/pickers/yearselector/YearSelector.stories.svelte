@@ -3,21 +3,21 @@
 
     import Code from "../../typography/code/Code.svelte";
 
-    import MonthSelector from "./MonthSelector.svelte";
+    import YearSelector from "./YearSelector.svelte";
 
     let calendar;
     let locale;
     let value;
 </script>
 
-<Meta title="Pickers/MonthSelector" />
+<Meta title="Pickers/YearSelector" />
 
 <Template>
     <slot />
 </Template>
 
 <Story name="Default">
-    <MonthSelector bind:calendar bind:locale bind:value />
+    <YearSelector bind:calendar bind:locale bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value}, null, 4)}

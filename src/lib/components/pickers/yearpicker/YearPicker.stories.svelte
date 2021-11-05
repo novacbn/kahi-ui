@@ -1,5 +1,8 @@
 <script>
+    import {Temporal} from "@js-temporal/polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
+
+    import {BROWSER_CALENDAR} from "../../../util/locale";
 
     import Code from "../../typography/code/Code.svelte";
 
@@ -10,8 +13,14 @@
     let year;
     let value;
 
-    let max = `${new Date().getUTCFullYear() + 3}-01-01`;
-    let min = `${new Date().getUTCFullYear() - 3}-01-01`;
+    let max = Temporal.Now.plainDate(BROWSER_CALENDAR)
+        .toPlainYearMonth()
+        .add({years: 3})
+        .toString();
+    let min = Temporal.Now.plainDate(BROWSER_CALENDAR)
+        .toPlainYearMonth()
+        .subtract({years: 3})
+        .toString();
 </script>
 
 <Meta title="Pickers/YearPicker" />

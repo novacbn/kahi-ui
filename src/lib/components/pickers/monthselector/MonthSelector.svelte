@@ -13,11 +13,17 @@
         calendar: string;
         locale: string;
 
+        max?: string;
+        min?: string;
+
         value: string;
     };
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
+
+    export let max: $$Props["max"] = undefined;
+    export let min: $$Props["min"] = undefined;
 
     export let value: $$Props["value"] = get_monthstamp(calendar);
 
@@ -48,11 +54,21 @@
 
     <Spacer variation="inline" />
 
-    <Button variation="clear" palette="accent" on:click={on_month_select.bind(null, -1)}>
+    <Button
+        variation="clear"
+        palette="accent"
+        disabled={min ? Temporal.PlainYearMonth.compare(min, _month) > -1 : false}
+        on:click={on_month_select.bind(null, -1)}
+    >
         &lt;
     </Button>
 
-    <Button variation="clear" palette="accent" on:click={on_month_select.bind(null, 1)}>
+    <Button
+        variation="clear"
+        palette="accent"
+        disabled={max ? Temporal.PlainYearMonth.compare(max, _month) < 1 : false}
+        on:click={on_month_select.bind(null, 1)}
+    >
         &gt;
     </Button>
 </Stack>

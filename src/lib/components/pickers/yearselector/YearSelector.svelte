@@ -1,7 +1,7 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
-    import {get_monthstamp} from "../../../util/datetime";
+    import {get_yearstamp} from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
@@ -13,13 +13,19 @@
         calendar: string;
         locale: string;
 
+        max?: string;
+        min?: string;
+
         value: string;
     };
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
-    export let value: $$Props["value"] = get_monthstamp(calendar);
+    export let max: $$Props["max"] = undefined;
+    export let min: $$Props["min"] = undefined;
+
+    export let value: $$Props["value"] = get_yearstamp(calendar);
 
     function on_year_select(difference: number, event: MouseEvent): void {
         value = _year.add({years: difference}).toString();
@@ -35,9 +41,21 @@
 
     <Spacer variation="inline" />
 
-    <Button variation="clear" palette="accent" on:click={on_year_select.bind(null, -1)}>
+    <Button
+        variation="clear"
+        palette="accent"
+        disabled={min ? Temporal.PlainYearMonth.compare(min, _year) > -1 : false}
+        on:click={on_year_select.bind(null, -1)}
+    >
         &lt;
     </Button>
 
-    <Button variation="clear" palette="accent" on:click={on_year_select.bind(null, 1)}>&gt;</Button>
+    <Button
+        variation="clear"
+        palette="accent"
+        disabled={max ? Temporal.PlainYearMonth.compare(max, _year) < 1 : false}
+        on:click={on_year_select.bind(null, 1)}
+    >
+        &gt;
+    </Button>
 </Stack>

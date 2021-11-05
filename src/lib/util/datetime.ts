@@ -125,11 +125,21 @@ export function get_decade_halves(
 }
 
 export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {
+    // NOTE: There isn't a `Temporal.Now.plainYearMonth` API, so we basically have
+    // to emulate that here
     const date = Temporal.Now.plainDate(calendar);
 
-    return Temporal.PlainYearMonth.from({calendar, year: date.year, month: 1}).toString();
+    return date.toPlainYearMonth().toString();
 }
 
 export function get_timestamp(calendar: string = BROWSER_CALENDAR): string {
     return Temporal.Now.zonedDateTime(calendar).toString();
+}
+
+export function get_yearstamp(calendar: string = BROWSER_CALENDAR): string {
+    const date = Temporal.Now.plainDate(calendar);
+
+    // NOTE: There isn't anything like a `Temporal.PlainYear`, so we're just returning
+    // a `Temporal.PlainYearMonth` that is always January of the current year
+    return Temporal.PlainYearMonth.from({calendar, year: date.year, month: 1}).toString();
 }

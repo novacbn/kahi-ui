@@ -141,10 +141,18 @@ export function get_yearstamp(calendar: string = BROWSER_CALENDAR): string {
 export function is_month_in_range(
     month: string | Temporal.YearMonthLike,
     max?: string | Temporal.YearMonthLike,
-    min?: string | Temporal.YearMonthLike
+    min?: string | Temporal.YearMonthLike,
+    inclusive: boolean = false
 ): boolean {
-    if (max && Temporal.PlainYearMonth.compare(max, month) < 1) return false;
-    else if (min && Temporal.PlainYearMonth.compare(min, month) > -1) return false;
+    if (max) {
+        const _max = inclusive ? Temporal.PlainYearMonth.from(max).add({months: 1}) : max;
+        if (Temporal.PlainYearMonth.compare(_max, month) < 1) return false;
+    }
+
+    if (min) {
+        const _min = inclusive ? Temporal.PlainYearMonth.from(min).subtract({months: 1}) : min;
+        if (Temporal.PlainYearMonth.compare(_min, month) > -1) return false;
+    }
 
     return true;
 }
@@ -152,16 +160,20 @@ export function is_month_in_range(
 export function is_year_in_range(
     year: string | Temporal.YearMonthLike,
     max?: string | Temporal.YearMonthLike,
-    min?: string | Temporal.YearMonthLike
+    min?: string | Temporal.YearMonthLike,
+    inclusive: boolean = false
 ): boolean {
     // NOTE: This is slightly more complicated due to there being no concept
     // of a `Temporal.PlainYear` API
     const _year = to_plain_year(year);
+
     if (max) {
-        const _max = to_plain_year(max);
+        const _max = inclusive ? to_plain_year(max).add({years: 1}) : to_plain_year(max);
         if (Temporal.PlainYearMonth.compare(_max, _year) < 1) return false;
-    } else if (min) {
-        const _min = to_plain_year(min);
+    }
+
+    if (min) {
+        const _min = inclusive ? to_plain_year(min).subtract({years: 1}) : to_plain_year(min);
         if (Temporal.PlainYearMonth.compare(_min, _year) > -1) return false;
     }
 

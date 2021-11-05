@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {Temporal} from "@js-temporal/polyfill";
+    import type {Temporal} from "@js-temporal/polyfill";
 
-    import {get_calendar_quaters, has_month} from "../../../util/datetime";
+    import {get_calendar_quaters, has_month, is_month_in_range} from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
@@ -13,6 +13,9 @@
         calendar: string;
         locale: string;
 
+        max?: string;
+        min?: string;
+
         year: number;
         value: readonly string[];
     };
@@ -23,6 +26,9 @@
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
+
+    export let max: $$Props["max"] = undefined;
+    export let min: $$Props["min"] = undefined;
 
     export let year: $$Props["year"] = date.getUTCFullYear();
     export let value: $$Props["value"] = [];
@@ -48,6 +54,7 @@
                     variation="clear"
                     palette="accent"
                     active={has_month(value, month)}
+                    disabled={!is_month_in_range(month, max, min, true)}
                     on:click={on_month_click.bind(null, month)}
                 >
                     {month.toLocaleString(locale, {month: "short"}).toLocaleUpperCase(locale)}

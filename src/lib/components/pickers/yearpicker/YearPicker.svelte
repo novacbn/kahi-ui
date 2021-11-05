@@ -58,7 +58,7 @@
                     variation="clear"
                     palette="accent"
                     active={has_year(value, year)}
-                    disabled={!is_year_in_range(year, max, min)}
+                    disabled={!is_year_in_range(year, max, min, true)}
                     on:click={on_year_click.bind(null, year)}
                 >
                     {year.toLocaleString(locale, {year: "numeric"}).toLocaleUpperCase(locale)}

@@ -1,5 +1,6 @@
 import {Temporal} from "@js-temporal/polyfill";
 
+import {chunk, fill} from "./functional";
 import {BROWSER_CALENDAR} from "./locale";
 import {wrap} from "./math";
 
@@ -49,22 +50,18 @@ export function get_calendar_quaters(
         month: 1,
     });
 
-    return new Array(date.monthsInYear)
-        .fill(null)
-        .map((_, index) =>
-            Temporal.PlainYearMonth.from({
-                calendar: BROWSER_CALENDAR,
-                year: date.year,
-                month: index + 1,
-            })
-        )
-        .reduce<Temporal.PlainYearMonth[][]>((accum, date, index) => {
-            const quater_index = Math.floor(index / (date.monthsInYear / 4));
-            if (!accum[quater_index]) accum[quater_index] = [];
-
-            accum[quater_index].push(date);
-            return accum;
-        }, []);
+    return chunk(
+        fill(
+            (index) =>
+                Temporal.PlainYearMonth.from({
+                    calendar: BROWSER_CALENDAR,
+                    year: date.year,
+                    month: index + 1,
+                }),
+            date.monthsInYear
+        ),
+        date.monthsInYear / 4
+    );
 }
 
 export function get_calendar_weeks(
@@ -100,16 +97,10 @@ export function get_calendar_weeks(
 
     const duration = starting_date.until(ending_date);
 
-    return new Array(duration.total({unit: "day"}))
-        .fill(null)
-        .map((_, index) => starting_date.add({days: index}))
-        .reduce<Temporal.PlainDate[][]>((accum, date, index) => {
-            const week_index = Math.floor(index / date.daysInWeek);
-            if (!accum[week_index]) accum[week_index] = [];
-
-            accum[week_index].push(date);
-            return accum;
-        }, []);
+    return chunk(
+        fill((index) => starting_date.add({days: index}), duration.total({unit: "day"})),
+        starting_date.daysInWeek
+    );
 }
 
 export function get_decade_halves(
@@ -118,16 +109,13 @@ export function get_decade_halves(
 ): Temporal.PlainYearMonth[][] {
     const decade = Math.floor(year / 10) * 10;
 
-    return new Array(10)
-        .fill(null)
-        .map((_, index) => Temporal.PlainYearMonth.from({calendar, year: decade + index, month: 1}))
-        .reduce<Temporal.PlainYearMonth[][]>((accum, date, index) => {
-            const decade_index = Math.floor(index / 5);
-            if (!accum[decade_index]) accum[decade_index] = [];
-
-            accum[decade_index].push(date);
-            return accum;
-        }, []);
+    return chunk(
+        fill(
+            (index) => Temporal.PlainYearMonth.from({calendar, year: decade + index, month: 1}),
+            10
+        ),
+        5
+    );
 }
 
 export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {

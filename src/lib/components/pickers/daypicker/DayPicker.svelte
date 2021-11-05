@@ -1,7 +1,12 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
-    import {get_calendar_weeks, has_day} from "../../../util/datetime";
+    import {
+        get_calendar_weeks,
+        get_monthstamp,
+        has_day,
+        is_day_in_range,
+    } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
@@ -14,8 +19,10 @@
         calendar: string;
         locale: string;
 
-        month: number;
-        year: number;
+        max?: string;
+        min?: string;
+
+        month: string;
         value: readonly string[];
     };
 
@@ -24,10 +31,10 @@
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
-    const date = Temporal.Now.plainDate(calendar);
+    export let max: $$Props["max"] = undefined;
+    export let min: $$Props["min"] = undefined;
 
-    export let month: $$Props["month"] = date.month;
-    export let year: $$Props["year"] = date.year;
+    export let month: $$Props["month"] = get_monthstamp(calendar);
     export let value: $$Props["value"] = [];
 
     function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
@@ -40,7 +47,8 @@
         }
     }
 
-    $: _weeks = get_calendar_weeks(year, month, calendar);
+    $: _month = Temporal.PlainDate.from(month);
+    $: _weeks = get_calendar_weeks(_month.year, _month.month, calendar);
 </script>
 
 <Stack spacing="small" width="content-max">
@@ -61,6 +69,7 @@
                     variation="clear"
                     palette={day.dayOfWeek > 5 ? undefined : "accent"}
                     active={has_day(value, day)}
+                    disabled={!is_day_in_range(day, max, min, true)}
                     on:click={on_day_click.bind(null, day)}
                 >
                     {day.day.toString().padStart(2, "0")}

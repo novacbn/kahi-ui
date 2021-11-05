@@ -138,6 +138,25 @@ export function get_yearstamp(calendar: string = BROWSER_CALENDAR): string {
     return Temporal.PlainYearMonth.from({calendar, year: date.year, month: 1}).toString();
 }
 
+export function is_day_in_range(
+    month: string | Temporal.DateLike,
+    max?: string | Temporal.DateLike,
+    min?: string | Temporal.DateLike,
+    inclusive: boolean = false
+): boolean {
+    if (max) {
+        const _max = inclusive ? Temporal.PlainDate.from(max).add({days: 1}) : max;
+        if (Temporal.PlainDate.compare(_max, month) < 1) return false;
+    }
+
+    if (min) {
+        const _min = inclusive ? Temporal.PlainDate.from(min).subtract({days: 1}) : min;
+        if (Temporal.PlainDate.compare(_min, month) > -1) return false;
+    }
+
+    return true;
+}
+
 export function is_month_in_range(
     month: string | Temporal.YearMonthLike,
     max?: string | Temporal.YearMonthLike,

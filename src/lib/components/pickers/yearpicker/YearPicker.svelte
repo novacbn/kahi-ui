@@ -1,7 +1,12 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
-    import {get_decade_halves, has_year} from "../../../util/datetime";
+    import {
+        get_decade_halves,
+        get_yearstamp,
+        has_year,
+        is_year_in_range,
+    } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
@@ -13,18 +18,22 @@
         calendar: string;
         locale: string;
 
-        decade: number;
+        max?: string;
+        min?: string;
+
+        decade: string;
         value: readonly string[];
     };
-
-    const date = new Date();
 
     export let multiple: $$Props["multiple"] = false;
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
-    export let decade: $$Props["decade"] = date.getUTCFullYear();
+    export let max: $$Props["max"] = undefined;
+    export let min: $$Props["min"] = undefined;
+
+    export let decade: $$Props["decade"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
 
     function on_year_click(year: Temporal.PlainYearMonth, event: MouseEvent): void {
@@ -39,7 +48,8 @@
         }
     }
 
-    $: _halfs = get_decade_halves(decade, calendar);
+    $: _decade = Temporal.PlainYearMonth.from(decade);
+    $: _halfs = get_decade_halves(_decade.year, calendar);
 </script>
 
 <Stack spacing="small" width="content-max">
@@ -50,6 +60,7 @@
                     variation="clear"
                     palette="accent"
                     active={has_year(value, year)}
+                    disabled={!is_year_in_range(year, max, min)}
                     on:click={on_year_click.bind(null, year)}
                 >
                     {year.toLocaleString(locale, {year: "numeric"}).toLocaleUpperCase(locale)}

@@ -1,7 +1,7 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
-    import {get_yearstamp} from "../../../util/datetime";
+    import {get_yearstamp, is_year_in_range} from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
@@ -44,7 +44,7 @@
     <Button
         variation="clear"
         palette="accent"
-        disabled={min ? Temporal.PlainYearMonth.compare(min, _year) > -1 : false}
+        disabled={!is_year_in_range(_year, undefined, min)}
         on:click={on_year_select.bind(null, -1)}
     >
         &lt;
@@ -53,7 +53,7 @@
     <Button
         variation="clear"
         palette="accent"
-        disabled={max ? Temporal.PlainYearMonth.compare(max, _year) < 1 : false}
+        disabled={!is_year_in_range(_year, max)}
         on:click={on_year_select.bind(null, 1)}
     >
         &gt;

@@ -7,6 +7,12 @@ function get_calendar_day(date: Temporal.PlainDate): number {
     return wrap(date.dayOfWeek + 1, 1, date.daysInWeek);
 }
 
+function to_plain_year(year: string | Temporal.YearMonthLike): Temporal.PlainYearMonth {
+    let _year = Temporal.PlainYearMonth.from(year);
+
+    return Temporal.PlainYearMonth.from({year: _year.year, month: 1});
+}
+
 export function has_day(
     days: readonly (string | Temporal.DateLike)[],
     day: Temporal.PlainDate
@@ -142,4 +148,34 @@ export function get_yearstamp(calendar: string = BROWSER_CALENDAR): string {
     // NOTE: There isn't anything like a `Temporal.PlainYear`, so we're just returning
     // a `Temporal.PlainYearMonth` that is always January of the current year
     return Temporal.PlainYearMonth.from({calendar, year: date.year, month: 1}).toString();
+}
+
+export function is_month_in_range(
+    month: string | Temporal.YearMonthLike,
+    max?: string | Temporal.YearMonthLike,
+    min?: string | Temporal.YearMonthLike
+): boolean {
+    if (max && Temporal.PlainYearMonth.compare(max, month) < 1) return false;
+    else if (min && Temporal.PlainYearMonth.compare(min, month) > -1) return false;
+
+    return true;
+}
+
+export function is_year_in_range(
+    year: string | Temporal.YearMonthLike,
+    max?: string | Temporal.YearMonthLike,
+    min?: string | Temporal.YearMonthLike
+): boolean {
+    // NOTE: This is slightly more complicated due to there being no concept
+    // of a `Temporal.PlainYear` API
+    const _year = to_plain_year(year);
+    if (max) {
+        const _max = to_plain_year(max);
+        if (Temporal.PlainYearMonth.compare(_max, _year) < 1) return false;
+    } else if (min) {
+        const _min = to_plain_year(min);
+        if (Temporal.PlainYearMonth.compare(_min, _year) > -1) return false;
+    }
+
+    return true;
 }

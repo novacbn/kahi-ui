@@ -1,7 +1,12 @@
 <script lang="ts">
-    import type {Temporal} from "@js-temporal/polyfill";
+    import {Temporal} from "@js-temporal/polyfill";
 
-    import {get_calendar_quaters, has_month, is_month_in_range} from "../../../util/datetime";
+    import {
+        get_calendar_quaters,
+        get_yearstamp,
+        has_month,
+        is_month_in_range,
+    } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
@@ -16,11 +21,9 @@
         max?: string;
         min?: string;
 
-        year: number;
+        year: string;
         value: readonly string[];
     };
-
-    const date = new Date();
 
     export let multiple: $$Props["multiple"] = false;
 
@@ -30,7 +33,7 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let year: $$Props["year"] = date.getUTCFullYear();
+    export let year: $$Props["year"] = get_yearstamp();
     export let value: $$Props["value"] = [];
 
     function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {
@@ -43,7 +46,8 @@
         }
     }
 
-    $: _quaters = get_calendar_quaters(year, calendar);
+    $: _year = Temporal.PlainYearMonth.from(year);
+    $: _quaters = get_calendar_quaters(_year.year, calendar);
 </script>
 
 <Stack spacing="small" width="content-max">

@@ -9,9 +9,7 @@ function get_calendar_day(date: Temporal.PlainDate): number {
 }
 
 function to_plain_year(year: string | Temporal.YearMonthLike): Temporal.PlainYearMonth {
-    let _year = Temporal.PlainYearMonth.from(year);
-
-    return Temporal.PlainYearMonth.from({year: _year.year, month: 1});
+    return Temporal.PlainYearMonth.from(year).with({month: 1});
 }
 
 export function has_day(
@@ -119,23 +117,46 @@ export function get_decade_halves(
 }
 
 export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {
-    // NOTE: There isn't a `Temporal.Now.plainYearMonth` API, so we basically have
-    // to emulate that here
     const date = Temporal.Now.plainDate(calendar);
 
-    return date.toPlainYearMonth().toString();
+    return date.toPlainYearMonth().toString({calendarName: "always"});
 }
 
 export function get_timestamp(calendar: string = BROWSER_CALENDAR): string {
-    return Temporal.Now.zonedDateTime(calendar).toString();
+    return Temporal.Now.zonedDateTime(calendar).toString({calendarName: "always"});
 }
 
 export function get_yearstamp(calendar: string = BROWSER_CALENDAR): string {
-    const date = Temporal.Now.plainDate(calendar);
-
     // NOTE: There isn't anything like a `Temporal.PlainYear`, so we're just returning
     // a `Temporal.PlainYearMonth` that is always January of the current year
-    return Temporal.PlainYearMonth.from({calendar, year: date.year, month: 1}).toString();
+    return Temporal.Now.plainDate(calendar).with({month: 1}).toString({calendarName: "always"});
+}
+
+export function is_current_day(
+    day: string | Temporal.DateLike,
+    calendar: string = BROWSER_CALENDAR
+): boolean {
+    return Temporal.Now.plainDate(calendar).equals(day);
+}
+
+export function is_current_month(
+    month: string | Temporal.YearMonthLike,
+    calendar: string = BROWSER_CALENDAR
+): boolean {
+    return Temporal.Now.plainDate(calendar).toPlainYearMonth().equals(month);
+}
+
+export function is_current_year(
+    year: string | Temporal.YearMonthLike,
+    calendar: string = BROWSER_CALENDAR
+): boolean {
+    // NOTE: This is slightly more complicated due to there being no concept
+    // of a `Temporal.PlainYear` API
+
+    return Temporal.Now.plainDate(calendar)
+        .toPlainYearMonth()
+        .with({month: 1})
+        .equals(to_plain_year(year));
 }
 
 export function is_day_in_range(

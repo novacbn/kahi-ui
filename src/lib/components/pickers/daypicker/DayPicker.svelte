@@ -5,6 +5,7 @@
         get_calendar_weeks,
         get_monthstamp,
         has_day,
+        is_current_day,
         is_day_in_range,
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
@@ -66,7 +67,7 @@
         <Stack orientation="horizontal" spacing="small">
             {#each week as day}
                 <Button
-                    variation="clear"
+                    variation={is_current_day(day) ? "outline" : "clear"}
                     palette={day.dayOfWeek > 5 ? undefined : "accent"}
                     active={has_day(value, day)}
                     disabled={!is_day_in_range(day, max, min, true)}

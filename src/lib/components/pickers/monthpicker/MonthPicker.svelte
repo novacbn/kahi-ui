@@ -5,6 +5,7 @@
         get_calendar_quaters,
         get_yearstamp,
         has_month,
+        is_current_month,
         is_month_in_range,
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
@@ -55,7 +56,7 @@
         <Stack orientation="horizontal" spacing="small">
             {#each quater as month}
                 <Button
-                    variation="clear"
+                    variation={is_current_month(month) ? "outline" : "clear"}
                     palette="accent"
                     active={has_month(value, month)}
                     disabled={!is_month_in_range(month, max, min, true)}

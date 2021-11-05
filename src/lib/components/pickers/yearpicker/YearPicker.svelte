@@ -5,6 +5,7 @@
         get_decade_halves,
         get_yearstamp,
         has_year,
+        is_current_year,
         is_year_in_range,
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
@@ -55,7 +56,7 @@
         <Stack orientation="horizontal" spacing="small">
             {#each half as year}
                 <Button
-                    variation="clear"
+                    variation={is_current_year(year) ? "outline" : "clear"}
                     palette="accent"
                     active={has_year(value, year)}
                     disabled={!is_year_in_range(year, max, min, true)}

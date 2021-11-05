@@ -33,7 +33,7 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let year: $$Props["year"] = get_yearstamp();
+    export let year: $$Props["year"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
 
     function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {

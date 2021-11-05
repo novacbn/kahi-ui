@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {Temporal} from "@js-temporal/polyfill";
+    import {Temporal} from "@js-temporal/polyfill";
 
     import {get_calendar_month} from "../../../util/datetime";
     import {BROWSER_LOCALE} from "../../../util/locale";
@@ -21,7 +21,20 @@
     );
 
     function on_month_select(difference: number, event: MouseEvent): void {
-        value = value.add({months: difference});
+        // HACK: Switch to only using `Temporal.PlainYearMonth.add` whenever bug for chained-subtractions is released
+        // https://github.com/js-temporal/temporal-polyfill/issues/44
+        if (difference > -1) {
+            value = value.add({months: difference});
+            return;
+        }
+
+        // UNKNOWN: Will this have issues with year 0 being subtracted into year -1 (1 BC)?
+        // Probably, but who is crazy enough to try subtracting all that way via the UI :)?
+        value = Temporal.PlainYearMonth.from({
+            calendar: value.calendar,
+            year: value.month > 1 ? value.year : value.year - 1,
+            month: value.month > 1 ? value.month - 1 : value.monthsInYear,
+        });
     }
 </script>
 

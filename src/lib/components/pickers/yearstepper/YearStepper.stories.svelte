@@ -20,6 +20,7 @@
         .toPlainYearMonth()
         .subtract({years: 2})
         .toString();
+    let step = 5;
 </script>
 
 <Meta title="Pickers/YearStepper" />
@@ -45,9 +46,9 @@
 </Story>
 
 <Story name="Step">
-    <YearStepper palette="accent" step={5} bind:calendar bind:locale bind:value />
+    <YearStepper palette="accent" {step} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, value}, null, 4)}
+        {JSON.stringify({calendar, locale, value, step}, null, 4)}
     </Code>
 </Story>

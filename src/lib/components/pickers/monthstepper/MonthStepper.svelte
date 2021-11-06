@@ -59,18 +59,13 @@
     function on_month_select(difference: number, event: MouseEvent): void {
         // HACK: Switch to only using `Temporal.PlainYearMonth.add` whenever bug for chained-subtractions is released
         // https://github.com/js-temporal/temporal-polyfill/issues/44
-        if (difference > 0) {
-            value = _month.add({months: difference}).toString();
-            return;
-        }
+        // value = _month.add({months: difference}).toString({calendarName: "always"});
 
-        // UNKNOWN: Will this have issues with year 0 being subtracted into year -1 (1 BC)?
-        // Probably, but who is crazy enough to try subtracting all that way via the UI :)?
-        value = Temporal.PlainYearMonth.from({
-            calendar: _month.calendar,
-            year: _month.month > 1 ? _month.year : _month.year - 1,
-            month: _month.month > 1 ? _month.month - 1 : _month.monthsInYear,
-        }).toString({calendarName: "always"});
+        // HACK: `Temporal.PlainDate` doesn't have the same "locking" issue as `Temporal.PlainYearMonth`
+        value = _month
+            .toPlainDate({day: 1})
+            .add({months: difference})
+            .toString({calendarName: "always"});
     }
 
     $: _month = Temporal.PlainYearMonth.from(value);

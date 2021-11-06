@@ -58,7 +58,7 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_year_select(difference: number, event: MouseEvent): void {
-        value = _year.add({years: difference}).toString();
+        value = _year.add({years: difference}).toString({calendarName: "always"});
     }
 
     $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);

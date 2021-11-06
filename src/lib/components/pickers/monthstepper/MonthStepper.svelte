@@ -24,6 +24,7 @@
 
         max?: string;
         min?: string;
+        step: number | string;
 
         value: string;
         palette?: PROPERTY_PALETTE;
@@ -49,6 +50,7 @@
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
+    export let step: $$Props["step"] = 1;
 
     export let value: $$Props["value"] = get_monthstamp(calendar);
 
@@ -57,7 +59,7 @@
     function on_month_select(difference: number, event: MouseEvent): void {
         // HACK: Switch to only using `Temporal.PlainYearMonth.add` whenever bug for chained-subtractions is released
         // https://github.com/js-temporal/temporal-polyfill/issues/44
-        if (difference > -1) {
+        if (difference > 0) {
             value = _month.add({months: difference}).toString();
             return;
         }
@@ -72,6 +74,7 @@
     }
 
     $: _month = Temporal.PlainYearMonth.from(value);
+    $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);
 </script>
 
 <PickerContainer {...$$props} bind:element class="month-stepper {_class}">
@@ -85,7 +88,7 @@
         <PickerButton
             disabled={!is_month_in_range(_month, undefined, min)}
             {palette}
-            on:click={on_month_select.bind(null, -1)}
+            on:click={on_month_select.bind(null, _step * -1)}
         >
             <slot name="previous">&lt;</slot>
         </PickerButton>
@@ -93,7 +96,7 @@
         <PickerButton
             disabled={!is_month_in_range(_month, max)}
             {palette}
-            on:click={on_month_select.bind(null, 1)}
+            on:click={on_month_select.bind(null, _step)}
         >
             <slot name="next">&gt;</slot>
         </PickerButton>

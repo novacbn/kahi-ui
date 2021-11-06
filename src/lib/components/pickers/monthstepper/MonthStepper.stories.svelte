@@ -6,7 +6,7 @@
 
     import Code from "../../typography/code/Code.svelte";
 
-    import MonthSelector from "./MonthStepper.svelte";
+    import MonthStepper from "./MonthStepper.svelte";
 
     let calendar;
     let locale;
@@ -22,14 +22,14 @@
         .toString();
 </script>
 
-<Meta title="Pickers/MonthSelector" />
+<Meta title="Pickers/MonthStepper" />
 
 <Template>
     <slot />
 </Template>
 
 <Story name="Default">
-    <MonthSelector palette="accent" bind:calendar bind:locale bind:value />
+    <MonthStepper palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value}, null, 4)}
@@ -37,9 +37,17 @@
 </Story>
 
 <Story name="Maximum + Minimum">
-    <MonthSelector palette="accent" {max} {min} bind:calendar bind:locale bind:value />
+    <MonthStepper palette="accent" {max} {min} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value, max, min}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Step">
+    <MonthStepper palette="accent" step={4} bind:calendar bind:locale bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value}, null, 4)}
     </Code>
 </Story>

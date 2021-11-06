@@ -43,3 +43,11 @@
         {JSON.stringify({calendar, locale, value, max, min}, null, 4)}
     </Code>
 </Story>
+
+<Story name="Step">
+    <YearStepper palette="accent" step={5} bind:calendar bind:locale bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value}, null, 4)}
+    </Code>
+</Story>

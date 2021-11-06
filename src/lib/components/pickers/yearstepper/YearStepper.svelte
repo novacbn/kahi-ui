@@ -24,6 +24,7 @@
 
         max?: string;
         min?: string;
+        step: number | string;
 
         value: string;
 
@@ -50,6 +51,7 @@
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
+    export let step: $$Props["step"] = 1;
 
     export let value: $$Props["value"] = get_yearstamp(calendar);
 
@@ -59,6 +61,7 @@
         value = _year.add({years: difference}).toString();
     }
 
+    $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);
     $: _year = Temporal.PlainYearMonth.from(value);
 </script>
 
@@ -73,7 +76,7 @@
         <PickerButton
             disabled={!is_year_in_range(_year, undefined, min)}
             {palette}
-            on:click={on_year_select.bind(null, -1)}
+            on:click={on_year_select.bind(null, _step * -1)}
         >
             <slot name="previous">&lt;</slot>
         </PickerButton>
@@ -81,7 +84,7 @@
         <PickerButton
             disabled={!is_year_in_range(_year, max)}
             {palette}
-            on:click={on_year_select.bind(null, 1)}
+            on:click={on_year_select.bind(null, _step)}
         >
             <slot name="next">&gt;</slot>
         </PickerButton>

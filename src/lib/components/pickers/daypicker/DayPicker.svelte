@@ -78,9 +78,7 @@
     <PickerSection>
         {#each _weeks[0] as day}
             <PickerHeader>
-                {day
-                    .toLocaleString(BROWSER_LOCALE, {weekday: "short"})
-                    .toLocaleUpperCase(BROWSER_LOCALE)}
+                {day.toLocaleString(locale, {weekday: "short"}).toLocaleUpperCase(locale)}
             </PickerHeader>
         {/each}
     </PickerSection>

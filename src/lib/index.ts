@@ -78,6 +78,14 @@ export * from "./components/overlays/offscreen";
 export * from "./components/overlays/overlay";
 export * from "./components/overlays/popover";
 
+export * from "./components/pickers/daypicker";
+export * from "./components/pickers/monthpicker";
+export * from "./components/pickers/monthselector";
+import * as Picker from "./components/pickers/picker";
+export {Picker};
+export * from "./components/pickers/yearpicker";
+export * from "./components/pickers/yearselector";
+
 export * from "./components/surfaces/box";
 import * as Card from "./components/surfaces/card";
 export {Card};

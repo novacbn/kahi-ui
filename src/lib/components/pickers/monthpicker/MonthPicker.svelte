@@ -79,9 +79,9 @@
             {#each quater as month}
                 <PickerButton
                     variation={is_current_month(month) ? "outline" : undefined}
+                    palette={month.month % (month.monthsInYear / 4) === 1 ? undefined : palette}
                     active={has_month(value, month)}
                     disabled={!is_month_in_range(month, max, min, true)}
-                    {palette}
                     on:click={on_month_click.bind(null, month)}
                 >
                     {month.toLocaleString(locale, {month: "short"}).toLocaleUpperCase(locale)}

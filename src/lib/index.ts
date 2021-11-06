@@ -80,11 +80,11 @@ export * from "./components/overlays/popover";
 
 export * from "./components/pickers/daypicker";
 export * from "./components/pickers/monthpicker";
-export * from "./components/pickers/monthselector";
+export * from "./components/pickers/monthstepper";
 import * as Picker from "./components/pickers/picker";
 export {Picker};
 export * from "./components/pickers/yearpicker";
-export * from "./components/pickers/yearselector";
+export * from "./components/pickers/yearstepper";
 
 export * from "./components/surfaces/box";
 import * as Card from "./components/surfaces/card";

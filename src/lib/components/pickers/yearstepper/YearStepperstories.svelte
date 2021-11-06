@@ -6,7 +6,7 @@
 
     import Code from "../../typography/code/Code.svelte";
 
-    import MonthSelector from "./MonthSelector.svelte";
+    import YearStepper from "./YearStepper.svelte";
 
     let calendar;
     let locale;
@@ -14,22 +14,22 @@
 
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR)
         .toPlainYearMonth()
-        .add({months: 1})
+        .add({years: 2})
         .toString();
     let min = Temporal.Now.plainDate(BROWSER_CALENDAR)
         .toPlainYearMonth()
-        .subtract({months: 1})
+        .subtract({years: 2})
         .toString();
 </script>
 
-<Meta title="Pickers/MonthSelector" />
+<Meta title="Pickers/YearStepper" />
 
 <Template>
     <slot />
 </Template>
 
 <Story name="Default">
-    <MonthSelector palette="accent" bind:calendar bind:locale bind:value />
+    <YearStepper palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value}, null, 4)}
@@ -37,7 +37,7 @@
 </Story>
 
 <Story name="Maximum + Minimum">
-    <MonthSelector palette="accent" {max} {min} bind:calendar bind:locale bind:value />
+    <YearStepper palette="accent" {max} {min} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value, max, min}, null, 4)}

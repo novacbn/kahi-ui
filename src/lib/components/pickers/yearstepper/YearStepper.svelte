@@ -58,6 +58,8 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_year_select(difference: number, event: MouseEvent): void {
+        // TODO: clamp `step` to `max` / `min`
+
         value = _year.add({years: difference}).toString({calendarName: "always"});
     }
 

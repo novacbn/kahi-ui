@@ -58,6 +58,8 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_day_select(difference: number, event: MouseEvent): void {
+        // TODO: clamp `step` to `max` / `min`
+
         value = _day.add({days: difference}).toString({calendarName: "always"});
     }
 

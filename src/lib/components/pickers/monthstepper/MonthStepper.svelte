@@ -57,6 +57,8 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_month_select(difference: number, event: MouseEvent): void {
+        // TODO: clamp `step` to `max` / `min`
+
         // HACK: Switch to only using `Temporal.PlainYearMonth.add` whenever bug for chained-subtractions is released
         // https://github.com/js-temporal/temporal-polyfill/issues/44
         // value = _month.add({months: difference}).toString({calendarName: "always"});

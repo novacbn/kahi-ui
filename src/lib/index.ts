@@ -79,6 +79,7 @@ export * from "./components/overlays/overlay";
 export * from "./components/overlays/popover";
 
 export * from "./components/pickers/daypicker";
+export * from "./components/pickers/daystepper";
 export * from "./components/pickers/monthpicker";
 export * from "./components/pickers/monthstepper";
 import * as Picker from "./components/pickers/picker";

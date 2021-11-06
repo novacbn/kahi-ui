@@ -101,6 +101,10 @@ export function get_calendar_weeks(
     );
 }
 
+export function get_daystamp(calendar: string = BROWSER_CALENDAR): string {
+    return Temporal.Now.plainDate(calendar).toString({calendarName: "always"});
+}
+
 export function get_decade_halves(
     year: number,
     calendar: string = BROWSER_CALENDAR
@@ -117,9 +121,7 @@ export function get_decade_halves(
 }
 
 export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {
-    const date = Temporal.Now.plainDate(calendar);
-
-    return date.toPlainYearMonth().toString({calendarName: "always"});
+    return Temporal.Now.plainDate(calendar).toPlainYearMonth().toString({calendarName: "always"});
 }
 
 export function get_timestamp(calendar: string = BROWSER_CALENDAR): string {

@@ -25,7 +25,7 @@
 </Template>
 
 <Story name="Default">
-    <DayPicker bind:calendar bind:locale bind:month bind:year bind:value />
+    <DayPicker palette="accent" bind:calendar bind:locale bind:month bind:year bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, month, year, value}, null, 4)}
@@ -33,7 +33,15 @@
 </Story>
 
 <Story name="Multiple">
-    <DayPicker bind:calendar bind:locale bind:month bind:year bind:value multiple />
+    <DayPicker
+        palette="accent"
+        bind:calendar
+        bind:locale
+        bind:month
+        bind:year
+        bind:value
+        multiple
+    />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, month, year, value}, null, 4)}
@@ -41,7 +49,16 @@
 </Story>
 
 <Story name="Maximum + Minimum">
-    <DayPicker {max} {min} bind:calendar bind:locale bind:month bind:year bind:value />
+    <DayPicker
+        palette="accent"
+        {max}
+        {min}
+        bind:calendar
+        bind:locale
+        bind:month
+        bind:year
+        bind:value
+    />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, month, year, value, max, min}, null, 4)}

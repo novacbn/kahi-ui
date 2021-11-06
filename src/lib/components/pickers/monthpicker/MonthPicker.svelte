@@ -1,6 +1,12 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
+    import type {IGlobalProperties} from "../../../types/global";
+    import type {IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+
     import {
         get_calendar_quaters,
         get_yearstamp,
@@ -10,10 +16,13 @@
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
-    import Button from "../../interactables/button/Button.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import PickerButton from "../picker/PickerButton.svelte";
+    import PickerContainer from "../picker/PickerContainer.svelte";
+    import PickerSection from "../picker/PickerSection.svelte";
 
     type $$Props = {
+        element?: HTMLDivElement;
+
         multiple?: boolean;
 
         calendar: string;
@@ -24,7 +33,18 @@
 
         year: string;
         value: readonly string[];
-    };
+
+        palette?: PROPERTY_PALETTE;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties &
+        IPaddingProperties &
+        ISizeProperties;
+
+    export let element: $$Props["element"] = undefined;
+
+    let _class = "";
+    export {_class as class};
 
     export let multiple: $$Props["multiple"] = false;
 
@@ -36,6 +56,8 @@
 
     export let year: $$Props["year"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
+
+    export let palette: $$Props["palette"] = undefined;
 
     function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {
         if (has_month(value, month)) {
@@ -51,20 +73,20 @@
     $: _quaters = get_calendar_quaters(_year.year, calendar);
 </script>
 
-<Stack spacing="small" width="content-max">
+<PickerContainer {...$$props} bind:element class="month-picker {_class}">
     {#each _quaters as quater}
-        <Stack orientation="horizontal" spacing="small">
+        <PickerSection>
             {#each quater as month}
-                <Button
-                    variation={is_current_month(month) ? "outline" : "clear"}
-                    palette="accent"
+                <PickerButton
+                    variation={is_current_month(month) ? "outline" : undefined}
                     active={has_month(value, month)}
                     disabled={!is_month_in_range(month, max, min, true)}
+                    {palette}
                     on:click={on_month_click.bind(null, month)}
                 >
                     {month.toLocaleString(locale, {month: "short"}).toLocaleUpperCase(locale)}
-                </Button>
+                </PickerButton>
             {/each}
-        </Stack>
+        </PickerSection>
     {/each}
-</Stack>
+</PickerContainer>

@@ -29,7 +29,7 @@
 </Template>
 
 <Story name="Default">
-    <MonthSelector bind:calendar bind:locale bind:value />
+    <MonthSelector palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value}, null, 4)}
@@ -37,7 +37,7 @@
 </Story>
 
 <Story name="Maximum + Minimum">
-    <MonthSelector {max} {min} bind:calendar bind:locale bind:value />
+    <MonthSelector palette="accent" {max} {min} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value, max, min}, null, 4)}

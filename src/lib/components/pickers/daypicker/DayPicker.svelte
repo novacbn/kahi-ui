@@ -1,6 +1,12 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
+    import type {IGlobalProperties} from "../../../types/global";
+    import type {IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+
     import {
         get_calendar_weeks,
         get_monthstamp,
@@ -10,11 +16,14 @@
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
-    import Button from "../../interactables/button/Button.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
-    import Text from "../../typography/text/Text.svelte";
+    import PickerButton from "../picker/PickerButton.svelte";
+    import PickerContainer from "../picker/PickerContainer.svelte";
+    import PickerHeader from "../picker/PickerHeader.svelte";
+    import PickerSection from "../picker/PickerSection.svelte";
 
     type $$Props = {
+        element?: HTMLDivElement;
+
         multiple?: boolean;
 
         calendar: string;
@@ -25,7 +34,18 @@
 
         month: string;
         value: readonly string[];
-    };
+
+        palette?: PROPERTY_PALETTE;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties &
+        IPaddingProperties &
+        ISizeProperties;
+
+    export let element: $$Props["element"] = undefined;
+
+    let _class = "";
+    export {_class as class};
 
     export let multiple: $$Props["multiple"] = false;
 
@@ -37,6 +57,8 @@
 
     export let month: $$Props["month"] = get_monthstamp(calendar);
     export let value: $$Props["value"] = [];
+
+    export let palette: $$Props["palette"] = undefined;
 
     function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
         if (has_day(value, day)) {
@@ -52,30 +74,30 @@
     $: _weeks = get_calendar_weeks(_month.year, _month.month, calendar);
 </script>
 
-<Stack spacing="small" width="content-max">
-    <Stack orientation="horizontal" spacing="small">
+<PickerContainer {...$$props} bind:element class="day-picker {_class}">
+    <PickerSection>
         {#each _weeks[0] as day}
-            <Text is="strong" align="center" size="small" style="flex-grow:1;">
+            <PickerHeader>
                 {day
                     .toLocaleString(BROWSER_LOCALE, {weekday: "short"})
                     .toLocaleUpperCase(BROWSER_LOCALE)}
-            </Text>
+            </PickerHeader>
         {/each}
-    </Stack>
+    </PickerSection>
 
     {#each _weeks as week}
-        <Stack orientation="horizontal" spacing="small">
+        <PickerSection>
             {#each week as day}
-                <Button
-                    variation={is_current_day(day) ? "outline" : "clear"}
-                    palette={day.dayOfWeek > 5 ? undefined : "accent"}
+                <PickerButton
+                    variation={is_current_day(day) ? "outline" : undefined}
+                    palette={day.dayOfWeek > 5 ? undefined : palette}
                     active={has_day(value, day)}
                     disabled={!is_day_in_range(day, max, min, true)}
                     on:click={on_day_click.bind(null, day)}
                 >
                     {day.day.toString().padStart(2, "0")}
-                </Button>
+                </PickerButton>
             {/each}
-        </Stack>
+        </PickerSection>
     {/each}
-</Stack>
+</PickerContainer>

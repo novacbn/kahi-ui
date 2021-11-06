@@ -1,6 +1,12 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
 
+    import type {IGlobalProperties} from "../../../types/global";
+    import type {IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+
     import {
         get_decade_halves,
         get_yearstamp,
@@ -10,10 +16,13 @@
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
-    import Button from "../../interactables/button/Button.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import PickerButton from "../picker/PickerButton.svelte";
+    import PickerContainer from "../picker/PickerContainer.svelte";
+    import PickerSection from "../picker/PickerSection.svelte";
 
     type $$Props = {
+        element?: HTMLDivElement;
+
         multiple?: boolean;
 
         calendar: string;
@@ -24,7 +33,18 @@
 
         decade: string;
         value: readonly string[];
-    };
+
+        palette?: PROPERTY_PALETTE;
+    } & IHTML5Properties &
+        IGlobalProperties &
+        IMarginProperties &
+        IPaddingProperties &
+        ISizeProperties;
+
+    export let element: $$Props["element"] = undefined;
+
+    let _class = "";
+    export {_class as class};
 
     export let multiple: $$Props["multiple"] = false;
 
@@ -36,6 +56,8 @@
 
     export let decade: $$Props["decade"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
+
+    export let palette: $$Props["palette"] = undefined;
 
     function on_year_click(year: Temporal.PlainYearMonth, event: MouseEvent): void {
         if (has_year(value, year)) {
@@ -51,20 +73,20 @@
     $: _halfs = get_decade_halves(_decade.year, calendar);
 </script>
 
-<Stack spacing="small" width="content-max">
+<PickerContainer {...$$props} bind:element class="year-picker {_class}">
     {#each _halfs as half}
-        <Stack orientation="horizontal" spacing="small">
+        <PickerSection>
             {#each half as year}
-                <Button
-                    variation={is_current_year(year) ? "outline" : "clear"}
-                    palette="accent"
+                <PickerButton
+                    variation={is_current_year(year) ? "outline" : undefined}
                     active={has_year(value, year)}
                     disabled={!is_year_in_range(year, max, min, true)}
+                    {palette}
                     on:click={on_year_click.bind(null, year)}
                 >
                     {year.toLocaleString(locale, {year: "numeric"}).toLocaleUpperCase(locale)}
-                </Button>
+                </PickerButton>
             {/each}
-        </Stack>
+        </PickerSection>
     {/each}
-</Stack>
+</PickerContainer>

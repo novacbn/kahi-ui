@@ -30,7 +30,7 @@
 </Template>
 
 <Story name="Default">
-    <MonthPicker bind:calendar bind:locale bind:year bind:value />
+    <MonthPicker palette="accent" bind:calendar bind:locale bind:year bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, year, value}, null, 4)}
@@ -38,7 +38,7 @@
 </Story>
 
 <Story name="Multiple">
-    <MonthPicker bind:calendar bind:locale bind:year bind:value multiple />
+    <MonthPicker palette="accent" bind:calendar bind:locale bind:year bind:value multiple />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, year, value}, null, 4)}
@@ -46,7 +46,7 @@
 </Story>
 
 <Story name="Maximum + Minimum">
-    <MonthPicker {max} {min} bind:calendar bind:locale bind:year bind:value />
+    <MonthPicker palette="accent" {max} {min} bind:calendar bind:locale bind:year bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, year, value, max, min}, null, 4)}

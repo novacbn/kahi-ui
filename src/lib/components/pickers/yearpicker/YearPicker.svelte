@@ -79,9 +79,9 @@
             {#each half as year}
                 <PickerButton
                     variation={is_current_year(year) ? "outline" : undefined}
+                    palette={year.year % 10 === 0 || year.year % 10 === 9 ? undefined : palette}
                     active={has_year(value, year)}
                     disabled={!is_year_in_range(year, max, min, true)}
-                    {palette}
                     on:click={on_year_click.bind(null, year)}
                 >
                     {year.toLocaleString(locale, {year: "numeric"}).toLocaleUpperCase(locale)}

@@ -23,7 +23,7 @@
     let step = 4;
 </script>
 
-<Meta title="Pickers/MonthStepper" />
+<Meta title="Widgets/MonthStepper" />
 
 <Template>
     <slot />

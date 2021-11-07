@@ -18,7 +18,7 @@
     let min = Temporal.Now.plainDate(BROWSER_CALENDAR).subtract({days: 3}).toString();
 </script>
 
-<Meta title="Pickers/DayPicker" />
+<Meta title="Widgets/DayPicker" />
 
 <Template>
     <slot />

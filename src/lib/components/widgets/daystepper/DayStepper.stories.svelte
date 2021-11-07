@@ -17,7 +17,7 @@
     let step = 2;
 </script>
 
-<Meta title="Pickers/DayStepper" />
+<Meta title="Widgets/DayStepper" />
 
 <Template>
     <slot />

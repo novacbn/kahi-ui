@@ -23,7 +23,7 @@
     let step = 5;
 </script>
 
-<Meta title="Pickers/YearStepper" />
+<Meta title="Widgets/YearStepper" />
 
 <Template>
     <slot />

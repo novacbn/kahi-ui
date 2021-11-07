@@ -23,7 +23,7 @@
         .toString();
 </script>
 
-<Meta title="Pickers/MonthPicker" />
+<Meta title="Widgets/MonthPicker" />
 
 <Template>
     <slot />

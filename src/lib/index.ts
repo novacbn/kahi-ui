@@ -32,10 +32,13 @@ export {List};
 import * as Table from "./components/display/table";
 export {Table};
 
+export * from "./components/feedback/datestamp";
+export * from "./components/feedback/datetimestamp";
 export * from "./components/feedback/ellipsis";
 export * from "./components/feedback/dot";
 export * from "./components/feedback/progress";
 export * from "./components/feedback/spinner";
+export * from "./components/feedback/timestamp";
 export * from "./components/feedback/wave";
 
 export * from "./components/embedded/figure";

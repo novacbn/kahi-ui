@@ -4,6 +4,8 @@ import {chunk, fill} from "./functional";
 import {BROWSER_CALENDAR} from "./locale";
 import {wrap} from "./math";
 
+const EXPRESSION_TIMEZONE = /\[[\w/]+\]$/;
+
 function get_calendar_day(date: Temporal.PlainDate): number {
     return wrap(date.dayOfWeek + 1, 1, date.daysInWeek);
 }
@@ -24,6 +26,10 @@ export function has_month(
     month: Temporal.PlainYearMonth
 ): boolean {
     return !!months.find((entry) => month.equals(entry));
+}
+
+export function has_timezone(timestamp: string): boolean {
+    return EXPRESSION_TIMEZONE.test(timestamp);
 }
 
 export function has_year(

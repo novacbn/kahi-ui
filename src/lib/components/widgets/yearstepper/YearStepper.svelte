@@ -11,10 +11,10 @@
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import PickerButton from "../picker/PickerButton.svelte";
-    import PickerContainer from "../picker/PickerContainer.svelte";
-    import PickerHeader from "../picker/PickerHeader.svelte";
-    import PickerSection from "../picker/PickerSection.svelte";
+    import WidgetButton from "../widget/WidgetButton.svelte";
+    import WidgetContainer from "../widget/WidgetContainer.svelte";
+    import WidgetHeader from "../widget/WidgetHeader.svelte";
+    import WidgetSection from "../widget/WidgetSection.svelte";
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -67,28 +67,28 @@
     $: _year = Temporal.PlainYearMonth.from(value);
 </script>
 
-<PickerContainer {...$$props} bind:element class="year-stepper {_class}">
-    <PickerSection variation="flex">
-        <PickerHeader>
+<WidgetContainer {...$$props} bind:element class="year-stepper {_class}">
+    <WidgetSection variation="flex">
+        <WidgetHeader>
             {_year.toLocaleString(locale, {year: "numeric"})}
-        </PickerHeader>
+        </WidgetHeader>
 
         <Spacer variation="inline" />
 
-        <PickerButton
+        <WidgetButton
             disabled={!is_year_in_range(_year, undefined, min)}
             {palette}
             on:click={on_year_select.bind(null, _step * -1)}
         >
             <slot name="previous">&lt;</slot>
-        </PickerButton>
+        </WidgetButton>
 
-        <PickerButton
+        <WidgetButton
             disabled={!is_year_in_range(_year, max)}
             {palette}
             on:click={on_year_select.bind(null, _step)}
         >
             <slot name="next">&gt;</slot>
-        </PickerButton>
-    </PickerSection>
-</PickerContainer>
+        </WidgetButton>
+    </WidgetSection>
+</WidgetContainer>

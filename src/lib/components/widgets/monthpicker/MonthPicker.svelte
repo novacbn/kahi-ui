@@ -8,17 +8,17 @@
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {
-        get_decade_halves,
+        get_calendar_quaters,
         get_yearstamp,
-        has_year,
-        is_current_year,
-        is_year_in_range,
+        has_month,
+        is_current_month,
+        is_month_in_range,
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
-    import PickerButton from "../picker/PickerButton.svelte";
-    import PickerContainer from "../picker/PickerContainer.svelte";
-    import PickerSection from "../picker/PickerSection.svelte";
+    import WidgetButton from "../widget/WidgetButton.svelte";
+    import WidgetContainer from "../widget/WidgetContainer.svelte";
+    import WidgetSection from "../widget/WidgetSection.svelte";
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -31,7 +31,7 @@
         max?: string;
         min?: string;
 
-        decade: string;
+        year: string;
         value: readonly string[];
 
         palette?: PROPERTY_PALETTE;
@@ -54,38 +54,38 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let decade: $$Props["decade"] = get_yearstamp(calendar);
+    export let year: $$Props["year"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
 
     export let palette: $$Props["palette"] = undefined;
 
-    function on_year_click(year: Temporal.PlainYearMonth, event: MouseEvent): void {
-        if (has_year(value, year)) {
-            value = multiple ? value.filter((entry) => !year.equals(entry)) : [];
+    function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {
+        if (has_month(value, month)) {
+            value = multiple ? value.filter((entry) => !month.equals(entry)) : [];
         } else {
             value = multiple
-                ? [...value, year.toString({calendarName: "always"})]
-                : [year.toString({calendarName: "always"})];
+                ? [...value, month.toString({calendarName: "always"})]
+                : [month.toString({calendarName: "always"})];
         }
     }
 
-    $: _halfs = get_decade_halves(decade);
+    $: _quaters = get_calendar_quaters(year);
 </script>
 
-<PickerContainer {...$$props} bind:element class="year-picker {_class}">
-    {#each _halfs as half}
-        <PickerSection>
-            {#each half as year}
-                <PickerButton
-                    variation={is_current_year(year) ? "outline" : undefined}
-                    palette={year.year % 10 === 0 || year.year % 10 === 9 ? undefined : palette}
-                    active={has_year(value, year)}
-                    disabled={!is_year_in_range(year, max, min, true)}
-                    on:click={on_year_click.bind(null, year)}
+<WidgetContainer {...$$props} bind:element class="month-picker {_class}">
+    {#each _quaters as quater}
+        <WidgetSection>
+            {#each quater as month}
+                <WidgetButton
+                    variation={is_current_month(month) ? "outline" : undefined}
+                    palette={month.month % (month.monthsInYear / 4) === 1 ? undefined : palette}
+                    active={has_month(value, month)}
+                    disabled={!is_month_in_range(month, max, min, true)}
+                    on:click={on_month_click.bind(null, month)}
                 >
-                    {year.toLocaleString(locale, {year: "numeric"}).toLocaleUpperCase(locale)}
-                </PickerButton>
+                    {month.toLocaleString(locale, {month: "short"}).toLocaleUpperCase(locale)}
+                </WidgetButton>
             {/each}
-        </PickerSection>
+        </WidgetSection>
     {/each}
-</PickerContainer>
+</WidgetContainer>

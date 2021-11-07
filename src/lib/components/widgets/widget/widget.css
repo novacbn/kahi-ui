@@ -1,4 +1,4 @@
-.picker {
+.widget {
     display: grid;
     grid-auto-rows: 1fr;
     grid-auto-flow: row;
@@ -8,7 +8,7 @@
     font-size: var(--document-font-size);
 }
 
-.picker button {
+.widget button {
     all: unset;
 
     display: flex;
@@ -114,7 +114,7 @@
     }
 }
 
-.picker header {
+.widget header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,7 +127,7 @@
     opacity: 0.8;
 }
 
-.picker section {
+.widget section {
     gap: var(--spacing-local-small);
 
     &:not([data-variation]) {

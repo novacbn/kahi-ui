@@ -24,6 +24,6 @@
     export {_class as class};
 </script>
 
-<div bind:this={element} {...map_global_attributes($$props)} class="picker {_class}">
+<div bind:this={element} {...map_global_attributes($$props)} class="widget {_class}">
     <slot />
 </div>

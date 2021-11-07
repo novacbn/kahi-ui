@@ -16,10 +16,10 @@
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
-    import PickerButton from "../picker/PickerButton.svelte";
-    import PickerContainer from "../picker/PickerContainer.svelte";
-    import PickerHeader from "../picker/PickerHeader.svelte";
-    import PickerSection from "../picker/PickerSection.svelte";
+    import WidgetButton from "../widget/WidgetButton.svelte";
+    import WidgetContainer from "../widget/WidgetContainer.svelte";
+    import WidgetHeader from "../widget/WidgetHeader.svelte";
+    import WidgetSection from "../widget/WidgetSection.svelte";
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -73,19 +73,19 @@
     $: _weeks = get_calendar_weeks(month);
 </script>
 
-<PickerContainer {...$$props} bind:element class="day-picker {_class}">
-    <PickerSection>
+<WidgetContainer {...$$props} bind:element class="day-picker {_class}">
+    <WidgetSection>
         {#each _weeks[0] as day}
-            <PickerHeader>
+            <WidgetHeader>
                 {day.toLocaleString(locale, {weekday: "short"}).toLocaleUpperCase(locale)}
-            </PickerHeader>
+            </WidgetHeader>
         {/each}
-    </PickerSection>
+    </WidgetSection>
 
     {#each _weeks as week}
-        <PickerSection>
+        <WidgetSection>
             {#each week as day}
-                <PickerButton
+                <WidgetButton
                     variation={is_current_day(day) ? "outline" : undefined}
                     palette={day.dayOfWeek > 5 ? undefined : palette}
                     active={has_day(value, day)}
@@ -93,8 +93,8 @@
                     on:click={on_day_click.bind(null, day)}
                 >
                     {day.day.toString().padStart(2, "0")}
-                </PickerButton>
+                </WidgetButton>
             {/each}
-        </PickerSection>
+        </WidgetSection>
     {/each}
-</PickerContainer>
+</WidgetContainer>

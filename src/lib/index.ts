@@ -81,15 +81,6 @@ export * from "./components/overlays/offscreen";
 export * from "./components/overlays/overlay";
 export * from "./components/overlays/popover";
 
-export * from "./components/pickers/daypicker";
-export * from "./components/pickers/daystepper";
-export * from "./components/pickers/monthpicker";
-export * from "./components/pickers/monthstepper";
-import * as Picker from "./components/pickers/picker";
-export {Picker};
-export * from "./components/pickers/yearpicker";
-export * from "./components/pickers/yearstepper";
-
 export * from "./components/surfaces/box";
 import * as Card from "./components/surfaces/card";
 export {Card};
@@ -111,6 +102,15 @@ export * from "./components/utilities/intersectionrender";
 export * from "./components/utilities/portal";
 export * from "./components/utilities/serverrender";
 export * from "./components/utilities/transition";
+
+export * from "./components/widgets/daypicker";
+export * from "./components/widgets/daystepper";
+export * from "./components/widgets/monthpicker";
+export * from "./components/widgets/monthstepper";
+import * as Widget from "./components/widgets/widget";
+export {Widget};
+export * from "./components/widgets/yearpicker";
+export * from "./components/widgets/yearstepper";
 
 export * from "./actions/click_outside";
 export * from "./actions/clipping";

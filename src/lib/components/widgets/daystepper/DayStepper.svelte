@@ -7,14 +7,14 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {get_monthstamp, is_month_in_range} from "../../../util/datetime";
+    import {get_daystamp, is_day_in_range} from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import PickerButton from "../picker/PickerButton.svelte";
-    import PickerContainer from "../picker/PickerContainer.svelte";
-    import PickerHeader from "../picker/PickerHeader.svelte";
-    import PickerSection from "../picker/PickerSection.svelte";
+    import WidgetButton from "../widget/WidgetButton.svelte";
+    import WidgetContainer from "../widget/WidgetContainer.svelte";
+    import WidgetHeader from "../widget/WidgetHeader.svelte";
+    import WidgetSection from "../widget/WidgetSection.svelte";
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -27,6 +27,7 @@
         step: number | string;
 
         value: string;
+
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -52,50 +53,42 @@
     export let min: $$Props["min"] = undefined;
     export let step: $$Props["step"] = 1;
 
-    export let value: $$Props["value"] = get_monthstamp(calendar);
+    export let value: $$Props["value"] = get_daystamp(calendar);
 
     export let palette: $$Props["palette"] = undefined;
 
-    function on_month_select(difference: number, event: MouseEvent): void {
+    function on_day_select(difference: number, event: MouseEvent): void {
         // TODO: clamp `step` to `max` / `min`
 
-        // HACK: Switch to only using `Temporal.PlainYearMonth.add` whenever bug for chained-subtractions is released
-        // https://github.com/js-temporal/temporal-polyfill/issues/44
-        // value = _month.add({months: difference}).toString({calendarName: "always"});
-
-        // HACK: `Temporal.PlainDate` doesn't have the same "locking" issue as `Temporal.PlainYearMonth`
-        value = _month
-            .toPlainDate({day: 1})
-            .add({months: difference})
-            .toString({calendarName: "always"});
+        value = _day.add({days: difference}).toString({calendarName: "always"});
     }
 
-    $: _month = Temporal.PlainYearMonth.from(value);
     $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);
+    $: _day = Temporal.PlainDate.from(value);
 </script>
 
-<PickerContainer {...$$props} bind:element class="month-stepper {_class}">
-    <PickerSection variation="flex">
-        <PickerHeader>
-            {_month.toLocaleString(locale, {month: "long", year: "numeric"})}
-        </PickerHeader>
+<WidgetContainer {...$$props} bind:element class="day-stepper {_class}">
+    <WidgetSection variation="flex">
+        <WidgetHeader>
+            {_day.toLocaleString(locale, {month: "long", weekday: "long", day: "2-digit"})}
+        </WidgetHeader>
 
         <Spacer variation="inline" />
 
-        <PickerButton
-            disabled={!is_month_in_range(_month, undefined, min)}
+        <WidgetButton
+            disabled={!is_day_in_range(_day, undefined, min)}
             {palette}
-            on:click={on_month_select.bind(null, _step * -1)}
+            on:click={on_day_select.bind(null, _step * -1)}
         >
             <slot name="previous">&lt;</slot>
-        </PickerButton>
+        </WidgetButton>
 
-        <PickerButton
-            disabled={!is_month_in_range(_month, max)}
+        <WidgetButton
+            disabled={!is_day_in_range(_day, max)}
             {palette}
-            on:click={on_month_select.bind(null, _step)}
+            on:click={on_day_select.bind(null, _step)}
         >
             <slot name="next">&gt;</slot>
-        </PickerButton>
-    </PickerSection>
-</PickerContainer>
+        </WidgetButton>
+    </WidgetSection>
+</WidgetContainer>

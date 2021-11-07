@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {Temporal} from "@js-temporal/polyfill";
+    import type {Temporal} from "@js-temporal/polyfill";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
@@ -69,8 +69,7 @@
         }
     }
 
-    $: _year = Temporal.PlainYearMonth.from(year);
-    $: _quaters = get_calendar_quaters(_year.year, calendar);
+    $: _quaters = get_calendar_quaters(year);
 </script>
 
 <PickerContainer {...$$props} bind:element class="month-picker {_class}">

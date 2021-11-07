@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {Temporal} from "@js-temporal/polyfill";
+    import type {Temporal} from "@js-temporal/polyfill";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
@@ -70,8 +70,7 @@
         }
     }
 
-    $: _month = Temporal.PlainDate.from(month);
-    $: _weeks = get_calendar_weeks(_month.year, _month.month, calendar);
+    $: _weeks = get_calendar_weeks(month);
 </script>
 
 <PickerContainer {...$$props} bind:element class="day-picker {_class}">

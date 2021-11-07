@@ -45,65 +45,31 @@ export function has_year(
 }
 
 export function get_calendar_quaters(
-    year: number,
-    calendar: string = BROWSER_CALENDAR
+    year: string | Temporal.YearMonthLike
 ): Temporal.PlainYearMonth[][] {
-    const date = Temporal.PlainYearMonth.from({
-        calendar,
-        year,
-        month: 1,
-    });
+    const month = Temporal.PlainYearMonth.from(year).with({month: 1});
 
     return chunk(
-        fill(
-            (index) =>
-                Temporal.PlainYearMonth.from({
-                    calendar: BROWSER_CALENDAR,
-                    year: date.year,
-                    month: index + 1,
-                }),
-            date.monthsInYear
-        ),
-        date.monthsInYear / 4
+        fill((index) => month.add({months: index}), month.monthsInYear),
+        month.monthsInYear / 4
     );
 }
 
-export function get_calendar_weeks(
-    year: number,
-    month: number,
-    calendar: string = BROWSER_CALENDAR
-): Temporal.PlainDate[][] {
-    const date = Temporal.PlainYearMonth.from({
-        calendar,
-        year,
-        month,
+export function get_calendar_weeks(month: string | Temporal.YearMonthLike): Temporal.PlainDate[][] {
+    const date = Temporal.PlainYearMonth.from(month).toPlainDate({day: 1});
+
+    const starting_day = date.subtract({
+        days: get_calendar_day(date) - 1,
     });
 
-    let starting_date = Temporal.PlainDate.from({
-        calendar,
-        year: date.year,
-        month: date.month,
-        day: 1,
-    });
-    starting_date = starting_date.subtract({
-        days: get_calendar_day(starting_date) - 1,
-    });
+    let ending_day = date.with({day: date.daysInMonth});
+    ending_day = ending_day.add({days: ending_day.daysInWeek - get_calendar_day(ending_day) + 1});
 
-    let ending_date = Temporal.PlainDate.from({
-        calendar,
-        year: date.year,
-        month: date.month,
-        day: date.daysInMonth,
-    });
-    ending_date = ending_date.add({
-        days: ending_date.daysInWeek - get_calendar_day(ending_date) + 1,
-    });
-
-    const duration = starting_date.until(ending_date);
+    const duration = starting_day.until(ending_day);
 
     return chunk(
-        fill((index) => starting_date.add({days: index}), duration.total({unit: "day"})),
-        starting_date.daysInWeek
+        fill((index) => starting_day.add({days: index}), duration.total({unit: "day"})),
+        date.daysInWeek
     );
 }
 
@@ -112,16 +78,16 @@ export function get_daystamp(calendar: string = BROWSER_CALENDAR): string {
 }
 
 export function get_decade_halves(
-    year: number,
-    calendar: string = BROWSER_CALENDAR
+    year: string | Temporal.YearMonthLike
 ): Temporal.PlainYearMonth[][] {
-    const decade = Math.floor(year / 10) * 10;
+    let decade = Temporal.PlainYearMonth.from(year);
+    decade = decade.with({
+        year: Math.floor(decade.year / 10) * 10,
+        month: 1,
+    });
 
     return chunk(
-        fill(
-            (index) => Temporal.PlainYearMonth.from({calendar, year: decade + index, month: 1}),
-            10
-        ),
+        fill((index) => decade.add({years: index}), 10),
         5
     );
 }

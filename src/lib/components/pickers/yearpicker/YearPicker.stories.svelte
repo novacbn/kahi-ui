@@ -10,7 +10,7 @@
 
     let calendar;
     let locale;
-    let year;
+    let decade;
     let value;
 
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR)
@@ -30,25 +30,25 @@
 </Template>
 
 <Story name="Default">
-    <YearPicker palette="accent" bind:calendar bind:locale bind:year bind:value />
+    <YearPicker palette="accent" bind:calendar bind:locale bind:decade bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, year, value}, null, 4)}
+        {JSON.stringify({calendar, locale, decade, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Multiple">
-    <YearPicker palette="accent" bind:calendar bind:locale bind:year bind:value multiple />
+    <YearPicker palette="accent" bind:calendar bind:locale bind:decade bind:value multiple />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, year, value}, null, 4)}
+        {JSON.stringify({calendar, locale, decade, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Maximum + Minimum">
-    <YearPicker palette="accent" {max} {min} bind:calendar bind:locale bind:year bind:value />
+    <YearPicker palette="accent" {max} {min} bind:calendar bind:locale bind:decade bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, year, value, max, min}, null, 4)}
+        {JSON.stringify({calendar, locale, decade, value, max, min}, null, 4)}
     </Code>
 </Story>

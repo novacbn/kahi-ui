@@ -16,16 +16,20 @@ function to_plain_year(year: string | Temporal.YearMonthLike): Temporal.PlainYea
 
 export function has_day(
     days: readonly (string | Temporal.DateLike)[],
-    day: Temporal.PlainDate
+    day: string | Temporal.DateLike
 ): boolean {
-    return !!days.find((entry) => day.equals(entry));
+    const _day = Temporal.PlainDate.from(day);
+
+    return !!days.find((entry) => _day.equals(entry));
 }
 
 export function has_month(
     months: readonly (string | Temporal.YearMonthLike)[],
-    month: Temporal.PlainYearMonth
+    month: string | Temporal.YearMonthLike
 ): boolean {
-    return !!months.find((entry) => month.equals(entry));
+    const _month = Temporal.PlainYearMonth.from(month);
+
+    return !!months.find((entry) => _month.equals(entry));
 }
 
 export function has_timezone(timestamp: string): boolean {
@@ -34,13 +38,16 @@ export function has_timezone(timestamp: string): boolean {
 
 export function has_year(
     years: readonly (string | Temporal.YearMonthLike)[],
-    year: Temporal.PlainYearMonth
+    year: string | Temporal.YearMonthLike
 ): boolean {
-    return !!years.find((entry) => {
-        // NOTE: We're basically reimplementing `Temporal.PlainYearMonth.equals` to bypass month checking
-        const _year = typeof entry === "string" ? Temporal.PlainYearMonth.from(entry) : entry;
+    // NOTE: We need to set the `Temporal.PlainYearMonth.month` values to
+    // `1` (January) to bypass month checking, sticking to only year / calendar
+    const _year = Temporal.PlainYearMonth.from(year).with({month: 1});
 
-        return year.calendar.toString() === _year.calendar?.toString() && _year.year === year.year;
+    return !!years.find((entry) => {
+        const _entry = Temporal.PlainYearMonth.from(entry).with({month: 1});
+
+        return _year.equals(_entry);
     });
 }
 

@@ -4,9 +4,20 @@
 
     import {BROWSER_CALENDAR} from "../../../util/locale";
 
+    import Stack from "../../layouts/stack/Stack.svelte";
     import Code from "../../typography/code/Code.svelte";
+    import Text from "../../typography/text/Text.svelte";
 
     import MonthStepper from "./MonthStepper.svelte";
+
+    const SIZINGS = [
+        ["default", true],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+    ];
 
     let calendar;
     let locale;
@@ -74,4 +85,18 @@
     <Code is="pre">
         {JSON.stringify({calendar, locale, value}, null, 4)}
     </Code>
+</Story>
+
+<Story name="Sizing">
+    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each SIZINGS as [sizing, is_default] (sizing)}
+            <div>
+                <Text is="strong">
+                    {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <MonthStepper palette="accent" width="content-max" {sizing} />
+            </div>
+        {/each}
+    </Stack>
 </Story>

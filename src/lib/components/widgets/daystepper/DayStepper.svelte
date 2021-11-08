@@ -5,6 +5,7 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {clamp_day, get_daystamp, is_day_in_range} from "../../../util/datetime";
@@ -33,6 +34,7 @@
         value: string;
 
         palette?: PROPERTY_PALETTE;
+        sizing?: PROPERTY_SIZING;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &

@@ -7,7 +7,7 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {get_daystamp, is_day_in_range} from "../../../util/datetime";
+    import {clamp_day, get_daystamp, is_day_in_range} from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
@@ -66,9 +66,9 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_day_select(difference: number, event: MouseEvent): void {
-        // TODO: clamp `step` to `max` / `min`
-
-        value = _day.add({days: difference}).toString({calendarName: "always"});
+        value = clamp_day(_day.add({days: difference}), min, max).toString({
+            calendarName: "always",
+        });
     }
 
     $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);

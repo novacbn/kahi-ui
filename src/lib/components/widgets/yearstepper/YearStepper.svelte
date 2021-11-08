@@ -7,7 +7,7 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {get_yearstamp, is_year_in_range} from "../../../util/datetime";
+    import {clamp_year, get_yearstamp, is_year_in_range} from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
@@ -62,9 +62,9 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_year_select(difference: number, event: MouseEvent): void {
-        // TODO: clamp `step` to `max` / `min`
-
-        value = _year.add({years: difference}).toString({calendarName: "always"});
+        value = clamp_year(_year.add({years: difference}), min, max).toString({
+            calendarName: "always",
+        });
     }
 
     $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);

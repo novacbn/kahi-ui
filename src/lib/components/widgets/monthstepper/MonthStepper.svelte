@@ -7,7 +7,7 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {get_monthstamp, is_month_in_range} from "../../../util/datetime";
+    import {clamp_month, get_monthstamp, is_month_in_range} from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
@@ -63,17 +63,16 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_month_select(difference: number, event: MouseEvent): void {
-        // TODO: clamp `step` to `max` / `min`
-
         // HACK: Switch to only using `Temporal.PlainYearMonth.add` whenever bug for chained-subtractions is released
         // https://github.com/js-temporal/temporal-polyfill/issues/44
         // value = _month.add({months: difference}).toString({calendarName: "always"});
 
         // HACK: `Temporal.PlainDate` doesn't have the same "locking" issue as `Temporal.PlainYearMonth`
-        value = _month
-            .toPlainDate({day: 1})
-            .add({months: difference})
-            .toString({calendarName: "always"});
+        value = clamp_month(
+            _month.toPlainDate({day: 1}).add({months: difference}),
+            min,
+            max
+        ).toString({calendarName: "always"});
     }
 
     $: _month = Temporal.PlainYearMonth.from(value);

@@ -14,7 +14,7 @@
 
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 5}).toString();
     let min = Temporal.Now.plainDate(BROWSER_CALENDAR).subtract({days: 5}).toString();
-    let step = 2;
+    let step = 3;
 </script>
 
 <Meta title="Widgets/DayStepper" />
@@ -44,6 +44,14 @@
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value, step}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Step + Maximum + Minimum">
+    <DayStepper palette="accent" {step} {max} {min} bind:calendar bind:locale bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value, step, max, min}, null, 4)}
     </Code>
 </Story>
 

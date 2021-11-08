@@ -14,6 +14,56 @@ function to_plain_year(year: string | Temporal.YearMonthLike): Temporal.PlainYea
     return Temporal.PlainYearMonth.from(year).with({month: 1});
 }
 
+export function clamp_day(
+    day: string | Temporal.DateLike,
+    min?: string | Temporal.DateLike,
+    max?: string | Temporal.DateLike
+): Temporal.PlainDate {
+    if (max && Temporal.PlainDate.compare(day, max) === 1) return Temporal.PlainDate.from(max);
+    else if (min && Temporal.PlainDate.compare(day, min) === -1) {
+        return Temporal.PlainDate.from(min);
+    }
+
+    return Temporal.PlainDate.from(day);
+}
+
+export function clamp_month(
+    month: string | Temporal.YearMonthLike,
+    min?: string | Temporal.YearMonthLike,
+    max?: string | Temporal.YearMonthLike
+): Temporal.PlainYearMonth {
+    if (max && Temporal.PlainYearMonth.compare(month, max) === 1) {
+        return Temporal.PlainYearMonth.from(max);
+    } else if (min && Temporal.PlainYearMonth.compare(month, min) === -1) {
+        return Temporal.PlainYearMonth.from(min);
+    }
+
+    return Temporal.PlainYearMonth.from(month);
+}
+
+export function clamp_year(
+    year: string | Temporal.YearMonthLike,
+    min?: string | Temporal.YearMonthLike,
+    max?: string | Temporal.YearMonthLike
+): Temporal.PlainYearMonth {
+    // NOTE: We need to set the `Temporal.PlainYearMonth.month` values to
+    // `1` (January) to bypass month checking / normalize months, sticking
+    // to only year / calendar
+    const _year = Temporal.PlainYearMonth.from(year).with({month: 1});
+
+    if (max) {
+        const _max = Temporal.PlainYearMonth.from(max).with({month: 1});
+        if (Temporal.PlainYearMonth.compare(_year, _max) === 1) return _max;
+    }
+
+    if (min) {
+        const _min = Temporal.PlainYearMonth.from(min).with({month: 1});
+        if (Temporal.PlainYearMonth.compare(_year, _min) === -1) return _min;
+    }
+
+    return _year;
+}
+
 export function has_day(
     days: readonly (string | Temporal.DateLike)[],
     day: string | Temporal.DateLike

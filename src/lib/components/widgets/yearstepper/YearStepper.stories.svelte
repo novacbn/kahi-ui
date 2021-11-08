@@ -14,13 +14,13 @@
 
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR)
         .toPlainYearMonth()
-        .add({years: 2})
+        .add({years: 5})
         .toString();
     let min = Temporal.Now.plainDate(BROWSER_CALENDAR)
         .toPlainYearMonth()
-        .subtract({years: 2})
+        .subtract({years: 5})
         .toString();
-    let step = 5;
+    let step = 3;
 </script>
 
 <Meta title="Widgets/YearStepper" />
@@ -50,6 +50,14 @@
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value, step}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Step + Maximum + Minimum">
+    <YearStepper palette="accent" {step} {max} {min} bind:calendar bind:locale bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value, step, max, min}, null, 4)}
     </Code>
 </Story>
 

@@ -45,7 +45,11 @@
     $: _date = Temporal.PlainDate.from(timestamp);
 </script>
 
-<time class="date-stamp {_class}" datetime={_date.toString({calendarName: "never"})}>
+<time
+    bind:this={element}
+    class="date-stamp {_class}"
+    datetime={_date.toString({calendarName: "never"})}
+>
     {_date.toLocaleString(locale, {
         calendar,
         day,

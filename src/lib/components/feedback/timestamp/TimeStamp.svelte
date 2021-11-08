@@ -47,7 +47,7 @@
     $: _time = Temporal.PlainTime.from(timestamp);
 </script>
 
-<time class="time-stamp {_class}" datetime={_time.toString()}>
+<time bind:this={element} class="time-stamp {_class}" datetime={_time.toString()}>
     {_time.toLocaleString(locale, {
         calendar,
         hour,

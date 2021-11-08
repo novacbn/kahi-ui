@@ -1,11 +1,15 @@
 .widget {
+    --sizing-text-size: var(--widget-sizing-text-size);
+    --sizing-text-line-height: var(--widget-sizing-text-line-height);
+
     display: grid;
     grid-auto-rows: 1fr;
     grid-auto-flow: row;
 
-    gap: var(--spacing-local-small);
+    gap: var(--widget-gap);
 
-    font-size: var(--document-font-size);
+    font-size: var(--sizing-text-size);
+    line-height: var(--sizing-text-line-height);
 }
 
 .widget button {
@@ -15,13 +19,13 @@
     align-items: center;
     justify-content: center;
 
-    padding: var(--spacing-local-tiny) var(--spacing-local-small);
+    padding: var(--widget-button-padding-y) var(--widget-button-padding-x);
 
-    border: 2px solid transparent;
-    border-radius: var(--radius-medium);
+    border: var(--widget-button-border-width) solid transparent;
+    border-radius: var(--widget-button-border-radius);
     background: transparent;
 
-    font-weight: bold;
+    font-weight: var(--widget-button-font-weight);
 
     cursor: pointer;
     user-select: none;
@@ -34,7 +38,7 @@
 
     &:disabled {
         cursor: not-allowed;
-        opacity: 0.4;
+        opacity: var(--widget-button-disabled-opacity);
     }
 
     &:not([data-palette]) {
@@ -49,11 +53,17 @@
 
             &:not(:disabled) {
                 &:is(:focus, :hover) {
-                    background: rgba(var(--palette-foreground-normal), 0.2);
+                    background: rgba(
+                        var(--palette-foreground-normal),
+                        var(--widget-button-clear-focus-background-opacity)
+                    );
                 }
 
                 &:is(:active, [aria-pressed="true"]) {
-                    background: rgba(var(--palette-foreground-normal), 0.5);
+                    background: rgba(
+                        var(--palette-foreground-normal),
+                        var(--widget-button-clear-active-background-opacity)
+                    );
                     color: rgb(var(--palette-background-bold));
                 }
             }
@@ -64,11 +74,17 @@
 
             &:not(:disabled) {
                 &:is(:focus, :hover) {
-                    background: rgba(var(--palette-background-bold), 0.2);
+                    background: rgba(
+                        var(--palette-background-bold),
+                        var(--widget-button-clear-focus-background-opacity)
+                    );
                 }
 
                 &:is(:active, [aria-current], [aria-pressed="true"]) {
-                    background: rgba(var(--palette-background-bold), 0.5);
+                    background: rgba(
+                        var(--palette-background-bold),
+                        var(--widget-button-clear-active-background-opacity)
+                    );
                     color: rgb(var(--palette-foreground-normal));
                 }
             }
@@ -82,12 +98,21 @@
 
             &:not(:disabled) {
                 &:is(:focus, :hover) {
-                    background: rgba(var(--palette-foreground-normal), 0.2);
-                    border-color: rgba(var(--palette-foreground-normal), 0.5);
+                    background: rgba(
+                        var(--palette-foreground-normal),
+                        var(--widget-button-outline-focus-background-opacity)
+                    );
+                    border-color: rgba(
+                        var(--palette-foreground-normal),
+                        var(--widget-button-outline-focus-border-opacity)
+                    );
                 }
 
                 &:is(:active, [aria-pressed="true"]) {
-                    background: rgba(var(--palette-foreground-normal), 0.5);
+                    background: rgba(
+                        var(--palette-foreground-normal),
+                        var(--widget-button-outline-active-background-opacity)
+                    );
                     border-color: transparent;
                     color: rgb(var(--palette-background-bold));
                 }
@@ -100,12 +125,21 @@
 
             &:not(:disabled) {
                 &:is(:focus, :hover) {
-                    background: rgba(var(--palette-background-bold), 0.2);
-                    border-color: rgba(var(--palette-background-bold), 0.5);
+                    background: rgba(
+                        var(--palette-background-bold),
+                        var(--widget-button-outline-focus-background-opacity)
+                    );
+                    border-color: rgba(
+                        var(--palette-background-bold),
+                        var(--widget-button-outline-focus-border-opacity)
+                    );
                 }
 
                 &:is(:active, [aria-current], [aria-pressed="true"]) {
-                    background: rgba(var(--palette-background-bold), 0.5);
+                    background: rgba(
+                        var(--palette-background-bold),
+                        var(--widget-button-outline-active-background-opacity)
+                    );
                     border-color: transparent;
                     color: rgb(var(--palette-foreground-normal));
                 }

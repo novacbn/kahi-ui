@@ -30,10 +30,13 @@
         calendar: string;
         locale: string;
 
+        day: Intl.DateTimeFormatOptions["day"];
+        weekday: Intl.DateTimeFormatOptions["weekday"];
+
         max?: string;
         min?: string;
 
-        month: string;
+        timestamp: string;
         value: readonly string[];
 
         palette?: PROPERTY_PALETTE;
@@ -54,10 +57,13 @@
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
+    export let day: $$Props["day"] = "2-digit";
+    export let weekday: $$Props["weekday"] = "short";
+
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let month: $$Props["month"] = get_monthstamp(calendar);
+    export let timestamp: $$Props["timestamp"] = get_monthstamp(calendar);
     export let value: $$Props["value"] = [];
 
     export let palette: $$Props["palette"] = undefined;
@@ -72,29 +78,29 @@
         }
     }
 
-    $: _weeks = get_calendar_weeks(month);
+    $: _weeks = get_calendar_weeks(timestamp);
 </script>
 
 <WidgetContainer {...$$props} bind:element class="day-picker {_class}">
     <WidgetSection>
-        {#each _weeks[0] as day}
+        {#each _weeks[0] as _day}
             <WidgetHeader>
-                {day.toLocaleString(locale, {weekday: "short"}).toLocaleUpperCase(locale)}
+                {_day.toLocaleString(locale, {weekday}).toLocaleUpperCase(locale)}
             </WidgetHeader>
         {/each}
     </WidgetSection>
 
-    {#each _weeks as week}
+    {#each _weeks as _week}
         <WidgetSection>
-            {#each week as day}
+            {#each _week as _day}
                 <WidgetButton
-                    variation={is_current_day(day) ? "outline" : undefined}
-                    palette={day.dayOfWeek > 5 ? undefined : palette}
-                    active={has_day(value, day)}
-                    disabled={!is_day_in_range(day, max, min, true)}
-                    on:click={on_day_click.bind(null, day)}
+                    variation={is_current_day(_day) ? "outline" : undefined}
+                    palette={_day.dayOfWeek > 5 ? undefined : palette}
+                    active={has_day(value, _day)}
+                    disabled={!is_day_in_range(_day, max, min, true)}
+                    on:click={on_day_click.bind(null, _day)}
                 >
-                    {day.day.toString().padStart(2, "0")}
+                    {_day.toLocaleString(locale, {day})}
                 </WidgetButton>
             {/each}
         </WidgetSection>

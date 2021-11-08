@@ -21,7 +21,7 @@
 
     let calendar;
     let locale;
-    let decade;
+    let timestamp;
     let value;
 
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR)
@@ -41,26 +41,41 @@
 </Template>
 
 <Story name="Default">
-    <YearPicker palette="accent" bind:calendar bind:locale bind:decade bind:value />
+    <YearPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, decade, value}, null, 4)}
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Multiple">
-    <YearPicker palette="accent" bind:calendar bind:locale bind:decade bind:value multiple />
+    <YearPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value multiple />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, decade, value}, null, 4)}
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Maximum + Minimum">
-    <YearPicker palette="accent" {max} {min} bind:calendar bind:locale bind:decade bind:value />
+    <YearPicker palette="accent" {max} {min} bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, decade, value, max, min}, null, 4)}
+        {JSON.stringify({calendar, locale, timestamp, value, max, min}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Custom Format">
+    <YearPicker
+        palette="accent"
+        year="2-digit"
+        bind:calendar
+        bind:locale
+        bind:timestamp
+        bind:value
+    />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
     </Code>
 </Story>
 

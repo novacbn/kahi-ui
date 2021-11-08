@@ -29,10 +29,12 @@
         calendar: string;
         locale: string;
 
+        year: Intl.DateTimeFormatOptions["year"];
+
         max?: string;
         min?: string;
 
-        decade: string;
+        timestamp: string;
         value: readonly string[];
 
         palette?: PROPERTY_PALETTE;
@@ -53,10 +55,12 @@
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
+    export let year: $$Props["year"] = "numeric";
+
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let decade: $$Props["decade"] = get_yearstamp(calendar);
+    export let timestamp: $$Props["timestamp"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
 
     export let palette: $$Props["palette"] = undefined;
@@ -71,21 +75,21 @@
         }
     }
 
-    $: _halfs = get_decade_halves(decade);
+    $: _halfs = get_decade_halves(timestamp);
 </script>
 
 <WidgetContainer {...$$props} bind:element class="year-picker {_class}">
-    {#each _halfs as half}
+    {#each _halfs as _half}
         <WidgetSection>
-            {#each half as year}
+            {#each _half as _year}
                 <WidgetButton
-                    variation={is_current_year(year) ? "outline" : undefined}
-                    palette={year.year % 10 === 0 || year.year % 10 === 9 ? undefined : palette}
-                    active={has_year(value, year)}
-                    disabled={!is_year_in_range(year, max, min, true)}
-                    on:click={on_year_click.bind(null, year)}
+                    variation={is_current_year(_year) ? "outline" : undefined}
+                    palette={_year.year % 10 === 0 || _year.year % 10 === 9 ? undefined : palette}
+                    active={has_year(value, _year)}
+                    disabled={!is_year_in_range(_year, max, min, true)}
+                    on:click={on_year_click.bind(null, _year)}
                 >
-                    {year.toLocaleString(locale, {year: "numeric"}).toLocaleUpperCase(locale)}
+                    {_year.toLocaleString(locale, {year}).toLocaleUpperCase(locale)}
                 </WidgetButton>
             {/each}
         </WidgetSection>

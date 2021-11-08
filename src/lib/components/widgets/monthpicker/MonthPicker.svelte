@@ -29,10 +29,12 @@
         calendar: string;
         locale: string;
 
+        month: Intl.DateTimeFormatOptions["month"];
+
         max?: string;
         min?: string;
 
-        year: string;
+        timestamp: string;
         value: readonly string[];
 
         palette?: PROPERTY_PALETTE;
@@ -53,10 +55,12 @@
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
+    export let month: $$Props["month"] = "short";
+
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let year: $$Props["year"] = get_yearstamp(calendar);
+    export let timestamp: $$Props["timestamp"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
 
     export let palette: $$Props["palette"] = undefined;
@@ -71,21 +75,21 @@
         }
     }
 
-    $: _quaters = get_calendar_quaters(year);
+    $: _quaters = get_calendar_quaters(timestamp);
 </script>
 
 <WidgetContainer {...$$props} bind:element class="month-picker {_class}">
-    {#each _quaters as quater}
+    {#each _quaters as _quater}
         <WidgetSection>
-            {#each quater as month}
+            {#each _quater as _month}
                 <WidgetButton
-                    variation={is_current_month(month) ? "outline" : undefined}
-                    palette={month.month % (month.monthsInYear / 4) === 1 ? undefined : palette}
-                    active={has_month(value, month)}
-                    disabled={!is_month_in_range(month, max, min, true)}
-                    on:click={on_month_click.bind(null, month)}
+                    variation={is_current_month(_month) ? "outline" : undefined}
+                    palette={_month.month % (_month.monthsInYear / 4) === 1 ? undefined : palette}
+                    active={has_month(value, _month)}
+                    disabled={!is_month_in_range(_month, max, min, true)}
+                    on:click={on_month_click.bind(null, _month)}
                 >
-                    {month.toLocaleString(locale, {month: "short"}).toLocaleUpperCase(locale)}
+                    {_month.toLocaleString(locale, {month}).toLocaleUpperCase(locale)}
                 </WidgetButton>
             {/each}
         </WidgetSection>

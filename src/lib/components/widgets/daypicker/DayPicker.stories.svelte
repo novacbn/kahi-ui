@@ -21,8 +21,7 @@
 
     let calendar;
     let locale;
-    let month;
-    let year;
+    let timestamp;
     let value;
 
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 3}).toString();
@@ -36,43 +35,42 @@
 </Template>
 
 <Story name="Default">
-    <DayPicker palette="accent" bind:calendar bind:locale bind:month bind:year bind:value />
+    <DayPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, month, year, value}, null, 4)}
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Multiple">
-    <DayPicker
-        palette="accent"
-        bind:calendar
-        bind:locale
-        bind:month
-        bind:year
-        bind:value
-        multiple
-    />
+    <DayPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value multiple />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, month, year, value}, null, 4)}
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Maximum + Minimum">
+    <DayPicker palette="accent" {max} {min} bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value, max, min}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Custom Format">
     <DayPicker
         palette="accent"
-        {max}
-        {min}
+        day="numeric"
+        weekday="long"
         bind:calendar
         bind:locale
-        bind:month
-        bind:year
+        bind:timestamp
         bind:value
     />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, month, year, value, max, min}, null, 4)}
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
     </Code>
 </Story>
 

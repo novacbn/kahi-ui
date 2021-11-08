@@ -24,6 +24,7 @@
     let timestamp;
     let value;
 
+    let disabled = [Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 2}).toString()];
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 3}).toString();
     let min = Temporal.Now.plainDate(BROWSER_CALENDAR).subtract({days: 3}).toString();
 </script>
@@ -39,6 +40,14 @@
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Disabled">
+    <DayPicker palette="accent" {disabled} bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, disabled, value}, null, 4)}
     </Code>
 </Story>
 

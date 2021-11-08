@@ -31,6 +31,7 @@
 
         year: Intl.DateTimeFormatOptions["year"];
 
+        disabled: readonly string[];
         max?: string;
         min?: string;
 
@@ -57,6 +58,7 @@
 
     export let year: $$Props["year"] = "numeric";
 
+    export let disabled: $$Props["disabled"] = [];
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
@@ -86,7 +88,7 @@
                     variation={is_current_year(_year) ? "outline" : undefined}
                     palette={_year.year % 10 === 0 || _year.year % 10 === 9 ? undefined : palette}
                     active={has_year(value, _year)}
-                    disabled={!is_year_in_range(_year, max, min, true)}
+                    disabled={!is_year_in_range(_year, max, min, true) || has_year(disabled, _year)}
                     on:click={on_year_click.bind(null, _year)}
                 >
                     {_year.toLocaleString(locale, {year}).toLocaleUpperCase(locale)}

@@ -24,6 +24,9 @@
     let timestamp;
     let value;
 
+    let disabled = [
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toPlainYearMonth().add({years: 1}).toString(),
+    ];
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR)
         .toPlainYearMonth()
         .add({years: 3})
@@ -45,6 +48,14 @@
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Disabled">
+    <YearPicker palette="accent" {disabled} bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, disabled, value}, null, 4)}
     </Code>
 </Story>
 

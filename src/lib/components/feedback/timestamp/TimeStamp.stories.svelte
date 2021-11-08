@@ -6,7 +6,7 @@
 
     import TimeStamp from "./TimeStamp.svelte";
 
-    const now = Temporal.Now.plainDateTime(BROWSER_CALENDAR).toString();
+    const now = Temporal.Now.plainDateTime(BROWSER_CALENDAR).toString({calendarName: "never"});
 </script>
 
 <Meta title="Feedback/TimeStamp" />
@@ -16,5 +16,5 @@
 </Template>
 
 <Story name="Time">
-    <TimeStamp value={now} hour="numeric" minute="numeric" second="numeric" />
+    <TimeStamp timestamp={now} hour="numeric" minute="numeric" second="numeric" />
 </Story>

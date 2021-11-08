@@ -19,7 +19,7 @@
         month?: Intl.DateTimeFormatOptions["month"];
         year?: Intl.DateTimeFormatOptions["year"];
 
-        value: string;
+        timestamp: string;
 
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
@@ -40,9 +40,9 @@
     export let month: $$Props["month"] = undefined;
     export let year: $$Props["year"] = undefined;
 
-    export let value: $$Props["value"];
+    export let timestamp: $$Props["timestamp"];
 
-    $: _date = Temporal.PlainDate.from(value);
+    $: _date = Temporal.PlainDate.from(timestamp);
 </script>
 
 <time class="date-stamp {_class}" datetime={_date.toString({calendarName: "never"})}>

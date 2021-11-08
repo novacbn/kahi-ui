@@ -25,7 +25,7 @@
         minute?: Intl.DateTimeFormatOptions["minute"];
         second?: Intl.DateTimeFormatOptions["second"];
 
-        value: string;
+        timestamp: string;
 
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
@@ -51,11 +51,11 @@
     export let minute: $$Props["minute"] = undefined;
     export let second: $$Props["second"] = undefined;
 
-    export let value: $$Props["value"];
+    export let timestamp: $$Props["timestamp"];
 
-    $: _datetime = has_timezone(value)
-        ? Temporal.ZonedDateTime.from(value)
-        : Temporal.PlainDateTime.from(value);
+    $: _datetime = has_timezone(timestamp)
+        ? Temporal.ZonedDateTime.from(timestamp)
+        : Temporal.PlainDateTime.from(timestamp);
 </script>
 
 <time class="date-time-stamp {_class}" datetime={_datetime.toString({calendarName: "never"})}>

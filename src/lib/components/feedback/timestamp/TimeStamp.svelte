@@ -20,7 +20,7 @@
         minute?: Intl.DateTimeFormatOptions["minute"];
         second?: Intl.DateTimeFormatOptions["second"];
 
-        value: string;
+        timestamp: string;
 
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
@@ -42,9 +42,9 @@
     export let minute: $$Props["minute"] = undefined;
     export let second: $$Props["second"] = undefined;
 
-    export let value: $$Props["value"];
+    export let timestamp: $$Props["timestamp"];
 
-    $: _time = Temporal.PlainTime.from(value);
+    $: _time = Temporal.PlainTime.from(timestamp);
 </script>
 
 <time class="time-stamp {_class}" datetime={_time.toString()}>

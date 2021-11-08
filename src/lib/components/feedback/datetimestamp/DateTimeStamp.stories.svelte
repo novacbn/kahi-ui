@@ -16,16 +16,16 @@
 </Template>
 
 <Story name="Date">
-    <DateTimeStamp value={now} day="numeric" month="long" year="numeric" />
+    <DateTimeStamp timestamp={now} day="numeric" month="long" year="numeric" />
 </Story>
 
 <Story name="Time">
-    <DateTimeStamp value="04:24:09" hour="numeric" minute="numeric" second="numeric" />
+    <DateTimeStamp timestamp={now} hour="numeric" minute="numeric" second="numeric" />
 </Story>
 
 <Story name="Date + Time">
     <DateTimeStamp
-        value={now}
+        timestamp={now}
         day="numeric"
         month="long"
         year="numeric"

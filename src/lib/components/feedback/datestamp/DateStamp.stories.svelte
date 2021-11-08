@@ -16,5 +16,5 @@
 </Template>
 
 <Story name="Date">
-    <DateStamp value={now} day="numeric" month="long" year="numeric" />
+    <DateStamp timestamp={now} day="numeric" month="long" year="numeric" />
 </Story>

@@ -22,6 +22,9 @@
         calendar: string;
         locale: string;
 
+        month: Intl.DateTimeFormatOptions["month"];
+        year: Intl.DateTimeFormatOptions["year"];
+
         max?: string;
         min?: string;
         step: number | string;
@@ -47,6 +50,9 @@
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
+
+    export let month: $$Props["month"] = "long";
+    export let year: $$Props["year"] = "numeric";
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
@@ -77,7 +83,7 @@
 <WidgetContainer {...$$props} bind:element class="month-stepper {_class}">
     <WidgetSection variation="flex">
         <WidgetHeader>
-            {_month.toLocaleString(locale, {month: "long", year: "numeric"})}
+            {_month.toLocaleString(locale, {month, year})}
         </WidgetHeader>
 
         <Spacer variation="inline" />

@@ -22,6 +22,8 @@
         calendar: string;
         locale: string;
 
+        year: Intl.DateTimeFormatOptions["year"];
+
         max?: string;
         min?: string;
         step: number | string;
@@ -49,6 +51,8 @@
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
+    export let year: $$Props["year"] = "numeric";
+
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
     export let step: $$Props["step"] = 1;
@@ -70,7 +74,7 @@
 <WidgetContainer {...$$props} bind:element class="year-stepper {_class}">
     <WidgetSection variation="flex">
         <WidgetHeader>
-            {_year.toLocaleString(locale, {year: "numeric"})}
+            {_year.toLocaleString(locale, {year})}
         </WidgetHeader>
 
         <Spacer variation="inline" />

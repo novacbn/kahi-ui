@@ -52,3 +52,18 @@
         {JSON.stringify({calendar, locale, value, step}, null, 4)}
     </Code>
 </Story>
+
+<Story name="Custom Format">
+    <MonthStepper
+        palette="accent"
+        month="numeric"
+        year="2-digit"
+        bind:calendar
+        bind:locale
+        bind:value
+    />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value}, null, 4)}
+    </Code>
+</Story>

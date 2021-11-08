@@ -22,6 +22,10 @@
         calendar: string;
         locale: string;
 
+        day: Intl.DateTimeFormatOptions["day"];
+        month: Intl.DateTimeFormatOptions["month"];
+        weekday: Intl.DateTimeFormatOptions["weekday"];
+
         max?: string;
         min?: string;
         step: number | string;
@@ -49,6 +53,10 @@
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
+    export let day: $$Props["day"] = "2-digit";
+    export let month: $$Props["month"] = "long";
+    export let weekday: $$Props["weekday"] = "long";
+
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
     export let step: $$Props["step"] = 1;
@@ -70,7 +78,7 @@
 <WidgetContainer {...$$props} bind:element class="day-stepper {_class}">
     <WidgetSection variation="flex">
         <WidgetHeader>
-            {_day.toLocaleString(locale, {month: "long", weekday: "long", day: "2-digit"})}
+            {_day.toLocaleString(locale, {month, weekday, day})}
         </WidgetHeader>
 
         <Spacer variation="inline" />

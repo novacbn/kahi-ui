@@ -32,7 +32,7 @@
 
         year: Intl.DateTimeFormatOptions["year"];
 
-        disabled: readonly string[];
+        disabled: boolean | readonly string[];
         max?: string;
         min?: string;
 
@@ -92,7 +92,8 @@
                     variation={is_current_year(_year) ? "outline" : undefined}
                     palette={_year.year % 10 === 0 || _year.year % 10 === 9 ? undefined : palette}
                     active={has_year(value, _year)}
-                    disabled={!is_year_in_range(_year, max, min, true) || has_year(disabled, _year)}
+                    disabled={!is_year_in_range(_year, max, min, true) ||
+                        (typeof disabled === "boolean" ? disabled : has_year(disabled, _year))}
                     on:click={on_year_click.bind(null, _year)}
                 >
                     {_year.toLocaleString(locale, {year}).toLocaleUpperCase(locale)}

@@ -44,6 +44,14 @@
 </Story>
 
 <Story name="Disabled">
+    <DayPicker palette="accent" disabled bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Disabled Days">
     <DayPicker palette="accent" {disabled} bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">

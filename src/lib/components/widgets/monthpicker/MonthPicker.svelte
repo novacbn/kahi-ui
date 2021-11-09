@@ -32,7 +32,7 @@
 
         month: Intl.DateTimeFormatOptions["month"];
 
-        disabled: readonly string[];
+        disabled: boolean | readonly string[];
         max?: string;
         min?: string;
 
@@ -60,7 +60,7 @@
 
     export let month: $$Props["month"] = "short";
 
-    export let disabled: $$Props["disabled"] = [];
+    export let disabled: $$Props["disabled"] = false;
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
@@ -93,7 +93,7 @@
                     palette={_month.month % (_month.monthsInYear / 4) === 1 ? undefined : palette}
                     active={has_month(value, _month)}
                     disabled={!is_month_in_range(_month, max, min, true) ||
-                        has_month(disabled, _month)}
+                        (typeof disabled === "boolean" ? disabled : has_month(disabled, _month))}
                     on:click={on_month_click.bind(null, _month)}
                 >
                     {_month.toLocaleString(locale, {month}).toLocaleUpperCase(locale)}

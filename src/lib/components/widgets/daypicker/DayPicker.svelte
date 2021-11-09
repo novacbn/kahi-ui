@@ -34,7 +34,7 @@
         day: Intl.DateTimeFormatOptions["day"];
         weekday: Intl.DateTimeFormatOptions["weekday"];
 
-        disabled: readonly string[];
+        disabled: boolean | readonly string[];
         max?: string;
         min?: string;
 
@@ -63,7 +63,7 @@
     export let day: $$Props["day"] = "2-digit";
     export let weekday: $$Props["weekday"] = "short";
 
-    export let disabled: $$Props["disabled"] = [];
+    export let disabled: $$Props["disabled"] = false;
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
@@ -103,7 +103,8 @@
                     variation={is_current_day(_day) ? "outline" : undefined}
                     palette={_day.dayOfWeek > 5 ? undefined : palette}
                     active={has_day(value, _day)}
-                    disabled={!is_day_in_range(_day, max, min, true) || has_day(disabled, _day)}
+                    disabled={!is_day_in_range(_day, max, min, true) ||
+                        (typeof disabled === "boolean" ? disabled : has_day(disabled, _day))}
                     on:click={on_day_click.bind(null, _day)}
                 >
                     {_day.toLocaleString(locale, {day})}

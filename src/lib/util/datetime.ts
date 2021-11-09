@@ -64,43 +64,6 @@ export function clamp_year(
     return _year;
 }
 
-export function has_day(
-    days: readonly (string | Temporal.DateLike)[],
-    day: string | Temporal.DateLike
-): boolean {
-    const _day = Temporal.PlainDate.from(day);
-
-    return !!days.find((entry) => _day.equals(entry));
-}
-
-export function has_month(
-    months: readonly (string | Temporal.YearMonthLike)[],
-    month: string | Temporal.YearMonthLike
-): boolean {
-    const _month = Temporal.PlainYearMonth.from(month);
-
-    return !!months.find((entry) => _month.equals(entry));
-}
-
-export function has_timezone(timestamp: string): boolean {
-    return EXPRESSION_TIMEZONE.test(timestamp);
-}
-
-export function has_year(
-    years: readonly (string | Temporal.YearMonthLike)[],
-    year: string | Temporal.YearMonthLike
-): boolean {
-    // NOTE: We need to set the `Temporal.PlainYearMonth.month` values to
-    // `1` (January) to bypass month checking, sticking to only year / calendar
-    const _year = Temporal.PlainYearMonth.from(year).with({month: 1});
-
-    return !!years.find((entry) => {
-        const _entry = Temporal.PlainYearMonth.from(entry).with({month: 1});
-
-        return _year.equals(_entry);
-    });
-}
-
 export function get_calendar_quaters(
     year: string | Temporal.YearMonthLike
 ): Temporal.PlainYearMonth[][] {
@@ -149,18 +112,69 @@ export function get_decade_halves(
     );
 }
 
+export function get_hours_range(hour_12: boolean): number[] {
+    if (hour_12) return fill((index) => index + 1, 12);
+    return fill((index) => index, 24);
+}
+
+export function get_minutes_range(): number[] {
+    return fill((index) => index, 60);
+}
+
 export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {
     return Temporal.Now.plainDate(calendar).toPlainYearMonth().toString({calendarName: "always"});
 }
 
-export function get_timestamp(calendar: string = BROWSER_CALENDAR): string {
-    return Temporal.Now.zonedDateTime(calendar).toString({calendarName: "always"});
+export function get_seconds_range(): number[] {
+    return fill((index) => index, 60);
+}
+
+export function get_timestamp(): string {
+    // NOTE: Temporal API only accepts ISO 8601 for zoned time
+    return Temporal.Now.zonedDateTimeISO().toString({calendarName: "always"});
 }
 
 export function get_yearstamp(calendar: string = BROWSER_CALENDAR): string {
     // NOTE: There isn't anything like a `Temporal.PlainYear`, so we're just returning
     // a `Temporal.PlainYearMonth` that is always January of the current year
     return Temporal.Now.plainDate(calendar).with({month: 1}).toString({calendarName: "always"});
+}
+
+export function has_day(
+    days: readonly (string | Temporal.DateLike)[],
+    day: string | Temporal.DateLike
+): boolean {
+    const _day = Temporal.PlainDate.from(day);
+
+    return !!days.find((entry) => _day.equals(entry));
+}
+
+export function has_month(
+    months: readonly (string | Temporal.YearMonthLike)[],
+    month: string | Temporal.YearMonthLike
+): boolean {
+    const _month = Temporal.PlainYearMonth.from(month);
+
+    return !!months.find((entry) => _month.equals(entry));
+}
+
+export function has_timezone(timestamp: string): boolean {
+    return EXPRESSION_TIMEZONE.test(timestamp);
+}
+
+export function has_year(
+    years: readonly (string | Temporal.YearMonthLike)[],
+    year: string | Temporal.YearMonthLike
+): boolean {
+    // NOTE: We need to set the `Temporal.PlainYearMonth.month` values to
+    // `1` (January) to bypass month checking, sticking to only year / calendar
+    const _year = Temporal.PlainYearMonth.from(year).with({month: 1});
+
+    return !!years.find((entry) => {
+        const _entry = Temporal.PlainYearMonth.from(entry).with({month: 1});
+
+        return _year.equals(_entry);
+    });
 }
 
 export function is_current_day(

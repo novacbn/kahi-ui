@@ -162,15 +162,16 @@
 }
 
 .widget section {
+    display: grid;
     gap: var(--spacing-local-small);
 
-    &:not([data-variation]) {
-        display: grid;
+    &:not([data-orientation]) {
         grid-auto-columns: 1fr;
         grid-auto-flow: column;
     }
 
-    &[data-variation="flex"] {
-        display: flex;
+    &[data-orientation~="vertical"] {
+        grid-auto-rows: 1fr;
+        grid-auto-flow: row;
     }
 }

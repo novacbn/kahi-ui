@@ -12,10 +12,10 @@
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
+    import Stack from "../../layouts/stack/Stack.svelte";
     import WidgetButton from "../widget/WidgetButton.svelte";
     import WidgetContainer from "../widget/WidgetContainer.svelte";
     import WidgetHeader from "../widget/WidgetHeader.svelte";
-    import WidgetSection from "../widget/WidgetSection.svelte";
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -78,7 +78,7 @@
 </script>
 
 <WidgetContainer {...$$props} bind:element class="day-stepper {_class}">
-    <WidgetSection variation="flex">
+    <Stack orientation="horizontal" alignment_y="center">
         <WidgetHeader>
             {_day.toLocaleString(locale, {month, weekday, day})}
         </WidgetHeader>
@@ -100,5 +100,5 @@
         >
             <slot name="next">&gt;</slot>
         </WidgetButton>
-    </WidgetSection>
+    </Stack>
 </WidgetContainer>

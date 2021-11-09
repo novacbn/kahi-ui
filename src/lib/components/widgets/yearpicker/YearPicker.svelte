@@ -81,9 +81,9 @@
 </script>
 
 <WidgetContainer {...$$props} bind:element class="year-picker {_class}">
-    {#each _halfs as _half}
+    {#each _halfs as _half, _half_index (_half_index)}
         <WidgetSection>
-            {#each _half as _year}
+            {#each _half as _year (_year.toString())}
                 <WidgetButton
                     variation={is_current_year(_year) ? "outline" : undefined}
                     palette={_year.year % 10 === 0 || _year.year % 10 === 9 ? undefined : palette}

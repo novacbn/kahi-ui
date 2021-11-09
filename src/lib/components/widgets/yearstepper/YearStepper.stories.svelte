@@ -48,6 +48,14 @@
     </Code>
 </Story>
 
+<Story name="Readonly">
+    <YearStepper palette="accent" readonly bind:calendar bind:locale bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value}, null, 4)}
+    </Code>
+</Story>
+
 <Story name="Maximum + Minimum">
     <YearStepper palette="accent" {max} {min} bind:calendar bind:locale bind:value />
 

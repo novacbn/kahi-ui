@@ -26,6 +26,7 @@
         element?: HTMLDivElement;
 
         multiple?: boolean;
+        readonly?: boolean;
 
         calendar: string;
         locale: string;
@@ -54,6 +55,7 @@
     export {_class as class};
 
     export let multiple: $$Props["multiple"] = false;
+    export let readonly: $$Props["readonly"] = false;
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
@@ -71,6 +73,8 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
+        if (readonly) return;
+
         if (has_day(value, day)) {
             value = multiple ? value.filter((entry) => !day.equals(entry)) : [];
         } else {

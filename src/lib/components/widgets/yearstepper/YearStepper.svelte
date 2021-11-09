@@ -20,6 +20,8 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        readonly?: boolean;
+
         calendar: string;
         locale: string;
 
@@ -50,6 +52,8 @@
     let _class = "";
     export {_class as class};
 
+    export let readonly: $$Props["readonly"] = false;
+
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
@@ -64,6 +68,8 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_year_select(difference: number, event: MouseEvent): void {
+        if (readonly) return;
+
         value = clamp_year(_year.add({years: difference}), min, max).toString({
             calendarName: "always",
         });

@@ -59,6 +59,14 @@
     </Code>
 </Story>
 
+<Story name="Readonly">
+    <DayPicker palette="accent" readonly bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
 <Story name="Maximum + Minimum">
     <DayPicker palette="accent" {max} {min} bind:calendar bind:locale bind:timestamp bind:value />
 

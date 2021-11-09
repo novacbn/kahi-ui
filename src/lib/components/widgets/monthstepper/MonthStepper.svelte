@@ -20,6 +20,8 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        readonly?: boolean;
+
         calendar: string;
         locale: string;
 
@@ -50,6 +52,8 @@
     let _class = "";
     export {_class as class};
 
+    export let readonly: $$Props["readonly"] = false;
+
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
     export let locale: $$Props["locale"] = BROWSER_LOCALE;
 
@@ -65,6 +69,8 @@
     export let palette: $$Props["palette"] = undefined;
 
     function on_month_select(difference: number, event: MouseEvent): void {
+        if (readonly) return;
+
         // HACK: Switch to only using `Temporal.PlainYearMonth.add` whenever bug for chained-subtractions is released
         // https://github.com/js-temporal/temporal-polyfill/issues/44
         // value = _month.add({months: difference}).toString({calendarName: "always"});

@@ -48,6 +48,14 @@
     </Code>
 </Story>
 
+<Story name="Disabled">
+    <MonthStepper palette="accent" disabled bind:calendar bind:locale bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value}, null, 4)}
+    </Code>
+</Story>
+
 <Story name="Readonly">
     <MonthStepper palette="accent" readonly bind:calendar bind:locale bind:value />
 

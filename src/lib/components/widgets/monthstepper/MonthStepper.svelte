@@ -20,6 +20,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        disabled?: boolean;
         readonly?: boolean;
 
         calendar: string;
@@ -52,6 +53,7 @@
     let _class = "";
     export {_class as class};
 
+    export let disabled: $$Props["disabled"] = false;
     export let readonly: $$Props["readonly"] = false;
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
@@ -96,7 +98,7 @@
         <Spacer variation="inline" />
 
         <WidgetButton
-            disabled={!is_month_in_range(_month, undefined, min)}
+            disabled={disabled || !is_month_in_range(_month, undefined, min)}
             {palette}
             on:click={on_month_select.bind(null, _step * -1)}
         >
@@ -104,7 +106,7 @@
         </WidgetButton>
 
         <WidgetButton
-            disabled={!is_month_in_range(_month, max)}
+            disabled={disabled || !is_month_in_range(_month, max)}
             {palette}
             on:click={on_month_select.bind(null, _step)}
         >

@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_ORIENTATION_Y} from "../../../types/orientations";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
@@ -10,6 +11,7 @@
     type $$Props = {
         element?: HTMLElement;
 
+        orientation?: PROPERTY_ORIENTATION_Y;
         sizing?: PROPERTY_SIZING;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -26,6 +28,7 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    export let orientation: $$Props["orientation"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
 </script>
 
@@ -33,7 +36,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="widget {_class}"
-    {...map_data_attributes({sizing})}
+    {...map_data_attributes({orientation, sizing})}
 >
     <slot />
 </div>

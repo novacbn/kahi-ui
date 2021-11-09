@@ -90,8 +90,8 @@
         : Temporal.PlainTime.from(value);
 </script>
 
-<WidgetContainer {...$$props} bind:element class="time-picker {_class}">
-    <WidgetSection>
+<WidgetContainer {...$$props} bind:element class="time-picker {_class}" orientation="horizontal">
+    <WidgetSection orientation="vertical">
         {#each _hours as _hour}
             <WidgetButton
                 variation={_timestamp.hour === _hour ? "outline" : undefined}
@@ -105,7 +105,7 @@
         {/each}
     </WidgetSection>
 
-    <WidgetSection>
+    <WidgetSection orientation="vertical">
         {#each _minutes as _minute}
             <WidgetButton
                 variation={_timestamp.minute === _minute ? "outline" : undefined}
@@ -119,7 +119,7 @@
         {/each}
     </WidgetSection>
 
-    <WidgetSection>
+    <WidgetSection orientation="vertical">
         {#each _seconds as _second}
             <WidgetButton
                 variation={_timestamp.second === _second ? "outline" : undefined}

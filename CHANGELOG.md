@@ -8,9 +8,10 @@
 
         -   `Widget` — Provides a holistic set of UI primitives for built-in Widgets.
 
-            -   `<Widget.Button>` — ...
-            -   `<Widget.Header>` — ...
-            -   `<Widget.Section>` — ...
+            -   `<Widget.Container>` — Renders a spaced grid that provides styling to other `<Widget.*>` Components.
+            -   `<Widget.Button>` — Renders a button similar to `<Menu.Button>`.
+            -   `<Widget.Header>` — Renders text with title formatting.
+            -   `<Widget.Section>` — Renders children in a spaced grid.
 
         -   `DayPicker` — Built-in Widget for allowing the user to select a calendar date from a given month.
 

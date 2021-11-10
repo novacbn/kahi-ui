@@ -82,7 +82,10 @@
     }
 
     function on_now_click(event: MouseEvent): void {
-        value = Temporal.Now.plainTimeISO().toString();
+        const current = Temporal.Now.plainTimeISO();
+
+        value = current.toString();
+        period = current.hour < 13 ? TOKENS_CLOCK_PERIOD.am : TOKENS_CLOCK_PERIOD.pm;
 
         scroll_to_current();
     }

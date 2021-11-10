@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+-   Updated `<* spacing spacing_x spacing_y>` global modifiers to use `!important` when applied.
+
 -   Added the following Components / Component Features
 
     -   Widgets

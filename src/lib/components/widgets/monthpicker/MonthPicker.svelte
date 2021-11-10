@@ -96,7 +96,7 @@
 <WidgetContainer {...$$props} bind:element class="month-picker {_class}">
     {#each _quaters as _quater, _quater_index (_quater_index)}
         <WidgetSection>
-            {#each _quater as _month (_month.toString())}
+            {#each _quater as _month (_month.month)}
                 <WidgetButton
                     variation={is_current_month(_month) ? "outline" : undefined}
                     palette={_month.month % (_month.monthsInYear / 4) === 1 ? undefined : palette}

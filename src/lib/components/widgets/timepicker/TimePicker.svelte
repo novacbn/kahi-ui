@@ -130,7 +130,7 @@
 <WidgetContainer {...$$props} bind:element class="time-picker {_class}">
     <WidgetSection bind:element={container_element} spacing="none">
         <WidgetSection orientation="vertical">
-            {#each _hours as _hour (_hour.toString())}
+            {#each _hours as _hour (_hour.hour)}
                 <WidgetButton
                     variation={_timestamp.hour === _hour.hour ? "outline" : undefined}
                     palette={_hour.hour % 12 === 0 || _hour.hour === 23 ? undefined : palette}
@@ -144,7 +144,7 @@
         </WidgetSection>
 
         <WidgetSection orientation="vertical">
-            {#each _minutes as _minute (_minute.toString())}
+            {#each _minutes as _minute (_minute.minute)}
                 <WidgetButton
                     variation={_timestamp.hour === _minute.hour &&
                     _timestamp.minute === _minute.minute
@@ -163,7 +163,7 @@
         </WidgetSection>
 
         <WidgetSection orientation="vertical">
-            {#each _seconds as _second (_second.toString())}
+            {#each _seconds as _second (_second.second)}
                 <WidgetButton
                     variation={_timestamp.hour === _second.hour &&
                     _timestamp.minute === _second.minute &&

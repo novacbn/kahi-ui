@@ -98,7 +98,7 @@
 
 <WidgetContainer {...$$props} bind:element class="day-picker {_class}">
     <WidgetSection>
-        {#each _weeks[0] as _day (_day.toString())}
+        {#each _weeks[0] as _day (_day.dayOfWeek)}
             <WidgetHeader>
                 {_day.toLocaleString(locale, {weekday}).toLocaleUpperCase(locale)}
             </WidgetHeader>
@@ -107,7 +107,7 @@
 
     {#each _weeks as _week, _week_index (_week_index)}
         <WidgetSection>
-            {#each _week as _day (_day.toString())}
+            {#each _week as _day (`${_day.month}${_day.day}`)}
                 <WidgetButton
                     variation={is_current_day(_day) ? "outline" : undefined}
                     palette={_day.dayOfWeek > 5 ? undefined : palette}

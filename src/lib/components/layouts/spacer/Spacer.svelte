@@ -11,7 +11,13 @@
 
         is?: "div" | "span";
 
+        /**
+         * @deprecated Use `<Spacer spacing_x="...">` / `<Spacer spacing_y="...">` instead.
+         */
         orientation?: PROPERTY_ORIENTATION_BREAKPOINT;
+        /**
+         * @deprecated Use `<Spacer is="span">` instead.
+         */
         variation?: "inline";
 
         spacing?: PROPERTY_SPACING_BREAKPOINT;

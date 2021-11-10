@@ -29,7 +29,8 @@
             -   `<DayPicker disabled={string[]}>` — Disables the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps from being selected.
             -   `<DayPicker max={string}>` — Sets the maximum day timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the future that can be selected.
             -   `<DayPicker min={string}>` — Sets the minimum day timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the past that can be selected.
-            -   `<DayPicker timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp to represent the current day.
+            -   `<DayPicker highlight={string[]}>` — Highlights the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps.
+            -   `<DayPicker timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp of the calendar being listed.
             -   `<DayPicker value={string[]}>` — Sets the selected day [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps.
             -   `<DayPicker palette="accent/dark/light/alert/affirmative/negative">` — Alters the rendered color palette.
             -   `<DayPicker sizing="tiny/small/medium/large/huge">` — Alters the sizing of the Widget and children Components.
@@ -64,7 +65,8 @@
             -   `<MonthPicker disabled={string[]}>` — Disables the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps from being selected.
             -   `<MonthPicker max={string}>` — Sets the maximum month timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the future that can be selected.
             -   `<MonthPicker min={string}>` — Sets the minimum month timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the past that can be selected.
-            -   `<MonthPicker timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp to represent the current month.
+            -   `<MonthPicker highlight={string}>` — Highlights the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps.
+            -   `<MonthPicker timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp of the calendar being listed.
             -   `<MonthPicker value={string[]}>` — Sets the selected month [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps.
             -   `<MonthPicker palette="accent/dark/light/alert/affirmative/negative">` — Alters the rendered color palette.
             -   `<MonthPicker sizing="tiny/small/medium/large/huge">` — Alters the sizing of the Widget and children Components.
@@ -95,7 +97,7 @@
             -   `<TimePicker month="2-digit/long/narrow/numeric/short>` — Alters how a displayed month is formatted.
             -   `<TimePicker max={string}>` — Sets the maximum timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the future that can be selected.
             -   `<TimePicker min={string}>` — Sets the minimum timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the past that can be selected.
-            -   `<TimePicker timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp to represent the current time.
+            -   `<TimePicker highlight={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp of the current time.
             -   `<TimePicker value={string}>` — Sets the selected timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime).
             -   `<TimePicker palette="accent/dark/light/alert/affirmative/negative">` — Alters the rendered color palette.
             -   `<TimePicker sizing="tiny/small/medium/large/huge">` — Alters the sizing of the Widget and children Components.
@@ -113,7 +115,8 @@
             -   `<YearPicker disabled={string[]}>` — Disables the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps from being selected.
             -   `<YearPicker max={string}>` — Sets the maximum year timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the future that can be selected.
             -   `<YearPicker min={string}>` — Sets the minimum year timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the past that can be selected.
-            -   `<YearPicker timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp to represent the current year.
+            -   `<YearPicker highlight={string}>` — Highlights the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps.
+            -   `<YearPicker timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp of the calendar being listed.
             -   `<YearPicker value={string[]}>` — Sets the selected year [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps.
             -   `<YearPicker palette="accent/dark/light/alert/affirmative/negative">` — Alters the rendered color palette.
             -   `<YearPicker sizing="tiny/small/medium/large/huge">` — Alters the sizing of the Widget and children Components.

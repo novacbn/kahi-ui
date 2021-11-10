@@ -93,6 +93,18 @@ export function get_calendar_weeks(month: string | Temporal.YearMonthLike): Temp
     );
 }
 
+export function get_clock_ranges(): [
+    Temporal.PlainTime[],
+    Temporal.PlainTime[],
+    Temporal.PlainTime[]
+] {
+    return [
+        fill((index) => new Temporal.PlainTime(index), 24),
+        fill((index) => new Temporal.PlainTime(0, index), 60),
+        fill((index) => new Temporal.PlainTime(0, 0, index), 60),
+    ];
+}
+
 export function get_daystamp(calendar: string = BROWSER_CALENDAR): string {
     return Temporal.Now.plainDate(calendar).toString({calendarName: "always"});
 }
@@ -112,21 +124,8 @@ export function get_decade_halves(
     );
 }
 
-export function get_hours_range(hour_12: boolean): number[] {
-    if (hour_12) return fill((index) => index + 1, 12);
-    return fill((index) => index, 24);
-}
-
-export function get_minutes_range(): number[] {
-    return fill((index) => index, 60);
-}
-
 export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {
     return Temporal.Now.plainDate(calendar).toPlainYearMonth().toString({calendarName: "always"});
-}
-
-export function get_seconds_range(): number[] {
-    return fill((index) => index, 60);
 }
 
 export function get_timestamp(): string {
@@ -191,6 +190,10 @@ export function is_current_month(
     return Temporal.Now.plainDate(calendar).toPlainYearMonth().equals(month);
 }
 
+export function is_current_time(timestamp: string | Temporal.TimeLike): boolean {
+    return Temporal.Now.plainTimeISO().equals(timestamp);
+}
+
 export function is_current_year(
     year: string | Temporal.YearMonthLike,
     calendar: string = BROWSER_CALENDAR
@@ -238,6 +241,17 @@ export function is_month_in_range(
         const _min = inclusive ? Temporal.PlainYearMonth.from(min).subtract({months: 1}) : min;
         if (Temporal.PlainYearMonth.compare(_min, month) > -1) return false;
     }
+
+    return true;
+}
+
+export function is_time_in_range(
+    timestamp: string | Temporal.TimeLike,
+    max?: string | Temporal.TimeLike,
+    min?: string | Temporal.TimeLike
+): boolean {
+    if (max && Temporal.PlainTime.compare(max, timestamp) < 1) return false;
+    else if (min && Temporal.PlainTime.compare(min, timestamp) > -1) return false;
 
     return true;
 }

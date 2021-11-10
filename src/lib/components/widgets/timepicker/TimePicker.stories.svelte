@@ -22,15 +22,8 @@
     let timestamp;
     let value;
 
-    let disabled = [Temporal.Now.plainTimeISO().add({hours: 2}).toString()];
-    let max = Temporal.Now.plainTimeISO()
-
-        .add({hours: 3})
-        .toString();
-    let min = Temporal.Now.plainTimeISO()
-
-        .subtract({hours: 3})
-        .toString();
+    let max = Temporal.Now.plainTimeISO().add({hours: 2, minutes: 10, seconds: 30}).toString();
+    let min = Temporal.Now.plainTimeISO().subtract({hours: 2, minutes: 10, seconds: 30}).toString();
 </script>
 
 <Meta title="Widgets/TimePicker" />
@@ -47,11 +40,46 @@
     </Code>
 </Story>
 
-<Story name="Disabled">x</Story>
+<Story name="Disabled">
+    <TimePicker palette="accent" disabled bind:calendar bind:locale bind:timestamp bind:value />
 
-<Story name="Maximum + Minimum">x</Story>
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
 
-<Story name="Custom Format">x</Story>
+<Story name="Readonly">
+    <TimePicker palette="accent" readonly bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Maximum + Minimum">
+    <TimePicker palette="accent" {max} {min} bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value, max, min}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Custom Format">
+    <TimePicker
+        palette="accent"
+        hour="numeric"
+        minute="numeric"
+        second="numeric"
+        bind:calendar
+        bind:locale
+        bind:timestamp
+        bind:value
+    />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
 
 <Story name="Sizing">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
@@ -61,7 +89,7 @@
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                x
+                <TimePicker palette="accent" width="content-max" {sizing} />
             </div>
         {/each}
     </Stack>

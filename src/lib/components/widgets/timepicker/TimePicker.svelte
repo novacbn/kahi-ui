@@ -128,7 +128,7 @@
 </script>
 
 <WidgetContainer {...$$props} bind:element class="time-picker {_class}">
-    <WidgetSection bind:element={container_element}>
+    <WidgetSection bind:element={container_element} spacing="none">
         <WidgetSection orientation="vertical">
             {#each _hours as _hour (_hour.toString())}
                 <WidgetButton

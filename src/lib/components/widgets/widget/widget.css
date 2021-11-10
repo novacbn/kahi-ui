@@ -2,9 +2,12 @@
     --sizing-text-size: var(--widget-sizing-text-size);
     --sizing-text-line-height: var(--widget-sizing-text-line-height);
 
+    --spacing-x: var(--widget-gap);
+    --spacing-y: var(--widget-gap);
+
     display: grid;
 
-    gap: var(--widget-gap);
+    gap: var(--spacing-y) var(--spacing-x);
 
     font-size: var(--sizing-text-size);
     line-height: var(--sizing-text-line-height);
@@ -172,8 +175,11 @@
 }
 
 .widget section {
+    --spacing-x: var(--widget-section-gap);
+    --spacing-y: var(--widget-section-gap);
+
     display: grid;
-    gap: var(--spacing-local-small);
+    gap: var(--spacing-y) var(--spacing-x);
 
     overflow: auto;
 

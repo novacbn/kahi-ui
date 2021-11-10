@@ -26,4 +26,8 @@
     --widget-button-outline-active-background-opacity: 0.5;
     --widget-button-outline-focus-background-opacity: 0.2;
     --widget-button-outline-focus-border-opacity: 0.5;
+
+    /** */
+
+    --widget-section-gap: var(--spacing-local-small);
 }

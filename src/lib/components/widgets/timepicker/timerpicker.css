@@ -3,7 +3,7 @@
         height: 25ex;
     }
 
-    & > section:last-child {
+    & > section:not(:first-child):last-child {
         height: max-content;
     }
 }

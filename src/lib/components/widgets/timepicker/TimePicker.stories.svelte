@@ -49,6 +49,14 @@
     </Code>
 </Story>
 
+<Story name="Now">
+    <TimePicker palette="accent" now bind:calendar bind:locale bind:timestamp />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value: now}, null, 4)}
+    </Code>
+</Story>
+
 <!-- HACK: Story names cannot start with number literals -->
 <Story name="Twelve (12) Hour">
     <TimePicker palette="accent" hour_12 bind:calendar bind:locale bind:timestamp bind:value />

@@ -20,6 +20,8 @@
 
     type $$Events = {
         change: CustomEvent<void>;
+
+        now: CustomEvent<void>;
     };
 
     type $$Props = {
@@ -31,6 +33,7 @@
 
         hour?: Intl.DateTimeFormatOptions["hour"];
         hour_12?: Intl.DateTimeFormatOptions["hour12"];
+        now: boolean;
         period: PROPERTY_CLOCK_PERIOD;
         minute?: Intl.DateTimeFormatOptions["minute"];
         second?: Intl.DateTimeFormatOptions["second"];
@@ -65,6 +68,7 @@
 
     export let hour: $$Props["hour"] = "2-digit";
     export let hour_12: $$Props["hour_12"] = false;
+    export let now: $$Props["now"] = false;
     export let period: $$Props["period"] = TOKENS_CLOCK_PERIOD.am;
     export let minute: $$Props["minute"] = "2-digit";
     export let second: $$Props["second"] = "2-digit";
@@ -97,6 +101,7 @@
 
         scroll_to_current();
 
+        dispatch("now");
         dispatch("change");
     }
 
@@ -180,27 +185,31 @@
         </WidgetSection>
     </WidgetSection>
 
-    <WidgetSection>
-        <WidgetButton {disabled} {palette} on:click={on_now_click}>NOW</WidgetButton>
+    {#if hour_12 || now}
+        <WidgetSection>
+            {#if now}
+                <WidgetButton {disabled} {palette} on:click={on_now_click}>NOW</WidgetButton>
+            {/if}
 
-        {#if hour_12}
-            <WidgetButton
-                active={period === TOKENS_CLOCK_PERIOD.am}
-                {disabled}
-                {palette}
-                on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.am)}
-            >
-                AM
-            </WidgetButton>
+            {#if hour_12}
+                <WidgetButton
+                    active={period === TOKENS_CLOCK_PERIOD.am}
+                    {disabled}
+                    {palette}
+                    on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.am)}
+                >
+                    AM
+                </WidgetButton>
 
-            <WidgetButton
-                active={period === TOKENS_CLOCK_PERIOD.pm}
-                {disabled}
-                {palette}
-                on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.pm)}
-            >
-                PM
-            </WidgetButton>
-        {/if}
-    </WidgetSection>
+                <WidgetButton
+                    active={period === TOKENS_CLOCK_PERIOD.pm}
+                    {disabled}
+                    {palette}
+                    on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.pm)}
+                >
+                    PM
+                </WidgetButton>
+            {/if}
+        </WidgetSection>
+    {/if}
 </WidgetContainer>

@@ -135,7 +135,7 @@
                     variation={_highlight.hour === _hour.hour ? "outline" : undefined}
                     palette={_hour.hour % 12 === 0 || _hour.hour === 23 ? undefined : palette}
                     active={_value ? _value.hour === _hour.hour : false}
-                    disabled={disabled || !is_time_in_range(_hour, max, min)}
+                    disabled={disabled || !is_time_in_range(_hour, max, min, true)}
                     on:click={on_time_click.bind(null, _hour)}
                 >
                     {_hour.toLocaleString(locale, {hour, hour12: hour_12})}
@@ -154,7 +154,7 @@
                     active={_value
                         ? _value.hour === _minute.hour && _value.minute === _minute.minute
                         : false}
-                    disabled={disabled || !is_time_in_range(_minute, max, min)}
+                    disabled={disabled || !is_time_in_range(_minute, max, min, true)}
                     on:click={on_time_click.bind(null, _minute)}
                 >
                     {_minute.toLocaleString(locale, {minute})}
@@ -176,7 +176,7 @@
                           _value.minute === _second.minute &&
                           _value.second === _second.second
                         : false}
-                    disabled={disabled || !is_time_in_range(_second, max, min)}
+                    disabled={disabled || !is_time_in_range(_second, max, min, true)}
                     on:click={on_time_click.bind(null, _second)}
                 >
                     {_second.toLocaleString(locale, {second})}

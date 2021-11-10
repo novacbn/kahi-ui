@@ -82,6 +82,8 @@
     }
 
     function on_now_click(event: MouseEvent): void {
+        if (readonly) return;
+
         const current = Temporal.Now.plainTimeISO();
 
         value = current.toString();

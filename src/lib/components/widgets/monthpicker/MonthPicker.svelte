@@ -32,6 +32,7 @@
         element?: HTMLDivElement;
 
         multiple?: boolean;
+        once?: boolean;
         readonly?: boolean;
 
         calendar: string;
@@ -60,6 +61,7 @@
     export {_class as class};
 
     export let multiple: $$Props["multiple"] = false;
+    export let once: $$Props["once"] = false;
     export let readonly: $$Props["readonly"] = false;
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
@@ -79,15 +81,17 @@
     function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {
         if (readonly) return;
 
-        if (has_month(value, month)) {
+        if (!once && has_month(value, month)) {
             value = multiple ? value.filter((entry) => !month.equals(entry)) : [];
+
+            dispatch("change");
         } else {
             value = multiple
                 ? [...value, month.toString({calendarName: "always"})]
                 : [month.toString({calendarName: "always"})];
-        }
 
-        dispatch("change");
+            dispatch("change");
+        }
     }
 
     $: _quaters = get_calendar_quaters(timestamp);

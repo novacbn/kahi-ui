@@ -67,6 +67,14 @@
     </Code>
 </Story>
 
+<Story name="Once">
+    <MonthPicker palette="accent" once bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
 <Story name="Readonly">
     <MonthPicker palette="accent" readonly bind:calendar bind:locale bind:timestamp bind:value />
 
@@ -76,7 +84,7 @@
 </Story>
 
 <Story name="Multiple">
-    <MonthPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value multiple />
+    <MonthPicker palette="accent" multiple bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}

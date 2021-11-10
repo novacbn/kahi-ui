@@ -33,6 +33,7 @@
         element?: HTMLDivElement;
 
         multiple?: boolean;
+        once?: boolean;
         readonly?: boolean;
 
         calendar: string;
@@ -62,6 +63,7 @@
     export {_class as class};
 
     export let multiple: $$Props["multiple"] = false;
+    export let once: $$Props["once"] = false;
     export let readonly: $$Props["readonly"] = false;
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
@@ -82,15 +84,17 @@
     function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
         if (readonly) return;
 
-        if (has_day(value, day)) {
+        if (!once && has_day(value, day)) {
             value = multiple ? value.filter((entry) => !day.equals(entry)) : [];
+
+            dispatch("change");
         } else {
             value = multiple
                 ? [...value, day.toString({calendarName: "always"})]
                 : [day.toString({calendarName: "always"})];
-        }
 
-        dispatch("change");
+            dispatch("change");
+        }
     }
 
     $: _weeks = get_calendar_weeks(timestamp);

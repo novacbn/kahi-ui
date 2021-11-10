@@ -32,6 +32,7 @@
         element?: HTMLDivElement;
 
         multiple?: boolean;
+        once?: boolean;
         readonly?: boolean;
 
         calendar: string;
@@ -60,6 +61,7 @@
     export {_class as class};
 
     export let multiple: $$Props["multiple"] = false;
+    export let once: $$Props["once"] = false;
     export let readonly: $$Props["readonly"] = false;
 
     export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
@@ -79,15 +81,17 @@
     function on_year_click(year: Temporal.PlainYearMonth, event: MouseEvent): void {
         if (readonly) return;
 
-        if (has_year(value, year)) {
+        if (!once && has_year(value, year)) {
             value = multiple ? value.filter((entry) => !year.equals(entry)) : [];
+
+            dispatch("change");
         } else {
             value = multiple
                 ? [...value, year.toString({calendarName: "always"})]
                 : [year.toString({calendarName: "always"})];
-        }
 
-        dispatch("change");
+            dispatch("change");
+        }
     }
 
     $: _halfs = get_decade_halves(timestamp);

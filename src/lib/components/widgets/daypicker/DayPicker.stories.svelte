@@ -60,7 +60,15 @@
 </Story>
 
 <Story name="Multiple">
-    <DayPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value multiple />
+    <DayPicker palette="accent" multiple bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Once">
+    <DayPicker palette="accent" once bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}

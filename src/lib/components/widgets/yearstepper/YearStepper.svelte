@@ -1,5 +1,6 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
+    import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
@@ -16,6 +17,12 @@
     import WidgetButton from "../widget/WidgetButton.svelte";
     import WidgetContainer from "../widget/WidgetContainer.svelte";
     import WidgetHeader from "../widget/WidgetHeader.svelte";
+
+    const dispatch = createEventDispatcher();
+
+    type $$Events = {
+        change: CustomEvent<void>;
+    };
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -75,6 +82,8 @@
         value = clamp_year(_year.add({years: difference}), min, max).toString({
             calendarName: "always",
         });
+
+        dispatch("change");
     }
 
     $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);

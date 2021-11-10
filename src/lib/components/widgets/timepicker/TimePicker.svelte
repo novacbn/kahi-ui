@@ -1,6 +1,6 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
-    import {onMount} from "svelte";
+    import {createEventDispatcher, onMount} from "svelte";
 
     import type {PROPERTY_CLOCK_PERIOD} from "../../../types/datetime";
     import {TOKENS_CLOCK_PERIOD} from "../../../types/datetime";
@@ -17,6 +17,10 @@
     import WidgetButton from "../widget/WidgetButton.svelte";
     import WidgetContainer from "../widget/WidgetContainer.svelte";
     import WidgetSection from "../widget/WidgetSection.svelte";
+
+    type $$Events = {
+        change: CustomEvent<void>;
+    };
 
     type $$Props = {
         element?: HTMLDivElement;
@@ -45,6 +49,8 @@
         IMarginProperties &
         IPaddingProperties &
         ISizeProperties;
+
+    const dispatch = createEventDispatcher();
 
     let container_element: HTMLElement;
 
@@ -90,6 +96,8 @@
         period = current.hour < 13 ? TOKENS_CLOCK_PERIOD.am : TOKENS_CLOCK_PERIOD.pm;
 
         scroll_to_current();
+
+        dispatch("change");
     }
 
     function on_period_click(_period: PROPERTY_CLOCK_PERIOD, event: MouseEvent): void {
@@ -100,6 +108,8 @@
         if (readonly) return;
 
         value = timestamp.toString();
+
+        dispatch("change");
     }
 
     onMount(() => {

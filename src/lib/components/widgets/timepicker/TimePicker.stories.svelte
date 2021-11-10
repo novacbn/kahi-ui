@@ -96,6 +96,7 @@
         hour="numeric"
         minute="numeric"
         second="numeric"
+        hour_12
         bind:calendar
         bind:locale
         bind:timestamp

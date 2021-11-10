@@ -1,10 +1,9 @@
-<script context="module" lang="ts">
-    import {Temporal} from "@js-temporal/polyfill";
-
-    const DEFAULT_TIME = new Temporal.PlainTime(0, 0, 0);
-</script>
-
 <script lang="ts">
+    import {Temporal} from "@js-temporal/polyfill";
+    import {onMount} from "svelte";
+
+    import type {PROPERTY_CLOCK_PERIOD} from "../../../types/datetime";
+    import {TOKENS_CLOCK_PERIOD} from "../../../types/datetime";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
@@ -28,6 +27,7 @@
 
         hour?: Intl.DateTimeFormatOptions["hour"];
         hour_12?: Intl.DateTimeFormatOptions["hour12"];
+        period: PROPERTY_CLOCK_PERIOD;
         minute?: Intl.DateTimeFormatOptions["minute"];
         second?: Intl.DateTimeFormatOptions["second"];
 
@@ -46,6 +46,8 @@
         IPaddingProperties &
         ISizeProperties;
 
+    let container_element: HTMLElement;
+
     export let element: $$Props["element"] = undefined;
 
     let _class = "";
@@ -57,6 +59,7 @@
 
     export let hour: $$Props["hour"] = "2-digit";
     export let hour_12: $$Props["hour_12"] = false;
+    export let period: $$Props["period"] = TOKENS_CLOCK_PERIOD.am;
     export let minute: $$Props["minute"] = "2-digit";
     export let second: $$Props["second"] = "2-digit";
 
@@ -69,81 +72,120 @@
 
     export let palette: $$Props["palette"] = undefined;
 
-    function on_time_click(
-        hour: Temporal.PlainTime | undefined,
-        minute: Temporal.PlainTime | undefined,
-        second: Temporal.PlainTime | undefined,
-        event: MouseEvent
-    ): void {
-        if (readonly) return;
+    function scroll_to_current(): void {
+        setTimeout(() => {
+            const elements = container_element.querySelectorAll(`button[aria-pressed="true"]`);
 
-        // TODO: Incorporate `min` into default time?
-        value = (_value || DEFAULT_TIME)
-            .with({
-                hour: hour ? hour.hour : undefined,
-                minute: minute ? minute.minute : undefined,
-                second: second ? second.second : undefined,
-            })
-            .toString();
+            for (const element of elements)
+                element.scrollIntoView({behavior: "smooth", block: "nearest"});
+        }, 0);
     }
 
-    $: [_hours, _minutes, _seconds] = get_clock_ranges();
+    function on_now_click(event: MouseEvent): void {
+        value = Temporal.Now.plainTimeISO().toString();
+
+        scroll_to_current();
+    }
+
+    function on_period_click(_period: PROPERTY_CLOCK_PERIOD, event: MouseEvent): void {
+        period = _period;
+    }
+
+    function on_time_click(timestamp: Temporal.PlainTime, event: MouseEvent): void {
+        if (readonly) return;
+
+        value = timestamp.toString();
+    }
+
+    onMount(() => {
+        scroll_to_current();
+    });
+
+    $: [_hours, _minutes, _seconds] = get_clock_ranges(value || min, hour_12, period);
 
     $: _timestamp = Temporal.PlainTime.from(timestamp);
     $: _value = value ? Temporal.PlainTime.from(value) : null;
 </script>
 
-<WidgetContainer {...$$props} bind:element class="time-picker {_class}" orientation="horizontal">
-    <WidgetSection orientation="vertical">
-        {#each _hours as _hour}
-            <WidgetButton
-                variation={_timestamp.hour === _hour.hour ? "outline" : undefined}
-                palette={_hour.hour % 12 === 0 || _hour.hour === 23 ? undefined : palette}
-                active={_value ? _value.hour === _hour.hour : false}
-                disabled={disabled ||
-                    !is_time_in_range(_value ? _value.with({hour: _hour.hour}) : _hour, max, min)}
-                on:click={on_time_click.bind(null, _hour, undefined, undefined)}
-            >
-                {_hour.toLocaleString(locale, {hour, hour12: hour_12})}
-            </WidgetButton>
-        {/each}
+<WidgetContainer {...$$props} bind:element class="time-picker {_class}">
+    <WidgetSection bind:element={container_element}>
+        <WidgetSection orientation="vertical">
+            {#each _hours as _hour (_hour.toString())}
+                <WidgetButton
+                    variation={_timestamp.hour === _hour.hour ? "outline" : undefined}
+                    palette={_hour.hour % 12 === 0 || _hour.hour === 23 ? undefined : palette}
+                    active={_value ? _value.hour === _hour.hour : false}
+                    disabled={disabled || !is_time_in_range(_hour, max, min)}
+                    on:click={on_time_click.bind(null, _hour)}
+                >
+                    {_hour.toLocaleString(locale, {hour, hour12: hour_12})}
+                </WidgetButton>
+            {/each}
+        </WidgetSection>
+
+        <WidgetSection orientation="vertical">
+            {#each _minutes as _minute (_minute.toString())}
+                <WidgetButton
+                    variation={_timestamp.hour === _minute.hour &&
+                    _timestamp.minute === _minute.minute
+                        ? "outline"
+                        : undefined}
+                    palette={_minute.minute % 5 === 0 ? undefined : palette}
+                    active={_value
+                        ? _value.hour === _minute.hour && _value.minute === _minute.minute
+                        : false}
+                    disabled={disabled || !is_time_in_range(_minute, max, min)}
+                    on:click={on_time_click.bind(null, _minute)}
+                >
+                    {_minute.toLocaleString(locale, {minute})}
+                </WidgetButton>
+            {/each}
+        </WidgetSection>
+
+        <WidgetSection orientation="vertical">
+            {#each _seconds as _second (_second.toString())}
+                <WidgetButton
+                    variation={_timestamp.hour === _second.hour &&
+                    _timestamp.minute === _second.minute &&
+                    _timestamp.second === _second.second
+                        ? "outline"
+                        : undefined}
+                    palette={_second.second % 5 === 0 ? undefined : palette}
+                    active={_value
+                        ? _value.hour === _second.hour &&
+                          _value.minute === _second.minute &&
+                          _value.second === _second.second
+                        : false}
+                    disabled={disabled || !is_time_in_range(_second, max, min)}
+                    on:click={on_time_click.bind(null, _second)}
+                >
+                    {_second.toLocaleString(locale, {second})}
+                </WidgetButton>
+            {/each}
+        </WidgetSection>
     </WidgetSection>
 
-    <WidgetSection orientation="vertical">
-        {#each _minutes as _minute}
-            <WidgetButton
-                variation={_timestamp.minute === _minute.minute ? "outline" : undefined}
-                palette={_minute.minute % 5 === 0 ? undefined : palette}
-                active={_value ? _value.minute === _minute.minute : false}
-                disabled={disabled ||
-                    !is_time_in_range(
-                        _value ? _value.with({minute: _minute.minute}) : _minute,
-                        max,
-                        min
-                    )}
-                on:click={on_time_click.bind(null, undefined, _minute, undefined)}
-            >
-                {_minute.toLocaleString(locale, {minute})}
-            </WidgetButton>
-        {/each}
-    </WidgetSection>
+    <WidgetSection>
+        <WidgetButton {disabled} {palette} on:click={on_now_click}>NOW</WidgetButton>
 
-    <WidgetSection orientation="vertical">
-        {#each _seconds as _second}
+        {#if hour_12}
             <WidgetButton
-                variation={_timestamp.second === _second.second ? "outline" : undefined}
-                palette={_second.second % 5 === 0 ? undefined : palette}
-                active={_value ? _value.second === _second.second : false}
-                disabled={disabled ||
-                    !is_time_in_range(
-                        _value ? _value.with({second: _second.second}) : _second,
-                        max,
-                        min
-                    )}
-                on:click={on_time_click.bind(null, undefined, undefined, _second)}
+                active={period === TOKENS_CLOCK_PERIOD.am}
+                {disabled}
+                {palette}
+                on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.am)}
             >
-                {_second.toLocaleString(locale, {second})}
+                AM
             </WidgetButton>
-        {/each}
+
+            <WidgetButton
+                active={period === TOKENS_CLOCK_PERIOD.pm}
+                {disabled}
+                {palette}
+                on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.pm)}
+            >
+                PM
+            </WidgetButton>
+        {/if}
     </WidgetSection>
 </WidgetContainer>

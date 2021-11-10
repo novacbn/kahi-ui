@@ -1,3 +1,9 @@
 .time-picker {
-    height: 25ex;
+    & > section:first-child {
+        height: 25ex;
+    }
+
+    & > section:last-child {
+        height: max-content;
+    }
 }

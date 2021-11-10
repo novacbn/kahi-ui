@@ -22,6 +22,7 @@
     let timestamp;
     let value;
 
+    let now = Temporal.Now.plainTimeISO();
     let max = Temporal.Now.plainTimeISO().add({hours: 2, minutes: 10, seconds: 30}).toString();
     let min = Temporal.Now.plainTimeISO().subtract({hours: 2, minutes: 10, seconds: 30}).toString();
 </script>
@@ -34,6 +35,23 @@
 
 <Story name="Default">
     <TimePicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Auto Scroll">
+    <TimePicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value={now} />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value: now}, null, 4)}
+    </Code>
+</Story>
+
+<!-- HACK: Story names cannot start with number literals -->
+<Story name="Twelve (12) Hour">
+    <TimePicker palette="accent" hour_12 bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}

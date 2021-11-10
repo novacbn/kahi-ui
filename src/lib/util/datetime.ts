@@ -1,5 +1,8 @@
 import {Temporal} from "@js-temporal/polyfill";
 
+import type {PROPERTY_CLOCK_PERIOD} from "../types/datetime";
+import {TOKENS_CLOCK_PERIOD} from "../types/datetime";
+
 import {chunk, fill} from "./functional";
 import {BROWSER_CALENDAR} from "./locale";
 import {wrap} from "./math";
@@ -93,15 +96,25 @@ export function get_calendar_weeks(month: string | Temporal.YearMonthLike): Temp
     );
 }
 
-export function get_clock_ranges(): [
-    Temporal.PlainTime[],
-    Temporal.PlainTime[],
-    Temporal.PlainTime[]
-] {
+export function get_clock_ranges(
+    value?: string | Temporal.TimeLike,
+    hour_12: boolean = false,
+    period: PROPERTY_CLOCK_PERIOD = TOKENS_CLOCK_PERIOD.am
+): [Temporal.PlainTime[], Temporal.PlainTime[], Temporal.PlainTime[]] {
+    const base = value ? Temporal.PlainTime.from(value) : new Temporal.PlainTime();
+
     return [
-        fill((index) => new Temporal.PlainTime(index), 24),
-        fill((index) => new Temporal.PlainTime(0, index), 60),
-        fill((index) => new Temporal.PlainTime(0, 0, index), 60),
+        hour_12
+            ? fill(
+                  (index) =>
+                      period === TOKENS_CLOCK_PERIOD.am
+                          ? base.with({hour: index})
+                          : base.with({hour: index + 12}),
+                  12
+              )
+            : fill((index) => base.with({hour: index}), 24),
+        fill((index) => base.with({minute: index}), 60),
+        fill((index) => base.with({second: index}), 60),
     ];
 }
 

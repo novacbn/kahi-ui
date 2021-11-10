@@ -69,7 +69,6 @@
     export let hour: $$Props["hour"] = "2-digit";
     export let hour_12: $$Props["hour_12"] = false;
     export let now: $$Props["now"] = false;
-    export let period: $$Props["period"] = TOKENS_CLOCK_PERIOD.am;
     export let minute: $$Props["minute"] = "2-digit";
     export let second: $$Props["second"] = "2-digit";
 
@@ -81,6 +80,12 @@
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;
+
+    // HACK: For UX (User Experience), it's a good idea here to match the period to the initial time
+    export let period: $$Props["period"] =
+        value && Temporal.PlainTime.from(value).hour > 12
+            ? TOKENS_CLOCK_PERIOD.pm
+            : TOKENS_CLOCK_PERIOD.am;
 
     function scroll_to_current(): void {
         setTimeout(() => {
@@ -97,7 +102,7 @@
         const current = Temporal.Now.plainTimeISO();
 
         value = current.toString();
-        period = current.hour < 13 ? TOKENS_CLOCK_PERIOD.am : TOKENS_CLOCK_PERIOD.pm;
+        period = current.hour > 12 ? TOKENS_CLOCK_PERIOD.pm : TOKENS_CLOCK_PERIOD.am;
 
         scroll_to_current();
 

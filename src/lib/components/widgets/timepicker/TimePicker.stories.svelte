@@ -21,7 +21,7 @@
     let locale;
     let value;
 
-    let now = Temporal.Now.plainTimeISO();
+    let now = Temporal.Now.plainTimeISO().toString();
     let max = Temporal.Now.plainTimeISO().add({hours: 2, minutes: 10, seconds: 30}).toString();
     let min = Temporal.Now.plainTimeISO().subtract({hours: 2, minutes: 10, seconds: 30}).toString();
     let highlight = Temporal.Now.plainTimeISO()
@@ -51,8 +51,8 @@
     </Code>
 </Story>
 
-<Story name="Now">
-    <TimePicker palette="accent" now bind:calendar bind:locale />
+<Story name="Now Button">
+    <TimePicker palette="accent" hour_12 now bind:calendar bind:locale />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value: now}, null, 4)}
@@ -61,10 +61,10 @@
 
 <!-- HACK: Story names cannot start with number literals -->
 <Story name="Twelve (12) Hour">
-    <TimePicker palette="accent" hour_12 bind:calendar bind:locale bind:value />
+    <TimePicker palette="accent" hour_12 bind:calendar bind:locale bind:value={now} />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, value}, null, 4)}
+        {JSON.stringify({calendar, locale, value: now}, null, 4)}
     </Code>
 </Story>
 

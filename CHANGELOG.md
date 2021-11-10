@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added suggestions to existing deprecation notices.
+-   Fixed typings for `<* hidden={boolean}>` global modifier.
+
 ## v0.4.9 - 2021/10/27
 
 -   Hotfix for missing CSS distributables.

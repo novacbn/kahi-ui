@@ -27,6 +27,11 @@
     let disabled = [Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 2}).toString()];
     let max = Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 3}).toString();
     let min = Temporal.Now.plainDate(BROWSER_CALENDAR).subtract({days: 3}).toString();
+    let highlight = [
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toString(),
+        Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 1}).toString(),
+        Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 2}).toString(),
+    ];
 </script>
 
 <Meta title="Widgets/DayPicker" />
@@ -80,6 +85,14 @@
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Highlight">
+    <DayPicker palette="accent" {highlight} bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value, highlight}, null, 4)}
     </Code>
 </Story>
 

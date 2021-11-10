@@ -11,9 +11,9 @@
 
     import {
         get_calendar_quaters,
+        get_monthstamp,
         get_yearstamp,
         has_month,
-        is_current_month,
         is_month_in_range,
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
@@ -44,6 +44,7 @@
         max?: string;
         min?: string;
 
+        highlight: readonly string[];
         timestamp: string;
         value: readonly string[];
 
@@ -73,6 +74,7 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
+    export let highlight: $$Props["highlight"] = [get_monthstamp(calendar)];
     export let timestamp: $$Props["timestamp"] = get_yearstamp(calendar);
     export let value: $$Props["value"] = [];
 
@@ -102,7 +104,7 @@
         <WidgetSection>
             {#each _quater as _month (_month.month)}
                 <WidgetButton
-                    variation={is_current_month(_month) ? "outline" : undefined}
+                    variation={has_month(highlight, _month) ? "outline" : undefined}
                     palette={_month.month % (_month.monthsInYear / 4) === 1 ? undefined : palette}
                     active={has_month(value, _month)}
                     disabled={!is_month_in_range(_month, max, min, true) ||

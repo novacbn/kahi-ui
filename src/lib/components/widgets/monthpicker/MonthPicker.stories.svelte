@@ -35,6 +35,11 @@
         .toPlainYearMonth()
         .subtract({months: 2})
         .toString();
+    let highlight = [
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toPlainYearMonth().add({months: 1}).toString(),
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toPlainYearMonth().add({months: 2}).toString(),
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toPlainYearMonth().add({months: 3}).toString(),
+    ];
 </script>
 
 <Meta title="Widgets/MonthPicker" />
@@ -88,6 +93,14 @@
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Highlight">
+    <MonthPicker palette="accent" {highlight} bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value, highlight}, null, 4)}
     </Code>
 </Story>
 

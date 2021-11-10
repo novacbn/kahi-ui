@@ -35,6 +35,12 @@
         .toPlainYearMonth()
         .subtract({years: 3})
         .toString();
+    let highlight = [
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toPlainYearMonth().add({years: 1}).toString(),
+
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toPlainYearMonth().add({years: 2}).toString(),
+        Temporal.Now.plainDate(BROWSER_CALENDAR).toPlainYearMonth().add({years: 3}).toString(),
+    ];
 </script>
 
 <Meta title="Widgets/YearPicker" />
@@ -88,6 +94,14 @@
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Highlight">
+    <YearPicker palette="accent" {highlight} bind:calendar bind:locale bind:timestamp bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, timestamp, value, highlight}, null, 4)}
     </Code>
 </Story>
 

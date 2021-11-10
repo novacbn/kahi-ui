@@ -19,12 +19,14 @@
 
     let calendar;
     let locale;
-    let timestamp;
     let value;
 
     let now = Temporal.Now.plainTimeISO();
     let max = Temporal.Now.plainTimeISO().add({hours: 2, minutes: 10, seconds: 30}).toString();
     let min = Temporal.Now.plainTimeISO().subtract({hours: 2, minutes: 10, seconds: 30}).toString();
+    let highlight = Temporal.Now.plainTimeISO()
+        .add({hours: 1, minutes: 15, seconds: 30})
+        .toString();
 </script>
 
 <Meta title="Widgets/TimePicker" />
@@ -34,59 +36,67 @@
 </Template>
 
 <Story name="Default">
-    <TimePicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
+    <TimePicker palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+        {JSON.stringify({calendar, locale, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Auto Scroll">
-    <TimePicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value={now} />
+    <TimePicker palette="accent" bind:calendar bind:locale bind:value={now} />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value: now}, null, 4)}
+        {JSON.stringify({calendar, locale, value: now}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Now">
-    <TimePicker palette="accent" now bind:calendar bind:locale bind:timestamp />
+    <TimePicker palette="accent" now bind:calendar bind:locale />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value: now}, null, 4)}
+        {JSON.stringify({calendar, locale, value: now}, null, 4)}
     </Code>
 </Story>
 
 <!-- HACK: Story names cannot start with number literals -->
 <Story name="Twelve (12) Hour">
-    <TimePicker palette="accent" hour_12 bind:calendar bind:locale bind:timestamp bind:value />
+    <TimePicker palette="accent" hour_12 bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+        {JSON.stringify({calendar, locale, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Disabled">
-    <TimePicker palette="accent" disabled bind:calendar bind:locale bind:timestamp bind:value />
+    <TimePicker palette="accent" disabled bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+        {JSON.stringify({calendar, locale, value}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Readonly">
-    <TimePicker palette="accent" readonly bind:calendar bind:locale bind:timestamp bind:value />
+    <TimePicker palette="accent" readonly bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+        {JSON.stringify({calendar, locale, value}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Highlight">
+    <TimePicker palette="accent" {highlight} bind:calendar bind:locale bind:value />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value, highlight}, null, 4)}
     </Code>
 </Story>
 
 <Story name="Maximum + Minimum">
-    <TimePicker palette="accent" {max} {min} bind:calendar bind:locale bind:timestamp bind:value />
+    <TimePicker palette="accent" {max} {min} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value, max, min}, null, 4)}
+        {JSON.stringify({calendar, locale, value, max, min}, null, 4)}
     </Code>
 </Story>
 
@@ -99,12 +109,11 @@
         hour_12
         bind:calendar
         bind:locale
-        bind:timestamp
         bind:value
     />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, timestamp, value}, null, 4)}
+        {JSON.stringify({calendar, locale, value}, null, 4)}
     </Code>
 </Story>
 

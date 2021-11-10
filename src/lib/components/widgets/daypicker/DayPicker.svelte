@@ -11,9 +11,9 @@
 
     import {
         get_calendar_weeks,
+        get_daystamp,
         get_monthstamp,
         has_day,
-        is_current_day,
         is_day_in_range,
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
@@ -46,6 +46,7 @@
         max?: string;
         min?: string;
 
+        highlight: readonly string[];
         timestamp: string;
         value: readonly string[];
 
@@ -76,6 +77,7 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
+    export let highlight: $$Props["highlight"] = [get_daystamp(calendar)];
     export let timestamp: $$Props["timestamp"] = get_monthstamp(calendar);
     export let value: $$Props["value"] = [];
 
@@ -113,7 +115,7 @@
         <WidgetSection>
             {#each _week as _day (`${_day.month}${_day.day}`)}
                 <WidgetButton
-                    variation={is_current_day(_day) ? "outline" : undefined}
+                    variation={has_day(highlight, _day) ? "outline" : undefined}
                     palette={_day.dayOfWeek > 5 ? undefined : palette}
                     active={has_day(value, _day)}
                     disabled={!is_day_in_range(_day, max, min, true) ||

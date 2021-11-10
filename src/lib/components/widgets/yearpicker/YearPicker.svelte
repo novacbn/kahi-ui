@@ -13,7 +13,6 @@
         get_decade_halves,
         get_yearstamp,
         has_year,
-        is_current_year,
         is_year_in_range,
     } from "../../../util/datetime";
     import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
@@ -44,6 +43,7 @@
         max?: string;
         min?: string;
 
+        highlight: readonly string[];
         timestamp: string;
         value: readonly string[];
 
@@ -73,7 +73,13 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let timestamp: $$Props["timestamp"] = get_yearstamp(calendar);
+    // HACK: We could do `highlight = [timestamp]`, however that would tie `highlight`'s
+    // default value to `timestamp`. Which might not be expected or wanted default behavior
+
+    const yearstamp = get_yearstamp(calendar);
+
+    export let highlight: $$Props["highlight"] = [yearstamp];
+    export let timestamp: $$Props["timestamp"] = yearstamp;
     export let value: $$Props["value"] = [];
 
     export let palette: $$Props["palette"] = undefined;
@@ -102,7 +108,7 @@
         <WidgetSection>
             {#each _half as _year (_year.year)}
                 <WidgetButton
-                    variation={is_current_year(_year) ? "outline" : undefined}
+                    variation={has_year(highlight, _year) ? "outline" : undefined}
                     palette={_year.year % 10 === 0 || _year.year % 10 === 9 ? undefined : palette}
                     active={has_year(value, _year)}
                     disabled={!is_year_in_range(_year, max, min, true) ||

@@ -42,7 +42,7 @@
         max?: string;
         min?: string;
 
-        timestamp: string;
+        highlight: string;
         value: string;
 
         palette?: PROPERTY_PALETTE;
@@ -77,7 +77,7 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let timestamp: $$Props["timestamp"] = get_timestamp();
+    export let highlight: $$Props["highlight"] = get_timestamp();
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;
@@ -123,7 +123,7 @@
 
     $: [_hours, _minutes, _seconds] = get_clock_ranges(value || min, hour_12, period);
 
-    $: _timestamp = Temporal.PlainTime.from(timestamp);
+    $: _highlight = Temporal.PlainTime.from(highlight);
     $: _value = value ? Temporal.PlainTime.from(value) : null;
 </script>
 
@@ -132,7 +132,7 @@
         <WidgetSection orientation="vertical">
             {#each _hours as _hour (_hour.hour)}
                 <WidgetButton
-                    variation={_timestamp.hour === _hour.hour ? "outline" : undefined}
+                    variation={_highlight.hour === _hour.hour ? "outline" : undefined}
                     palette={_hour.hour % 12 === 0 || _hour.hour === 23 ? undefined : palette}
                     active={_value ? _value.hour === _hour.hour : false}
                     disabled={disabled || !is_time_in_range(_hour, max, min)}
@@ -146,8 +146,8 @@
         <WidgetSection orientation="vertical">
             {#each _minutes as _minute (_minute.minute)}
                 <WidgetButton
-                    variation={_timestamp.hour === _minute.hour &&
-                    _timestamp.minute === _minute.minute
+                    variation={_highlight.hour === _minute.hour &&
+                    _highlight.minute === _minute.minute
                         ? "outline"
                         : undefined}
                     palette={_minute.minute % 5 === 0 ? undefined : palette}
@@ -165,9 +165,9 @@
         <WidgetSection orientation="vertical">
             {#each _seconds as _second (_second.second)}
                 <WidgetButton
-                    variation={_timestamp.hour === _second.hour &&
-                    _timestamp.minute === _second.minute &&
-                    _timestamp.second === _second.second
+                    variation={_highlight.hour === _second.hour &&
+                    _highlight.minute === _second.minute &&
+                    _highlight.second === _second.second
                         ? "outline"
                         : undefined}
                     palette={_second.second % 5 === 0 ? undefined : palette}

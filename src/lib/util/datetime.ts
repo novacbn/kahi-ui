@@ -189,37 +189,6 @@ export function has_year(
     });
 }
 
-export function is_current_day(
-    day: string | Temporal.DateLike,
-    calendar: string = BROWSER_CALENDAR
-): boolean {
-    return Temporal.Now.plainDate(calendar).equals(day);
-}
-
-export function is_current_month(
-    month: string | Temporal.YearMonthLike,
-    calendar: string = BROWSER_CALENDAR
-): boolean {
-    return Temporal.Now.plainDate(calendar).toPlainYearMonth().equals(month);
-}
-
-export function is_current_time(timestamp: string | Temporal.TimeLike): boolean {
-    return Temporal.Now.plainTimeISO().equals(timestamp);
-}
-
-export function is_current_year(
-    year: string | Temporal.YearMonthLike,
-    calendar: string = BROWSER_CALENDAR
-): boolean {
-    // NOTE: This is slightly more complicated due to there being no concept
-    // of a `Temporal.PlainYear` API
-
-    return Temporal.Now.plainDate(calendar)
-        .toPlainYearMonth()
-        .with({month: 1})
-        .equals(to_plain_year(year));
-}
-
 export function is_day_in_range(
     month: string | Temporal.DateLike,
     max?: string | Temporal.DateLike,

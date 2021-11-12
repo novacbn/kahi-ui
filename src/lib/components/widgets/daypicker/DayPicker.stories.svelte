@@ -2,7 +2,7 @@
     import {Temporal} from "@js-temporal/polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {BROWSER_CALENDAR} from "../../../util/locale";
+    import {DEFAULT_CALENDAR} from "../../../util/locale";
 
     import Stack from "../../layouts/stack/Stack.svelte";
     import Code from "../../typography/code/Code.svelte";
@@ -24,13 +24,13 @@
     let timestamp;
     let value;
 
-    let disabled = [Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 2}).toString()];
-    let max = Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 3}).toString();
-    let min = Temporal.Now.plainDate(BROWSER_CALENDAR).subtract({days: 3}).toString();
+    let disabled = [Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 2}).toString()];
+    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 3}).toString();
+    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR).subtract({days: 3}).toString();
     let highlight = [
-        Temporal.Now.plainDate(BROWSER_CALENDAR).toString(),
-        Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 1}).toString(),
-        Temporal.Now.plainDate(BROWSER_CALENDAR).add({days: 2}).toString(),
+        Temporal.Now.plainDate(DEFAULT_CALENDAR).toString(),
+        Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 1}).toString(),
+        Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 2}).toString(),
     ];
 </script>
 

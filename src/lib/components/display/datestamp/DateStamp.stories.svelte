@@ -2,11 +2,11 @@
     import {Temporal} from "@js-temporal/polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {BROWSER_CALENDAR} from "../../../util/locale";
+    import {DEFAULT_CALENDAR} from "../../../util/locale";
 
     import DateStamp from "./DateStamp.svelte";
 
-    const now = Temporal.Now.plainDate(BROWSER_CALENDAR).toString();
+    const now = Temporal.Now.plainDate(DEFAULT_CALENDAR).toString();
 </script>
 
 <Meta title="Display/DateStamp" />

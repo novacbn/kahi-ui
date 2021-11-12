@@ -25,6 +25,14 @@ export function debounce<F extends (...args: any[]) => void | Promise<void>>(
     };
 }
 
+export function defaultopt<T extends object>(value: T, default_value: T): T {
+    for (const key in value) {
+        if (typeof value[key] !== "undefined") return value;
+    }
+
+    return default_value;
+}
+
 export function fill<T>(generator: (index: number) => T, length: number): T[] {
     return new Array(length).fill(null).map((_, index) => generator(index));
 }

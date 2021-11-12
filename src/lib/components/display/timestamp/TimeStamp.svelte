@@ -7,12 +7,13 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+    import {map_global_attributes} from "../../../util/attributes";
+    import {defaultopt} from "../../../util/functional";
+    import {DEFAULT_FORMAT_TIME, DEFAULT_LOCALE} from "../../../util/locale";
 
     type $$Props = {
         element?: HTMLTimeElement;
 
-        calendar: string;
         locale: string;
 
         hour?: Intl.DateTimeFormatOptions["hour"];
@@ -34,7 +35,6 @@
     let _class = "";
     export {_class as class};
 
-    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
     export let locale: $$Props["locale"] = DEFAULT_LOCALE;
 
     export let hour: $$Props["hour"] = undefined;
@@ -44,15 +44,20 @@
 
     export let timestamp: $$Props["timestamp"];
 
+    $: _options = defaultopt({hour, hour_12, minute, second}, DEFAULT_FORMAT_TIME);
     $: _time = Temporal.PlainTime.from(timestamp);
 </script>
 
-<time bind:this={element} class="time-stamp {_class}" datetime={_time.toString()}>
+<time
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    class="time-stamp {_class}"
+    datetime={_time.toString()}
+>
     {_time.toLocaleString(locale, {
-        calendar,
-        hour,
-        hour12: hour_12,
-        minute,
-        second,
+        hour: _options.hour,
+        hour12: _options.hour_12,
+        minute: _options.minute,
+        second: _options.second,
     })}
 </time>

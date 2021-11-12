@@ -4,7 +4,7 @@ import type {PROPERTY_CLOCK_PERIOD} from "../types/datetime";
 import {TOKENS_CLOCK_PERIOD} from "../types/datetime";
 
 import {chunk, fill} from "./functional";
-import {BROWSER_CALENDAR} from "./locale";
+import {DEFAULT_CALENDAR} from "./locale";
 import {wrap} from "./math";
 
 const EXPRESSION_TIMEZONE = /\[[\w/]+\]$/;
@@ -121,7 +121,7 @@ export function get_clock_ranges(
     ];
 }
 
-export function get_daystamp(calendar: string = BROWSER_CALENDAR): string {
+export function get_daystamp(calendar: string = DEFAULT_CALENDAR): string {
     return Temporal.Now.plainDate(calendar).toString({calendarName: "always"});
 }
 
@@ -140,7 +140,7 @@ export function get_decade_halves(
     );
 }
 
-export function get_monthstamp(calendar: string = BROWSER_CALENDAR): string {
+export function get_monthstamp(calendar: string = DEFAULT_CALENDAR): string {
     return Temporal.Now.plainDate(calendar).toPlainYearMonth().toString({calendarName: "always"});
 }
 
@@ -149,7 +149,7 @@ export function get_timestamp(): string {
     return Temporal.Now.zonedDateTimeISO().toString({calendarName: "always"});
 }
 
-export function get_yearstamp(calendar: string = BROWSER_CALENDAR): string {
+export function get_yearstamp(calendar: string = DEFAULT_CALENDAR): string {
     // NOTE: There isn't anything like a `Temporal.PlainYear`, so we're just returning
     // a `Temporal.PlainYearMonth` that is always January of the current year
     return Temporal.Now.plainDate(calendar)

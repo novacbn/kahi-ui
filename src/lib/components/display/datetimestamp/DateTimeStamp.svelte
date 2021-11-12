@@ -7,8 +7,10 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
+    import {map_global_attributes} from "../../../util/attributes";
     import {has_timezone} from "../../../util/datetime";
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+    import {defaultopt} from "../../../util/functional";
+    import {DEFAULT_CALENDAR, DEFAULT_FORMAT_DATETIME, DEFAULT_LOCALE} from "../../../util/locale";
 
     type $$Props = {
         element?: HTMLTimeElement;
@@ -53,24 +55,32 @@
 
     export let timestamp: $$Props["timestamp"];
 
+    // TODO: Can you convert between calendars? If so, should always convert
+    // to a Gregorian Calendar since `<time>` only supports that
+
     $: _datetime = has_timezone(timestamp)
         ? Temporal.ZonedDateTime.from(timestamp)
         : Temporal.PlainDateTime.from(timestamp);
+    $: _options = defaultopt(
+        {day, month, year, hour, hour_12, minute, second},
+        DEFAULT_FORMAT_DATETIME
+    );
 </script>
 
 <time
     bind:this={element}
+    {...map_global_attributes($$props)}
     class="date-time-stamp {_class}"
     datetime={_datetime.toString({calendarName: "never"})}
 >
     {_datetime.toLocaleString(locale, {
         calendar,
-        day,
-        month,
-        year,
-        hour,
-        hour12: hour_12,
-        minute,
-        second,
+        day: _options.day,
+        month: _options.month,
+        year: _options.year,
+        hour: _options.hour,
+        hour12: _options.hour_12,
+        minute: _options.minute,
+        second: _options.second,
     })}
 </time>

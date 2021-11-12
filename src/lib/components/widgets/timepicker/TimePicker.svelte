@@ -12,6 +12,7 @@
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {get_clock_ranges, get_timestamp, is_time_in_range} from "../../../util/datetime";
+    import {scroll_into_container} from "../../../util/element";
     import {DEFAULT_LOCALE} from "../../../util/locale";
 
     import WidgetButton from "../widget/WidgetButton.svelte";
@@ -88,12 +89,11 @@
             : TOKENS_CLOCK_PERIOD.am;
 
     function scroll_to_current(): void {
-        setTimeout(() => {
-            const elements = container_element.querySelectorAll(`button[aria-pressed="true"]`);
+        const elements = container_element.querySelectorAll<HTMLElement>(
+            `button[aria-pressed="true"]`
+        );
 
-            for (const element of elements)
-                element.scrollIntoView({behavior: "smooth", block: "nearest"});
-        }, 0);
+        for (const element of elements) scroll_into_container(element, "center", "smooth");
     }
 
     function on_now_click(event: MouseEvent): void {
@@ -104,10 +104,10 @@
         value = current.toString();
         period = current.hour > 12 ? TOKENS_CLOCK_PERIOD.pm : TOKENS_CLOCK_PERIOD.am;
 
-        scroll_to_current();
-
         dispatch("now");
         dispatch("change");
+
+        setTimeout(() => scroll_to_current(), 0);
     }
 
     function on_period_click(_period: PROPERTY_CLOCK_PERIOD, event: MouseEvent): void {

@@ -52,7 +52,7 @@
 </Story>
 
 <Story name="Now Button">
-    <TimePicker palette="accent" hour_12 now bind:calendar bind:locale />
+    <TimePicker palette="accent" hour_12 now bind:calendar bind:locale bind:value={now} />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value: now}, null, 4)}

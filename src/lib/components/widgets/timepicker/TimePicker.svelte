@@ -12,7 +12,7 @@
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {get_clock_ranges, get_timestamp, is_time_in_range} from "../../../util/datetime";
-    import {BROWSER_LOCALE} from "../../../util/locale";
+    import {DEFAULT_LOCALE} from "../../../util/locale";
 
     import WidgetButton from "../widget/WidgetButton.svelte";
     import WidgetContainer from "../widget/WidgetContainer.svelte";
@@ -64,7 +64,7 @@
 
     export let readonly: $$Props["readonly"] = false;
 
-    export let locale: $$Props["locale"] = BROWSER_LOCALE;
+    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
 
     export let hour: $$Props["hour"] = "2-digit";
     export let hour_12: $$Props["hour_12"] = false;

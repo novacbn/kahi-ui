@@ -10,7 +10,7 @@
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {clamp_day, get_daystamp, is_day_in_range} from "../../../util/datetime";
-    import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
+    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
@@ -65,8 +65,8 @@
     export let disabled: $$Props["disabled"] = false;
     export let readonly: $$Props["readonly"] = false;
 
-    export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
-    export let locale: $$Props["locale"] = BROWSER_LOCALE;
+    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
+    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
 
     export let day: $$Props["day"] = "2-digit";
     export let month: $$Props["month"] = "long";

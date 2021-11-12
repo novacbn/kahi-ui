@@ -16,7 +16,7 @@
         has_month,
         is_month_in_range,
     } from "../../../util/datetime";
-    import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
+    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
     import WidgetButton from "../widget/WidgetButton.svelte";
     import WidgetContainer from "../widget/WidgetContainer.svelte";
@@ -65,8 +65,8 @@
     export let once: $$Props["once"] = false;
     export let readonly: $$Props["readonly"] = false;
 
-    export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
-    export let locale: $$Props["locale"] = BROWSER_LOCALE;
+    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
+    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
 
     export let month: $$Props["month"] = "short";
 

@@ -7,18 +7,13 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {has_timezone} from "../../../util/datetime";
-    import {BROWSER_CALENDAR, BROWSER_LOCALE} from "../../../util/locale";
+    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
     type $$Props = {
         element?: HTMLTimeElement;
 
         calendar: string;
         locale: string;
-
-        day?: Intl.DateTimeFormatOptions["day"];
-        month?: Intl.DateTimeFormatOptions["month"];
-        year?: Intl.DateTimeFormatOptions["year"];
 
         hour?: Intl.DateTimeFormatOptions["hour"];
         hour_12?: Intl.DateTimeFormatOptions["hour12"];
@@ -39,12 +34,8 @@
     let _class = "";
     export {_class as class};
 
-    export let calendar: $$Props["calendar"] = BROWSER_CALENDAR;
-    export let locale: $$Props["locale"] = BROWSER_LOCALE;
-
-    export let day: $$Props["day"] = undefined;
-    export let month: $$Props["month"] = undefined;
-    export let year: $$Props["year"] = undefined;
+    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
+    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
 
     export let hour: $$Props["hour"] = undefined;
     export let hour_12: $$Props["hour_12"] = undefined;
@@ -53,21 +44,12 @@
 
     export let timestamp: $$Props["timestamp"];
 
-    $: _datetime = has_timezone(timestamp)
-        ? Temporal.ZonedDateTime.from(timestamp)
-        : Temporal.PlainDateTime.from(timestamp);
+    $: _time = Temporal.PlainTime.from(timestamp);
 </script>
 
-<time
-    bind:this={element}
-    class="date-time-stamp {_class}"
-    datetime={_datetime.toString({calendarName: "never"})}
->
-    {_datetime.toLocaleString(locale, {
+<time bind:this={element} class="time-stamp {_class}" datetime={_time.toString()}>
+    {_time.toLocaleString(locale, {
         calendar,
-        day,
-        month,
-        year,
         hour,
         hour12: hour_12,
         minute,

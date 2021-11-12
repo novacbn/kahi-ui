@@ -27,18 +27,18 @@ import * as Tab from "./components/disclosure/tab";
 export {Tab};
 
 export * from "./components/display/badge";
+export * from "./components/display/datestamp";
+export * from "./components/display/datetimestamp";
 import * as List from "./components/display/list";
 export {List};
 import * as Table from "./components/display/table";
 export {Table};
+export * from "./components/display/timestamp";
 
-export * from "./components/feedback/datestamp";
-export * from "./components/feedback/datetimestamp";
 export * from "./components/feedback/ellipsis";
 export * from "./components/feedback/dot";
 export * from "./components/feedback/progress";
 export * from "./components/feedback/spinner";
-export * from "./components/feedback/timestamp";
 export * from "./components/feedback/wave";
 
 export * from "./components/embedded/figure";

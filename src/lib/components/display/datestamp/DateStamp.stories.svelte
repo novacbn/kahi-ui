@@ -9,12 +9,12 @@
     const now = Temporal.Now.plainDate(BROWSER_CALENDAR).toString();
 </script>
 
-<Meta title="Feedback/DateStamp" />
+<Meta title="Display/DateStamp" />
 
 <Template>
     <slot />
 </Template>
 
-<Story name="Date">
+<Story name="Now">
     <DateStamp timestamp={now} day="numeric" month="long" year="numeric" />
 </Story>

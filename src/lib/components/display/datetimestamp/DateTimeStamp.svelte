@@ -3,9 +3,7 @@
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {ISizeProperties} from "../../../types/sizes";
-    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import type {IMarginProperties} from "../../../types/spacings";
 
     import {map_global_attributes} from "../../../util/attributes";
     import {has_timezone} from "../../../util/datetime";
@@ -28,13 +26,9 @@
         second?: Intl.DateTimeFormatOptions["second"];
 
         timestamp: string;
-
-        palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties &
-        IMarginProperties &
-        IPaddingProperties &
-        ISizeProperties;
+        IMarginProperties;
 
     export let element: $$Props["element"] = undefined;
 

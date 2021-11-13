@@ -10,17 +10,18 @@
 
         -   `DateStamp` — Formats a [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) date timestamp into a readable human string rendered via [`<time>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time).
 
-            -   `<DateStamp calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<DateStamp locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<DateStamp calendar={string}>` — Alters the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
+            -   `<DateStamp locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<DateStamp day="2-digit/numeric">` — Alters how a displayed day is formatted.
             -   `<DateStamp month="2-digit/long/narrow/numeric/short">` — Alters how a displayed month is formatted.
             -   `<DateStamp weekday="long/narrow/short">` — Alters how a displayed weekday is formatted.
             -   `<DateStamp year="2-digit/numeric">` — Alters how a displayed year is formatted.
+            -   `<DateStamp timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp being formatted for display.
 
         -   `DateTimeStamp` — Formats a [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) datetime timestamp into a readable human string rendered via [`<time>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time), supporting timezones.
 
             -   `<DateTimeStamp calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<DateTimeStamp locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<DateTimeStamp locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<DateTimeStamp day="2-digit/numeric">` — Alters how a displayed day is formatted.
             -   `<DateTimeStamp month="2-digit/long/narrow/numeric/short">` — Alters how a displayed month is formatted.
             -   `<DateTimeStamp weekday="long/narrow/short">` — Alters how a displayed weekday is formatted.
@@ -29,16 +30,16 @@
             -   `<DateTimeStamp hour_12={boolean}>` — Alters to showing hours in 12-hour format.
             -   `<DateTimeStamp minute="2-digit/numeric">` — Alters how a displayed minute is formatted.
             -   `<DateTimeStamp second="2-digit/numeric">` — Alters how a displayed second is formatted.
-            -   `<DateTimeStamp timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp of the calendar being formatted for rendering.
+            -   `<DateTimeStamp timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp being formatted for display.
 
         -   `TimeStamp` — Formats a [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) time timestamp into a readable human string rendered via [`<time>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time).
 
-            -   `<TimeStamp locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<TimeStamp locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<TimeStamp hour="2-digit/numeric">` — Alters how a displayed hour is formatted.
             -   `<TimeStamp hour_12={boolean}>` — Alters to showing hours in 12-hour format.
             -   `<TimeStamp minute="2-digit/numeric">` — Alters how a displayed minute is formatted.
             -   `<TimeStamp second="2-digit/numeric">` — Alters how a displayed second is formatted.
-            -   `<TimeStamp timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp of the calendar being formatted for rendering.
+            -   `<TimeStamp timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp being formatted for display.
 
     -   Widgets
 
@@ -52,11 +53,11 @@
         -   `DayPicker` — Built-in Widget for allowing the user to select a calendar date from a given month.
 
             -   `<DayPicker on:change={CustomEvent<void>}>` — Dispatches whenever `<DayPicker value>` changes.
-            -   `<DayPicker multiple={boolean}>` — Allows for selection of multiple days.
+            -   `<DayPicker multiple={boolean}>` — Enables selection of multiple days.
             -   `<DayPicker once={boolean}>` — Disables toggling off of already selected days.
             -   `<DayPicker readonly={boolean}>` — Disables toggling on of unselected days.
             -   `<DayPicker calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<DayPicker locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<DayPicker locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<DayPicker day="2-digit/numeric">` — Alters how a displayed day is formatted.
             -   `<DayPicker weekday="long/narrow/short">` — Alters how a displayed weekday is formatted.
             -   `<DayPicker disabled={boolean}>` — Disables all days from being selected.
@@ -73,9 +74,9 @@
 
             -   `<DayStepper on:change={CustomEvent<void>}>` — Dispatches whenever `<DayStepper value>` changes.
             -   `<DayStepper disabled={boolean}>` — Disables days from being stepped through.
-            -   `<DayStepper readonly={boolean}>` — Disables days from being stepped through without UI alteration.
+            -   `<DayStepper readonly={boolean}>` — Disables days from being stepped through without visual changes.
             -   `<DayStepper calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<DayStepper locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<DayStepper locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<DayStepper day="2-digit/numeric">` — Alters how a displayed day is formatted.
             -   `<DayStepper month="2-digit/long/narrow/numeric/short>` — Alters how a displayed month is formatted.
             -   `<DayStepper weekday="long/narrow/short">` — Alters how a displayed weekday is formatted.
@@ -89,11 +90,11 @@
         -   `MonthPicker` — Built-in Widget for allowing the user to pick a quaterly month from a given year.
 
             -   `<MonthPicker on:change={CustomEvent<void>}>` — Dispatches whenever `<MonthPicker value>` changes.
-            -   `<MonthPicker multiple={boolean}>` — Allows for selection of multiple months.
+            -   `<MonthPicker multiple={boolean}>` — Enables selection of multiple months.
             -   `<MonthPicker once={boolean}>` — Disables toggling off of already selected months.
             -   `<MonthPicker readonly={boolean}>` — Disables toggling on of unselected months.
             -   `<MonthPicker calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<MonthPicker locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<MonthPicker locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<MonthPicker month="2-digit/long/narrow/numeric/short">` — Alters how a displayed month is formatted.
             -   `<MonthPicker disabled={boolean}>` — Disables all months from being selected.
             -   `<MonthPicker disabled={string[]}>` — Disables the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps from being selected.
@@ -109,9 +110,9 @@
 
             -   `<MonthStepper on:change={CustomEvent<void>}>` — Dispatches whenever `<MonthStepper value>` changes.
             -   `<MonthStepper disabled={boolean}>` — Disables months from being stepped through.
-            -   `<MonthStepper readonly={boolean}>` — Disables months from being stepped through without UI alteration.
+            -   `<MonthStepper readonly={boolean}>` — Disables months from being stepped through without visual changes.
             -   `<MonthStepper calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<MonthStepper locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<MonthStepper locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<MonthStepper month="2-digit/long/narrow/numeric/short">` — Alters how a displayed month is formatted.
             -   `<MonthStepper year="2-digit/numeric">` — Alters how a displayed year is formatted.
             -   `<MonthStepper max={string}>` — Sets the maximum month timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the future that can be selected.
@@ -128,7 +129,7 @@
             -   `<TimePicker disabled={boolean}>` — Disables any component of time from being selected.
             -   `<TimePicker now={boolean}>` — Enables displaying of the "NOW" button, allowing users to set the Widget to current clock time.
             -   `<TimePicker readonly={boolean}>` — Disables any component of time from being selected without UI alteration.
-            -   `<TimePicker locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<TimePicker locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<TimePicker hour="2-digit/numeric">` — Alters how a displayed hour is formatted.
             -   `<TimePicker hour_12={boolean}>` — Alters to showing hours in 12-hour format, and enables displaying of the AM / PM buttons.
             -   `<TimePicker minute="2-digit/numeric">` — Alters how a displayed minute is formatted.
@@ -143,11 +144,11 @@
         -   `YearPicker` — Built-in Widget for allowing the user to pick a year from a given decade.
 
             -   `<YearPicker on:change={CustomEvent<void>}>` — Dispatches whenever `<YearPicker value>` changes.
-            -   `<YearPicker multiple={boolean}>` — Allows for selection of multiple years.
+            -   `<YearPicker multiple={boolean}>` — Enables selection of multiple years.
             -   `<YearPicker once={boolean}>` — Disables toggling off of already selected years.
             -   `<YearPicker readonly={boolean}>` — Disables toggling on of unselected years.
             -   `<YearPicker calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<YearPicker locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<YearPicker locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<YearPicker year="2-digit/numeric">` — Alters how a displayed year is formatted.
             -   `<YearPicker disabled={boolean}>` — Disables all years from being selected.
             -   `<YearPicker disabled={string[]}>` — Disables the given [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamps from being selected.
@@ -163,9 +164,9 @@
 
             -   `<YearStepper on:change={CustomEvent<void>}>` — Dispatches whenever `<YearStepper value>` changes.
             -   `<YearStepper disabled={boolean}>` — Disables years from being stepped through.
-            -   `<YearStepper readonly={boolean}>` — Disables years from being stepped through without UI alteration.
+            -   `<YearStepper readonly={boolean}>` — Disables years from being stepped through without visual changes.
             -   `<YearStepper calendar={string}>` — Allows for changing the calendar used for calculations / formatting via [Temporal Calendar Codes](https://tc39.es/proposal-temporal/docs/calendar.html).
-            -   `<YearStepper locale={string}>` — Allows for changing the locale used for displaying internationalized text via [RFC 5646 / BCP 47 Codes](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language) format.
+            -   `<YearStepper locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<YearStepper year="2-digit/numeric">` — Alters how a displayed year is formatted.
             -   `<YearStepper max={string}>` — Sets the maximum year timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the future that can be selected.
             -   `<YearStepper min={string}>` — Sets the minimum year timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) in the past that can be selected.

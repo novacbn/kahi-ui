@@ -1,7 +1,7 @@
 const SYSTEM_DATE_OPTIONS = new Intl.DateTimeFormat().resolvedOptions();
 
 const SYSTEM_TIME_OPTIONS = new Intl.DateTimeFormat(undefined, {
-    // @ts-expect-error - HACK: Just not typed yet
+    // @ts-ignore - HACK: Just not typed yet
     timeStyle: "full",
 }).resolvedOptions();
 

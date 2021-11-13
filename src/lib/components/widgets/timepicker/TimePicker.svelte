@@ -63,13 +63,13 @@
     let _class = "";
     export {_class as class};
 
+    export let now: $$Props["now"] = false;
     export let readonly: $$Props["readonly"] = false;
 
     export let locale: $$Props["locale"] = DEFAULT_LOCALE;
 
     export let hour: $$Props["hour"] = "2-digit";
     export let hour_12: $$Props["hour_12"] = false;
-    export let now: $$Props["now"] = false;
     export let minute: $$Props["minute"] = "2-digit";
     export let second: $$Props["second"] = "2-digit";
 

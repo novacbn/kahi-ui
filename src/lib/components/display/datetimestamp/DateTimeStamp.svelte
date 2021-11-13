@@ -18,6 +18,7 @@
 
         day?: Intl.DateTimeFormatOptions["day"];
         month?: Intl.DateTimeFormatOptions["month"];
+        weekday?: Intl.DateTimeFormatOptions["weekday"];
         year?: Intl.DateTimeFormatOptions["year"];
 
         hour?: Intl.DateTimeFormatOptions["hour"];
@@ -40,6 +41,7 @@
 
     export let day: $$Props["day"] = undefined;
     export let month: $$Props["month"] = undefined;
+    export let weekday: $$Props["weekday"] = undefined;
     export let year: $$Props["year"] = undefined;
 
     export let hour: $$Props["hour"] = undefined;
@@ -56,7 +58,7 @@
         ? Temporal.ZonedDateTime.from(timestamp)
         : Temporal.PlainDateTime.from(timestamp);
     $: _options = defaultopt(
-        {day, month, year, hour, hour_12, minute, second},
+        {day, month, weekday, year, hour, hour_12, minute, second},
         DEFAULT_FORMAT_DATETIME
     );
 </script>
@@ -71,6 +73,7 @@
         calendar,
         day: _options.day,
         month: _options.month,
+        weekday: _options.weekday,
         year: _options.year,
         hour: _options.hour,
         hour12: _options.hour_12,

@@ -13,6 +13,8 @@
 
     const FORMATS_MONTH = ["2-digit", "long", "narrow", "numeric", "short"];
 
+    const FORMATS_WEEKDAY = ["long", "short", "narrow"];
+
     const FORMATS_YEAR = ["2-digit", "numeric"];
 
     const FORMATS_HOUR = ["2-digit", "numeric"];
@@ -95,6 +97,22 @@
                 </Text>
 
                 <DateTimeStamp timestamp={now} month={format} />
+            </div>
+        {/each}
+    </Stack>
+
+    <Text is="strong">WEEKDAY</Text>
+
+    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each FORMATS_WEEKDAY as format (format)}
+            <div>
+                <Text>
+                    <Text is="strong">
+                        {format.toUpperCase()}
+                    </Text>
+                </Text>
+
+                <DateTimeStamp timestamp={now} weekday={format} />
             </div>
         {/each}
     </Stack>

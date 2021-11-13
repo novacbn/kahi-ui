@@ -17,6 +17,7 @@
 
         day?: Intl.DateTimeFormatOptions["day"];
         month?: Intl.DateTimeFormatOptions["month"];
+        weekday?: Intl.DateTimeFormatOptions["weekday"];
         year?: Intl.DateTimeFormatOptions["year"];
 
         timestamp: string;
@@ -34,6 +35,7 @@
 
     export let day: $$Props["day"] = undefined;
     export let month: $$Props["month"] = undefined;
+    export let weekday: $$Props["weekday"] = undefined;
     export let year: $$Props["year"] = undefined;
 
     export let timestamp: $$Props["timestamp"];
@@ -42,7 +44,7 @@
     // to a Gregorian Calendar since `<time>` only supports that
 
     $: _date = Temporal.PlainDate.from(timestamp);
-    $: _options = defaultopt({day, month, year}, DEFAULT_FORMAT_DATE);
+    $: _options = defaultopt({day, month, weekday, year}, DEFAULT_FORMAT_DATE);
 </script>
 
 <time
@@ -55,6 +57,7 @@
         calendar,
         day: _options.day,
         month: _options.month,
+        weekday: _options.weekday,
         year: _options.year,
     })}
 </time>

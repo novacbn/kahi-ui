@@ -15,6 +15,8 @@ export const DEFAULT_DAY = SYSTEM_DATE_OPTIONS.day as Intl.DateTimeFormatOptions
 
 export const DEFAULT_MONTH = SYSTEM_DATE_OPTIONS.month as Intl.DateTimeFormatOptions["month"];
 
+export const DEFAULT_WEEKDAY = SYSTEM_DATE_OPTIONS.weekday as Intl.DateTimeFormatOptions["weekday"];
+
 export const DEFAULT_YEAR = SYSTEM_DATE_OPTIONS.year as Intl.DateTimeFormatOptions["year"];
 
 export const DEFAULT_HOUR = SYSTEM_TIME_OPTIONS.hour as Intl.DateTimeFormatOptions["hour"];
@@ -25,7 +27,12 @@ export const DEFAULT_MINUTE = SYSTEM_TIME_OPTIONS.minute as Intl.DateTimeFormatO
 
 export const DEFAULT_SECOND = SYSTEM_TIME_OPTIONS.second as Intl.DateTimeFormatOptions["second"];
 
-export const DEFAULT_FORMAT_DATE = {day: DEFAULT_DAY, month: DEFAULT_MONTH, year: DEFAULT_YEAR};
+export const DEFAULT_FORMAT_DATE = {
+    day: DEFAULT_DAY,
+    month: DEFAULT_MONTH,
+    weekday: DEFAULT_WEEKDAY,
+    year: DEFAULT_YEAR,
+};
 
 export const DEFAULT_FORMAT_TIME = {
     hour: DEFAULT_HOUR,

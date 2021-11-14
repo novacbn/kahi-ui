@@ -12,7 +12,7 @@
         element?: HTMLSpanElement;
 
         palette?: PROPERTY_PALETTE;
-        /** @deprecated */
+        /** @deprecated Use `Position` Component instead. */
         position?: PROPERTY_POSITION;
         shape?: PROPERTY_SHAPE;
     } & IHTML5Properties &
@@ -29,7 +29,7 @@
     export {_class as class};
 
     export let palette: $$Props["palette"] = undefined;
-    /** @deprecated */
+    /** @deprecated Use `Position` Component instead. */
     export let position: $$Props["position"] = undefined;
     export let shape: $$Props["shape"] = undefined;
 </script>

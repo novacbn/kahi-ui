@@ -3,6 +3,33 @@
 ## UNRELEASED
 
 -   Added CSS Theming Variables to the following Components: `Blockquote`, `Code`, `Heading`, `Text`.
+-   Added suggestions to existing deprecation notices.
+-   Fixed typings for `<* hidden={boolean}>` global modifier.
+-   Migrated the following Components: `Grid`, `Mosaic`, `Spacer`, `Stack`.
+
+-   Added the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   `<Spacer is="div/span">` — Alters HTML element used to render the `Spacer`, `div` (block / size) / `span` (inline / margin).
+
+-   Deprecated the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   `<Spacer variation>` — Deprecated in favor of Framework consistent `<Spacer is="div/span">`.
+
+-   Removed the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   **(BREAKING)** `<Spacer orientation>` — Removed in favor using `<Spacer spacing spacing_x spacing_y>`, reducing internal styling redundancy.
 
 -   Updated the following Components / Component Features
 

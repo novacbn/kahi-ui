@@ -1,0 +1,33 @@
+:root {
+    /** */
+
+    --widget-sizing-text-size: var(--document-font-size);
+    --widget-sizing-text-line-height: var(--document-font-line-height);
+
+    --widget-gap: var(--spacing-local-small);
+
+    /** */
+
+    --widget-button-border-radius: var(--radius-medium);
+    --widget-button-border-width: 2px;
+    --widget-button-font-weight: bold;
+    --widget-button-padding-x: var(--spacing-local-small);
+    --widget-button-padding-y: var(--spacing-local-tiny);
+
+    --widget-button-disabled-opacity: 0.4;
+
+    /** */
+
+    --widget-button-clear-active-background-opacity: 0.5;
+    --widget-button-clear-focus-background-opacity: 0.2;
+
+    /** */
+
+    --widget-button-outline-active-background-opacity: 0.5;
+    --widget-button-outline-focus-background-opacity: 0.2;
+    --widget-button-outline-focus-border-opacity: 0.5;
+
+    /** */
+
+    --widget-section-gap: var(--spacing-local-small);
+}

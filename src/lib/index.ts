@@ -27,10 +27,13 @@ import * as Tab from "./components/disclosure/tab";
 export {Tab};
 
 export * from "./components/display/badge";
+export * from "./components/display/datestamp";
+export * from "./components/display/datetimestamp";
 import * as List from "./components/display/list";
 export {List};
 import * as Table from "./components/display/table";
 export {Table};
+export * from "./components/display/timestamp";
 
 export * from "./components/feedback/ellipsis";
 export * from "./components/feedback/dot";
@@ -99,6 +102,16 @@ export * from "./components/utilities/intersectionrender";
 export * from "./components/utilities/portal";
 export * from "./components/utilities/serverrender";
 export * from "./components/utilities/transition";
+
+export * from "./components/widgets/daypicker";
+export * from "./components/widgets/daystepper";
+export * from "./components/widgets/monthpicker";
+export * from "./components/widgets/monthstepper";
+export * from "./components/widgets/timepicker";
+import * as Widget from "./components/widgets/widget";
+export {Widget};
+export * from "./components/widgets/yearpicker";
+export * from "./components/widgets/yearstepper";
 
 export * from "./actions/click_outside";
 export * from "./actions/clipping";

@@ -30,6 +30,7 @@
 @import url("../lib/components/navigation/anchor/anchor.theme.css");
 @import url("../lib/components/navigation/breadcrumb/breadcrumb.theme.css");
 @import url("../lib/components/overlays/clickable/clickable.theme.css");
+@import url("../lib/components/widgets/widget/widget.theme.css");
 @import url("../lib/components/surfaces/box/box.theme.css");
 @import url("../lib/components/surfaces/card/card.theme.css");
 @import url("../lib/components/surfaces/hero/hero.theme.css");
@@ -79,6 +80,9 @@
 @import url("../lib/components/navigation/breadcrumb/breadcrumb.css");
 @import url("../lib/components/navigation/menu/menu.css");
 @import url("../lib/components/navigation/omni/omni.css");
+
+@import url("../lib/components/widgets/timepicker/timerpicker.css");
+@import url("../lib/components/widgets/widget/widget.css");
 
 @import url("../lib/components/surfaces/card/card.css");
 @import url("../lib/components/surfaces/box/box.css");

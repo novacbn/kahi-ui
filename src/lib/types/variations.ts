@@ -30,6 +30,10 @@ export const TOKENS_VARIATION_INPUT = {
     [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
 } as const;
 
+export const TOKENS_VARIATION_INTERACTIVE = {
+    [TOKENS_VARIATION_FILL.outline]: TOKENS_VARIATION_FILL.outline,
+} as const;
+
 export const TOKENS_VARIATION_SURFACE = {
     [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
 } as const;
@@ -52,6 +56,8 @@ export type PROPERTY_VARIATION_BUTTON = LiteralEnum<keyof typeof TOKENS_VARIATIO
 export type PROPERTY_VARIATION_FLEX = ArrayEnum<LiteralEnum<TOKENS_VARIATION_FLEX>>;
 
 export type PROPERTY_VARIATION_INPUT = LiteralEnum<keyof typeof TOKENS_VARIATION_INPUT>;
+
+export type PROPERTY_VARIATION_INTERACTIVE = LiteralEnum<keyof typeof TOKENS_VARIATION_INTERACTIVE>;
 
 export type PROPERTY_VARIATION_SURFACE = LiteralEnum<keyof typeof TOKENS_VARIATION_SURFACE>;
 

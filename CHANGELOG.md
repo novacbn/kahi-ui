@@ -2,6 +2,8 @@
 
 ## UNRELEASED
 
+-   Added suggestions to existing deprecation notices.
+-   Fixed typings for `<* hidden={boolean}>` global modifier.
 -   Migrated the following Components: `Grid`, `Mosaic`, `Spacer`, `Stack`.
 
 -   Added the following Components / Component Features

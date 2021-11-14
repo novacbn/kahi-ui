@@ -2,6 +2,7 @@
 
 ## UNRELEASED
 
+-   Added CSS Theming Variables to the following Components: `Blockquote`, `Code`, `Heading`, `Text`.
 -   Added suggestions to existing deprecation notices.
 -   Fixed typings for `<* hidden={boolean}>` global modifier.
 -   Migrated the following Components: `Grid`, `Mosaic`, `Spacer`, `Stack`.
@@ -29,6 +30,18 @@
         -   `Spacer`
 
             -   **(BREAKING)** `<Spacer orientation>` — Removed in favor using `<Spacer spacing spacing_x spacing_y>`, reducing internal styling redundancy.
+
+-   Updated the following Components / Component Features
+
+    -   Typography
+
+        -   `Blockquote` / `Code` / `Heading` / `Text`
+
+            -   Added corresponding class names `blockquote` / `code` / `heading` / `text` respectively.
+
+        -   `Text`
+
+            -   Scoped attributes to `text` class to reduce CSS specificity conflict.
 
 ## v0.4.9 - 2021/10/27
 

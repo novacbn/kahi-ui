@@ -51,6 +51,9 @@
 
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let is: $$Props["is"] = "p";
 
     export let align: $$Props["align"] = undefined;
@@ -65,6 +68,7 @@
     <abbr
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -73,6 +77,7 @@
     <b
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -81,6 +86,7 @@
     <del
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -89,6 +95,7 @@
     <em
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -97,6 +104,7 @@
     <i
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -105,6 +113,7 @@
     <ins
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -113,7 +122,8 @@
     <kbd
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text {_class}"
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </kbd>
@@ -121,6 +131,7 @@
     <mark
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -129,10 +140,10 @@
     <pre
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({
             align,
             palette,
-            size,
             transform,
             variation,
         })}>
@@ -142,6 +153,7 @@
     <s
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -150,6 +162,7 @@
     <samp
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -158,7 +171,8 @@
     <small
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text {_class}"
+        {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
     </small>
@@ -166,6 +180,7 @@
     <span
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -174,6 +189,7 @@
     <strong
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -182,6 +198,7 @@
     <sub
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -190,6 +207,7 @@
     <sup
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -198,6 +216,7 @@
     <u
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />
@@ -206,6 +225,7 @@
     <p
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
     >
         <slot />

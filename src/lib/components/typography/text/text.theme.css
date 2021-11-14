@@ -1,0 +1,20 @@
+:root {
+    /** */
+
+    --text-kbd-background-color: var(--palette-inverse-off-lightest);
+    --text-kbd-background-opacity: 0.2;
+    --text-kbd-border-color: var(--palette-neutral-normal);
+    --text-kbd-border-radius: var(--radius-small);
+    --text-kbd-border-style: ridge;
+    --text-kbd-border-width: 4px;
+    --text-kbd-font-family: var(--font-family-monospace);
+    --text-kbd-font-size: 70%;
+    --text-kbd-font-weight: bolder;
+    --text-kbd-padding-x: var(--spacing-local-small);
+    --text-kbd-padding-y: var(--spacing-local-tiny);
+
+    /** */
+
+    --text-small-font-size: 80%;
+    --text-small-opacity: 0.75;
+}

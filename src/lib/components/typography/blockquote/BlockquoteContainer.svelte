@@ -23,12 +23,16 @@
 
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let palette: $$Props["palette"] = undefined;
 </script>
 
 <blockquote
     bind:this={element}
     {...map_global_attributes($$props)}
+    class="blockquote {_class}"
     {...map_data_attributes({palette})}
 >
     <slot />

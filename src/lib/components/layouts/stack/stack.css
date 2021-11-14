@@ -10,7 +10,9 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply flex gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)];
+    display: flex;
+
+    gap: var(--spacing-y) var(--spacing-x);
 
     align-items: var(--orientation-align);
     justify-content: var(--orientation-justify);
@@ -18,6 +20,6 @@
     flex-direction: var(--orientation-direction);
 
     &[data-variation~="wrap"] {
-        @apply flex-wrap;
+        flex-wrap: wrap;
     }
 }

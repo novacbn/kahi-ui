@@ -2,6 +2,11 @@
 
 ## UNRELEASED
 
+-   Added CSS Theming Variables to the following Components: `Blockquote`, `Code`, `Heading`, `Text`.
+-   Added suggestions to existing deprecation notices.
+-   Added the following Components / Component Features
+-   Fixed typings for `<* hidden={boolean}>` global modifier.
+-   Migrated the following Components: `Grid`, `Mosaic`, `Spacer`, `Stack`.
 -   Updated `<* spacing spacing_x spacing_y>` global modifiers to use `!important` when applied.
 
 -   Added the following Components / Component Features
@@ -40,6 +45,12 @@
             -   `<TimeStamp minute="2-digit/numeric">` — Alters how a displayed minute is formatted.
             -   `<TimeStamp second="2-digit/numeric">` — Alters how a displayed second is formatted.
             -   `<TimeStamp timestamp={string}>` — Sets the [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime) timestamp being formatted for display.
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   `<Spacer is="div/span">` — Alters HTML element used to render the `Spacer`, `div` (block / size) / `span` (inline / margin).
 
     -   Widgets
 
@@ -175,6 +186,34 @@
             -   `<YearStepper value={string}>` — Sets the selected year timestamp [ISO 8601 / RFC 3339](https://www.w3.org/TR/NOTE-datetime).
             -   `<YearStepper palette="accent/dark/light/alert/affirmative/negative">` — Alters the rendered color palette.
             -   `<YearStepper sizing="tiny/small/medium/large/huge">` — Alters the sizing of the Widget and children Components.
+
+-   Deprecated the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   `<Spacer variation>` — Deprecated in favor of Framework consistent `<Spacer is="div/span">`.
+
+-   Removed the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   **(BREAKING)** `<Spacer orientation>` — Removed in favor using `<Spacer spacing spacing_x spacing_y>`, reducing internal styling redundancy.
+
+-   Updated the following Components / Component Features
+
+    -   Typography
+
+        -   `Blockquote` / `Code` / `Heading` / `Text`
+
+            -   Added corresponding class names `blockquote` / `code` / `heading` / `text` respectively.
+
+        -   `Text`
+
+            -   Scoped attributes to `text` class to reduce CSS specificity conflict.
 
 ## v0.4.9 - 2021/10/27
 

@@ -2,66 +2,17 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply flex-grow flex-shrink place-self-stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    place-self: stretch;
 }
 
 div.spacer {
-    @apply h-[var(--spacing-y)] w-0;
-
-    &[data-orientation~="horizontal"] {
-        @apply h-0 w-[var(--spacing-x)];
-    }
+    height: var(--spacing-y);
+    width: var(--spacing-x);
 }
 
 span.spacer {
-    @apply mx-[var(--spacing-x)] my-0;
-
-    &[data-orientation~="vertical"] {
-        @apply mx-0 my-[var(--spacing-y)];
-    }
-}
-
-/**
- * NOTE: WindCSS and `postcss-nesting` don't play well together
- * when media selectors are being used
- */
-
-@variants <sm {
-    div.spacer[data-orientation~="mobile:horizontal"] {
-        @apply h-0 w-[var(--spacing-x)];
-    }
-
-    span.spacer[data-orientation~="mobile:vertical"] {
-        @apply mx-0 my-[var(--spacing-y)];
-    }
-}
-
-@variants @sm {
-    div.spacer[data-orientation~="tablet:horizontal"] {
-        @apply h-0 w-[var(--spacing-x)];
-    }
-
-    span.spacer[data-orientation~="tablet:vertical"] {
-        @apply mx-0 my-[var(--spacing-y)];
-    }
-}
-
-@variants @md {
-    div.spacer[data-orientation~="desktop:horizontal"] {
-        @apply h-0 w-[var(--spacing-x)];
-    }
-
-    span.spacer[data-orientation~="desktop:vertical"] {
-        @apply mx-0 my-[var(--spacing-y)];
-    }
-}
-
-@variants lg {
-    div.spacer[data-orientation~="widescreen:horizontal"] {
-        @apply h-0 w-[var(--spacing-x)];
-    }
-
-    span.spacer[data-orientation~="widescreen:vertical"] {
-        @apply mx-0 my-[var(--spacing-y)];
-    }
+    margin: var(--spacing-y) var(--spacing-x);
 }

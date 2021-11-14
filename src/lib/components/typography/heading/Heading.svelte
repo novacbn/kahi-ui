@@ -31,6 +31,9 @@
 
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let is: $$Props["is"] = "h1";
 
     export let align: $$Props["align"] = undefined;
@@ -44,6 +47,7 @@
     <h6
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="heading {_class}"
         {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
@@ -52,6 +56,7 @@
     <h5
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="heading {_class}"
         {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
@@ -60,6 +65,7 @@
     <h4
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="heading {_class}"
         {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
@@ -68,6 +74,7 @@
     <h3
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="heading {_class}"
         {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
@@ -76,6 +83,7 @@
     <h2
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="heading {_class}"
         {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />
@@ -84,6 +92,7 @@
     <h1
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="heading {_class}"
         {...map_data_attributes({align, palette, transform, variation})}
     >
         <slot />

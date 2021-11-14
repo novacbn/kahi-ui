@@ -1,13 +1,30 @@
+code,
+pre {
+    --palette-background-lightest: var(--code-palette-background-lightest);
+
+    padding: var(--code-padding-y) var(--code-padding-x);
+
+    background: rgba(var(--palette-background-lightest), var(--code-background-opacity));
+    border-radius: var(--code-border-radius);
+
+    font-family: var(--code-font-family);
+
+    transition: background var(--animation-visual-duration) var(--animation-visual-function);
+}
+
 code {
-    --size-text-size: 80% !important;
+    font-size: var(--code-font-size);
 
-    @apply break-words;
-
-    font-size: var(--size-text-size);
+    overflow-wrap: break-word;
 }
 
 pre {
+    overflow-x: auto;
+
     & > code {
-        @apply bg-transparent p-0 whitespace-pre;
+        background: transparent;
+        padding: 0;
+
+        white-space: pre;
     }
 }

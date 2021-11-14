@@ -13,7 +13,7 @@
 
         animation?: PROPERTY_ANIMATION_FEEDBACK;
         palette?: PROPERTY_PALETTE;
-        /** @deprecated */
+        /** @deprecated Use `Position` Component instead. */
         position?: PROPERTY_POSITION;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -26,7 +26,7 @@
 
     export let animation: $$Props["animation"] = undefined;
     export let palette: $$Props["palette"] = undefined;
-    /** @deprecated */
+    /** @deprecated Use `Position` Component instead. */
     export let position: $$Props["position"] = undefined;
 </script>
 

@@ -27,29 +27,29 @@
 <Story name="Default">
     <Box palette="inverse" padding="small" max_width="content-max">
         LEFT
-        <Spacer variation="inline" spacing="huge" />
+        <Spacer is="span" spacing_x="huge" />
         RIGHT
     </Box>
 </Story>
 
-<Story name="Variation">
+<Story name="Element">
     <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         <div>
-            <Text is="strong">BLOCK / DEFAULT</Text>
+            <Text is="strong">DIV / DEFAULT</Text>
 
             <Box palette="inverse" margin_top="small" padding="small">
                 TOP
-                <Spacer spacing="huge" />
+                <Spacer spacing_y="huge" />
                 BOTTOM
             </Box>
         </div>
 
         <div>
-            <Text is="strong">INLINE</Text>
+            <Text is="strong">SPAN</Text>
 
             <Box palette="inverse" margin_top="small" padding="small">
                 LEFT
-                <Spacer variation="inline" spacing="huge" />
+                <Spacer variation="inline" spacing_x="huge" />
                 RIGHT
             </Box>
         </div>
@@ -57,19 +57,45 @@
 </Story>
 
 <Story name="Spacing">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each SPACINGS as [spacing, is_default]}
-            <div>
-                <Text is="strong">
-                    {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-                </Text>
+    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        <div>
+            <Text is="strong">DIV / DEFAULT</Text>
 
-                <Box palette="inverse" padding="small">
-                    TOP
-                    <Spacer {spacing} />
-                    BOTTOM
-                </Box>
-            </div>
-        {/each}
+            <Stack orientation="horizontal" spacing="medium" variation="wrap">
+                {#each SPACINGS as [spacing, is_default]}
+                    <div>
+                        <Text is="strong">
+                            {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                        </Text>
+
+                        <Box palette="inverse" padding="small">
+                            TOP
+                            <Spacer spacing_y={spacing} />
+                            BOTTOM
+                        </Box>
+                    </div>
+                {/each}
+            </Stack>
+        </div>
+
+        <div>
+            <Text is="strong">SPAN</Text>
+
+            <Stack orientation="horizontal" spacing="medium" variation="wrap">
+                {#each SPACINGS as [spacing, is_default]}
+                    <div>
+                        <Text is="strong">
+                            {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                        </Text>
+
+                        <Box palette="inverse" padding="small">
+                            LEFT
+                            <Spacer is="span" spacing_x={spacing} />
+                            RIGHT
+                        </Box>
+                    </div>
+                {/each}
+            </Stack>
+        </div>
     </Stack>
 </Story>

@@ -1,0 +1,12 @@
+:root {
+    /** */
+
+    --code-palette-background-lightest: var(--palette-inverse-off-lightest);
+
+    --code-background-opacity: 0.2;
+    --code-font-family: var(--font-family-monospace);
+    --code-font-size: 80%;
+    --code-border-radius: var(--radius-small);
+    --code-padding-x: var(--spacing-local-small);
+    --code-padding-y: var(--spacing-local-tiny);
+}

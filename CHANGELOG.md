@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Migrated the following Components: `Grid`, `Mosaic`, `Spacer`, `Stack`.
+
+-   Added the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   `<Spacer is="div/span">` — Alters HTML element used to render the `Spacer`, `div` (block / size) / `span` (inline / margin).
+
+-   Deprecated the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   `<Spacer variation>` — Deprecated in favor of Framework consistent `<Spacer is="div/span">`.
+
+-   Removed the following Components / Component Features
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   **(BREAKING)** `<Spacer orientation>` — Removed in favor using `<Spacer spacing spacing_x spacing_y>`, reducing internal styling redundancy.
+
 ## v0.4.9 - 2021/10/27
 
 -   Hotfix for missing CSS distributables.

@@ -2,12 +2,15 @@
     --grid-alignment-x: initial;
     --grid-alignment-y: initial;
 
-    --points: inital;
+    --points: initial;
 
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply grid gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] grid-flow-row-dense;
+    display: grid;
+    grid-auto-flow: row dense;
+
+    gap: var(--spacing-y) var(--spacing-x);
 
     align-items: var(--grid-alignment-y);
     justify-content: var(--grid-alignment-x);
@@ -15,7 +18,7 @@
     grid-template-columns: repeat(var(--points), 1fr);
 
     & > * {
-        @apply m-0;
+        margin: 0;
     }
 }
 
@@ -23,7 +26,7 @@
     --span-x: 1;
     --span-y: 1;
 
-    @apply contents;
+    display: contents;
 
     & > * {
         grid-column: span var(--span-x) / span var(--span-x);

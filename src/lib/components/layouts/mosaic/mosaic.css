@@ -7,7 +7,9 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply grid gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)];
+    display: grid;
+
+    gap: var(--spacing-y) var(--spacing-x);
 
     align-items: var(--grid-alignment-y);
     justify-content: var(--grid-alignment-x);
@@ -15,6 +17,6 @@
     grid-template-columns: repeat(auto-fill, minmax(var(--sizing-content), 1fr));
 
     & > * {
-        @apply m-0;
+        margin: 0;
     }
 }

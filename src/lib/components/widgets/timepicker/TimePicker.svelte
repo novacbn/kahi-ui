@@ -1,6 +1,6 @@
 <script lang="ts">
     import {Temporal} from "@js-temporal/polyfill";
-    import {createEventDispatcher, onMount} from "svelte";
+    import {createEventDispatcher, onMount, tick} from "svelte";
 
     import type {PROPERTY_CLOCK_PERIOD} from "../../../types/datetime";
     import {TOKENS_CLOCK_PERIOD} from "../../../types/datetime";
@@ -28,13 +28,14 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        now?: boolean;
         readonly?: boolean;
+        scroll?: boolean;
 
         locale: string;
 
         hour?: Intl.DateTimeFormatOptions["hour"];
         hour_12?: Intl.DateTimeFormatOptions["hour12"];
-        now: boolean;
         period: PROPERTY_CLOCK_PERIOD;
         minute?: Intl.DateTimeFormatOptions["minute"];
         second?: Intl.DateTimeFormatOptions["second"];
@@ -65,6 +66,7 @@
 
     export let now: $$Props["now"] = false;
     export let readonly: $$Props["readonly"] = false;
+    export let scroll: $$Props["scroll"] = false;
 
     export let locale: $$Props["locale"] = DEFAULT_LOCALE;
 
@@ -96,7 +98,7 @@
         for (const element of elements) scroll_into_container(element, "center", "smooth");
     }
 
-    function on_now_click(event: MouseEvent): void {
+    async function on_now_click(event: MouseEvent): Promise<void> {
         if (readonly) return;
 
         const current = Temporal.Now.plainTimeISO();
@@ -107,7 +109,8 @@
         dispatch("now");
         dispatch("change");
 
-        setTimeout(() => scroll_to_current(), 0);
+        await tick();
+        scroll_to_current();
     }
 
     function on_period_click(_period: PROPERTY_CLOCK_PERIOD, event: MouseEvent): void {
@@ -123,7 +126,7 @@
     }
 
     onMount(() => {
-        scroll_to_current();
+        if (scroll) scroll_to_current();
     });
 
     $: [_hours, _minutes, _seconds] = get_clock_ranges(value || min, hour_12, period);
@@ -191,6 +194,7 @@
     </WidgetSection>
 
     {#if hour_12 || now}
+        <!-- TODO: Figure out localization strategy for below text strings -->
         <WidgetSection>
             {#if now}
                 <WidgetButton {disabled} {palette} on:click={on_now_click}>NOW</WidgetButton>

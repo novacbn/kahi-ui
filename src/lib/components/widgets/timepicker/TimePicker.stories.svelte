@@ -44,7 +44,7 @@
 </Story>
 
 <Story name="Auto Scroll">
-    <TimePicker palette="accent" bind:calendar bind:locale bind:value={now} />
+    <TimePicker palette="accent" scroll bind:calendar bind:locale bind:value={now} />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value: now}, null, 4)}

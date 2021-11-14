@@ -128,6 +128,7 @@
             -   `<TimePicker on:now={CustomEvent<void>}>` — Dispatches whenever the "NOW" button is clicked when enabled.
             -   `<TimePicker disabled={boolean}>` — Disables any component of time from being selected.
             -   `<TimePicker now={boolean}>` — Enables displaying of the "NOW" button, allowing users to set the Widget to current clock time.
+            -   `<TimePicker scroll={boolean}>` — Enables auto scrolling to current time on mounting.
             -   `<TimePicker readonly={boolean}>` — Disables any component of time from being selected without UI alteration.
             -   `<TimePicker locale={string}>` — Alters the locale used for displaying internationalized text via [RFC 5646 / BCP 47](https://www.w3.org/International/articles/language-tags) language tags.
             -   `<TimePicker hour="2-digit/numeric">` — Alters how a displayed hour is formatted.

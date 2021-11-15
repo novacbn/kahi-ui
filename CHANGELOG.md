@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.4.10 - 2021/11/14
 
 -   Added CSS Theming Variables to the following Components: `Blockquote`, `Code`, `Heading`, `Text`.
 -   Added suggestions to existing deprecation notices.

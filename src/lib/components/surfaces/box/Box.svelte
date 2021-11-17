@@ -1,4 +1,7 @@
 <script lang="ts">
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import type {PROPERTY_ELEVATION} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
@@ -10,6 +13,7 @@
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     type $$Props = {
+        actions: IForwardedActions;
         element?: HTMLDivElement;
 
         elevation?: PROPERTY_ELEVATION;
@@ -25,6 +29,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = [];
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -40,6 +45,8 @@
     {...map_global_attributes($$props)}
     class="box {_class}"
     {...map_data_attributes({elevation, palette, shape})}
+    use:forward_actions={{actions}}
+    on:click
 >
     <slot />
 </div>

@@ -4,7 +4,7 @@ import {intersection_observer} from "./intersection_observer";
 /**
  * Represents the Svelte Action handle returned by [[clipping]]
  */
-export type IClippingAction = IActionHandle<IClippingOptions>;
+export type IClippingHandle = Required<IActionHandle<IClippingOptions>>;
 
 /**
  * Represents the typing for the [[IClippingOptions.on_clip]] callback
@@ -59,7 +59,7 @@ export interface IClippingOptions {
  * @param options
  * @returns
  */
-export function clipping(element: HTMLElement, options: IClippingOptions): IClippingAction {
+export function clipping(element: HTMLElement, options: IClippingOptions): IClippingHandle {
     let {on_clip} = options;
 
     function on_intersect(intersections: IntersectionObserverEntry[]): void {

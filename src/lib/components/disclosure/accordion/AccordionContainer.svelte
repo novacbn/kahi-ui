@@ -2,7 +2,7 @@
     import type {PROPERTY_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
     import {TOKENS_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
@@ -14,7 +14,7 @@
 
     type $$Events = {
         change: CustomEvent<void>;
-    };
+    } & IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

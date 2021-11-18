@@ -1,7 +1,7 @@
 <script lang="ts">
     import type {PROPERTY_ELEVATION} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
@@ -12,6 +12,8 @@
     import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
+
+    type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

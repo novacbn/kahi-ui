@@ -8,7 +8,7 @@
 
     import type {PROPERTY_ALIGNMENT_X, PROPERTY_ALIGNMENT_Y} from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
     import type {PROPERTY_SPACING} from "../../../types/spacings";
 
@@ -26,7 +26,7 @@
         active: CustomEvent<void>;
 
         dismiss: CustomEvent<void>;
-    };
+    } & IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

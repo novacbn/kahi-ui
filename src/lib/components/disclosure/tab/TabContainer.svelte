@@ -1,7 +1,7 @@
 <script lang="ts">
     import type {PROPERTY_ALIGNMENT_X} from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
 
@@ -14,7 +14,7 @@
 
     type $$Events = {
         change: CustomEvent<void>;
-    };
+    } & IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

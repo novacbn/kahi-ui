@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
@@ -18,9 +18,8 @@
 
     type $$Events = {
         change: InputEvent;
-        click: MouseEvent;
         input: InputEvent;
-    };
+    } & IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

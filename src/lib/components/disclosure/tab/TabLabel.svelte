@@ -2,7 +2,7 @@
     import {afterUpdate} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
@@ -16,9 +16,7 @@
 
     import {CONTEXT_TAB_ID, CONTEXT_TAB_NAME, CONTEXT_TAB_STATE} from "./TabGroup.svelte";
 
-    type $$Events = {
-        click: MouseEvent;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

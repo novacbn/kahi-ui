@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -9,9 +9,7 @@
 
     import FormGroup from "../../interactables/form/FormGroup.svelte";
 
-    type $$Events = {
-        click: MouseEvent;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

@@ -7,7 +7,7 @@
         PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
     import type {IPaddingProperties, PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
@@ -25,7 +25,7 @@
         active: CustomEvent<void>;
 
         dismiss: CustomEvent<void>;
-    };
+    } & IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

@@ -1,12 +1,14 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_global_attributes} from "../../../util/attributes";
+
+    type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

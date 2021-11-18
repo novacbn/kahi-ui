@@ -2,7 +2,7 @@
     import {Temporal} from "@js-temporal/polyfill";
 
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
@@ -12,6 +12,8 @@
     import {has_timezone} from "../../../util/datetime";
     import {defaultopt} from "../../../util/functional";
     import {DEFAULT_CALENDAR, DEFAULT_FORMAT_DATETIME, DEFAULT_LOCALE} from "../../../util/locale";
+
+    type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

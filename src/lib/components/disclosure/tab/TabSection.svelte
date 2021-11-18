@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
     import {TOKENS_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
     import type {ISizeProperties} from "../../../types/sizes";
@@ -12,6 +12,8 @@
     import {map_global_attributes} from "../../../util/attributes";
 
     import {CONTEXT_TAB_ID, CONTEXT_TAB_STATE} from "./TabGroup.svelte";
+
+    type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;

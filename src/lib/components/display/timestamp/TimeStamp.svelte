@@ -9,7 +9,11 @@
     import {defaultopt} from "../../../util/functional";
     import {DEFAULT_FORMAT_TIME, DEFAULT_LOCALE} from "../../../util/locale";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLTimeElement;
 
         locale: string;
@@ -24,6 +28,7 @@
         IGlobalProperties &
         IMarginProperties;
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class = "";
@@ -47,6 +52,21 @@
     {...map_global_attributes($$props)}
     class="time-stamp {_class}"
     datetime={_time.toString()}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     {_time.toLocaleString(locale, {
         hour: _options.hour,

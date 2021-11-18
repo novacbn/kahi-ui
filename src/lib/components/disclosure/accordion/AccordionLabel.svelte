@@ -5,6 +5,9 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import {
         map_aria_attributes,
         map_data_attributes,
@@ -23,6 +26,7 @@
     };
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLLabelElement;
 
         active?: boolean;
@@ -40,6 +44,7 @@
         open: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let active: $$Props["active"] = undefined;
@@ -121,7 +126,21 @@
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
     for={$_accordion_id}
+    use:forward_actions={{actions}}
     on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 

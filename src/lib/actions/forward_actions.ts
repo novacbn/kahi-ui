@@ -16,8 +16,6 @@ export function forward_actions(
 ): IForwardActionsHandle {
     const handles = initialize_actions(options.actions);
 
-    console.log({handles});
-
     function initialize_actions(actions: IForwardedActions = []): IInitializedActions {
         return actions.map((entry, index) => {
             if (Array.isArray(entry)) return entry[0](element, entry[1]);

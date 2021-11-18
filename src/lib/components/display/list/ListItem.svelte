@@ -3,9 +3,13 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import {map_global_attributes} from "../../../util/attributes";
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLLIElement;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -15,9 +19,28 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 </script>
 
-<li bind:this={element} {...map_global_attributes($$props)}>
+<li
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
+>
     <slot />
 </li>

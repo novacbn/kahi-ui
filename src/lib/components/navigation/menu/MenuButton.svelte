@@ -9,6 +9,9 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import MenuItem from "./MenuItem.svelte";
 
     type $$Events = {
@@ -16,6 +19,7 @@
     };
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLLIElement;
 
         active?: boolean;
@@ -29,6 +33,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let active: $$Props["active"] = undefined;
@@ -43,7 +48,21 @@
         {...map_data_attributes({palette})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({disabled})}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </button>

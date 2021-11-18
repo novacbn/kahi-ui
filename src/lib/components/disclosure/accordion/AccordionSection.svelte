@@ -6,11 +6,15 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import {map_global_attributes} from "../../../util/attributes";
 
     import {CONTEXT_ACCORDION_ID, CONTEXT_ACCORDION_STATE} from "./AccordionGroup.svelte";
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLElement;
 
         loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
@@ -24,6 +28,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let loading: $$Props["loading"] = undefined;
@@ -38,7 +43,25 @@
         state = $_accordion_state.includes($_accordion_id);
 </script>
 
-<section bind:this={element} {...map_global_attributes($$props)}>
+<section
+    bind:this={element}
+    {...map_global_attributes($$props)}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
+>
     {#if state}
         <slot />
     {/if}

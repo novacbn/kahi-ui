@@ -4,6 +4,9 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {PROPERTY_VARIATION_INTERACTIVE} from "../../../types/variations";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import {
         map_aria_attributes,
         map_attributes,
@@ -16,6 +19,7 @@
     };
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLButtonElement;
 
         active?: boolean;
@@ -30,6 +34,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let active: $$Props["active"] = undefined;
@@ -45,7 +50,21 @@
     {...map_data_attributes({palette, variation})}
     {...map_aria_attributes({pressed: active})}
     {...map_attributes({disabled})}
+    use:forward_actions={{actions}}
     on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </button>

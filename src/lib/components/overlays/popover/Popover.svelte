@@ -7,11 +7,13 @@
     import {createEventDispatcher} from "svelte";
 
     import type {PROPERTY_ALIGNMENT_X, PROPERTY_ALIGNMENT_Y} from "../../../types/alignments";
-
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
     import type {PROPERTY_SPACING} from "../../../types/spacings";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {click_outside} from "../../../actions/click_outside";
 
@@ -27,6 +29,7 @@
     };
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLDivElement;
 
         dismissible?: boolean;
@@ -48,6 +51,7 @@
 
     const dispatch = createEventDispatcher();
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -109,6 +113,21 @@
         spacing,
     })}
     use:click_outside={{on_click_outside}}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </div>

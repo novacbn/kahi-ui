@@ -9,9 +9,13 @@
         IPaddingProperties,
     } from "../../../types/spacings";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLDivElement;
 
         orientation?: PROPERTY_ORIENTATION_X;
@@ -29,6 +33,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -46,6 +51,21 @@
     {...map_global_attributes($$props)}
     class="carousel {_class}"
     {...map_data_attributes({orientation, spacing, "spacing-x": spacing_x, "spacing-y": spacing_y})}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </div>

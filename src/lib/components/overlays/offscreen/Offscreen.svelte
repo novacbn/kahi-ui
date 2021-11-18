@@ -6,10 +6,12 @@
         PROPERTY_ALIGNMENT_X_BREAKPOINT,
         PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
-
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -25,6 +27,7 @@
     };
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLDivElement;
 
         captive?: boolean;
@@ -46,6 +49,7 @@
 
     const dispatch = createEventDispatcher();
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -106,6 +110,21 @@
         "alignment-y": alignment_y,
         placement,
     })}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </div>

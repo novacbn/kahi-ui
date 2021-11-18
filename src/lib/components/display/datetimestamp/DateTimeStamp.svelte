@@ -5,12 +5,16 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import {map_global_attributes} from "../../../util/attributes";
     import {has_timezone} from "../../../util/datetime";
     import {defaultopt} from "../../../util/functional";
     import {DEFAULT_CALENDAR, DEFAULT_FORMAT_DATETIME, DEFAULT_LOCALE} from "../../../util/locale";
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLTimeElement;
 
         calendar: string;
@@ -31,6 +35,7 @@
         IGlobalProperties &
         IMarginProperties;
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class = "";
@@ -68,6 +73,21 @@
     {...map_global_attributes($$props)}
     class="date-time-stamp {_class}"
     datetime={_datetime.toString({calendarName: "never"})}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     {_datetime.toLocaleString(locale, {
         calendar,

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Display
+
+        -   `DateStamp`, `DateTimeStamp`, `TimeStamp`
+
+            -   Updated typings to make `calendar` and `locale` properties optional as intended.
+
 ## v0.4.10 - 2021/11/14
 
 -   Added CSS Theming Variables to the following Components: `Blockquote`, `Code`, `Heading`, `Text`.

@@ -20,13 +20,13 @@
 
     -   Display
 
-        -   `DateStamp`, `DateTimeStamp`, `TimeStamp`
+        -   `DateStamp` / `DateTimeStamp` / `TimeStamp`
 
             -   Updated typings to make `calendar` and `locale` properties optional as originally intended.
 
     -   Widgets
 
-        -   `DayPicker`, `DayStepper`, `MonthPicker`, `MonthStepper`, `TimePicker`, `YearPicker`, `YearStepper`
+        -   `DayPicker` / `DayStepper` / `MonthPicker` / `MonthStepper` / `TimePicker` / `YearPicker` / `YearStepper`
 
             -   Updated typings to make `calendar`, `day`, `disabled`, `highlight`, `locale`, `month`, `step`, `timestamp`, `value`, and `weekday` properties optional.
 

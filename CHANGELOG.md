@@ -8,7 +8,13 @@
 
         -   `DateStamp`, `DateTimeStamp`, `TimeStamp`
 
-            -   Updated typings to make `calendar` and `locale` properties optional as intended.
+            -   Updated typings to make `calendar` and `locale` properties optional as originally intended.
+
+    -   Widgets
+
+        -   `DayPicker`, `DayStepper`, `MonthPicker`, `MonthStepper`, `TimePicker`, `YearPicker`, `YearStepper`
+
+            -   Updated typings to make `calendar`, `day`, `disabled`, `highlight`, `locale`, `month`, `step`, `timestamp`, `value`, and `weekday` properties optional.
 
 ## v0.4.10 - 2021/11/14
 

@@ -34,7 +34,6 @@ export function click_outside(
     element: HTMLElement,
     options: IClickOutsideOptions
 ): IClickOutsideHandle {
-    console.log({element, options});
     let {on_click_outside} = options;
 
     function on_click(event: MouseEvent) {

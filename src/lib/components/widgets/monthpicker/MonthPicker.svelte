@@ -68,7 +68,7 @@
     export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 
-    export let month: $$Props["month"] = "short";
+    export let month: $$Props["month"] = undefined;
 
     export let disabled: $$Props["disabled"] = undefined;
     export let max: $$Props["max"] = undefined;
@@ -76,7 +76,7 @@
 
     export let highlight: $$Props["highlight"] = undefined;
     export let timestamp: $$Props["timestamp"] = undefined;
-    export let value: $$Props["value"] = [];
+    export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 

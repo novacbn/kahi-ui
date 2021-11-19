@@ -4,6 +4,24 @@
 
 -   Added the following Components / Component Features
 
+    -   `TimePicker`
+
+        -   Respects system default for `<TimePicker hour_12={boolean}>` property.
+
+-   Fixed the following Components / Component Features
+
+    -   Widgets
+
+        -   `TimePicker`
+
+            -   Displayed range of clock times will now be flat `hh:mm:ss` values, stripping microsecond, minisecond, and nanosecond units.
+
+-   Updated the following Components / Component Features
+
+    -   `TimePicker`
+
+        -   Up
+
     -   Display
 
         -   `DateStamp`, `DateTimeStamp`, `TimeStamp`

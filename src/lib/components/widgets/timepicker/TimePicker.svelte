@@ -131,7 +131,9 @@
 
     const _timestamp = get_timestamp();
 
-    $: [_hours, _minutes, _seconds] = get_clock_ranges(value || min, hour_12, period);
+    $: _hour_12 = hour_12 ?? DEFAULT_HOUR_12;
+
+    $: [_hours, _minutes, _seconds] = get_clock_ranges(value || min, _hour_12, period);
 
     $: _highlight = Temporal.PlainTime.from(highlight ?? _timestamp);
     $: _value = value ? Temporal.PlainTime.from(value) : null;
@@ -150,7 +152,7 @@
                 >
                     {_hour.toLocaleString(locale ?? DEFAULT_LOCALE, {
                         hour: hour ?? "2-digit",
-                        hour12: hour_12 ?? DEFAULT_HOUR_12,
+                        hour12: _hour_12,
                     })}
                 </WidgetButton>
             {/each}
@@ -202,14 +204,14 @@
         </WidgetSection>
     </WidgetSection>
 
-    {#if hour_12 || now}
+    {#if _hour_12 || now}
         <!-- TODO: Figure out localization strategy for below text strings -->
         <WidgetSection>
             {#if now}
                 <WidgetButton {disabled} {palette} on:click={on_now_click}>NOW</WidgetButton>
             {/if}
 
-            {#if hour_12}
+            {#if _hour_12}
                 <WidgetButton
                     active={period === TOKENS_CLOCK_PERIOD.am}
                     {disabled}

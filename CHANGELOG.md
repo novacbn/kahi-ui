@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Overlays
+
+        -   `Offscreen` / `Overlay` / `Popover`
+
+            -   `<* once={boolean}>` — Dismisses the Component whenever an element inside of the it is clicked.
+
 ## v0.4.10 - 2021/11/14
 
 -   Added CSS Theming Variables to the following Components: `Blockquote`, `Code`, `Heading`, `Text`.

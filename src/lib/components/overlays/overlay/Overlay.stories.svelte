@@ -44,6 +44,28 @@
     </Overlay>
 </Story>
 
+<Story name="Once">
+    <Button for="overlay-once" palette="accent">Open ONCE Modal</Button>
+
+    <Overlay logic_id="overlay-once" once>
+        <Card.Container palette="auto" max_width="viewport-75">
+            <Card.Header>Are you sure?</Card.Header>
+
+            <Card.Section>
+                <Text>
+                    Are you sure you want to delete:
+                    <Code>important-file.docx</Code>?
+                </Text>
+            </Card.Section>
+
+            <Card.Footer>
+                <ContextButton palette="inverse" variation="clear">Cancel</ContextButton>
+                <Button palette="negative">Delete</Button>
+            </Card.Footer>
+        </Card.Container>
+    </Overlay>
+</Story>
+
 <Story name="Orientation">
     {#each ORIENTATIONS as [orientation, is_default] (orientation)}
         <Button for="overlay-orientation-story-{orientation}" palette="accent">

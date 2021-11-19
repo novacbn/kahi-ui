@@ -31,6 +31,7 @@
         captive?: boolean;
         dismissible?: boolean;
         logic_id?: string;
+        once?: boolean;
         state?: boolean;
 
         orientation?: PROPERTY_ORIENTATION_Y_BREAKPOINT;
@@ -60,6 +61,7 @@
     export let captive: $$Props["captive"] = undefined;
     export let dismissible: $$Props["dismissible"] = undefined;
     export let logic_id: $$Props["logic_id"] = "";
+    export let once: $$Props["once"] = undefined;
     export let state: $$Props["state"] = undefined;
 
     export let orientation: $$Props["orientation"] = undefined;
@@ -77,8 +79,17 @@
 
     let _previous_state = state;
 
-    function on_change(event: Event) {
+    function on_change(event: Event): void {
         state = (event.target as HTMLInputElement).checked;
+    }
+
+    function on_click_inside(event: MouseEvent): void {
+        if (once) {
+            const target = event.target as HTMLElement;
+            if (target.tagName !== "LABEL" && target.getAttribute("for") !== logic_id) {
+                state = false;
+            }
+        }
     }
 
     $: $_state = state as boolean;
@@ -119,6 +130,7 @@
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
     })}
+    on:click={on_click_inside}
 >
     <slot />
 </div>

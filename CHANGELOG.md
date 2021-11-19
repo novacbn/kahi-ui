@@ -5,12 +5,12 @@
 -   Updated all Components to support globally forwarding the following events: `click` , `contextmenu` , `dblclick` , `focusin` , `focusout` , `keydown` , `keyup` , `pointercancel` , `pointerdown` , `pointerenter` , `pointerleave` , `pointermove` , `pointerout` , `pointerup`.
 -   Updated all Components to support Svelte Action forwarding via `<* actions={[[action, options]]}>`, e.g.
 
+<!-- prettier-ignore -->
 ```svelte
 <script>
     import {click_outside} from "@kahi-ui/framework";
 </script>
 
-<!-- prettier-ignore -->
 <Box actions={[
     [click_outside, {on_click_outside: () => console.log("clicked!")}]
 ]}>

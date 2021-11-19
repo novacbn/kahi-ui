@@ -18,10 +18,6 @@
 
 -   Updated the following Components / Component Features
 
-    -   `TimePicker`
-
-        -   Up
-
     -   Display
 
         -   `DateStamp`, `DateTimeStamp`, `TimeStamp`

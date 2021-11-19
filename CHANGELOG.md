@@ -4,9 +4,11 @@
 
 -   Added the following Components / Component Features
 
-    -   `TimePicker`
+    -   Widgets
 
-        -   Respects system default for `<TimePicker hour_12={boolean}>` property.
+        -   `TimePicker`
+
+            -   Respects system default for `<TimePicker hour_12={boolean}>` property.
 
 -   Fixed the following Components / Component Features
 

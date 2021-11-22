@@ -30,17 +30,17 @@
         disabled?: boolean;
         readonly?: boolean;
 
-        calendar: string;
-        locale: string;
+        calendar?: string;
+        locale?: string;
 
-        month: Intl.DateTimeFormatOptions["month"];
-        year: Intl.DateTimeFormatOptions["year"];
+        month?: Intl.DateTimeFormatOptions["month"];
+        year?: Intl.DateTimeFormatOptions["year"];
 
         max?: string;
         min?: string;
-        step: number | string;
+        step?: number | string;
 
-        value: string;
+        value?: string;
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
     } & IHTML5Properties &
@@ -60,20 +60,20 @@
     let _class = "";
     export {_class as class};
 
-    export let disabled: $$Props["disabled"] = false;
-    export let readonly: $$Props["readonly"] = false;
+    export let disabled: $$Props["disabled"] = undefined;
+    export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let calendar: $$Props["calendar"] = undefined;
+    export let locale: $$Props["locale"] = undefined;
 
-    export let month: $$Props["month"] = "long";
-    export let year: $$Props["year"] = "numeric";
+    export let month: $$Props["month"] = undefined;
+    export let year: $$Props["year"] = undefined;
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
-    export let step: $$Props["step"] = 1;
+    export let step: $$Props["step"] = undefined;
 
-    export let value: $$Props["value"] = get_monthstamp(calendar);
+    export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 
@@ -94,14 +94,19 @@
         dispatch("change");
     }
 
-    $: _month = Temporal.PlainYearMonth.from(value);
-    $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);
+    const _monthstamp = get_monthstamp(calendar ?? DEFAULT_CALENDAR);
+
+    $: _month = Temporal.PlainYearMonth.from(value ?? _monthstamp);
+    $: _step = step ? (typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step)) : 1;
 </script>
 
 <WidgetContainer {...$$props} bind:element class="month-stepper {_class}">
     <Stack orientation="horizontal" alignment_y="center">
         <WidgetHeader>
-            {_month.toLocaleString(locale, {month, year})}
+            {_month.toLocaleString(locale ?? DEFAULT_LOCALE, {
+                month: month ?? "long",
+                year: year ?? "numeric",
+            })}
         </WidgetHeader>
 
         <Spacer variation="inline" />

@@ -9,6 +9,33 @@
         -   `Offscreen` / `Overlay` / `Popover`
 
             -   `<* once={boolean}>` — Dismisses the Component whenever an element inside of the it is clicked.
+    -   Widgets
+
+        -   `TimePicker`
+
+            -   Respects system default for `<TimePicker hour_12={boolean}>` property.
+
+-   Fixed the following Components / Component Features
+
+    -   Widgets
+
+        -   `TimePicker`
+
+            -   Displayed range of clock times will now be flat `hh:mm:ss` values, stripping microsecond, minisecond, and nanosecond units.
+
+-   Updated the following Components / Component Features
+
+    -   Display
+
+        -   `DateStamp` / `DateTimeStamp` / `TimeStamp`
+
+            -   Updated typings to make `calendar` and `locale` properties optional as originally intended.
+
+    -   Widgets
+
+        -   `DayPicker` / `DayStepper` / `MonthPicker` / `MonthStepper` / `TimePicker` / `YearPicker` / `YearStepper`
+
+            -   Updated typings to make `calendar`, `day`, `disabled`, `highlight`, `locale`, `month`, `step`, `timestamp`, `value`, and `weekday` properties optional.
 
 ## v0.4.10 - 2021/11/14
 

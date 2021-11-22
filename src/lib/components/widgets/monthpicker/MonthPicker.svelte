@@ -35,18 +35,18 @@
         once?: boolean;
         readonly?: boolean;
 
-        calendar: string;
-        locale: string;
+        calendar?: string;
+        locale?: string;
 
-        month: Intl.DateTimeFormatOptions["month"];
+        month?: Intl.DateTimeFormatOptions["month"];
 
-        disabled: boolean | readonly string[];
+        disabled?: boolean | readonly string[];
         max?: string;
         min?: string;
 
-        highlight: readonly string[];
-        timestamp: string;
-        value: readonly string[];
+        highlight?: readonly string[];
+        timestamp?: string;
+        value?: readonly string[];
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -61,42 +61,47 @@
     let _class = "";
     export {_class as class};
 
-    export let multiple: $$Props["multiple"] = false;
-    export let once: $$Props["once"] = false;
-    export let readonly: $$Props["readonly"] = false;
+    export let multiple: $$Props["multiple"] = undefined;
+    export let once: $$Props["once"] = undefined;
+    export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let calendar: $$Props["calendar"] = undefined;
+    export let locale: $$Props["locale"] = undefined;
 
-    export let month: $$Props["month"] = "short";
+    export let month: $$Props["month"] = undefined;
 
-    export let disabled: $$Props["disabled"] = false;
+    export let disabled: $$Props["disabled"] = undefined;
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let highlight: $$Props["highlight"] = [get_monthstamp(calendar)];
-    export let timestamp: $$Props["timestamp"] = get_yearstamp(calendar);
-    export let value: $$Props["value"] = [];
+    export let highlight: $$Props["highlight"] = undefined;
+    export let timestamp: $$Props["timestamp"] = undefined;
+    export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 
     function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {
         if (readonly) return;
 
-        if (!once && has_month(value, month)) {
-            value = multiple ? value.filter((entry) => !month.equals(entry)) : [];
+        if (!once && has_month(_value, month)) {
+            value = multiple ? _value.filter((entry) => !month.equals(entry)) : [];
 
             dispatch("change");
         } else {
             value = multiple
-                ? [...value, month.toString({calendarName: "always"})]
+                ? [..._value, month.toString({calendarName: "always"})]
                 : [month.toString({calendarName: "always"})];
 
             dispatch("change");
         }
     }
 
-    $: _quaters = get_calendar_quaters(timestamp);
+    const _monthstamp = get_monthstamp(calendar ?? DEFAULT_CALENDAR);
+    const _yearstamp = get_yearstamp(calendar ?? DEFAULT_CALENDAR);
+
+    $: _highlight = highlight ?? [_monthstamp];
+    $: _quaters = get_calendar_quaters(timestamp ?? _yearstamp);
+    $: _value = value ?? [];
 </script>
 
 <WidgetContainer {...$$props} bind:element class="month-picker {_class}">
@@ -104,14 +109,16 @@
         <WidgetSection>
             {#each _quater as _month (_month.month)}
                 <WidgetButton
-                    variation={has_month(highlight, _month) ? "outline" : undefined}
+                    variation={has_month(_highlight, _month) ? "outline" : undefined}
                     palette={_month.month % (_month.monthsInYear / 4) === 1 ? undefined : palette}
-                    active={has_month(value, _month)}
+                    active={has_month(_value, _month)}
                     disabled={!is_month_in_range(_month, max, min, true) ||
-                        (typeof disabled === "boolean" ? disabled : has_month(disabled, _month))}
+                        (disabled instanceof Array ? has_month(disabled, _month) : disabled)}
                     on:click={on_month_click.bind(null, _month)}
                 >
-                    {_month.toLocaleString(locale, {month}).toLocaleUpperCase(locale)}
+                    {_month
+                        .toLocaleString(locale ?? DEFAULT_LOCALE, {month: month ?? "short"})
+                        .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
                 </WidgetButton>
             {/each}
         </WidgetSection>

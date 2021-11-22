@@ -36,19 +36,19 @@
         once?: boolean;
         readonly?: boolean;
 
-        calendar: string;
-        locale: string;
+        calendar?: string;
+        locale?: string;
 
-        day: Intl.DateTimeFormatOptions["day"];
-        weekday: Intl.DateTimeFormatOptions["weekday"];
+        day?: Intl.DateTimeFormatOptions["day"];
+        weekday?: Intl.DateTimeFormatOptions["weekday"];
 
-        disabled: boolean | readonly string[];
+        disabled?: boolean | readonly string[];
         max?: string;
         min?: string;
 
-        highlight: readonly string[];
-        timestamp: string;
-        value: readonly string[];
+        highlight?: readonly string[];
+        timestamp?: string;
+        value?: readonly string[];
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -63,50 +63,57 @@
     let _class = "";
     export {_class as class};
 
-    export let multiple: $$Props["multiple"] = false;
-    export let once: $$Props["once"] = false;
-    export let readonly: $$Props["readonly"] = false;
+    export let multiple: $$Props["multiple"] = undefined;
+    export let once: $$Props["once"] = undefined;
+    export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let calendar: $$Props["calendar"] = undefined;
+    export let locale: $$Props["locale"] = undefined;
 
-    export let day: $$Props["day"] = "2-digit";
-    export let weekday: $$Props["weekday"] = "short";
+    export let day: $$Props["day"] = undefined;
+    export let weekday: $$Props["weekday"] = undefined;
 
-    export let disabled: $$Props["disabled"] = false;
+    export let disabled: $$Props["disabled"] = undefined;
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let highlight: $$Props["highlight"] = [get_daystamp(calendar)];
-    export let timestamp: $$Props["timestamp"] = get_monthstamp(calendar);
-    export let value: $$Props["value"] = [];
+    export let highlight: $$Props["highlight"] = undefined;
+    export let timestamp: $$Props["timestamp"] = undefined;
+    export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 
     function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
         if (readonly) return;
 
-        if (!once && has_day(value, day)) {
-            value = multiple ? value.filter((entry) => !day.equals(entry)) : [];
+        if (!once && has_day(_value, day)) {
+            value = multiple ? _value.filter((entry) => !day.equals(entry)) : [];
 
             dispatch("change");
         } else {
             value = multiple
-                ? [...value, day.toString({calendarName: "always"})]
+                ? [..._value, day.toString({calendarName: "always"})]
                 : [day.toString({calendarName: "always"})];
 
             dispatch("change");
         }
     }
 
-    $: _weeks = get_calendar_weeks(timestamp);
+    const _daystamp = get_daystamp(calendar ?? DEFAULT_CALENDAR);
+    const _monthstamp = get_monthstamp(calendar ?? DEFAULT_CALENDAR);
+
+    $: _highlight = highlight ?? [_daystamp];
+    $: _weeks = get_calendar_weeks(timestamp ?? _monthstamp);
+    $: _value = value ?? [];
 </script>
 
 <WidgetContainer {...$$props} bind:element class="day-picker {_class}">
     <WidgetSection>
         {#each _weeks[0] as _day (_day.dayOfWeek)}
             <WidgetHeader>
-                {_day.toLocaleString(locale, {weekday}).toLocaleUpperCase(locale)}
+                {_day
+                    .toLocaleString(locale ?? DEFAULT_LOCALE, {weekday: weekday ?? "short"})
+                    .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
             </WidgetHeader>
         {/each}
     </WidgetSection>
@@ -115,14 +122,14 @@
         <WidgetSection>
             {#each _week as _day (`${_day.month}${_day.day}`)}
                 <WidgetButton
-                    variation={has_day(highlight, _day) ? "outline" : undefined}
+                    variation={has_day(_highlight, _day) ? "outline" : undefined}
                     palette={_day.dayOfWeek > 5 ? undefined : palette}
-                    active={has_day(value, _day)}
+                    active={has_day(_value, _day)}
                     disabled={!is_day_in_range(_day, max, min, true) ||
-                        (typeof disabled === "boolean" ? disabled : has_day(disabled, _day))}
+                        (disabled instanceof Array ? has_day(disabled, _day) : disabled)}
                     on:click={on_day_click.bind(null, _day)}
                 >
-                    {_day.toLocaleString(locale, {day})}
+                    {_day.toLocaleString(locale, {day: day ?? "2-digit"})}
                 </WidgetButton>
             {/each}
         </WidgetSection>

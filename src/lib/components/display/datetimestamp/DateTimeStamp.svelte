@@ -13,8 +13,8 @@
     type $$Props = {
         element?: HTMLTimeElement;
 
-        calendar: string;
-        locale: string;
+        calendar?: string;
+        locale?: string;
 
         day?: Intl.DateTimeFormatOptions["day"];
         month?: Intl.DateTimeFormatOptions["month"];
@@ -36,8 +36,8 @@
     let _class = "";
     export {_class as class};
 
-    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let calendar: $$Props["calendar"] = undefined;
+    export let locale: $$Props["locale"] = undefined;
 
     export let day: $$Props["day"] = undefined;
     export let month: $$Props["month"] = undefined;
@@ -69,8 +69,8 @@
     class="date-time-stamp {_class}"
     datetime={_datetime.toString({calendarName: "never"})}
 >
-    {_datetime.toLocaleString(locale, {
-        calendar,
+    {_datetime.toLocaleString(locale ?? DEFAULT_LOCALE, {
+        calendar: calendar ?? DEFAULT_CALENDAR,
         day: _options.day,
         month: _options.month,
         weekday: _options.weekday,

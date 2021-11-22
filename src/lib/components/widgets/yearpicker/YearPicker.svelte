@@ -34,18 +34,18 @@
         once?: boolean;
         readonly?: boolean;
 
-        calendar: string;
-        locale: string;
+        calendar?: string;
+        locale?: string;
 
-        year: Intl.DateTimeFormatOptions["year"];
+        year?: Intl.DateTimeFormatOptions["year"];
 
-        disabled: boolean | readonly string[];
+        disabled?: boolean | readonly string[];
         max?: string;
         min?: string;
 
-        highlight: readonly string[];
-        timestamp: string;
-        value: readonly string[];
+        highlight?: readonly string[];
+        timestamp?: string;
+        value?: readonly string[];
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -60,47 +60,49 @@
     let _class = "";
     export {_class as class};
 
-    export let multiple: $$Props["multiple"] = false;
-    export let once: $$Props["once"] = false;
-    export let readonly: $$Props["readonly"] = false;
+    export let multiple: $$Props["multiple"] = undefined;
+    export let once: $$Props["once"] = undefined;
+    export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let calendar: $$Props["calendar"] = undefined;
+    export let locale: $$Props["locale"] = undefined;
 
-    export let year: $$Props["year"] = "numeric";
+    export let year: $$Props["year"] = undefined;
 
-    export let disabled: $$Props["disabled"] = [];
+    export let disabled: $$Props["disabled"] = undefined;
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    // HACK: We could do `highlight = [timestamp]`, however that would tie `highlight`'s
-    // default value to `timestamp`. Which might not be expected or wanted default behavior
-
-    const yearstamp = get_yearstamp(calendar);
-
-    export let highlight: $$Props["highlight"] = [yearstamp];
-    export let timestamp: $$Props["timestamp"] = yearstamp;
-    export let value: $$Props["value"] = [];
+    export let highlight: $$Props["highlight"] = undefined;
+    export let timestamp: $$Props["timestamp"] = undefined;
+    export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 
     function on_year_click(year: Temporal.PlainYearMonth, event: MouseEvent): void {
         if (readonly) return;
 
-        if (!once && has_year(value, year)) {
-            value = multiple ? value.filter((entry) => !year.equals(entry)) : [];
+        if (!once && has_year(_value, year)) {
+            value = multiple ? _value.filter((entry) => !year.equals(entry)) : [];
 
             dispatch("change");
         } else {
             value = multiple
-                ? [...value, year.toString({calendarName: "always"})]
+                ? [..._value, year.toString({calendarName: "always"})]
                 : [year.toString({calendarName: "always"})];
 
             dispatch("change");
         }
     }
 
-    $: _halfs = get_decade_halves(timestamp);
+    // HACK: We could do `_highlight = [_timestamp]`, however that would tie `highlight`'s
+    // default value to `timestamp`. Which might not be expected or wanted default behavior
+
+    const _yearstamp = get_yearstamp(calendar ?? DEFAULT_CALENDAR);
+
+    $: _highlight = highlight ?? [_yearstamp];
+    $: _halfs = get_decade_halves(timestamp ?? _yearstamp);
+    $: _value = value ?? [];
 </script>
 
 <WidgetContainer {...$$props} bind:element class="year-picker {_class}">
@@ -108,14 +110,16 @@
         <WidgetSection>
             {#each _half as _year (_year.year)}
                 <WidgetButton
-                    variation={has_year(highlight, _year) ? "outline" : undefined}
+                    variation={has_year(_highlight, _year) ? "outline" : undefined}
                     palette={_year.year % 10 === 0 || _year.year % 10 === 9 ? undefined : palette}
-                    active={has_year(value, _year)}
+                    active={has_year(_value, _year)}
                     disabled={!is_year_in_range(_year, max, min, true) ||
-                        (typeof disabled === "boolean" ? disabled : has_year(disabled, _year))}
+                        (disabled instanceof Array ? has_year(disabled, _year) : disabled)}
                     on:click={on_year_click.bind(null, _year)}
                 >
-                    {_year.toLocaleString(locale, {year}).toLocaleUpperCase(locale)}
+                    {_year
+                        .toLocaleString(locale ?? DEFAULT_LOCALE, {year: year ?? "numeric"})
+                        .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
                 </WidgetButton>
             {/each}
         </WidgetSection>

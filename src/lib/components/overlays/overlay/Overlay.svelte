@@ -134,8 +134,8 @@
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
     })}
-    use:forward_actions={{actions}}
     on:click={on_click_inside}
+    use:forward_actions={{actions}}
     on:click
     on:contextmenu
     on:dblclick

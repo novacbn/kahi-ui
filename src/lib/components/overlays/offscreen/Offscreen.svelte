@@ -121,8 +121,8 @@
         "alignment-y": alignment_y,
         placement,
     })}
-    use:forward_actions={{actions}}
     on:click={on_click_inside}
+    use:forward_actions={{actions}}
     on:click
     on:contextmenu
     on:dblclick

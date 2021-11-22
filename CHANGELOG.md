@@ -2,6 +2,7 @@
 
 ## v0.4.11 - 2021/11/22
 
+-   Deprecated all existing instances of `<* on:blur on:focus>` for `<* on:focusout on:focusin>` respectively.
 -   Updated all Components to support globally forwarding the following events: `click` , `contextmenu` , `dblclick` , `focusin` , `focusout` , `keydown` , `keyup` , `pointercancel` , `pointerdown` , `pointerenter` , `pointerleave` , `pointermove` , `pointerout` , `pointerup`.
 -   Updated all Components to support Svelte Action forwarding via `<* actions={[[action, options]]}>`, e.g.
 

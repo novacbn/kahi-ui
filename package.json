@@ -95,7 +95,7 @@
         "lint:format": "prettier --config .prettierrc --check ./",
         "format:source": "prettier --config .prettierrc --write ./src",
         "postversion": "git push && git push --tags && npm run release",
-        "release": "npm run build && npm run release:publish",
+        "release": "npm run test && npm run build && npm run release:publish",
         "release:publish": "npm publish ./package",
         "test": "npm run test:types && npm run test:svelte",
         "test:svelte": "svelte-check --tsconfig ./tsconfig.json",

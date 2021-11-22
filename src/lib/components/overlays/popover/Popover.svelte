@@ -34,6 +34,7 @@
 
         dismissible?: boolean;
         logic_id?: string;
+        once?: boolean;
         state?: boolean;
 
         placement?: PROPERTY_PLACEMENT;
@@ -59,6 +60,7 @@
 
     export let dismissible: $$Props["dismissible"] = undefined;
     export let logic_id: $$Props["logic_id"] = "";
+    export let once: $$Props["once"] = undefined;
     export let state: $$Props["state"] = undefined;
 
     export let placement: $$Props["placement"] = undefined;
@@ -73,11 +75,20 @@
 
     let _previous_state = state;
 
-    function on_change(event: Event) {
+    function on_change(event: Event): void {
         state = (event.target as HTMLInputElement).checked;
     }
 
-    function on_click_outside(event: MouseEvent) {
+    function on_click_inside(event: MouseEvent): void {
+        if (once) {
+            const target = event.target as HTMLElement;
+            if (target.tagName !== "LABEL" && target.getAttribute("for") !== logic_id) {
+                state = false;
+            }
+        }
+    }
+
+    function on_click_outside(event: MouseEvent): void {
         if (state && dismissible) state = false;
     }
 
@@ -112,6 +123,7 @@
         placement,
         spacing,
     })}
+    on:click={on_click_inside}
     use:click_outside={{on_click_outside}}
     use:forward_actions={{actions}}
     on:click

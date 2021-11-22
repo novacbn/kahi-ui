@@ -30,16 +30,16 @@
         disabled?: boolean;
         readonly?: boolean;
 
-        calendar: string;
-        locale: string;
+        calendar?: string;
+        locale?: string;
 
-        year: Intl.DateTimeFormatOptions["year"];
+        year?: Intl.DateTimeFormatOptions["year"];
 
         max?: string;
         min?: string;
-        step: number | string;
+        step?: number | string;
 
-        value: string;
+        value?: string;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -60,19 +60,19 @@
     let _class = "";
     export {_class as class};
 
-    export let disabled: $$Props["disabled"] = false;
-    export let readonly: $$Props["readonly"] = false;
+    export let disabled: $$Props["disabled"] = undefined;
+    export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = DEFAULT_CALENDAR;
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let calendar: $$Props["calendar"] = undefined;
+    export let locale: $$Props["locale"] = undefined;
 
-    export let year: $$Props["year"] = "numeric";
+    export let year: $$Props["year"] = undefined;
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
-    export let step: $$Props["step"] = 1;
+    export let step: $$Props["step"] = undefined;
 
-    export let value: $$Props["value"] = get_yearstamp(calendar);
+    export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 
@@ -86,14 +86,16 @@
         dispatch("change");
     }
 
-    $: _step = typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step);
-    $: _year = Temporal.PlainYearMonth.from(value);
+    const _yearstamp = get_yearstamp(calendar ?? DEFAULT_CALENDAR);
+
+    $: _step = step ? (typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step)) : 1;
+    $: _year = Temporal.PlainYearMonth.from(value ?? _yearstamp);
 </script>
 
 <WidgetContainer {...$$props} bind:element class="year-stepper {_class}">
     <Stack orientation="horizontal" alignment_y="center">
         <WidgetHeader>
-            {_year.toLocaleString(locale, {year})}
+            {_year.toLocaleString(locale ?? DEFAULT_LOCALE, {year: year ?? "numeric"})}
         </WidgetHeader>
 
         <Spacer variation="inline" />

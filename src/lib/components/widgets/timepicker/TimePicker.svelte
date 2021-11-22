@@ -13,7 +13,7 @@
 
     import {get_clock_ranges, get_timestamp, is_time_in_range} from "../../../util/datetime";
     import {scroll_into_container} from "../../../util/element";
-    import {DEFAULT_LOCALE} from "../../../util/locale";
+    import {DEFAULT_HOUR_12, DEFAULT_LOCALE} from "../../../util/locale";
 
     import WidgetButton from "../widget/WidgetButton.svelte";
     import WidgetContainer from "../widget/WidgetContainer.svelte";
@@ -32,7 +32,7 @@
         readonly?: boolean;
         scroll?: boolean;
 
-        locale: string;
+        locale?: string;
 
         hour?: Intl.DateTimeFormatOptions["hour"];
         hour_12?: Intl.DateTimeFormatOptions["hour12"];
@@ -40,12 +40,12 @@
         minute?: Intl.DateTimeFormatOptions["minute"];
         second?: Intl.DateTimeFormatOptions["second"];
 
-        disabled: boolean;
+        disabled?: boolean;
         max?: string;
         min?: string;
 
-        highlight: string;
-        value: string;
+        highlight?: string;
+        value?: string;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -64,23 +64,23 @@
     let _class = "";
     export {_class as class};
 
-    export let now: $$Props["now"] = false;
-    export let readonly: $$Props["readonly"] = false;
-    export let scroll: $$Props["scroll"] = false;
+    export let now: $$Props["now"] = undefined;
+    export let readonly: $$Props["readonly"] = undefined;
+    export let scroll: $$Props["scroll"] = undefined;
 
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let locale: $$Props["locale"] = undefined;
 
-    export let hour: $$Props["hour"] = "2-digit";
-    export let hour_12: $$Props["hour_12"] = false;
-    export let minute: $$Props["minute"] = "2-digit";
-    export let second: $$Props["second"] = "2-digit";
+    export let hour: $$Props["hour"] = undefined;
+    export let hour_12: $$Props["hour_12"] = undefined;
+    export let minute: $$Props["minute"] = undefined;
+    export let second: $$Props["second"] = undefined;
 
-    export let disabled: $$Props["disabled"] = false;
+    export let disabled: $$Props["disabled"] = undefined;
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let highlight: $$Props["highlight"] = get_timestamp();
-    export let value: $$Props["value"] = "";
+    export let highlight: $$Props["highlight"] = undefined;
+    export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 
@@ -129,9 +129,13 @@
         if (scroll) scroll_to_current();
     });
 
-    $: [_hours, _minutes, _seconds] = get_clock_ranges(value || min, hour_12, period);
+    const _timestamp = get_timestamp();
 
-    $: _highlight = Temporal.PlainTime.from(highlight);
+    $: _hour_12 = hour_12 ?? DEFAULT_HOUR_12;
+
+    $: [_hours, _minutes, _seconds] = get_clock_ranges(value || min, _hour_12, period);
+
+    $: _highlight = Temporal.PlainTime.from(highlight ?? _timestamp);
     $: _value = value ? Temporal.PlainTime.from(value) : null;
 </script>
 
@@ -146,7 +150,10 @@
                     disabled={disabled || !is_time_in_range(_hour, max, min, true)}
                     on:click={on_time_click.bind(null, _hour)}
                 >
-                    {_hour.toLocaleString(locale, {hour, hour12: hour_12})}
+                    {_hour.toLocaleString(locale ?? DEFAULT_LOCALE, {
+                        hour: hour ?? "2-digit",
+                        hour12: _hour_12,
+                    })}
                 </WidgetButton>
             {/each}
         </WidgetSection>
@@ -165,7 +172,9 @@
                     disabled={disabled || !is_time_in_range(_minute, max, min, true)}
                     on:click={on_time_click.bind(null, _minute)}
                 >
-                    {_minute.toLocaleString(locale, {minute})}
+                    {_minute.toLocaleString(locale ?? DEFAULT_LOCALE, {
+                        minute: minute ?? "2-digit",
+                    })}
                 </WidgetButton>
             {/each}
         </WidgetSection>
@@ -187,20 +196,22 @@
                     disabled={disabled || !is_time_in_range(_second, max, min, true)}
                     on:click={on_time_click.bind(null, _second)}
                 >
-                    {_second.toLocaleString(locale, {second})}
+                    {_second.toLocaleString(locale ?? DEFAULT_LOCALE, {
+                        second: second ?? "2-digit",
+                    })}
                 </WidgetButton>
             {/each}
         </WidgetSection>
     </WidgetSection>
 
-    {#if hour_12 || now}
+    {#if _hour_12 || now}
         <!-- TODO: Figure out localization strategy for below text strings -->
         <WidgetSection>
             {#if now}
                 <WidgetButton {disabled} {palette} on:click={on_now_click}>NOW</WidgetButton>
             {/if}
 
-            {#if hour_12}
+            {#if _hour_12}
                 <WidgetButton
                     active={period === TOKENS_CLOCK_PERIOD.am}
                     {disabled}

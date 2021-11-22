@@ -104,7 +104,11 @@ export function get_clock_ranges(
     hour_12: boolean = false,
     period: PROPERTY_CLOCK_PERIOD = TOKENS_CLOCK_PERIOD.am
 ): [Temporal.PlainTime[], Temporal.PlainTime[], Temporal.PlainTime[]] {
-    const base = value ? Temporal.PlainTime.from(value) : new Temporal.PlainTime();
+    const base = (value ? Temporal.PlainTime.from(value) : new Temporal.PlainTime()).with({
+        millisecond: 0,
+        microsecond: 0,
+        nanosecond: 0,
+    });
 
     return [
         hour_12

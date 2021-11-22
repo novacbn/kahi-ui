@@ -18,7 +18,7 @@
         actions?: IForwardedActions;
         element?: HTMLTimeElement;
 
-        locale: string;
+        locale?: string;
 
         hour?: Intl.DateTimeFormatOptions["hour"];
         hour_12?: Intl.DateTimeFormatOptions["hour12"];
@@ -36,7 +36,7 @@
     let _class = "";
     export {_class as class};
 
-    export let locale: $$Props["locale"] = DEFAULT_LOCALE;
+    export let locale: $$Props["locale"] = undefined;
 
     export let hour: $$Props["hour"] = undefined;
     export let hour_12: $$Props["hour_12"] = undefined;
@@ -70,7 +70,7 @@
     on:pointerout
     on:pointerup
 >
-    {_time.toLocaleString(locale, {
+    {_time.toLocaleString(locale ?? DEFAULT_LOCALE, {
         hour: _options.hour,
         hour12: _options.hour_12,
         minute: _options.minute,

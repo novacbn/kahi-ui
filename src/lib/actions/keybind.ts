@@ -5,7 +5,7 @@ import type {IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action handle returned by [[keybind]]
  */
-export type IKeybindAction = IActionHandle<IKeybindOptions>;
+export type IKeybindHandle = Required<IActionHandle<IKeybindOptions>>;
 
 /**
  * Represents the typing for the [[IKeybindOptions.on_bind]] callback
@@ -188,7 +188,7 @@ function bindstate(binds: string | string[]): IBindState {
  * @param options
  * @returns
  */
-export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybindAction {
+export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle {
     let {binds, repeat = false, repeat_throttle = 0, on_bind} = options;
 
     let cache = false;

@@ -1,9 +1,12 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {
         map_aria_attributes,
@@ -20,14 +23,20 @@
     } from "../form/FormGroup.svelte";
 
     type $$Events = {
+        /**
+         * @deprecated Use `on:focusout` instead.
+         */
         blur: FocusEvent;
         change: InputEvent;
-        click: MouseEvent;
+        /**
+         * @deprecated Use `on:focusin` instead.
+         */
         focus: FocusEvent;
         input: InputEvent;
-    };
+    } & IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLInputElement;
 
         active?: boolean;
@@ -45,6 +54,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let id: $$Props["id"] = "";
@@ -94,10 +104,24 @@
                     value,
                 })}
                 checked={state}
+                use:forward_actions={{actions}}
+                on:click
+                on:contextmenu
+                on:dblclick
+                on:focusin
+                on:focusout
+                on:keydown
+                on:keyup
+                on:pointercancel
+                on:pointerdown
+                on:pointerenter
+                on:pointerleave
+                on:pointermove
+                on:pointerout
+                on:pointerup
                 on:change={on_change}
                 on:blur
                 on:change
-                on:click
                 on:focus
                 on:input
             />
@@ -120,10 +144,24 @@
             value,
         })}
         checked={state}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
         on:change={on_change}
         on:blur
         on:change
-        on:click
         on:focus
         on:input
     />

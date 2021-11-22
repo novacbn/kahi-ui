@@ -3,7 +3,7 @@ import type {IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action handle returned by [[click_outside]]
  */
-export type IClickOutsideAction = IActionHandle<IClickOutsideOptions>;
+export type IClickOutsideHandle = Required<IActionHandle<IClickOutsideOptions>>;
 
 /**
  * Represents the typing for the [[IClickOutsideOptions.on_click_outside]] callback
@@ -33,7 +33,7 @@ export interface IClickOutsideOptions {
 export function click_outside(
     element: HTMLElement,
     options: IClickOutsideOptions
-): IClickOutsideAction {
+): IClickOutsideHandle {
     let {on_click_outside} = options;
 
     function on_click(event: MouseEvent) {

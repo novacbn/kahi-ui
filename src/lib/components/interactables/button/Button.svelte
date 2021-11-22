@@ -1,10 +1,13 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {
         map_aria_attributes,
@@ -13,11 +16,10 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
-    type $$Events = {
-        click: MouseEvent;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLAnchorElement | HTMLButtonElement | HTMLInputElement | HTMLLabelElement;
 
         active?: boolean;
@@ -44,6 +46,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -80,7 +83,21 @@
         {href}
         {rel}
         {target}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </a>
@@ -93,7 +110,21 @@
         for={_for}
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({disabled, pressed: active})}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </label>
@@ -106,7 +137,21 @@
             {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
+            use:forward_actions={{actions}}
             on:click
+            on:contextmenu
+            on:dblclick
+            on:focusin
+            on:focusout
+            on:keydown
+            on:keyup
+            on:pointercancel
+            on:pointerdown
+            on:pointerenter
+            on:pointerleave
+            on:pointermove
+            on:pointerout
+            on:pointerup
         />
     {:else if type === "submit"}
         <input
@@ -116,7 +161,21 @@
             {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
+            use:forward_actions={{actions}}
             on:click
+            on:contextmenu
+            on:dblclick
+            on:focusin
+            on:focusout
+            on:keydown
+            on:keyup
+            on:pointercancel
+            on:pointerdown
+            on:pointerenter
+            on:pointerleave
+            on:pointermove
+            on:pointerout
+            on:pointerup
         />
     {:else}
         <input
@@ -126,7 +185,21 @@
             {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
+            use:forward_actions={{actions}}
             on:click
+            on:contextmenu
+            on:dblclick
+            on:focusin
+            on:focusout
+            on:keydown
+            on:keyup
+            on:pointercancel
+            on:pointerdown
+            on:pointerenter
+            on:pointerleave
+            on:pointermove
+            on:pointerout
+            on:pointerup
         />
     {/if}
 {:else}
@@ -136,7 +209,21 @@
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({disabled})}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </button>

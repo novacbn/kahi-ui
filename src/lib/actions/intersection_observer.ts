@@ -3,7 +3,7 @@ import type {IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action handle returned by [[intersection_observer]]
  */
-export type IIntersectionObserverAction = IActionHandle<IIntersectionObserverOptions>;
+export type IIntersectionObserverHandle = Required<IActionHandle<IIntersectionObserverOptions>>;
 
 /**
  * Represents the typing for the [[IIntersectionObserverOptions.on_intersect]] callback
@@ -50,7 +50,7 @@ export interface IIntersectionObserverOptions {
 export function intersection_observer(
     element: HTMLElement,
     options: IIntersectionObserverOptions
-): IIntersectionObserverAction {
+): IIntersectionObserverHandle {
     let {on_intersect, root, root_margin, threshold} = options;
 
     let observer = new IntersectionObserver(

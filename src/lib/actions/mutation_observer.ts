@@ -3,7 +3,7 @@ import type {IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action handle returned by [[mutation_observer]]
  */
-export type IMutationObserverAction = IActionHandle<IMutationObserverOptions>;
+export type IMutationObserverHandle = Required<IActionHandle<IMutationObserverOptions>>;
 
 /**
  * Represents the typing for the [[IMutationObserverOptions.on_mutate]] callback
@@ -71,7 +71,7 @@ export interface IMutationObserverOptions {
 export function mutation_observer(
     element: HTMLElement,
     options: IMutationObserverOptions
-): IMutationObserverAction {
+): IMutationObserverHandle {
     let {
         attributes,
         attribute_filter,

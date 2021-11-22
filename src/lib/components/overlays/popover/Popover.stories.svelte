@@ -74,6 +74,38 @@
     </Popover>
 </Story>
 
+<Story name="Once">
+    <Popover logic_id="popover-once" alignment_x="right" spacing="medium" hidden once>
+        <ContextButton palette="accent">Open ONCE Popover</ContextButton>
+
+        <Card.Container palette="inverse" elevation="high" max_width="content-max">
+            <Card.Section>
+                <Menu.Container>
+                    <Menu.Button>
+                        Copy
+                        <Spacer variation="inline" spacing="medium" />
+                        <Text is="kbd">CTRL+C</Text>
+                    </Menu.Button>
+
+                    <Menu.Button>
+                        Cut
+                        <Spacer variation="inline" spacing="medium" />
+                        <Text is="kbd">CTRL+X</Text>
+                    </Menu.Button>
+
+                    <Menu.Divider />
+
+                    <Menu.Button>
+                        Delete
+                        <Spacer variation="inline" spacing="medium" />
+                        <Text is="kbd">DEL</Text>
+                    </Menu.Button>
+                </Menu.Container>
+            </Card.Section>
+        </Card.Container>
+    </Popover>
+</Story>
+
 <Story name="Placement">
     <div data-padding-x="huge" data-padding-y="huge">
         <Stack orientation="horizontal" spacing="medium" variation="wrap">

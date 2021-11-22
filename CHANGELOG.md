@@ -4,6 +4,11 @@
 
 -   Added the following Components / Component Features
 
+    -   Overlays
+
+        -   `Offscreen` / `Overlay` / `Popover`
+
+            -   `<* once={boolean}>` — Dismisses the Component whenever an element inside of the it is clicked.
     -   Widgets
 
         -   `TimePicker`

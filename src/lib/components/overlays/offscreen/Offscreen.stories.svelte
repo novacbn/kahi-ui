@@ -25,7 +25,20 @@
 <Story name="Default">
     <Button for="offscreen-default-story" palette="accent">Open Offscreen</Button>
 
-    <Offscreen logic_id="offscreen-default-story" placement="top" hidden captive dismissible>
+    <Offscreen logic_id="offscreen-default-story" placement="top" captive dismissible hidden>
+        <Box palette="accent" padding="medium">
+            <Stack orientation="horizontal" alignment_y="center" spacing="medium">
+                <ContextButton palette="light" variation="clear">X</ContextButton>
+                I am hidden on all Viewports!
+            </Stack>
+        </Box>
+    </Offscreen>
+</Story>
+
+<Story name="Once">
+    <Button for="offscreen-once" palette="accent">Open ONCE Offscreen</Button>
+
+    <Offscreen logic_id="offscreen-once" placement="top" hidden once>
         <Box palette="accent" padding="medium">
             <Stack orientation="horizontal" alignment_y="center" spacing="medium">
                 <ContextButton palette="light" variation="clear">X</ContextButton>
@@ -44,9 +57,9 @@
         <Offscreen
             logic_id="offscreen-placement-story-{placement}"
             {placement}
-            hidden
             captive
             dismissible
+            hidden
         >
             <Box palette="accent" padding="medium">
                 <Stack orientation="horizontal" alignment_y="center" spacing="medium">

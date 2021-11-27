@@ -21,6 +21,10 @@
 
 Visit the documentation at [kahi-ui.nbn.dev](https://kahi-ui.nbn.dev).
 
+## Playground
+
+Want to just mess around and share Kahi UI creations? Visit the playground at [kahi-ui.nbn.dev/playground](https://kahi-ui.nbn.dev/playground).
+
 ## F.A.Q.
 
 Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/faq](https://kahi-ui.nbn.dev/docs/framework/faq).

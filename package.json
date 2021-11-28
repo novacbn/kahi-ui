@@ -99,7 +99,7 @@
         "build:storybook": "build-storybook",
         "dev:storybook": "start-storybook --ci -p 6006",
         "lint": "npm run lint:format",
-        "lint:format": "prettier --config .prettierrc --check ./",
+        "lint:format": "prettier --config .prettierrc --check ./src",
         "format:source": "prettier --config .prettierrc --write ./src",
         "postversion": "git push && git push --tags && npm run release",
         "release": "npm run test && npm run build && npm run release:publish",

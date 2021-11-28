@@ -64,6 +64,7 @@
         "url": "https://github.com/novacbn/kahi-ui.git"
     },
     "devDependencies": {
+        "@js-temporal/polyfill": "^0.2.0",
         "@storybook/addon-actions": "^6.3.12",
         "@storybook/addon-essentials": "^6.3.12",
         "@storybook/addon-svelte-csf": "^1.1.0",
@@ -110,8 +111,6 @@
         "watch:framework": "postcss --config postcss.config.cjs --output ./package/dist/kahi-ui.framework.css --watch ./src/framework/index.css"
     },
     "dependencies": {
-        "big-integer": "^1.6.48",
-        "es-abstract": "^1.18.3",
         "svelte": "^3.40.2"
     }
 }

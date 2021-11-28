@@ -103,7 +103,8 @@
         "watch:framework": "postcss --config postcss.config.cjs --output ./package/dist/kahi-ui.framework.css --watch ./src/framework/index.css"
     },
     "dependencies": {
-        "@js-temporal/polyfill": "^0.2.0",
+        "big-integer": "^1.6.48",
+        "es-abstract": "^1.18.3",
         "svelte": "^3.40.2"
     }
 }

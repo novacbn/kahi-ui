@@ -1,4 +1,4 @@
-import {Temporal} from "@js-temporal/polyfill";
+import {Temporal} from "../../vendor/js-temporal";
 
 import type {PROPERTY_CLOCK_PERIOD} from "../types/datetime";
 import {TOKENS_CLOCK_PERIOD} from "../types/datetime";

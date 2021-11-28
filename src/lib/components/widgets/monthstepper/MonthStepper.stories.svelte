@@ -1,5 +1,5 @@
 <script>
-    import {Temporal} from "../../../../vendor/js-temporal";
+    import {Temporal} from "../../../vendor/js-temporal";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import {DEFAULT_CALENDAR} from "../../../util/locale";

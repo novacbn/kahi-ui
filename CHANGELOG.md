@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Vendored [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) temporarily to fix edge case with PNPM + SvelteKit development server.
+
 ## v0.4.11 - 2021/11/22
 
 -   Deprecated all existing instances of `<* on:blur on:focus>` for `<* on:focusout on:focusin>` respectively.

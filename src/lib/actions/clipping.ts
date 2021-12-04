@@ -9,12 +9,12 @@ export type IClippingHandle = Required<IActionHandle<IClippingOptions>>;
 /**
  * Represents the typing for the [[IClippingOptions.on_clip]] callback
  */
-export type IClippingCallback = (clippings: IClippingEntry) => void;
+export type IClippingCallback = (clippings: IClippingEntries) => void;
 
 /**
  * Represents sides of viewport that are being clipped passed into [[IClippingOptions.on_clip]]
  */
-export interface IClippingEntry {
+export interface IClippingEntries {
     /**
      * Represents if the target element is clipping the bottom of the viewport
      */
@@ -63,7 +63,7 @@ export function clipping(element: HTMLElement, options: IClippingOptions): IClip
     let {on_clip} = options;
 
     function on_intersect(intersections: IntersectionObserverEntry[]): void {
-        const clippings = intersections.reduce<IClippingEntry>(
+        const clippings = intersections.reduce<IClippingEntries>(
             (accum, intersection) => {
                 const {
                     boundingClientRect: bounding_client_rect,

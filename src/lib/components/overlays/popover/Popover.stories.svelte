@@ -1,6 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Scrollable from "../../layouts/scrollable/Scrollable.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
     import * as Menu from "../../navigation/menu";
@@ -72,6 +73,44 @@
             </Card.Section>
         </Card.Container>
     </Popover>
+</Story>
+
+<Story name="Clipping">
+    <Scrollable style="width:25rem;height:25rem;">
+        <div
+            style="display:flex;align-items:center;justify-content:center;width:65rem;height:65rem;"
+        >
+            <Popover logic_id="popover-clipping" alignment_x="right" spacing="medium" hidden>
+                <ContextButton palette="accent">Open CLIPPING Popover</ContextButton>
+
+                <Card.Container palette="inverse" elevation="high" max_width="content-max">
+                    <Card.Section>
+                        <Menu.Container>
+                            <Menu.Button>
+                                Copy
+                                <Spacer variation="inline" spacing="medium" />
+                                <Text is="kbd">CTRL+C</Text>
+                            </Menu.Button>
+
+                            <Menu.Button>
+                                Cut
+                                <Spacer variation="inline" spacing="medium" />
+                                <Text is="kbd">CTRL+X</Text>
+                            </Menu.Button>
+
+                            <Menu.Divider />
+
+                            <Menu.Button>
+                                Delete
+                                <Spacer variation="inline" spacing="medium" />
+                                <Text is="kbd">DEL</Text>
+                            </Menu.Button>
+                        </Menu.Container>
+                    </Card.Section>
+                </Card.Container>
+            </Popover>
+        </div>
+    </Scrollable>
 </Story>
 
 <Story name="Once">

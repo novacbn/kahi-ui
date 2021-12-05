@@ -45,6 +45,8 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    export let tabindex: $$Props["tabindex"] = 0;
+
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
     export let state: $$Props["state"] = undefined;
@@ -92,6 +94,10 @@
     });
 
     $: state = $_accordion_state.includes($_accordion_id);
+
+    // HACK: Svelte has `tabindex` typed as `number | undefined` unless
+    // you pass a string literal into the markup
+    $: _tabindex = tabindex as number | undefined;
 </script>
 
 {#if $_accordion_behavior === "inclusive"}
@@ -124,6 +130,7 @@
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
     for={$_accordion_id}
+    tabindex={_tabindex}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

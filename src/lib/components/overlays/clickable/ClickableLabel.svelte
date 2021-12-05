@@ -30,6 +30,7 @@
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
+    export let tabindex: $$Props["tabindex"] = 0;
     export {_class as class};
 
     export let active: $$Props["active"] = undefined;
@@ -37,6 +38,10 @@
 
     let _for: $$Props["for"] = undefined;
     export {_for as for};
+
+    // HACK: Svelte has `tabindex` typed as `number | undefined` unless
+    // you pass a string literal into the markup
+    $: _tabindex = tabindex as number | undefined;
 </script>
 
 <label
@@ -45,6 +50,7 @@
     class="clickable-item {_class}"
     {...map_aria_attributes({disabled, pressed: active})}
     for={_for}
+    tabindex={_tabindex}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

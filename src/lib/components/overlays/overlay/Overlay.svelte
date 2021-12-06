@@ -11,8 +11,10 @@
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
     import type {IPaddingProperties, PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
+    import {auto_focus} from "../../../actions/auto_focus";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {trap_focus} from "../../../actions/trap_focus";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -136,6 +138,8 @@
     })}
     on:click={on_click_inside}
     use:forward_actions={{actions}}
+    use:trap_focus={{enabled: $_state}}
+    use:auto_focus={{enabled: $_state}}
     on:click
     on:contextmenu
     on:dblclick

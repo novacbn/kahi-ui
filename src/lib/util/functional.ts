@@ -41,14 +41,13 @@ export function throttle<F extends (...args: any[]) => void | Promise<void>>(
     func: F,
     duration: number = 0
 ): (...args: Parameters<F>) => void | Promise<void> {
-    let identifier: number | undefined;
+    let previous_call = Number.MIN_SAFE_INTEGER;
 
     return (...args: any[]) => {
-        if (identifier === undefined) {
+        const current_call = Date.now();
+        if (current_call - previous_call >= duration) {
             func(...args);
-
-            // @ts-ignore - HACK: NodeJS doesn't follow spec
-            identifier = setTimeout(() => (identifier = undefined), duration);
+            previous_call = current_call;
         }
     };
 }

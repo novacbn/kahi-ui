@@ -137,9 +137,9 @@
         "spacing-y": spacing_y,
     })}
     on:click={on_click_inside}
-    use:forward_actions={{actions}}
     use:trap_focus={{enabled: $_state}}
     use:auto_focus={{enabled: $_state}}
+    use:forward_actions={{actions}}
     on:click
     on:contextmenu
     on:dblclick

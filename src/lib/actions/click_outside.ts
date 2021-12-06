@@ -1,4 +1,9 @@
-import type {IActionHandle} from "./actions";
+import type {IAction, IActionHandle} from "./actions";
+
+/**
+ * Represents the Svelte Action initializer signature for [[click_outside]]
+ */
+export type IClickOutsideAction = IAction<HTMLElement, IClickOutsideOptions>;
 
 /**
  * Represents the Svelte Action handle returned by [[click_outside]]
@@ -30,10 +35,7 @@ export interface IClickOutsideOptions {
  * @param options
  * @returns
  */
-export function click_outside(
-    element: HTMLElement,
-    options: IClickOutsideOptions
-): IClickOutsideHandle {
+export const click_outside: IClickOutsideAction = (element, options) => {
     let {on_click_outside} = options;
 
     function on_click(event: MouseEvent) {
@@ -53,4 +55,4 @@ export function click_outside(
             document.removeEventListener("click", on_click);
         },
     };
-}
+};

@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Actions / Action Features
+
+    -   `auto_focus(element: HTMLElement, options: IAutoFocusOptions): IAutoFocusHandle` — Focuses the first available focusable element within the attached `element` when enabled, restoring focus whenever disabled.
+
+        -   `auto_focus(..., {enabled: boolean})` — Enables the auto focusing.
+        -   `auto_focus(..., {target: HTMLElement | string | null})` — Sets a custom element to focus to instead of the first focusable.
+
+    -   `trap_focus(element: HTMLElement, options: ITrapFocusOptions): ITrapFocusHandle` — Traps focusing to content to focusable nested elements within the attached `element`.
+
+        -   `trap_focus(..., {enabled: boolean})` — Enables the focus trapping.
+        -   `trap_focus(..., {first: HTMLElement | string | null})` — Sets a custom element to wrap focus to when the attached `element`'s focus is "escaped".
+        -   `trap_focus(..., {last: HTMLElement | string | null})` — Sets a custom element used to detect whenever the attached `element`'s focus is on the last available nested element.
+
 ## v0.4.12 - 2021/11/28
 
 -   Vendored [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) temporarily to fix edge case with PNPM + SvelteKit development server.

@@ -15,6 +15,12 @@ export type IClickOutsideCallback = (event: MouseEvent) => void;
  */
 export interface IClickOutsideOptions {
     /**
+     * Represents CSS selectors used as an ignore list of elements that can
+     * trigger the [[IClickOutsideOptions.ignore]] callback
+     */
+    ignore?: string;
+
+    /**
      * Represents the event callback called whenever target element
      * was clicked outside of its children
      */
@@ -34,23 +40,26 @@ export function click_outside(
     element: HTMLElement,
     options: IClickOutsideOptions
 ): IClickOutsideHandle {
-    let {on_click_outside} = options;
+    let {ignore, on_click_outside} = options;
 
-    function on_click(event: MouseEvent) {
-        const target = event.target as Node;
+    function on_click(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
 
-        if (document.contains(target) && !element.contains(target)) on_click_outside(event);
+        if (ignore && target.matches(ignore)) return;
+        if (!document.contains(target) || element.contains(target)) return;
+
+        on_click_outside(event);
     }
 
     document.addEventListener("click", on_click);
 
     return {
-        update(options: IClickOutsideOptions) {
-            ({on_click_outside} = options);
-        },
-
         destroy() {
             document.removeEventListener("click", on_click);
+        },
+
+        update(options: IClickOutsideOptions) {
+            ({ignore, on_click_outside} = options);
         },
     };
 }

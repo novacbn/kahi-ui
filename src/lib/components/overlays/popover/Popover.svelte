@@ -12,10 +12,9 @@
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
     import type {PROPERTY_SPACING} from "../../../types/spacings";
 
+    import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
-
-    import {click_outside} from "../../../actions/click_outside";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";

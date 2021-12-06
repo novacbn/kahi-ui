@@ -10,8 +10,10 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
 
+    import {auto_focus} from "../../../actions/auto_focus";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {trap_focus} from "../../../actions/trap_focus";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -122,6 +124,8 @@
         placement,
     })}
     on:click={on_click_inside}
+    use:trap_focus={{enabled: $_state}}
+    use:auto_focus={{enabled: $_state}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

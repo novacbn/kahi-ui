@@ -11,6 +11,8 @@
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
     import type {IPaddingProperties, PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
+    import {click_inside} from "../../../actions/click_inside";
+    import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
@@ -18,6 +20,7 @@
     import {make_state_context} from "../../../stores/state";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
+    import {action_exit} from "../../../util/keybind";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
 
@@ -87,13 +90,12 @@
         state = (event.target as HTMLInputElement).checked;
     }
 
-    function on_click_inside(event: MouseEvent): void {
-        if (once) {
-            const target = event.target as HTMLElement;
-            if (target.tagName !== "LABEL" && target.getAttribute("for") !== logic_id) {
-                state = false;
-            }
-        }
+    function on_dismiss(): void {
+        if (dismissible && $_state) state = false;
+    }
+
+    function on_once(): void {
+        if (once && $_state) state = false;
     }
 
     $: $_state = state as boolean;
@@ -106,6 +108,8 @@
         }
     }
 </script>
+
+<svelte:window use:action_exit={{on_bind: on_dismiss}} />
 
 {#if $_logic_id}
     <input
@@ -134,7 +138,14 @@
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
     })}
-    on:click={on_click_inside}
+    use:click_inside={{
+        ignore: `label[for="${logic_id}"]`,
+        on_click_inside: on_once,
+    }}
+    use:click_outside={{
+        ignore: `label[for="${logic_id}"]`,
+        on_click_outside: on_dismiss,
+    }}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

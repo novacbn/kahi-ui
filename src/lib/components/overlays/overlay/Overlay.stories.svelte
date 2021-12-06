@@ -25,7 +25,7 @@
 <Story name="Default">
     <Button for="overlay-default-story" palette="accent">Open Modal</Button>
 
-    <Overlay logic_id="overlay-default-story" captive dismissible>
+    <Overlay logic_id="overlay-default-story" captive>
         <Card.Container palette="auto" max_width="viewport-75">
             <Card.Header>Are you sure?</Card.Header>
 
@@ -44,23 +44,29 @@
     </Overlay>
 </Story>
 
+<Story name="Dismissible">
+    <Button for="overlay-dismissible" palette="accent">Open DISMISSIBLE Modal</Button>
+
+    <Overlay logic_id="overlay-dismissible" dismissible>
+        <Card.Container palette="auto" max_width="viewport-75">
+            <Card.Header>Dismissible Overlay</Card.Header>
+
+            <Card.Footer>
+                <ContextButton palette="inverse" variation="clear">Close</ContextButton>
+            </Card.Footer>
+        </Card.Container>
+    </Overlay>
+</Story>
+
 <Story name="Once">
     <Button for="overlay-once" palette="accent">Open ONCE Modal</Button>
 
     <Overlay logic_id="overlay-once" once>
         <Card.Container palette="auto" max_width="viewport-75">
-            <Card.Header>Are you sure?</Card.Header>
-
-            <Card.Section>
-                <Text>
-                    Are you sure you want to delete:
-                    <Code>important-file.docx</Code>?
-                </Text>
-            </Card.Section>
+            <Card.Header>Once Overlay</Card.Header>
 
             <Card.Footer>
-                <ContextButton palette="inverse" variation="clear">Cancel</ContextButton>
-                <Button palette="negative">Delete</Button>
+                <ContextButton palette="inverse" variation="clear">Close</ContextButton>
             </Card.Footer>
         </Card.Container>
     </Overlay>

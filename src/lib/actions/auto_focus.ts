@@ -28,7 +28,9 @@ export interface IAutoFocusOptions {
 }
 
 /**
- *
+ * When [[IAutoFocusOptions.enabled]] is set to `true`, focuses the first found
+ * focusable element or the [[IAutoFocusOptions.target]] option if configured. Returns
+ * focus to the previously focused element when disabled
  *
  * @param element
  * @param options
@@ -70,7 +72,7 @@ export const auto_focus: IAutoFocusAction = (element, options) => {
     if (enabled) capture_focus();
 
     return {
-        update(options: Partial<IAutoFocusOptions>) {
+        update(options) {
             ({enabled, target} = options);
 
             if (enabled) capture_focus();

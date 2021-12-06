@@ -30,8 +30,10 @@ export interface ITrapFocusOptions {
 }
 
 /**
- * Listens to the [`focusout`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusout_event) for when loses
- * complete focus (i.e. all child elements are no focused), refocusing to the very first focusable or targeted element
+ * Listens to the [`keydown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event) for when
+ * the "Tab" or "Shift+Tab" key combinations are pressed, focusing behaviors work in normal sequential order. But
+ * when the next element to be focused is outside of the attached element, the first focusable element found or
+ * [[ITrapFocusOptions.target]] if configured, instead
  *
  * @param element
  * @param options
@@ -72,7 +74,7 @@ export const trap_focus: ITrapFocusAction = (element, options) => {
             handle.destroy();
         },
 
-        update(options: Partial<ITrapFocusOptions>) {
+        update(options) {
             ({enabled, target} = options);
         },
     };

@@ -188,7 +188,7 @@ function bindstate(binds: string | string[]): IBindState {
  * @param options
  * @returns
  */
-export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle {
+export function keybind(element: Document | HTMLElement, options: IKeybindOptions): IKeybindHandle {
     let {binds, repeat = false, repeat_throttle = 0, on_bind} = options;
 
     let cache = false;
@@ -221,12 +221,16 @@ export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybin
     const on_key_down = make_key_listener(true);
     const on_key_up = make_key_listener(false);
 
+    // @ts-expect-error - HACK: `Document` just doesn't have the event properly typed
     element.addEventListener("keydown", on_key_down);
+    // @ts-expect-error
     element.addEventListener("keyup", on_key_up);
 
     return {
         destroy() {
+            // @ts-expect-error
             element.removeEventListener("keydown", on_key_down);
+            // @ts-expect-error
             element.removeEventListener("keyup", on_key_up);
         },
 

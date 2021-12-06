@@ -7,7 +7,8 @@
 
     import {trap_focus} from "./trap_focus";
 
-    let element;
+    let first_element;
+    let last_element;
 
     let enabled = false;
 </script>
@@ -36,7 +37,7 @@
     </div>
 </Story>
 
-<Story name="Target">
+<Story name="First + Last">
     <Box palette={enabled ? "affirmative" : "negative"} padding="small">
         {enabled
             ? "unselect the checkbox to disabled focus trapping"
@@ -45,11 +46,11 @@
 
     <Check bind:state={enabled} />
 
-    <div use:trap_focus={{enabled, target: element}}>
+    <div use:trap_focus={{first: first_element, enabled, last: last_element}}>
         <Button tabindex="3">Index #3</Button>
-        <Button bind:element tabindex="1">Index #1</Button>
+        <Button bind:element={first_element} tabindex="1">Index #1</Button>
         <Button tabindex="-1">Unselectable</Button>
-        <Button tabindex="4">Index #4</Button>
+        <Button tabindex="4" bind:element={last_element}>Index #4</Button>
         <Button tabindex="2">Index #2</Button>
     </div>
 </Story>

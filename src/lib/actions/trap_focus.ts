@@ -19,14 +19,20 @@ export type ITrapFocusHandle = Required<IActionHandle<ITrapFocusOptions>>;
  */
 export interface ITrapFocusOptions {
     /**
+     * Represents the first element to wrap back around whenever focus escapes attached element
+     */
+    first?: HTMLElement | string | null;
+
+    /**
      * Represents if focus trapping is enabled for the attached element
      */
     enabled?: boolean;
 
     /**
-     * Represents the initial element to wrap back around whenever
+     * Represents the last element used to as a landmark to detect whenever the focus
+     * "escapes" the attached element
      */
-    target?: HTMLElement | string | null;
+    last?: HTMLElement | string | null;
 }
 
 /**
@@ -40,31 +46,34 @@ export interface ITrapFocusOptions {
  * @returns
  */
 export const trap_focus: ITrapFocusAction = (element, options) => {
-    let {enabled, target} = options;
+    let {first, enabled, last} = options;
 
     function on_bind(event: IKeybindEvent): void {
         if (!enabled) return;
-
         if (!event.detail.active) return;
 
-        const first_element = query_target();
-        if (!first_element) return;
+        const first_element = query_target(false);
+        const last_element = query_target(true);
+
+        if (!first_element || !last_element) return;
 
         const {activeElement: active_element} = document;
-        const last_element = query_last_focusable_element(element);
-
         if (active_element === last_element || !element.contains(active_element)) {
             first_element.focus();
             event.preventDefault();
         }
     }
 
-    function query_target(): HTMLElement | null {
+    function query_target(is_last: boolean): HTMLElement | null {
+        const target = is_last ? last : first;
+
         if (target) {
             return typeof target === "string" ? element.querySelector<HTMLElement>(target) : target;
         }
 
-        return query_first_focusable_element(element);
+        return last
+            ? query_last_focusable_element(element)
+            : query_first_focusable_element(element);
     }
 
     const handle = focus_next(document, {on_bind});
@@ -75,7 +84,7 @@ export const trap_focus: ITrapFocusAction = (element, options) => {
         },
 
         update(options) {
-            ({enabled, target} = options);
+            ({first, enabled, last} = options);
         },
     };
 };

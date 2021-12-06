@@ -73,7 +73,7 @@
     <Popover logic_id="popover-dismissible" alignment_x="right" dismissible hidden>
         <ContextButton palette="accent">Open DISMISSIBLE Popover</ContextButton>
 
-        <Box palette="inverse" elevation="high" padding="small">DISMISSIBLE Popover</Box>
+        <Box palette="inverse" elevation="high" padding="small">Open DISMISSIBLE Popover</Box>
     </Popover>
 </Story>
 
@@ -81,7 +81,7 @@
     <Popover logic_id="popover-once" alignment_x="right" hidden once>
         <ContextButton palette="accent">Open ONCE Popover</ContextButton>
 
-        <Box palette="inverse" elevation="high" padding="small">ONCE Popover</Box>
+        <Box palette="inverse" elevation="high" padding="small">Open ONCE Popover</Box>
     </Popover>
 </Story>
 

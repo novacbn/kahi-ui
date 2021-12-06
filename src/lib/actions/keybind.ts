@@ -198,7 +198,8 @@ export const keybind: IKeybindAction = (element, options) => {
 
     let cache = false;
     let state = bindstate(binds);
-    let throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
+    let throttled_on_bind =
+        (repeat && repeat_throttle) > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
 
     function make_key_listener(is_down: boolean): (event: KeyboardEvent) => void {
         return (event) => {
@@ -215,8 +216,8 @@ export const keybind: IKeybindAction = (element, options) => {
 
                 (event.repeat ? throttled_on_bind : on_bind)(custom_event);
 
-                if (custom_event.cancelBubble) custom_event.stopPropagation();
-                if (custom_event.defaultPrevented) custom_event.preventDefault();
+                if (custom_event.cancelBubble) event.stopPropagation();
+                if (custom_event.defaultPrevented) event.preventDefault();
 
                 cache = active;
             }
@@ -243,7 +244,8 @@ export const keybind: IKeybindAction = (element, options) => {
             ({binds, repeat = false, repeat_throttle = 0, on_bind} = options);
 
             state = bindstate(binds);
-            throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
+            throttled_on_bind =
+                (repeat && repeat_throttle) > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
         },
     };
 };

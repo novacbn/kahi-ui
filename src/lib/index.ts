@@ -113,11 +113,13 @@ export {Widget};
 export * from "./components/widgets/yearpicker";
 export * from "./components/widgets/yearstepper";
 
+export * from "./actions/auto_focus";
 export * from "./actions/click_outside";
 export * from "./actions/clipping";
 export * from "./actions/keybind";
 export * from "./actions/intersection_observer";
 export * from "./actions/mutation_observer";
+export * from "./actions/trap_focus";
 
 export * from "./stores/darkmode";
 export * from "./stores/htmlpalette";

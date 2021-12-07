@@ -10,6 +10,12 @@
 
         -   `*(..., {ignore: string})` — Ignores a given [CSS Selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) from triggering the `on_click_inside` / `on_click_outside` callbacks.
 
+-   Updated the following Components / Component Features
+
+    -   `Offscreen` / `Overlay` / `Popover`
+
+        -   `<* dismissible={boolean}>` — Now enables dismissing of Overlays via escape key.
+
 ## v0.4.12 - 2021/11/28
 
 -   Vendored [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) temporarily to fix edge case with PNPM + SvelteKit development server.

@@ -15,6 +15,16 @@
         -   `trap_focus(..., {first: HTMLElement | string | null})` — Sets a custom element to wrap focus to when the attached `element`'s focus is "escaped".
         -   `trap_focus(..., {last: HTMLElement | string | null})` — Sets a custom element used to detect whenever the attached `element`'s focus is on the last available nested element.
 
+-   Added the following Components / Component Features
+
+    -   Overlays
+
+        -   `Offscreen` / `Overlay`
+
+            -   `<* focus_target={HTMLElement | string | null}>` — Sets initial focus target element when first opened. Defaults to first focusable element.
+            -   `<* focus_first={HTMLElement | string | null}>` — Sets the element treated as first in the focus tabbing order, which traps focus (`Offscreen` / `Overlay`) or dismisses (`Popover`). Defaults to first focusable element.
+            -   `<* focus_last={HTMLElement | string | null}>` — Sets the element treated as last in the focus tabbing order, which traps focus `Offscreen` / `Overlay`. Defaults to last focusable element.
+
 ## v0.4.12 - 2021/11/28
 
 -   Vendored [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) temporarily to fix edge case with PNPM + SvelteKit development server.

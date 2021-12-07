@@ -17,7 +17,7 @@ export type IAutoFocusHandle = Omit<Required<IActionHandle<IAutoFocusOptions>>, 
  */
 export interface IAutoFocusOptions {
     /**
-     * Represents if focus trapping is enabled for the attached element
+     * Represents if auto focusing is enabled for the attached element
      */
     enabled?: boolean;
 

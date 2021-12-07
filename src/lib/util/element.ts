@@ -46,7 +46,7 @@ export function query_first_focusable_element<T extends HTMLElement>(
     // filtering, but we need to run `is_hidden` and similar
     const children = query_focusable_elements<T>(element);
 
-    return children.length > 0 ? children[0] ?? null : null;
+    return children[0] ?? null;
 }
 
 export function query_last_focusable_element<T extends HTMLElement>(
@@ -54,7 +54,7 @@ export function query_last_focusable_element<T extends HTMLElement>(
 ): T | null {
     const children = query_focusable_elements<T>(element);
 
-    return children.length > 0 ? children[children.length - 1] ?? null : null;
+    return children[children.length - 1] ?? null;
 }
 
 export function query_focusable_elements<T extends HTMLElement>(

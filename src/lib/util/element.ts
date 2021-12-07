@@ -39,22 +39,15 @@ export function is_hidden(element: HTMLElement): boolean {
     return style.display === "none";
 }
 
-export function query_first_focusable_element<T extends HTMLElement>(
-    element: Document | HTMLElement
+export function query_focusable_element<T extends HTMLElement>(
+    element: Document | HTMLElement,
+    options: {last?: boolean} = {}
 ): T | null {
     // NOTE: Would be a lot faster to run `querySelector` instead of `querySelectorAll` and manual
     // filtering, but we need to run `is_hidden` and similar
     const children = query_focusable_elements<T>(element);
 
-    return children[0] ?? null;
-}
-
-export function query_last_focusable_element<T extends HTMLElement>(
-    element: Document | HTMLElement
-): T | null {
-    const children = query_focusable_elements<T>(element);
-
-    return children[children.length - 1] ?? null;
+    return children[options.last ? children.length - 1 : 0] ?? null;
 }
 
 export function query_focusable_elements<T extends HTMLElement>(

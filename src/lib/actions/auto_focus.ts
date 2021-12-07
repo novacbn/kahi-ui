@@ -1,4 +1,4 @@
-import {query_first_focusable_element} from "../util/element";
+import {query_focusable_element} from "../util/element";
 
 import type {IAction, IActionHandle} from "./actions";
 
@@ -54,7 +54,7 @@ export const auto_focus: IAutoFocusAction = (element, options) => {
             return typeof target === "string" ? element.querySelector<HTMLElement>(target) : target;
         }
 
-        return query_first_focusable_element(element);
+        return query_focusable_element(element);
     }
 
     function restore_focus(): void {

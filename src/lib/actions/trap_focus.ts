@@ -1,8 +1,6 @@
-import {query_first_focusable_element, query_last_focusable_element} from "../util/element";
-import {focus_next} from "../util/keybind";
+import {query_focusable_element} from "../util/element";
 
 import type {IAction, IActionHandle} from "./actions";
-import type {IKeybindEvent} from "./keybind";
 
 /**
  * Represents the Svelte Action initializer signature for [[trap_focus]]
@@ -38,8 +36,8 @@ export interface ITrapFocusOptions {
 /**
  * Listens to the [`keydown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event) for when
  * the "Tab" or "Shift+Tab" key combinations are pressed, focusing behaviors work in normal sequential order. But
- * when the next element to be focused is outside of the attached element, the first focusable element found or
- * [[ITrapFocusOptions.target]] if configured, instead
+ * when the next / prev element to be focused is outside of the attached element, the first / last focusable element
+ * found or [[ITrapFocusOptions.first]] / [[ITrapFocusOptions.last]] if configured, instead
  *
  * @param element
  * @param options
@@ -48,9 +46,8 @@ export interface ITrapFocusOptions {
 export const trap_focus: ITrapFocusAction = (element, options) => {
     let {first, enabled, last} = options;
 
-    function on_bind(event: IKeybindEvent): void {
-        if (!enabled) return;
-        if (!event.detail.active) return;
+    function on_key_down(event: KeyboardEvent): void {
+        if (!enabled || event.key !== "Tab") return;
 
         const first_element = query_target(false);
         const last_element = query_target(true);
@@ -58,29 +55,33 @@ export const trap_focus: ITrapFocusAction = (element, options) => {
         if (!first_element || !last_element) return;
 
         const {activeElement: active_element} = document;
-        if (active_element === last_element || !element.contains(active_element)) {
-            first_element.focus();
-            event.preventDefault();
+        if (event.shiftKey) {
+            if (active_element === first_element || !element.contains(active_element)) {
+                event.preventDefault();
+                last_element.focus();
+            }
+        } else {
+            if (active_element === last_element || !element.contains(active_element)) {
+                event.preventDefault();
+                first_element.focus();
+            }
         }
     }
 
     function query_target(is_last: boolean): HTMLElement | null {
         const target = is_last ? last : first;
-
         if (target) {
             return typeof target === "string" ? element.querySelector<HTMLElement>(target) : target;
         }
 
-        return last
-            ? query_last_focusable_element(element)
-            : query_first_focusable_element(element);
+        return query_focusable_element(element, {last: is_last});
     }
 
-    const handle = focus_next(document, {on_bind});
+    window.addEventListener("keydown", on_key_down);
 
     return {
         destroy() {
-            handle.destroy();
+            window.removeEventListener("keydown", on_key_down);
         },
 
         update(options) {

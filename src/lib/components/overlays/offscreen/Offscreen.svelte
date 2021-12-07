@@ -38,6 +38,10 @@
         once?: boolean;
         state?: boolean;
 
+        focus_first?: HTMLElement | string | null;
+        focus_last?: HTMLElement | string | null;
+        focus_target?: HTMLElement | string | null;
+
         placement?: PROPERTY_PLACEMENT;
 
         alignment?: PROPERTY_ALIGNMENT_BREAKPOINT;
@@ -63,6 +67,10 @@
     export let logic_id: $$Props["logic_id"] = "";
     export let once: $$Props["once"] = undefined;
     export let state: $$Props["state"] = undefined;
+
+    export let focus_first: $$Props["focus_first"] = undefined;
+    export let focus_last: $$Props["focus_last"] = undefined;
+    export let focus_target: $$Props["focus_target"] = undefined;
 
     export let placement: $$Props["placement"] = undefined;
 
@@ -124,8 +132,8 @@
         placement,
     })}
     on:click={on_click_inside}
-    use:trap_focus={{enabled: $_state}}
-    use:auto_focus={{enabled: $_state}}
+    use:trap_focus={{enabled: $_state, first: focus_first, last: focus_last}}
+    use:auto_focus={{enabled: $_state, target: focus_target}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

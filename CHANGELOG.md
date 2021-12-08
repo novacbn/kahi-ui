@@ -9,6 +9,10 @@
         -   `auto_focus(..., {enabled: boolean})` — Enables the auto focusing.
         -   `auto_focus(..., {target: HTMLElement | string | null})` — Sets a custom element to focus to instead of the first focusable.
 
+    -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
+
+        -   `keybind(..., {throttle_cancel: boolean})` — Enables cancellation (`preventDefault` / `stopPropagation`) on throttled processing of keybinds if `IKeybindOptions.repeat_throttle` is greater than zero (`> 0`).
+
     -   `trap_focus(element: HTMLElement, options: ITrapFocusOptions): ITrapFocusHandle` — Traps focusing to content to focusable nested elements within the attached `element`.
 
         -   `trap_focus(..., {enabled: boolean})` — Enables the focus trapping.
@@ -24,6 +28,12 @@
             -   `<* focus_target={HTMLElement | string | null}>` — Sets initial focus target element when first opened. Defaults to first focusable element.
             -   `<* focus_first={HTMLElement | string | null}>` — Sets the element treated as first in the focus tabbing order, which traps focus (`Offscreen` / `Overlay`) or dismisses (`Popover`). Defaults to first focusable element.
             -   `<* focus_last={HTMLElement | string | null}>` — Sets the element treated as last in the focus tabbing order, which traps focus `Offscreen` / `Overlay`. Defaults to last focusable element.
+
+-   Fixed the following Actions / Action Features
+
+    -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
+
+        -   Fixed calling `IKeybindEvent.preventDefault` / `IKeybindEvent.stopPropagation` not working.
 
 ## v0.4.12 - 2021/11/28
 

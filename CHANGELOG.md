@@ -2,7 +2,20 @@
 
 ## UNRELEASED
 
+-   Added the following Actions / Action Features
+
+    -   `overflow_clipping(element: HTMLElement, options: IOverflowClippingOptions): IOverflowClippingHandle` — Detects when the inner content is clipping the attached element's bounding box.
+
+        -   `overflow_clipping(..., {enabled: boolean})` — Enables content clipping detection.
+        -   `overflow_clipping(..., {on_clip: (entry: {horizontal: boolean, vertical: boolean}) => void})` — Dispatches whenever the content clipping changes.
+
 -   Added the following Components / Component Features
+
+    -   Layouts
+
+        -   `Scrollable`
+
+            -   `<Scrollable on:scroll>` — Dispatches the [scroll event](https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event).
 
     -   Overlays
 
@@ -23,7 +36,6 @@
         -   `ContextBackdrop`
 
             -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
-
 
 ## v0.4.12 - 2021/11/28
 

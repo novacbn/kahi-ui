@@ -7,7 +7,7 @@
         PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
     import type {PROPERTY_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
-    import {TOKENS_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
+    import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
@@ -156,7 +156,7 @@
     on:pointerup
 >
     <!-- TODO: `Transition` support for `loading=lazy` -->
-    {#if $_overlay_state || loading !== TOKENS_BEHAVIOR_LOADING_LAZY.lazy}
+    {#if $_overlay_state || loading !== TOKENS_BEHAVIOR_LOADING.lazy}
         <slot />
     {/if}
 </div>

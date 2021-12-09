@@ -1,5 +1,5 @@
 .offscreen {
-    @apply contents fixed h-screen pointer-events-none w-screen z-2;
+    @apply absolute contents h-full pointer-events-none w-full z-2;
 
     flex-direction: var(--placement-orientation, row);
 

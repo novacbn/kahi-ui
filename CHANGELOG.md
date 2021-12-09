@@ -2,6 +2,10 @@
 
 ## UNRELEASED
 
+-   Updated `svelte2tsx` -> `0.4.11`.
+
+    -   Fixes Component properties not retaining comments / JSDoc flags.
+
 -   Added the following Actions / Action Features
 
     -   `auto_focus(element: HTMLElement, options: IAutoFocusOptions): IAutoFocusHandle` — Focuses the first available focusable element within the attached `element` when enabled, restoring focus whenever disabled.

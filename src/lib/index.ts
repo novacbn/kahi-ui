@@ -114,6 +114,7 @@ export * from "./components/widgets/yearpicker";
 export * from "./components/widgets/yearstepper";
 
 export * from "./actions/auto_focus";
+export * from "./actions/click_inside";
 export * from "./actions/click_outside";
 export * from "./actions/clipping";
 export * from "./actions/keybind";

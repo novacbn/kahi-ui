@@ -9,6 +9,12 @@
         -   `auto_focus(..., {enabled: boolean})` — Enables the auto focusing.
         -   `auto_focus(..., {target: HTMLElement | string | null})` — Sets a custom element to focus to instead of the first focusable.
 
+    -   `click_inside` — Listens to the `click` on the attached element, with optional CSS Selector for filtering.
+
+    -   `click_inside` / `click_outside`
+
+        -   `*(..., {ignore: string})` — Ignores a given [CSS Selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) from triggering the `on_click_inside` / `on_click_outside` callbacks.
+
     -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
 
         -   `keybind(..., {throttle_cancel: boolean})` — Enables cancellation (`preventDefault` / `stopPropagation`) on throttled processing of keybinds if `IKeybindOptions.repeat_throttle` is greater than zero (`> 0`).
@@ -43,7 +49,6 @@
     -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
 
         -   Fixed calling `IKeybindEvent.preventDefault` / `IKeybindEvent.stopPropagation` not working.
-            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
 
 -   Updated the following Components / Component Features
 
@@ -51,9 +56,14 @@
 
         -   `Offscreen` / `Overlay`
 
+            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
             -   `<* focus_target={HTMLElement | string | null}>` — Sets initial focus target element when first opened. Defaults to first focusable element.
             -   `<* focus_first={HTMLElement | string | null}>` — Sets the element treated as first in the focus tabbing order, which traps focus (`Offscreen` / `Overlay`) or dismisses (`Popover`). Defaults to first focusable element.
             -   `<* focus_last={HTMLElement | string | null}>` — Sets the element treated as last in the focus tabbing order, which traps focus `Offscreen` / `Overlay`. Defaults to last focusable element.
+
+        -   `Offscreen` / `Overlay` / `Popover`
+
+            -   `<* dismissible={boolean}>` — Now enables dismissing of Overlays via escape key.
 
     -   Utilities
 

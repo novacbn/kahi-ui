@@ -23,9 +23,9 @@
 </Template>
 
 <Story name="Default">
-    <Button for="overlay-default-story" palette="accent">Open Modal</Button>
+    <Button for="overlay-default-story" palette="accent">Open Overlay</Button>
 
-    <Overlay logic_id="overlay-default-story" captive dismissible>
+    <Overlay logic_id="overlay-default-story" captive>
         <Card.Container palette="auto" max_width="viewport-75">
             <Card.Header>Are you sure?</Card.Header>
 
@@ -44,12 +44,26 @@
     </Overlay>
 </Story>
 
+<Story name="Dismissible">
+    <Button for="overlay-dismissible" palette="accent">Open DISMISSIBLE Overlay</Button>
+
+    <Overlay logic_id="overlay-dismissible" dismissible>
+        <Card.Container palette="auto" max_width="viewport-75">
+            <Card.Header>Dismissible Overlay</Card.Header>
+
+            <Card.Footer>
+                <ContextButton palette="inverse" variation="clear">Close</ContextButton>
+            </Card.Footer>
+        </Card.Container>
+    </Overlay>
+</Story>
+
 <Story name="Lazy">
     <Box palette="negative" margin_bottom="medium">
         To view this property in action, open devtools and watch the <Code>div</Code> elements' contents.
     </Box>
 
-    <Button for="overlay-lazy" palette="accent">Open LAZY Modal</Button>
+    <Button for="overlay-lazy" palette="accent">Open LAZY Overlay</Button>
 
     <Overlay logic_id="overlay-lazy" loading="lazy">
         <Card.Container palette="auto" max_width="viewport-75">
@@ -63,11 +77,11 @@
 </Story>
 
 <Story name="Once">
-    <Button for="overlay-once" palette="accent">Open ONCE Modal</Button>
+    <Button for="overlay-once" palette="accent">Open ONCE Overlay</Button>
 
     <Overlay logic_id="overlay-once" once>
         <Card.Container palette="auto" max_width="viewport-75">
-            <Card.Header>Once Modal</Card.Header>
+            <Card.Header>ONCE Overlay</Card.Header>
 
             <Card.Footer>
                 <ContextButton palette="inverse" variation="clear">Close</ContextButton>
@@ -79,7 +93,7 @@
 <Story name="Orientation">
     {#each ORIENTATIONS as [orientation, is_default] (orientation)}
         <Button for="overlay-orientation-story-{orientation}" palette="accent">
-            Open {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Modal
+            Open {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
         </Button>
 
         <Overlay

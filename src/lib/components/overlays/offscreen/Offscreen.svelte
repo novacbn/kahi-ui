@@ -13,6 +13,8 @@
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
 
     import {auto_focus} from "../../../actions/auto_focus";
+    import {click_inside} from "../../../actions/click_inside";
+    import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
     import {trap_focus} from "../../../actions/trap_focus";
@@ -21,6 +23,7 @@
     import {make_state_context} from "../../../stores/state";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
+    import {action_exit} from "../../../util/keybind";
 
     import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
 
@@ -91,13 +94,12 @@
         state = (event.target as HTMLInputElement).checked;
     }
 
-    function on_click_inside(event: MouseEvent): void {
-        if (once) {
-            const target = event.target as HTMLElement;
-            if (target.tagName !== "LABEL" && target.getAttribute("for") !== logic_id) {
-                state = false;
-            }
-        }
+    function on_dismiss(): void {
+        if (dismissible && $_offscreen_state) state = false;
+    }
+
+    function on_once(): void {
+        if (once && $_offscreen_state) state = false;
     }
 
     $: $_offscreen_state = state as boolean;
@@ -110,6 +112,8 @@
         }
     }
 </script>
+
+<svelte:window use:action_exit={{on_bind: on_dismiss}} />
 
 {#if $_offscreen_id}
     <input
@@ -135,7 +139,14 @@
         "alignment-y": alignment_y,
         placement,
     })}
-    on:click={on_click_inside}
+    use:click_inside={{
+        ignore: `label[for="${$_offscreen_id}"]`,
+        on_click_inside: on_once,
+    }}
+    use:click_outside={{
+        ignore: `label[for="${$_offscreen_id}"]`,
+        on_click_outside: on_dismiss,
+    }}
     use:trap_focus={{enabled: $_offscreen_state, first: focus_first, last: focus_last}}
     use:auto_focus={{enabled: $_offscreen_state, target: focus_target}}
     use:forward_actions={{actions}}

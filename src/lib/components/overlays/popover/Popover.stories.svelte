@@ -4,6 +4,7 @@
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
     import * as Menu from "../../navigation/menu";
+    import Box from "../../surfaces/box/Box.svelte";
     import * as Card from "../../surfaces/card";
     import Text from "../../typography/text/Text.svelte";
     import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
@@ -37,13 +38,7 @@
 </Template>
 
 <Story name="Default">
-    <Popover
-        logic_id="popover-default-story"
-        alignment_x="right"
-        spacing="medium"
-        dismissible
-        hidden
-    >
+    <Popover logic_id="popover-default-story" alignment_x="right" spacing="medium" hidden>
         <ContextButton palette="accent">Open Popover</ContextButton>
 
         <Card.Container palette="inverse" elevation="high" max_width="content-max">
@@ -74,35 +69,19 @@
     </Popover>
 </Story>
 
+<Story name="Dismissible">
+    <Popover logic_id="popover-dismissible" alignment_x="right" dismissible hidden>
+        <ContextButton palette="accent">Open DISMISSIBLE Popover</ContextButton>
+
+        <Box palette="inverse" elevation="high" padding="small">Open DISMISSIBLE Popover</Box>
+    </Popover>
+</Story>
+
 <Story name="Once">
-    <Popover logic_id="popover-once" alignment_x="right" spacing="medium" hidden once>
+    <Popover logic_id="popover-once" alignment_x="right" hidden once>
         <ContextButton palette="accent">Open ONCE Popover</ContextButton>
 
-        <Card.Container palette="inverse" elevation="high" max_width="content-max">
-            <Card.Section>
-                <Menu.Container>
-                    <Menu.Button>
-                        Copy
-                        <Spacer variation="inline" spacing="medium" />
-                        <Text is="kbd">CTRL+C</Text>
-                    </Menu.Button>
-
-                    <Menu.Button>
-                        Cut
-                        <Spacer variation="inline" spacing="medium" />
-                        <Text is="kbd">CTRL+X</Text>
-                    </Menu.Button>
-
-                    <Menu.Divider />
-
-                    <Menu.Button>
-                        Delete
-                        <Spacer variation="inline" spacing="medium" />
-                        <Text is="kbd">DEL</Text>
-                    </Menu.Button>
-                </Menu.Container>
-            </Card.Section>
-        </Card.Container>
+        <Box palette="inverse" elevation="high" padding="small">Open ONCE Popover</Box>
     </Popover>
 </Story>
 

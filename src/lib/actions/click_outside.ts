@@ -3,7 +3,7 @@ import type {IAction, IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action initializer signature for [[click_outside]]
  */
-export type IClickOutsideAction = IAction<HTMLElement, IClickOutsideOptions>;
+export type IClickOutsideAction = IAction<HTMLElement, IClickOutsideOptions, IClickOutsideHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[click_outside]]

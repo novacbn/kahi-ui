@@ -6,6 +6,8 @@
         PROPERTY_ALIGNMENT_X_BREAKPOINT,
         PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
+    import type {PROPERTY_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
+    import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
@@ -35,6 +37,7 @@
 
         captive?: boolean;
         dismissible?: boolean;
+        loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
         logic_id?: string;
         once?: boolean;
         state?: boolean;
@@ -70,6 +73,7 @@
 
     export let captive: $$Props["captive"] = undefined;
     export let dismissible: $$Props["dismissible"] = undefined;
+    export let loading: $$Props["loading"] = undefined;
     export let logic_id: $$Props["logic_id"] = "";
     export let once: $$Props["once"] = undefined;
     export let state: $$Props["state"] = undefined;
@@ -88,8 +92,8 @@
     export let spacing_x: $$Props["spacing_x"] = undefined;
     export let spacing_y: $$Props["spacing_y"] = undefined;
 
-    const _logic_id = make_id_context(logic_id as string);
-    const _state = make_state_context(state as boolean);
+    const _overlay_id = make_id_context(logic_id as string);
+    const _overlay_state = make_state_context(state as boolean);
 
     let _previous_state = state;
 
@@ -106,7 +110,7 @@
         }
     }
 
-    $: $_state = state as boolean;
+    $: $_overlay_state = state as boolean;
 
     $: {
         if (_previous_state !== state) {
@@ -117,12 +121,12 @@
     }
 </script>
 
-{#if $_logic_id}
+{#if $_overlay_id}
     <input
         role="presentation"
-        id={$_logic_id}
+        id={$_overlay_id}
         type="checkbox"
-        bind:checked={$_state}
+        bind:checked={$_overlay_state}
         on:change={on_change}
     />
 
@@ -163,5 +167,8 @@
     on:pointerout
     on:pointerup
 >
-    <slot />
+    <!-- TODO: `Transition` support for `loading=lazy` -->
+    {#if $_overlay_state || loading !== TOKENS_BEHAVIOR_LOADING.lazy}
+        <slot />
+    {/if}
 </div>

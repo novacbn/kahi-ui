@@ -119,6 +119,7 @@ export * from "./actions/clipping";
 export * from "./actions/keybind";
 export * from "./actions/intersection_observer";
 export * from "./actions/mutation_observer";
+export * from "./actions/overflow_clipping";
 export * from "./actions/trap_focus";
 
 export * from "./stores/darkmode";

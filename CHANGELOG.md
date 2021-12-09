@@ -2,6 +2,14 @@
 
 ## UNRELEASED
 
+-   Added the following Components / Component Features
+
+    -   Overlays
+
+        -   `Offscreen` / `Overlay`
+
+            -   `<* loading="lazy">` — Disables rendering of inner content while the Component's state is inactive.
+
 -   Updated the following Components / Component Features
 
     -   Overlays
@@ -15,6 +23,7 @@
         -   `ContextBackdrop`
 
             -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
+
 
 ## v0.4.12 - 2021/11/28
 

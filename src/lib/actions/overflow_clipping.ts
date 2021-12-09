@@ -58,10 +58,7 @@ export interface IOverflowClippingOptions {
  * @param options
  * @returns
  */
-export const overflow_clipping: IOverflowClippingAction = (
-    element: HTMLElement,
-    options: IOverflowClippingOptions
-) => {
+export const overflow_clipping: IOverflowClippingAction = (element, options) => {
     let {enabled, on_clip} = options;
 
     let cache: IOverflowClippingEntry | null = null;

@@ -136,8 +136,8 @@
         placement,
     })}
     on:click={on_click_inside}
-    use:trap_focus={{enabled: $_state, first: focus_first, last: focus_last}}
-    use:auto_focus={{enabled: $_state, target: focus_target}}
+    use:trap_focus={{enabled: $_offscreen_state, first: focus_first, last: focus_last}}
+    use:auto_focus={{enabled: $_offscreen_state, target: focus_target}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

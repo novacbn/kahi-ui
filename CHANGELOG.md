@@ -10,6 +10,21 @@
 
             -   `<* loading="lazy">` — Disables rendering of inner content while the Component's state is inactive.
 
+-   Updated the following Components / Component Features
+
+    -   Overlays
+
+        -   `Offscreen` / `Overlay`
+
+            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
+
+    -   Utilities
+
+        -   `ContextBackdrop`
+
+            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
+
+
 ## v0.4.12 - 2021/11/28
 
 -   Vendored [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) temporarily to fix edge case with PNPM + SvelteKit development server.

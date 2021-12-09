@@ -50,6 +50,7 @@
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
+    export let tabindex: $$Props["tabindex"] = 0;
     export {_class as class};
 
     export let active: $$Props["active"] = undefined;
@@ -69,6 +70,10 @@
     export let palette: $$Props["palette"] = undefined;
     export let size: $$Props["size"] = undefined;
     export let variation: $$Props["variation"] = undefined;
+
+    // HACK: Svelte has `tabindex` typed as `number | undefined` unless
+    // you pass a string literal into the markup
+    $: _tabindex = tabindex as number | undefined;
 </script>
 
 {#if href}
@@ -108,6 +113,7 @@
         role="button"
         class="button {_class}"
         for={_for}
+        tabindex={_tabindex}
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({disabled, pressed: active})}
         use:forward_actions={{actions}}

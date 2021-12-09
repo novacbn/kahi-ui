@@ -1,15 +1,48 @@
 import type {IAction, IActionHandle} from "./actions";
 
-export type IForwardActionsHandle = IActionHandle<IForwardActionsOptions>;
+/**
+ * Represents the Svelte Action initializer signature for [[forward_actions]]
+ */
+export type IForwardActionsAction = IAction<
+    Document | HTMLElement,
+    IForwardActionsOptions,
+    IForwardActionsHandle
+>;
 
+/**
+ * Represents the Svelte Action handle returned by [[forward_actions]]
+ */
+export type IForwardActionsHandle = Required<IActionHandle<IForwardActionsOptions>>;
+
+/**
+ * Represents an array of forwarded Svelte Actions, optionally
+ * associated with their options
+ */
 export type IForwardedActions = (IAction | [IAction, any])[];
 
-type IInitializedActions = (IActionHandle | void)[];
+/**
+ * Represents an array forwarded Svelte Action handles
+ */
+type IInitializedActions = IActionHandle[];
 
+/**
+ * Represents the options passable to the [[forward_actions]] Svelte Action
+ */
 export interface IForwardActionsOptions {
+    /**
+     * Represents Svelte Actions that will be attached to the targeted element
+     */
     actions: IForwardedActions;
 }
 
+/**
+ * Attaches the provided array of Svelte Actions to the target element, handling
+ * lifecycle events automatically
+ *
+ * @param element
+ * @param options
+ * @returns
+ */
 export function forward_actions(
     element: HTMLElement,
     options: Partial<IForwardActionsOptions> = {}

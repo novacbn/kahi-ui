@@ -12,8 +12,10 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
 
+    import {auto_focus} from "../../../actions/auto_focus";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {trap_focus} from "../../../actions/trap_focus";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -38,6 +40,10 @@
         logic_id?: string;
         once?: boolean;
         state?: boolean;
+
+        focus_first?: HTMLElement | string | null;
+        focus_last?: HTMLElement | string | null;
+        focus_target?: HTMLElement | string | null;
 
         placement?: PROPERTY_PLACEMENT;
 
@@ -65,6 +71,10 @@
     export let logic_id: $$Props["logic_id"] = "";
     export let once: $$Props["once"] = undefined;
     export let state: $$Props["state"] = undefined;
+
+    export let focus_first: $$Props["focus_first"] = undefined;
+    export let focus_last: $$Props["focus_last"] = undefined;
+    export let focus_target: $$Props["focus_target"] = undefined;
 
     export let placement: $$Props["placement"] = undefined;
 
@@ -126,6 +136,8 @@
         placement,
     })}
     on:click={on_click_inside}
+    use:trap_focus={{enabled: $_offscreen_state, first: focus_first, last: focus_last}}
+    use:auto_focus={{enabled: $_offscreen_state, target: focus_target}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

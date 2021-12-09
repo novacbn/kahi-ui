@@ -1,4 +1,13 @@
-import type {IActionHandle} from "./actions";
+import type {IAction, IActionHandle} from "./actions";
+
+/**
+ * Represents the Svelte Action initializer signature for [[mutation_observer]]
+ */
+export type IMutationObserverAction = IAction<
+    HTMLElement,
+    IMutationObserverOptions,
+    IMutationObserverHandle
+>;
 
 /**
  * Represents the Svelte Action handle returned by [[mutation_observer]]
@@ -68,10 +77,7 @@ export interface IMutationObserverOptions {
  * @param options
  * @returns
  */
-export function mutation_observer(
-    element: HTMLElement,
-    options: IMutationObserverOptions
-): IMutationObserverHandle {
+export const mutation_observer: IMutationObserverAction = (element, options) => {
     let {
         attributes,
         attribute_filter,
@@ -126,4 +132,4 @@ export function mutation_observer(
             observer.disconnect();
         },
     };
-}
+};

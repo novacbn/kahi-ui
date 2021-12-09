@@ -1,4 +1,13 @@
-import type {IActionHandle} from "./actions";
+import type {IAction, IActionHandle} from "./actions";
+
+/**
+ * Represents the Svelte Action initializer signature for [[overflow_clipping]]
+ */
+export type IOverflowClippingAction = IAction<
+    HTMLElement,
+    IOverflowClippingOptions,
+    IOverflowClippingHandle
+>;
 
 /**
  * Represents the Svelte Action handle returned by [[overflow_clipping]]
@@ -49,10 +58,7 @@ export interface IOverflowClippingOptions {
  * @param options
  * @returns
  */
-export function overflow_clipping(
-    element: HTMLElement,
-    options: IOverflowClippingOptions
-): IOverflowClippingHandle {
+export const overflow_clipping: IOverflowClippingAction = (element, options) => {
     let {enabled, on_clip} = options;
 
     let cache: IOverflowClippingEntry | null = null;
@@ -123,4 +129,4 @@ export function overflow_clipping(
             }
         },
     };
-}
+};

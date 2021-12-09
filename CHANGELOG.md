@@ -4,10 +4,25 @@
 
 -   Added the following Actions / Action Features
 
+    -   `auto_focus(element: HTMLElement, options: IAutoFocusOptions): IAutoFocusHandle` — Focuses the first available focusable element within the attached `element` when enabled, restoring focus whenever disabled.
+
+        -   `auto_focus(..., {enabled: boolean})` — Enables the auto focusing.
+        -   `auto_focus(..., {target: HTMLElement | string | null})` — Sets a custom element to focus to instead of the first focusable.
+
+    -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
+
+        -   `keybind(..., {throttle_cancel: boolean})` — Enables cancellation (`preventDefault` / `stopPropagation`) on throttled processing of keybinds if `IKeybindOptions.repeat_throttle` is greater than zero (`> 0`).
+
     -   `overflow_clipping(element: HTMLElement, options: IOverflowClippingOptions): IOverflowClippingHandle` — Detects when the inner content is clipping the attached element's bounding box.
 
         -   `overflow_clipping(..., {enabled: boolean})` — Enables content clipping detection.
         -   `overflow_clipping(..., {on_clip: (entry: {horizontal: boolean, vertical: boolean}) => void})` — Dispatches whenever the content clipping changes.
+
+    -   `trap_focus(element: HTMLElement, options: ITrapFocusOptions): ITrapFocusHandle` — Traps focusing to content to focusable nested elements within the attached `element`.
+
+        -   `trap_focus(..., {enabled: boolean})` — Enables the focus trapping.
+        -   `trap_focus(..., {first: HTMLElement | string | null})` — Sets a custom element to wrap focus to when the attached `element`'s focus is "escaped".
+        -   `trap_focus(..., {last: HTMLElement | string | null})` — Sets a custom element used to detect whenever the attached `element`'s focus is on the last available nested element.
 
 -   Added the following Components / Component Features
 
@@ -23,13 +38,22 @@
 
             -   `<* loading="lazy">` — Disables rendering of inner content while the Component's state is inactive.
 
+-   Fixed the following Actions / Action Features
+
+    -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
+
+        -   Fixed calling `IKeybindEvent.preventDefault` / `IKeybindEvent.stopPropagation` not working.
+            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
+
 -   Updated the following Components / Component Features
 
     -   Overlays
 
         -   `Offscreen` / `Overlay`
 
-            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
+            -   `<* focus_target={HTMLElement | string | null}>` — Sets initial focus target element when first opened. Defaults to first focusable element.
+            -   `<* focus_first={HTMLElement | string | null}>` — Sets the element treated as first in the focus tabbing order, which traps focus (`Offscreen` / `Overlay`) or dismisses (`Popover`). Defaults to first focusable element.
+            -   `<* focus_last={HTMLElement | string | null}>` — Sets the element treated as last in the focus tabbing order, which traps focus `Offscreen` / `Overlay`. Defaults to last focusable element.
 
     -   Utilities
 

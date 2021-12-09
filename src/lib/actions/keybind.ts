@@ -1,6 +1,9 @@
-import {throttle} from "../util/functional";
+import type {IAction, IActionHandle} from "./actions";
 
-import type {IActionHandle} from "./actions";
+/**
+ * Represents the Svelte Action initializer signature for [[keybind]]
+ */
+export type IKeybindAction = IAction<Document | HTMLElement, IKeybindOptions, IKeybindHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[keybind]]
@@ -106,6 +109,12 @@ export interface IKeybindOptions {
      * ```
      */
     on_bind: IKeybindCallback;
+
+    /**
+     * Represents if throttled repeat calls should have automatic
+     * cancellation (e.g. `event.preventDefault` / `event.stopPropagation`)
+     */
+    throttle_cancel?: boolean;
 }
 
 /**
@@ -188,12 +197,12 @@ function bindstate(binds: string | string[]): IBindState {
  * @param options
  * @returns
  */
-export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle {
-    let {binds, repeat = false, repeat_throttle = 0, on_bind} = options;
+export const keybind: IKeybindAction = (element, options) => {
+    let {binds, repeat = false, repeat_throttle = 0, throttle_cancel = false, on_bind} = options;
 
     let cache = false;
+    let previous_call = Number.MIN_SAFE_INTEGER;
     let state = bindstate(binds);
-    let throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
 
     function make_key_listener(is_down: boolean): (event: KeyboardEvent) => void {
         return (event) => {
@@ -208,10 +217,25 @@ export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybin
                     detail,
                 });
 
-                (event.repeat ? throttled_on_bind : on_bind)(custom_event);
+                const current_call = Date.now();
+                if (
+                    event.repeat &&
+                    repeat &&
+                    repeat_throttle > 0 &&
+                    current_call - previous_call < repeat_throttle
+                ) {
+                    if (throttle_cancel) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                } else {
+                    on_bind(custom_event);
 
-                if (custom_event.cancelBubble) custom_event.stopPropagation();
-                if (custom_event.defaultPrevented) custom_event.preventDefault();
+                    if (custom_event.cancelBubble) event.stopPropagation();
+                    if (custom_event.defaultPrevented) event.preventDefault();
+
+                    previous_call = current_call;
+                }
 
                 cache = active;
             }
@@ -221,20 +245,29 @@ export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybin
     const on_key_down = make_key_listener(true);
     const on_key_up = make_key_listener(false);
 
+    // @ts-expect-error - HACK: `Document` just doesn't have the event properly typed
     element.addEventListener("keydown", on_key_down);
+    // @ts-expect-error
     element.addEventListener("keyup", on_key_up);
 
     return {
         destroy() {
+            // @ts-expect-error
             element.removeEventListener("keydown", on_key_down);
+            // @ts-expect-error
             element.removeEventListener("keyup", on_key_up);
         },
 
         update(options) {
-            ({binds, repeat = false, repeat_throttle = 0, on_bind} = options);
+            ({
+                binds,
+                repeat = false,
+                repeat_throttle = 0,
+                throttle_cancel = false,
+                on_bind,
+            } = options);
 
             state = bindstate(binds);
-            throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
         },
     };
-}
+};

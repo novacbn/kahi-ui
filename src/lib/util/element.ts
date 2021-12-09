@@ -1,3 +1,15 @@
+const FOCUSABLE_SELECTORS = [
+    "[tabindex]:not([aria-disabled])",
+    "a[href]",
+    "iframe",
+    "button:not(:disabled)",
+    "input:not(:disabled)",
+    "select:not(:disabled)",
+    "textarea:not(:disabled)",
+];
+
+const FOCUSABLE_SELECTOR = `:is(${FOCUSABLE_SELECTORS.join(", ")})`;
+
 function get_scroll_top(
     container_element: HTMLElement,
     target_element: HTMLElement,
@@ -15,6 +27,35 @@ function get_scroll_top(
     }
 
     return y - container_element.offsetTop;
+}
+
+export function can_focus(element: HTMLElement): boolean {
+    return !is_hidden(element) && element.matches(FOCUSABLE_SELECTOR);
+}
+
+export function is_hidden(element: HTMLElement): boolean {
+    const style = window.getComputedStyle(element);
+
+    return style.display === "none";
+}
+
+export function query_focusable_element<T extends HTMLElement>(
+    element: Document | HTMLElement,
+    options: {last?: boolean} = {}
+): T | null {
+    // NOTE: Would be a lot faster to run `querySelector` instead of `querySelectorAll` and manual
+    // filtering, but we need to run `is_hidden` and similar
+    const children = query_focusable_elements<T>(element);
+
+    return children[options.last ? children.length - 1 : 0] ?? null;
+}
+
+export function query_focusable_elements<T extends HTMLElement>(
+    element: Document | HTMLElement
+): T[] {
+    const children = element.querySelectorAll<T>(FOCUSABLE_SELECTOR);
+
+    return Array.from<T>(children).filter((child) => !is_hidden(child));
 }
 
 export function scroll_into_container(

@@ -1,10 +1,11 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Box from "../../surfaces/box/Box.svelte";
     import Button from "../../interactables/button/Button.svelte";
-    import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
+    import Box from "../../surfaces/box/Box.svelte";
+    import Code from "../../typography/code/Code.svelte";
+    import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
 
     import Offscreen from "./Offscreen.svelte";
 
@@ -43,6 +44,23 @@
             <Stack orientation="horizontal" alignment_y="center" spacing="medium">
                 <ContextButton palette="light" variation="clear">X</ContextButton>
                 DISMISSIBLE Offscreen
+            </Stack>
+        </Box>
+    </Offscreen>
+</Story>
+
+<Story name="Lazy">
+    <Box palette="negative" margin_bottom="medium">
+        To view this property in action, open devtools and watch the <Code>div</Code> elements' contents.
+    </Box>
+
+    <Button for="offscreen-once" palette="accent">Open LAZY Offscreen</Button>
+
+    <Offscreen logic_id="offscreen-once" placement="top" loading="lazy" hidden>
+        <Box palette="accent" padding="medium">
+            <Stack orientation="horizontal" alignment_y="center" spacing="medium">
+                <ContextButton palette="light" variation="clear">X</ContextButton>
+                LAZY Offscreen
             </Stack>
         </Box>
     </Offscreen>

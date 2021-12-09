@@ -6,15 +6,19 @@
         PROPERTY_ALIGNMENT_X_BREAKPOINT,
         PROPERTY_ALIGNMENT_Y_BREAKPOINT,
     } from "../../../types/alignments";
+    import type {PROPERTY_BEHAVIOR_LOADING_LAZY} from "../../../types/behaviors";
+    import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
     import type {IPaddingProperties, PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
+    import {auto_focus} from "../../../actions/auto_focus";
     import {click_inside} from "../../../actions/click_inside";
     import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {trap_focus} from "../../../actions/trap_focus";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
@@ -36,9 +40,14 @@
 
         captive?: boolean;
         dismissible?: boolean;
+        loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
         logic_id?: string;
         once?: boolean;
         state?: boolean;
+
+        focus_first?: HTMLElement | string | null;
+        focus_last?: HTMLElement | string | null;
+        focus_target?: HTMLElement | string | null;
 
         orientation?: PROPERTY_ORIENTATION_Y_BREAKPOINT;
 
@@ -67,9 +76,14 @@
 
     export let captive: $$Props["captive"] = undefined;
     export let dismissible: $$Props["dismissible"] = undefined;
+    export let loading: $$Props["loading"] = undefined;
     export let logic_id: $$Props["logic_id"] = "";
     export let once: $$Props["once"] = undefined;
     export let state: $$Props["state"] = undefined;
+
+    export let focus_first: $$Props["focus_first"] = undefined;
+    export let focus_last: $$Props["focus_last"] = undefined;
+    export let focus_target: $$Props["focus_target"] = undefined;
 
     export let orientation: $$Props["orientation"] = undefined;
 
@@ -81,8 +95,8 @@
     export let spacing_x: $$Props["spacing_x"] = undefined;
     export let spacing_y: $$Props["spacing_y"] = undefined;
 
-    const _logic_id = make_id_context(logic_id as string);
-    const _state = make_state_context(state as boolean);
+    const _overlay_id = make_id_context(logic_id as string);
+    const _overlay_state = make_state_context(state as boolean);
 
     let _previous_state = state;
 
@@ -91,14 +105,14 @@
     }
 
     function on_dismiss(): void {
-        if (dismissible && $_state) state = false;
+        if (dismissible && $_overlay_state) state = false;
     }
 
     function on_once(): void {
-        if (once && $_state) state = false;
+        if (once && $_overlay_state) state = false;
     }
 
-    $: $_state = state as boolean;
+    $: $_overlay_state = state as boolean;
 
     $: {
         if (_previous_state !== state) {
@@ -111,12 +125,12 @@
 
 <svelte:window use:action_exit={{on_bind: on_dismiss}} />
 
-{#if $_logic_id}
+{#if $_overlay_id}
     <input
         role="presentation"
-        id={$_logic_id}
+        id={$_overlay_id}
         type="checkbox"
-        bind:checked={$_state}
+        bind:checked={$_overlay_state}
         on:change={on_change}
     />
 
@@ -139,13 +153,15 @@
         "spacing-y": spacing_y,
     })}
     use:click_inside={{
-        ignore: `label[for="${logic_id}"]`,
+        ignore: `label[for="${$_overlay_id}"]`,
         on_click_inside: on_once,
     }}
     use:click_outside={{
-        ignore: `label[for="${logic_id}"]`,
+        ignore: `label[for="${$_overlay_id}"]`,
         on_click_outside: on_dismiss,
     }}
+    use:trap_focus={{enabled: $_overlay_state, first: focus_first, last: focus_last}}
+    use:auto_focus={{enabled: $_overlay_state, target: focus_target}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -162,5 +178,8 @@
     on:pointerout
     on:pointerup
 >
-    <slot />
+    <!-- TODO: `Transition` support for `loading=lazy` -->
+    {#if $_overlay_state || loading !== TOKENS_BEHAVIOR_LOADING.lazy}
+        <slot />
+    {/if}
 </div>

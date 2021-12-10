@@ -31,6 +31,16 @@ function make_shortcut_factory(
 }
 
 /**
+ * Represents a keybind used for activating the currently focused element
+ * @param element
+ * @param options
+ * @returns
+ */
+export const action_activate = make_shortcut_factory({
+    binds: ["enter", "space"],
+});
+
+/**
  * Represents a keybind used for closing / exiting the currently active Component
  * @param element
  * @param options

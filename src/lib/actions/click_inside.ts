@@ -15,7 +15,7 @@ export type IClickInsideAction = IAction<
 export type IClickInsideHandle = Required<IActionHandle<IClickInsideOptions>>;
 
 /**
- * Represents the typing for the [[IClickOutsideOptions.on_click_inside]] callback
+ * Represents the typing for the [[IClickInsideOptions.on_click_inside]] callback
  */
 export type IClickInsideCallback = (event: MouseEvent) => void;
 

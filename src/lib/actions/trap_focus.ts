@@ -47,7 +47,7 @@ export const trap_focus: ITrapFocusAction = (element, options) => {
     let {first, enabled, last} = options;
 
     function on_key_down(event: KeyboardEvent): void {
-        if (!enabled || event.key !== "Tab") return;
+        if (event.key !== "Tab") return;
 
         const first_element = query_target(false);
         const last_element = query_target(true);
@@ -77,15 +77,26 @@ export const trap_focus: ITrapFocusAction = (element, options) => {
         return query_focusable_element(element, {last: is_last});
     }
 
-    window.addEventListener("keydown", on_key_down);
+    function detach_events(): void {
+        window.removeEventListener("keydown", on_key_down);
+    }
+
+    function attach_events(): void {
+        window.addEventListener("keydown", on_key_down);
+    }
+
+    if (enabled) attach_events();
 
     return {
         destroy() {
-            window.removeEventListener("keydown", on_key_down);
+            detach_events();
         },
 
         update(options) {
             ({first, enabled, last} = options);
+
+            if (enabled) attach_events();
+            else detach_events();
         },
     };
 };

@@ -15,7 +15,6 @@
 
     import {auto_focus} from "../../../actions/auto_focus";
     import {click_inside} from "../../../actions/click_inside";
-    import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
     import {trap_focus} from "../../../actions/trap_focus";
@@ -155,10 +154,6 @@
     use:click_inside={{
         ignore: `label[for="${$_overlay_id}"]`,
         on_click_inside: on_once,
-    }}
-    use:click_outside={{
-        ignore: `label[for="${$_overlay_id}"]`,
-        on_click_outside: on_dismiss,
     }}
     use:trap_focus={{enabled: $_overlay_state, first: focus_first, last: focus_last}}
     use:auto_focus={{enabled: $_overlay_state, target: focus_target}}

@@ -10,7 +10,7 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply absolute flex flex-col gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] h-full
+    @apply fixed flex flex-col gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] h-full
     left-0 pointer-events-none top-0 w-full z-2;
 
     align-items: var(--orientation-align);

@@ -3,11 +3,7 @@ import type {IAction, IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action initializer signature for [[forward_actions]]
  */
-export type IForwardActionsAction = IAction<
-    Document | HTMLElement,
-    IForwardActionsOptions,
-    IForwardActionsHandle
->;
+export type IForwardActionsAction = IAction<Node, IForwardActionsOptions, IForwardActionsHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[forward_actions]]
@@ -18,7 +14,7 @@ export type IForwardActionsHandle = Required<IActionHandle<IForwardActionsOption
  * Represents an array of forwarded Svelte Actions, optionally
  * associated with their options
  */
-export type IForwardedActions = (IAction | [IAction, any])[];
+export type IForwardedActions = (IAction<any> | [IAction<any>, any])[];
 
 /**
  * Represents an array forwarded Svelte Action handles
@@ -32,27 +28,24 @@ export interface IForwardActionsOptions {
     /**
      * Represents Svelte Actions that will be attached to the targeted element
      */
-    actions: IForwardedActions;
+    actions?: IForwardedActions;
 }
 
 /**
  * Attaches the provided array of Svelte Actions to the target element, handling
  * lifecycle events automatically
  *
- * @param element
+ * @param node
  * @param options
  * @returns
  */
-export function forward_actions(
-    element: HTMLElement,
-    options: Partial<IForwardActionsOptions> = {}
-): IForwardActionsHandle {
+export const forward_actions: IForwardActionsAction = (node, options) => {
     const handles = initialize_actions(options.actions);
 
     function initialize_actions(actions: IForwardedActions = []): IInitializedActions {
         return actions.map((entry, index) => {
-            if (Array.isArray(entry)) return entry[0](element, entry[1]);
-            else return entry(element, undefined);
+            if (Array.isArray(entry)) return entry[0](node, entry[1]);
+            else return entry(node, undefined);
         });
     }
 
@@ -66,7 +59,7 @@ export function forward_actions(
             }
         },
 
-        update(options: Partial<IForwardActionsOptions> = {}) {
+        update(options) {
             const {actions = []} = options;
             if (actions.length !== handles.length) {
                 throw new ReferenceError(
@@ -86,4 +79,4 @@ export function forward_actions(
             }
         },
     };
-}
+};

@@ -17,7 +17,7 @@ export interface IActionHandle<T = any> {
  * Represents the constructor of a Svelte Action
  */
 export type IAction<
-    NodeType extends Node = Node,
+    NodeType extends Node,
     OptionsType = any,
     HandleType extends IActionHandle = IActionHandle<OptionsType>
 > = (node: NodeType, options: OptionsType) => HandleType;

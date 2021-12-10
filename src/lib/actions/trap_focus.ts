@@ -5,7 +5,7 @@ import type {IAction, IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action initializer signature for [[trap_focus]]
  */
-export type ITrapFocusAction = IAction<Document | HTMLElement, ITrapFocusOptions, ITrapFocusHandle>;
+export type ITrapFocusAction = IAction<Document | Element, ITrapFocusOptions, ITrapFocusHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[trap_focus]]

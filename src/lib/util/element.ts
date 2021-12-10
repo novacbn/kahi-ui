@@ -29,18 +29,18 @@ function get_scroll_top(
     return y - container_element.offsetTop;
 }
 
-export function can_focus(element: HTMLElement): boolean {
+export function can_focus(element: Element): boolean {
     return !is_hidden(element) && element.matches(FOCUSABLE_SELECTOR);
 }
 
-export function is_hidden(element: HTMLElement): boolean {
+export function is_hidden(element: Element): boolean {
     const style = window.getComputedStyle(element);
 
     return style.display === "none";
 }
 
-export function query_focusable_element<T extends HTMLElement>(
-    element: Document | HTMLElement,
+export function query_focusable_element<T extends Element>(
+    element: Document | Element,
     options: {last?: boolean} = {}
 ): T | null {
     // NOTE: Would be a lot faster to run `querySelector` instead of `querySelectorAll` and manual
@@ -50,9 +50,7 @@ export function query_focusable_element<T extends HTMLElement>(
     return children[options.last ? children.length - 1 : 0] ?? null;
 }
 
-export function query_focusable_elements<T extends HTMLElement>(
-    element: Document | HTMLElement
-): T[] {
+export function query_focusable_elements<T extends Element>(element: Document | Element): T[] {
     const children = element.querySelectorAll<T>(FOCUSABLE_SELECTOR);
 
     return Array.from<T>(children).filter((child) => !is_hidden(child));

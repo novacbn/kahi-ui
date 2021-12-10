@@ -1,4 +1,13 @@
-import type {IActionHandle} from "./actions";
+import type {IAction, IActionHandle} from "./actions";
+
+/**
+ * Represents the Svelte Action initializer signature for [[click_inside]]
+ */
+export type IClickInsideAction = IAction<
+    Document | HTMLElement,
+    IClickInsideOptions,
+    IClickInsideHandle
+>;
 
 /**
  * Represents the Svelte Action handle returned by [[click_inside]]
@@ -35,24 +44,23 @@ export interface IClickInsideOptions {
  * @param options
  * @returns
  */
-export function click_inside(
-    element: HTMLElement,
-    options: IClickInsideOptions
-): IClickInsideHandle {
+export const click_inside: IClickInsideAction = (element, options) => {
     let {ignore, on_click_inside} = options;
 
     function on_click(event: MouseEvent): void {
-        const target = event.target as HTMLElement;
+        const target = event.target as Element;
 
         if (ignore && target.matches(ignore)) return;
 
         on_click_inside(event);
     }
 
+    // @ts-expect-error - HACK: `Document` typing just doesn't have it typed properly
     element.addEventListener("click", on_click);
 
     return {
         destroy() {
+            // @ts-expect-error - HACK: `Document` typing just doesn't have it typed properly
             element.removeEventListener("click", on_click);
         },
 
@@ -60,4 +68,4 @@ export function click_inside(
             ({ignore, on_click_inside} = options);
         },
     };
-}
+};

@@ -3,7 +3,7 @@ import type {IAction, IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action initializer signature for [[keybind]]
  */
-export type IKeybindAction = IAction<Document | HTMLElement, IKeybindOptions, IKeybindHandle>;
+export type IKeybindAction = IAction<Document | Element, IKeybindOptions, IKeybindHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[keybind]]
@@ -41,7 +41,7 @@ export interface IKeybindEvent extends CustomEvent {
 }
 
 /**
- * Represents the options passable to the [[click_outside]] Svelte Action
+ * Represents the options passable to the [[keybind]] Svelte Action
  */
 export interface IKeybindOptions {
     /**

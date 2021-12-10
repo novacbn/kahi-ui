@@ -102,12 +102,12 @@ export const clipping: IClippingAction = (element, options) => {
     });
 
     return {
-        update(options: IClippingOptions) {
-            ({on_clip} = options);
-        },
-
         destroy() {
             action.destroy();
+        },
+
+        update(options: IClippingOptions) {
+            ({on_clip} = options);
         },
     };
 };

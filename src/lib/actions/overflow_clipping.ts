@@ -4,7 +4,7 @@ import type {IAction, IActionHandle} from "./actions";
  * Represents the Svelte Action initializer signature for [[overflow_clipping]]
  */
 export type IOverflowClippingAction = IAction<
-    HTMLElement,
+    Element,
     IOverflowClippingOptions,
     IOverflowClippingHandle
 >;

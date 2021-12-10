@@ -4,7 +4,7 @@ import type {IAction, IActionHandle} from "./actions";
  * Represents the Svelte Action initializer signature for [[mutation_observer]]
  */
 export type IMutationObserverAction = IAction<
-    HTMLElement,
+    Node,
     IMutationObserverOptions,
     IMutationObserverHandle
 >;
@@ -73,11 +73,11 @@ export interface IMutationObserverOptions {
  * Represents a Svelte Action that encapsulates the [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
  * Web API to easily integrate into Svelte
  *
- * @param element
+ * @param node
  * @param options
  * @returns
  */
-export const mutation_observer: IMutationObserverAction = (element, options) => {
+export const mutation_observer: IMutationObserverAction = (node, options) => {
     let {
         attributes,
         attribute_filter,
@@ -93,7 +93,7 @@ export const mutation_observer: IMutationObserverAction = (element, options) => 
         on_mutate(mutations);
     });
 
-    observer.observe(element, {
+    observer.observe(node, {
         attributes,
         attributeFilter: attribute_filter,
         attributeOldValue: attribute_old_value,
@@ -104,6 +104,10 @@ export const mutation_observer: IMutationObserverAction = (element, options) => 
     });
 
     return {
+        destroy() {
+            observer.disconnect();
+        },
+
         update(options: IMutationObserverOptions) {
             ({
                 attributes,
@@ -117,7 +121,7 @@ export const mutation_observer: IMutationObserverAction = (element, options) => 
             } = options);
 
             observer.disconnect();
-            observer.observe(element, {
+            observer.observe(node, {
                 attributes,
                 attributeFilter: attribute_filter,
                 attributeOldValue: attribute_old_value,
@@ -126,10 +130,6 @@ export const mutation_observer: IMutationObserverAction = (element, options) => 
                 childList: child_list,
                 subtree,
             });
-        },
-
-        destroy() {
-            observer.disconnect();
         },
     };
 };

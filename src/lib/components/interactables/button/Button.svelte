@@ -6,6 +6,7 @@
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
 
+    import {behavior_button} from "../../../actions/behavior_button";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
@@ -116,6 +117,7 @@
         tabindex={_tabindex}
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({disabled, pressed: active})}
+        use:behavior_button={{enabled: true}}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu

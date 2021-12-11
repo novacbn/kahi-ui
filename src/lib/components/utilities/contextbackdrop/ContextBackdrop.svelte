@@ -7,6 +7,8 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {ISizeProperties} from "../../../types/sizes";
 
+    import {behavior_button} from "../../../actions/behavior_button";
+
     import {get_id_context} from "../../../stores/id";
     import {get_state_context} from "../../../stores/state";
     import {scrolllock} from "../../../stores/scrolllock";
@@ -56,8 +58,10 @@
     <label
         bind:this={element}
         {...map_global_attributes($$props)}
+        role="button"
         class="context-backdrop {_class}"
         for={_logic_id ? $_logic_id : ""}
+        use:behavior_button={{enabled: true}}
         on:click
     />
 {:else}

@@ -37,7 +37,7 @@ function make_shortcut_factory(
  * @returns
  */
 export const action_activate = make_shortcut_factory({
-    binds: ["enter", "space"],
+    binds: ["enter", " "],
 });
 
 /**

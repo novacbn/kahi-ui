@@ -2,6 +2,7 @@
 
 ## UNRELEASED
 
+-   Updated button-like `<label>`-based Components to emulate button-like behavior, e.g. Enter key activates element.
 -   Updated `svelte2tsx` -> `0.4.11`.
 
     -   Fixes Component properties not retaining comments / JSDoc flags.

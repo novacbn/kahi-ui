@@ -1,3 +1,4 @@
+import {pick} from "../util/functional";
 import type {IAction, IActionHandle} from "./actions";
 
 /**
@@ -15,10 +16,9 @@ export type IKeybindHandle = Required<IActionHandle<IKeybindOptions>>;
  */
 export type IKeybindCallback = (event: IKeybindEvent) => void;
 
-interface IBindState {
-    is_active(): boolean;
-
-    update(key: string, state: boolean): void;
+interface IParsedBinds {
+    binds: {bind: string; keys: Set<string>}[];
+    keys: Set<string>;
 }
 
 /**
@@ -118,60 +118,29 @@ export interface IKeybindOptions {
 }
 
 /**
- * Holds the internal active state for multiple keybind combinations, when updated
- *
- * ```javascript
- * const state = bindstate(["control+k", "control+/"]);
- *
- * // We're updating the internal state that `ctrl` key was pressed
- * state.update("control", true);
- *
- * // However, the bind is still not active
- * console.log(state.is_active()); // `false`
- *
- * // Now by telling the bind state that the `k` key was pressed
- * state.update("k", true);
- *
- * // We can see the bind is now active
- * console.log(state.is_active()); // `true`
- *
- * // And then, we turn off the bind again by saying the `ctrl` key was released
- * state.update("control", false);
- * console.log(state.is_active()); // `false`
- * ```
  *
  * @internal
  *
  * @param binds
  * @returns
  */
-function bindstate(binds: string | string[]): IBindState {
-    const lookups = (typeof binds === "string" ? [binds] : binds).map((bind) => {
-        const entries = bind.split("+").map<[string, boolean]>((key) => [key, false]);
+function parse_binds(binds: string | string[]): IParsedBinds {
+    if (typeof binds === "string") binds = [binds];
 
-        return new Map(entries);
+    const bind_map = binds.map((bind, index) => {
+        const keys = bind.split("+").map((key, index) => key.toLowerCase());
+
+        return {
+            bind: bind.toLowerCase(),
+            keys: new Set(keys),
+        };
     });
 
+    const key_lookup = new Set(bind_map.map((bind, index) => Array.from(bind.keys.keys())).flat());
+
     return {
-        is_active() {
-            return (
-                lookups.find((lookup) => {
-                    for (const [, active] of lookup) {
-                        if (!active) return false;
-                    }
-
-                    return true;
-                }) !== undefined
-            );
-        },
-
-        update(key, state) {
-            key = key.toLowerCase();
-
-            for (const lookup of lookups) {
-                if (lookup.has(key)) lookup.set(key, state);
-            }
-        },
+        binds: bind_map,
+        keys: key_lookup,
     };
 }
 
@@ -200,29 +169,48 @@ function bindstate(binds: string | string[]): IBindState {
 export const keybind: IKeybindAction = (element, options) => {
     let {binds, repeat = false, repeat_throttle = 0, throttle_cancel = false, on_bind} = options;
 
-    let cache = false;
-    let previous_call = Number.MIN_SAFE_INTEGER;
-    let state = bindstate(binds);
+    let {binds: bind_map, keys: key_lookup} = parse_binds(binds);
+    let key_state: Map<string, boolean> = new Map();
+    let previous_active: boolean = false;
+    let previous_timestamp: number = Number.MIN_SAFE_INTEGER;
+
+    function is_active(): boolean {
+        for (const bind of bind_map) {
+            let active = true;
+            for (const key of bind.keys) {
+                if (!key_state.get(key)) {
+                    active = false;
+                    break;
+                }
+            }
+
+            if (active) return true;
+        }
+
+        return false;
+    }
 
     function make_key_listener(is_down: boolean): (event: KeyboardEvent) => void {
         return (event) => {
-            if (event.repeat && !repeat) return;
-            state.update(event.key, is_down);
+            const key = event.key.toLowerCase();
+            if (!key_lookup.has(key) || (event.repeat && !repeat)) return;
 
-            const active = state.is_active();
-            if (cache !== active || (active && repeat)) {
+            key_state.set(key, is_down);
+            const active = is_active();
+
+            if (previous_active !== active || (active && repeat)) {
                 const detail: IKeybindEvent["detail"] = {active, repeat: event.repeat};
                 const custom_event: IKeybindEvent = new CustomEvent("bind", {
                     cancelable: true,
                     detail,
                 });
 
-                const current_call = Date.now();
+                const timestamp = Date.now();
                 if (
                     event.repeat &&
                     repeat &&
                     repeat_throttle > 0 &&
-                    current_call - previous_call < repeat_throttle
+                    timestamp - previous_timestamp < repeat_throttle
                 ) {
                     if (throttle_cancel) {
                         event.preventDefault();
@@ -234,10 +222,10 @@ export const keybind: IKeybindAction = (element, options) => {
                     if (custom_event.cancelBubble) event.stopPropagation();
                     if (custom_event.defaultPrevented) event.preventDefault();
 
-                    previous_call = current_call;
+                    previous_timestamp = timestamp;
                 }
 
-                cache = active;
+                previous_active = active;
             }
         };
     }
@@ -267,7 +255,10 @@ export const keybind: IKeybindAction = (element, options) => {
                 on_bind,
             } = options);
 
-            state = bindstate(binds);
+            ({binds: bind_map, keys: key_lookup} = parse_binds(binds));
+
+            // NOTE: Need to remove previous keys that are now unbound, to clean up memory
+            key_state = pick(key_state, key_lookup);
         },
     };
 };

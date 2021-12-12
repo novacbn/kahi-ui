@@ -37,6 +37,16 @@ export function fill<T>(generator: (index: number) => T, length: number): T[] {
     return new Array(length).fill(null).map((_, index) => generator(index));
 }
 
+export function pick<T>(
+    map: Map<string, T>,
+    keys: string[] | IterableIterator<string> | Set<string>
+): Map<string, T> {
+    const lookup = new Set(keys);
+    const entries = Array.from(map.entries()).filter(([key, value], index) => lookup.has(key));
+
+    return new Map(entries);
+}
+
 export function throttle<F extends (...args: any[]) => void | Promise<void>>(
     func: F,
     duration: number = 0

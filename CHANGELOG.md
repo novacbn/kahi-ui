@@ -53,6 +53,7 @@
 
     -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
 
+        -   `keybind(..., {on_bind: IKeybindCallback})` — Fixed inline defining of `on_bind` thrashing internal key state of the bind manager.
         -   Fixed calling `IKeybindEvent.preventDefault` / `IKeybindEvent.stopPropagation` not working.
 
 -   Updated the following Components / Component Features

@@ -1,5 +1,5 @@
 .context-backdrop {
-    @apply absolute block bg-default-200 bg-opacity-0 h-full invisible left-0 top-0 w-full z-1;
+    @apply block bg-default-200 bg-opacity-0 fixed h-full invisible left-0 top-0 w-full z-1;
 }
 
 label[for].context-backdrop {

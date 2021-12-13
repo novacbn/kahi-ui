@@ -5,7 +5,7 @@ import type {IAction, IActionHandle} from "./actions";
 /**
  * Represents the Svelte Action initializer signature for [[trap_focus]]
  */
-export type ITrapFocusAction = IAction<Document | HTMLElement, ITrapFocusOptions, ITrapFocusHandle>;
+export type ITrapFocusAction = IAction<Document | Element, ITrapFocusOptions, ITrapFocusHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[trap_focus]]
@@ -46,8 +46,19 @@ export interface ITrapFocusOptions {
 export const trap_focus: ITrapFocusAction = (element, options) => {
     let {first, enabled, last} = options;
 
+    function on_focus_in(event: FocusEvent): void {
+        const target = event.target as HTMLElement | null;
+        if (!event.isTrusted || element.contains(target)) return;
+
+        const first_element = query_target(false);
+        if (!first_element) return;
+
+        event.preventDefault();
+        first_element.focus();
+    }
+
     function on_key_down(event: KeyboardEvent): void {
-        if (!enabled || event.key !== "Tab") return;
+        if (event.key !== "Tab") return;
 
         const first_element = query_target(false);
         const last_element = query_target(true);
@@ -77,15 +88,28 @@ export const trap_focus: ITrapFocusAction = (element, options) => {
         return query_focusable_element(element, {last: is_last});
     }
 
-    window.addEventListener("keydown", on_key_down);
+    function detach_events(): void {
+        window.removeEventListener("focusin", on_focus_in);
+        window.removeEventListener("keydown", on_key_down);
+    }
+
+    function attach_events(): void {
+        window.addEventListener("focusin", on_focus_in);
+        window.addEventListener("keydown", on_key_down);
+    }
+
+    if (enabled) attach_events();
 
     return {
         destroy() {
-            window.removeEventListener("keydown", on_key_down);
+            detach_events();
         },
 
         update(options) {
             ({first, enabled, last} = options);
+
+            if (enabled) attach_events();
+            else detach_events();
         },
     };
 };

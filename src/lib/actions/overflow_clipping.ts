@@ -4,7 +4,7 @@ import type {IAction, IActionHandle} from "./actions";
  * Represents the Svelte Action initializer signature for [[overflow_clipping]]
  */
 export type IOverflowClippingAction = IAction<
-    HTMLElement,
+    Element,
     IOverflowClippingOptions,
     IOverflowClippingHandle
 >;
@@ -86,16 +86,18 @@ export const overflow_clipping: IOverflowClippingAction = (element, options) => 
     }
 
     function attach_events(): void {
-        detach_events();
+        if (!mutation_observer) {
+            mutation_observer = new MutationObserver(on_mutate);
+            mutation_observer.observe(element, {
+                childList: true,
+                subtree: true,
+            });
+        }
 
-        mutation_observer = new MutationObserver(on_mutate);
-        mutation_observer.observe(element, {
-            childList: true,
-            subtree: true,
-        });
-
-        resize_observer = new ResizeObserver(on_resize);
-        resize_observer.observe(element);
+        if (!resize_observer) {
+            resize_observer = new ResizeObserver(on_resize);
+            resize_observer.observe(element);
+        }
     }
 
     function detach_events(): void {
@@ -126,7 +128,7 @@ export const overflow_clipping: IOverflowClippingAction = (element, options) => 
             if (enabled) {
                 update_clipping();
                 attach_events();
-            }
+            } else detach_events();
         },
     };
 };

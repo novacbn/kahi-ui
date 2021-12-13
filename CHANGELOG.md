@@ -2,6 +2,7 @@
 
 ## UNRELEASED
 
+-   Updated button-like `<label>`-based Components to emulate button-like behavior, e.g. Enter key activates element.
 -   Updated `svelte2tsx` -> `0.4.11`.
 
     -   Fixes Component properties not retaining comments / JSDoc flags.
@@ -52,6 +53,7 @@
 
     -   `keybind(element: HTMLElement, options: IKeybindOptions): IKeybindHandle`
 
+        -   `keybind(..., {on_bind: IKeybindCallback})` — Fixed inline defining of `on_bind` thrashing internal key state of the bind manager.
         -   Fixed calling `IKeybindEvent.preventDefault` / `IKeybindEvent.stopPropagation` not working.
 
 -   Updated the following Components / Component Features
@@ -60,7 +62,7 @@
 
         -   `Offscreen` / `Overlay`
 
-            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
+            -   Changed from viewport units to relative percentage units to work with inner non-viewport situations.
             -   `<* focus_target={HTMLElement | string | null}>` — Sets initial focus target element when first opened. Defaults to first focusable element.
             -   `<* focus_first={HTMLElement | string | null}>` — Sets the element treated as first in the focus tabbing order, which traps focus (`Offscreen` / `Overlay`) or dismisses (`Popover`). Defaults to first focusable element.
             -   `<* focus_last={HTMLElement | string | null}>` — Sets the element treated as last in the focus tabbing order, which traps focus `Offscreen` / `Overlay`. Defaults to last focusable element.
@@ -73,7 +75,7 @@
 
         -   `ContextBackdrop`
 
-            -   Changed from fixed positioning to absolute positioning to work with inner non-viewport situations.
+            -   Changed from viewport units to relative percentage units to work with inner non-viewport situations.
 
 ## v0.4.12 - 2021/11/28
 

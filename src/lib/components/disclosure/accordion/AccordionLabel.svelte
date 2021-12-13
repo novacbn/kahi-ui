@@ -5,6 +5,7 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
 
+    import {behavior_button} from "../../../actions/behavior_button";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
@@ -126,11 +127,13 @@
 
 <label
     bind:this={element}
+    role="button"
     {...map_global_attributes($$props)}
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
     for={$_accordion_id}
     tabindex={_tabindex}
+    use:behavior_button={{enabled: true}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

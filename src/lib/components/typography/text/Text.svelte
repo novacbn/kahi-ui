@@ -2,8 +2,9 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
-    import type {IMarginProperties} from "../../../types/spacings";
+    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import type {
         PROPERTY_TEXT_ALIGNMENT,
         PROPERTY_TEXT_TRANSFORM,
@@ -49,7 +50,9 @@
         variation?: PROPERTY_TEXT_VARIATION;
     } & IHTML5Properties &
         IGlobalProperties &
-        IMarginProperties;
+        IMarginProperties &
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

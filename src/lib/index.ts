@@ -77,7 +77,6 @@ export {Omni};
 
 import * as Clickable from "./components/overlays/clickable";
 export {Clickable};
-export * from "./components/overlays/offscreen";
 export * from "./components/overlays/overlay";
 export * from "./components/overlays/popover";
 

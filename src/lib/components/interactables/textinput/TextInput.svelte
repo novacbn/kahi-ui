@@ -20,15 +20,7 @@
     import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME} from "../form/FormGroup.svelte";
 
     type $$Events = {
-        /**
-         * @deprecated Use `on:focusout` instead.
-         */
-        blur: FocusEvent;
         change: InputEvent;
-        /**
-         * @deprecated Use `on:focusin` instead.
-         */
-        focus: FocusEvent;
         input: InputEvent;
     } & IHTML5Events;
 
@@ -140,9 +132,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "email"}
@@ -180,9 +170,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "password"}
@@ -220,9 +208,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "search"}
@@ -260,9 +246,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "url"}
@@ -300,9 +284,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else}
@@ -340,9 +322,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {/if}

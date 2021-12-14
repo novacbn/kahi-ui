@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Removed Components / Component Features
+
+    -   Display / Feedback
+
+        -   `Badge` / `Dot`
+
+            -   `<Badge/Dot position>` — Removed previously deprecated feature in favor of `Position` Component.
+
+    -   Interactables
+
+        -   `Check` / `Radio` / `Switch` / `TextInput`
+
+            -   `<Check/Radio/Switch/TextInput on:blur on:focus>` — Removed previously deprecated feature in favor of `<* on:focusin on:focusout>` events.
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   `<Spacer orientation>` — Removed previously deprecated feature in favor of `<Spacer spacing_x spacing_y>` properties.
+            -   `<Spacer variation>` — Removed previously deprecated feature in favor of `<Spacer is="div/span">` property.
+
 ## v0.4.13 - 2021/12/13
 
 -   Updated button-like `<label>`-based Components to emulate button-like behavior, e.g. Enter key activates element.

@@ -75,6 +75,7 @@ export {Menu};
 import * as Omni from "./components/navigation/omni";
 export {Omni};
 
+export * from "./components/overlays/backdrop";
 import * as Clickable from "./components/overlays/clickable";
 export {Clickable};
 export * from "./components/overlays/overlay";
@@ -95,7 +96,6 @@ export * from "./components/typography/heading";
 export * from "./components/typography/text";
 
 export * from "./components/utilities/browserrender";
-export * from "./components/utilities/contextbackdrop";
 export * from "./components/utilities/contextbutton";
 export * from "./components/utilities/intersectionrender";
 export * from "./components/utilities/portal";

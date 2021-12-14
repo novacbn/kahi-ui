@@ -1,0 +1,7 @@
+.backdrop {
+    @apply block bg-default-200 bg-opacity-60 fixed h-full left-0 top-0 w-full z-1;
+}
+
+label[for].backdrop {
+    @apply cursor-pointer;
+}

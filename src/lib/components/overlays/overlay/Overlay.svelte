@@ -25,7 +25,7 @@
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
     import {action_exit} from "../../../util/keybind";
 
-    import ContextBackdrop from "../../utilities/contextbackdrop/ContextBackdrop.svelte";
+    import Backdrop from "../backdrop/Backdrop.svelte";
 
     type $$Events = {
         active: CustomEvent<void>;
@@ -134,7 +134,7 @@
     />
 
     {#if captive}
-        <ContextBackdrop {dismissible} />
+        <Backdrop for={$_overlay_id} />
     {/if}
 {/if}
 

@@ -17,15 +17,6 @@
 
         is?: "div" | "span";
 
-        /**
-         * @deprecated Use `<Spacer spacing_x="...">` / `<Spacer spacing_y="...">` instead.
-         */
-        orientation?: PROPERTY_ORIENTATION_BREAKPOINT;
-        /**
-         * @deprecated Use `<Spacer is="span">` instead.
-         */
-        variation?: "inline";
-
         spacing?: PROPERTY_SPACING_BREAKPOINT;
         spacing_x?: PROPERTY_SPACING_BREAKPOINT;
         spacing_y?: PROPERTY_SPACING_BREAKPOINT;
@@ -44,21 +35,12 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    /**
-     * @deprecated Use `<Spacer spacing_x="...">` / `<Spacer spacing_y="...">` instead.
-     */
-    export let orientation: $$Props["orientation"] = undefined;
-    /**
-     * @deprecated Use `<Spacer is="span">` instead.
-     */
-    export let variation: $$Props["variation"] = undefined;
-
     export let spacing: $$Props["spacing"] = undefined;
     export let spacing_x: $$Props["spacing_x"] = undefined;
     export let spacing_y: $$Props["spacing_y"] = undefined;
 </script>
 
-{#if is === "span" || variation === "inline"}
+{#if is === "span"}
     <span
         bind:this={element}
         {...map_global_attributes($$props)}

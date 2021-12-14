@@ -19,8 +19,6 @@
 
         animation?: PROPERTY_ANIMATION_FEEDBACK;
         palette?: PROPERTY_PALETTE;
-        /** @deprecated Use `Position` Component instead. */
-        position?: PROPERTY_POSITION;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -33,15 +31,13 @@
 
     export let animation: $$Props["animation"] = undefined;
     export let palette: $$Props["palette"] = undefined;
-    /** @deprecated Use `Position` Component instead. */
-    export let position: $$Props["position"] = undefined;
 </script>
 
 <span
     bind:this={element}
     {...map_global_attributes($$props)}
     class="dot {_class}"
-    {...map_data_attributes({animation, palette, position})}
+    {...map_data_attributes({animation, palette})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

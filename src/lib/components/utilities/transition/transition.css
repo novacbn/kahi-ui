@@ -78,10 +78,12 @@
 @keyframes transition-clip-bottom-enter {
     0% {
         clip-path: inset(var(--transition-clip-bottom-start-clip-path));
+        pointer-events: none;
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -94,10 +96,12 @@
 @keyframes transition-clip-bottom-exit {
     0% {
         clip-path: inset(var(--transition-clip-bottom-end-clip-path));
+        pointer-events: auto;
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -110,10 +114,12 @@
 @keyframes transition-clip-left-enter {
     0% {
         clip-path: inset(var(--transition-clip-left-start-clip-path));
+        pointer-events: none;
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -126,10 +132,12 @@
 @keyframes transition-clip-left-exit {
     0% {
         clip-path: inset(var(--transition-clip-left-end-clip-path));
+        pointer-events: auto;
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -142,10 +150,12 @@
 @keyframes transition-clip-right-enter {
     0% {
         clip-path: inset(var(--transition-clip-right-start-clip-path));
+        pointer-events: none;
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -158,10 +168,12 @@
 @keyframes transition-clip-right-exit {
     0% {
         clip-path: inset(var(--transition-clip-right-end-clip-path));
+        pointer-events: auto;
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -174,10 +186,12 @@
 @keyframes transition-clip-top-enter {
     0% {
         clip-path: inset(var(--transition-clip-top-start-clip-path));
+        pointer-events: none;
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -190,10 +204,12 @@
 @keyframes transition-clip-top-exit {
     0% {
         clip-path: inset(var(--transition-clip-top-end-clip-path));
+        pointer-events: auto;
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -205,31 +221,37 @@
 
 @keyframes transition-fade-enter {
     0% {
+        pointer-events: none;
         opacity: 0;
     }
 
     100% {
+        pointer-events: auto;
         opacity: 1;
     }
 }
 
 @keyframes transition-fade-exit {
     0% {
+        pointer-events: auto;
         opacity: 1;
     }
 
     100% {
+        pointer-events: none;
         opacity: 0;
     }
 }
 
 @keyframes transition-scale-enter {
     0% {
+        pointer-events: none;
         transform: scale(var(--transition-scale-start-scale));
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -241,11 +263,13 @@
 
 @keyframes transition-scale-exit {
     0% {
+        pointer-events: auto;
         transform: scale(var(--transition-scale-end-scale));
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -257,11 +281,13 @@
 
 @keyframes transition-slide-bottom-enter {
     0% {
+        pointer-events: none;
         transform: translate(var(--transition-slide-bottom-start-translate));
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -273,11 +299,13 @@
 
 @keyframes transition-slide-bottom-exit {
     0% {
+        pointer-events: auto;
         transform: translate(var(--transition-slide-bottom-end-translate));
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -289,11 +317,13 @@
 
 @keyframes transition-slide-left-enter {
     0% {
+        pointer-events: none;
         transform: translate(var(--transition-slide-left-start-translate));
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -305,11 +335,13 @@
 
 @keyframes transition-slide-left-exit {
     0% {
+        pointer-events: auto;
         transform: translate(var(--transition-slide-left-end-translate));
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -321,11 +353,13 @@
 
 @keyframes transition-slide-right-enter {
     0% {
+        pointer-events: none;
         transform: translate(var(--transition-slide-right-start-translate));
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -337,11 +371,13 @@
 
 @keyframes transition-slide-right-exit {
     0% {
+        pointer-events: auto;
         transform: translate(var(--transition-slide-right-end-translate));
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 
@@ -353,11 +389,13 @@
 
 @keyframes transition-slide-top-enter {
     0% {
+        pointer-events: none;
         transform: translate(var(--transition-slide-top-start-translate));
         opacity: 0;
     }
 
     75% {
+        pointer-events: auto;
         opacity: 1;
     }
 
@@ -369,11 +407,13 @@
 
 @keyframes transition-slide-top-exit {
     0% {
+        pointer-events: auto;
         transform: translate(var(--transition-slide-top-end-translate));
         opacity: 1;
     }
 
     25% {
+        pointer-events: none;
         opacity: 1;
     }
 

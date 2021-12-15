@@ -36,6 +36,10 @@
     justify-content: var(--orientation-justify);
 
     inset: 0;
+
+    & > :not(.transition) {
+        pointer-events: auto;
+    }
 }
 
 .overlay,

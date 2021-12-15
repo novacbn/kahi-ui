@@ -48,12 +48,34 @@
 }
 
 input[type="checkbox"][role="presentation"] {
-    &:not(:checked) + .overlay > .backdrop {
-        pointer-events: none;
-        opacity: 0;
+    & + .overlay > section {
+        animation: visibility-hack 10s forwards paused;
     }
 
-    &:checked * .overlay > .backdrop {
-        opacity: 1;
+    &:not(:checked) + .overlay {
+        & > .backdrop {
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        & > section {
+            & > .transition {
+                --animation: var(--animation-exit);
+            }
+        }
+    }
+
+    &:checked + .overlay {
+        & > .backdrop {
+            opacity: 1;
+        }
+
+        & > section {
+            animation-play-state: running;
+
+            & > .transition {
+                --animation: var(--animation-enter);
+            }
+        }
     }
 }

@@ -1,9 +1,12 @@
 <script lang="ts">
     import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
+    import type {PROPERTY_DIRECTIONS} from "../../../types/directions";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import type {PROPERTY_TRANSITION_NAMES} from "../../../types/transitions";
+    import {TOKENS_TRANSITION_NAMES} from "../../../types/transitions";
 
     import {auto_focus} from "../../../actions/auto_focus";
     import {click_inside} from "../../../actions/click_inside";
@@ -12,6 +15,8 @@
     import {trap_focus} from "../../../actions/trap_focus";
 
     import {map_global_attributes} from "../../../util/attributes";
+
+    import Transition from "../../utilities/transition/Transition.svelte";
 
     import {
         CONTEXT_OVERLAY_FOCUS_FIRST,
@@ -23,11 +28,18 @@
         CONTEXT_OVERLAY_STATE,
     } from "./OverlayGroup.svelte";
 
-    type $$Events = IHTML5Events;
+    type $$Events = {
+        animationend: AnimationEvent;
+
+        animationstart: AnimationEvent;
+    } & IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;
         element?: HTMLElement;
+
+        animation?: PROPERTY_TRANSITION_NAMES;
+        direction?: PROPERTY_DIRECTIONS;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -40,6 +52,9 @@
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    export let animation: $$Props["animation"] = undefined;
+    export let direction: $$Props["direction"] = undefined;
 
     const _overlay_id = CONTEXT_OVERLAY_ID.get();
     const _overlay_state = CONTEXT_OVERLAY_STATE.get();
@@ -90,8 +105,18 @@
     on:pointerout
     on:pointerup
 >
-    <!-- TODO: `Transition` support for `loading=lazy` -->
-    {#if (_overlay_state && $_overlay_state) || !_overlay_loading || $_overlay_loading !== TOKENS_BEHAVIOR_LOADING.lazy}
+    {#if _overlay_id}
+        <Transition
+            animation={animation ?? TOKENS_TRANSITION_NAMES.scale}
+            {direction}
+            on:animationend
+            on:animationstart
+        >
+            {#if (_overlay_state && $_overlay_state) || !_overlay_loading || $_overlay_loading !== TOKENS_BEHAVIOR_LOADING.lazy}
+                <slot />
+            {/if}
+        </Transition>
+    {:else}
         <slot />
     {/if}
 </section>

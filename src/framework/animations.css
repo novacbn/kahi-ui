@@ -14,6 +14,30 @@
     }
 }
 
+/**
+ * HACK: When using a CSS animation, and as long as the `animation-name` property isn't changed
+ * and it isn't set to repeat or have an iteration count, the animation will play once and only
+ * once.
+ *
+ * We can abuse that by setting `visibility: hidden` with an extremely quick and paused
+ * animation. Effectively making any child `Transition` Component skipping their first exit
+ * variation animation
+ */
+
+/**
+ * animation: visibility-hack 0.000001s forwards;
+ */
+
+@keyframes visibility-hack {
+    0% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
+}
+
 [data-animation="pulse"] {
     animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

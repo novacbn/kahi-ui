@@ -1,15 +1,15 @@
 import type {Writable} from "svelte/store";
 import {writable} from "svelte/store";
 
-import type {IContextScope} from "./context";
-import {make_scoped_context} from "./context";
+import type {IContextScope} from "../util/context";
+import {make_scoped_context} from "../util/context";
 
 /**
  * Represents the return value of [[make_scoped_store]]
  */
 export interface IStoreScope<ValueType, StoreType = Writable<ValueType>>
     extends IContextScope<StoreType> {
-    create(default_value: ValueType): StoreType;
+    create(default_value?: ValueType): StoreType | null;
 }
 
 /**
@@ -25,10 +25,10 @@ export interface IStoreScope<ValueType, StoreType = Writable<ValueType>>
  * @returns
  */
 export function make_scoped_store<ValueType, StoreType = Writable<ValueType>>(
-    symbol: Symbol,
+    identifier: string,
     make_store?: (default_value: ValueType) => StoreType
 ): IStoreScope<ValueType, StoreType> {
-    const {get, has, set} = make_scoped_context<StoreType>(symbol);
+    const {get, has, set} = make_scoped_context<StoreType>(identifier);
 
     return {
         get,
@@ -36,6 +36,8 @@ export function make_scoped_store<ValueType, StoreType = Writable<ValueType>>(
         set,
 
         create(default_value) {
+            if (default_value === undefined) return null;
+
             const store = make_store
                 ? make_store(default_value)
                 : // @ts-expect-error - HACK: for now I guess developers need to be aware of the pitfall

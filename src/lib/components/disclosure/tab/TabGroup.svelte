@@ -1,17 +1,11 @@
 <script context="module" lang="ts">
-    import {make_scoped_store} from "../../../util/store";
+    import {make_scoped_store} from "../../../stores/scoped";
 
-    const SYMBOL_TAB_ID = Symbol.for("kahi-ui-tab-id");
+    export const CONTEXT_TAB_ID = make_scoped_store<string>("tab-id");
 
-    const SYMBOL_TAB_NAME = Symbol.for("kahi-ui-tab-name");
+    export const CONTEXT_TAB_NAME = make_scoped_store<string>("tab-name");
 
-    const SYMBOL_TAB_STATE = Symbol.for("kahi-ui-tab-state");
-
-    export const CONTEXT_TAB_ID = make_scoped_store<string>(SYMBOL_TAB_ID);
-
-    export const CONTEXT_TAB_NAME = make_scoped_store<string>(SYMBOL_TAB_NAME);
-
-    export const CONTEXT_TAB_STATE = make_scoped_store<string>(SYMBOL_TAB_STATE);
+    export const CONTEXT_TAB_STATE = make_scoped_store<string>("tab-state");
 </script>
 
 <script lang="ts">
@@ -37,9 +31,9 @@
     export let logic_name: $$Props["logic_name"] = undefined;
     export let logic_state: $$Props["logic_state"] = undefined;
 
-    const _tab_id = logic_id !== undefined ? CONTEXT_TAB_ID.create(logic_id) : null;
-    const _tab_name = logic_name !== undefined ? CONTEXT_TAB_NAME.create(logic_name) : null;
-    const _tab_state = logic_state !== undefined ? CONTEXT_TAB_STATE.create(logic_state) : null;
+    const _tab_id = CONTEXT_TAB_ID.create(logic_id);
+    const _tab_name = CONTEXT_TAB_NAME.create(logic_name);
+    const _tab_state = CONTEXT_TAB_STATE.create(logic_state);
 
     if (_tab_state) {
         afterUpdate(() => {

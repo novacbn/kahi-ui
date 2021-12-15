@@ -10,38 +10,43 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply fixed flex flex-col gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] h-full
-    left-0 pointer-events-none top-0 w-full z-2;
+    display: flex;
+    position: fixed;
+
+    inset: 0;
+
+    flex-direction: var(--orientation-direction);
+    gap: var(--spacing-y) var(--spacing-x);
 
     align-items: var(--orientation-align);
     justify-content: var(--orientation-justify);
 
-    flex-direction: var(--orientation-direction);
+    pointer-events: none;
 
-    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 2;
+}
 
-    & > * {
-        @apply pointer-events-auto;
-    }
+.overlay > .backdrop {
+    transition: opacity var(--animation-reveal-duration) var(--animation-reveal-function);
+
+    z-index: 1;
+}
+
+.overlay > section {
+    z-index: 2;
+}
+
+.overlay > :is(.backdrop, section) {
+    pointer-events: auto;
 }
 
 input[type="checkbox"][role="presentation"] {
-    &:not(:checked) + .overlay,
-    &:not(:checked) + .context-backdrop + .overlay {
-        @apply opacity-0;
-
-        transform: scale(0.3);
-
-        & > * {
-            @apply pointer-events-none;
-        }
+    &:not(:checked) + .overlay > .backdrop {
+        pointer-events: none;
+        opacity: 0;
     }
 
-    &:checked + .overlay,
-    &:checked + .context-backdrop + .overlay {
-        @apply opacity-100;
-
-        transform: scale(1);
+    &:checked * .overlay > .backdrop {
+        opacity: 1;
     }
 }

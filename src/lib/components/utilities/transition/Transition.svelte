@@ -1,6 +1,9 @@
 <script lang="ts">
+    import type {PROPERTY_DIRECTIONS} from "../../../types/directions";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_TRANSITION_NAMES} from "../../../types/transitions";
+    import type {PROPERTY_VARIATION_TRANSITION} from "../../../types/variations";
 
     import {
         format_css_variables,
@@ -17,11 +20,11 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        animation?: "clip" | "fade" | "scale" | "slide";
+        animation?: PROPERTY_TRANSITION_NAMES;
         delay?: number | string;
         duration?: number | string;
-        direction?: "bottom" | "left" | "right" | "top";
-        variation?: "enter" | "exit";
+        direction?: PROPERTY_DIRECTIONS;
+        variation?: PROPERTY_VARIATION_TRANSITION;
     } & IHTML5Properties &
         IGlobalProperties;
 

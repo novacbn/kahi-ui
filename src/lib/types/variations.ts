@@ -20,6 +20,15 @@ export enum TOKENS_VARIATION_FILL {
     outline = "outline",
 }
 
+/**
+ * Represents the tiers of transition variation tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_TRANSITION {
+    enter = "enter",
+
+    exit = "exit",
+}
+
 export const TOKENS_VARIATION_BUTTON = {
     [TOKENS_VARIATION_FILL.clear]: TOKENS_VARIATION_FILL.clear,
     [TOKENS_VARIATION_FILL.outline]: TOKENS_VARIATION_FILL.outline,
@@ -62,5 +71,7 @@ export type PROPERTY_VARIATION_INTERACTIVE = LiteralEnum<keyof typeof TOKENS_VAR
 export type PROPERTY_VARIATION_SURFACE = LiteralEnum<keyof typeof TOKENS_VARIATION_SURFACE>;
 
 export type PROPERTY_VARIATION_TABLE = ArrayEnum<LiteralEnum<TOKENS_VARIATION_TABLE>>;
+
+export type PROPERTY_VARIATION_TRANSITION = LiteralEnum<keyof typeof TOKENS_VARIATION_TRANSITION>;
 
 export type PROPERTY_VARIATION_TOGGLE = LiteralEnum<keyof typeof TOKENS_VARIATION_TOGGLE>;

@@ -4,7 +4,7 @@
 
     inset: 0;
 
-    background: rgba(var(--palette-inverse-bold), 0.35);
+    background: rgba(var(--backdrop-background-color), var(--backdrop-background-opacity));
 
     &[for] {
         cursor: pointer;

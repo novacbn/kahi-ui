@@ -96,17 +96,14 @@
 
     function on_group_change(event: CustomEvent<void>): void {
         dispatch(logic_state ? "active" : "dismiss");
-        console.log("on_group_change", {logic_state});
     }
 
     function on_input_change(event: Event): void {
         logic_state = (event.target as HTMLInputElement).checked;
-        console.log("on_input_change", {logic_state});
     }
 
     function on_dismiss(): void {
         if (dismissible && logic_state) logic_state = false;
-        console.log("on_dismiss", {logic_state, dismissible});
     }
 </script>
 

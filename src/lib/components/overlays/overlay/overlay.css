@@ -10,10 +10,24 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    display: flex;
+    display: block;
     position: fixed;
 
     inset: 0;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.overlay > .backdrop {
+    transition: opacity var(--animation-reveal-duration) var(--animation-reveal-function);
+
+    pointer-events: auto;
+}
+
+.overlay > section {
+    display: flex;
+    position: absolute;
 
     flex-direction: var(--orientation-direction);
     gap: var(--spacing-y) var(--spacing-x);
@@ -21,23 +35,12 @@
     align-items: var(--orientation-align);
     justify-content: var(--orientation-justify);
 
-    pointer-events: none;
-
-    z-index: 2;
+    inset: 0;
 }
 
-.overlay > .backdrop {
-    transition: opacity var(--animation-reveal-duration) var(--animation-reveal-function);
-
-    z-index: 1;
-}
-
+.overlay,
 .overlay > section {
-    z-index: 2;
-}
-
-.overlay > :is(.backdrop, section) {
-    pointer-events: auto;
+    pointer-events: none;
 }
 
 input[type="checkbox"][role="presentation"] {

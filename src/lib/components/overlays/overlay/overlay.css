@@ -37,6 +37,10 @@
     inset: 0;
 
     &.transition > * {
+        /**
+         * HACK: Using a `visibility` CSS property animation to create a hacky way of
+         * skipping the first animation on first load
+         */
         animation: visibility-hack 0.000001s forwards paused;
     }
 
@@ -58,6 +62,10 @@ input[type="checkbox"][role="presentation"] {
         }
 
         & > .transition {
+            /**
+             * HACK: We're abusing `Transition` Component's internal state CSS vars to
+             * make`Overlay` transitions SSR-able
+             */
             --animation: var(--animation-exit);
         }
 
@@ -77,6 +85,10 @@ input[type="checkbox"][role="presentation"] {
         }
 
         & > .transition {
+            /**
+             * HACK: We're abusing `Transition` Component's internal state CSS vars to
+             * make`Overlay` transitions SSR-able
+             */
             --animation: var(--animation-enter);
         }
     }

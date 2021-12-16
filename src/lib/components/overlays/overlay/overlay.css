@@ -37,7 +37,11 @@
 
     inset: 0;
 
-    & > :not(.transition) {
+    &.transition > * {
+        animation: visibility-hack 10s forwards paused;
+    }
+
+    & > * {
         pointer-events: auto;
     }
 }
@@ -48,20 +52,14 @@
 }
 
 input[type="checkbox"][role="presentation"] {
-    & + .overlay > section {
-        animation: visibility-hack 10s forwards paused;
-    }
-
     &:not(:checked) + .overlay {
         & > .backdrop {
             pointer-events: none;
             opacity: 0;
         }
 
-        & > section {
-            & > .transition {
-                --animation: var(--animation-exit);
-            }
+        & > .transition {
+            --animation: var(--animation-exit);
         }
     }
 
@@ -70,11 +68,11 @@ input[type="checkbox"][role="presentation"] {
             opacity: 1;
         }
 
-        & > section {
-            animation-play-state: running;
+        & > .transition {
+            --animation: var(--animation-enter);
 
-            & > .transition {
-                --animation: var(--animation-enter);
+            & > * {
+                animation-play-state: running;
             }
         }
     }

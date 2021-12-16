@@ -78,7 +78,8 @@ export {Omni};
 export * from "./components/overlays/backdrop";
 import * as Clickable from "./components/overlays/clickable";
 export {Clickable};
-export * from "./components/overlays/overlay";
+import * as Overlay from "./components/overlays/overlay";
+export {Overlay};
 export * from "./components/overlays/popover";
 
 export * from "./components/surfaces/box";

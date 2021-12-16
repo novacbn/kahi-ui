@@ -60,7 +60,7 @@
 
     <Overlay.Container logic_id="overlay-modal" captive dismissible>
         <Overlay.Section>
-            <Card.Container palette="auto" max_width="viewport-75">
+            <Card.Container palette="auto" max_width="75">
                 <Card.Header>Are you sure?</Card.Header>
 
                 <Card.Section>
@@ -97,7 +97,7 @@
 
     <Overlay.Container logic_id="overlay-captive-disabled">
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>NON-CAPTIVE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -109,7 +109,7 @@
 
     <Overlay.Container logic_id="overlay-captive-enabled" captive>
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>CAPTIVE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -130,7 +130,7 @@
 
     <Overlay.Container logic_id="overlay-dismissible-disabled" captive>
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>NON-DISMISSIBLE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -142,7 +142,7 @@
 
     <Overlay.Container logic_id="overlay-dismissible-enabled" captive dismissible>
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>DISMISSIBLE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -163,7 +163,7 @@
 
     <Overlay.Container logic_id="overlay-once-disabled" captive>
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>NON-ONCE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -175,7 +175,7 @@
 
     <Overlay.Container logic_id="overlay-once-enabled" captive once>
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>ONCE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -191,7 +191,7 @@
 
     <Overlay.Container logic_id="overlay-logic-state" bind:logic_state>
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>Toggable Overlay</Card.Header>
 
                 <Card.Footer>
@@ -202,11 +202,107 @@
     </Overlay.Container>
 </Story>
 
-<Story name="Orientation">Orientation</Story>
+<Story name="Orientation">
+    {#each ORIENTATIONS as [orientation, is_default] (orientation)}
+        <Button for="overlay-orientation-{orientation}">
+            Open {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
+        </Button>
+    {/each}
 
-<Story name="Alignment">Alignment</Story>
+    {#each ORIENTATIONS as [orientation, is_default] (orientation)}
+        <Overlay.Container logic_id="overlay-orientation-{orientation}" captive dismissible>
+            <Overlay.Section {orientation}>
+                <Card.Container palette="inverse" max_width="75">
+                    <Card.Header>{orientation.toUpperCase()} Overlays</Card.Header>
 
-<Story name="Spacing">Spacing</Story>
+                    <Card.Footer>
+                        <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                    </Card.Footer>
+                </Card.Container>
+
+                <Card.Container palette="inverse" max_width="75">
+                    <Card.Header>{orientation.toUpperCase()} Overlays</Card.Header>
+
+                    <Card.Footer>
+                        <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                    </Card.Footer>
+                </Card.Container>
+            </Overlay.Section>
+        </Overlay.Container>
+    {/each}
+</Story>
+
+<Story name="Alignment">
+    {#each ALIGNMENTS_X as [alignment_x, is_default] (alignment_x)}
+        <Button for="overlay-alignment-x-{alignment_x}">
+            Open {`${alignment_x.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} X Overlay
+        </Button>
+    {/each}
+
+    {#each ALIGNMENTS_Y as [alignment_y, is_default] (alignment_y)}
+        <Button for="overlay-alignment-y-{alignment_y}">
+            Open {`${alignment_y.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Y Overlay
+        </Button>
+    {/each}
+
+    {#each ALIGNMENTS_X as [alignment_x, is_default] (alignment_x)}
+        <Overlay.Container logic_id="overlay-alignment-x-{alignment_x}" captive dismissible>
+            <Overlay.Section {alignment_x}>
+                <Card.Container palette="inverse" max_width="75">
+                    <Card.Header>{alignment_x.toUpperCase()} Overlay</Card.Header>
+
+                    <Card.Footer>
+                        <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                    </Card.Footer>
+                </Card.Container>
+            </Overlay.Section>
+        </Overlay.Container>
+    {/each}
+
+    {#each ALIGNMENTS_Y as [alignment_y, is_default] (alignment_y)}
+        <Overlay.Container logic_id="overlay-alignment-y-{alignment_y}" captive dismissible>
+            <Overlay.Section {alignment_y}>
+                <Card.Container palette="inverse" max_width="75">
+                    <Card.Header>{alignment_y.toUpperCase()} Overlay</Card.Header>
+
+                    <Card.Footer>
+                        <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                    </Card.Footer>
+                </Card.Container>
+            </Overlay.Section>
+        </Overlay.Container>
+    {/each}
+</Story>
+
+<Story name="Spacing">
+    {#each SPACINGS as [spacing, is_default] (spacing)}
+        <Button for="overlay-spacing-{spacing}">
+            Open {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
+        </Button>
+    {/each}
+
+    {#each SPACINGS as [spacing, is_default] (spacing)}
+        <Overlay.Container logic_id="overlay-spacing-{spacing}" captive dismissible>
+            <Overlay.Section {spacing}>
+                <Card.Container palette="inverse" max_width="75">
+                    <Card.Header>{spacing.toUpperCase()} Overlays</Card.Header>
+
+                    <Card.Footer>
+                        <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                    </Card.Footer>
+                </Card.Container>
+
+                <Card.Container palette="inverse" max_width="75">
+                    <Card.Header>{spacing.toUpperCase()} Overlays</Card.Header>
+
+                    <Card.Footer>
+                        <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                    </Card.Footer>
+                </Card.Container>
+            </Overlay.Section>
+        </Overlay.Container>
+    {/each}
+</Story>
 
 <Story name="Transition - Clip">
     {#each DIRECTIONS as [direction, is_default] (direction)}
@@ -218,7 +314,7 @@
     {#each DIRECTIONS as [direction, is_default] (direction)}
         <Overlay.Container logic_id="overlay-transition-clip-{direction}" captive dismissible>
             <Overlay.Section animation="clip" {direction}>
-                <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Container palette="inverse" max_width="75">
                     <Card.Header>CLIP {direction.toUpperCase()} Overlay</Card.Header>
 
                     <Card.Footer>
@@ -235,7 +331,7 @@
 
     <Overlay.Container logic_id="overlay-transition-fade" captive dismissible>
         <Overlay.Section animation="fade">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>FADE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -251,7 +347,7 @@
 
     <Overlay.Container logic_id="overlay-transition-scale" captive dismissible>
         <Overlay.Section animation="scale">
-            <Card.Container palette="inverse" max_width="viewport-75">
+            <Card.Container palette="inverse" max_width="75">
                 <Card.Header>SCALE Overlay</Card.Header>
 
                 <Card.Footer>
@@ -272,7 +368,7 @@
     {#each DIRECTIONS as [direction, is_default] (direction)}
         <Overlay.Container logic_id="overlay-transition-slide-{direction}" captive dismissible>
             <Overlay.Section animation="slide" {direction}>
-                <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Container palette="inverse" max_width="75">
                     <Card.Header>SLIDE {direction.toUpperCase()} Overlay</Card.Header>
 
                     <Card.Footer>

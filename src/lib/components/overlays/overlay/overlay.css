@@ -47,7 +47,8 @@
 
 .overlay,
 .overlay > section {
-    pointer-events: none;
+    /** HACK: `@keyframes` settings override this, we need to use `!important` to prevent that */
+    pointer-events: none !important;
 }
 
 input[type="checkbox"][role="presentation"] {

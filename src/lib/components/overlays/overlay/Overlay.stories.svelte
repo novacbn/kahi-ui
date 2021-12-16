@@ -41,6 +41,12 @@
         ["large", false],
         ["huge", false],
     ];
+
+    let logic_state = false;
+
+    function on_toggle_click(event) {
+        logic_state = !logic_state;
+    }
 </script>
 
 <Meta title="Overlays/Overlay" />
@@ -80,18 +86,121 @@
 <Story name="Focus Trapping - First + Last">First + Last</Story>
 
 <Story name="Lazy">
-    <Box palette="negative" margin_bottom="medium">
+    <Box palette="negative" padding="small" margin_bottom="medium">
         To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
     </Box>
 </Story>
 
-<Story name="Captive">Captive</Story>
+<Story name="Captive">
+    <Button for="overlay-captive-disabled">Open NON-CAPTIVE Overlay</Button>
+    <Button for="overlay-captive-enabled">Open CAPTIVE Overlay</Button>
 
-<Story name="Dismissible">Dismissible</Story>
+    <Overlay.Container logic_id="overlay-captive-disabled">
+        <Overlay.Section animation="fade">
+            <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Header>NON-CAPTIVE Overlay</Card.Header>
 
-<Story name="Once">Once</Story>
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
 
-<Story name="State">State</Story>
+    <Overlay.Container logic_id="overlay-captive-enabled" captive>
+        <Overlay.Section animation="fade">
+            <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Header>CAPTIVE Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
+
+<Story name="Dismissible">
+    <Box palette="negative" padding="small" margin_bottom="medium">
+        Click the backdrop or hit <Text is="kbd">ESC</Text> to dismiss.
+    </Box>
+
+    <Button for="overlay-dismissible-disabled">Open NON-DISMISSIBLE Overlay</Button>
+    <Button for="overlay-dismissible-enabled">Open DISMISSIBLE Overlay</Button>
+
+    <Overlay.Container logic_id="overlay-dismissible-disabled" captive>
+        <Overlay.Section animation="fade">
+            <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Header>NON-DISMISSIBLE Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+
+    <Overlay.Container logic_id="overlay-dismissible-enabled" captive dismissible>
+        <Overlay.Section animation="fade">
+            <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Header>DISMISSIBLE Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
+
+<Story name="Once">
+    <Box palette="negative" padding="small" margin_bottom="medium">
+        Click anywhere on the Modal dismiss.
+    </Box>
+
+    <Button for="overlay-once-disabled">Open NON-ONCE Overlay</Button>
+    <Button for="overlay-once-enabled">Open ONCE Overlay</Button>
+
+    <Overlay.Container logic_id="overlay-once-disabled" captive>
+        <Overlay.Section animation="fade">
+            <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Header>NON-ONCE Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+
+    <Overlay.Container logic_id="overlay-once-enabled" captive once>
+        <Overlay.Section animation="fade">
+            <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Header>ONCE Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
+
+<Story name="Logic State">
+    <Button on:click={on_toggle_click}>Open Toggle Overlay</Button>
+
+    <Overlay.Container logic_id="overlay-logic-state" bind:logic_state>
+        <Overlay.Section animation="fade">
+            <Card.Container palette="inverse" max_width="viewport-75">
+                <Card.Header>Toggable Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
 
 <Story name="Orientation">Orientation</Story>
 
@@ -101,7 +210,7 @@
 
 <Story name="Transition - Clip">
     {#each DIRECTIONS as [direction, is_default] (direction)}
-        <Button for="overlay-transition-clip-{direction}" palette="accent">
+        <Button for="overlay-transition-clip-{direction}">
             Open CLIP {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
         </Button>
     {/each}
@@ -122,7 +231,7 @@
 </Story>
 
 <Story name="Transition - Fade">
-    <Button for="overlay-transition-fade" palette="accent">Open FADE Overlay</Button>
+    <Button for="overlay-transition-fade">Open FADE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-transition-fade" captive dismissible>
         <Overlay.Section animation="fade">
@@ -138,7 +247,7 @@
 </Story>
 
 <Story name="Transition - Scale">
-    <Button for="overlay-transition-scale" palette="accent">Open SCALE Overlay</Button>
+    <Button for="overlay-transition-scale">Open SCALE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-transition-scale" captive dismissible>
         <Overlay.Section animation="scale">
@@ -155,7 +264,7 @@
 
 <Story name="Transition - Slide">
     {#each DIRECTIONS as [direction, is_default] (direction)}
-        <Button for="overlay-transition-slide-{direction}" palette="accent">
+        <Button for="overlay-transition-slide-{direction}">
             Open SLIDE {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
         </Button>
     {/each}

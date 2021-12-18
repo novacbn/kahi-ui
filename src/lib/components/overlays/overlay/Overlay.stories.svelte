@@ -43,6 +43,10 @@
         ["huge", false],
     ];
 
+    let first_element;
+    let last_element;
+    let target_element;
+
     let logic_state = false;
 
     function on_toggle_click(event) {
@@ -116,11 +120,77 @@
     </Overlay.Container>
 </Story>
 
-<Story name="Preview - Offscreen">Offscreen</Story>
+<Story name="Auto Focus - Focus Target">
+    <Button for="overlay-auto-focus">Open AUTO FOCUSED Overlay</Button>
 
-<Story name="Auto Focus - Focus Target">Focus Target</Story>
+    <Overlay.Container logic_id="overlay-auto-focus" focus_target={target_element}>
+        <Overlay.Section>
+            <Card.Container palette="inverse" max_width="75">
+                <Card.Header>AUTO FOCUSED Overlay</Card.Header>
 
-<Story name="Focus Trapping - First + Last">First + Last</Story>
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss #1</Overlay.Button>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss #2</Overlay.Button>
+
+                    <Overlay.Button bind:element={target_element} palette="auto" variation="clear">
+                        Dismiss #3
+                    </Overlay.Button>
+
+                    <Overlay.Button palette="auto" variation="clear">Dismiss #4</Overlay.Button>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss #5</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
+
+<Story name="Focus Trapping - First + Last">
+    <Button for="overlay-focus-trapping">Open FOCUS TRAPPED Overlay</Button>
+
+    <Overlay.Container
+        logic_id="overlay-focus-trapping"
+        focus_first={first_element}
+        focus_last={last_element}
+    >
+        <Overlay.Section>
+            <Card.Container palette="inverse" max_width="75">
+                <Card.Header>FOCUS TRAPPED Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button tabindex="3" palette="auto" variation="clear">
+                        Dismiss #3
+                    </Overlay.Button>
+
+                    <Overlay.Button
+                        bind:element={first_element}
+                        tabindex="1"
+                        palette="auto"
+                        variation="clear"
+                    >
+                        Dismiss #1
+                    </Overlay.Button>
+
+                    <Overlay.Button
+                        bind:element={last_element}
+                        tabindex="5"
+                        palette="auto"
+                        variation="clear"
+                    >
+                        Dismiss #5
+                    </Overlay.Button>
+
+                    <Overlay.Button tabindex="4" palette="auto" variation="clear">
+                        Dismiss #4
+                    </Overlay.Button>
+
+                    <Overlay.Button tabindex="2" palette="auto" variation="clear">
+                        Dismiss #2
+                    </Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
 
 <Story name="Lazy">
     <Box palette="negative" padding="small" margin_bottom="medium">

@@ -1,87 +1,87 @@
 [data-orientation~="horizontal"] {
-    --orientation-direction: row;
-    --orientation-spacing: 0 0 0 var(--spacing-x);
+    --orientation-direction: row !important;
+    --orientation-spacing: 0 0 0 var(--spacing-x) !important;
 
-    --orientation-align: var(--flex-alignment-y);
-    --orientation-justify: var(--flex-alignment-x);
+    --orientation-align: var(--flex-alignment-y) !important;
+    --orientation-justify: var(--flex-alignment-x) !important;
 }
 
 [data-orientation~="vertical"] {
-    --orientation-direction: column;
-    --orientation-spacing: var(--spacing-y) 0 0 0;
+    --orientation-direction: column !important;
+    --orientation-spacing: var(--spacing-y) 0 0 0 !important;
 
-    --orientation-align: var(--flex-alignment-x);
-    --orientation-justify: var(--flex-alignment-y);
+    --orientation-align: var(--flex-alignment-x) !important;
+    --orientation-justify: var(--flex-alignment-y) !important;
 }
 
 @variants <sm {
     [data-orientation~="mobile:horizontal"] {
-        --orientation-direction: row;
-        --orientation-spacing: 0 0 0 var(--spacing-x);
+        --orientation-direction: row !important;
+        --orientation-spacing: 0 0 0 var(--spacing-x) !important;
 
-        --orientation-align: var(--flex-alignment-y);
-        --orientation-justify: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y) !important;
+        --orientation-justify: var(--flex-alignment-x) !important;
     }
 
     [data-orientation~="mobile:vertical"] {
-        --orientation-direction: column;
-        --orientation-spacing: var(--spacing-y) 0 0 0;
+        --orientation-direction: column !important;
+        --orientation-spacing: var(--spacing-y) 0 0 0 !important;
 
-        --orientation-align: var(--flex-alignment-x);
-        --orientation-justify: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x) !important;
+        --orientation-justify: var(--flex-alignment-y) !important;
     }
 }
 
 @variants @sm {
     [data-orientation~="tablet:horizontal"] {
-        --orientation-direction: row;
-        --orientation-spacing: 0 0 0 var(--spacing-x);
+        --orientation-direction: row !important;
+        --orientation-spacing: 0 0 0 var(--spacing-x) !important;
 
-        --orientation-align: var(--flex-alignment-y);
-        --orientation-justify: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y) !important;
+        --orientation-justify: var(--flex-alignment-x) !important;
     }
 
     [data-orientation~="tablet:vertical"] {
-        --orientation-direction: column;
-        --orientation-spacing: var(--spacing-y) 0 0 0;
+        --orientation-direction: column !important;
+        --orientation-spacing: var(--spacing-y) 0 0 0 !important;
 
-        --orientation-align: var(--flex-alignment-x);
-        --orientation-justify: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x) !important;
+        --orientation-justify: var(--flex-alignment-y) !important;
     }
 }
 
 @variants @md {
     [data-orientation~="desktop:horizontal"] {
-        --orientation-direction: row;
-        --orientation-spacing: 0 0 0 var(--spacing-x);
+        --orientation-direction: row !important;
+        --orientation-spacing: 0 0 0 var(--spacing-x) !important;
 
-        --orientation-align: var(--flex-alignment-y);
-        --orientation-justify: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y) !important;
+        --orientation-justify: var(--flex-alignment-x) !important;
     }
 
     [data-orientation~="desktop:vertical"] {
-        --orientation-direction: column;
-        --orientation-spacing: var(--spacing-y) 0 0 0;
+        --orientation-direction: column !important;
+        --orientation-spacing: var(--spacing-y) 0 0 0 !important;
 
-        --orientation-align: var(--flex-alignment-x);
-        --orientation-justify: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x) !important;
+        --orientation-justify: var(--flex-alignment-y) !important;
     }
 }
 
 @variants lg {
     [data-orientation~="widescreen:horizontal"] {
-        --orientation-direction: row;
-        --orientation-spacing: 0 0 0 var(--spacing-x);
+        --orientation-direction: row !important;
+        --orientation-spacing: 0 0 0 var(--spacing-x) !important;
 
-        --orientation-align: var(--flex-alignment-y);
-        --orientation-justify: var(--flex-alignment-x);
+        --orientation-align: var(--flex-alignment-y) !important;
+        --orientation-justify: var(--flex-alignment-x) !important;
     }
 
     [data-orientation~="widescreen:vertical"] {
-        --orientation-direction: column;
-        --orientation-spacing: var(--spacing-y) 0 0 0;
+        --orientation-direction: column !important;
+        --orientation-spacing: var(--spacing-y) 0 0 0 !important;
 
-        --orientation-align: var(--flex-alignment-x);
-        --orientation-justify: var(--flex-alignment-y);
+        --orientation-align: var(--flex-alignment-x) !important;
+        --orientation-justify: var(--flex-alignment-y) !important;
     }
 }

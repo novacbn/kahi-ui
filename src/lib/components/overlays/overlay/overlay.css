@@ -1,15 +1,4 @@
 .overlay {
-    --orientation-direction: column;
-
-    --orientation-align: var(--flex-alignment-x);
-    --orientation-justify: var(--flex-alignment-y);
-
-    --flex-alignment-x: center;
-    --flex-alignment-y: center;
-
-    --spacing-x: 0;
-    --spacing-y: 0;
-
     display: block;
     position: fixed;
 
@@ -25,6 +14,17 @@
 }
 
 .overlay > section {
+    --orientation-direction: column;
+
+    --orientation-align: var(--flex-alignment-x);
+    --orientation-justify: var(--flex-alignment-y);
+
+    --flex-alignment-x: center;
+    --flex-alignment-y: center;
+
+    --spacing-x: 0;
+    --spacing-y: 0;
+
     display: flex;
     position: absolute;
 

@@ -1,6 +1,7 @@
 <script lang="ts">
     import {afterUpdate} from "svelte";
 
+    import {TOKENS_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
@@ -88,42 +89,31 @@
     }
 
     afterUpdate(() => {
-        if ($_accordion_behavior === "inclusive") {
+        if (!$_accordion_id) return;
+
+        if ($_accordion_behavior === TOKENS_BEHAVIOR_TOGGLE.inclusive) {
             if (state) _accordion_state.push($_accordion_id);
             else _accordion_state.remove($_accordion_id);
         } else if (state) $_accordion_state = $_accordion_id;
     });
 
-    $: state = $_accordion_state.includes($_accordion_id);
+    $: state = $_accordion_id ? $_accordion_state.includes($_accordion_id) : false;
 
     // HACK: Svelte has `tabindex` typed as `number | undefined` unless
     // you pass a string literal into the markup
     $: _tabindex = tabindex as number | undefined;
 </script>
 
-{#if $_accordion_behavior === "inclusive"}
-    <input
-        role="presentation"
-        type="checkbox"
-        id={$_accordion_id}
-        name={$_accordion_name}
-        checked={state}
-        value={$_accordion_id}
-        on:change={on_change}
-        on:change
-    />
-{:else}
-    <input
-        role="presentation"
-        type="radio"
-        id={$_accordion_id}
-        name={$_accordion_name}
-        checked={state}
-        value={$_accordion_id}
-        on:change={on_change}
-        on:change
-    />
-{/if}
+<input
+    role="presentation"
+    type={$_accordion_behavior === TOKENS_BEHAVIOR_TOGGLE.inclusive ? "checkbox" : "radio"}
+    id={$_accordion_id}
+    name={$_accordion_name}
+    checked={state}
+    value={$_accordion_id}
+    on:change={on_change}
+    on:change
+/>
 
 <label
     bind:this={element}

@@ -14,14 +14,13 @@
 
     export const CONTEXT_ACCORDION_STATE = make_scoped_store<IStateValue, IStateStore>(
         "accordion-state",
+        undefined,
         (default_value) => state(default_value)
     );
 </script>
 
 <script lang="ts">
     import {afterUpdate, createEventDispatcher} from "svelte";
-
-    import {TOKENS_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
 
     type $$Events = {
         change: CustomEvent<void>;
@@ -54,15 +53,15 @@
     const _accordion_behavior = CONTEXT_ACCORDION_BEHAVIOR.create(behavior);
 
     afterUpdate(() => {
-        $_accordion_state = logic_state ?? "";
+        if (_accordion_state) $_accordion_state = logic_state ?? "";
     });
 
-    $: $_accordion_id = logic_id;
-    $: $_accordion_name = logic_name;
+    $: if (_accordion_id) $_accordion_id = logic_id ?? "";
+    $: if (_accordion_name) $_accordion_name = logic_name ?? "";
 
-    $: $_accordion_behavior = behavior ?? TOKENS_BEHAVIOR_TOGGLE.exclusive;
+    $: if (_accordion_behavior) $_accordion_behavior = behavior as PROPERTY_BEHAVIOR_TOGGLE;
 
-    $: if (logic_state !== $_accordion_state) {
+    $: if (_accordion_state && logic_state !== $_accordion_state) {
         logic_state = $_accordion_state;
 
         dispatch("change");

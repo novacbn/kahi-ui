@@ -41,8 +41,11 @@
     // TODO: `Transition` support for `loading=lazy`
 
     let state: boolean = true;
-    $: if (_accordion_id && _accordion_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy)
-        state = $_accordion_state.includes($_accordion_id);
+    $: {
+        if (_accordion_id && _accordion_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy) {
+            state = $_accordion_state.includes($_accordion_id);
+        }
+    }
 </script>
 
 <section

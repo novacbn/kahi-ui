@@ -57,9 +57,13 @@
     export let logic_id: $$Props["logic_id"] = undefined;
     export let logic_state: $$Props["logic_state"] = false;
 
-    export let focus_first: $$Props["focus_first"] = undefined;
-    export let focus_last: $$Props["focus_last"] = undefined;
-    export let focus_target: $$Props["focus_target"] = undefined;
+    // HACK: Focus management properties need default invalid references so
+    // the Context Stores get created. Due to `<element bind:this>` / `<Component bind:element>`
+    // taking a frame to be initialized
+
+    export let focus_first: $$Props["focus_first"] = null;
+    export let focus_last: $$Props["focus_last"] = null;
+    export let focus_target: $$Props["focus_target"] = null;
 
     export let captive: $$Props["captive"] = undefined;
     export let dismissible: $$Props["dismissible"] = undefined;

@@ -196,6 +196,20 @@
     <Box palette="negative" padding="small" margin_bottom="medium">
         To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
     </Box>
+
+    <Button for="overlay-lazy">Open LAZY Overlay</Button>
+
+    <Overlay.Container logic_id="overlay-lazy" loading="lazy">
+        <Overlay.Section>
+            <Card.Container palette="inverse" max_width="75">
+                <Card.Header>LAZY Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
 </Story>
 
 <Story name="Captive">

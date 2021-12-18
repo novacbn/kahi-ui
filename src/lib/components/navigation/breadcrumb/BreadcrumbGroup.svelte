@@ -20,7 +20,7 @@
 
     const _separator = CONTEXT_BREADCRUMB_SEPARATOR.create(separator);
 
-    $: if (_separator) $_separator = separator ?? "/";
+    $: $_separator = separator ?? "/";
 </script>
 
 <slot />

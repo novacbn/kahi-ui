@@ -5,11 +5,18 @@ import type {IContextScope} from "../util/context";
 import {make_scoped_context} from "../util/context";
 
 /**
+ * Represents the second optional argument of [[make_scoped_store]] for handling custom stores
+ */
+export type IStoreMap<ValueType, StoreType = Writable<ValueType | undefined>> = (
+    default_value?: ValueType
+) => StoreType;
+
+/**
  * Represents the return value of [[make_scoped_store]]
  */
-export interface IStoreScope<ValueType, StoreType = Writable<ValueType>>
+export interface IStoreScope<ValueType, StoreType = Writable<ValueType | undefined>>
     extends IContextScope<StoreType> {
-    create(default_value?: ValueType): StoreType | null;
+    create(default_value?: ValueType): StoreType;
 }
 
 /**
@@ -18,15 +25,15 @@ export interface IStoreScope<ValueType, StoreType = Writable<ValueType>>
  * ```javascript *
  * const MY_STORE_CONTEXT = Symbol.for("my-store");
  *
- * const [create_store, get_context, has_context, set_context] = make_scoped_store(MY_STORE_CONTEXT);
+ * const {create, has, get, set} = make_scoped_store(MY_STORE_CONTEXT);
  * ```
  *
  * @param symbol
  * @returns
  */
-export function make_scoped_store<ValueType, StoreType = Writable<ValueType>>(
+export function make_scoped_store<ValueType, StoreType = Writable<ValueType | undefined>>(
     identifier: string,
-    make_store?: (default_value: ValueType) => StoreType
+    map_store?: IStoreMap<ValueType, StoreType>
 ): IStoreScope<ValueType, StoreType> {
     const {get, has, set} = make_scoped_context<StoreType>(identifier);
 
@@ -36,10 +43,8 @@ export function make_scoped_store<ValueType, StoreType = Writable<ValueType>>(
         set,
 
         create(default_value) {
-            if (default_value === undefined) return null;
-
-            const store = make_store
-                ? make_store(default_value)
+            const store = map_store
+                ? map_store(default_value)
                 : // @ts-expect-error - HACK: for now I guess developers need to be aware of the pitfall
                   (writable<ValueType>(default_value) as StoreType);
 

@@ -35,14 +35,12 @@
     const _tab_name = CONTEXT_TAB_NAME.create(logic_name);
     const _tab_state = CONTEXT_TAB_STATE.create(logic_state);
 
-    if (_tab_state) {
-        afterUpdate(() => {
-            $_tab_state = logic_state ?? "";
-        });
-    }
+    afterUpdate(() => {
+        $_tab_state = logic_state;
+    });
 
-    $: if (_tab_id) $_tab_id = logic_id ?? "";
-    $: if (_tab_name) $_tab_name = logic_name ?? "";
+    $: if (_tab_id) $_tab_id = logic_id;
+    $: if (_tab_name) $_tab_name = logic_name;
 
     $: if (_tab_state) {
         if (logic_state !== $_tab_state) {

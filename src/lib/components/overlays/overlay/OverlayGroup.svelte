@@ -26,7 +26,7 @@
 </script>
 
 <script lang="ts">
-    import {afterUpdate, createEventDispatcher} from "svelte";
+    import {createEventDispatcher} from "svelte";
 
     type $$Events = {
         change: CustomEvent<void>;
@@ -87,20 +87,18 @@
         }
     }
 
-    $: if (_overlay_id) $_overlay_id = logic_id as string;
+    $: $_overlay_id = logic_id;
 
-    $: if (_overlay_focus_first) $_overlay_focus_first = focus_first as PROPERTY_REFERENCE_TARGET;
-    $: if (_overlay_focus_last) $_overlay_focus_last = focus_last as PROPERTY_REFERENCE_TARGET;
-    $: if (_overlay_focus_target) {
-        $_overlay_focus_target = focus_target as PROPERTY_REFERENCE_TARGET;
-    }
+    $: $_overlay_focus_first = focus_first;
+    $: $_overlay_focus_last = focus_last;
+    $: $_overlay_focus_target = focus_target;
 
-    $: if (_overlay_dismissible) $_overlay_dismissible = dismissible as boolean;
-    $: if (_overlay_loading) $_overlay_loading = loading as PROPERTY_BEHAVIOR_LOADING_LAZY;
-    $: if (_overlay_once) $_overlay_once = once as boolean;
+    $: $_overlay_dismissible = dismissible;
+    $: $_overlay_loading = loading;
+    $: $_overlay_once = once;
 
     $: if (logic_state !== undefined) on_state_property_update(logic_state);
-    $: if (_overlay_state) on_state_store_update($_overlay_state);
+    $: on_state_store_update($_overlay_state ?? false);
 </script>
 
 <slot />

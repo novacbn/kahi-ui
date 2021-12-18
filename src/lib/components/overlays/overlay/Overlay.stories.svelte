@@ -4,6 +4,7 @@
     import Button from "../../interactables/button/Button.svelte";
     import Box from "../../surfaces/box/Box.svelte";
     import * as Card from "../../surfaces/card";
+    import * as Tile from "../../surfaces/tile";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -55,6 +56,8 @@
     <slot />
 </Template>
 
+<Story name="Preview - Drawer">Drawer</Story>
+
 <Story name="Preview - Modal">
     <Button for="overlay-modal" palette="accent">Open MODAL</Button>
 
@@ -79,6 +82,40 @@
     </Overlay.Container>
 </Story>
 
+<Story name="Preview - Notifications">
+    <Overlay.Container>
+        <Overlay.Section alignment_x="right" alignment_y="bottom" spacing="medium" padding="medium">
+            <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="75">
+                <Tile.Section>
+                    <Tile.Header>File Deleted</Tile.Header>
+
+                    <Text>
+                        <Code>important_file_1.docx</Code> was deleted from cloud storage.
+                    </Text>
+                </Tile.Section>
+
+                <Tile.Footer>
+                    <Button palette="negative" data-size="small">X</Button>
+                </Tile.Footer>
+            </Tile.Container>
+
+            <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="75">
+                <Tile.Section>
+                    <Tile.Header>File Deleted</Tile.Header>
+
+                    <Text>
+                        <Code>important_file_2.pdf</Code> was deleted from cloud storage.
+                    </Text>
+                </Tile.Section>
+
+                <Tile.Footer>
+                    <Button palette="negative" data-size="small">X</Button>
+                </Tile.Footer>
+            </Tile.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
+
 <Story name="Preview - Offscreen">Offscreen</Story>
 
 <Story name="Auto Focus - Focus Target">Focus Target</Story>
@@ -96,7 +133,7 @@
     <Button for="overlay-captive-enabled">Open CAPTIVE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-captive-disabled">
-        <Overlay.Section animation="fade">
+        <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
                 <Card.Header>NON-CAPTIVE Overlay</Card.Header>
 
@@ -108,7 +145,7 @@
     </Overlay.Container>
 
     <Overlay.Container logic_id="overlay-captive-enabled" captive>
-        <Overlay.Section animation="fade">
+        <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
                 <Card.Header>CAPTIVE Overlay</Card.Header>
 
@@ -129,7 +166,7 @@
     <Button for="overlay-dismissible-enabled">Open DISMISSIBLE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-dismissible-disabled" captive>
-        <Overlay.Section animation="fade">
+        <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
                 <Card.Header>NON-DISMISSIBLE Overlay</Card.Header>
 
@@ -141,7 +178,7 @@
     </Overlay.Container>
 
     <Overlay.Container logic_id="overlay-dismissible-enabled" captive dismissible>
-        <Overlay.Section animation="fade">
+        <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
                 <Card.Header>DISMISSIBLE Overlay</Card.Header>
 
@@ -155,14 +192,14 @@
 
 <Story name="Once">
     <Box palette="negative" padding="small" margin_bottom="medium">
-        Click anywhere on the Modal dismiss.
+        Click anywhere on the Modal to dismiss.
     </Box>
 
     <Button for="overlay-once-disabled">Open NON-ONCE Overlay</Button>
     <Button for="overlay-once-enabled">Open ONCE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-once-disabled" captive>
-        <Overlay.Section animation="fade">
+        <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
                 <Card.Header>NON-ONCE Overlay</Card.Header>
 
@@ -174,7 +211,7 @@
     </Overlay.Container>
 
     <Overlay.Container logic_id="overlay-once-enabled" captive once>
-        <Overlay.Section animation="fade">
+        <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
                 <Card.Header>ONCE Overlay</Card.Header>
 
@@ -190,7 +227,7 @@
     <Button on:click={on_toggle_click}>Open Toggle Overlay</Button>
 
     <Overlay.Container logic_id="overlay-logic-state" bind:logic_state>
-        <Overlay.Section animation="fade">
+        <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
                 <Card.Header>Toggable Overlay</Card.Header>
 

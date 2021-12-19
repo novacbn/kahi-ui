@@ -5,6 +5,25 @@
 
     import TextInput from "./TextInput.svelte";
 
+    const CHARACTERS_HEXADECIMAL = new Set([
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+    ]);
+
     const PALETTES = [
         ["neutral", true],
         ["accent", false],
@@ -25,6 +44,16 @@
         ["large", false],
         ["huge", false],
     ];
+
+    function on_mask(event) {
+        for (const character of event.detail.value) {
+            if (!CHARACTERS_HEXADECIMAL.has(character.toLowerCase())) {
+                console.log("TextInput::on_mask", event);
+                event.preventDefault();
+                return;
+            }
+        }
+    }
 </script>
 
 <Meta title="Interactables/TextInput" />
@@ -35,6 +64,14 @@
 
 <Story name="Default">
     <TextInput value="This is a TextInput" />
+</Story>
+
+<Story name="Mask - Pattern">
+    <TextInput pattern="[0-9a-fA-F]+" mask />
+</Story>
+
+<Story name="Mask - Event">
+    <TextInput mask on:mask={on_mask} />
 </Story>
 
 <Story name="Palette">

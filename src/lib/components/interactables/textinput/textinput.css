@@ -95,6 +95,10 @@ textarea {
         &[data-palette] {
             color: rgb(var(--palette-background-bold));
         }
+
+        &:is(:hover, :focus) {
+            text-decoration: underline;
+        }
     }
 
     &:not([cols], [size]) {

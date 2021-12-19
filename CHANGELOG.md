@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `TextInput`
+
+            -   `<TextInput variation="flush">` — Added an underline UX affordance whenever the user hovers / focuses the `TextInput`.
+
 ## v0.4.13 - 2021/12/13
 
 -   Updated button-like `<label>`-based Components to emulate button-like behavior, e.g. Enter key activates element.

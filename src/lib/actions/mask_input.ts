@@ -70,13 +70,18 @@ export const mask_input: IMaskInputAction = (element, options) => {
     let value = element.value;
 
     function mask_value(new_value: string): void {
+        const length_difference = new_value.length - value.length;
         const selection_end = element.selectionEnd ?? 0;
         const selection_start = element.selectionStart ?? 0;
 
         element.value = value;
 
-        element.selectionEnd = selection_end - (new_value.length - value.length);
-        element.selectionStart = selection_start - (new_value.length - value.length);
+        const new_start = selection_start - length_difference;
+        const new_end = selection_end - length_difference;
+
+        if (new_end > -1 && new_start > -1) {
+            element.setSelectionRange(new_start, new_end);
+        }
     }
 
     function on_input(event: Event): void {

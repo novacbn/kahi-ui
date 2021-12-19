@@ -41,7 +41,7 @@ export interface IMaskInputOptions {
     /**
      *
      */
-    on_mask_input?: IMaskInputCallback;
+    on_mask?: IMaskInputCallback;
 }
 
 /**
@@ -52,7 +52,7 @@ function compile_pattern(pattern?: string | RegExp): RegExp | null {
     // NOTE: `<input pattern={string}>` uses the `u` flag to properly
     // handle Unicode, so we should match the behavior here. Ditto
     // w/ implicit line start and end anchoring
-    if (typeof pattern === "string") return new RegExp(`^${pattern}$`, "u");
+    if (typeof pattern === "string") return pattern ? new RegExp(`^${pattern}$`, "u") : null;
     return pattern ?? null;
 }
 
@@ -64,7 +64,7 @@ function compile_pattern(pattern?: string | RegExp): RegExp | null {
  * @returns
  */
 export const mask_input: IMaskInputAction = (element, options) => {
-    let {enabled, pattern, on_mask_input} = options;
+    let {enabled, pattern, on_mask} = options;
 
     let expression = compile_pattern(pattern);
     let value = element.value;
@@ -82,20 +82,22 @@ export const mask_input: IMaskInputAction = (element, options) => {
     function on_input(event: Event): void {
         const new_value = element.value;
 
-        if (on_mask_input) {
+        if (on_mask) {
             const detail: IMaskInputEvent["detail"] = {value: new_value};
             const custom_event: IMaskInputEvent = new CustomEvent("maskinput", {
                 cancelable: true,
                 detail,
             });
 
-            on_mask_input(custom_event);
+            on_mask(custom_event);
 
             if (custom_event.cancelBubble) custom_event.stopPropagation();
             if (custom_event.defaultPrevented) mask_value(new_value);
         }
 
         if (expression && new_value && !expression.test(new_value)) {
+            event.preventDefault();
+
             mask_value(new_value);
         }
 
@@ -118,9 +120,12 @@ export const mask_input: IMaskInputAction = (element, options) => {
         },
 
         update(options: IMaskInputOptions) {
-            ({enabled, pattern, on_mask_input} = options);
+            ({enabled, pattern, on_mask} = options);
 
             expression = compile_pattern(pattern);
+            value = element.value;
+
+            console.log("mask_input::update", {enabled, pattern});
 
             if (enabled) attach_events();
             else detach_events();

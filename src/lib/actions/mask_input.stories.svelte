@@ -26,7 +26,7 @@
 
     const EXPRESSION_STRING = "[0-9a-fA-F]+";
 
-    function on_mask_input(event) {
+    function on_mask(event) {
         for (const character of event.detail.value) {
             if (!CHARACTERS_HEXADECIMAL.has(character.toLowerCase())) {
                 event.preventDefault();
@@ -51,5 +51,5 @@
 </Story>
 
 <Story name="Preview - Event">
-    <input type="text" use:mask_input={{enabled: true, on_mask_input}} />
+    <input type="text" use:mask_input={{enabled: true, on_mask}} />
 </Story>

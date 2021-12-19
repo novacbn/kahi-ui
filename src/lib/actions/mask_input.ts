@@ -100,11 +100,7 @@ export const mask_input: IMaskInputAction = (element, options) => {
             if (custom_event.defaultPrevented) mask_value(new_value);
         }
 
-        if (expression && new_value && !expression.test(new_value)) {
-            event.preventDefault();
-
-            mask_value(new_value);
-        }
+        if (expression && new_value && !expression.test(new_value)) mask_value(new_value);
 
         value = element.value;
     }
@@ -129,8 +125,6 @@ export const mask_input: IMaskInputAction = (element, options) => {
 
             expression = compile_pattern(pattern);
             value = element.value;
-
-            console.log("mask_input::update", {enabled, pattern});
 
             if (enabled) attach_events();
             else detach_events();

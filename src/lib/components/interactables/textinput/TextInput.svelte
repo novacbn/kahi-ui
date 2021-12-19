@@ -45,7 +45,7 @@
         element?: HTMLInputElement | HTMLTextAreaElement;
 
         is?: "input" | "textarea";
-        type?: "email" | "number" | "password" | "text" | "search" | "url";
+        type?: "email" | "password" | "text" | "search" | "url";
 
         disabled?: boolean;
         required?: boolean;
@@ -167,47 +167,6 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="email"
-        {...map_data_attributes({align, palette, size, transform, variation})}
-        {...map_attributes({
-            disabled,
-            id: _id,
-            maxlength: max_length,
-            minlength: min_length,
-            name: _name,
-            pattern: _pattern,
-            placeholder,
-            readonly,
-            required,
-            size: characters,
-            value,
-        })}
-        use:mask_input={{enabled: mask, on_mask, pattern}}
-        bind:value
-        use:forward_actions={{actions}}
-        on:click
-        on:contextmenu
-        on:dblclick
-        on:focusin
-        on:focusout
-        on:keydown
-        on:keyup
-        on:pointercancel
-        on:pointerdown
-        on:pointerenter
-        on:pointerleave
-        on:pointermove
-        on:pointerout
-        on:pointerup
-        on:blur
-        on:change
-        on:focus
-        on:input
-    />
-{:else if type === "number"}
-    <input
-        bind:this={element}
-        {...map_global_attributes($$props)}
-        type="number"
         {...map_data_attributes({align, palette, size, transform, variation})}
         {...map_attributes({
             disabled,

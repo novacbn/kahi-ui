@@ -48,7 +48,6 @@
     function on_mask(event) {
         for (const character of event.detail.value) {
             if (!CHARACTERS_HEXADECIMAL.has(character.toLowerCase())) {
-                console.log("TextInput::on_mask", event);
                 event.preventDefault();
                 return;
             }

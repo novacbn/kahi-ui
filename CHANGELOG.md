@@ -6,9 +6,17 @@
 
     -   Interactables
 
+        -   `NumberInput` — Subset of `TextInput` that only accepts numbers into its text field.
+
+            -   `<NumberInput value={number}>` — Accepts / Returns `number` types instead of strings.
+
         -   `TextInput`
 
             -   `<TextInput variation="flush">` — Added an underline UX affordance whenever the user hovers / focuses the `TextInput`.
+            -   `<TextInput mask={boolean}>` — When enabled, user input into the text field will drop alterations that are invalid.
+
+                -   `<TextInput on:mask={(event: CustomEvent<{value: string}>) => void}>` — Fires whenever `<TextInput mask={boolean}>` is `true`. Whenever `event.preventDefault` is called, the new `value` alteration will be dropped.
+                -   `<TextInput pattern={string | RegExp}>` — Is used whenever `<TextInput mask={boolean}>` is `true`, this property is used to mask user input. Dropping any new values that don't match the expression.
 
 ## v0.4.13 - 2021/12/13
 

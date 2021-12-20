@@ -12,6 +12,7 @@
 
         -   `TextInput`
 
+            -   `<TextInput variation="flush">` — Added an underline UX affordance whenever the user hovers / focuses the `TextInput`.
             -   `<TextInput mask={boolean}>` — When enabled, user input into the text field will drop alterations that are invalid.
 
                 -   `<TextInput on:mask={(event: CustomEvent<{value: string}>) => void}>` — Fires whenever `<TextInput mask={boolean}>` is `true`. Whenever `event.preventDefault` is called, the new `value` alteration will be dropped.

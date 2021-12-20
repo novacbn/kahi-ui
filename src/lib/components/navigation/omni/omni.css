@@ -1,119 +1,73 @@
-@variants <md {
-    input[type="checkbox"][role="presentation"] {
-        & + nav.omni,
-        & + .context-backdrop + nav.omni {
-            & > header {
-                @apply flex-grow z-1;
-            }
-
-            & > footer {
-                /** TODO: FIX OVERFLOW PUSHING BEYOND TOP BOUNDARY */
-                @apply absolute border-l-2 border-b-2 border-solid bottom-0 flex flex-col
-                gap-[var(--spacing-local-small)] items-stretch justify-center right-0 overflow-y-auto
-                px-[var(--spacing-root-large)] py-[var(--spacing-root-medium)];
-
-                background-color: inherit;
-                border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
-                border-bottom-left-radius: var(--radius-small);
-
-                max-height: min(85vh, 60ex);
-
-                border-color: inherit;
-
-                clip-path: inset(0% 0% 100% 0% round 0% 0% 0% var(--radius-small));
-                transform: translateY(100%);
-
-                transition: clip-path 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-                & > section {
-                    @apply flex-col m-0;
-                }
-            }
-        }
-
-        &:not(:checked) + nav.omni,
-        &:not(:checked) + .context-backdrop + nav.omni {
-            & > header > .context-button:first-of-type {
-                display: initial;
-            }
-        }
-
-        &:checked + nav.omni,
-        &:checked + .context-backdrop + nav.omni {
-            &:not([data-variation~="sticky"]) {
-                @apply !fixed;
-            }
-
-            & > header > .context-button:last-of-type {
-                display: initial;
-            }
-
-            & > footer {
-                clip-path: inset(0% 0% 0% 0% round 0% 0% 0% var(--radius-small));
-            }
-        }
-    }
-}
-
 .omni {
-    --palette-background-normal: var(--palette-auto-off-normal);
-    --palette-foreground-normal: var(--palette-inverse-normal);
+    --palette-background-normal: var(--omni-palette-background-normal);
+    --palette-foreground-normal: var(--omni-palette-foreground-normal);
 
-    @apply bg-[rgb(var(--palette-background-normal))] flex px-[var(--spacing-root-large)]
-    py-[var(--spacing-root-medium)] relative text-[rgb(var(--palette-foreground-normal))] z-1;
+    display: flex;
 
-    border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
+    justify-content: space-between;
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+
+    padding: var(--omni-padding-y) var(--omni-padding-x);
+
+    background: rgb(var(--palette-background-normal));
+    border-color: rgba(var(--palette-inverse-off-lightest), var(--omni-border-opacity));
+    color: rgb(var(--palette-foreground-normal));
+
+    z-index: 1;
+
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        border-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
 
     &[data-variation~="sticky"] {
-        @apply sticky top-0 z-1;
-    }
-
-    & > footer {
-        @apply flex-grow;
-
-        & > section {
-            @apply flex gap-[var(--spacing-local-small)] ml-auto;
-        }
-    }
-
-    & > header {
-        @apply font-bold gap-[var(--spacing-local-small)] select-none tracking-widest whitespace-nowrap;
-
-        font-size: var(--font-headline-size-root-medium);
-        line-height: var(--font-headline-line-height-medium);
-
-        & > a {
-            @apply inline-flex items-center text-current;
-        }
-
-        & > .context-button {
-            @apply hidden leading-[initial] tracking-[initial];
-
-            font-size: initial;
-        }
-
-        & > hr[data-orientation="vertical"] {
-            @apply mx-0;
-        }
-    }
-
-    & > :is(footer, header) {
-        @apply flex items-center;
+        position: sticky;
+        top: 0;
     }
 }
 
-input[type="checkbox"][role="presentation"]:first-child + nav.omni,
-input[type="checkbox"][role="presentation"]:first-child + .context-backdrop + nav.omni,
-nav.omni:first-child {
-    @apply border-b-2 border-solid;
+.omni > header {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: var(--omni-header-gap-y) var(--omni-header-gap-x);
+
+    font-size: var(--omni-header-font-size);
+    font-weight: var(--omni-header-font-weight);
+
+    letter-spacing: var(--omni-header-letter-spacing);
+    line-height: var(--omni-header-line-height);
+
+    user-select: none;
+    white-space: nowrap;
+
+    & > a {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    & > hr[data-orientation="vertical"] {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
-input[type="checkbox"][role="presentation"]:last-child + nav.omni,
-input[type="checkbox"][role="presentation"]:last-child + .context-backdrop + nav.omni,
-nav.omni:last-child {
-    @apply border-t-2 border-solid;
+.omni > footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: var(--omni-footer-gap-y) var(--omni-footer-gap-x);
+}
+
+.omni > section {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--omni-section-gap-y) var(--omni-section-gap-x);
 }

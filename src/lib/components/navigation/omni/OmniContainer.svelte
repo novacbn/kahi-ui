@@ -38,6 +38,20 @@
     {...map_global_attributes($$props)}
     class="omni {_class}"
     {...map_data_attributes({palette, variation})}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </nav>

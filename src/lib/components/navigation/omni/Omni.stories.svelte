@@ -31,7 +31,7 @@
     <slot />
 </Template>
 
-<Story name="Preview">
+<Story name="Preview - Basic">
     <Omni.Container palette="dark" width="viewport-100">
         <Omni.Header>
             <Anchor href="#">Kahi UI</Anchor>

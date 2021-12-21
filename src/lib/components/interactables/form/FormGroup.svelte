@@ -50,12 +50,10 @@
     $: if (_form_id) $_form_id = logic_id ?? "";
     $: if (_form_name) $_form_name = logic_name ?? "";
 
-    $: if (_form_state) {
-        if (logic_state !== $_form_state) {
-            logic_state = $_form_state;
+    $: if (_form_state && logic_state !== $_form_state) {
+        logic_state = $_form_state;
 
-            dispatch("change");
-        }
+        dispatch("change");
     }
 </script>
 

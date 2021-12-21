@@ -44,12 +44,10 @@
     $: if (_tab_id) $_tab_id = logic_id ?? "";
     $: if (_tab_name) $_tab_name = logic_name ?? "";
 
-    $: if (_tab_state) {
-        if (logic_state !== $_tab_state) {
-            logic_state = $_tab_state;
+    $: if (_tab_state && logic_state !== $_tab_state) {
+        logic_state = $_tab_state;
 
-            dispatch("change");
-        }
+        dispatch("change");
     }
 </script>
 

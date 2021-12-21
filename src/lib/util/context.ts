@@ -15,7 +15,7 @@ export interface IContextScope<T> {
  * Returns Svelte Context Scoped helpers
  *
  * ```javascript
- * const [get_context, has_context, set_context] = make_scoped_context("my-context");
+ * const {get, has, set} = make_scoped_context("my-context");
  * ```
  *
  * @param symbol

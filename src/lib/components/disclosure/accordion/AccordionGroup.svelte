@@ -52,9 +52,11 @@
 
     const _accordion_behavior = CONTEXT_ACCORDION_BEHAVIOR.create(behavior);
 
-    afterUpdate(() => {
-        if (_accordion_state) $_accordion_state = logic_state ?? "";
-    });
+    if (_accordion_state) {
+        afterUpdate(() => {
+            if (_accordion_state) $_accordion_state = logic_state ?? "";
+        });
+    }
 
     $: if (_accordion_id) $_accordion_id = logic_id ?? "";
     $: if (_accordion_name) $_accordion_name = logic_name ?? "";

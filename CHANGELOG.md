@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Migrated the following Components: `Aside`, `Omni`.
+
 ## v0.4.13 - 2021/12/13
 
 -   Updated button-like `<label>`-based Components to emulate button-like behavior, e.g. Enter key activates element.

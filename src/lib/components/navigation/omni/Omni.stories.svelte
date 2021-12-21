@@ -59,7 +59,7 @@
 
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Omni.Container
                 max_width="content-max"
                 palette={palette === "default" ? undefined : palette}

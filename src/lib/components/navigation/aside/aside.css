@@ -1,95 +1,77 @@
-@variants <md {
-    input[type="checkbox"][role="presentation"] {
-        &:not(:checked) + .offscreen > nav.aside,
-        &:not(:checked) + .context-backdrop + .offscreen > nav.aside {
-            & > .context-button:nth-last-of-type(2) {
-                display: initial;
-            }
-        }
-
-        &:checked + .offscreen > nav.aside,
-        &:checked + .context-backdrop + .offscreen > nav.aside {
-            & > .context-button:last-of-type {
-                display: initial;
-            }
-        }
-    }
-}
-
 .aside {
-    --palette-background-normal: var(--palette-auto-off-normal);
-    --palette-foreground-normal: var(--palette-inverse-normal);
+    --palette-background-normal: var(--aside-palette-background-normal);
+    --palette-foreground-normal: var(--aside-palette-foreground-normal);
 
-    @apply bg-[rgb(var(--palette-background-normal))] border-solid flex flex-col relative text-[rgb(var(--palette-foreground-normal))] z-1;
+    display: flex;
+    flex-direction: column;
 
-    border-color: rgba(var(--palette-inverse-off-lightest), theme("opacity.10"));
+    position: relative;
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: rgb(var(--palette-background-normal));
+    border-style: solid;
+    border-color: rgba(var(--palette-inverse-off-lightest), var(--aside-border-opacity));
+    color: rgb(var(--palette-foreground-normal));
 
-    &[data-variation~="sticky"] {
-        @apply sticky top-0;
-    }
+    z-index: 1;
 
-    & > .context-button {
-        @apply bottom-3 fixed hidden pointer-events-auto;
-    }
+    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
+        border-color var(--animation-visual-duration) var(--animation-visual-function),
+        color var(--animation-visual-duration) var(--animation-visual-function);
 
-    &:not([data-placement]) {
-        @apply border-r-2;
-
-        & > .context-button {
-            @apply -right-3;
-
-            /** TODO: Fix button support, this transform is clashing with the built-in transform */
-            transform: translateX(100%);
-        }
+    &:is(:not([data-placement]), [data-placement="left"]) {
+        border-right-width: var(--aside-border-width);
     }
 
     &[data-placement="right"] {
-        @apply border-l-2;
-
-        & > .context-button {
-            @apply -left-3;
-
-            transform: translateX(-100%);
-        }
+        border-left-width: var(--aside-border-width);
     }
 
-    & > footer {
-        @apply items-center flex gap-[var(--spacing-root-small)] justify-center mt-auto
-        pb-[var(--spacing-root-medium)];
+    &[data-variation~="sticky"] {
+        position: sticky;
+        top: 0;
+    }
+}
 
-        & > a {
-            @apply !text-current;
-        }
+.aside > footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--aside-footer-gap-y) var(--aside-footer-gap-x);
+
+    margin-top: auto;
+    padding: 0 var(--aside-footer-padding-x) var(--aside-footer-padding-bottom)
+        var(--aside-footer-padding-x);
+}
+
+.aside > header {
+    padding: var(--aside-header-padding-y) var(--aside-header-padding-x);
+
+    font-size: var(--aside-header-font-size);
+    font-weight: var(--aside-header-font-weight);
+
+    line-height: var(--aside-header-line-height);
+    letter-spacing: var(--aside-header-letter-spacing);
+
+    text-align: center;
+
+    user-select: none;
+    white-space: nowrap;
+}
+
+.aside > section {
+    margin-bottom: var(--aside-section-margin-bottom);
+    padding: var(--aside-section-padding-y) var(--aside-section-padding-x);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &:not(:last-of-type) {
+        flex-shrink: 0;
     }
 
-    & > header {
-        @apply font-bold leading-[var(--font-headline-line-height-huge)] py-[var(--spacing-root-large)]
-        select-none text-center tracking-widest whitespace-nowrap;
-
-        font-size: var(--font-headline-size-root-huge);
-
-        & > a {
-            @apply !text-current;
-        }
-    }
-
-    & > section {
-        @apply overflow-y-auto py-[var(--spacing-root-small)] mb-[var(--spacing-root-medium)];
-
-        &:not(:last-of-type) {
-            @apply flex-shrink-0;
-        }
-
-        &:last-of-type {
-            @apply flex-grow;
-        }
-    }
-
-    & > :is(footer, header, section) {
-        @apply px-[var(--spacing-root-large)];
+    &:last-of-type {
+        flex-shrink: 1;
     }
 }

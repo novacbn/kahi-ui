@@ -20,9 +20,24 @@
         border-color var(--animation-visual-duration) var(--animation-visual-function),
         color var(--animation-visual-duration) var(--animation-visual-function);
 
+    &:is(:not([data-placement]), [data-placement="top"]) {
+        border-bottom-width: var(--omni-border-width);
+    }
+
+    &[data-placement="bottom"] {
+        border-top-width: var(--omni-border-width);
+    }
+
     &[data-variation~="sticky"] {
         position: sticky;
-        top: 0;
+
+        &:is(:not([data-placement]), [data-placement="top"]) {
+            top: 0;
+        }
+
+        &[data-placement="bottom"] {
+            bottom: 0;
+        }
     }
 }
 

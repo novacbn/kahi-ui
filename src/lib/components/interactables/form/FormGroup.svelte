@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
     import {make_scoped_store} from "../../../stores/scoped";
-    import {state} from "../../../stores/state2";
-    import type {IStateStore, IStateValue} from "../../../stores/state2";
+    import {state} from "../../../stores/state";
+    import type {IStateStore, IStateValue} from "../../../stores/state";
 
     export const CONTEXT_FORM_ID = make_scoped_store<string>("form-id");
 

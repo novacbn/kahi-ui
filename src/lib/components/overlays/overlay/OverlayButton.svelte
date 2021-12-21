@@ -3,13 +3,13 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {IMarginProperties} from "../../../types/spacings";
+    import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
 
     import Button from "../../interactables/button/Button.svelte";
 
     import {CONTEXT_OVERLAY_ID} from "./OverlayGroup.svelte";
-    import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
 
     type $$Events = IHTML5Events;
 

@@ -2,8 +2,8 @@
     import type {PROPERTY_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
 
     import {make_scoped_store} from "../../../stores/scoped";
-    import type {IStateStore, IStateValue} from "../../../stores/state2";
-    import {state} from "../../../stores/state2";
+    import type {IStateStore, IStateValue} from "../../../stores/state";
+    import {state} from "../../../stores/state";
 
     export const CONTEXT_ACCORDION_BEHAVIOR =
         make_scoped_store<PROPERTY_BEHAVIOR_TOGGLE>("accordion-behavior");

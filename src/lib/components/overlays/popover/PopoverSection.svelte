@@ -20,10 +20,12 @@
     import {click_inside} from "../../../actions/click_inside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {lost_focus} from "../../../actions/lost_focus";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     import {
+        CONTEXT_POPOVER_DISMISSIBLE,
         CONTEXT_POPOVER_FOCUS_TARGET,
         CONTEXT_POPOVER_ID,
         CONTEXT_POPOVER_LOADING,
@@ -79,8 +81,15 @@
 
     const _popover_focus_target = CONTEXT_POPOVER_FOCUS_TARGET.get();
 
+    const _popover_dismissible = CONTEXT_POPOVER_DISMISSIBLE.get();
     const _popover_loading = CONTEXT_POPOVER_LOADING.get();
     const _popover_once = CONTEXT_POPOVER_ONCE.get();
+
+    function on_dismiss(): void {
+        if (_popover_dismissible && $_popover_dismissible && _popover_state && $_popover_state) {
+            $_popover_state = false;
+        }
+    }
 
     function on_once(): void {
         if (_popover_once && $_popover_once && _popover_state && $_popover_state) {
@@ -104,6 +113,11 @@
     use:click_inside={{
         ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,
         on_click_inside: on_once,
+    }}
+    use:lost_focus={{
+        enabled: _popover_state ? $_popover_state : false,
+        ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,
+        on_lost_focus: on_dismiss,
     }}
     use:auto_focus={{
         enabled: _popover_state && $_popover_state,

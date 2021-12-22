@@ -80,7 +80,8 @@ import * as Clickable from "./components/overlays/clickable";
 export {Clickable};
 import * as Overlay from "./components/overlays/overlay";
 export {Overlay};
-export * from "./components/overlays/popover";
+import * as Popover from "./components/overlays/popover";
+export {Popover};
 
 export * from "./components/surfaces/box";
 import * as Card from "./components/surfaces/card";
@@ -97,7 +98,6 @@ export * from "./components/typography/heading";
 export * from "./components/typography/text";
 
 export * from "./components/utilities/browserrender";
-export * from "./components/utilities/contextbutton";
 export * from "./components/utilities/intersectionrender";
 export * from "./components/utilities/portal";
 export * from "./components/utilities/serverrender";

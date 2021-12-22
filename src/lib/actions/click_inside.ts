@@ -25,7 +25,7 @@ export type IClickInsideCallback = (event: MouseEvent) => void;
 export interface IClickInsideOptions {
     /**
      * Represents CSS selectors used as an ignore list of elements that can
-     * trigger the [[IClickInsideOptions.ignore]] callback
+     * trigger the [[IClickInsideOptions.on_click_inside]] callback
      */
     ignore?: string;
 

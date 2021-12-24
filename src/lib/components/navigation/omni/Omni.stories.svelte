@@ -5,7 +5,6 @@
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
     import Text from "../../typography/text/Text.svelte";
-    import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
 
     import Anchor from "../anchor/Anchor.svelte";
     import * as Menu from "../menu";

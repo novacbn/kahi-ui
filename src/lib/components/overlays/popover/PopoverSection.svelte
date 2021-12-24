@@ -1,8 +1,5 @@
 <script lang="ts">
-    import type {
-        PROPERTY_ALIGNMENT_X_BREAKPOINT,
-        PROPERTY_ALIGNMENT_Y_BREAKPOINT,
-    } from "../../../types/alignments";
+    import type {PROPERTY_ALIGNMENT_X, PROPERTY_ALIGNMENT_Y} from "../../../types/alignments";
     import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
@@ -11,7 +8,7 @@
     import type {
         IMarginProperties,
         IPaddingProperties,
-        PROPERTY_SPACING_BREAKPOINT,
+        PROPERTY_SPACING,
     } from "../../../types/spacings";
     import type {PROPERTY_TRANSITION_NAMES} from "../../../types/transitions";
     import {TOKENS_TRANSITION_NAMES} from "../../../types/transitions";
@@ -48,10 +45,12 @@
 
         placement?: PROPERTY_PLACEMENT;
 
-        alignment_x?: PROPERTY_ALIGNMENT_X_BREAKPOINT;
-        alignment_y?: PROPERTY_ALIGNMENT_Y_BREAKPOINT;
+        alignment_x?: PROPERTY_ALIGNMENT_X;
+        alignment_y?: PROPERTY_ALIGNMENT_Y;
 
-        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing?: PROPERTY_SPACING;
+        spacing_x?: PROPERTY_SPACING;
+        spacing_y?: PROPERTY_SPACING;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -76,6 +75,8 @@
     export let alignment_y: $$Props["alignment_y"] = undefined;
 
     export let spacing: $$Props["spacing"] = undefined;
+    export let spacing_x: $$Props["spacing_x"] = undefined;
+    export let spacing_y: $$Props["spacing_y"] = undefined;
 
     const _popover_id = CONTEXT_POPOVER_ID.get();
     const _popover_state = CONTEXT_POPOVER_STATE.get();
@@ -110,6 +111,8 @@
         direction: _popover_id ? placement : undefined,
         placement,
         spacing,
+        "spacing-x": spacing_x,
+        "spacing-y": spacing_y,
     })}
     use:click_inside={{
         ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,

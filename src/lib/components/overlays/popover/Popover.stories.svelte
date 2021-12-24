@@ -2,8 +2,8 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Button from "../../interactables/button/Button.svelte";
+    import Center from "../../layouts/center/Center.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
     import * as Menu from "../../navigation/menu";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
@@ -171,8 +171,54 @@
     </Popover.Container>
 </Story>
 
-<Story name="Placement">Placement</Story>
+<Story name="Placement">
+    <Center height="viewport-100" width="100">
+        {#each PLACEMENTS as [placement, is_default] (placement)}
+            <Popover.Container logic_id="popover-placement-{placement}" dismissible>
+                <Popover.Button>
+                    Open {`${placement.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
 
-<Story name="Alignment">Alignment</Story>
+                <Popover.Section {placement}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {placement.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+    </Center>
+</Story>
+
+<Story name="Alignment">
+    <Center height="viewport-100" width="100">
+        {#each ALIGNMENTS_X as [alignment_x, is_default] (alignment_x)}
+            <Popover.Container logic_id="popover-alignment-x-{alignment_x}" dismissible>
+                <Popover.Button>
+                    Open {`${alignment_x.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
+
+                <Popover.Section placement="bottom" {alignment_x}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {alignment_x.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+
+        {#each ALIGNMENTS_Y as [alignment_y, is_default] (alignment_y)}
+            <Popover.Container logic_id="popover-alignment-y-{alignment_y}" dismissible>
+                <Popover.Button>
+                    Open {`${alignment_y.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
+
+                <Popover.Section placement="left" {alignment_y}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {alignment_y.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+    </Center>
+</Story>
 
 <Story name="Spacing">Spacing</Story>

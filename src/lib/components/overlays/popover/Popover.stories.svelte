@@ -121,7 +121,17 @@
     </Popover.Container>
 </Story>
 
-<Story name="Lazy">Lazy</Story>
+<Story name="Lazy">
+    <Popover.Container logic_id="popover-lazy" loading="lazy">
+        <Popover.Button>Open LAZY Popover</Popover.Button>
+
+        <Popover.Section alignment_x="right">
+            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                LAZY Popover
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
+</Story>
 
 <Story name="Dismissible">
     <Popover.Container logic_id="popover-dismissible" dismissible>

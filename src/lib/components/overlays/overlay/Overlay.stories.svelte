@@ -63,9 +63,9 @@
 <Story name="Preview - Drawer">Drawer</Story>
 
 <Story name="Preview - Modal">
-    <Button for="overlay-modal" palette="accent">Open MODAL</Button>
+    <Button for="overlay-preview-modal" palette="accent">Open MODAL</Button>
 
-    <Overlay.Container logic_id="overlay-modal" captive dismissible>
+    <Overlay.Container logic_id="overlay-preview-modal" captive dismissible>
         <Overlay.Section>
             <Card.Container palette="auto" max_width="75">
                 <Card.Header>Are you sure?</Card.Header>
@@ -308,12 +308,12 @@
 </Story>
 
 <Story name="Logic State">
-    <Button on:click={on_toggle_click}>Open Toggle Overlay</Button>
+    <Button on:click={on_toggle_click}>Toggle Overlay</Button>
 
     <Overlay.Container logic_id="overlay-logic-state" bind:logic_state>
         <Overlay.Section>
             <Card.Container palette="inverse" max_width="75">
-                <Card.Header>Toggable Overlay</Card.Header>
+                <Card.Header>TOGGABLE Overlay</Card.Header>
 
                 <Card.Footer>
                     <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>

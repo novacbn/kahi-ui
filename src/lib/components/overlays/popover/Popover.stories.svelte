@@ -255,4 +255,20 @@
     </Center>
 </Story>
 
-<Story name="Spacing">Spacing</Story>
+<Story name="Spacing">
+    <Center height="viewport-100" width="100">
+        {#each SPACINGS as [spacing, is_default] (spacing)}
+            <Popover.Container logic_id="popover-spacing-{spacing}" dismissible>
+                <Popover.Button>
+                    Open {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
+
+                <Popover.Section {spacing}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {spacing.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+    </Center>
+</Story>

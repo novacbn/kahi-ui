@@ -5,13 +5,12 @@
     import Stack from "../../layouts/stack/Stack.svelte";
     import * as Menu from "../../navigation/menu";
     import Box from "../../surfaces/box/Box.svelte";
-    import * as Card from "../../surfaces/card";
     import Text from "../../typography/text/Text.svelte";
-    import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
 
     import * as Popover from "./";
 
     const ALIGNMENTS_X = ["left", "center", "right"];
+
     const ALIGNMENTS_Y = ["top", "center", "bottom"];
 
     const PLACEMENTS = [
@@ -37,12 +36,12 @@
     <slot />
 </Template>
 
-<Story name="Default">
-    <Popover logic_id="popover-default-story" alignment_x="right" spacing="medium" hidden>
-        <ContextButton palette="accent">Open Popover</ContextButton>
+<Story name="Preview - Overflow Menu">
+    <Popover.Container logic_id="popover-preview-overflow-menu" dismissible>
+        <Popover.Button palette="accent">Open Menu</Popover.Button>
 
-        <Card.Container palette="inverse" elevation="high" max_width="content-max">
-            <Card.Section>
+        <Popover.Section alignment_x="right" spacing="medium">
+            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
                 <Menu.Container>
                     <Menu.Button>
                         Copy
@@ -64,9 +63,9 @@
                         <Text is="kbd">DEL</Text>
                     </Menu.Button>
                 </Menu.Container>
-            </Card.Section>
-        </Card.Container>
-    </Popover>
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
 </Story>
 
 <Story name="Dismissible">

@@ -18,6 +18,7 @@
 
     import {auto_focus} from "../../../actions/auto_focus";
     import {click_inside} from "../../../actions/click_inside";
+    import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
     import {lost_focus} from "../../../actions/lost_focus";
@@ -113,6 +114,10 @@
     use:click_inside={{
         ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,
         on_click_inside: on_once,
+    }}
+    use:click_outside={{
+        ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,
+        on_click_outside: on_dismiss,
     }}
     use:lost_focus={{
         enabled: _popover_state ? $_popover_state : false,

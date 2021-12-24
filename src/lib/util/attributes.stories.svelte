@@ -87,6 +87,16 @@
     <Button tabindex="2">Index #2</Button>
 </Story>
 
+<Story name="contents">
+    <Box palette="accent" contents={["mobile", "tablet"]}>
+        I have no styling on Mobile / Tablet Viewports.
+    </Box>
+
+    <Box palette="affirmative" contents={["desktop", "widescreen"]}>
+        I have no styling on Desktop / Widescreen Viewports.
+    </Box>
+</Story>
+
 <Story name="hidden">
     <Box palette="accent" hidden={["mobile", "tablet"]}>
         I am visible on Desktop / Widescreen Viewports.

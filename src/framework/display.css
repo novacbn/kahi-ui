@@ -1,26 +1,46 @@
+[data-contents]:not([data-contents~="mobile"], [data-contents~="tablet"], [data-contents~="desktop"], [data-contents~="widescreen"]) {
+    display: contents !important;
+}
+
 [data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
     display: none !important;
 }
 
 @variants <sm {
+    [data-contents~="mobile"] {
+        display: contents !important;
+    }
+
     [data-hidden~="mobile"] {
         display: none !important;
     }
 }
 
 @variants @sm {
+    [data-contents~="tablet"] {
+        display: contents !important;
+    }
+
     [data-hidden~="tablet"] {
         display: none !important;
     }
 }
 
 @variants @md {
+    [data-contents~="desktop"] {
+        display: contents !important;
+    }
+
     [data-hidden~="desktop"] {
         display: none !important;
     }
 }
 
 @variants lg {
+    [data-contents~="widescreen"] {
+        display: contents !important;
+    }
+
     [data-hidden~="widescreen"] {
         display: none !important;
     }

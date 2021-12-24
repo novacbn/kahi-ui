@@ -112,10 +112,10 @@
 
 @import url("./alignments.css");
 @import url("./animations.css");
+@import url("./display.css");
 @import url("./elevations.css");
 @import url("./fit.css");
 @import url("./grid.css");
-@import url("./hidden.css");
 @import url("./logic.css");
 @import url("./orientations.css");
 @import url("./palettes.css");

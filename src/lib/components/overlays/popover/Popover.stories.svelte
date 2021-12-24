@@ -1,6 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
     import * as Menu from "../../navigation/menu";
@@ -9,15 +10,23 @@
 
     import * as Popover from "./";
 
-    const ALIGNMENTS_X = ["left", "center", "right"];
+    const ALIGNMENTS_X = [
+        ["center", true],
+        ["left", false],
+        ["right", false],
+    ];
 
-    const ALIGNMENTS_Y = ["top", "center", "bottom"];
+    const ALIGNMENTS_Y = [
+        ["center", true],
+        ["top", false],
+        ["bottom", false],
+    ];
 
     const PLACEMENTS = [
-        ["left", "y", ALIGNMENTS_Y],
-        ["top", "x", ALIGNMENTS_X],
-        ["bottom", "x", ALIGNMENTS_X],
-        ["right", "y", ALIGNMENTS_Y],
+        ["bottom", true],
+        ["left", false],
+        ["top", false],
+        ["right", false],
     ];
 
     const SPACINGS = [
@@ -28,6 +37,14 @@
         ["large", false],
         ["huge", false],
     ];
+
+    let target_element;
+
+    let logic_state = false;
+
+    function on_toggle_click(event) {
+        logic_state = !logic_state;
+    }
 </script>
 
 <Meta title="Overlays/Popover" />
@@ -41,7 +58,7 @@
         <Popover.Button palette="accent">Open Menu</Popover.Button>
 
         <Popover.Section alignment_x="right" spacing="medium">
-            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+            <Box elevation="high" padding="medium" shape="rounded">
                 <Menu.Container>
                     <Menu.Button>
                         Copy
@@ -68,119 +85,84 @@
     </Popover.Container>
 </Story>
 
+<Story name="Auto Focus - Focus Target">
+    <Popover.Container
+        logic_id="popover-auto-focus"
+        focus_target={target_element?.firstChild}
+        dismissible
+    >
+        <Popover.Button palette="accent">Open AUTO FOCUSED Popover</Popover.Button>
+
+        <Popover.Section alignment_x="right" spacing="medium">
+            <Box elevation="high" padding="medium" shape="rounded">
+                <Menu.Container>
+                    <Menu.Button>
+                        Copy
+                        <Spacer variation="inline" spacing="medium" />
+                        <Text is="kbd">CTRL+C</Text>
+                    </Menu.Button>
+
+                    <Menu.Button>
+                        Cut
+                        <Spacer variation="inline" spacing="medium" />
+                        <Text is="kbd">CTRL+X</Text>
+                    </Menu.Button>
+
+                    <Menu.Divider />
+
+                    <Menu.Button bind:element={target_element}>
+                        Delete
+                        <Spacer variation="inline" spacing="medium" />
+                        <Text is="kbd">DEL</Text>
+                    </Menu.Button>
+                </Menu.Container>
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
+</Story>
+
+<Story name="Lazy">Lazy</Story>
+
 <Story name="Dismissible">
-    <!--
-        <Popover logic_id="popover-dismissible" alignment_x="right" dismissible hidden>
-            <ContextButton palette="accent">Open DISMISSIBLE Popover</ContextButton>
-            
-            <Box palette="inverse" elevation="high" padding="small">Open DISMISSIBLE Popover</Box>
-        </Popover>
-    -->
+    <Popover.Container logic_id="popover-dismissible" dismissible>
+        <Popover.Button>Open DISMISSIBLE Popover</Popover.Button>
+
+        <Popover.Section alignment_x="right">
+            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                DISMISSIBLE Popover
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
 </Story>
 
 <Story name="Once">
-    <!--
-        <Popover logic_id="popover-once" alignment_x="right" hidden once>
-            <ContextButton palette="accent">Open ONCE Popover</ContextButton>
-            
-            <Box palette="inverse" elevation="high" padding="small">Open ONCE Popover</Box>
-        </Popover>
-    -->
+    <Popover.Container logic_id="popover-once" once>
+        <Popover.Button>Open ONCE Popover</Popover.Button>
+
+        <Popover.Section alignment_x="right">
+            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                ONCE Popover
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
 </Story>
 
-<Story name="Placement">
-    <!--
-        <div data-padding-x="huge" data-padding-y="huge">
-            <Stack orientation="horizontal" spacing="medium" variation="wrap">
-                {#each PLACEMENTS as [placement, axis, alignments] (placement)}
-                    {#each alignments as alignment (alignment)}
-                        <Popover
-                            logic_id="popover-placement-story-{placement}-{alignment}"
-                            spacing="medium"
-                            {placement}
-                            {...{[`alignment_${axis}`]: alignment}}
-                            dismissible
-                            hidden
-                        >
-                            <ContextButton palette="accent">
-                                Open {placement.toUpperCase()}x{alignment.toUpperCase()} Popover
-                            </ContextButton>
+<Story name="Logic State">
+    <Popover.Container logic_id="popover-logic-state" bind:logic_state>
+        <Popover.Button>Open TOGGABLE Popover</Popover.Button>
 
-                            <Card.Container palette="inverse" elevation="high" max_width="content-max">
-                                <Card.Section>
-                                    <Menu.Container>
-                                        <Menu.Button>
-                                            Copy
-                                            <Spacer variation="inline" spacing="medium" />
-                                            <Text is="kbd">CTRL+C</Text>
-                                        </Menu.Button>
-
-                                        <Menu.Button>
-                                            Cut
-                                            <Spacer variation="inline" spacing="medium" />
-                                            <Text is="kbd">CTRL+X</Text>
-                                        </Menu.Button>
-
-                                        <Menu.Divider />
-
-                                        <Menu.Button>
-                                            Delete
-                                            <Spacer variation="inline" spacing="medium" />
-                                            <Text is="kbd">DEL</Text>
-                                        </Menu.Button>
-                                    </Menu.Container>
-                                </Card.Section>
-                            </Card.Container>
-                        </Popover>
-                    {/each}
-                {/each}
-            </Stack>
-        </div>
-    -->
+        <Popover.Section alignment_x="right">
+            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                TOGGABLE Popover
+                <br />
+                <Button on:click={on_toggle_click}>Toggle Popover</Button>
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
 </Story>
 
-<Story name="Spacing">
-    <!--
-        <Stack orientation="horizontal" spacing="medium" variation="wrap">
-            {#each SPACINGS as [spacing, is_default] (spacing)}
-                <Popover
-                    logic_id="popover-spacing-story-{spacing}"
-                    alignment_x="right"
-                    {spacing}
-                    dismissible
-                    hidden
-                >
-                    <ContextButton palette="accent">
-                        Open {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Spaced Popover
-                    </ContextButton>
+<Story name="Placement">Placement</Story>
 
-                    <Card.Container palette="inverse" elevation="high" max_width="content-max">
-                        <Card.Section>
-                            <Menu.Container>
-                                <Menu.Button>
-                                    Copy
-                                    <Spacer variation="inline" spacing="medium" />
-                                    <Text is="kbd">CTRL+C</Text>
-                                </Menu.Button>
+<Story name="Alignment">Alignment</Story>
 
-                                <Menu.Button>
-                                    Cut
-                                    <Spacer variation="inline" spacing="medium" />
-                                    <Text is="kbd">CTRL+X</Text>
-                                </Menu.Button>
-
-                                <Menu.Divider />
-
-                                <Menu.Button>
-                                    Delete
-                                    <Spacer variation="inline" spacing="medium" />
-                                    <Text is="kbd">DEL</Text>
-                                </Menu.Button>
-                            </Menu.Container>
-                        </Card.Section>
-                    </Card.Container>
-                </Popover>
-            {/each}
-        </Stack>
-    -->
-</Story>
+<Story name="Spacing">Spacing</Story>

@@ -6,6 +6,7 @@
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import * as Menu from "../../navigation/menu";
     import Box from "../../surfaces/box/Box.svelte";
+    import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Popover from "./";
@@ -122,6 +123,10 @@
 </Story>
 
 <Story name="Lazy">
+    <Box palette="negative" padding="small" margin_bottom="medium">
+        To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
+    </Box>
+
     <Popover.Container logic_id="popover-lazy" loading="lazy">
         <Popover.Button>Open LAZY Popover</Popover.Button>
 
@@ -134,7 +139,22 @@
 </Story>
 
 <Story name="Dismissible">
-    <Popover.Container logic_id="popover-dismissible" dismissible>
+    <Box palette="negative" padding="small" margin_bottom="medium">
+        Click anywhere outside of the Popover, press <Text is="kbd">ESC</Text>, or shift focus
+        outside of the Popover to dismiss.
+    </Box>
+
+    <Popover.Container logic_id="popover-dismissible-disabled">
+        <Popover.Button>Open NON-DISMISSIBLE Popover</Popover.Button>
+
+        <Popover.Section alignment_x="right">
+            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                NON-DISMISSIBLE Popover
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
+
+    <Popover.Container logic_id="popover-dismissible-enabled" dismissible>
         <Popover.Button>Open DISMISSIBLE Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">
@@ -146,7 +166,21 @@
 </Story>
 
 <Story name="Once">
-    <Popover.Container logic_id="popover-once" once>
+    <Box palette="negative" padding="small" margin_bottom="medium">
+        Click anywhere in the Popover to dismiss.
+    </Box>
+
+    <Popover.Container logic_id="popover-once-disabled">
+        <Popover.Button>Open NON-ONCE Popover</Popover.Button>
+
+        <Popover.Section alignment_x="right">
+            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                NON-ONCE Popover
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
+
+    <Popover.Container logic_id="popover-once-enabled" once>
         <Popover.Button>Open ONCE Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">

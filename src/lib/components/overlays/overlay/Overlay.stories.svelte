@@ -60,8 +60,6 @@
     <slot />
 </Template>
 
-<Story name="Preview - Drawer">Drawer</Story>
-
 <Story name="Preview - Modal">
     <Button for="overlay-preview-modal" palette="accent">Open MODAL</Button>
 
@@ -85,6 +83,8 @@
         </Overlay.Section>
     </Overlay.Container>
 </Story>
+
+<Story name="Preview - Drawer">Drawer</Story>
 
 <Story name="Preview - Notifications">
     <Overlay.Container>

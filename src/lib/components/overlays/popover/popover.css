@@ -86,7 +86,7 @@
          * HACK: Using a `visibility` CSS property animation to create a hacky way of
          * skipping the first animation on first load
          */
-        animation: visibility-hack 0.000001s forwards paused;
+        animation: visibility-hack 0.01s forwards paused;
     }
 }
 

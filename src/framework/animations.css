@@ -25,7 +25,7 @@
  */
 
 /**
- * animation: visibility-hack 0.000001s forwards;
+ * animation: visibility-hack 0.01s forwards;
  */
 
 @keyframes visibility-hack {

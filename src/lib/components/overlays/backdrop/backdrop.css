@@ -5,6 +5,9 @@
     inset: 0;
 
     background: rgba(var(--backdrop-background-color), var(--backdrop-background-opacity));
+    opacity: 1;
+
+    transition: opacity var(--animation-reveal-duration) var(--animation-reveal-function);
 
     &[for] {
         cursor: pointer;

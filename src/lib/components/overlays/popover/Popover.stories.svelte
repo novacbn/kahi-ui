@@ -86,6 +86,8 @@
     </Popover.Container>
 </Story>
 
+<Story name="Preview - Omni Overflow">Omni Overflow</Story>
+
 <Story name="Auto Focus - Focus Target">
     <Popover.Container
         logic_id="popover-auto-focus"
@@ -266,6 +268,78 @@
                 <Popover.Section {spacing}>
                     <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
                         {spacing.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+    </Center>
+</Story>
+
+<Story name="Transition - Clip">
+    <Center height="viewport-100" width="100">
+        {#each PLACEMENTS as [placement, is_default] (placement)}
+            <Popover.Container logic_id="popover-clip-{placement}" dismissible>
+                <Popover.Button>
+                    Open CLIP {`${placement.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
+
+                <Popover.Section animation="clip" direction={placement} {placement}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {placement.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+    </Center>
+</Story>
+
+<Story name="Transition - Fade">
+    <Center height="viewport-100" width="100">
+        {#each PLACEMENTS as [placement, is_default] (placement)}
+            <Popover.Container logic_id="popover-fade-{placement}" dismissible>
+                <Popover.Button>
+                    Open FADE {`${placement.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
+
+                <Popover.Section animation="fade" direction={placement} {placement}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {placement.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+    </Center>
+</Story>
+
+<Story name="Transition - Scale">
+    <Center height="viewport-100" width="100">
+        {#each PLACEMENTS as [placement, is_default] (placement)}
+            <Popover.Container logic_id="popover-scale-{placement}" dismissible>
+                <Popover.Button>
+                    Open SCALE {`${placement.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
+
+                <Popover.Section animation="scale" direction={placement} {placement}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {placement.toUpperCase()} Popover
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        {/each}
+    </Center>
+</Story>
+
+<Story name="Transition - Slide">
+    <Center height="viewport-100" width="100">
+        {#each PLACEMENTS as [placement, is_default] (placement)}
+            <Popover.Container logic_id="popover-slide-{placement}" dismissible>
+                <Popover.Button>
+                    Open SLIDE {`${placement.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Popover
+                </Popover.Button>
+
+                <Popover.Section animation="slide" direction={placement} {placement}>
+                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                        {placement.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
             </Popover.Container>

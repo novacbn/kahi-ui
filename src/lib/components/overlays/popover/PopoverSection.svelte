@@ -1,3 +1,15 @@
+<script context="module" lang="ts">
+    import {TOKENS_DIRECTIONS} from "../../../types/directions";
+    import {TOKENS_PLACEMENT} from "../../../types/placements";
+
+    const DIRECTIONS_LOOKUP = {
+        [TOKENS_PLACEMENT.bottom]: TOKENS_DIRECTIONS.top,
+        [TOKENS_PLACEMENT.left]: TOKENS_DIRECTIONS.right,
+        [TOKENS_PLACEMENT.top]: TOKENS_DIRECTIONS.bottom,
+        [TOKENS_PLACEMENT.right]: TOKENS_DIRECTIONS.left,
+    };
+</script>
+
 <script lang="ts">
     import type {PROPERTY_ALIGNMENT_X, PROPERTY_ALIGNMENT_Y} from "../../../types/alignments";
     import {TOKENS_BEHAVIOR_LOADING} from "../../../types/behaviors";
@@ -103,12 +115,14 @@
 <section
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="{_popover_id ? 't-r-a-n-s-i-t-i-o-n' : ''} {_class}"
+    class="{_popover_id ? 'transition' : ''} {_class}"
     {...map_data_attributes({
         animation: _popover_id ? animation ?? TOKENS_TRANSITION_NAMES.clip : undefined,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
-        direction: _popover_id ? placement : undefined,
+        direction: _popover_id
+            ? DIRECTIONS_LOOKUP[placement ?? TOKENS_DIRECTIONS.bottom]
+            : undefined,
         placement,
         spacing,
         "spacing-x": spacing_x,

@@ -27,11 +27,11 @@
         logic_id?: string;
         logic_state?: boolean;
 
+        focus_target?: PROPERTY_REFERENCE_TARGET;
+
         dismissible?: boolean;
         loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
         once?: boolean;
-
-        focus_target?: PROPERTY_REFERENCE_TARGET;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -50,11 +50,15 @@
     export let logic_id: $$Props["logic_id"] = "";
     export let logic_state: $$Props["logic_state"] = false;
 
+    // HACK: Focus management properties need default invalid references so
+    // the Context Stores get created. Due to `<element bind:this>` / `<Component bind:element>`
+    // taking a frame to be initialized
+
+    export let focus_target: $$Props["focus_target"] = null;
+
     export let dismissible: $$Props["dismissible"] = undefined;
     export let loading: $$Props["loading"] = undefined;
     export let once: $$Props["once"] = undefined;
-
-    export let focus_target: $$Props["focus_target"] = null;
 
     function on_group_change(event: CustomEvent<void>): void {
         dispatch(logic_state ? "active" : "dismiss");

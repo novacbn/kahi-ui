@@ -49,7 +49,7 @@
 
             <Box palette="inverse" margin_top="small" padding="small">
                 LEFT
-                <Spacer variation="inline" spacing_x="huge" />
+                <Spacer is="span" spacing_x="huge" />
                 RIGHT
             </Box>
         </div>

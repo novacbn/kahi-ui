@@ -98,7 +98,7 @@
             {_year.toLocaleString(locale ?? DEFAULT_LOCALE, {year: year ?? "numeric"})}
         </WidgetHeader>
 
-        <Spacer variation="inline" />
+        <Spacer is="span" />
 
         <WidgetButton
             disabled={disabled || !is_year_in_range(_year, undefined, min)}

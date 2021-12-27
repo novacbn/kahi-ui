@@ -63,13 +63,13 @@
                 <Menu.Container>
                     <Menu.Button>
                         Copy
-                        <Spacer variation="inline" spacing="medium" />
+                        <Spacer is="span" spacing="medium" />
                         <Text is="kbd">CTRL+C</Text>
                     </Menu.Button>
 
                     <Menu.Button>
                         Cut
-                        <Spacer variation="inline" spacing="medium" />
+                        <Spacer is="span" spacing="medium" />
                         <Text is="kbd">CTRL+X</Text>
                     </Menu.Button>
 
@@ -77,7 +77,7 @@
 
                     <Menu.Button>
                         Delete
-                        <Spacer variation="inline" spacing="medium" />
+                        <Spacer is="span" spacing="medium" />
                         <Text is="kbd">DEL</Text>
                     </Menu.Button>
                 </Menu.Container>
@@ -101,13 +101,13 @@
                 <Menu.Container>
                     <Menu.Button>
                         Copy
-                        <Spacer variation="inline" spacing="medium" />
+                        <Spacer is="span" spacing="medium" />
                         <Text is="kbd">CTRL+C</Text>
                     </Menu.Button>
 
                     <Menu.Button>
                         Cut
-                        <Spacer variation="inline" spacing="medium" />
+                        <Spacer is="span" spacing="medium" />
                         <Text is="kbd">CTRL+X</Text>
                     </Menu.Button>
 
@@ -115,7 +115,7 @@
 
                     <Menu.Button bind:element={target_element}>
                         Delete
-                        <Spacer variation="inline" spacing="medium" />
+                        <Spacer is="span" spacing="medium" />
                         <Text is="kbd">DEL</Text>
                     </Menu.Button>
                 </Menu.Container>

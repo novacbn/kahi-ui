@@ -2,7 +2,9 @@
 
 ## UNRELEASED
 
--   Removed Components / Component Features
+-   Migrated the following Components: `Aside`, `Omni`.
+
+-   Removed the following Components / Component Features
 
     -   Display / Feedback
 
@@ -22,6 +24,12 @@
 
             -   **(BREAKING)** `<Spacer orientation>` — Removed previously deprecated feature in favor of `<Spacer spacing_x spacing_y>` properties.
             -   **(BREAKING)** `<Spacer variation>` — Removed previously deprecated feature in favor of `<Spacer is="div/span">` property.
+
+    -   Navigation
+
+        -   `Aside` / `Omni`
+
+            -   **(BREAKING)** `<* logic_id>` — Removed built-in viewport-based collapsing, compose with Components / features like `Overlay` / `<* contents>` to mimic old featureset.
 
 -   Updated the following Components / Component Features
 

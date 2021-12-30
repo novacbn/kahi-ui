@@ -4,6 +4,14 @@
 
 -   Migrated the following Components: `Aside`, `Omni`.
 
+-   Removed the following Components / Component Features
+
+    -   Navigation
+
+        -   `Aside` / `Omni`
+
+            -   **(BREAKING)** `<* logic_id>` — Removed built-in viewport-based collapsing, compose with Components / features like `Overlay` / `<* contents>` to mimic old featureset.
+
 ## v0.4.13 - 2021/12/13
 
 -   Updated button-like `<label>`-based Components to emulate button-like behavior, e.g. Enter key activates element.

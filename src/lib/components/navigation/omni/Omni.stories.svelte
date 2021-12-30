@@ -41,15 +41,15 @@
 
         <Omni.Section>
             <Menu.Container orientation="horizontal">
-                <Menu.Button palette="light" variation="clear" active>Docs</Menu.Button>
-                <Menu.Button palette="light" variation="clear">Playground</Menu.Button>
-                <Menu.Button palette="light" variation="clear">Storybook</Menu.Button>
+                <Menu.Button variation="clear" active>Docs</Menu.Button>
+                <Menu.Button variation="clear">Playground</Menu.Button>
+                <Menu.Button variation="clear">Storybook</Menu.Button>
             </Menu.Container>
         </Omni.Section>
 
         <Omni.Footer>
             <Menu.Container orientation="horizontal">
-                <Menu.Button palette="light" variation="clear">GitHub</Menu.Button>
+                <Menu.Button variation="clear">GitHub</Menu.Button>
             </Menu.Container>
         </Omni.Footer>
     </Omni.Container>

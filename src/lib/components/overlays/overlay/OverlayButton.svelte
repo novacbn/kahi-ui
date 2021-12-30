@@ -51,6 +51,7 @@
 </script>
 
 <Button
+    {...$$props}
     bind:element
     for={$_overlay_id}
     {actions}

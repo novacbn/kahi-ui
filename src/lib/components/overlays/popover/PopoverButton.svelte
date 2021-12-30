@@ -51,6 +51,7 @@
 </script>
 
 <Button
+    {...$$props}
     bind:element
     for={$_popover_id}
     {actions}

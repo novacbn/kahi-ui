@@ -13,8 +13,6 @@
     type $$Props = {
         actions?: IForwardedActions;
         element?: HTMLSpanElement;
-
-        character?: string;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -26,17 +24,12 @@
     export let style: $$Props["style"] = "";
 
     export {_class as class};
-
-    export let character: $$Props["character"] = "";
-
-    $: _character = character ? `\\${character.charCodeAt(0).toString(16)}` : undefined;
 </script>
 
 <span
     bind:this={element}
     {...map_global_attributes($$props)}
     class="ellipsis {_class}"
-    style={character ? `${style}--character:"${_character}";` : style}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -53,7 +46,15 @@
     on:pointerout
     on:pointerup
 >
-    <span />
-    <span />
-    <span />
+    <span>
+        <slot>.</slot>
+    </span>
+
+    <span>
+        <slot>.</slot>
+    </span>
+
+    <span>
+        <slot>.</slot>
+    </span>
 </span>

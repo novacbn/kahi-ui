@@ -18,8 +18,6 @@
         element?: HTMLSpanElement;
 
         palette?: PROPERTY_PALETTE;
-        /** @deprecated Use `Position` Component instead. */
-        position?: PROPERTY_POSITION;
         shape?: PROPERTY_SHAPE;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -36,8 +34,6 @@
     export {_class as class};
 
     export let palette: $$Props["palette"] = undefined;
-    /** @deprecated Use `Position` Component instead. */
-    export let position: $$Props["position"] = undefined;
     export let shape: $$Props["shape"] = undefined;
 </script>
 
@@ -45,7 +41,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="badge {_class}"
-    {...map_data_attributes({palette, position, shape})}
+    {...map_data_attributes({palette, shape})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

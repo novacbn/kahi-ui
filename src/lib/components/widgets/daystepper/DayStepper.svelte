@@ -106,7 +106,7 @@
             })}
         </WidgetHeader>
 
-        <Spacer variation="inline" />
+        <Spacer is="span" />
 
         <WidgetButton
             disabled={disabled || !is_day_in_range(_day, undefined, min)}

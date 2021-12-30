@@ -3,26 +3,7 @@
 
     import Stack from "../../layouts/stack/Stack.svelte";
 
-    import TextInput from "./TextInput.svelte";
-
-    const CHARACTERS_HEXADECIMAL = new Set([
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-    ]);
+    import NumberInput from "./NumberInput.svelte";
 
     const PALETTES = [
         ["neutral", true],
@@ -44,40 +25,25 @@
         ["large", false],
         ["huge", false],
     ];
-
-    function on_mask(event) {
-        for (const character of event.detail.value) {
-            if (!CHARACTERS_HEXADECIMAL.has(character.toLowerCase())) {
-                event.preventDefault();
-                return;
-            }
-        }
-    }
 </script>
 
-<Meta title="Interactables/TextInput" />
+<Meta title="Interactables/NumberInput" />
 
 <Template>
     <slot />
 </Template>
 
-<Story name="Default">
-    <TextInput value="This is a TextInput" />
-</Story>
-
-<Story name="Mask - Pattern">
-    <TextInput pattern="[0-9a-fA-F]+" mask />
-</Story>
-
-<Story name="Mask - Event">
-    <TextInput mask on:mask={on_mask} />
+<Story name="Preview">
+    <NumberInput value={42} />
 </Story>
 
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
-            <TextInput
-                value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+            <NumberInput
+                placeholder={`${palette.toUpperCase()}${
+                    is_default ? " / DEFAULT" : ""
+                } NumberInput`}
                 characters="20"
                 {palette}
             />
@@ -88,9 +54,11 @@
 <Story name="Block">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
-            <TextInput
+            <NumberInput
                 variation="block"
-                value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+                placeholder={`${palette.toUpperCase()}${
+                    is_default ? " / DEFAULT" : ""
+                } NumberInput`}
                 characters="20"
                 {palette}
             />
@@ -101,9 +69,11 @@
 <Story name="Flush">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
-            <TextInput
+            <NumberInput
                 variation="flush"
-                value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+                placeholder={`${palette.toUpperCase()}${
+                    is_default ? " / DEFAULT" : ""
+                } NumberInput`}
                 characters="20"
                 {palette}
             />
@@ -114,15 +84,11 @@
 <Story name="Size">
     <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SIZES as [size, is_default]}
-            <TextInput
-                value={`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+            <NumberInput
+                placeholder={`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""} NumberInput`}
                 characters="20"
                 {size}
             />
         {/each}
     </Stack>
-</Story>
-
-<Story name="TextArea">
-    <TextInput is="textarea" value="This is a TextArea" characters="20" lines="5" />
 </Story>

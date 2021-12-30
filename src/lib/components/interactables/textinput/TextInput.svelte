@@ -8,6 +8,8 @@
     import type {PROPERTY_TEXT_ALIGNMENT, PROPERTY_TEXT_TRANSFORM} from "../../../types/typography";
     import type {PROPERTY_VARIATION_INPUT} from "../../../types/variations";
 
+    import type {IMaskInputEvent} from "../../../actions/mask_input";
+    import {mask_input} from "../../../actions/mask_input";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
@@ -16,20 +18,16 @@
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
+    import {create_event_forwarder} from "../../../util/svelte";
 
     import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME} from "../form/FormGroup.svelte";
 
     type $$Events = {
-        /**
-         * @deprecated Use `on:focusout` instead.
-         */
-        blur: FocusEvent;
         change: InputEvent;
-        /**
-         * @deprecated Use `on:focusin` instead.
-         */
-        focus: FocusEvent;
+
         input: InputEvent;
+
+        mask: IMaskInputEvent;
     } & IHTML5Events;
 
     type $$Props = {
@@ -46,6 +44,7 @@
         placeholder?: string;
         value?: string;
 
+        mask?: boolean;
         max_length?: number | undefined;
         min_length?: number | undefined;
         pattern?: RegExp | string;
@@ -65,6 +64,8 @@
         IGlobalProperties &
         IMarginProperties;
 
+    const forward = create_event_forwarder();
+
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
@@ -81,6 +82,7 @@
     export let placeholder: $$Props["placeholder"] = "";
     export let value: $$Props["value"] = "";
 
+    export let mask: $$Props["mask"] = undefined;
     export let max_length: $$Props["max_length"] = undefined;
     export let min_length: $$Props["min_length"] = undefined;
     export let pattern: $$Props["pattern"] = "";
@@ -99,6 +101,10 @@
 
     const _form_id = CONTEXT_FORM_ID.get();
     const _form_name = CONTEXT_FORM_NAME.get();
+
+    function on_mask(event: IMaskInputEvent): void {
+        forward("mask", event);
+    }
 
     $: _id = _form_id ? $_form_id : id;
     $: _name = _form_name ? $_form_name : name;
@@ -124,6 +130,7 @@
             rows: lines,
             spellcheck: spell_check === undefined ? undefined : spell_check.toString(),
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
         use:forward_actions={{actions}}
         on:click
@@ -140,9 +147,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "email"}
@@ -164,6 +169,7 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
         use:forward_actions={{actions}}
         on:click
@@ -180,9 +186,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "password"}
@@ -204,6 +208,7 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
         use:forward_actions={{actions}}
         on:click
@@ -220,9 +225,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "search"}
@@ -244,6 +247,7 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
         use:forward_actions={{actions}}
         on:click
@@ -260,9 +264,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else if type === "url"}
@@ -284,6 +286,7 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
         use:forward_actions={{actions}}
         on:click
@@ -300,9 +303,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {:else}
@@ -324,6 +325,7 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
         use:forward_actions={{actions}}
         on:click
@@ -340,9 +342,7 @@
         on:pointermove
         on:pointerout
         on:pointerup
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {/if}

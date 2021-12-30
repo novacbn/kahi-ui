@@ -5,7 +5,6 @@
     import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Text from "../../typography/text/Text.svelte";
-    import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
 
     import Anchor from "../anchor/Anchor.svelte";
     import * as Menu from "../menu";
@@ -83,14 +82,6 @@
 
                 <Aside.Section>
                     <Menu.Container>
-                        <Menu.Heading>DISPLAY</Menu.Heading>
-
-                        <Menu.Button>
-                            Badge
-                            <Spacer />
-                            <span>ICON</span>
-                        </Menu.Button>
-
                         <Menu.Heading>FEEDBACK</Menu.Heading>
 
                         <Menu.Button>
@@ -99,7 +90,7 @@
                             <span>ICON</span>
                         </Menu.Button>
 
-                        <Menu.Button>
+                        <Menu.Button active>
                             Spinner
                             <Spacer />
                             <span>ICON</span>

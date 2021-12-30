@@ -2,10 +2,8 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Divider from "../../layouts/divider/Divider.svelte";
-    import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
     import Text from "../../typography/text/Text.svelte";
-    import ContextButton from "../../utilities/contextbutton/ContextButton.svelte";
 
     import Anchor from "../anchor/Anchor.svelte";
     import * as Menu from "../menu";
@@ -42,7 +40,7 @@
         </Omni.Header>
 
         <Omni.Section>
-            <Menu.Container orientation={["desktop:horizontal", "widescreen:horizontal"]}>
+            <Menu.Container>
                 <Menu.Button palette="light" variation="clear" active>Docs</Menu.Button>
                 <Menu.Button palette="light" variation="clear">Playground</Menu.Button>
                 <Menu.Button palette="light" variation="clear">Storybook</Menu.Button>
@@ -50,7 +48,7 @@
         </Omni.Section>
 
         <Omni.Footer>
-            <Menu.Container orientation={["desktop:horizontal", "widescreen:horizontal"]}>
+            <Menu.Container>
                 <Menu.Button palette="light" variation="clear">GitHub</Menu.Button>
             </Menu.Container>
         </Omni.Footer>

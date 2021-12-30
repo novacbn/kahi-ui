@@ -8,7 +8,7 @@
 
         -   `Ellipsis`
 
-            -   **(BREAKING)** `<Ellipsis character />` — Changed from property to default slot, to support icons and other non-text characters.
+            -   **(BREAKING)** `<Ellipsis character />` — Changed from `<Ellipsis character="XXX">` -> `<Ellipsis>XXX</Ellipsis>`, to support icons and other non-text characters.
 
 ## v0.4.5 - 2021/10/20
 

@@ -40,7 +40,7 @@
         </Omni.Header>
 
         <Omni.Section>
-            <Menu.Container>
+            <Menu.Container orientation="horizontal">
                 <Menu.Button palette="light" variation="clear" active>Docs</Menu.Button>
                 <Menu.Button palette="light" variation="clear">Playground</Menu.Button>
                 <Menu.Button palette="light" variation="clear">Storybook</Menu.Button>
@@ -48,7 +48,7 @@
         </Omni.Section>
 
         <Omni.Footer>
-            <Menu.Container>
+            <Menu.Container orientation="horizontal">
                 <Menu.Button palette="light" variation="clear">GitHub</Menu.Button>
             </Menu.Container>
         </Omni.Footer>
@@ -71,7 +71,7 @@
                 </Omni.Header>
 
                 <Omni.Footer>
-                    <Menu.Container>
+                    <Menu.Container orientation="horizontal">
                         <Menu.Button variation="clear">GitHub</Menu.Button>
                     </Menu.Container>
                 </Omni.Footer>

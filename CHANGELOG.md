@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Updated the following Components / Component Features
+
+    -   Feedback
+
+        -   `Ellipsis`
+
+            -   **(BREAKING)** `<Ellipsis character />` — Changed from `<Ellipsis character="XXX">` -> `<Ellipsis>XXX</Ellipsis>`, to support icons and other non-text characters.
+
 ## v0.4.14 - 2021/12/19
 
 -   Added the following Components / Component Features

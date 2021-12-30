@@ -30,15 +30,8 @@
     <slot />
 </Template>
 
-<Story name="Default">
-    <Aside.Container
-        logic_id="aside-default"
-        palette="dark"
-        max_width="content-max"
-        height="viewport-100"
-        captive
-        dismissible
-    >
+<Story name="Preview - Basic">
+    <Aside.Container palette="dark" max_width="content-max" height="viewport-100">
         <Aside.Header>
             <Anchor href="#">Kahi UI</Anchor>
             <Divider />
@@ -72,23 +65,15 @@
 
         <Aside.Footer>
             <Anchor href="#">
-                <Text is="small">v0.2.0</Text>
+                <Text is="small">v0.5.0</Text>
             </Anchor>
         </Aside.Footer>
-
-        <svelte:fragment slot="open">
-            <ContextButton variation="clear">+</ContextButton>
-        </svelte:fragment>
-
-        <svelte:fragment slot="close">
-            <ContextButton palette="dark" variation="clear">x</ContextButton>
-        </svelte:fragment>
     </Aside.Container>
 </Story>
 
 <Story name="Palette">
     <Mosaic sizing="medium" spacing="medium">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Aside.Container palette={palette === "default" ? undefined : palette}>
                 <Aside.Header>
                     Kahi UI
@@ -97,14 +82,6 @@
 
                 <Aside.Section>
                     <Menu.Container>
-                        <Menu.Heading>DISPLAY</Menu.Heading>
-
-                        <Menu.Button>
-                            Badge
-                            <Spacer />
-                            <span>ICON</span>
-                        </Menu.Button>
-
                         <Menu.Heading>FEEDBACK</Menu.Heading>
 
                         <Menu.Button>
@@ -113,7 +90,7 @@
                             <span>ICON</span>
                         </Menu.Button>
 
-                        <Menu.Button>
+                        <Menu.Button active>
                             Spinner
                             <Spacer />
                             <span>ICON</span>

@@ -30,8 +30,4 @@
 
     transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
         color var(--animation-visual-duration) var(--animation-visual-function);
-
-    &[data-position] {
-        @apply pointer-events-none rounded-4xl select-none;
-    }
 }

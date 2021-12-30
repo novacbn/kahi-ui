@@ -30,3 +30,10 @@
         </Heading>
     </Stack>
 </Story>
+
+<Story name="Slot">
+    <Heading>
+        Loading
+        <Ellipsis>/</Ellipsis>
+    </Heading>
+</Story>

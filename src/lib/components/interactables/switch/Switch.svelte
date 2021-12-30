@@ -23,15 +23,7 @@
     } from "../form/FormGroup.svelte";
 
     type $$Events = {
-        /**
-         * @deprecated Use `on:focusout` instead.
-         */
-        blur: FocusEvent;
         change: InputEvent;
-        /**
-         * @deprecated Use `on:focusin` instead.
-         */
-        focus: FocusEvent;
         input: InputEvent;
     } & IHTML5Events;
 
@@ -120,9 +112,7 @@
                 on:pointerout
                 on:pointerup
                 on:change={on_change}
-                on:blur
                 on:change
-                on:focus
                 on:input
             />
 
@@ -160,9 +150,7 @@
         on:pointerout
         on:pointerup
         on:change={on_change}
-        on:blur
         on:change
-        on:focus
         on:input
     />
 {/if}

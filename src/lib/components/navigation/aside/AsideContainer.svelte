@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {PROPERTY_PLACEMENT_X} from "../../../types/placements";
     import type {ISizeProperties} from "../../../types/sizes";
@@ -8,19 +8,15 @@
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
-    type $$Events = {
-        active: CustomEvent<void>;
-
-        dismiss: CustomEvent<void>;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
         element?: HTMLElement;
 
+        placement?: PROPERTY_PLACEMENT_X;
+
         palette?: PROPERTY_PALETTE;
         variation?: "sticky";
-
-        placement?: PROPERTY_PLACEMENT_X;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -36,8 +32,9 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let palette: $$Props["palette"] = undefined;
     export let placement: $$Props["placement"] = undefined;
+
+    export let palette: $$Props["palette"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 </script>
 
@@ -46,6 +43,20 @@
     {...map_global_attributes($$props)}
     class="aside {_class}"
     {...map_data_attributes({palette, placement, variation})}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </nav>

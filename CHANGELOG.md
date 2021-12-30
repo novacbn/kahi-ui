@@ -1,5 +1,62 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Migrated the following Components: `Aside`, `Omni`.
+
+-   Removed the following Components / Component Features
+
+    -   Display / Feedback
+
+        -   `Badge` / `Dot`
+
+            -   **(BREAKING)** `<Badge/Dot position>` — Removed previously deprecated feature in favor of `Position` Component.
+
+    -   Interactables
+
+        -   `Check` / `Radio` / `Switch` / `TextInput`
+
+            -   **(BREAKING)** `<Check/Radio/Switch/TextInput on:blur on:focus>` — Removed previously deprecated feature in favor of `<* on:focusin on:focusout>` events.
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   **(BREAKING)** `<Spacer orientation>` — Removed previously deprecated feature in favor of `<Spacer spacing_x spacing_y>` properties.
+            -   **(BREAKING)** `<Spacer variation>` — Removed previously deprecated feature in favor of `<Spacer is="div/span">` property.
+
+    -   Navigation
+
+        -   `Aside` / `Omni`
+
+            -   **(BREAKING)** `<* logic_id>` — Removed built-in viewport-based collapsing, compose with Components / features like `Overlay` / `<* contents>` to mimic old featureset.
+
+-   Updated the following Components / Component Features
+
+    -   Feedback
+
+        -   `Ellipsis`
+
+            -   **(BREAKING)** `<Ellipsis character />` — Changed from `<Ellipsis character="XXX">` -> `<Ellipsis>XXX</Ellipsis>`, to support icons and other non-text characters.
+
+## v0.4.14 - 2021/12/19
+
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `NumberInput` — Subset of `TextInput` that only accepts numbers into its text field.
+
+            -   `<NumberInput value={number}>` — Accepts / Returns `number` types instead of strings.
+
+        -   `TextInput`
+
+            -   `<TextInput variation="flush">` — Added an underline UX affordance whenever the user hovers / focuses the `TextInput`.
+            -   `<TextInput mask={boolean}>` — When enabled, user input into the text field will drop alterations that are invalid.
+
+                -   `<TextInput on:mask={(event: CustomEvent<{value: string}>) => void}>` — Fires whenever `<TextInput mask={boolean}>` is `true`. Whenever `event.preventDefault` is called, the new `value` alteration will be dropped.
+                -   `<TextInput pattern={string | RegExp}>` — Is used whenever `<TextInput mask={boolean}>` is `true`, this property is used to mask user input. Dropping any new values that don't match the expression.
+
 ## v0.4.13 - 2021/12/13
 
 -   Updated button-like `<label>`-based Components to emulate button-like behavior, e.g. Enter key activates element.

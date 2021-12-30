@@ -3,8 +3,11 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import Center from "../../layouts/center/Center.svelte";
+    import Divider from "../../layouts/divider/Divider.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
+    import Anchor from "../../navigation/anchor/Anchor.svelte";
     import * as Menu from "../../navigation/menu";
+    import * as Omni from "../../navigation/omni";
     import Box from "../../surfaces/box/Box.svelte";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
@@ -86,7 +89,50 @@
     </Popover.Container>
 </Story>
 
-<Story name="Preview - Omni Overflow">Omni Overflow</Story>
+<Story name="Preview - Omni Overflow">
+    <Omni.Container palette="dark" width="viewport-100">
+        <Omni.Header>
+            <Anchor href="#">Kahi UI</Anchor>
+            <Divider orientation="vertical" />
+            <Anchor href="#">
+                <Text is="small">v0.5.0</Text>
+            </Anchor>
+        </Omni.Header>
+
+        <Omni.Section hidden={["mobile", "tablet"]}>
+            <Menu.Container orientation="horizontal">
+                <Menu.Button variation="clear" active>Docs</Menu.Button>
+                <Menu.Button variation="clear">Playground</Menu.Button>
+                <Menu.Button variation="clear">Storybook</Menu.Button>
+            </Menu.Container>
+        </Omni.Section>
+
+        <Omni.Footer>
+            <Menu.Container hidden={["mobile", "tablet"]} orientation="horizontal">
+                <Menu.Button variation="clear">GitHub</Menu.Button>
+            </Menu.Container>
+
+            <Popover.Container
+                hidden={["desktop", "widescreen"]}
+                logic_id="popover-preview-omni-overflow"
+                dismissible
+            >
+                <Popover.Button variation="clear">+</Popover.Button>
+
+                <Popover.Section alignment_x="left" spacing="small">
+                    <Box palette="auto" elevation="high" padding="medium" shape="rounded">
+                        <Menu.Container>
+                            <Menu.Button variation="clear" active>Docs</Menu.Button>
+                            <Menu.Button variation="clear">Playground</Menu.Button>
+                            <Menu.Button variation="clear">Storybook</Menu.Button>
+                            <Menu.Button variation="clear">GitHub</Menu.Button>
+                        </Menu.Container>
+                    </Box>
+                </Popover.Section>
+            </Popover.Container>
+        </Omni.Footer>
+    </Omni.Container>
+</Story>
 
 <Story name="Auto Focus - Focus Target">
     <Popover.Container

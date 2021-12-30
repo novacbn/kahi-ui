@@ -2,6 +2,11 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Button from "../../interactables/button/Button.svelte";
+    import Divider from "../../layouts/divider/Divider.svelte";
+    import Spacer from "../../layouts/spacer/Spacer.svelte";
+    import Anchor from "../../navigation/anchor/Anchor.svelte";
+    import * as Aside from "../../navigation/aside";
+    import * as Menu from "../../navigation/menu";
     import Box from "../../surfaces/box/Box.svelte";
     import * as Card from "../../surfaces/card";
     import * as Tile from "../../surfaces/tile";
@@ -84,9 +89,70 @@
     </Overlay.Container>
 </Story>
 
-<Story name="Preview - Drawer">Drawer</Story>
+<Story name="Preview - Aside Drawer">
+    <div style="position:fixed;bottom:0;left:0;" data-hidden="desktop widescreen">
+        <Button for="overlay-preview-drawer" margin_left="small" margin_bottom="small">+</Button>
+    </div>
 
-<Story name="Preview - Notifications">
+    <Overlay.Container logic_id="overlay-preview-aside-drawer" captive dismissible>
+        <Overlay.Section
+            contents={["mobile", "tablet"]}
+            animation="slide"
+            direction="left"
+            alignment_x="left"
+        >
+            <Aside.Container palette="dark" max_width="content-max" height="viewport-100">
+                <Aside.Header>
+                    <Anchor href="#">Kahi UI</Anchor>
+                    <Divider />
+                </Aside.Header>
+
+                <Aside.Section>
+                    <Menu.Container>
+                        <Menu.Heading>DISPLAY</Menu.Heading>
+
+                        <Menu.Button>
+                            Badge
+                            <Spacer />
+                            <span>ICON</span>
+                        </Menu.Button>
+
+                        <Menu.Heading>FEEDBACK</Menu.Heading>
+
+                        <Menu.Button>
+                            Dot
+                            <Spacer />
+                            <span>ICON</span>
+                        </Menu.Button>
+
+                        <Menu.Button active>
+                            Spinner
+                            <Spacer />
+                            <span>ICON</span>
+                        </Menu.Button>
+                    </Menu.Container>
+                </Aside.Section>
+
+                <Aside.Footer>
+                    <Anchor href="#">
+                        <Text is="small">v0.5.0</Text>
+                    </Anchor>
+                </Aside.Footer>
+
+                <div
+                    style="position:absolute;bottom:0;right:0;transform:translateX(100%);"
+                    data-hidden="desktop widescreen"
+                    data-padding-left="small"
+                    data-padding-bottom="small"
+                >
+                    <Overlay.Button variation="clear">x</Overlay.Button>
+                </div>
+            </Aside.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
+
+<Story name="Preview - Tile Notifications">
     <Overlay.Container>
         <Overlay.Section alignment_x="right" alignment_y="bottom" spacing="medium" padding="medium">
             <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="75">

@@ -49,6 +49,7 @@ export * from "./components/interactables/filedropinput";
 import * as Form from "./components/interactables/form";
 export {Form};
 export * from "./components/interactables/hiddeninput";
+export * from "./components/interactables/numberinput";
 export * from "./components/interactables/radio";
 export * from "./components/interactables/switch";
 export * from "./components/interactables/textinput";

@@ -1,21 +1,11 @@
 .ellipsis {
-    --character: var(--ellipsis-character);
-
-    color: currentColor;
-
     white-space: nowrap;
 
-    transition: color var(--animation-visual-duration) var(--animation-visual-function);
-
     & > span {
+        display: inline;
+
         animation: ellipsis-pulse var(--animation-attention-duration)
             var(--animation-attention-function) infinite;
-
-        &::before {
-            display: inline;
-
-            content: var(--character);
-        }
 
         &:first-child {
             animation-delay: var(--ellipsis-content-first-animation-delay);

@@ -1,13 +1,18 @@
 blockquote {
-    --palette-background-lightest: var(--palette-inverse-off-lightest);
-    --palette-background-normal: var(--palette-neutral-normal);
+    position: relative;
 
-    @apply border-l-5 border-solid border-[rgb(var(--palette-background-normal))] px-[var(--spacing-root-large)]
-    py-[var(--spacing-root-medium)] relative;
+    padding: var(--blockquote-padding-y) var(--blockquote-padding-x);
 
-    background-color: rgba(var(--palette-background-lightest), theme("opacity.20"));
-    border-radius: var(--radius-small);
+    background: rgba(var(--blockquote-background-color), var(--blockquote-background-opacity));
+    border-left: var(--blockquote-border-width) var(--blockquote-border-style)
+        rgb(var(--blockquote-border-color));
+    border-radius: var(--blockquote-border-radius);
 
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background var(--animation-visual-duration) var(--animation-visual-function),
+        border-color var(--animation-visual-duration) var(--animation-visual-function);
+
+    &[data-palette] {
+        border-color: rgb(var(--palette-background-normal));
+        background: rgba(var(--palette-background-lightest), var(--blockquote-background-opacity));
+    }
 }

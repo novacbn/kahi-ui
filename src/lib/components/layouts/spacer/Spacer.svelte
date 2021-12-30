@@ -1,20 +1,34 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_ORIENTATION_ARGUMENT} from "../../../types/orientations";
-    import type {DESIGN_SPACING_ARGUMENT} from "../../../types/spacings";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_ORIENTATION_BREAKPOINT} from "../../../types/orientations";
+    import type {PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
+    type $$Events = IHTML5Events;
+
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLDivElement | HTMLSpanElement;
 
-        orientation?: DESIGN_ORIENTATION_ARGUMENT;
+        is?: "div" | "span";
+
+        /**
+         * @deprecated Use `<Spacer spacing_x="...">` / `<Spacer spacing_y="...">` instead.
+         */
+        orientation?: PROPERTY_ORIENTATION_BREAKPOINT;
+        /**
+         * @deprecated Use `<Spacer is="span">` instead.
+         */
         variation?: "inline";
 
-        spacing?: DESIGN_SPACING_ARGUMENT;
-        spacing_x?: DESIGN_SPACING_ARGUMENT;
-        spacing_y?: DESIGN_SPACING_ARGUMENT;
+        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_x?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -22,12 +36,21 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    export let is: $$Props["is"] = "div";
 
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    /**
+     * @deprecated Use `<Spacer spacing_x="...">` / `<Spacer spacing_y="...">` instead.
+     */
     export let orientation: $$Props["orientation"] = undefined;
+    /**
+     * @deprecated Use `<Spacer is="span">` instead.
+     */
     export let variation: $$Props["variation"] = undefined;
 
     export let spacing: $$Props["spacing"] = undefined;
@@ -35,17 +58,31 @@
     export let spacing_y: $$Props["spacing_y"] = undefined;
 </script>
 
-{#if variation === "inline"}
+{#if is === "span" || variation === "inline"}
     <span
         bind:this={element}
         {...map_global_attributes($$props)}
         class="spacer {_class}"
         {...map_data_attributes({
-            orientation,
             spacing,
             "spacing-x": spacing_x,
             "spacing-y": spacing_y,
         })}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </span>
@@ -55,11 +92,25 @@
         {...map_global_attributes($$props)}
         class="spacer {_class}"
         {...map_data_attributes({
-            orientation,
             spacing,
             "spacing-x": spacing_x,
             "spacing-y": spacing_y,
         })}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </div>

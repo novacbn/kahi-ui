@@ -1,7 +1,7 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import {
         map_aria_attributes,
         map_attributes,
@@ -9,19 +9,21 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
+
     import MenuItem from "./MenuItem.svelte";
 
-    type $$Events = {
-        click: MouseEvent;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLLIElement;
 
         active?: boolean;
         disabled?: boolean;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -29,6 +31,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let active: $$Props["active"] = undefined;
@@ -43,7 +46,21 @@
         {...map_data_attributes({palette})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({disabled})}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </button>

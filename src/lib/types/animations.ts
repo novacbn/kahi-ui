@@ -1,10 +1,10 @@
+import type {LiteralEnum} from "./util";
+
 /**
  * Represents the tiers of animations tokens that can be applied to Framework Components
  */
-export enum DESIGN_ANIMATION {
+export enum TOKENS_ANIMATION_FEEDBACK {
     pulse = "pulse",
 }
 
-export const DESIGN_ANIMATION_LITERALS = {...DESIGN_ANIMATION} as const;
-
-export type DESIGN_ANIMATION_ARGUMENT = keyof typeof DESIGN_ANIMATION_LITERALS;
+export type PROPERTY_ANIMATION_FEEDBACK = LiteralEnum<TOKENS_ANIMATION_FEEDBACK>;

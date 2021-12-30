@@ -1,6 +1,7 @@
 export * from "./types/alignments";
 export * from "./types/animations";
 export * from "./types/aria";
+export * from "./types/behaviors";
 export * from "./types/elevations";
 export * from "./types/fit";
 export * from "./types/hidden";
@@ -14,20 +15,25 @@ export * from "./types/shapes";
 export * from "./types/sizes";
 export * from "./types/sizings";
 export * from "./types/spacings";
-export * from "./types/text";
+export * from "./types/typography";
 export * from "./types/variations";
 export * from "./types/viewports";
 
 import * as Accordion from "./components/disclosure/accordion";
 export {Accordion};
+import * as Carousel from "./components/disclosure/carousel";
+export {Carousel};
 import * as Tab from "./components/disclosure/tab";
 export {Tab};
 
 export * from "./components/display/badge";
+export * from "./components/display/datestamp";
+export * from "./components/display/datetimestamp";
 import * as List from "./components/display/list";
 export {List};
 import * as Table from "./components/display/table";
 export {Table};
+export * from "./components/display/timestamp";
 
 export * from "./components/feedback/ellipsis";
 export * from "./components/feedback/dot";
@@ -39,9 +45,11 @@ export * from "./components/embedded/figure";
 
 export * from "./components/interactables/button";
 export * from "./components/interactables/check";
+export * from "./components/interactables/filedropinput";
 import * as Form from "./components/interactables/form";
 export {Form};
 export * from "./components/interactables/hiddeninput";
+export * from "./components/interactables/numberinput";
 export * from "./components/interactables/radio";
 export * from "./components/interactables/switch";
 export * from "./components/interactables/textinput";
@@ -96,20 +104,32 @@ export * from "./components/utilities/portal";
 export * from "./components/utilities/serverrender";
 export * from "./components/utilities/transition";
 
+export * from "./components/widgets/daypicker";
+export * from "./components/widgets/daystepper";
+export * from "./components/widgets/monthpicker";
+export * from "./components/widgets/monthstepper";
+export * from "./components/widgets/timepicker";
+import * as Widget from "./components/widgets/widget";
+export {Widget};
+export * from "./components/widgets/yearpicker";
+export * from "./components/widgets/yearstepper";
+
+export * from "./actions/auto_focus";
+export * from "./actions/behavior_button";
+export * from "./actions/click_inside";
 export * from "./actions/click_outside";
 export * from "./actions/clipping";
 export * from "./actions/keybind";
 export * from "./actions/intersection_observer";
 export * from "./actions/mutation_observer";
+export * from "./actions/overflow_clipping";
+export * from "./actions/trap_focus";
 
-export * from "./stores/component";
 export * from "./stores/darkmode";
 export * from "./stores/htmlpalette";
-export * from "./stores/id";
 export * from "./stores/mediaquery";
 export * from "./stores/prefersscheme";
 export * from "./stores/scrolllock";
-export * from "./stores/state";
 export * from "./stores/viewport";
 
 export * from "./util/environment";

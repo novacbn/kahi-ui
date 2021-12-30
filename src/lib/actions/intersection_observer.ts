@@ -1,9 +1,18 @@
-import type {IActionHandle} from "./actions";
+import type {IAction, IActionHandle} from "./actions";
+
+/**
+ * Represents the Svelte Action initializer signature for [[intersection_observer]]
+ */
+export type IIntersectionObserverAction = IAction<
+    Element,
+    IIntersectionObserverOptions,
+    IIntersectionObserverHandle
+>;
 
 /**
  * Represents the Svelte Action handle returned by [[intersection_observer]]
  */
-export type IIntersectionObserverAction = IActionHandle<IIntersectionObserverOptions>;
+export type IIntersectionObserverHandle = Required<IActionHandle<IIntersectionObserverOptions>>;
 
 /**
  * Represents the typing for the [[IIntersectionObserverOptions.on_intersect]] callback
@@ -47,10 +56,7 @@ export interface IIntersectionObserverOptions {
  * @param options
  * @returns
  */
-export function intersection_observer(
-    element: HTMLElement,
-    options: IIntersectionObserverOptions
-): IIntersectionObserverAction {
+export const intersection_observer: IIntersectionObserverAction = (element, options) => {
     let {on_intersect, root, root_margin, threshold} = options;
 
     let observer = new IntersectionObserver(
@@ -67,6 +73,10 @@ export function intersection_observer(
     observer.observe(element);
 
     return {
+        destroy() {
+            observer.disconnect();
+        },
+
         update(options: IIntersectionObserverOptions) {
             ({on_intersect, root, root_margin, threshold} = options);
 
@@ -86,9 +96,5 @@ export function intersection_observer(
 
             observer.observe(element);
         },
-
-        destroy() {
-            observer.disconnect();
-        },
     };
-}
+};

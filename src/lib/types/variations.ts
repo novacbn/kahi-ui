@@ -1,7 +1,16 @@
+import type {ArrayEnum, LiteralEnum} from "./util";
+
+/**
+ * Represents the tiers of flex variations tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_FLEX {
+    wrap = "wrap",
+}
+
 /**
  * Represents the tiers of filling variation tokens that can be applied to Framework Components
  */
-export enum DESIGN_FILL_VARIATION {
+export enum TOKENS_VARIATION_FILL {
     block = "block",
 
     clear = "clear",
@@ -11,49 +20,47 @@ export enum DESIGN_FILL_VARIATION {
     outline = "outline",
 }
 
-/**
- * Represents the tiers of flex variations tokens that can be applied to Framework Components
- */
-export enum DESIGN_FLEX_VARIATION {
-    wrap = "wrap",
-}
+export const TOKENS_VARIATION_BUTTON = {
+    [TOKENS_VARIATION_FILL.clear]: TOKENS_VARIATION_FILL.clear,
+    [TOKENS_VARIATION_FILL.outline]: TOKENS_VARIATION_FILL.outline,
+} as const;
+
+export const TOKENS_VARIATION_INPUT = {
+    [TOKENS_VARIATION_FILL.block]: TOKENS_VARIATION_FILL.block,
+    [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
+} as const;
+
+export const TOKENS_VARIATION_INTERACTIVE = {
+    [TOKENS_VARIATION_FILL.outline]: TOKENS_VARIATION_FILL.outline,
+} as const;
+
+export const TOKENS_VARIATION_SURFACE = {
+    [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
+} as const;
 
 /**
  * Represents the tiers of table variations tokens that can be applied to Framework Components
  */
-export enum DESIGN_TABLE_VARIATION {
+export enum TOKENS_VARIATION_TABLE {
     borders = "borders",
 
     stripes = "stripes",
 }
 
-export const DESIGN_FILL_VARIATION_LITERALS = {...DESIGN_FILL_VARIATION} as const;
+export const TOKENS_VARIATION_TOGGLE = {
+    [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
+} as const;
 
-export const DESIGN_FLEX_VARIATION_LITERALS = {...DESIGN_FLEX_VARIATION} as const;
+export type PROPERTY_VARIATION_BUTTON = LiteralEnum<keyof typeof TOKENS_VARIATION_BUTTON>;
 
-export type DESIGN_FILL_VARIATION_ARGUMENT = keyof typeof DESIGN_FILL_VARIATION_LITERALS;
+export type PROPERTY_VARIATION_FLEX = ArrayEnum<LiteralEnum<TOKENS_VARIATION_FLEX>>;
 
-export type DESIGN_FILL_BUTTON_VARIATION_ARGUMENT = Exclude<
-    DESIGN_FILL_VARIATION_ARGUMENT,
-    "block" | "flush"
->;
+export type PROPERTY_VARIATION_INPUT = LiteralEnum<keyof typeof TOKENS_VARIATION_INPUT>;
 
-export type DESIGN_FILL_INPUT_VARIATION_ARGUMENT = Exclude<
-    DESIGN_FILL_VARIATION_ARGUMENT,
-    "clear" | "outline"
->;
+export type PROPERTY_VARIATION_INTERACTIVE = LiteralEnum<keyof typeof TOKENS_VARIATION_INTERACTIVE>;
 
-export type DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT = Exclude<
-    DESIGN_FILL_VARIATION_ARGUMENT,
-    "block" | "clear" | "outline"
->;
+export type PROPERTY_VARIATION_SURFACE = LiteralEnum<keyof typeof TOKENS_VARIATION_SURFACE>;
 
-export const DESIGN_TABLE_VARIATION_LITERALS = {...DESIGN_TABLE_VARIATION} as const;
+export type PROPERTY_VARIATION_TABLE = ArrayEnum<LiteralEnum<TOKENS_VARIATION_TABLE>>;
 
-export type DESIGN_FLEX_VARIATION_ARGUMENT =
-    | keyof typeof DESIGN_FLEX_VARIATION_LITERALS
-    | (keyof typeof DESIGN_FLEX_VARIATION_LITERALS)[];
-
-export type DESIGN_TABLE_VARIATION_ARGUMENT =
-    | keyof typeof DESIGN_TABLE_VARIATION_LITERALS
-    | (keyof typeof DESIGN_TABLE_VARIATION_LITERALS)[];
+export type PROPERTY_VARIATION_TOGGLE = LiteralEnum<keyof typeof TOKENS_VARIATION_TOGGLE>;

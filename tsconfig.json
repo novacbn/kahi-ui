@@ -6,6 +6,7 @@
         "strict": true,
         "declaration": true,
         "allowSyntheticDefaultImports": true,
+        "allowJs": true,
         "downlevelIteration": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,

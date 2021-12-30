@@ -1,7 +1,9 @@
+import type {LiteralEnum} from "./util";
+
 /**
  * Represents the acceptable values for `aria-current` that can be applied to Framework Components
  */
-export enum ARIA_CURRENT {
+export enum TOKENS_ARIA_CURRENT {
     /**
      * Represents the current date within a collection of dates.
      */
@@ -33,6 +35,4 @@ export enum ARIA_CURRENT {
     true = "true",
 }
 
-export const ARIA_CURRENT_LITERALS = {...ARIA_CURRENT} as const;
-
-export type ARIA_CURRENT_ARGUMENT = keyof typeof ARIA_CURRENT_LITERALS;
+export type PROPERTY_ARIA_CURRENT = LiteralEnum<TOKENS_ARIA_CURRENT>;

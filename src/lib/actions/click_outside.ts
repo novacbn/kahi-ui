@@ -1,9 +1,14 @@
-import type {IActionHandle} from "./actions";
+import type {IAction, IActionHandle} from "./actions";
+
+/**
+ * Represents the Svelte Action initializer signature for [[click_outside]]
+ */
+export type IClickOutsideAction = IAction<Element, IClickOutsideOptions, IClickOutsideHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[click_outside]]
  */
-export type IClickOutsideAction = IActionHandle<IClickOutsideOptions>;
+export type IClickOutsideHandle = Required<IActionHandle<IClickOutsideOptions>>;
 
 /**
  * Represents the typing for the [[IClickOutsideOptions.on_click_outside]] callback
@@ -14,6 +19,12 @@ export type IClickOutsideCallback = (event: MouseEvent) => void;
  * Represents the options passable to the [[click_outside]] Svelte Action
  */
 export interface IClickOutsideOptions {
+    /**
+     * Represents CSS selectors used as an ignore list of elements that can
+     * trigger the [[IClickOutsideOptions.ignore]] callback
+     */
+    ignore?: string;
+
     /**
      * Represents the event callback called whenever target element
      * was clicked outside of its children
@@ -30,27 +41,27 @@ export interface IClickOutsideOptions {
  * @param options
  * @returns
  */
-export function click_outside(
-    element: HTMLElement,
-    options: IClickOutsideOptions
-): IClickOutsideAction {
-    let {on_click_outside} = options;
+export const click_outside: IClickOutsideAction = (element, options) => {
+    let {ignore, on_click_outside} = options;
 
-    function on_click(event: MouseEvent) {
-        const target = event.target as Node;
+    function on_click(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
 
-        if (document.contains(target) && !element.contains(target)) on_click_outside(event);
+        if (ignore && target.matches(ignore)) return;
+        if (!document.contains(target) || element.contains(target)) return;
+
+        on_click_outside(event);
     }
 
     document.addEventListener("click", on_click);
 
     return {
-        update(options: IClickOutsideOptions) {
-            ({on_click_outside} = options);
-        },
-
         destroy() {
             document.removeEventListener("click", on_click);
         },
+
+        update(options: IClickOutsideOptions) {
+            ({ignore, on_click_outside} = options);
+        },
     };
-}
+};

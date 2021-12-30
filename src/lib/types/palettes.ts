@@ -1,7 +1,9 @@
+import type {LiteralEnum} from "./util";
+
 /**
  * Represents the tiers of palettes tokens that can be applied to Framework Components
  */
-export enum DESIGN_PALETTE {
+export enum TOKENS_PALETTE {
     auto = "auto",
 
     inverse = "inverse",
@@ -21,6 +23,4 @@ export enum DESIGN_PALETTE {
     negative = "negative",
 }
 
-export const DESIGN_PALETTE_LITERALS = {...DESIGN_PALETTE} as const;
-
-export type DESIGN_PALETTE_ARGUMENT = keyof typeof DESIGN_PALETTE_LITERALS;
+export type PROPERTY_PALETTE = LiteralEnum<TOKENS_PALETTE>;

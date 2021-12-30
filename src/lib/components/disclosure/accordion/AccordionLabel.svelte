@@ -2,8 +2,12 @@
     import {afterUpdate} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+
+    import {behavior_button} from "../../../actions/behavior_button";
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {
         map_aria_attributes,
@@ -18,18 +22,17 @@
         CONTEXT_ACCORDION_STATE,
     } from "./AccordionGroup.svelte";
 
-    type $$Events = {
-        click: MouseEvent;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLLabelElement;
 
         active?: boolean;
         disabled?: boolean;
         state?: boolean;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -40,7 +43,10 @@
         open: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    export let tabindex: $$Props["tabindex"] = 0;
 
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
@@ -89,6 +95,10 @@
     });
 
     $: state = $_accordion_state.includes($_accordion_id);
+
+    // HACK: Svelte has `tabindex` typed as `number | undefined` unless
+    // you pass a string literal into the markup
+    $: _tabindex = tabindex as number | undefined;
 </script>
 
 {#if $_accordion_behavior === "inclusive"}
@@ -117,11 +127,28 @@
 
 <label
     bind:this={element}
+    role="button"
     {...map_global_attributes($$props)}
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
     for={$_accordion_id}
+    tabindex={_tabindex}
+    use:behavior_button={{enabled: true}}
+    use:forward_actions={{actions}}
     on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 

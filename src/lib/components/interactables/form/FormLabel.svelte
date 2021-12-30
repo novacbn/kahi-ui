@@ -1,17 +1,19 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {IPaddingProperties} from "../../../types/spacings";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
 
     import FormGroup, {CONTEXT_FORM_ID} from "./FormGroup.svelte";
 
-    type $$Events = {
-        click: MouseEvent;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLLabelElement;
 
         active?: boolean;
@@ -26,6 +28,7 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let active: $$Props["active"] = undefined;
@@ -44,7 +47,21 @@
     {...map_global_attributes($$props)}
     {...map_aria_attributes({disabled, pressed: active})}
     for={_logic_for}
+    use:forward_actions={{actions}}
     on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     {#if !_form_id && _for}
         <FormGroup logic_id={_for}>

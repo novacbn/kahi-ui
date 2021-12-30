@@ -1,31 +1,39 @@
 <script lang="ts">
-    import type {DESIGN_ELEVATION_ARGUMENT} from "../../../types/elevations";
+    import type {PROPERTY_ELEVATION} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SIZING_ARGUMENT, IIntrinsicProperties} from "../../../types/sizings";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
-    import type {DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT} from "../../../types/variations";
+    import type {PROPERTY_VARIATION_SURFACE} from "../../../types/variations";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
+    type $$Events = IHTML5Events;
+
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLDivElement;
 
-        elevation?: DESIGN_ELEVATION_ARGUMENT;
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        sizing?: DESIGN_SIZING_ARGUMENT;
-        variation?: DESIGN_FILL_TOGGLE_VARIATION_ARGUMENT;
+        elevation?: PROPERTY_ELEVATION;
+        palette?: PROPERTY_PALETTE;
+        sizing?: PROPERTY_SIZING;
+        variation?: PROPERTY_VARIATION_SURFACE;
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -42,6 +50,21 @@
     {...map_global_attributes($$props)}
     class="tile {_class}"
     {...map_data_attributes({elevation, palette, sizing, variation})}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </div>

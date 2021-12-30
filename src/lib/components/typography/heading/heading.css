@@ -4,92 +4,86 @@ h3,
 h4,
 h5,
 h6 {
-    --palette-background-normal: currentColor;
+    color: currentColor;
+    font-weight: var(--heading-font-weight);
 
-    @apply font-bold text-[var(--palette-background-normal)];
+    transition: color var(--animation-visual-duration) var(--animation-visual-function);
 
-    text-align: var(--align-text, inherit);
-    text-transform: var(--transform-text, inherit);
-
-    transition: color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    &[data-align] {
+        text-align: var(--align-text);
+    }
 
     &[data-palette] {
-        @apply text-[rgb(var(--palette-background-normal))];
+        color: rgb(var(--palette-background-normal));
+    }
+
+    &[data-transform] {
+        text-transform: var(--transform-text);
     }
 
     &[data-variation~="truncate"] {
-        @apply truncate;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
 
 h1 {
-    @apply leading-[var(--font-content-line-height-massive)];
-
-    font-size: var(--font-content-size-root-massive);
+    font-size: var(--heading-h1-font-size);
+    line-height: var(--heading-h1-line-height);
 
     &[data-variation~="headline"] {
-        @apply leading-[var(--font-headline-line-height-massive)];
-
-        font-size: var(--font-headline-size-root-massive);
+        font-size: var(--heading-h1-headline-font-size);
+        line-height: var(--heading-h1-headline-line-height);
     }
 }
 
 h2 {
-    @apply leading-[var(--font-content-line-height-huge)];
-
-    font-size: var(--font-content-size-root-huge);
+    font-size: var(--heading-h2-font-size);
+    line-height: var(--heading-h2-line-height);
 
     &[data-variation~="headline"] {
-        @apply leading-[var(--font-headline-line-height-huge)];
-
-        font-size: var(--font-headline-size-root-huge);
+        font-size: var(--heading-h2-headline-font-size);
+        line-height: var(--heading-h2-headline-line-height);
     }
 }
 
 h3 {
-    @apply leading-[var(--font-content-line-height-large)];
-
-    font-size: var(--font-content-size-root-large);
+    font-size: var(--heading-h3-font-size);
+    line-height: var(--heading-h3-line-height);
 
     &[data-variation~="headline"] {
-        @apply leading-[var(--font-headline-line-height-large)];
-
-        font-size: var(--font-headline-size-root-large);
+        font-size: var(--heading-h3-headline-font-size);
+        line-height: var(--heading-h3-headline-line-height);
     }
 }
 
 h4 {
-    @apply leading-[var(--font-content-line-height-medium)];
-
-    font-size: var(--font-content-size-root-medium);
+    font-size: var(--heading-h4-font-size);
+    line-height: var(--heading-h4-line-height);
 
     &[data-variation~="headline"] {
-        @apply leading-[var(--font-headline-line-height-medium)];
-
-        font-size: var(--font-headline-size-root-medium);
+        font-size: var(--heading-h4-headline-font-size);
+        line-height: var(--heading-h4-headline-line-height);
     }
 }
 
 h5 {
-    @apply leading-[var(--font-content-line-height-small)];
-
-    font-size: var(--font-content-size-root-small);
+    font-size: var(--heading-h5-font-size);
+    line-height: var(--heading-h5-line-height);
 
     &[data-variation~="headline"] {
-        @apply leading-[var(--font-headline-line-height-small)];
-
-        font-size: var(--font-headline-size-root-small);
+        font-size: var(--heading-h5-headline-font-size);
+        line-height: var(--heading-h5-headline-line-height);
     }
 }
 
 h6 {
-    @apply leading-[var(--font-content-line-height-tiny)];
-
-    font-size: var(--font-content-size-root-tiny);
+    font-size: var(--heading-h6-font-size);
+    line-height: var(--heading-h6-line-height);
 
     &[data-variation~="headline"] {
-        @apply leading-[var(--font-headline-line-height-tiny)];
-
-        font-size: var(--font-headline-size-root-tiny);
+        font-size: var(--heading-h6-headline-font-size);
+        line-height: var(--heading-h6-headline-line-height);
     }
 }

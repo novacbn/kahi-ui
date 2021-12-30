@@ -1,21 +1,24 @@
-import {throttle} from "../util/functional";
+import {pick} from "../util/functional";
+import type {IAction, IActionHandle} from "./actions";
 
-import type {IActionHandle} from "./actions";
+/**
+ * Represents the Svelte Action initializer signature for [[keybind]]
+ */
+export type IKeybindAction = IAction<Document | Element, IKeybindOptions, IKeybindHandle>;
 
 /**
  * Represents the Svelte Action handle returned by [[keybind]]
  */
-export type IKeybindAction = IActionHandle<IKeybindOptions>;
+export type IKeybindHandle = Required<IActionHandle<IKeybindOptions>>;
 
 /**
  * Represents the typing for the [[IKeybindOptions.on_bind]] callback
  */
 export type IKeybindCallback = (event: IKeybindEvent) => void;
 
-interface IBindState {
-    is_active(): boolean;
-
-    update(key: string, state: boolean): void;
+interface IParsedBinds {
+    binds: {bind: string; keys: Set<string>}[];
+    keys: Set<string>;
 }
 
 /**
@@ -38,7 +41,7 @@ export interface IKeybindEvent extends CustomEvent {
 }
 
 /**
- * Represents the options passable to the [[click_outside]] Svelte Action
+ * Represents the options passable to the [[keybind]] Svelte Action
  */
 export interface IKeybindOptions {
     /**
@@ -106,63 +109,38 @@ export interface IKeybindOptions {
      * ```
      */
     on_bind: IKeybindCallback;
+
+    /**
+     * Represents if throttled repeat calls should have automatic
+     * cancellation (e.g. `event.preventDefault` / `event.stopPropagation`)
+     */
+    throttle_cancel?: boolean;
 }
 
 /**
- * Holds the internal active state for multiple keybind combinations, when updated
- *
- * ```javascript
- * const state = bindstate(["control+k", "control+/"]);
- *
- * // We're updating the internal state that `ctrl` key was pressed
- * state.update("control", true);
- *
- * // However, the bind is still not active
- * console.log(state.is_active()); // `false`
- *
- * // Now by telling the bind state that the `k` key was pressed
- * state.update("k", true);
- *
- * // We can see the bind is now active
- * console.log(state.is_active()); // `true`
- *
- * // And then, we turn off the bind again by saying the `ctrl` key was released
- * state.update("control", false);
- * console.log(state.is_active()); // `false`
- * ```
  *
  * @internal
  *
  * @param binds
  * @returns
  */
-function bindstate(binds: string | string[]): IBindState {
-    const lookups = (typeof binds === "string" ? [binds] : binds).map((bind) => {
-        const entries = bind.split("+").map<[string, boolean]>((key) => [key, false]);
+function parse_binds(binds: string | string[]): IParsedBinds {
+    if (typeof binds === "string") binds = [binds];
 
-        return new Map(entries);
+    const bind_map = binds.map((bind, index) => {
+        const keys = bind.split("+").map((key, index) => key.toLowerCase());
+
+        return {
+            bind: bind.toLowerCase(),
+            keys: new Set(keys),
+        };
     });
 
+    const key_lookup = new Set(bind_map.map((bind, index) => Array.from(bind.keys.keys())).flat());
+
     return {
-        is_active() {
-            return (
-                lookups.find((lookup) => {
-                    for (const [, active] of lookup) {
-                        if (!active) return false;
-                    }
-
-                    return true;
-                }) !== undefined
-            );
-        },
-
-        update(key, state) {
-            key = key.toLowerCase();
-
-            for (const lookup of lookups) {
-                if (lookup.has(key)) lookup.set(key, state);
-            }
-        },
+        binds: bind_map,
+        keys: key_lookup,
     };
 }
 
@@ -188,32 +166,66 @@ function bindstate(binds: string | string[]): IBindState {
  * @param options
  * @returns
  */
-export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybindAction {
-    let {binds, repeat = false, repeat_throttle = 0, on_bind} = options;
+export const keybind: IKeybindAction = (element, options) => {
+    let {binds, repeat = false, repeat_throttle = 0, throttle_cancel = false, on_bind} = options;
 
-    let cache = false;
-    let state = bindstate(binds);
-    let throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
+    let {binds: bind_map, keys: key_lookup} = parse_binds(binds);
+    let key_state: Map<string, boolean> = new Map();
+    let previous_active: boolean = false;
+    let previous_timestamp: number = Number.MIN_SAFE_INTEGER;
+
+    function is_active(): boolean {
+        for (const bind of bind_map) {
+            let active = true;
+            for (const key of bind.keys) {
+                if (!key_state.get(key)) {
+                    active = false;
+                    break;
+                }
+            }
+
+            if (active) return true;
+        }
+
+        return false;
+    }
 
     function make_key_listener(is_down: boolean): (event: KeyboardEvent) => void {
         return (event) => {
-            if (event.repeat && !repeat) return;
-            state.update(event.key, is_down);
+            const key = event.key.toLowerCase();
+            if (!key_lookup.has(key) || (event.repeat && !repeat)) return;
 
-            const active = state.is_active();
-            if (cache !== active || (active && repeat)) {
+            key_state.set(key, is_down);
+            const active = is_active();
+
+            if (previous_active !== active || (active && repeat)) {
                 const detail: IKeybindEvent["detail"] = {active, repeat: event.repeat};
                 const custom_event: IKeybindEvent = new CustomEvent("bind", {
                     cancelable: true,
                     detail,
                 });
 
-                (event.repeat ? throttled_on_bind : on_bind)(custom_event);
+                const timestamp = Date.now();
+                if (
+                    event.repeat &&
+                    repeat &&
+                    repeat_throttle > 0 &&
+                    timestamp - previous_timestamp < repeat_throttle
+                ) {
+                    if (throttle_cancel) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                } else {
+                    on_bind(custom_event);
 
-                if (custom_event.cancelBubble) custom_event.stopPropagation();
-                if (custom_event.defaultPrevented) custom_event.preventDefault();
+                    if (custom_event.cancelBubble) event.stopPropagation();
+                    if (custom_event.defaultPrevented) event.preventDefault();
 
-                cache = active;
+                    previous_timestamp = timestamp;
+                }
+
+                previous_active = active;
             }
         };
     }
@@ -221,20 +233,32 @@ export function keybind(element: HTMLElement, options: IKeybindOptions): IKeybin
     const on_key_down = make_key_listener(true);
     const on_key_up = make_key_listener(false);
 
+    // @ts-expect-error - HACK: `Document` just doesn't have the event properly typed
     element.addEventListener("keydown", on_key_down);
+    // @ts-expect-error
     element.addEventListener("keyup", on_key_up);
 
     return {
         destroy() {
+            // @ts-expect-error
             element.removeEventListener("keydown", on_key_down);
+            // @ts-expect-error
             element.removeEventListener("keyup", on_key_up);
         },
 
         update(options) {
-            ({binds, repeat = false, repeat_throttle = 0, on_bind} = options);
+            ({
+                binds,
+                repeat = false,
+                repeat_throttle = 0,
+                throttle_cancel = false,
+                on_bind,
+            } = options);
 
-            state = bindstate(binds);
-            throttled_on_bind = repeat_throttle > 0 ? throttle(on_bind, repeat_throttle) : on_bind;
+            ({binds: bind_map, keys: key_lookup} = parse_binds(binds));
+
+            // NOTE: Need to remove previous keys that are now unbound, to clean up memory
+            key_state = pick(key_state, key_lookup);
         },
     };
-}
+};

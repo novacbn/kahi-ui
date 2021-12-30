@@ -6,42 +6,44 @@
 
     import {createEventDispatcher} from "svelte";
 
-    import type {
-        DESIGN_ALIGNMENT_X_SINGULAR_ARGUMENT,
-        DESIGN_ALIGNMENT_Y_SINGULAR_ARGUMENT,
-    } from "../../../types/alignments";
-
+    import type {PROPERTY_ALIGNMENT_X, PROPERTY_ALIGNMENT_Y} from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PLACEMENT_ARGUMENT} from "../../../types/placements";
-    import type {DESIGN_SPACING_SINGULAR_ARGUMENT} from "../../../types/spacings";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PLACEMENT} from "../../../types/placements";
+    import type {PROPERTY_SPACING} from "../../../types/spacings";
 
+    import {click_inside} from "../../../actions/click_inside";
     import {click_outside} from "../../../actions/click_outside";
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {make_id_context} from "../../../stores/id";
     import {make_state_context} from "../../../stores/state";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
+    import {action_exit} from "../../../util/keybind";
 
     type $$Events = {
         active: CustomEvent<void>;
 
         dismiss: CustomEvent<void>;
-    };
+    } & IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLDivElement;
 
         dismissible?: boolean;
         logic_id?: string;
+        once?: boolean;
         state?: boolean;
 
-        placement?: DESIGN_PLACEMENT_ARGUMENT;
+        placement?: PROPERTY_PLACEMENT;
 
-        alignment_x?: DESIGN_ALIGNMENT_X_SINGULAR_ARGUMENT;
-        alignment_y?: DESIGN_ALIGNMENT_Y_SINGULAR_ARGUMENT;
+        alignment_x?: PROPERTY_ALIGNMENT_X;
+        alignment_y?: PROPERTY_ALIGNMENT_Y;
 
-        spacing?: DESIGN_SPACING_SINGULAR_ARGUMENT;
+        spacing?: PROPERTY_SPACING;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -51,6 +53,7 @@
 
     const dispatch = createEventDispatcher();
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
@@ -58,6 +61,7 @@
 
     export let dismissible: $$Props["dismissible"] = undefined;
     export let logic_id: $$Props["logic_id"] = "";
+    export let once: $$Props["once"] = undefined;
     export let state: $$Props["state"] = undefined;
 
     export let placement: $$Props["placement"] = undefined;
@@ -72,12 +76,16 @@
 
     let _previous_state = state;
 
-    function on_change(event: Event) {
+    function on_change(event: Event): void {
         state = (event.target as HTMLInputElement).checked;
     }
 
-    function on_click_outside(event: MouseEvent) {
-        if (state && dismissible) state = false;
+    function on_dismiss(): void {
+        if (dismissible && $_state) state = false;
+    }
+
+    function on_once(): void {
+        if (once && $_state) state = false;
     }
 
     $: $_state = state as boolean;
@@ -90,6 +98,8 @@
         }
     }
 </script>
+
+<svelte:window use:action_exit={{on_bind: on_dismiss}} />
 
 {#if $_logic_id}
     <input
@@ -111,7 +121,29 @@
         placement,
         spacing,
     })}
-    use:click_outside={{on_click_outside}}
+    use:click_inside={{
+        ignore: `label[for="${logic_id}"]`,
+        on_click_inside: on_once,
+    }}
+    use:click_outside={{
+        ignore: `label[for="${logic_id}"]`,
+        on_click_outside: on_dismiss,
+    }}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     <slot />
 </div>

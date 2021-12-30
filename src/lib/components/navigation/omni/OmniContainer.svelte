@@ -12,8 +12,8 @@
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {IIntrinsicProperties} from "../../../types/sizings";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {make_id_context} from "../../../stores/id";
@@ -38,13 +38,13 @@
         logic_id?: string;
         state?: boolean;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
         variation?: "sticky";
     } & IHTML5Properties &
         IGlobalProperties &
-        IIntrinsicProperties &
         IMarginProperties &
-        IPaddingProperties;
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};

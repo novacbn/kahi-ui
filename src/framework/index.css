@@ -19,6 +19,7 @@
 @import url("../lib/components/feedback/wave/wave.theme.css");
 @import url("../lib/components/interactables/button/button.theme.css");
 @import url("../lib/components/interactables/check/check.theme.css");
+@import url("../lib/components/interactables/filedropinput/filedropinput.theme.css");
 @import url("../lib/components/interactables/form/form.theme.css");
 @import url("../lib/components/interactables/radio/radio.theme.css");
 @import url("../lib/components/interactables/switch/switch.theme.css");
@@ -29,22 +30,28 @@
 @import url("../lib/components/navigation/anchor/anchor.theme.css");
 @import url("../lib/components/navigation/breadcrumb/breadcrumb.theme.css");
 @import url("../lib/components/overlays/clickable/clickable.theme.css");
+@import url("../lib/components/widgets/widget/widget.theme.css");
 @import url("../lib/components/surfaces/box/box.theme.css");
 @import url("../lib/components/surfaces/card/card.theme.css");
 @import url("../lib/components/surfaces/hero/hero.theme.css");
 @import url("../lib/components/surfaces/tile/tile.theme.css");
+@import url("../lib/components/typography/blockquote/blockquote.theme.css");
+@import url("../lib/components/typography/code/code.theme.css");
+@import url("../lib/components/typography/heading/heading.theme.css");
+@import url("../lib/components/typography/text/text.theme.css");
 @import url("../lib/components/utilities/transition/transition.theme.css");
 
 @import url("./document.css");
 @import url("./embedded.css");
 
-@import url("../lib/components/typography/blockquote/blockquote.css");
-@import url("../lib/components/typography/code/code.css");
 @import url("../lib/components/typography/heading/heading.css");
 @import url("../lib/components/typography/text/text.css");
+@import url("../lib/components/typography/blockquote/blockquote.css");
+@import url("../lib/components/typography/code/code.css");
 
 @import url("../lib/components/interactables/button/button.css");
 @import url("../lib/components/interactables/check/check.css");
+@import url("../lib/components/interactables/filedropinput/filedropinput.css");
 @import url("../lib/components/interactables/radio/radio.css");
 @import url("../lib/components/interactables/switch/switch.css");
 @import url("../lib/components/interactables/textinput/textinput.css");
@@ -56,6 +63,7 @@
 @import url("../lib/components/embedded/figure/figure.css");
 
 @import url("../lib/components/disclosure/accordion/accordion.css");
+@import url("../lib/components/disclosure/carousel/carousel.css");
 @import url("../lib/components/disclosure/tab/tab.css");
 
 @import url("../lib/components/display/badge/badge.css");
@@ -72,6 +80,9 @@
 @import url("../lib/components/navigation/breadcrumb/breadcrumb.css");
 @import url("../lib/components/navigation/menu/menu.css");
 @import url("../lib/components/navigation/omni/omni.css");
+
+@import url("../lib/components/widgets/timepicker/timerpicker.css");
+@import url("../lib/components/widgets/widget/widget.css");
 
 @import url("../lib/components/surfaces/card/card.css");
 @import url("../lib/components/surfaces/box/box.css");

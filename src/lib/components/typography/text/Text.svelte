@@ -1,18 +1,25 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
-    import type {IMarginProperties} from "../../../types/spacings";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import type {
-        DESIGN_TEXT_ALIGNMENT_ARGUMENT,
-        DESIGN_TEXT_TRANSFORM_ARGUMENT,
-        DESIGN_TEXT_VARIATION_ARGUMENT,
-    } from "../../../types/text";
+        PROPERTY_TEXT_ALIGNMENT,
+        PROPERTY_TEXT_TRANSFORM,
+        PROPERTY_TEXT_VARIATION,
+    } from "../../../types/typography";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
+    type $$Events = IHTML5Events;
+
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLElement | HTMLParagraphElement | HTMLPreElement | HTMLSpanElement;
 
         is?:
@@ -35,21 +42,27 @@
             | "sup"
             | "u";
 
-        align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
-        transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
-        size?: DESIGN_SIZE_ARGUMENT;
+        align?: PROPERTY_TEXT_ALIGNMENT;
+        transform?: PROPERTY_TEXT_TRANSFORM;
+        size?: PROPERTY_SIZING;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        variation?: DESIGN_TEXT_VARIATION_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
+        variation?: PROPERTY_TEXT_VARIATION;
     } & IHTML5Properties &
         IGlobalProperties &
-        IMarginProperties;
+        IMarginProperties &
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 
     export let is: $$Props["is"] = "p";
 
@@ -65,7 +78,23 @@
     <abbr
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </abbr>
@@ -73,7 +102,23 @@
     <b
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </b>
@@ -81,7 +126,23 @@
     <del
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </del>
@@ -89,7 +150,23 @@
     <em
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </em>
@@ -97,7 +174,23 @@
     <i
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </i>
@@ -105,7 +198,23 @@
     <ins
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </ins>
@@ -113,7 +222,23 @@
     <kbd
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text {_class}"
+        {...map_data_attributes({align, palette, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </kbd>
@@ -121,7 +246,23 @@
     <mark
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </mark>
@@ -129,20 +270,51 @@
     <pre
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({
             align,
             palette,
-            size,
             transform,
             variation,
-        })}>
+        })}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup>
             <slot />
     </pre>
 {:else if is === "s"}
     <s
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </s>
@@ -150,7 +322,23 @@
     <samp
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </samp>
@@ -158,7 +346,23 @@
     <small
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text {_class}"
+        {...map_data_attributes({align, palette, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </small>
@@ -166,7 +370,23 @@
     <span
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </span>
@@ -174,7 +394,23 @@
     <strong
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </strong>
@@ -182,7 +418,23 @@
     <sub
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </sub>
@@ -190,7 +442,23 @@
     <sup
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </sup>
@@ -198,7 +466,23 @@
     <u
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </u>
@@ -206,7 +490,23 @@
     <p
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="text {_class}"
         {...map_data_attributes({align, palette, size, transform, variation})}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </p>

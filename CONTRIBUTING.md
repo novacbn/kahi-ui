@@ -165,7 +165,7 @@ After you finish making / testing out your changes, [file a new Pull Request](ht
 
 ## Documentation
 
-...
+Visit [kahi-framework/kahi-ui.nbn.dev/CONTRIBUTING.md](https://github.com/kahi-framework/kahi-ui.nbn.dev/blob/main/CONTRIBUTING.md) for more information on contributing to documentation.
 
 ## Code Formatting
 

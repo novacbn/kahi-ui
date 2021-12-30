@@ -1,10 +1,14 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
-    import type {DESIGN_FILL_BUTTON_VARIATION_ARGUMENT} from "../../../types/variations";
+    import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
+
+    import {behavior_button} from "../../../actions/behavior_button";
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {
         map_aria_attributes,
@@ -13,11 +17,10 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
-    type $$Events = {
-        click: MouseEvent;
-    };
+    type $$Events = IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLAnchorElement | HTMLButtonElement | HTMLInputElement | HTMLLabelElement;
 
         active?: boolean;
@@ -33,9 +36,9 @@
 
         for?: string;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        size?: DESIGN_SIZE_ARGUMENT;
-        variation?: DESIGN_FILL_BUTTON_VARIATION_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
+        size?: PROPERTY_SIZING;
+        variation?: PROPERTY_VARIATION_BUTTON;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -44,9 +47,11 @@
         default: {};
     };
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
+    export let tabindex: $$Props["tabindex"] = 0;
     export {_class as class};
 
     export let active: $$Props["active"] = undefined;
@@ -66,6 +71,10 @@
     export let palette: $$Props["palette"] = undefined;
     export let size: $$Props["size"] = undefined;
     export let variation: $$Props["variation"] = undefined;
+
+    // HACK: Svelte has `tabindex` typed as `number | undefined` unless
+    // you pass a string literal into the markup
+    $: _tabindex = tabindex as number | undefined;
 </script>
 
 {#if href}
@@ -80,7 +89,21 @@
         {href}
         {rel}
         {target}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </a>
@@ -91,9 +114,25 @@
         role="button"
         class="button {_class}"
         for={_for}
+        tabindex={_tabindex}
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({disabled, pressed: active})}
+        use:behavior_button={{enabled: true}}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </label>
@@ -106,7 +145,21 @@
             {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
+            use:forward_actions={{actions}}
             on:click
+            on:contextmenu
+            on:dblclick
+            on:focusin
+            on:focusout
+            on:keydown
+            on:keyup
+            on:pointercancel
+            on:pointerdown
+            on:pointerenter
+            on:pointerleave
+            on:pointermove
+            on:pointerout
+            on:pointerup
         />
     {:else if type === "submit"}
         <input
@@ -116,7 +169,21 @@
             {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
+            use:forward_actions={{actions}}
             on:click
+            on:contextmenu
+            on:dblclick
+            on:focusin
+            on:focusout
+            on:keydown
+            on:keyup
+            on:pointercancel
+            on:pointerdown
+            on:pointerenter
+            on:pointerleave
+            on:pointermove
+            on:pointerout
+            on:pointerup
         />
     {:else}
         <input
@@ -126,7 +193,21 @@
             {...map_data_attributes({palette, size, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
+            use:forward_actions={{actions}}
             on:click
+            on:contextmenu
+            on:dblclick
+            on:focusin
+            on:focusout
+            on:keydown
+            on:keyup
+            on:pointercancel
+            on:pointerdown
+            on:pointerenter
+            on:pointerleave
+            on:pointermove
+            on:pointerout
+            on:pointerup
         />
     {/if}
 {:else}
@@ -136,7 +217,21 @@
         {...map_data_attributes({palette, size, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({disabled})}
+        use:forward_actions={{actions}}
         on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
     >
         <slot />
     </button>

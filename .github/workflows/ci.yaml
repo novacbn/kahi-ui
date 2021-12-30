@@ -31,7 +31,8 @@ jobs:
             - name: Install
               run: npm ci
 
-            ## TODO: Add `svelte-check` / `tsc` step here
+            - name: Test Library
+              run: npm run test
 
             - name: Build Library
               run: npm run build

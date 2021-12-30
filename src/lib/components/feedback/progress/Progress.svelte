@@ -6,10 +6,13 @@
     // rules, we can drop the `--value` scheme
 
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
+
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {
         map_aria_attributes,
@@ -17,18 +20,22 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
+    type $$Events = IHTML5Events;
+
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLDivElement;
 
         value?: number | string;
 
-        palette?: DESIGN_PALETTE_ARGUMENT;
+        palette?: PROPERTY_PALETTE;
         shape?: "circle";
-        size?: DESIGN_SIZE_ARGUMENT;
+        size?: PROPERTY_SIZING;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
 
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let style: $$Props["style"] = undefined;
@@ -49,6 +56,21 @@
     role="progressbar"
     {...map_aria_attributes({valuemax: 1, valuemin: 0, valuenow: value})}
     {...map_data_attributes({palette, size})}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
 >
     {#if shape === "circle"}
         <svg viewBox="0 0 32 32">

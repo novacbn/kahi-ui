@@ -1,33 +1,47 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
-    import type {IHTML5Properties} from "../../../types/html5";
-    import type {DESIGN_PALETTE_ARGUMENT} from "../../../types/palettes";
-    import type {DESIGN_RESIZEABLE_ARGUMENT} from "../../../types/resizable";
-    import type {DESIGN_SIZE_ARGUMENT} from "../../../types/sizes";
+    import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_RESIZEABLE} from "../../../types/resizable";
+    import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
-    import type {
-        DESIGN_TEXT_ALIGNMENT_ARGUMENT,
-        DESIGN_TEXT_TRANSFORM_ARGUMENT,
-    } from "../../../types/text";
-    import type {DESIGN_FILL_INPUT_VARIATION_ARGUMENT} from "../../../types/variations";
+    import type {PROPERTY_TEXT_ALIGNMENT, PROPERTY_TEXT_TRANSFORM} from "../../../types/typography";
+    import type {PROPERTY_VARIATION_INPUT} from "../../../types/variations";
+
+    import type {IMaskInputEvent} from "../../../actions/mask_input";
+    import {mask_input} from "../../../actions/mask_input";
+    import type {IForwardedActions} from "../../../actions/forward_actions";
+    import {forward_actions} from "../../../actions/forward_actions";
 
     import {
         map_attributes,
         map_data_attributes,
         map_global_attributes,
     } from "../../../util/attributes";
+    import {create_event_forwarder} from "../../../util/svelte";
 
     import {CONTEXT_FORM_ID, CONTEXT_FORM_NAME} from "../form/FormGroup.svelte";
 
     type $$Events = {
+        /**
+         * @deprecated Use `on:focusout` instead.
+         */
         blur: FocusEvent;
+
         change: InputEvent;
-        click: MouseEvent;
+
+        /**
+         * @deprecated Use `on:focusin` instead.
+         */
         focus: FocusEvent;
+
         input: InputEvent;
-    };
+
+        mask: IMaskInputEvent;
+    } & IHTML5Events;
 
     type $$Props = {
+        actions?: IForwardedActions;
         element?: HTMLInputElement | HTMLTextAreaElement;
 
         is?: "input" | "textarea";
@@ -40,6 +54,7 @@
         placeholder?: string;
         value?: string;
 
+        mask?: boolean;
         max_length?: number | undefined;
         min_length?: number | undefined;
         pattern?: RegExp | string;
@@ -47,18 +62,21 @@
         characters?: number;
 
         lines?: number;
-        resizable?: DESIGN_RESIZEABLE_ARGUMENT;
+        resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
 
-        align?: DESIGN_TEXT_ALIGNMENT_ARGUMENT;
-        palette?: DESIGN_PALETTE_ARGUMENT;
-        size?: DESIGN_SIZE_ARGUMENT;
-        transform?: DESIGN_TEXT_TRANSFORM_ARGUMENT;
-        variation?: DESIGN_FILL_INPUT_VARIATION_ARGUMENT;
+        align?: PROPERTY_TEXT_ALIGNMENT;
+        palette?: PROPERTY_PALETTE;
+        size?: PROPERTY_SIZING;
+        transform?: PROPERTY_TEXT_TRANSFORM;
+        variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
 
+    const forward = create_event_forwarder();
+
+    export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
     export let id: $$Props["id"] = "";
@@ -74,6 +92,7 @@
     export let placeholder: $$Props["placeholder"] = "";
     export let value: $$Props["value"] = "";
 
+    export let mask: $$Props["mask"] = undefined;
     export let max_length: $$Props["max_length"] = undefined;
     export let min_length: $$Props["min_length"] = undefined;
     export let pattern: $$Props["pattern"] = "";
@@ -92,6 +111,10 @@
 
     const _form_id = CONTEXT_FORM_ID.get();
     const _form_name = CONTEXT_FORM_NAME.get();
+
+    function on_mask(event: IMaskInputEvent): void {
+        forward("mask", event);
+    }
 
     $: _id = _form_id ? $_form_id : id;
     $: _name = _form_name ? $_form_name : name;
@@ -117,10 +140,25 @@
             rows: lines,
             spellcheck: spell_check === undefined ? undefined : spell_check.toString(),
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
         on:blur
         on:change
-        on:click
         on:focus
         on:input
     />
@@ -143,10 +181,25 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
         on:blur
         on:change
-        on:click
         on:focus
         on:input
     />
@@ -169,10 +222,25 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
         on:blur
         on:change
-        on:click
         on:focus
         on:input
     />
@@ -195,10 +263,25 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
         on:blur
         on:change
-        on:click
         on:focus
         on:input
     />
@@ -221,10 +304,25 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
         on:blur
         on:change
-        on:click
         on:focus
         on:input
     />
@@ -247,10 +345,25 @@
             size: characters,
             value,
         })}
+        use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
         on:blur
         on:change
-        on:click
         on:focus
         on:input
     />

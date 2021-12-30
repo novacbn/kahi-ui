@@ -1,9 +1,18 @@
-import type {IActionHandle} from "./actions";
+import type {IAction, IActionHandle} from "./actions";
+
+/**
+ * Represents the Svelte Action initializer signature for [[mutation_observer]]
+ */
+export type IMutationObserverAction = IAction<
+    Node,
+    IMutationObserverOptions,
+    IMutationObserverHandle
+>;
 
 /**
  * Represents the Svelte Action handle returned by [[mutation_observer]]
  */
-export type IMutationObserverAction = IActionHandle<IMutationObserverOptions>;
+export type IMutationObserverHandle = Required<IActionHandle<IMutationObserverOptions>>;
 
 /**
  * Represents the typing for the [[IMutationObserverOptions.on_mutate]] callback
@@ -64,14 +73,11 @@ export interface IMutationObserverOptions {
  * Represents a Svelte Action that encapsulates the [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
  * Web API to easily integrate into Svelte
  *
- * @param element
+ * @param node
  * @param options
  * @returns
  */
-export function mutation_observer(
-    element: HTMLElement,
-    options: IMutationObserverOptions
-): IMutationObserverAction {
+export const mutation_observer: IMutationObserverAction = (node, options) => {
     let {
         attributes,
         attribute_filter,
@@ -87,7 +93,7 @@ export function mutation_observer(
         on_mutate(mutations);
     });
 
-    observer.observe(element, {
+    observer.observe(node, {
         attributes,
         attributeFilter: attribute_filter,
         attributeOldValue: attribute_old_value,
@@ -98,6 +104,10 @@ export function mutation_observer(
     });
 
     return {
+        destroy() {
+            observer.disconnect();
+        },
+
         update(options: IMutationObserverOptions) {
             ({
                 attributes,
@@ -111,7 +121,7 @@ export function mutation_observer(
             } = options);
 
             observer.disconnect();
-            observer.observe(element, {
+            observer.observe(node, {
                 attributes,
                 attributeFilter: attribute_filter,
                 attributeOldValue: attribute_old_value,
@@ -121,9 +131,5 @@ export function mutation_observer(
                 subtree,
             });
         },
-
-        destroy() {
-            observer.disconnect();
-        },
     };
-}
+};

@@ -2,6 +2,27 @@
 
 ## UNRELEASED
 
+-   Removed Components / Component Features
+
+    -   Display / Feedback
+
+        -   `Badge` / `Dot`
+
+            -   **(BREAKING)** `<Badge/Dot position>` — Removed previously deprecated feature in favor of `Position` Component.
+
+    -   Interactables
+
+        -   `Check` / `Radio` / `Switch` / `TextInput`
+
+            -   **(BREAKING)** `<Check/Radio/Switch/TextInput on:blur on:focus>` — Removed previously deprecated feature in favor of `<* on:focusin on:focusout>` events.
+
+    -   Layouts
+
+        -   `Spacer`
+
+            -   **(BREAKING)** `<Spacer orientation>` — Removed previously deprecated feature in favor of `<Spacer spacing_x spacing_y>` properties.
+            -   **(BREAKING)** `<Spacer variation>` — Removed previously deprecated feature in favor of `<Spacer is="div/span">` property.
+
 -   Updated the following Components / Component Features
 
     -   Feedback

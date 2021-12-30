@@ -109,7 +109,7 @@
             })}
         </WidgetHeader>
 
-        <Spacer variation="inline" />
+        <Spacer is="span" />
 
         <WidgetButton
             disabled={disabled || !is_month_in_range(_month, undefined, min)}

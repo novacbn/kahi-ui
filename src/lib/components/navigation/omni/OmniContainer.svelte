@@ -2,6 +2,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {PROPERTY_PLACEMENT_Y} from "../../../types/placements";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
@@ -11,6 +12,8 @@
 
     type $$Props = {
         element?: HTMLElement;
+
+        placement?: PROPERTY_PLACEMENT_Y;
 
         palette?: PROPERTY_PALETTE;
         variation?: "sticky";
@@ -29,6 +32,8 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    export let placement: $$Props["placement"] = undefined;
+
     export let palette: $$Props["palette"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 </script>
@@ -37,7 +42,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="omni {_class}"
-    {...map_data_attributes({palette, variation})}
+    {...map_data_attributes({palette, placement, variation})}
     on:click
     on:contextmenu
     on:dblclick

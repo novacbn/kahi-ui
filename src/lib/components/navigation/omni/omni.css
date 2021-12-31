@@ -4,10 +4,9 @@
 
     display: flex;
 
-    justify-content: space-between;
-
     position: relative;
 
+    gap: var(--omni-gap-y) var(--omni-gap-x);
     padding: var(--omni-padding-y) var(--omni-padding-x);
 
     background: rgb(var(--palette-background-normal));
@@ -30,13 +29,14 @@
 
     &[data-variation~="sticky"] {
         position: sticky;
+        left: 0;
 
         &:is(:not([data-placement]), [data-placement="top"]) {
             top: 0;
         }
 
         &[data-placement="bottom"] {
-            bottom: 0;
+            top: 100%;
         }
     }
 }
@@ -85,4 +85,8 @@
     justify-content: center;
 
     gap: var(--omni-section-gap-y) var(--omni-section-gap-x);
+}
+
+.omni > :is(footer, section) {
+    flex-grow: 1;
 }

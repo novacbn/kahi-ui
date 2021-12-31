@@ -6,6 +6,8 @@
 
     --omni-border-width: 2px;
     --omni-border-opacity: 0.1;
+    --omni-gap-x: var(--spacing-local-small);
+    --omni-gap-y: var(--spacing-local-small);
     --omni-padding-x: var(--spacing-root-large);
     --omni-padding-y: var(--spacing-root-medium);
 

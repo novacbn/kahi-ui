@@ -22,6 +22,11 @@
         ["affirmative", false],
         ["negative", false],
     ];
+
+    const PLACEMENTS = [
+        ["left", true],
+        ["right", false],
+    ];
 </script>
 
 <Meta title="Navigation/Aside" />
@@ -104,4 +109,43 @@
             </Aside.Container>
         {/each}
     </Mosaic>
+</Story>
+
+<Story name="Sticky">
+    {#each PLACEMENTS as [placement, is_default] (placement)}
+        <Aside.Container
+            palette="inverse"
+            variation="sticky"
+            max_width="content-max"
+            height="viewport-100"
+            {placement}
+        >
+            <Aside.Header>
+                <Anchor href="#">Kahi UI</Anchor>
+                <Divider />
+            </Aside.Header>
+
+            <Aside.Section>
+                <Menu.Container>
+                    <Menu.Heading>FEEDBACK</Menu.Heading>
+
+                    <Menu.Button>
+                        Dot
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+
+                    <Menu.Button active>
+                        Spinner
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+                </Menu.Container>
+            </Aside.Section>
+
+            <Aside.Footer>
+                {`${placement.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+            </Aside.Footer>
+        </Aside.Container>
+    {/each}
 </Story>

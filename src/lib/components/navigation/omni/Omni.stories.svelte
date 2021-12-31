@@ -21,6 +21,11 @@
         ["affirmative", false],
         ["negative", false],
     ];
+
+    const PLACEMENTS = [
+        ["top", true],
+        ["bottom", false],
+    ];
 </script>
 
 <Meta title="Navigation/Omni" />
@@ -79,3 +84,33 @@
         {/each}
     </Stack>
 </Story>
+
+<Story name="Sticky">
+    {#each PLACEMENTS as [placement, is_default] (placement)}
+        <Omni.Container palette="inverse" variation="sticky" width="viewport-100" {placement}>
+            <Omni.Header>
+                <Anchor href="#">Kahi UI</Anchor>
+                <Divider orientation="vertical" />
+                <Text is="small">
+                    {`${placement.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+            </Omni.Header>
+
+            <Omni.Footer>
+                <Menu.Container orientation="horizontal">
+                    <Menu.Button variation="clear">GitHub</Menu.Button>
+                </Menu.Container>
+            </Omni.Footer>
+        </Omni.Container>
+    {/each}
+</Story>
+
+<svelte:head>
+    <style>
+        html,
+        body,
+        #root {
+            min-height: 100vh;
+        }
+    </style>
+</svelte:head>

@@ -44,9 +44,9 @@
     } from "./PopoverGroup.svelte";
 
     type $$Events = {
-        animationend: AnimationEvent;
+        transitionend: TransitionEvent;
 
-        animationstart: AnimationEvent;
+        transitionstart: TransitionEvent;
     } & IHTML5Events;
 
     type $$Props = {
@@ -161,8 +161,8 @@
     on:pointermove
     on:pointerout
     on:pointerup
-    on:animationend
-    on:animationstart
+    on:transitionend
+    on:transitionstart
 >
     <!-- NOTE: Bit confusing, but basically checking if the `Popover` is active / state unavailable or loading mode isn't lazy -->
     {#if !_popover_id || (_popover_state && $_popover_state) || !_popover_loading || $_popover_loading !== TOKENS_BEHAVIOR_LOADING.lazy}

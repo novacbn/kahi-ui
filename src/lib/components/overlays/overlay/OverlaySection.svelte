@@ -37,9 +37,9 @@
     } from "./OverlayGroup.svelte";
 
     type $$Events = {
-        animationend: AnimationEvent;
+        transitionend: TransitionEvent;
 
-        animationstart: AnimationEvent;
+        transitionstart: TransitionEvent;
     } & IHTML5Events;
 
     type $$Props = {
@@ -148,8 +148,8 @@
     on:pointermove
     on:pointerout
     on:pointerup
-    on:animationend
-    on:animationstart
+    on:transitionend
+    on:transitionstart
 >
     <!-- NOTE: Bit confusing, but basically checking if the `Overlay` is active / state unavailable or loading mode isn't lazy -->
     {#if !_overlay_id || (_overlay_state && $_overlay_state) || !_overlay_loading || $_overlay_loading !== TOKENS_BEHAVIOR_LOADING.lazy}

@@ -43,7 +43,6 @@
 @import url("../lib/components/typography/code/code.theme.css");
 @import url("../lib/components/typography/heading/heading.theme.css");
 @import url("../lib/components/typography/text/text.theme.css");
-@import url("../lib/components/utilities/transition/transition.theme.css");
 
 @import url("./document.css");
 @import url("./embedded.css");

@@ -27,6 +27,7 @@
 @import url("../lib/components/layouts/container/container.theme.css");
 @import url("../lib/components/layouts/divider/divider.theme.css");
 @import url("../lib/components/layouts/group/group.theme.css");
+@import url("../lib/components/layouts/position/position.theme.css");
 @import url("../lib/components/navigation/anchor/anchor.theme.css");
 @import url("../lib/components/navigation/aside/aside.theme.css");
 @import url("../lib/components/navigation/breadcrumb/breadcrumb.theme.css");

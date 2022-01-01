@@ -1,0 +1,5 @@
+:root {
+    /** */
+
+    --position-action-margin: var(--spacing-root-tiny);
+}

@@ -17,7 +17,10 @@
         actions?: IForwardedActions;
         element?: HTMLElement;
 
-        variation?: "floated" | "raised";
+        /**
+         * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
+         */
+        variation?: "action" | "floated" | "indicator" | "raised";
 
         alignment_x?: PROPERTY_ALIGNMENT_X;
         placement?: PROPERTY_PLACEMENT;

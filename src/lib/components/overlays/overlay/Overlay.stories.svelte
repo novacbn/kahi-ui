@@ -3,6 +3,7 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import Divider from "../../layouts/divider/Divider.svelte";
+    import Position from "../../layouts/position/Position.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Anchor from "../../navigation/anchor/Anchor.svelte";
     import * as Aside from "../../navigation/aside";
@@ -90,9 +91,9 @@
 </Story>
 
 <Story name="Preview - Aside Drawer">
-    <div style="position:fixed;bottom:0;left:0;" data-hidden="desktop widescreen">
+    <Position variation="action" alignment_x="left" hidden="desktop widescreen">
         <Button for="overlay-preview-drawer" margin_left="small" margin_bottom="small">+</Button>
-    </div>
+    </Position>
 
     <Overlay.Container logic_id="overlay-preview-aside-drawer" captive dismissible>
         <Overlay.Section

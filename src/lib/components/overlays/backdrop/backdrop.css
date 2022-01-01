@@ -1,11 +1,13 @@
 .backdrop {
+    --animation-visible: 1;
+
     display: block;
     position: fixed;
 
     inset: 0;
 
     background: rgba(var(--backdrop-background-color), var(--backdrop-background-opacity));
-    opacity: 1;
+    opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
 
     transition: opacity var(--animation-reveal-duration) var(--animation-reveal-function);
 

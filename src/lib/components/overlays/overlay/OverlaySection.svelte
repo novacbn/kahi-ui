@@ -118,6 +118,7 @@
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
+        variation: _overlay_id ? "explicit" : "",
     })}
     use:click_inside={{
         ignore: _overlay_id ? `label[for="${$_overlay_id}"]` : undefined,

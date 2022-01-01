@@ -127,6 +127,7 @@
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
+        variation: _popover_id ? "explicit" : "",
     })}
     use:click_inside={{
         ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,

@@ -80,38 +80,21 @@
             transform: translate(100%, 0%);
         }
     }
-
-    &.transition > * {
-        /**
-         * HACK: Using a `visibility` CSS property animation to create a hacky way of
-         * skipping the first animation on first load
-         */
-        animation: visibility-hack 0.01s forwards paused;
-    }
 }
 
 input[type="checkbox"][role="presentation"] {
     &:not(:checked) + .popover {
+        & > section {
+            pointer-events: none;
+        }
+
         & > .transition {
             /**
              * HACK: We're abusing `Transition` Component's internal state CSS vars to
              * make `Overlay` transitions SSR-able
              */
-            --animation: var(--animation-exit);
-        }
-    }
 
-    &:checked + .popover {
-        & > section > * {
-            animation-play-state: running;
-        }
-
-        & > .transition {
-            /**
-             * HACK: We're abusing `Transition` Component's internal state CSS vars to
-             * make`Overlay` transitions SSR-able
-             */
-            --animation: var(--animation-enter);
+            --animation-visible: 0;
         }
     }
 }

@@ -34,14 +34,6 @@
 
     inset: 0;
 
-    &.transition > * {
-        /**
-         * HACK: Using a `visibility` CSS property animation to create a hacky way of
-         * skipping the first animation on first load
-         */
-        animation: visibility-hack 0.01s forwards paused;
-    }
-
     & > * {
         pointer-events: auto;
     }
@@ -49,41 +41,23 @@
 
 .overlay,
 .overlay > section {
-    /** HACK: `@keyframes` settings override this, we need to use `!important` to prevent that */
-    pointer-events: none !important;
+    pointer-events: none;
 }
 
 input[type="checkbox"][role="presentation"] {
     &:not(:checked) + .overlay {
-        & > .backdrop {
-            opacity: 0;
-        }
-
-        & > .transition {
+        & > :is(.backdrop, .transition) {
             /**
-             * HACK: We're abusing `Transition` Component's internal state CSS vars to
-             * make`Overlay` transitions SSR-able
+             * HACK: We're abusing `Backdrop` / `Transition` Component's internal state CSS vars to
+             * make `Overlay` transitions SSR-able
              */
-            --animation: var(--animation-exit);
+
+            --animation-visible: 0;
         }
 
         & > .backdrop,
         & > section > * {
             pointer-events: none;
-        }
-    }
-
-    &:checked + .overlay {
-        & > section > * {
-            animation-play-state: running;
-        }
-
-        & > .transition {
-            /**
-             * HACK: We're abusing `Transition` Component's internal state CSS vars to
-             * make`Overlay` transitions SSR-able
-             */
-            --animation: var(--animation-enter);
         }
     }
 }

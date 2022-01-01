@@ -1,5 +1,4 @@
 import {query_focusable_element} from "../util/element";
-import {animation_frame} from "../util/promisify";
 
 import type {IAction, IActionHandle} from "./actions";
 
@@ -41,14 +40,7 @@ export const auto_focus: IAutoFocusAction = (element, options) => {
     let {enabled, target} = options;
     let previous_element: HTMLElement | null = null;
 
-    async function capture_focus(): Promise<void> {
-        // HACK: Extremely curious how portable this implementation is... basically we're skipping
-        // three frames of animation to support `Overlay` / `Popover`'s usage of a `visibility: hidden`
-        // CSS animation as state hack. Which works around CSS animations playing on mount
-        await animation_frame();
-        await animation_frame();
-        await animation_frame();
-
+    function capture_focus(): void {
         const queried_element = query_target();
         if (queried_element) {
             previous_element = document.activeElement as HTMLElement;

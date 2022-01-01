@@ -21,6 +21,22 @@ export enum TOKENS_VARIATION_FILL {
 }
 
 /**
+ * Represents the tiers of filling positional tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_POSITION {
+    "action" = "action",
+
+    /**
+     * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
+     */
+    "floated" = "floated",
+
+    "indicator" = "indicator",
+
+    "raised" = "raised",
+}
+
+/**
  * Represents the tiers of transition variation tokens that can be applied to Framework Components
  */
 export enum TOKENS_VARIATION_TRANSITION {
@@ -72,6 +88,17 @@ export type PROPERTY_VARIATION_SURFACE = LiteralEnum<keyof typeof TOKENS_VARIATI
 
 export type PROPERTY_VARIATION_TABLE = ArrayEnum<LiteralEnum<TOKENS_VARIATION_TABLE>>;
 
+export type PROPERTY_VARIATION_POSITION = LiteralEnum<keyof typeof TOKENS_VARIATION_POSITION>;
+
+export type PROPERTY_VARIATION_POSITION_AUGMENT =
+    | PROPERTY_VARIATION_POSITION
+    | ["container", PROPERTY_VARIATION_POSITION]
+    | ["viewport", PROPERTY_VARIATION_POSITION];
+
 export type PROPERTY_VARIATION_TRANSITION = LiteralEnum<keyof typeof TOKENS_VARIATION_TRANSITION>;
+
+export type PROPERTY_VARIATION_TRANSITION_EXPLICIT =
+    | PROPERTY_VARIATION_TRANSITION
+    | ["explicit", PROPERTY_VARIATION_TRANSITION];
 
 export type PROPERTY_VARIATION_TOGGLE = LiteralEnum<keyof typeof TOKENS_VARIATION_TOGGLE>;

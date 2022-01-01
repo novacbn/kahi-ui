@@ -3,7 +3,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_TRANSITION_NAMES} from "../../../types/transitions";
-    import type {PROPERTY_VARIATION_TRANSITION} from "../../../types/variations";
+    import type {PROPERTY_VARIATION_TRANSITION_EXPLICIT} from "../../../types/variations";
 
     import {
         format_css_variables,
@@ -28,10 +28,7 @@
         delay?: number | string;
         duration?: number | string;
         direction?: PROPERTY_DIRECTIONS;
-        variation?:
-            | "explicit"
-            | PROPERTY_VARIATION_TRANSITION
-            | ("explicit" | PROPERTY_VARIATION_TRANSITION)[];
+        variation?: PROPERTY_VARIATION_TRANSITION_EXPLICIT;
     } & IHTML5Properties &
         IGlobalProperties;
 

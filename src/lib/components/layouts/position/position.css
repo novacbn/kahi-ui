@@ -1,7 +1,7 @@
 .position {
     display: inline-block;
 
-    &[data-variation="action"] {
+    &[data-variation~="action"] {
         position: fixed;
 
         &:is(:not([data-placement]), [data-placement="bottom"]) {
@@ -21,7 +21,7 @@
         }
     }
 
-    &:is([data-variation="floated"], [data-variation="indicator"]) {
+    &:is([data-variation~="floated"], [data-variation~="indicator"]) {
         position: absolute;
 
         &:is(:not([data-placement]), [data-placement="top"]) {
@@ -53,7 +53,7 @@
         }
     }
 
-    &[data-variation="raised"] {
+    &[data-variation~="raised"] {
         position: relative;
 
         &:is(:not([data-placement]), [data-placement="top"]) {
@@ -71,5 +71,13 @@
         &[data-placement="right"] {
             transform: translateX(50%);
         }
+    }
+
+    &[data-variation~="container"] {
+        position: absolute;
+    }
+
+    &[data-variation~="viewport"] {
+        position: fixed;
     }
 }

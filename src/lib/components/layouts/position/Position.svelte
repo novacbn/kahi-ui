@@ -5,6 +5,7 @@
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import type {PROPERTY_VARIATION_POSITION_AUGMENT} from "../../../types/variations";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -20,7 +21,7 @@
         /**
          * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
          */
-        variation?: "action" | "floated" | "indicator" | "raised";
+        variation?: PROPERTY_VARIATION_POSITION_AUGMENT;
 
         alignment_x?: PROPERTY_ALIGNMENT_X;
         placement?: PROPERTY_PLACEMENT;

@@ -2,29 +2,32 @@
     display: inline-block;
 
     &[data-variation~="action"] {
+        --spacing-x: var(--position-action-margin-x);
+        --spacing-y: var(--position-action-margin-y);
+
         position: fixed;
 
-        &:is(:not([data-placement]), [data-placement="bottom"]) {
-            bottom: var(--position-action-margin);
-        }
-
-        &[data-placement="top"] {
-            top: var(--position-action-margin);
-        }
-
         &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
-            right: var(--position-action-margin);
+            right: var(--spacing-x);
         }
 
         &[data-alignment-x="left"] {
-            left: var(--position-action-margin);
+            left: var(--spacing-x);
+        }
+
+        &:is(:not([data-alignment-y]), [data-alignment-y="bottom"]) {
+            bottom: var(--spacing-y);
+        }
+
+        &[data-alignment-y="top"] {
+            top: var(--spacing-y);
         }
     }
 
     &:is([data-variation~="floated"], [data-variation~="indicator"]) {
         position: absolute;
 
-        &:is(:not([data-placement]), [data-placement="top"]) {
+        &:is(:not([data-alignment-y]), [data-alignment-y="top"]) {
             top: 0;
 
             &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
@@ -38,7 +41,7 @@
             }
         }
 
-        &[data-placement="bottom"] {
+        &[data-alignment-y="bottom"] {
             bottom: 0;
 
             &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {

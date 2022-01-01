@@ -9,17 +9,17 @@
 
     import Position from "./Position.svelte";
 
-    const ALIGNMENTS = [
+    const ALIGNMENTS_X = [
         ["left", false],
         ["right", true],
     ];
 
-    const PLACEMENTS_ACTION = [
+    const ALIGNMENTS_Y_ACTION = [
         ["bottom", true],
         ["top", false],
     ];
 
-    const PLACEMENTS_INDICATOR = [
+    const ALIGNMENTS_Y_INDICATOR = [
         ["top", true],
         ["bottom", false],
     ];
@@ -32,13 +32,15 @@
 </Template>
 
 <Story name="Action">
-    {#each PLACEMENTS_ACTION as [placement, is_default_placement] (placement)}
-        {#each ALIGNMENTS as [alignment_x, is_default_alignment] (alignment_x)}
-            <Position variation="action" {placement} {alignment_x}>
+    {#each ALIGNMENTS_Y_ACTION as [alignment_y, is_default_alignment_y] (alignment_y)}
+        {#each ALIGNMENTS_X as [alignment_x, is_default_alignment_x] (alignment_x)}
+            <Position variation="action" {alignment_x} {alignment_y}>
                 <Button palette="accent">
-                    {`${placement.toUpperCase()}${
-                        is_default_placement ? " / DEFAULT" : ""
-                    }`}x{`${alignment_x.toUpperCase()}${is_default_alignment ? " / DEFAULT" : ""}`}
+                    {`${alignment_y.toUpperCase()}${
+                        is_default_alignment_y ? " / DEFAULT" : ""
+                    }`}x{`${alignment_x.toUpperCase()}${
+                        is_default_alignment_x ? " / DEFAULT" : ""
+                    }`}
                 </Button>
             </Position>
         {/each}
@@ -54,14 +56,16 @@
         width="viewport-100"
         height="viewport-100"
     >
-        {#each PLACEMENTS_INDICATOR as [placement, is_default_placement] (placement)}
-            {#each ALIGNMENTS as [alignment_x, is_default_alignment] (alignment_x)}
+        {#each ALIGNMENTS_Y_INDICATOR as [alignment_y, is_default_alignment_y] (alignment_y)}
+            {#each ALIGNMENTS_X as [alignment_x, is_default_alignment_x] (alignment_x)}
                 <Button palette="accent">
-                    {`${placement.toUpperCase()}${
-                        is_default_placement ? " / DEFAULT" : ""
-                    }`}x{`${alignment_x.toUpperCase()}${is_default_alignment ? " / DEFAULT" : ""}`}
+                    {`${alignment_y.toUpperCase()}${
+                        is_default_alignment_y ? " / DEFAULT" : ""
+                    }`}x{`${alignment_x.toUpperCase()}${
+                        is_default_alignment_x ? " / DEFAULT" : ""
+                    }`}
 
-                    <Position variation="indicator" {placement} {alignment_x}>
+                    <Position variation="indicator" {alignment_x} {alignment_y}>
                         <Badge palette="negative" shape="pill">+99</Badge>
                     </Position>
                 </Button>

@@ -1,5 +1,6 @@
 :root {
     /** */
 
-    --position-action-margin: var(--spacing-root-small);
+    --position-action-margin-x: var(--spacing-root-small);
+    --position-action-margin-y: var(--spacing-root-small);
 }

@@ -94,9 +94,7 @@
 
 <Story name="Preview - Aside Drawer">
     <Position variation="action" alignment_x="left" hidden={["desktop", "widescreen"]}>
-        <Button for="overlay-preview-aside-drawer" margin_left="small" margin_bottom="small">
-            +
-        </Button>
+        <Button for="overlay-preview-aside-drawer">+</Button>
     </Position>
 
     <Overlay.Container logic_id="overlay-preview-aside-drawer" dismissible>
@@ -146,14 +144,9 @@
                     </Anchor>
                 </Aside.Footer>
 
-                <div
-                    style="position:absolute;bottom:0;right:0;transform:translateX(100%);"
-                    data-hidden="desktop widescreen"
-                    data-padding-left="small"
-                    data-padding-bottom="small"
-                >
-                    <Overlay.Button variation="clear" palette="inverse">x</Overlay.Button>
-                </div>
+                <Position variation="action" alignment_x="left" hidden={["desktop", "widescreen"]}>
+                    <Overlay.Button variation="clear">x</Overlay.Button>
+                </Position>
             </Aside.Container>
         </Overlay.Section>
     </Overlay.Container>

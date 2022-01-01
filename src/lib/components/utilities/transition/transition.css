@@ -2,26 +2,30 @@
     --delay: 0;
     --duration: 1;
 
-    --animation: unset;
+    --animation-name: unset;
     --animation-duration: calc(var(--animation-reveal-duration) * var(--duration));
     --animation-delay: calc(var(--animation-reveal-duration) * var(--delay));
     --animation-enter: unset;
     --animation-exit: unset;
     --animation-function: var(--animation-reveal-function);
-
-    animation: var(--animation) var(--animation-duration) var(--animation-function)
-        var(--animation-delay) both;
+    --animation-visible: 1;
 
     &[data-variation~="enter"] {
-        --animation: var(--animation-enter);
+        --animation-name: var(--animation-enter);
+        --animation-visible: 1;
     }
 
     &[data-variation~="exit"] {
-        --animation: var(--animation-exit);
+        --animation-name: var(--animation-exit);
+        --animation-visible: 0;
     }
 }
 
-.transition[data-animation="clip"] {
+.transition:not([data-variation~="explicit"]) {
+    animation: var(--animation-name) var(--animation-duration) var(--animation-function)
+        var(--animation-delay) both;
+
+    &[data-animation~="clip"] {
         &:is(:not([data-direction]), [data-direction="bottom"]) {
             --animation-enter: transition-clip-bottom-enter;
             --animation-exit: transition-clip-bottom-exit;
@@ -43,17 +47,17 @@
         }
     }
 
-.transition[data-animation="fade"] {
+    &[data-animation~="fade"] {
         --animation-enter: transition-fade-enter;
         --animation-exit: transition-fade-exit;
     }
 
-.transition[data-animation="scale"] {
+    &[data-animation~="scale"] {
         --animation-enter: transition-scale-enter;
         --animation-exit: transition-scale-exit;
     }
 
-.transition[data-animation="slide"] {
+    &[data-animation~="slide"] {
         &:is(:not([data-direction]), [data-direction="bottom"]) {
             --animation-enter: transition-slide-bottom-enter;
             --animation-exit: transition-slide-bottom-exit;
@@ -74,6 +78,98 @@
             --animation-exit: transition-slide-right-exit;
         }
     }
+}
+
+.transition[data-variation~="explicit"] {
+    &[data-animation~="clip"] {
+        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+
+        transition: clip-path var(--animation-duration) var(--animation-function)
+                var(--animation-delay),
+            opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
+                calc(var(--animation-delay) + var(--animation-duration) * 0.25);
+
+        &:is(:not([data-direction]), [data-direction="bottom"]) {
+            clip-path: inset(
+                calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10% -10% -10%
+            );
+        }
+
+        &[data-direction="top"] {
+            clip-path: inset(
+                -10% -10%
+                    calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10%
+            );
+        }
+
+        &[data-direction="left"] {
+            clip-path: inset(
+                -10% calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10% -10%
+            );
+        }
+
+        &[data-direction="right"] {
+            clip-path: inset(
+                -10% -10% -10% calc(-10% * var(--animation-visible) + 100% * (1 -
+                                    var(--animation-visible)))
+            );
+        }
+    }
+
+    &[data-animation~="fade"] {
+        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+
+        transition: opacity var(--animation-duration) var(--animation-function)
+            var(--animation-delay);
+    }
+
+    &[data-animation~="scale"] {
+        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+        transform: scale(calc(1 * var(--animation-visible) + 0.5 * (1 - var(--animation-visible))));
+
+        transition: transform var(--animation-duration) var(--animation-function)
+                var(--animation-delay),
+            opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
+                calc(var(--animation-delay) + var(--animation-duration) * 0.25);
+    }
+
+    &[data-animation~="slide"] {
+        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+
+        transition: transform var(--animation-duration) var(--animation-function)
+                var(--animation-delay),
+            opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
+                calc(var(--animation-delay) + var(--animation-duration) * 0.25);
+
+        &:is(:not([data-direction]), [data-direction="bottom"]) {
+            transform: translate(
+                0%,
+                calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible)))
+            );
+        }
+
+        &[data-direction="top"] {
+            transform: translate(
+                0%,
+                calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible)))
+            );
+        }
+
+        &[data-direction="left"] {
+            transform: translate(
+                calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible))),
+                0%
+            );
+        }
+
+        &[data-direction="right"] {
+            transform: translate(
+                calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible))),
+                0%
+            );
+        }
+    }
+}
 
 @keyframes transition-clip-bottom-enter {
     0% {
@@ -86,14 +182,14 @@
     }
 
     100% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 }
 
 @keyframes transition-clip-bottom-exit {
     0% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 
@@ -109,7 +205,7 @@
 
 @keyframes transition-clip-left-enter {
     0% {
-        clip-path: inset(0% 100% -10% -10%);
+        clip-path: inset(-10% 100% -10% -10%);
         opacity: 0;
     }
 
@@ -118,14 +214,14 @@
     }
 
     100% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 }
 
 @keyframes transition-clip-left-exit {
     0% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 
@@ -134,14 +230,14 @@
     }
 
     100% {
-        clip-path: inset(0% 100% -10% -10%);
+        clip-path: inset(-10% 100% -10% -10%);
         opacity: 0;
     }
 }
 
 @keyframes transition-clip-right-enter {
     0% {
-        clip-path: inset(0% -10% -10% 100%);
+        clip-path: inset(-10% -10% -10% 100%);
         opacity: 0;
     }
 
@@ -150,14 +246,14 @@
     }
 
     100% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 }
 
 @keyframes transition-clip-right-exit {
     0% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 
@@ -166,14 +262,14 @@
     }
 
     100% {
-        clip-path: inset(0% -10% -10% 100%);
+        clip-path: inset(-10% -10% -10% 100%);
         opacity: 0;
     }
 }
 
 @keyframes transition-clip-top-enter {
     0% {
-        clip-path: inset(0% -10% 100% -10%);
+        clip-path: inset(-10% -10% 100% -10%);
         opacity: 0;
     }
 
@@ -182,14 +278,14 @@
     }
 
     100% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 }
 
 @keyframes transition-clip-top-exit {
     0% {
-        clip-path: inset(0% -10% -10% -10%);
+        clip-path: inset(-10% -10% -10% -10%);
         opacity: 1;
     }
 
@@ -198,7 +294,7 @@
     }
 
     100% {
-        clip-path: inset(0% -10% 100% -10%);
+        clip-path: inset(-10% -10% 100% -10%);
         opacity: 0;
     }
 }

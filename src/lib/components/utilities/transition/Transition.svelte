@@ -15,6 +15,10 @@
         animationend: AnimationEvent;
 
         animationstart: AnimationEvent;
+
+        transitionend: TransitionEvent;
+
+        transitionstart: TransitionEvent;
     };
 
     type $$Props = {
@@ -24,7 +28,10 @@
         delay?: number | string;
         duration?: number | string;
         direction?: PROPERTY_DIRECTIONS;
-        variation?: PROPERTY_VARIATION_TRANSITION;
+        variation?:
+            | "explicit"
+            | PROPERTY_VARIATION_TRANSITION
+            | ("explicit" | PROPERTY_VARIATION_TRANSITION)[];
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -55,6 +62,8 @@
     {...map_data_attributes({animation, direction, variation})}
     on:animationend
     on:animationstart
+    on:transitionend
+    on:transitionstart
     style={_variables ? `${style}${_variables};` : style}
 >
     <slot />

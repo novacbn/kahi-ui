@@ -1,5 +1,9 @@
 [data-contents]:not([data-contents~="mobile"], [data-contents~="tablet"], [data-contents~="desktop"], [data-contents~="widescreen"]) {
     display: contents !important;
+
+    & > * {
+        pointer-events: auto !important;
+    }
 }
 
 [data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
@@ -9,6 +13,10 @@
 @variants <sm {
     [data-contents~="mobile"] {
         display: contents !important;
+
+        & > * {
+            pointer-events: auto !important;
+        }
     }
 
     [data-hidden~="mobile"] {
@@ -19,6 +27,10 @@
 @variants @sm {
     [data-contents~="tablet"] {
         display: contents !important;
+
+        & > * {
+            pointer-events: auto !important;
+        }
     }
 
     [data-hidden~="tablet"] {
@@ -29,6 +41,10 @@
 @variants @md {
     [data-contents~="desktop"] {
         display: contents !important;
+
+        & > * {
+            pointer-events: auto !important;
+        }
     }
 
     [data-hidden~="desktop"] {
@@ -39,6 +55,10 @@
 @variants lg {
     [data-contents~="widescreen"] {
         display: contents !important;
+
+        & > * {
+            pointer-events: auto !important;
+        }
     }
 
     [data-hidden~="widescreen"] {

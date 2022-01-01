@@ -13,8 +13,6 @@
     import {map_global_attributes} from "../../../util/attributes";
     import {action_exit} from "../../../util/keybind";
 
-    import Backdrop from "../backdrop/Backdrop.svelte";
-
     import OverlayGroup from "./OverlayGroup.svelte";
 
     type $$Events = {
@@ -30,7 +28,6 @@
         logic_id?: string;
         logic_state?: boolean;
 
-        captive?: boolean;
         dismissible?: boolean;
         loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
         once?: boolean;
@@ -65,7 +62,6 @@
     export let focus_last: $$Props["focus_last"] = null;
     export let focus_target: $$Props["focus_target"] = null;
 
-    export let captive: $$Props["captive"] = undefined;
     export let dismissible: $$Props["dismissible"] = undefined;
     export let loading: $$Props["loading"] = undefined;
     export let once: $$Props["once"] = undefined;
@@ -115,10 +111,6 @@
     on:pointerout
     on:pointerup
 >
-    {#if captive}
-        <Backdrop for={dismissible ? logic_id : undefined} />
-    {/if}
-
     <OverlayGroup
         {logic_id}
         {focus_first}

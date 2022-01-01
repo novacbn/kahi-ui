@@ -91,13 +91,15 @@
 </Story>
 
 <Story name="Preview - Aside Drawer">
-    <Position variation="action" alignment_x="left" hidden="desktop widescreen">
-        <Button for="overlay-preview-drawer" margin_left="small" margin_bottom="small">+</Button>
+    <Position variation="action" alignment_x="left" hidden={["desktop", "widescreen"]}>
+        <Button for="overlay-preview-aside-drawer" margin_left="small" margin_bottom="small">
+            +
+        </Button>
     </Position>
 
     <Overlay.Container logic_id="overlay-preview-aside-drawer" captive dismissible>
         <Overlay.Section
-            contents={["mobile", "tablet"]}
+            contents={["desktop", "widescreen"]}
             animation="slide"
             direction="left"
             alignment_x="left"
@@ -146,7 +148,7 @@
                     data-padding-left="small"
                     data-padding-bottom="small"
                 >
-                    <Overlay.Button variation="clear">x</Overlay.Button>
+                    <Overlay.Button variation="clear" palette="inverse">x</Overlay.Button>
                 </div>
             </Aside.Container>
         </Overlay.Section>

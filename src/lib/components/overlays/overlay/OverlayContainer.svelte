@@ -28,13 +28,13 @@
         logic_id?: string;
         logic_state?: boolean;
 
-        dismissible?: boolean;
-        loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
-        once?: boolean;
-
         focus_first?: PROPERTY_REFERENCE_TARGET;
         focus_last?: PROPERTY_REFERENCE_TARGET;
         focus_target?: PROPERTY_REFERENCE_TARGET;
+
+        dismissible?: boolean;
+        loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
+        once?: boolean;
     } & IHTML5Properties &
         IGlobalProperties &
         IPaddingProperties;

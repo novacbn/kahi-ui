@@ -144,7 +144,7 @@
                     </Anchor>
                 </Aside.Footer>
 
-                <Position variation={["action", "container"]} hidden={["desktop", "widescreen"]}>
+                <Position variation={["container", "action"]} hidden={["desktop", "widescreen"]}>
                     <Overlay.Button variation="clear">-</Overlay.Button>
                 </Position>
             </Aside.Container>

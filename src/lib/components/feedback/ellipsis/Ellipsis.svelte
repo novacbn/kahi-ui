@@ -21,7 +21,6 @@
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
-    export let style: $$Props["style"] = "";
 
     export {_class as class};
 </script>

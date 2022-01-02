@@ -76,6 +76,8 @@
     justify-content: flex-end;
 
     gap: var(--omni-footer-gap-y) var(--omni-footer-gap-x);
+
+    margin-left: auto;
 }
 
 .omni > section {
@@ -85,8 +87,6 @@
     justify-content: center;
 
     gap: var(--omni-section-gap-y) var(--omni-section-gap-x);
-}
 
-.omni > :is(footer, section) {
     flex-grow: 1;
 }

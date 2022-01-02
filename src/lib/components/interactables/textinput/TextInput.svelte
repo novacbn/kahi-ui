@@ -3,6 +3,7 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {PROPERTY_RESIZEABLE} from "../../../types/resizable";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_TEXT_ALIGNMENT, PROPERTY_TEXT_TRANSFORM} from "../../../types/typography";
@@ -62,7 +63,8 @@
         variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IMarginProperties;
+        IMarginProperties &
+        ISizeProperties;
 
     const forward = create_event_forwarder();
 

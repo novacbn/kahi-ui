@@ -52,7 +52,7 @@
 
         -   `Position`
 
-        -   **(BREAKING)** `<Position variation="indicator" placement="top/bottom">` — Removed in favor of `<Position variation="indicator" alignment_y="top/bottom">` for consistency with rest of the Framework.
+            -   **(BREAKING)** `<Position variation="indicator" placement="top/bottom">` — Removed in favor of `<Position variation="indicator" alignment_y="top/bottom">` for consistency with rest of the Framework.
 
         -   `Spacer`
 

@@ -278,9 +278,40 @@
     </Overlay.Container>
 </Story>
 
+<Story name="Backdrop">
+    <Button for="overlay-backdrop-disabled">Open NON-BACKDROP Overlay</Button>
+    <Button for="overlay-backdrop-enabled">Open BACKDROP Overlay</Button>
+
+    <Overlay.Container logic_id="overlay-backdrop-disabled">
+        <Overlay.Section>
+            <Card.Container palette="inverse" max_width="75">
+                <Card.Header>NON-BACKDROP Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+
+    <Overlay.Container logic_id="overlay-backdrop-enabled">
+        <Overlay.Backdrop />
+
+        <Overlay.Section>
+            <Card.Container palette="inverse" max_width="75">
+                <Card.Header>BACKDROP Overlay</Card.Header>
+
+                <Card.Footer>
+                    <Overlay.Button palette="auto" variation="clear">Dismiss</Overlay.Button>
+                </Card.Footer>
+            </Card.Container>
+        </Overlay.Section>
+    </Overlay.Container>
+</Story>
+
 <Story name="Dismissible">
     <Box palette="negative" padding="small" margin_bottom="medium">
-        Press <Text is="kbd">ESC</Text> to dismiss.
+        Press <Text is="kbd">ESC</Text> or click <Code>Backdrop</Code> to dismiss.
     </Box>
 
     <Button for="overlay-dismissible-disabled">Open NON-DISMISSIBLE Overlay</Button>

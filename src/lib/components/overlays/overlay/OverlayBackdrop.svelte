@@ -6,10 +6,15 @@
 
     import {scrolllock} from "../../../stores/scrolllock";
 
+    import {IS_BROWSER} from "../../../util/environment";
+
     import Backdrop from "../backdrop/Backdrop.svelte";
 
-    import {CONTEXT_OVERLAY_ID, CONTEXT_OVERLAY_STATE} from "./OverlayGroup.svelte";
-    import {IS_BROWSER} from "../../../util/environment";
+    import {
+        CONTEXT_OVERLAY_DISMISSIBLE,
+        CONTEXT_OVERLAY_ID,
+        CONTEXT_OVERLAY_STATE,
+    } from "./OverlayGroup.svelte";
 
     type $$Events = IHTML5Events;
 
@@ -19,18 +24,13 @@
     } & IHTML5Properties &
         IGlobalProperties;
 
+    const _overlay_dismissible = CONTEXT_OVERLAY_DISMISSIBLE.get();
     const _overlay_id = CONTEXT_OVERLAY_ID.get();
     const _overlay_state = CONTEXT_OVERLAY_STATE.get();
 
     const _scrolllock = scrolllock();
 
     export let element: $$Props["element"] = undefined;
-
-    if (!_overlay_id) {
-        throw new ReferenceError(
-            "bad initialization to `Overlay.Backdrop` (failed to get `overlay_id` Svelte Store from context)"
-        );
-    }
 
     if (!_overlay_state) {
         throw new ReferenceError(
@@ -44,7 +44,7 @@
 <Backdrop
     {...$$props}
     bind:element
-    for={$_overlay_id}
+    for={_overlay_dismissible && $_overlay_dismissible && _overlay_id ? $_overlay_id : undefined}
     on:click
     on:contextmenu
     on:dblclick

@@ -26,7 +26,7 @@
 
         -   `Transition`
 
-            -   `<Transition variation={["explicit", "enter/exit"]}>` — Changes to using [CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) implementation instead of [CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) implementation. Useful for skipping the animation played on first-paint.
+            -   `<Transition behavior="explicit">` — Changes to using [CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) implementation instead of [CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) implementation. Useful for skipping the animation played on first-paint.
 
 -   Deprecated the following Components / Component Features
 
@@ -114,7 +114,7 @@
                 -   `<Overlay.Container focus_last={HTMLElement | string | null}>` — Sets the element treated as first in the focus tabbing order, that focus is trapped with. Defaults to first found focusable element.
                 -   `<Overlay.Container focus_target={HTMLElement | string | null}>` — Sets the element that is granted focus when `logic_state` is `true`. Focus is restored to previous element when `logic_state` is `false.`
 
-                -   `<Overlay.Container dismissible={boolean}>` — Enables dismissal of the `Overlay` via the `ESC` key.
+                -   `<Overlay.Container dismissible={boolean}>` — Enables dismissal of the `Overlay` via the `ESC` key, or by clicking the `<Overlay.Backdrop>` if applicable.
                 -   `<Overlay.Container loading="lazy">` — Disables rendering `<Overlay.Section>` inner content to DOM whenever `logic_state` is `false`.
                 -   `<Overlay.Container once={boolean}>` — Enables dismissal of the `Overlay` whenever `<Overlay.Section>` inner content is clicked.
 

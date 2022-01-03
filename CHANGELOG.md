@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.5.0 - 2022/01/02
 
 -   Migrated the following Components: `Aside`, `Omni`.
 

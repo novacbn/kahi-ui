@@ -113,12 +113,12 @@
         alignment,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
+        behavior: _overlay_id ? "explicit" : "",
         direction: _overlay_id ? direction : undefined,
         orientation,
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
-        variation: _overlay_id ? "explicit" : "",
     })}
     use:click_inside={{
         ignore: _overlay_id ? `label[for="${$_overlay_id}"]` : undefined,

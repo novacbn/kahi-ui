@@ -98,7 +98,7 @@
 
     <Grid.Container points={["4", "desktop:3", "tablet:2", "mobile:1"]} spacing="medium">
         {#each DIRECTIONS as [direction, is_default] (direction)}
-            <Transition animation="clip" variation="explicit {variation}" {direction}>
+            <Transition animation="clip" behavior="explicit" {direction} {variation}>
                 <Box palette="inverse" padding="huge">
                     Clip {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Box>
@@ -133,7 +133,7 @@
 <Story name="Fade - Explicit">
     <Button on:click={on_state_click}>Toggle Variation</Button>
 
-    <Transition animation="fade" variation="explicit {variation}">
+    <Transition animation="fade" behavior="explicit" {variation}>
         <Box palette="inverse" padding="huge">hello world!</Box>
     </Transition>
 </Story>
@@ -159,7 +159,7 @@
 <Story name="Scale - Explicit">
     <Button on:click={on_state_click}>Toggle Variation</Button>
 
-    <Transition animation="scale" variation="explicit {variation}">
+    <Transition animation="scale" behavior="explicit" {variation}>
         <Box palette="inverse" padding="huge">hello world!</Box>
     </Transition>
 </Story>
@@ -201,7 +201,7 @@
         margin_top="huge"
     >
         {#each DIRECTIONS as [direction, is_default] (direction)}
-            <Transition animation="slide" variation="explicit {variation}" {direction}>
+            <Transition animation="slide" behavior="explicit" {direction} {variation}>
                 <Box palette="inverse" padding="huge">
                     Slide {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Box>

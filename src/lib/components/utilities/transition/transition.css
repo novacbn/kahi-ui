@@ -21,7 +21,7 @@
     }
 }
 
-.transition:not([data-variation~="explicit"]) {
+.transition:not([data-behavior]) {
     animation: var(--animation-name) var(--animation-duration) var(--animation-function)
         var(--animation-delay) both;
 
@@ -80,7 +80,7 @@
     }
 }
 
-.transition[data-variation~="explicit"] {
+.transition[data-behavior~="explicit"] {
     &[data-animation~="clip"] {
         opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
 

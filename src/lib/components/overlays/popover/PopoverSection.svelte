@@ -120,6 +120,7 @@
         animation: _popover_id ? animation ?? TOKENS_TRANSITION_NAMES.clip : undefined,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
+        behavior: _popover_id ? "explicit" : "",
         direction: _popover_id
             ? DIRECTIONS_LOOKUP[placement ?? TOKENS_DIRECTIONS.bottom]
             : undefined,
@@ -127,7 +128,6 @@
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
-        variation: _popover_id ? "explicit" : "",
     })}
     use:click_inside={{
         ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,

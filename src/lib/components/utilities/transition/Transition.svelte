@@ -1,9 +1,10 @@
 <script lang="ts">
+    import type {PROPERTY_BEHAVIOR_TRANSITION} from "../../../types/behaviors";
     import type {PROPERTY_DIRECTIONS} from "../../../types/directions";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_TRANSITION_NAMES} from "../../../types/transitions";
-    import type {PROPERTY_VARIATION_TRANSITION_EXPLICIT} from "../../../types/variations";
+    import type {PROPERTY_VARIATION_TRANSITION} from "../../../types/variations";
 
     import {
         format_css_variables,
@@ -25,10 +26,11 @@
         element?: HTMLDivElement;
 
         animation?: PROPERTY_TRANSITION_NAMES;
+        behavior?: PROPERTY_BEHAVIOR_TRANSITION;
         delay?: number | string;
         duration?: number | string;
         direction?: PROPERTY_DIRECTIONS;
-        variation?: PROPERTY_VARIATION_TRANSITION_EXPLICIT;
+        variation?: PROPERTY_VARIATION_TRANSITION;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -44,6 +46,7 @@
     export {_class as class};
 
     export let animation: $$Props["animation"] = undefined;
+    export let behavior: $$Props["behavior"] = undefined;
     export let delay: $$Props["delay"] = undefined;
     export let duration: $$Props["duration"] = undefined;
     export let direction: $$Props["direction"] = undefined;
@@ -56,7 +59,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="transition {_class}"
-    {...map_data_attributes({animation, direction, variation})}
+    {...map_data_attributes({animation, behavior, direction, variation})}
     on:animationend
     on:animationstart
     on:transitionend

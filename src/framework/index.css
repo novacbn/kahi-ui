@@ -27,10 +27,12 @@
 @import url("../lib/components/layouts/container/container.theme.css");
 @import url("../lib/components/layouts/divider/divider.theme.css");
 @import url("../lib/components/layouts/group/group.theme.css");
+@import url("../lib/components/layouts/position/position.theme.css");
 @import url("../lib/components/navigation/anchor/anchor.theme.css");
 @import url("../lib/components/navigation/aside/aside.theme.css");
 @import url("../lib/components/navigation/breadcrumb/breadcrumb.theme.css");
 @import url("../lib/components/navigation/omni/omni.theme.css");
+@import url("../lib/components/overlays/backdrop/backdrop.theme.css");
 @import url("../lib/components/overlays/clickable/clickable.theme.css");
 @import url("../lib/components/widgets/widget/widget.theme.css");
 @import url("../lib/components/surfaces/box/box.theme.css");
@@ -41,7 +43,6 @@
 @import url("../lib/components/typography/code/code.theme.css");
 @import url("../lib/components/typography/heading/heading.theme.css");
 @import url("../lib/components/typography/text/text.theme.css");
-@import url("../lib/components/utilities/transition/transition.theme.css");
 
 @import url("./document.css");
 @import url("./embedded.css");
@@ -91,7 +92,6 @@
 @import url("../lib/components/surfaces/hero/hero.css");
 @import url("../lib/components/surfaces/tile/tile.css");
 
-@import url("../lib/components/utilities/contextbackdrop/contextbackdrop.css");
 @import url("../lib/components/utilities/portal/portal.css");
 @import url("../lib/components/utilities/transition/transition.css");
 
@@ -107,21 +107,20 @@
 @import url("../lib/components/layouts/divider/divider.css");
 @import url("../lib/components/layouts/spacer/spacer.css");
 
+@import url("../lib/components/overlays/backdrop/backdrop.css");
 @import url("../lib/components/overlays/clickable/clickable.css");
-@import url("../lib/components/overlays/offscreen/offscreen.css");
 @import url("../lib/components/overlays/overlay/overlay.css");
 @import url("../lib/components/overlays/popover/popover.css");
 
 @import url("./alignments.css");
 @import url("./animations.css");
+@import url("./display.css");
 @import url("./elevations.css");
 @import url("./fit.css");
 @import url("./grid.css");
-@import url("./hidden.css");
 @import url("./logic.css");
 @import url("./orientations.css");
 @import url("./palettes.css");
-@import url("./placements.css");
 @import url("./resizable.css");
 @import url("./shape.css");
 @import url("./sizes.css");

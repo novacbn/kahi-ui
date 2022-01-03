@@ -79,7 +79,7 @@
     </Transition>
 </Story>
 
-<Story name="Clip">
+<Story name="Clip - Preview">
     <Button on:click={on_state_click}>Toggle Variation</Button>
 
     <Grid.Container points={["4", "desktop:3", "tablet:2", "mobile:1"]} spacing="medium">
@@ -93,7 +93,21 @@
     </Grid.Container>
 </Story>
 
-<Story name="Clip Grid">
+<Story name="Clip - Explicit">
+    <Button on:click={on_state_click}>Toggle Variation</Button>
+
+    <Grid.Container points={["4", "desktop:3", "tablet:2", "mobile:1"]} spacing="medium">
+        {#each DIRECTIONS as [direction, is_default] (direction)}
+            <Transition animation="clip" behavior="explicit" {direction} {variation}>
+                <Box palette="inverse" padding="huge">
+                    Clip {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Box>
+            </Transition>
+        {/each}
+    </Grid.Container>
+</Story>
+
+<Story name="Clip - Grid">
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition
@@ -108,7 +122,7 @@
     </Grid.Container>
 </Story>
 
-<Story name="Fade">
+<Story name="Fade - Preview">
     <Button on:click={on_state_click}>Toggle Variation</Button>
 
     <Transition animation="fade" {variation}>
@@ -116,7 +130,15 @@
     </Transition>
 </Story>
 
-<Story name="Fade Grid">
+<Story name="Fade - Explicit">
+    <Button on:click={on_state_click}>Toggle Variation</Button>
+
+    <Transition animation="fade" behavior="explicit" {variation}>
+        <Box palette="inverse" padding="huge">hello world!</Box>
+    </Transition>
+</Story>
+
+<Story name="Fade - Grid">
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition animation="fade" delay={Math.floor(index / 4) * 0.5} variation="enter">
@@ -126,7 +148,7 @@
     </Grid.Container>
 </Story>
 
-<Story name="Scale">
+<Story name="Scale - Preview">
     <Button on:click={on_state_click}>Toggle Variation</Button>
 
     <Transition animation="scale" {variation}>
@@ -134,7 +156,15 @@
     </Transition>
 </Story>
 
-<Story name="Scale Grid">
+<Story name="Scale - Explicit">
+    <Button on:click={on_state_click}>Toggle Variation</Button>
+
+    <Transition animation="scale" behavior="explicit" {variation}>
+        <Box palette="inverse" padding="huge">hello world!</Box>
+    </Transition>
+</Story>
+
+<Story name="Scale - Grid">
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition animation="scale" delay={Math.floor(index / 4) * 0.5} variation="enter">
@@ -144,7 +174,7 @@
     </Grid.Container>
 </Story>
 
-<Story name="Slide">
+<Story name="Slide - Preview">
     <Button on:click={on_state_click} margin_bottom="huge">Toggle Variation</Button>
 
     <Grid.Container
@@ -162,7 +192,25 @@
     </Grid.Container>
 </Story>
 
-<Story name="Slide Grid">
+<Story name="Slide - Explicit">
+    <Button on:click={on_state_click} margin_bottom="huge">Toggle Variation</Button>
+
+    <Grid.Container
+        points={["4", "desktop:3", "tablet:2", "mobile:1"]}
+        spacing="medium"
+        margin_top="huge"
+    >
+        {#each DIRECTIONS as [direction, is_default] (direction)}
+            <Transition animation="slide" behavior="explicit" {direction} {variation}>
+                <Box palette="inverse" padding="huge">
+                    Slide {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Box>
+            </Transition>
+        {/each}
+    </Grid.Container>
+</Story>
+
+<Story name="Slide - Grid">
     <Grid.Container points="4" spacing="medium">
         {#each new Array(20) as _, index (index)}
             <Transition animation="slide" delay={Math.floor(index / 4) * 0.5} variation="enter">

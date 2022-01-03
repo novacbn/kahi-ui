@@ -4,6 +4,36 @@
 
 -   Migrated the following Components: `Aside`, `Omni`.
 
+-   Added the following Components / Component Features
+
+    -   Layouts
+
+        -   `Position`
+
+            -   `<Position variation="action">` — Affixes the child content in a corner of the viewport.
+
+                -   `<Position alignment_x="left/right">` — Alters which horizontal corner the child content is affixed to. Defaults to `right`.
+                -   `<Position alignment_y="top/bottom">` — Alters which vertical corner the child content is affixed to. Defaults to `bottom`.
+                -   `<Position spacing="tiny/small/medium/large/huge" spacing_x="tiny/small/medium/large/huge" spacing_y="tiny/small/medium/large/huge">` — Controls the spacing between the corner and the child content.
+
+            -   `<Position variation={["container/viewport", "action/indicator/raised"]}>` — Alters the `Position` variation to be relative to the parent container or viewport.
+
+    -   Overlays
+
+        -   `Backdrop` — Renders a dim theme-aware backdrop over the parent container.
+
+    -   Utilities
+
+        -   `Transition`
+
+            -   `<Transition behavior="explicit">` — Changes to using [CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) implementation instead of [CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) implementation. Useful for skipping the animation played on first-paint.
+
+-   Deprecated the following Components / Component Features
+
+    -   `Position`
+
+        -   `<Position variation="floated">` — Deprecated in favor of `<Position variation="indicator">` for clearer intent of use-case.
+
 -   Removed the following Components / Component Features
 
     -   Display / Feedback
@@ -20,6 +50,10 @@
 
     -   Layouts
 
+        -   `Position`
+
+            -   **(BREAKING)** `<Position variation="indicator" placement="top/bottom">` — Removed in favor of `<Position variation="indicator" alignment_y="top/bottom">` for consistency with rest of the Framework.
+
         -   `Spacer`
 
             -   **(BREAKING)** `<Spacer orientation>` — Removed previously deprecated feature in favor of `<Spacer spacing_x spacing_y>` properties.
@@ -29,7 +63,31 @@
 
         -   `Aside` / `Omni`
 
-            -   **(BREAKING)** `<* logic_id>` — Removed built-in viewport-based collapsing, compose with Components / features like `Overlay` / `<* contents>` to mimic old featureset.
+            -   **(BREAKING)** `<* logic_id>` — Removed built-in viewport-based collapsing, compose with Components like `Overlay` / `Popover` to mimic old featureset.
+
+    -   Overlays
+
+        -   `Offscreen`
+
+            -   **(BREAKING)** Removed in favor of customizing `Overlay` with the `<Overlay.Section animation="slide">` / `<Overlay alignment_x alignment_y>` properties.
+
+        -   `Overlay`
+
+            -   **(BREAKING)** `<Overlay.Container captive>` — Removed to promote composability and customization via `<Overlay.Backdrop>` instead.
+
+    -   Utilities
+
+        -   `ContextBackdrop`
+
+            -   **(BREAKING)** Removed in favor of generalized `Backdrop` and `Overlay`-specific `<Overlay.Backdrop>` Components.
+
+        -   `ContextButton`
+
+            -   **(BREAKING)** Removed in favor of Overlays specific `<Overlay/Popover.Button>` Components.
+
+        -   `Transition`
+
+            -   **(BREAKING)** Removed CSS Theming variables due to limited use-case and current set not supporting new `<Transition variation="explicit">`.
 
 -   Updated the following Components / Component Features
 
@@ -38,6 +96,64 @@
         -   `Ellipsis`
 
             -   **(BREAKING)** `<Ellipsis character />` — Changed from `<Ellipsis character="XXX">` -> `<Ellipsis>XXX</Ellipsis>`, to support icons and other non-text characters.
+
+    -   Overlays
+
+        -   `Overlay` / `Popover`
+
+            -   **(BREAKING)** Revamped into a multi-pattern Component.
+
+        -   `Overlay`
+
+            -   `<Overlay.Container>`
+
+                -   `<Overlay.Container logic_id={string}>` — Used to synchronize the target CSS state between the backdrop, buttons, and Svelte Contexts.
+                -   `<Overlay.Container logic_state={boolean}>` — Used to enable the `Overlay`, playing an animation to enter/exit depending on state.
+
+                -   `<Overlay.Container focus_first={HTMLElement | string | null}>` — Sets initial focus target element when first opened. Defaults to first focusable element.
+                -   `<Overlay.Container focus_last={HTMLElement | string | null}>` — Sets the element treated as first in the focus tabbing order, that focus is trapped with. Defaults to first found focusable element.
+                -   `<Overlay.Container focus_target={HTMLElement | string | null}>` — Sets the element that is granted focus when `logic_state` is `true`. Focus is restored to previous element when `logic_state` is `false.`
+
+                -   `<Overlay.Container dismissible={boolean}>` — Enables dismissal of the `Overlay` via the `ESC` key, or by clicking the `<Overlay.Backdrop>` if applicable.
+                -   `<Overlay.Container loading="lazy">` — Disables rendering `<Overlay.Section>` inner content to DOM whenever `logic_state` is `false`.
+                -   `<Overlay.Container once={boolean}>` — Enables dismissal of the `Overlay` whenever `<Overlay.Section>` inner content is clicked.
+
+            -   `<Overlay.Backdrop>` — Wrapper for `Backdrop` that when used within a `<Overlay.Container logic_id>`, it inherits the value via Svelte Context.
+
+            -   `<Overlay.Button>` — Wrapper for `Button` that when used within a `<Overlay.Container logic_id>`, it inherits the value via Svelte Context.
+
+            -   `<Overlay.Section>` — Stretches inner content over the parent container.
+
+                -   `<Overlay.Section animation="clip/fade/scale/slide">` — Changes which animation set is used for when `logic_state` is updated. Defaults to `scale`.
+                -   `<Overlay.Section direction="top/bottom/left/right">` — Changes which direction the animation set is entering from, if applicable.
+
+                -   `<Overlay.Section orientation="horizontal">` — Alters the inner child elements to layout horizontally.
+                -   `<Overlay.Section alignment="center/stretch" alignment_x="left/right/center/stretch" alignment_y="top/bottom/center/stretch">` — Controls the alignment of the inner content.
+                -   `<Overlay.Section spacing="tiny/small/medium/large/huge" spacing_x="tiny/small/medium/large/huge" spacing_y="tiny/small/medium/large/huge">` — Controls the spacing between each inner child element.
+
+        -   `Popover`
+
+            -   `<Popover.Container>`
+
+                -   `<Popover.Container logic_id={string}>` — Used to synchronize the target CSS state between the backdrop, buttons, and Svelte Contexts.
+                -   `<Popover.Container logic_state={boolean}>` — Used to enable the `Popover`, playing an animation to enter/exit depending on state.
+
+                -   `<Popover.Container focus_target={HTMLElement | string | null}>` — Sets the element that is granted focus when `logic_state` is `true`. Focus is restored to previous element when `logic_state` is `false.`
+
+                -   `<Popover.Container dismissible={boolean}>` — Enables dismissal of the `Popover` via the `ESC` key, `<Popover.Section>` inner content loses focus, or clicked outside of `<Popover.Section>`.
+                -   `<Popover.Container loading="lazy">` — Disables rendering `<Popover.Section>` inner content to DOM whenever `logic_state` is `false`.
+                -   `<Popover.Container once={boolean}>` — Enables dismissal of the `Popover` whenever `<Popover.Section>` inner content is clicked.
+
+            -   `<Popover.Button>` — Wrapper for `Button` that when used within a `<Popover.Container logic_id>`, it inherits the value via Svelte Context.
+
+            -   `<Popover.Section>` — Hovers inner content over the parent container.
+
+                -   `<Popover.Section animation="clip/fade/scale/slide">` — Changes which animation set is used for when `logic_state` is updated. Defaults to `clip`.
+
+                -   `<Popover.Section placement="top/bottom/left/right">` — Which side of the `<Popover.Button>` the inner content is hovered on.
+
+                -   `<Popover.Section alignment_x="left/right/center" alignment_y="top/bottom/center">` — Controls the alignment of the inner content.
+                -   `<Popover.Section spacing="tiny/small/medium/large/huge" spacing_x="tiny/small/medium/large/huge" spacing_y="tiny/small/medium/large/huge">` — Between `<Popover.Section>` and `<Popover.Button>`.
 
 ## v0.4.14 - 2021/12/19
 

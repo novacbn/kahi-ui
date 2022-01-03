@@ -29,6 +29,14 @@
     &[data-variation~="sticky"] {
         position: sticky;
         top: 0;
+
+        &:is(:not([data-placement]), [data-placement="left"]) {
+            left: 0;
+        }
+
+        &[data-placement="right"] {
+            left: 100%;
+        }
     }
 }
 

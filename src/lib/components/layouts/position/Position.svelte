@@ -1,10 +1,15 @@
 <script lang="ts">
-    import type {PROPERTY_ALIGNMENT_X} from "../../../types/alignments";
+    import type {PROPERTY_ALIGNMENT_X, PROPERTY_ALIGNMENT_Y} from "../../../types/alignments";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PLACEMENT} from "../../../types/placements";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import type {
+        IMarginProperties,
+        IPaddingProperties,
+        PROPERTY_SPACING_BREAKPOINT,
+    } from "../../../types/spacings";
+    import type {PROPERTY_VARIATION_POSITION_AUGMENT} from "../../../types/variations";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -17,10 +22,19 @@
         actions?: IForwardedActions;
         element?: HTMLElement;
 
-        variation?: "floated" | "raised";
+        /**
+         * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
+         */
+        variation?: PROPERTY_VARIATION_POSITION_AUGMENT;
+
+        placement?: PROPERTY_PLACEMENT;
 
         alignment_x?: PROPERTY_ALIGNMENT_X;
-        placement?: PROPERTY_PLACEMENT;
+        alignment_y?: PROPERTY_ALIGNMENT_Y;
+
+        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_x?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -39,8 +53,14 @@
 
     export let variation: $$Props["variation"] = undefined;
 
-    export let alignment_x: $$Props["alignment_x"] = undefined;
     export let placement: $$Props["placement"] = undefined;
+
+    export let alignment_x: $$Props["alignment_x"] = undefined;
+    export let alignment_y: $$Props["alignment_y"] = undefined;
+
+    export let spacing: $$Props["spacing"] = undefined;
+    export let spacing_x: $$Props["spacing_x"] = undefined;
+    export let spacing_y: $$Props["spacing_y"] = undefined;
 </script>
 
 <div
@@ -49,7 +69,11 @@
     class="position {_class}"
     {...map_data_attributes({
         "alignment-x": alignment_x,
+        "alignment-y": alignment_y,
         placement,
+        spacing,
+        "spacing-x": spacing_x,
+        "spacing-y": spacing_y,
         variation,
     })}
     use:forward_actions={{actions}}

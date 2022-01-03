@@ -13,10 +13,10 @@
     type $$Props = {
         element?: HTMLElement;
 
+        placement?: PROPERTY_PLACEMENT_X;
+
         palette?: PROPERTY_PALETTE;
         variation?: "sticky";
-
-        placement?: PROPERTY_PLACEMENT_X;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -32,10 +32,10 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    export let placement: $$Props["placement"] = undefined;
+
     export let palette: $$Props["palette"] = undefined;
     export let variation: $$Props["variation"] = undefined;
-
-    export let placement: $$Props["placement"] = undefined;
 </script>
 
 <nav

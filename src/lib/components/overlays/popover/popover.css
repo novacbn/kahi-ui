@@ -1,173 +1,100 @@
 .popover {
-    @apply contents relative max-w-[max-content] whitespace-nowrap;
+    --spacing-x: 0px;
+    --spacing-y: 0px;
 
-    /**
-     * HACK: Pretty lame that this has to be copied here
-     */
+    display: inline-block;
+    position: relative;
 
-    &:not([data-placement]) {
-        --placement-clip-off: 0% -10% 100% -10%;
-        --placement-clip-on: 0% -10% -10% -10%;
+    white-space: nowrap;
+}
 
-        --placement-inset: auto 50% calc(0% - var(--spacing-y)) auto;
-        --placement-translation: 50%, 100%;
+.popover > section {
+    position: absolute;
+
+    z-index: 1;
+
+    &:is(:not([data-placement]), [data-placement="bottom"]) {
+        &:is(:not([data-alignment-x]), [data-alignment-x="center"]) {
+            inset: auto 50% calc(var(--spacing-y) * -1) auto;
+            transform: translate(50%, 100%);
+        }
 
         &[data-alignment-x="left"] {
-            --placement-inset: auto 0% calc(0% - var(--spacing-y)) auto;
-            --placement-translation: 0%, 100%;
+            inset: auto 0% calc(var(--spacing-y) * -1) auto;
+            transform: translate(0%, 100%);
         }
 
         &[data-alignment-x="right"] {
-            --placement-inset: auto auto calc(0% - var(--spacing-y)) 0%;
-            --placement-translation: 0%, 100%;
+            inset: auto 100% calc(var(--spacing-y) * -1) auto;
+            transform: translate(100%, 100%);
         }
     }
 
-    &:not([data-spacing]) {
-        --spacing-x: 0px;
-        --spacing-y: 0px;
+    &[data-placement="top"] {
+        &:is(:not([data-alignment-x]), [data-alignment-x="center"]) {
+            inset: calc(var(--spacing-y) * -1) 50% auto auto;
+            transform: translate(50%, -100%);
+        }
+
+        &[data-alignment-x="left"] {
+            inset: calc(var(--spacing-y) * -1) 0% auto auto;
+            transform: translate(0%, -100%);
+        }
+
+        &[data-alignment-x="right"] {
+            inset: calc(var(--spacing-y) * -1) 100% auto auto;
+            transform: translate(100%, -100%);
+        }
     }
 
-    & > :last-child {
-        @apply z-1;
+    &[data-placement="left"] {
+        &:is(:not([data-alignment-y]), [data-alignment-y="center"]) {
+            inset: 50% auto auto calc(var(--spacing-x) * -1);
+            transform: translate(-100%, -50%);
+        }
 
-        /**
-         * HACK: This will mess with the decendent's own transitions... best
-         * we can do is fill in some of the blanks
-         */
+        &[data-alignment-y="top"] {
+            inset: 100% auto auto calc(var(--spacing-x) * -1);
+            transform: translate(-100%, -100%);
+        }
 
-        transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            clip-path 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-            opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        &[data-alignment-y="bottom"] {
+            inset: 0% auto auto calc(var(--spacing-x) * -1);
+            transform: translate(-100%, 0%);
+        }
     }
-}
 
-.popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
-    @apply !inline-block;
+    &[data-placement="right"] {
+        &:is(:not([data-alignment-y]), [data-alignment-y="center"]) {
+            inset: 50% calc(var(--spacing-x) * -1) auto auto;
+            transform: translate(100%, -50%);
+        }
 
-    & > :last-child {
-        @apply absolute pointer-events-none opacity-0;
+        &[data-alignment-y="top"] {
+            inset: 100% calc(var(--spacing-x) * -1) auto auto;
+            transform: translate(100%, -100%);
+        }
 
-        inset: var(--placement-inset);
-
-        clip-path: inset(var(--placement-clip-off));
-        transform: translate(var(--placement-translation));
+        &[data-alignment-y="bottom"] {
+            inset: 0% calc(var(--spacing-x) * -1) auto auto;
+            transform: translate(100%, 0%);
+        }
     }
 }
 
 input[type="checkbox"][role="presentation"] {
-    &:checked
-        + .popover[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
-        & > :last-child {
-            @apply pointer-events-auto opacity-100;
-
-            clip-path: inset(var(--placement-clip-on));
+    &:not(:checked) + .popover {
+        & > section {
+            pointer-events: none;
         }
-    }
-}
 
-/**
- * HACK: Really lame again, that this has to be copied
- */
+        & > .transition {
+            /**
+             * HACK: We're abusing `Transition` Component's internal state CSS vars to
+             * make `Overlay` transitions SSR-able
+             */
 
-@variants <sm {
-    .popover[data-hidden~="mobile"] {
-        @apply !inline-block;
-
-        & > :last-child {
-            @apply absolute pointer-events-none opacity-0;
-
-            inset: var(--placement-inset);
-
-            clip-path: inset(var(--placement-clip-off));
-            transform: translate(var(--placement-translation));
-        }
-    }
-
-    input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="mobile"] {
-            & > :last-child {
-                @apply pointer-events-auto opacity-100;
-
-                clip-path: inset(var(--placement-clip-on));
-            }
-        }
-    }
-}
-
-@variants @sm {
-    .popover[data-hidden~="tablet"] {
-        @apply !inline-block;
-
-        & > :last-child {
-            @apply absolute pointer-events-none opacity-0;
-
-            inset: var(--placement-inset);
-
-            clip-path: inset(var(--placement-clip-off));
-            transform: translate(var(--placement-translation));
-        }
-    }
-
-    input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="tablet"] {
-            & > :last-child {
-                @apply pointer-events-auto opacity-100;
-
-                clip-path: inset(var(--placement-clip-on));
-            }
-        }
-    }
-}
-
-@variants @md {
-    .popover[data-hidden~="desktop"] {
-        @apply !inline-block;
-
-        & > :last-child {
-            @apply absolute pointer-events-none opacity-0;
-
-            inset: var(--placement-inset);
-
-            clip-path: inset(var(--placement-clip-off));
-            transform: translate(var(--placement-translation));
-        }
-    }
-
-    input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="desktop"] {
-            & > :last-child {
-                @apply pointer-events-auto opacity-100;
-
-                clip-path: inset(var(--placement-clip-on));
-            }
-        }
-    }
-}
-
-@variants lg {
-    .popover[data-hidden~="widescreen"] {
-        @apply !inline-block;
-
-        & > :last-child {
-            @apply absolute pointer-events-none opacity-0;
-
-            inset: var(--placement-inset);
-
-            clip-path: inset(var(--placement-clip-off));
-            transform: translate(var(--placement-translation));
-        }
-    }
-
-    input[type="checkbox"][role="presentation"] {
-        &:checked + .popover[data-hidden~="widescreen"] {
-            & > :last-child {
-                @apply pointer-events-auto opacity-100;
-
-                clip-path: inset(var(--placement-clip-on));
-            }
+            --animation-visible: 0;
         }
     }
 }

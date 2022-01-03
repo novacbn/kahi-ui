@@ -1,13 +1,10 @@
 <script context="module" lang="ts">
     import type {SvelteComponent} from "svelte";
 
-    import {make_scoped_store} from "../../../util/store";
+    import {make_scoped_store} from "../../../stores/scoped";
 
-    const SYMBOL_BREADCRUMB_SEPARATOR = Symbol.for("kahi-ui-breadcrumb-separator");
-
-    export const CONTEXT_BREADCRUMB_SEPARATOR = make_scoped_store<string | typeof SvelteComponent>(
-        SYMBOL_BREADCRUMB_SEPARATOR
-    );
+    export const CONTEXT_BREADCRUMB_SEPARATOR =
+        make_scoped_store<string | typeof SvelteComponent>("breadcrumb-separator");
 </script>
 
 <script lang="ts">
@@ -21,8 +18,7 @@
 
     export let separator: $$Props["separator"] = undefined;
 
-    const _separator =
-        separator !== undefined ? CONTEXT_BREADCRUMB_SEPARATOR.create(separator) : null;
+    const _separator = CONTEXT_BREADCRUMB_SEPARATOR.create(separator);
 
     $: if (_separator) $_separator = separator ?? "/";
 </script>

@@ -15,15 +15,15 @@ export interface IContextScope<T> {
  * Returns Svelte Context Scoped helpers
  *
  * ```javascript
- * const MY_CONTEXT = Symbol.for("my-context");
- *
- * const [get_context, has_context, set_context] = make_scoped_context(MY_CONTEXT);
+ * const {get, has, set} = make_scoped_context("my-context");
  * ```
  *
  * @param symbol
  * @returns
  */
-export function make_scoped_context<T>(symbol: Symbol): IContextScope<T> {
+export function make_scoped_context<T>(identifier: string): IContextScope<T> {
+    const symbol = Symbol.for(`kahi-ui-${identifier}`);
+
     return {
         get() {
             return getContext(symbol);

@@ -57,7 +57,7 @@ export const auto_focus: IAutoFocusAction = (element, options) => {
         return query_focusable_element(element);
     }
 
-    function restore_focus(): void {
+    async function restore_focus(): Promise<void> {
         if (previous_element) {
             previous_element.focus();
             previous_element = null;

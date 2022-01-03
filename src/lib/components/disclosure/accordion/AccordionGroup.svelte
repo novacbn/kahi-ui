@@ -1,36 +1,26 @@
 <script context="module" lang="ts">
     import type {PROPERTY_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
 
-    import type {IStateStore, IStateValue} from "../../../stores/state2";
-    import {state} from "../../../stores/state2";
-
-    import {make_scoped_store} from "../../../util/store";
-
-    const SYMBOL_ACCORDION_BEHAVIOR = Symbol.for("kahi-ui-accordion-behavior");
-
-    const SYMBOL_ACCORDION_ID = Symbol.for("kahi-ui-accordion-id");
-
-    const SYMBOL_ACCORDION_NAME = Symbol.for("kahi-ui-accordion-name");
-
-    const SYMBOL_ACCORDION_STATE = Symbol.for("kahi-ui-accordion-state");
+    import {make_scoped_store} from "../../../stores/scoped";
+    import type {IStateStore, IStateValue} from "../../../stores/state";
+    import {state} from "../../../stores/state";
 
     export const CONTEXT_ACCORDION_BEHAVIOR =
-        make_scoped_store<PROPERTY_BEHAVIOR_TOGGLE>(SYMBOL_ACCORDION_BEHAVIOR);
+        make_scoped_store<PROPERTY_BEHAVIOR_TOGGLE>("accordion-behavior");
 
-    export const CONTEXT_ACCORDION_ID = make_scoped_store<string>(SYMBOL_ACCORDION_ID);
+    export const CONTEXT_ACCORDION_ID = make_scoped_store<string>("accordion-id");
 
-    export const CONTEXT_ACCORDION_NAME = make_scoped_store<string>(SYMBOL_ACCORDION_NAME);
+    export const CONTEXT_ACCORDION_NAME = make_scoped_store<string>("accordion-name");
 
     export const CONTEXT_ACCORDION_STATE = make_scoped_store<IStateValue, IStateStore>(
-        SYMBOL_ACCORDION_STATE,
+        "accordion-state",
+        undefined,
         (default_value) => state(default_value)
     );
 </script>
 
 <script lang="ts">
     import {afterUpdate, createEventDispatcher} from "svelte";
-
-    import {TOKENS_BEHAVIOR_TOGGLE} from "../../../types/behaviors";
 
     type $$Events = {
         change: CustomEvent<void>;
@@ -56,30 +46,27 @@
 
     export let behavior: $$Props["behavior"] = undefined;
 
-    const _accordion_behavior =
-        behavior !== undefined ? CONTEXT_ACCORDION_BEHAVIOR.create(behavior) : null;
-    const _accordion_id = logic_id !== undefined ? CONTEXT_ACCORDION_ID.create(logic_id) : null;
-    const _accordion_name =
-        logic_name !== undefined ? CONTEXT_ACCORDION_NAME.create(logic_name) : null;
-    const _accordion_state =
-        logic_state !== undefined ? CONTEXT_ACCORDION_STATE.create(logic_state) : null;
+    const _accordion_id = CONTEXT_ACCORDION_ID.create(logic_id);
+    const _accordion_name = CONTEXT_ACCORDION_NAME.create(logic_name);
+    const _accordion_state = CONTEXT_ACCORDION_STATE.create(logic_state);
+
+    const _accordion_behavior = CONTEXT_ACCORDION_BEHAVIOR.create(behavior);
 
     if (_accordion_state) {
         afterUpdate(() => {
-            $_accordion_state = logic_state ?? "";
+            if (_accordion_state) $_accordion_state = logic_state ?? "";
         });
     }
 
-    $: if (_accordion_behavior) $_accordion_behavior = behavior ?? TOKENS_BEHAVIOR_TOGGLE.exclusive;
     $: if (_accordion_id) $_accordion_id = logic_id ?? "";
     $: if (_accordion_name) $_accordion_name = logic_name ?? "";
 
-    $: if (_accordion_state) {
-        if (logic_state !== $_accordion_state) {
-            logic_state = $_accordion_state;
+    $: if (_accordion_behavior) $_accordion_behavior = behavior as PROPERTY_BEHAVIOR_TOGGLE;
 
-            dispatch("change");
-        }
+    $: if (_accordion_state && logic_state !== $_accordion_state) {
+        logic_state = $_accordion_state;
+
+        dispatch("change");
     }
 </script>
 

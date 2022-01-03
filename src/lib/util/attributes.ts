@@ -20,6 +20,7 @@ const ATTRIBUTE_REMAP: Record<string, string | undefined> = {
 };
 
 const DATA_ATTRIBUTES: Set<string> = new Set([
+    "contents",
     "height",
     "hidden",
     "max-height",

@@ -1,4 +1,17 @@
 .overlay {
+    display: block;
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2;
+}
+
+.overlay > .backdrop {
+    pointer-events: auto;
+}
+
+.overlay > section {
     --orientation-direction: column;
 
     --orientation-align: var(--flex-alignment-x);
@@ -10,38 +23,41 @@
     --spacing-x: 0;
     --spacing-y: 0;
 
-    @apply fixed flex flex-col gap-x-[var(--spacing-x)] gap-y-[var(--spacing-y)] h-full
-    left-0 pointer-events-none top-0 w-full z-2;
+    display: flex;
+    position: absolute;
+
+    flex-direction: var(--orientation-direction);
+    gap: var(--spacing-y) var(--spacing-x);
 
     align-items: var(--orientation-align);
     justify-content: var(--orientation-justify);
 
-    flex-direction: var(--orientation-direction);
-
-    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    inset: 0;
 
     & > * {
-        @apply pointer-events-auto;
+        pointer-events: auto;
     }
 }
 
+.overlay,
+.overlay > section {
+    pointer-events: none;
+}
+
 input[type="checkbox"][role="presentation"] {
-    &:not(:checked) + .overlay,
-    &:not(:checked) + .context-backdrop + .overlay {
-        @apply opacity-0;
+    &:not(:checked) + .overlay {
+        & > :is(.backdrop, .transition) {
+            /**
+             * HACK: We're abusing `Backdrop` / `Transition` Component's internal state CSS vars to
+             * make `Overlay` transitions SSR-able
+             */
 
-        transform: scale(0.3);
-
-        & > * {
-            @apply pointer-events-none;
+            --animation-visible: 0;
         }
-    }
 
-    &:checked + .overlay,
-    &:checked + .context-backdrop + .overlay {
-        @apply opacity-100;
-
-        transform: scale(1);
+        & > .backdrop,
+        & > section > * {
+            pointer-events: none;
+        }
     }
 }

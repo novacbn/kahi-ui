@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Utilities
+
+        -   `MediaQueryRender` — Renders inner content to DOM, only when the specified [Media Query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) is active.
+
+            -   `<MediaQueryRender fallthrough={boolean}>` — When `true`, always renders content in SSR environments, e.g. SvelteKit
+            -   `<MediaQueryRender queries={string | string[]}>` — Sets the Media Query / Queries to validate against.
+            -   `<MediaQueryRender behavior="and/or">` — When you have use Media Queries, you can set `MediaQueryRender` to only render if both are `true`, or at least one is `true`.
+
 ## 0.5.0 - 2022/01/02
 
 -   Migrated the following Components: `Aside`, `Omni`.

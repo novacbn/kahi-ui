@@ -103,6 +103,7 @@ export * from "./components/utilities/intersectionrender";
 export * from "./components/utilities/portal";
 export * from "./components/utilities/serverrender";
 export * from "./components/utilities/transition";
+export * from "./components/utilities/viewportrender";
 
 export * from "./components/widgets/daypicker";
 export * from "./components/widgets/daystepper";

@@ -100,6 +100,7 @@ export * from "./components/typography/text";
 
 export * from "./components/utilities/browserrender";
 export * from "./components/utilities/intersectionrender";
+export * from "./components/utilities/mediaqueryrender";
 export * from "./components/utilities/portal";
 export * from "./components/utilities/serverrender";
 export * from "./components/utilities/transition";

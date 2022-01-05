@@ -47,13 +47,13 @@ button,
         opacity: var(--button-disabled-opacity);
     }
 
-    &:not(:disabled, [aria-disabled="true"]) {
+    &:not(:disabled, [aria-disabled="true"], [data-variation~="subtle"]) {
         &:is(:active, [aria-current], [aria-pressed="true"]) {
             transform: scale(var(--button-active-scale));
         }
     }
 
-    &:not([data-variation]) {
+    &:not([data-variation~="clear"], [data-variation~="outline"]) {
         background: rgb(var(--palette-background-bold));
         color: rgb(var(--palette-foreground-normal));
 
@@ -68,7 +68,7 @@ button,
         }
     }
 
-    &[data-variation="clear"] {
+    &[data-variation~="clear"] {
         background: transparent;
         color: rgb(var(--palette-background-bold));
 
@@ -90,7 +90,7 @@ button,
         }
     }
 
-    &[data-variation="outline"] {
+    &[data-variation~="outline"] {
         background: transparent;
         border-color: rgb(var(--palette-background-bold));
         color: rgb(var(--palette-background-normal));
@@ -108,7 +108,10 @@ button,
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                background: rgb(var(--palette-background-bold));
+                background: rgba(
+                    var(--palette-background-bold),
+                    var(--button-outline-active-background-opacity)
+                );
                 border-color: transparent;
                 color: rgb(var(--palette-foreground-normal));
             }

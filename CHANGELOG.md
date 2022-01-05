@@ -18,7 +18,7 @@
 
             -   `<Pagination href={string}>` — Renders the navigational buttons as anchors, using a tokening solution to add in paging.
 
-                -   Add `${page}` anywhere in your link to add paging, e.g. `href={"/path/to/view?page=${page}"}.
+                -   Add `${page}` anywhere in your link to add paging, e.g. `href={"/path/to/view?page=${page}"}`.
                 -   **NOTE**: The tokening solution is non-standard, you have to encapsulate the `href` property as a string variable `href={""}`.
 
             -   `<Pagination pages={number}>` — Controls how many pages there is for the current content, this is used to calculate which buttons to render.

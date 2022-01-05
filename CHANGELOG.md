@@ -12,6 +12,11 @@
             -   `<MediaQueryRender queries={string | string[]}>` — Sets the Media Query / Queries to validate against.
             -   `<MediaQueryRender behavior="and/or">` — When you have use Media Queries, you can set `MediaQueryRender` to only render if both are `true`, or at least one is `true`.
 
+        -   `ViewportRender` — Renders inner content to DOM, only when the specified Viewports are active.
+
+            -   `<ViewportRender fallthrough={boolean}>` — When `true`, always renders content in SSR environments, e.g. SvelteKit
+            -   `<ViewportRender mobile={boolean} tablet={boolean} desktop={boolean} widescreen={boolean}>` — When `true` and the specified Viewport is active, the inner content will be rendered.
+
 ## 0.5.0 - 2022/01/02
 
 -   Migrated the following Components: `Aside`, `Omni`.

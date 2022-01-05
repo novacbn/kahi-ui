@@ -23,17 +23,21 @@ export enum TOKENS_VARIATION_FILL {
 /**
  * Represents the tiers of filling positional tokens that can be applied to Framework Components
  */
-export enum TOKENS_VARIATION_POSITION {
-    "action" = "action",
+export enum TOKENS_VARIATION_POSITIONAL {
+    action = "action",
+
+    container = "container",
 
     /**
      * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
      */
-    "floated" = "floated",
+    floated = "floated",
 
-    "indicator" = "indicator",
+    indicator = "indicator",
 
-    "raised" = "raised",
+    raised = "raised",
+
+    viewport = "viewport",
 }
 
 /**
@@ -57,6 +61,13 @@ export const TOKENS_VARIATION_INPUT = {
 
 export const TOKENS_VARIATION_INTERACTIVE = {
     [TOKENS_VARIATION_FILL.outline]: TOKENS_VARIATION_FILL.outline,
+} as const;
+
+export const TOKENS_VARIATION_POSITION = {
+    [TOKENS_VARIATION_POSITIONAL.action]: TOKENS_VARIATION_POSITIONAL.action,
+    [TOKENS_VARIATION_POSITIONAL.floated]: TOKENS_VARIATION_POSITIONAL.floated,
+    [TOKENS_VARIATION_POSITIONAL.indicator]: TOKENS_VARIATION_POSITIONAL.indicator,
+    [TOKENS_VARIATION_POSITIONAL.raised]: TOKENS_VARIATION_POSITIONAL.raised,
 } as const;
 
 export const TOKENS_VARIATION_SURFACE = {
@@ -92,8 +103,8 @@ export type PROPERTY_VARIATION_POSITION = LiteralEnum<keyof typeof TOKENS_VARIAT
 
 export type PROPERTY_VARIATION_POSITION_AUGMENT =
     | PROPERTY_VARIATION_POSITION
-    | ["container", PROPERTY_VARIATION_POSITION]
-    | ["viewport", PROPERTY_VARIATION_POSITION];
+    | [TOKENS_VARIATION_POSITIONAL.container, PROPERTY_VARIATION_POSITION]
+    | [TOKENS_VARIATION_POSITIONAL.viewport, PROPERTY_VARIATION_POSITION];
 
 export type PROPERTY_VARIATION_TRANSITION = LiteralEnum<keyof typeof TOKENS_VARIATION_TRANSITION>;
 

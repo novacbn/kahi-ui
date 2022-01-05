@@ -17,6 +17,8 @@ export enum TOKENS_VARIATION_FILL {
 
     flush = "flush",
 
+    subtle = "subtle",
+
     outline = "outline",
 }
 
@@ -87,7 +89,10 @@ export const TOKENS_VARIATION_TOGGLE = {
     [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
 } as const;
 
-export type PROPERTY_VARIATION_BUTTON = LiteralEnum<keyof typeof TOKENS_VARIATION_BUTTON>;
+export type PROPERTY_VARIATION_BUTTON =
+    | TOKENS_VARIATION_FILL.subtle
+    | LiteralEnum<keyof typeof TOKENS_VARIATION_BUTTON>
+    | [TOKENS_VARIATION_FILL.subtle, LiteralEnum<keyof typeof TOKENS_VARIATION_BUTTON>];
 
 export type PROPERTY_VARIATION_FLEX = ArrayEnum<LiteralEnum<TOKENS_VARIATION_FLEX>>;
 

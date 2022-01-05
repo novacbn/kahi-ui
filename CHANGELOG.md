@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Components / Component Features
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button variation={"subtle" | ["subtle", "clear | "outline"]}>` — Removes "attention grabbing" animations like scaling on click, leaving only simple color transitions.
+
+-   Updated the following Components / Component Features
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button variation="outline">` — Updated background fill on click to be not as bold, matching `variation="clear"`.
+
 ## 0.5.0 - 2022/01/02
 
 -   Migrated the following Components: `Aside`, `Omni`.

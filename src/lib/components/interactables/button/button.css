@@ -108,7 +108,10 @@ button,
             }
 
             &:is(:active, [aria-current], [aria-pressed="true"]) {
-                background: rgb(var(--palette-background-bold));
+                background: rgba(
+                    var(--palette-background-bold),
+                    var(--button-outline-active-background-opacity)
+                );
                 border-color: transparent;
                 color: rgb(var(--palette-foreground-normal));
             }

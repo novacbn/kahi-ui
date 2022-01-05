@@ -66,9 +66,21 @@
 </Story>
 
 <Story name="Palette">
+    <Text is="strong">DEFAULT</Text>
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
-            <Button {palette}>
+            <Button palette={is_default ? undefined : palette}>
+                {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                Button
+            </Button>
+        {/each}
+    </Stack>
+
+    <Text is="strong">SUBTLE</Text>
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default]}
+            <Button variation="subtle" palette={is_default ? undefined : palette}>
+                SUBTLE
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>
@@ -77,9 +89,21 @@
 </Story>
 
 <Story name="Outline">
+    <Text is="strong">DEFAULT</Text>
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
-            <Button variation="outline" {palette}>
+            <Button variation="outline" palette={is_default ? undefined : palette}>
+                {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                Button
+            </Button>
+        {/each}
+    </Stack>
+
+    <Text is="strong">SUBTLE</Text>
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default]}
+            <Button variation={["subtle", "outline"]} palette={is_default ? undefined : palette}>
+                SUBTLE
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>
@@ -88,9 +112,21 @@
 </Story>
 
 <Story name="Clear">
+    <Text is="strong">DEFAULT</Text>
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
-            <Button variation="clear" {palette}>
+            <Button variation="clear" palette={is_default ? undefined : palette}>
+                {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                Button
+            </Button>
+        {/each}
+    </Stack>
+
+    <Text is="strong">SUBTLE</Text>
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default]}
+            <Button variation={["subtle", "clear"]} palette={is_default ? undefined : palette}>
+                SUBTLE
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>

@@ -25,9 +25,9 @@
 
         href?: string;
 
-        pages?: number | string;
+        pages: number | string;
         steps?: number | string;
-        value?: number | string;
+        value: number | string;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -46,9 +46,9 @@
 
     export let href: $$Props["href"] = undefined;
 
-    export let pages: $$Props["pages"] = undefined;
+    export let pages: $$Props["pages"];
     export let steps: $$Props["steps"] = undefined;
-    export let value: $$Props["value"] = undefined;
+    export let value: $$Props["value"];
 
     export let palette: $$Props["palette"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
@@ -61,9 +61,9 @@
         dispatch("select", {page});
     }
 
-    $: _pages = typeof pages === "string" ? parseInt(pages) : pages ?? 0;
+    $: _pages = typeof pages === "string" ? parseInt(pages) : pages;
     $: _steps = typeof steps === "string" ? parseInt(steps) : steps ?? 2;
-    $: _value = typeof value === "string" ? parseInt(value) : value ?? 0;
+    $: _value = typeof value === "string" ? parseInt(value) : value;
 
     $: _prev_value = Math.max(1, _value - 1);
     $: _next_value = Math.min(_pages, _value + 1);

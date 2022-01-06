@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Fixed the following Components / Component Features
+
+    -   Disclosure
+
+        -   `Accordion` / `Tab`
+
+            -   `<*.Container bind:logic_state>` — Fixed two-way binding not working post-mount.
+
+        -   `Accordion`
+
+            -   `<svelte:fragment slot="close/open">` — Updated to default to `<span>&blacktriangledown;/&blacktriangleright;</span>` respectively.
+
 ## 0.5.1 - 2022/01/05
 
 -   Added the following Components / Component Features

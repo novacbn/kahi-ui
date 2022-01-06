@@ -1,6 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Button from "../../interactables/button/Button.svelte";
     import Box from "../../surfaces/box/Box.svelte";
     import Code from "../../typography/code/Code.svelte";
     import Heading from "../../typography/heading/Heading.svelte";
@@ -22,6 +23,12 @@
         ["affirmative", false],
         ["negative", false],
     ];
+
+    let logic_state = "accordion-logic-state-1";
+
+    function on_state_click(id, event) {
+        logic_state = id;
+    }
 </script>
 
 <Meta title="Disclosure/Accordion" />
@@ -33,15 +40,125 @@
 <Story name="Default">
     <Accordion.Container logic_name="accordion-default">
         <Accordion.Group logic_id="accordion-default-1">
+            <Accordion.Label palette="accent">Section One</Accordion.Label>
+
+            <Accordion.Section>
+                <Heading>Item One Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Accordion.Section>
+        </Accordion.Group>
+
+        <Accordion.Group logic_id="accordion-default-2">
+            <Accordion.Label palette="accent">Section Two</Accordion.Label>
+
+            <Accordion.Section>
+                <Heading>Item Two Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Accordion.Section>
+        </Accordion.Group>
+
+        <Accordion.Group logic_id="accordion-default-3">
+            <Accordion.Label palette="accent">Section Three</Accordion.Label>
+
+            <Accordion.Section>
+                <Heading>Item Three Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Accordion.Section>
+        </Accordion.Group>
+    </Accordion.Container>
+</Story>
+
+<Story name="Logic State">
+    <Button on:click={on_state_click.bind(null, "accordion-logic-state-1")}>
+        Select Section One
+    </Button>
+
+    <Button on:click={on_state_click.bind(null, "accordion-logic-state-2")}>
+        Select Section Two
+    </Button>
+
+    <Button on:click={on_state_click.bind(null, "accordion-logic-state-3")}>
+        Select Section Three
+    </Button>
+
+    <Accordion.Container logic_name="accordion-logic-state" bind:logic_state>
+        <Accordion.Group logic_id="accordion-logic-state-1">
+            <Accordion.Label palette="accent">Section One</Accordion.Label>
+
+            <Accordion.Section>
+                <Heading>Item One Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Accordion.Section>
+        </Accordion.Group>
+
+        <Accordion.Group logic_id="accordion-logic-state-2">
+            <Accordion.Label palette="accent">Section Two</Accordion.Label>
+
+            <Accordion.Section>
+                <Heading>Item Two Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Accordion.Section>
+        </Accordion.Group>
+
+        <Accordion.Group logic_id="accordion-logic-state-3">
+            <Accordion.Label palette="accent">Section Three</Accordion.Label>
+
+            <Accordion.Section>
+                <Heading>Item Three Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Accordion.Section>
+        </Accordion.Group>
+    </Accordion.Container>
+</Story>
+
+<Story name="Slot">
+    <Accordion.Container logic_name="accordion-slot">
+        <Accordion.Group logic_id="accordion-slot-1">
             <Accordion.Label palette="accent">
                 Section One
 
                 <svelte:fragment slot="close">
-                    <Text is="span">&blacktriangledown;</Text>
+                    <Text is="span">-</Text>
                 </svelte:fragment>
 
                 <svelte:fragment slot="open">
-                    <Text is="span">&blacktriangleright;</Text>
+                    <Text is="span">+</Text>
                 </svelte:fragment>
             </Accordion.Label>
 
@@ -57,16 +174,16 @@
             </Accordion.Section>
         </Accordion.Group>
 
-        <Accordion.Group logic_id="accordion-default-2">
+        <Accordion.Group logic_id="accordion-slot-2">
             <Accordion.Label palette="accent">
                 Section Two
 
                 <svelte:fragment slot="close">
-                    <Text is="span">&blacktriangledown;</Text>
+                    <Text is="span">-</Text>
                 </svelte:fragment>
 
                 <svelte:fragment slot="open">
-                    <Text is="span">&blacktriangleright;</Text>
+                    <Text is="span">+</Text>
                 </svelte:fragment>
             </Accordion.Label>
 
@@ -82,16 +199,16 @@
             </Accordion.Section>
         </Accordion.Group>
 
-        <Accordion.Group logic_id="accordion-default-3">
+        <Accordion.Group logic_id="accordion-slot-3">
             <Accordion.Label palette="accent">
                 Section Three
 
                 <svelte:fragment slot="close">
-                    <Text is="span">&blacktriangledown;</Text>
+                    <Text is="span">-</Text>
                 </svelte:fragment>
 
                 <svelte:fragment slot="open">
-                    <Text is="span">&blacktriangleright;</Text>
+                    <Text is="span">+</Text>
                 </svelte:fragment>
             </Accordion.Label>
 
@@ -119,14 +236,6 @@
             <Accordion.Group logic_id="accordion-lazy-{index + 1}">
                 <Accordion.Label>
                     Section {name}
-
-                    <svelte:fragment slot="close">
-                        <Text is="span">&blacktriangledown;</Text>
-                    </svelte:fragment>
-
-                    <svelte:fragment slot="open">
-                        <Text is="span">&blacktriangleright;</Text>
-                    </svelte:fragment>
                 </Accordion.Label>
 
                 <Accordion.Section loading="lazy">
@@ -150,14 +259,6 @@
             <Accordion.Group logic_id="accordion-inclusive-{index + 1}">
                 <Accordion.Label>
                     Section {name}
-
-                    <svelte:fragment slot="close">
-                        <Text is="span">&blacktriangledown;</Text>
-                    </svelte:fragment>
-
-                    <svelte:fragment slot="open">
-                        <Text is="span">&blacktriangleright;</Text>
-                    </svelte:fragment>
                 </Accordion.Label>
 
                 <Accordion.Section>
@@ -181,14 +282,6 @@
             <Accordion.Group logic_id="accordion-palette-{index + 1}">
                 <Accordion.Label {palette}>
                     Section {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-
-                    <svelte:fragment slot="close">
-                        <Text is="span">&blacktriangledown;</Text>
-                    </svelte:fragment>
-
-                    <svelte:fragment slot="open">
-                        <Text is="span">&blacktriangleright;</Text>
-                    </svelte:fragment>
                 </Accordion.Label>
 
                 <Accordion.Section>
@@ -212,14 +305,6 @@
             <Accordion.Group logic_id="accordion-transition-exclusive-{index + 1}">
                 <Accordion.Label>
                     Section {name}
-
-                    <svelte:fragment slot="close">
-                        <Text is="span">&blacktriangledown;</Text>
-                    </svelte:fragment>
-
-                    <svelte:fragment slot="open">
-                        <Text is="span">&blacktriangleright;</Text>
-                    </svelte:fragment>
                 </Accordion.Label>
 
                 <Accordion.Section>
@@ -246,14 +331,6 @@
             <Accordion.Group logic_id="accordion-transition-inclusive-{index + 1}">
                 <Accordion.Label>
                     Section {name}
-
-                    <svelte:fragment slot="close">
-                        <Text is="span">&blacktriangledown;</Text>
-                    </svelte:fragment>
-
-                    <svelte:fragment slot="open">
-                        <Text is="span">&blacktriangleright;</Text>
-                    </svelte:fragment>
                 </Accordion.Label>
 
                 <Accordion.Section>

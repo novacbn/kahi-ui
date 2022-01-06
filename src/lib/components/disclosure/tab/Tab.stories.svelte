@@ -1,6 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Button from "../../interactables/button/Button.svelte";
     import * as Grid from "../../layouts/grid";
     import Box from "../../surfaces/box/Box.svelte";
     import Code from "../../typography/code/Code.svelte";
@@ -39,6 +40,12 @@
     ];
 
     const TABS = ["One", "Two", "Three"];
+
+    let logic_state = "tab-logic-state-1";
+
+    function on_state_click(id, event) {
+        logic_state = id;
+    }
 </script>
 
 <Meta title="Disclosure/Tab" />
@@ -78,6 +85,56 @@
         </Tab.Group>
 
         <Tab.Group logic_id="tab-default-3">
+            <Tab.Label palette="accent">Tab Three <span>ICON</span></Tab.Label>
+            <Tab.Section>
+                <Heading>Tab Three Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
+    </Tab.Container>
+</Story>
+
+<Story name="Logic State">
+    <Button on:click={on_state_click.bind(null, "tab-logic-state-1")}>Select Tab One</Button>
+    <Button on:click={on_state_click.bind(null, "tab-logic-state-2")}>Select Tab Two</Button>
+    <Button on:click={on_state_click.bind(null, "tab-logic-state-3")}>Select Tab Three</Button>
+
+    <Tab.Container logic_name="tab-logic-state" alignment_x="stretch" bind:logic_state>
+        <Tab.Group logic_id="tab-logic-state-1">
+            <Tab.Label palette="accent">Tab One <span>ICON</span></Tab.Label>
+            <Tab.Section>
+                <Heading>Tab One Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
+
+        <Tab.Group logic_id="tab-logic-state-2">
+            <Tab.Label palette="accent">Tab Two <span>ICON</span></Tab.Label>
+            <Tab.Section>
+                <Heading>Tab Two Content</Heading>
+
+                <Text>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </Tab.Section>
+        </Tab.Group>
+
+        <Tab.Group logic_id="tab-logic-state-3">
             <Tab.Label palette="accent">Tab Three <span>ICON</span></Tab.Label>
             <Tab.Section>
                 <Heading>Tab Three Content</Heading>

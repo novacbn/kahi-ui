@@ -142,6 +142,11 @@
 >
     <slot />
 
-    <slot name="open" />
-    <slot name="close" />
+    <slot name="open">
+        <span>&blacktriangleright;</span>
+    </slot>
+
+    <slot name="close">
+        <span>&blacktriangledown;</span>
+    </slot>
 </label>

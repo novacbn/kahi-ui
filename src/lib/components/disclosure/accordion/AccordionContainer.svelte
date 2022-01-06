@@ -64,7 +64,7 @@
     on:pointerout
     on:pointerup
 >
-    <AccordionGroup {behavior} {logic_name} {logic_state} on:change>
+    <AccordionGroup {behavior} {logic_name} bind:logic_state on:change>
         <slot />
     </AccordionGroup>
 </div>

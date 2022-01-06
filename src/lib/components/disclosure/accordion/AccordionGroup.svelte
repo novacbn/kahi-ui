@@ -20,7 +20,7 @@
 </script>
 
 <script lang="ts">
-    import {afterUpdate, createEventDispatcher} from "svelte";
+    import {createEventDispatcher} from "svelte";
 
     type $$Events = {
         change: CustomEvent<void>;
@@ -52,10 +52,18 @@
 
     const _accordion_behavior = CONTEXT_ACCORDION_BEHAVIOR.create(behavior);
 
-    if (_accordion_state) {
-        afterUpdate(() => {
-            if (_accordion_state) $_accordion_state = logic_state ?? "";
-        });
+    function on_state_property_update(state: string | string[]): void {
+        if (_accordion_state && state !== $_accordion_state) {
+            $_accordion_state = state;
+            dispatch("change");
+        }
+    }
+
+    function on_state_store_update(state: string | string[]): void {
+        if (state !== logic_state) {
+            logic_state = state;
+            dispatch("change");
+        }
     }
 
     $: if (_accordion_id) $_accordion_id = logic_id ?? "";
@@ -63,11 +71,8 @@
 
     $: if (_accordion_behavior) $_accordion_behavior = behavior as PROPERTY_BEHAVIOR_TOGGLE;
 
-    $: if (_accordion_state && logic_state !== $_accordion_state) {
-        logic_state = $_accordion_state;
-
-        dispatch("change");
-    }
+    $: if (logic_state !== undefined) on_state_property_update(logic_state);
+    $: if (_accordion_state) on_state_store_update($_accordion_state);
 </script>
 
 <slot />

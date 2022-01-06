@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-    import {afterUpdate, createEventDispatcher} from "svelte";
+    import {createEventDispatcher} from "svelte";
 
     type $$Events = {
         change: CustomEvent<void>;
@@ -35,20 +35,25 @@
     const _tab_name = CONTEXT_TAB_NAME.create(logic_name);
     const _tab_state = CONTEXT_TAB_STATE.create(logic_state);
 
-    if (_tab_state) {
-        afterUpdate(() => {
-            $_tab_state = logic_state ?? "";
-        });
+    function on_state_property_update(state: string): void {
+        if (_tab_state && state !== $_tab_state) {
+            $_tab_state = state;
+            dispatch("change");
+        }
     }
 
-    $: if (_tab_id) $_tab_id = logic_id ?? "";
-    $: if (_tab_name) $_tab_name = logic_name ?? "";
-
-    $: if (_tab_state && logic_state !== $_tab_state) {
-        logic_state = $_tab_state;
-
-        dispatch("change");
+    function on_state_store_update(state: string): void {
+        if (state !== logic_state) {
+            logic_state = state;
+            dispatch("change");
+        }
     }
+
+    $: if (_tab_id) $_tab_id = logic_id as string;
+    $: if (_tab_name) $_tab_name = logic_name as string;
+
+    $: if (logic_state !== undefined) on_state_property_update(logic_state);
+    $: if (_tab_state) on_state_store_update($_tab_state);
 </script>
 
 <slot />

@@ -69,7 +69,7 @@
     on:pointerout
     on:pointerup
 >
-    <TabGroup {logic_name} {logic_state} on:change>
+    <TabGroup {logic_name} bind:logic_state on:change>
         <slot />
     </TabGroup>
 </div>

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.5.2 - 2022/01/05
 
 -   Fixed the following Components / Component Features
 

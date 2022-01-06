@@ -3,7 +3,7 @@
     "description": "Straight-forward Svelte UI for the Web",
     "author": "novacbn",
     "license": "MIT",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "type": "module",
     "main": "index.js",
     "types": "index.d.ts",

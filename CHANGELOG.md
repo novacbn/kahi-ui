@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Fixed the following Components / Component Features
+
+    -   Widget
+
+        -   `Pagination`
+
+            -   Fixed paging button generation not properly showing full step range on tailend of page count.
+
 ## 0.5.2 - 2022/01/05
 
 -   Fixed the following Components / Component Features

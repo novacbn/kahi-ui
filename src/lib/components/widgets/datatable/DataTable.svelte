@@ -66,7 +66,9 @@
 
     type $$Slots = {
         default: {key: IDataTableKey; row: IDataTableRow};
+
         next: {};
+
         previous: {};
     };
 
@@ -255,7 +257,7 @@
         {/each}
     </Table.Section>
 
-    {#if IS_BROWSER && paginate}
+    {#if IS_BROWSER}
         <Table.Footer>
             <Table.Row>
                 <Table.Column>
@@ -270,49 +272,51 @@
                 </Table.Column>
 
                 <Table.Column colspan={columns.length}>
-                    <Stack
-                        orientation="horizontal"
-                        alignment_x="right"
-                        alignment_y="center"
-                        spacing="small"
-                    >
-                        <NumberInput
-                            characters="1"
-                            value={_page}
-                            align="right"
-                            {palette}
-                            size={sizing}
-                            actions={[
-                                [navigate_up, {on_bind: on_paging_step.bind(null, 1)}],
-                                [navigate_down, {on_bind: on_paging_step.bind(null, -1)}],
-                            ]}
-                            on:focusout={on_paging_focus_out}
-                            on:input={debounce(on_paging_input, 250)}
-                        />
-
-                        <span>/</span>
-                        <span>{_pages}</span>
-
-                        <Button
-                            disabled={_page === 1}
-                            variation={["subtle", "clear"]}
-                            size={sizing}
-                            {palette}
-                            on:click={on_paging_step.bind(null, -1)}
+                    {#if paginate}
+                        <Stack
+                            orientation="horizontal"
+                            alignment_x="right"
+                            alignment_y="center"
+                            spacing="small"
                         >
-                            <slot name="previous">&lt;</slot>
-                        </Button>
+                            <NumberInput
+                                characters="1"
+                                value={_page}
+                                align="right"
+                                {palette}
+                                size={sizing}
+                                actions={[
+                                    [navigate_up, {on_bind: on_paging_step.bind(null, 1)}],
+                                    [navigate_down, {on_bind: on_paging_step.bind(null, -1)}],
+                                ]}
+                                on:focusout={on_paging_focus_out}
+                                on:input={debounce(on_paging_input, 250)}
+                            />
 
-                        <Button
-                            disabled={_page === _pages}
-                            variation={["subtle", "clear"]}
-                            size={sizing}
-                            {palette}
-                            on:click={on_paging_step.bind(null, 1)}
-                        >
-                            <slot name="next">&gt;</slot>
-                        </Button>
-                    </Stack>
+                            <span>/</span>
+                            <span>{_pages}</span>
+
+                            <Button
+                                disabled={_page === 1}
+                                variation={["subtle", "clear"]}
+                                size={sizing}
+                                {palette}
+                                on:click={on_paging_step.bind(null, -1)}
+                            >
+                                <slot name="previous">&lt;</slot>
+                            </Button>
+
+                            <Button
+                                disabled={_page === _pages}
+                                variation={["subtle", "clear"]}
+                                size={sizing}
+                                {palette}
+                                on:click={on_paging_step.bind(null, 1)}
+                            >
+                                <slot name="next">&gt;</slot>
+                            </Button>
+                        </Stack>
+                    {/if}
                 </Table.Column>
             </Table.Row>
         </Table.Footer>

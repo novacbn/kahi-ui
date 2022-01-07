@@ -28,12 +28,12 @@
     interface IDataTableColumn {
         key: IDataTableKey;
 
+        sorting: boolean;
+
         sorting_algorithm?: (
             a: IDataTableRow[IDataTableKey],
             b: IDataTableRow[IDataTableKey]
         ) => number;
-
-        sorting_enabled?: boolean;
 
         text: string;
     }
@@ -49,7 +49,7 @@
         paging?: number | string;
 
         sorting?: IDataTableKey;
-        sort_by?: PROPERTY_SORT_BY;
+        sorting_mode?: PROPERTY_SORT_BY;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -79,7 +79,7 @@
     export let paging: $$Props["paging"] = undefined;
 
     export let sorting: $$Props["sorting"] = undefined;
-    export let sort_by: $$Props["sort_by"] = undefined;
+    export let sorting_mode: $$Props["sorting_mode"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
@@ -127,13 +127,13 @@
     function on_sorting_click(key: IDataTableKey, event: MouseEvent): void {
         if (sorting !== key) {
             sorting = key;
-            sort_by = TOKENS_SORT_BY.ascending;
+            sorting_mode = TOKENS_SORT_BY.ascending;
 
             return;
         }
 
-        sort_by =
-            sort_by === TOKENS_SORT_BY.ascending
+        sorting_mode =
+            sorting_mode === TOKENS_SORT_BY.ascending
                 ? TOKENS_SORT_BY.decending
                 : TOKENS_SORT_BY.ascending;
     }
@@ -148,7 +148,7 @@
 
         if (sorting) {
             const column = columns.find((_column) => _column.key === sorting);
-            if (column?.sorting_enabled) {
+            if (column?.sorting) {
                 _view = _view.sort((a, b) => {
                     // HACK: TypeScript or Svelte just isn't smart enough to infer `sorting` is
                     // a string in this nested enclosure
@@ -160,7 +160,7 @@
                         ? column.sorting_algorithm(a_value, b_value)
                         : default_sort(a_value, b_value);
 
-                    return sort_by === TOKENS_SORT_BY.ascending ? delta : delta * -1;
+                    return sorting_mode === TOKENS_SORT_BY.ascending ? delta : delta * -1;
                 });
             }
         }
@@ -181,7 +181,7 @@
                 <Table.Heading>
                     {column.text}
 
-                    {#if column.sorting_enabled}
+                    {#if column.sorting}
                         <Button
                             disabled={!IS_BROWSER}
                             variation={["subtle", "clear"]}
@@ -190,7 +190,7 @@
                             on:click={on_sorting_click.bind(null, column.key)}
                         >
                             {#if sorting === column.key}
-                                {#if sort_by === TOKENS_SORT_BY.ascending}
+                                {#if sorting_mode === TOKENS_SORT_BY.ascending}
                                     <slot name="ascending">&uuarr;</slot>
                                 {:else}
                                     <slot name="decending">&ddarr;</slot>

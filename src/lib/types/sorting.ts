@@ -3,10 +3,10 @@ import type {LiteralEnum} from "./util";
 /**
  * Represents the sorting modes that can be applied to Framework Components
  */
-export enum TOKENS_SORT_BY {
+export enum TOKENS_SORTING_MODE {
     ascending = "ascending",
 
     decending = "decending",
 }
 
-export type PROPERTY_SORT_BY = LiteralEnum<TOKENS_SORT_BY>;
+export type PROPERTY_SORTING_MODE = LiteralEnum<TOKENS_SORTING_MODE>;

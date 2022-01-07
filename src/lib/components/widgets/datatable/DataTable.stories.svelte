@@ -8,16 +8,16 @@
     import DataTable from "./DataTable.svelte";
 
     const COLUMNS_SW = [
-        {text: "First Name", key: "first_name"},
-        {text: "Last Name", key: "last_name"},
-        {text: "Occupation", key: "occupation"},
-        {text: "Species", key: "species"},
+        {text: "First Name", key: "first_name", sorting_enabled: true},
+        {text: "Last Name", key: "last_name", sorting_enabled: true},
+        {text: "Occupation", key: "occupation", sorting_enabled: true},
+        {text: "Species", key: "species", sorting_enabled: true},
     ];
 
     const COLUMNS_VIEWPORT = [
-        {text: "Viewport", key: "viewport"},
-        {text: "Minimum", key: "minimum"},
-        {text: "Maximum", key: "maximum"},
+        {text: "Viewport", key: "viewport", sorting_enabled: true},
+        {text: "Minimum", key: "minimum", sorting_enabled: true},
+        {text: "Maximum", key: "maximum", sorting_enabled: true},
     ];
 
     const ROWS_SW = [
@@ -25,8 +25,8 @@
         {first_name: "Cad", last_name: "Bane", occupation: "Bounty Hunter", species: "Duros"},
         {first_name: "Cobb", last_name: "Vanth", occupation: "Marshal", species: "Human"},
         {first_name: "Din", last_name: "Djarin", occupation: "Bounty Hunter", species: "Human"},
-        {first_name: "Gilad", last_name: "Pellaeon", occupation: "Grand Admiral", species: "Human"},
         {first_name: "Fennec", last_name: "Shand", occupation: "Assassin", species: "Human"},
+        {first_name: "Gilad", last_name: "Pellaeon", occupation: "Grand Admiral", species: "Human"},
         {first_name: "Jagged", last_name: "Fel", occupation: "Emperor", species: "Human"},
         {first_name: "Max", last_name: "Rebo", occupation: "Musician", species: "Ortolan"},
         {first_name: "Mok", last_name: "Shaiz", occupation: "Mayor", species: "Ithorian"},

@@ -14,6 +14,7 @@ export * from "./types/resizable";
 export * from "./types/shapes";
 export * from "./types/sizes";
 export * from "./types/sizings";
+export * from "./types/sorting";
 export * from "./types/spacings";
 export * from "./types/typography";
 export * from "./types/variations";

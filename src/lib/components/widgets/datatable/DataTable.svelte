@@ -4,6 +4,8 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SORT_BY} from "../../../types/sorting";
+    import {TOKENS_SORT_BY} from "../../../types/sorting";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import type {PROPERTY_VARIATION_TABLE} from "../../../types/variations";
 
@@ -21,8 +23,17 @@
 
     type IDataTableRow = $$Generic<Record<string, any>>;
 
+    type IDataTableKey = keyof IDataTableRow;
+
     interface IDataTableColumn {
-        key: keyof IDataTableRow;
+        key: IDataTableKey;
+
+        sorting_algorithm?: (
+            a: IDataTableRow[IDataTableKey],
+            b: IDataTableRow[IDataTableKey]
+        ) => number;
+
+        sorting_enabled?: boolean;
 
         text: string;
     }
@@ -32,9 +43,13 @@
 
         columns: IDataTableColumn[];
         rows: IDataTableRow[];
+
         page?: number | string;
         paginate?: boolean;
         paging?: number | string;
+
+        sorting?: IDataTableKey;
+        sort_by?: PROPERTY_SORT_BY;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -46,7 +61,7 @@
         ISizeProperties;
 
     type $$Slots = {
-        default: {key: keyof IDataTableRow; row: IDataTableRow};
+        default: {key: IDataTableKey; row: IDataTableRow};
         next: {};
         previous: {};
     };
@@ -58,13 +73,29 @@
 
     export let columns: $$Props["columns"];
     export let rows: $$Props["rows"];
+
     export let page: $$Props["page"] = undefined;
     export let paginate: $$Props["paginate"] = undefined;
     export let paging: $$Props["paging"] = undefined;
 
+    export let sorting: $$Props["sorting"] = undefined;
+    export let sort_by: $$Props["sort_by"] = undefined;
+
     export let palette: $$Props["palette"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
+
+    function default_sort(
+        a: IDataTableRow[IDataTableKey],
+        b: IDataTableRow[IDataTableKey]
+    ): number {
+        const normalized_a = a.toString().toLowerCase();
+        const normalized_b = b.toString().toLowerCase();
+
+        if (normalized_a > normalized_b) return 1;
+        else if (normalized_b > normalized_a) return -1;
+        return 0;
+    }
 
     function on_paging_focus_out(event: FocusEvent): void {
         const target = event.target as HTMLInputElement | null;
@@ -93,18 +124,53 @@
         page = clamp(_page + step, 1, _pages);
     }
 
+    function on_sorting_click(key: IDataTableKey, event: MouseEvent): void {
+        if (sorting !== key) {
+            sorting = key;
+            sort_by = TOKENS_SORT_BY.ascending;
+
+            return;
+        }
+
+        sort_by =
+            sort_by === TOKENS_SORT_BY.ascending
+                ? TOKENS_SORT_BY.decending
+                : TOKENS_SORT_BY.ascending;
+    }
+
     $: _page = typeof page === "string" ? parseInt(page) : page ?? 1;
     $: _paging = typeof paging === "string" ? parseInt(paging) : paging ?? 5;
     $: _pages = Math.ceil(rows.length / _paging);
 
     let _view: IDataTableRow[];
     $: {
+        _view = [...rows];
+
+        if (sorting) {
+            const column = columns.find((_column) => _column.key === sorting);
+            if (column?.sorting_enabled) {
+                _view = _view.sort((a, b) => {
+                    // HACK: TypeScript or Svelte just isn't smart enough to infer `sorting` is
+                    // a string in this nested enclosure
+
+                    const a_value = a[sorting as string];
+                    const b_value = b[sorting as string];
+
+                    const delta = column.sorting_algorithm
+                        ? column.sorting_algorithm(a_value, b_value)
+                        : default_sort(a_value, b_value);
+
+                    return sort_by === TOKENS_SORT_BY.ascending ? delta : delta * -1;
+                });
+            }
+        }
+
         if (IS_BROWSER && paginate) {
             const start_index = _paging * (_page - 1);
             const end_index = start_index + _paging;
 
-            _view = rows.slice(start_index, end_index);
-        } else _view = [...rows];
+            _view = _view.slice(start_index, end_index);
+        }
     }
 </script>
 
@@ -114,6 +180,26 @@
             {#each columns as column (column.key)}
                 <Table.Heading>
                     {column.text}
+
+                    {#if column.sorting_enabled}
+                        <Button
+                            disabled={!IS_BROWSER}
+                            variation={["subtle", "clear"]}
+                            size={sizing}
+                            {palette}
+                            on:click={on_sorting_click.bind(null, column.key)}
+                        >
+                            {#if sorting === column.key}
+                                {#if sort_by === TOKENS_SORT_BY.ascending}
+                                    <slot name="ascending">&uuarr;</slot>
+                                {:else}
+                                    <slot name="decending">&ddarr;</slot>
+                                {/if}
+                            {:else}
+                                <slot name="unsorted">&udarr;</slot>
+                            {/if}
+                        </Button>
+                    {/if}
                 </Table.Heading>
             {/each}
         </Table.Row>

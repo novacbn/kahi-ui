@@ -37,6 +37,12 @@
         IPaddingProperties &
         ISizeProperties;
 
+    type $$Slots = {
+        next: {};
+
+        previous: {};
+    };
+
     const dispatch = createEventDispatcher();
 
     export let element: $$Props["element"] = undefined;

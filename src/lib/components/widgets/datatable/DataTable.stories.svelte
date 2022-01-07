@@ -8,16 +8,16 @@
     import DataTable from "./DataTable.svelte";
 
     const COLUMNS_SW = [
-        {text: "First Name", key: "first_name", sorting_enabled: true},
-        {text: "Last Name", key: "last_name", sorting_enabled: true},
-        {text: "Occupation", key: "occupation", sorting_enabled: true},
-        {text: "Species", key: "species", sorting_enabled: true},
+        {text: "First Name", key: "first_name", sorting: true},
+        {text: "Last Name", key: "last_name", sorting: true},
+        {text: "Occupation", key: "occupation", sorting: true},
+        {text: "Species", key: "species", sorting: true},
     ];
 
     const COLUMNS_VIEWPORT = [
-        {text: "Viewport", key: "viewport", sorting_enabled: true},
-        {text: "Minimum", key: "minimum", sorting_enabled: true},
-        {text: "Maximum", key: "maximum", sorting_enabled: true},
+        {text: "Viewport", key: "viewport", sorting: true},
+        {text: "Minimum", key: "minimum", sorting: true},
+        {text: "Maximum", key: "maximum", sorting: true},
     ];
 
     const ROWS_SW = [
@@ -35,7 +35,7 @@
         {first_name: "Tila", last_name: "Mong", occupation: "Baron Do Sage", species: "Kel Dor"},
     ];
 
-    const ROWS_VIEWPORT = [
+    let ROWS_VIEWPORT = [
         {
             viewport: "mobile",
             minimum: "0px",
@@ -81,6 +81,13 @@
         ["large", false],
         ["huge", false],
     ];
+
+    function on_viewport_input(row, event) {
+        const index = ROWS_VIEWPORT.findIndex((_row) => row === _row);
+
+        ROWS_VIEWPORT = [...ROWS_VIEWPORT];
+        ROWS_VIEWPORT[index] = {...row, viewport: event.target.value};
+    }
 </script>
 
 <Meta title="Widgets/DataTable" />
@@ -97,7 +104,12 @@
     <DataTable columns={COLUMNS_VIEWPORT} rows={ROWS_VIEWPORT}>
         <svelte:fragment let:key let:row>
             {#if key === "viewport"}
-                <TextInput value={row["viewport"]} variation="flush" width="100" />
+                <TextInput
+                    value={row["viewport"]}
+                    variation="flush"
+                    width="100"
+                    on:input={on_viewport_input.bind(null, row)}
+                />
             {:else}
                 {row[key]}
             {/if}

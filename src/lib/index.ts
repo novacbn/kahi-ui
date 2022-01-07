@@ -138,3 +138,4 @@ export * from "./stores/scrolllock";
 export * from "./stores/viewport";
 
 export * from "./util/environment";
+export * from "./util/keybind";

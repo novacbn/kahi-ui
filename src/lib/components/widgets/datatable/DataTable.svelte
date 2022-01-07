@@ -4,8 +4,8 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
-    import type {PROPERTY_SORT_BY} from "../../../types/sorting";
-    import {TOKENS_SORT_BY} from "../../../types/sorting";
+    import type {PROPERTY_SORTING_MODE} from "../../../types/sorting";
+    import {TOKENS_SORTING_MODE} from "../../../types/sorting";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import type {PROPERTY_VARIATION_TABLE} from "../../../types/variations";
 
@@ -20,6 +20,7 @@
     import Button from "../../interactables/button/Button.svelte";
     import NumberInput from "../../interactables/numberinput/NumberInput.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
+    import TextInput from "../../interactables/textinput/TextInput.svelte";
 
     type IDataTableRow = $$Generic<Record<string, any>>;
 
@@ -49,7 +50,10 @@
         paging?: number | string;
 
         sorting?: IDataTableKey;
-        sorting_mode?: PROPERTY_SORT_BY;
+        sorting_mode?: PROPERTY_SORTING_MODE;
+
+        searching?: string;
+        searching_algorithm?: (row: IDataTableRow) => boolean;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -78,12 +82,25 @@
     export let paginate: $$Props["paginate"] = undefined;
     export let paging: $$Props["paging"] = undefined;
 
+    export let searching: $$Props["searching"] = undefined;
+    export let searching_algorithm: $$Props["searching_algorithm"] = undefined;
+
     export let sorting: $$Props["sorting"] = undefined;
     export let sorting_mode: $$Props["sorting_mode"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
+
+    function default_search(row: IDataTableRow): boolean {
+        for (const key in row) {
+            const value = row[key].toLowerCase();
+
+            if (value.includes(searching)) return true;
+        }
+
+        return false;
+    }
 
     function default_sort(
         a: IDataTableRow[IDataTableKey],
@@ -124,32 +141,48 @@
         page = clamp(_page + step, 1, _pages);
     }
 
+    function on_searching_input(event: InputEvent): void {
+        const target = event.target as HTMLInputElement | null;
+        if (!target) return;
+
+        searching = target.value || undefined;
+    }
+
     function on_sorting_click(key: IDataTableKey, event: MouseEvent): void {
         if (sorting !== key) {
             sorting = key;
-            sorting_mode = TOKENS_SORT_BY.ascending;
+            sorting_mode = TOKENS_SORTING_MODE.ascending;
 
             return;
         }
 
         sorting_mode =
-            sorting_mode === TOKENS_SORT_BY.ascending
-                ? TOKENS_SORT_BY.decending
-                : TOKENS_SORT_BY.ascending;
+            sorting_mode === TOKENS_SORTING_MODE.ascending
+                ? TOKENS_SORTING_MODE.decending
+                : TOKENS_SORTING_MODE.ascending;
     }
 
     $: _page = typeof page === "string" ? parseInt(page) : page ?? 1;
     $: _paging = typeof paging === "string" ? parseInt(paging) : paging ?? 5;
-    $: _pages = Math.ceil(rows.length / _paging);
 
-    let _view: IDataTableRow[];
+    let _filtered_view: IDataTableRow[];
     $: {
-        _view = [...rows];
+        _filtered_view = [...rows];
 
+        if (searching) {
+            _filtered_view = _filtered_view.filter((row, index) => {
+                return searching_algorithm ? searching_algorithm(row) : default_search(row);
+            });
+        }
+    }
+
+    $: _pages = Math.ceil(_filtered_view.length / _paging);
+
+    $: {
         if (sorting) {
             const column = columns.find((_column) => _column.key === sorting);
             if (column?.sorting) {
-                _view = _view.sort((a, b) => {
+                _filtered_view = _filtered_view.sort((a, b) => {
                     // HACK: TypeScript or Svelte just isn't smart enough to infer `sorting` is
                     // a string in this nested enclosure
 
@@ -160,17 +193,20 @@
                         ? column.sorting_algorithm(a_value, b_value)
                         : default_sort(a_value, b_value);
 
-                    return sorting_mode === TOKENS_SORT_BY.ascending ? delta : delta * -1;
+                    return sorting_mode === TOKENS_SORTING_MODE.ascending ? delta : delta * -1;
                 });
             }
         }
+    }
 
+    let _paginated_view: IDataTableRow[];
+    $: {
         if (IS_BROWSER && paginate) {
             const start_index = _paging * (_page - 1);
             const end_index = start_index + _paging;
 
-            _view = _view.slice(start_index, end_index);
-        }
+            _paginated_view = _filtered_view.slice(start_index, end_index);
+        } else _paginated_view = _filtered_view;
     }
 </script>
 
@@ -190,7 +226,7 @@
                             on:click={on_sorting_click.bind(null, column.key)}
                         >
                             {#if sorting === column.key}
-                                {#if sorting_mode === TOKENS_SORT_BY.ascending}
+                                {#if sorting_mode === TOKENS_SORTING_MODE.ascending}
                                     <slot name="ascending">&uuarr;</slot>
                                 {:else}
                                     <slot name="decending">&ddarr;</slot>
@@ -206,7 +242,7 @@
     </Table.Header>
 
     <Table.Section>
-        {#each _view as row}
+        {#each _paginated_view as row}
             <Table.Row>
                 {#each columns as column (column.key)}
                     <Table.Column>
@@ -222,6 +258,17 @@
     {#if IS_BROWSER && paginate}
         <Table.Footer>
             <Table.Row>
+                <Table.Column>
+                    <slot name="search">
+                        <TextInput
+                            characters="10"
+                            size={sizing}
+                            {palette}
+                            on:input={debounce(on_searching_input, 250)}
+                        />
+                    </slot>
+                </Table.Column>
+
                 <Table.Column colspan={columns.length}>
                     <Stack
                         orientation="horizontal"

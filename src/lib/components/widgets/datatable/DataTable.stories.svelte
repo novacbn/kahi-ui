@@ -7,20 +7,14 @@
 
     import DataTable from "./DataTable.svelte";
 
-    const COLUMNS_SW = [
+    const COLUMNS = [
         {text: "First Name", key: "first_name", sorting: true},
         {text: "Last Name", key: "last_name", sorting: true},
         {text: "Occupation", key: "occupation", sorting: true},
         {text: "Species", key: "species", sorting: true},
     ];
 
-    const COLUMNS_VIEWPORT = [
-        {text: "Viewport", key: "viewport", sorting: true},
-        {text: "Minimum", key: "minimum", sorting: true},
-        {text: "Maximum", key: "maximum", sorting: true},
-    ];
-
-    const ROWS_SW = [
+    let ROWS = [
         {first_name: "Ashoka", last_name: "Tano", occupation: "Unknown", species: "Togruta"},
         {first_name: "Cad", last_name: "Bane", occupation: "Bounty Hunter", species: "Duros"},
         {first_name: "Cobb", last_name: "Vanth", occupation: "Marshal", species: "Human"},
@@ -33,32 +27,6 @@
         {first_name: "Natasi", last_name: "Daala", occupation: "Chief of State", species: "Human"},
         {first_name: "Quinlan", last_name: "Vos", occupation: "Jedi Master", species: "Kiffar"},
         {first_name: "Tila", last_name: "Mong", occupation: "Baron Do Sage", species: "Kel Dor"},
-    ];
-
-    let ROWS_VIEWPORT = [
-        {
-            viewport: "mobile",
-            minimum: "0px",
-            maximum: "640px",
-        },
-
-        {
-            viewport: "tablet",
-            minimum: "641px",
-            maximum: "768px",
-        },
-
-        {
-            viewport: "desktop",
-            minimum: "769px",
-            maximum: "1024px",
-        },
-
-        {
-            viewport: "widescreen",
-            minimum: "1025px",
-            maximum: "∞",
-        },
     ];
 
     const PALETTES = [
@@ -83,10 +51,10 @@
     ];
 
     function on_viewport_input(row, event) {
-        const index = ROWS_VIEWPORT.findIndex((_row) => row === _row);
+        const index = ROWS.findIndex((_row) => row === _row);
 
-        ROWS_VIEWPORT = [...ROWS_VIEWPORT];
-        ROWS_VIEWPORT[index] = {...row, viewport: event.target.value};
+        ROWS = [...ROWS];
+        ROWS[index] = {...row, viewport: event.target.value};
     }
 </script>
 
@@ -97,11 +65,11 @@
 </Template>
 
 <Story name="Preview">
-    <DataTable columns={COLUMNS_SW} rows={ROWS_SW} palette="accent" paginate />
+    <DataTable columns={COLUMNS} rows={ROWS} palette="accent" paginate />
 </Story>
 
 <Story name="Slot">
-    <DataTable columns={COLUMNS_VIEWPORT} rows={ROWS_VIEWPORT}>
+    <DataTable columns={COLUMNS} rows={ROWS}>
         <svelte:fragment let:key let:row>
             {#if key === "viewport"}
                 <TextInput
@@ -118,21 +86,21 @@
 </Story>
 
 <Story name="Paging">
-    <DataTable columns={COLUMNS_SW} rows={ROWS_SW} paging={7} palette="accent" paginate />
+    <DataTable columns={COLUMNS} rows={ROWS} paging={7} palette="accent" paginate />
 </Story>
 
 <Story name="Variation">
     <Text is="strong">DEFAULT</Text>
-    <DataTable columns={COLUMNS_VIEWPORT} rows={ROWS_VIEWPORT} />
+    <DataTable columns={COLUMNS} rows={ROWS} />
 
     <Text is="strong">BORDERS</Text>
-    <DataTable columns={COLUMNS_VIEWPORT} rows={ROWS_VIEWPORT} variation="borders" />
+    <DataTable columns={COLUMNS} rows={ROWS} variation="borders" />
 
     <Text is="strong">STRIPES</Text>
-    <DataTable columns={COLUMNS_VIEWPORT} rows={ROWS_VIEWPORT} variation="stripes" />
+    <DataTable columns={COLUMNS} rows={ROWS} variation="stripes" />
 
     <Text is="strong">BORDERS+STRIPES</Text>
-    <DataTable columns={COLUMNS_VIEWPORT} rows={ROWS_VIEWPORT} variation={["borders", "stripes"]} />
+    <DataTable columns={COLUMNS} rows={ROWS} variation={["borders", "stripes"]} />
 </Story>
 
 <Story name="Palette">
@@ -144,8 +112,8 @@
                 </Text>
 
                 <DataTable
-                    columns={COLUMNS_SW}
-                    rows={ROWS_SW}
+                    columns={COLUMNS}
+                    rows={ROWS}
                     palette={is_default ? undefined : palette}
                     paginate
                 />
@@ -162,7 +130,7 @@
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <DataTable columns={COLUMNS_SW} rows={ROWS_SW} palette="accent" {sizing} paginate />
+                <DataTable columns={COLUMNS} rows={ROWS} palette="accent" {sizing} paginate />
             </div>
         {/each}
     </Stack>

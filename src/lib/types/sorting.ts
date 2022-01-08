@@ -6,7 +6,7 @@ import type {LiteralEnum} from "./util";
 export enum TOKENS_SORTING_MODE {
     ascending = "ascending",
 
-    decending = "decending",
+    descending = "descending",
 }
 
 export type PROPERTY_SORTING_MODE = LiteralEnum<TOKENS_SORTING_MODE>;

@@ -69,7 +69,7 @@
 
         ascending: {};
 
-        decending: {};
+        descending: {};
 
         next: {};
 
@@ -170,7 +170,7 @@
 
         sorting_mode =
             sorting_mode === TOKENS_SORTING_MODE.ascending
-                ? TOKENS_SORTING_MODE.decending
+                ? TOKENS_SORTING_MODE.descending
                 : TOKENS_SORTING_MODE.ascending;
     }
 
@@ -241,7 +241,7 @@
                                 {#if sorting_mode === TOKENS_SORTING_MODE.ascending}
                                     <slot name="ascending">&uuarr;</slot>
                                 {:else}
-                                    <slot name="decending">&ddarr;</slot>
+                                    <slot name="descending">&ddarr;</slot>
                                 {/if}
                             {:else}
                                 <slot name="unsorted">&udarr;</slot>

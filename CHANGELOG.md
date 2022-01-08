@@ -54,7 +54,7 @@
                 -   `<DataTable columns={{sorting: boolean}[]}>` — Enables sorting for the particular column.
                 -   `<DataTable columns={{sorting_algorithm: (a: T[keyof T], b: T[keyof T]) => number}[]}>` — Optional custom sorter. By default, all row members are lowercased and alphabetized.
 
-            -   `<DataTable sorting_mode="ascending/decending">` — Sets which direction `DataTable` is sorting the row member by.
+            -   `<DataTable sorting_mode="ascending/descending">` — Sets which direction `DataTable` is sorting the row member by.
 
             -   `<DataTable searching={string}>` — Sets the current search query that `DataTable` is using to filter the tabular data.
             -   `<DataTable searching_algorithm={(row: T) => boolean}>` — Optional custom searching filter. By default, all row members are lowercased and fuzzy searched.
@@ -65,7 +65,7 @@
 
             -   `<svelte:fragment let:key={keyof T} let:row={T}>` — Customizes how each column in a row is rendered in a table cell.
             -   `<svelte:fragment slot="next/previous">` — Customizes the next / previous paging button content.
-            -   `<svelte:fragment slot="unsorted/ascending/decending">` — Customizes the not-sorted, ascending sort, decending sort button content.
+            -   `<svelte:fragment slot="unsorted/ascending/descending">` — Customizes the not-sorted, ascending sort, descending sort button content.
 
 ## 0.5.2 - 2022/01/05
 

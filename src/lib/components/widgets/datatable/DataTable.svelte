@@ -67,9 +67,15 @@
     type $$Slots = {
         default: {key: IDataTableKey; row: IDataTableRow};
 
+        ascending: {};
+
+        decending: {};
+
         next: {};
 
         previous: {};
+
+        unsorted: {};
     };
 
     export let element: $$Props["element"] = undefined;

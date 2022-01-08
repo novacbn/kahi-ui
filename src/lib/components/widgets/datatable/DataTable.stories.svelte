@@ -50,11 +50,11 @@
         ["huge", false],
     ];
 
-    function on_viewport_input(row, event) {
+    function on_first_name_input(row, event) {
         const index = ROWS.findIndex((_row) => row === _row);
 
         ROWS = [...ROWS];
-        ROWS[index] = {...row, viewport: event.target.value};
+        ROWS[index] = {...row, first_name: event.target.value};
     }
 </script>
 
@@ -71,12 +71,12 @@
 <Story name="Slot">
     <DataTable columns={COLUMNS} rows={ROWS}>
         <svelte:fragment let:key let:row>
-            {#if key === "viewport"}
+            {#if key === "first_name"}
                 <TextInput
-                    value={row["viewport"]}
+                    value={row["first_name"]}
                     variation="flush"
                     width="100"
-                    on:input={on_viewport_input.bind(null, row)}
+                    on:input={on_first_name_input.bind(null, row)}
                 />
             {:else}
                 {row[key]}

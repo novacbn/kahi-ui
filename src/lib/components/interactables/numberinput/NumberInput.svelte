@@ -6,6 +6,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_TEXT_ALIGNMENT} from "../../../types/typography";
@@ -40,7 +41,7 @@
         placeholder?: string;
         value?: number;
 
-        characters?: number;
+        characters?: number | string;
 
         align?: PROPERTY_TEXT_ALIGNMENT;
         palette?: PROPERTY_PALETTE;
@@ -48,7 +49,8 @@
         variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
         IGlobalProperties &
-        IMarginProperties;
+        IMarginProperties &
+        ISizeProperties;
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;

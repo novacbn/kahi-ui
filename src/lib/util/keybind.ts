@@ -49,3 +49,61 @@ export const action_activate = make_shortcut_factory({
 export const action_exit = make_shortcut_factory({
     binds: ["escape"],
 });
+
+/**
+ * Represents a keybind used for submitting the currently focused element
+ * @param element
+ * @param options
+ * @returns
+ */
+export const action_submit = make_shortcut_factory({
+    binds: ["enter"],
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option downwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_down = make_shortcut_factory({
+    binds: ["arrowdown"],
+    repeat: true,
+    repeat_throttle: 250,
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option leftwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_left = make_shortcut_factory({
+    binds: ["arrowleft"],
+    repeat: true,
+    repeat_throttle: 250,
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option rightwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_right = make_shortcut_factory({
+    binds: ["arrowright"],
+    repeat: true,
+    repeat_throttle: 250,
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option upwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_up = make_shortcut_factory({
+    binds: ["arrowup"],
+    repeat: true,
+    repeat_throttle: 250,
+});

@@ -50,9 +50,9 @@
         min_length?: number | undefined;
         pattern?: RegExp | string;
 
-        characters?: number;
+        characters?: number | string;
+        lines?: number | string;
 
-        lines?: number;
         resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
 
@@ -90,8 +90,8 @@
     export let pattern: $$Props["pattern"] = "";
 
     export let characters: $$Props["characters"] = undefined;
-
     export let lines: $$Props["lines"] = undefined;
+
     export let resizable: $$Props["resizable"] = undefined;
     export let spell_check: $$Props["spell_check"] = undefined;
 

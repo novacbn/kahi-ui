@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features
 

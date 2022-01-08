@@ -15,7 +15,7 @@
     ];
 
     let ROWS = [
-        {first_name: "Ashoka", last_name: "Tano", occupation: "Unknown", species: "Togruta"},
+        {first_name: "Ahsoka", last_name: "Tano", occupation: "Unknown", species: "Togruta"},
         {first_name: "Cad", last_name: "Bane", occupation: "Bounty Hunter", species: "Duros"},
         {first_name: "Cobb", last_name: "Vanth", occupation: "Marshal", species: "Human"},
         {first_name: "Din", last_name: "Djarin", occupation: "Bounty Hunter", species: "Human"},

@@ -271,6 +271,7 @@
                         <TextInput
                             characters="10"
                             size={sizing}
+                            value={searching}
                             {palette}
                             on:input={debounce(on_searching_input, 250)}
                         />

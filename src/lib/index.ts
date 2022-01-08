@@ -14,6 +14,7 @@ export * from "./types/resizable";
 export * from "./types/shapes";
 export * from "./types/sizes";
 export * from "./types/sizings";
+export * from "./types/sorting";
 export * from "./types/spacings";
 export * from "./types/typography";
 export * from "./types/variations";
@@ -106,6 +107,7 @@ export * from "./components/utilities/serverrender";
 export * from "./components/utilities/transition";
 export * from "./components/utilities/viewportrender";
 
+export * from "./components/widgets/datatable";
 export * from "./components/widgets/daypicker";
 export * from "./components/widgets/daystepper";
 export * from "./components/widgets/monthpicker";
@@ -137,3 +139,4 @@ export * from "./stores/scrolllock";
 export * from "./stores/viewport";
 
 export * from "./util/environment";
+export * from "./util/keybind";

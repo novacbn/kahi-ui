@@ -101,10 +101,14 @@
     export let variation: $$Props["variation"] = undefined;
 
     function default_search(row: IDataTableRow): boolean {
+        // HACK: TypeScript can't obviously know this is only called whenever
+        // the `searching` property DOES have a string
+        const _searching = (searching as string).toLowerCase();
+
         for (const key in row) {
             const value = row[key].toLowerCase();
 
-            if (value.includes(searching)) return true;
+            if (value.includes(_searching)) return true;
         }
 
         return false;

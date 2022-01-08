@@ -67,6 +67,14 @@
             -   `<svelte:fragment slot="next/previous">` — Customizes the next / previous paging button content.
             -   `<svelte:fragment slot="unsorted/ascending/descending">` — Customizes the not-sorted, ascending sort, descending sort button content.
 
+-   Fixed the following Components / Component Features
+
+    -   Widget
+
+        -   `Pagination`
+
+            -   Fixed paging button generation not properly showing full step range on tailend of page count.
+
 ## 0.5.2 - 2022/01/05
 
 -   Fixed the following Components / Component Features

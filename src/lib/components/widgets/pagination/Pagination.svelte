@@ -37,6 +37,12 @@
         IPaddingProperties &
         ISizeProperties;
 
+    type $$Slots = {
+        next: {};
+
+        previous: {};
+    };
+
     const dispatch = createEventDispatcher();
 
     export let element: $$Props["element"] = undefined;
@@ -72,10 +78,13 @@
     $: {
         if (_pages > 1) {
             const ending_steps = clamp(_pages - _value, 0, _steps);
-            const starting_steps = clamp(_value - 1, 0, _steps);
+            const ending_inverse = _steps - ending_steps;
 
-            const starting_page = Math.max(_value - (starting_steps + (_steps - ending_steps)), 2);
-            const ending_page = Math.min(starting_page + 1 + _steps * 2, _pages);
+            const starting_steps = clamp(_value - 1, 0, _steps);
+            const starting_inverse = _steps - starting_steps;
+
+            const starting_page = Math.max(_value - (starting_steps + ending_inverse), 2);
+            const ending_page = Math.min(_value + (ending_steps + starting_inverse), _pages - 1);
 
             _page_range = range(starting_page, ending_page);
         } else _page_range = [];

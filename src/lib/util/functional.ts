@@ -48,7 +48,7 @@ export function pick<T>(
 }
 
 export function range(minimum: number, maximum: number): number[] {
-    return new Array(maximum - minimum).fill(null).map((_, index) => minimum + index);
+    return new Array(maximum - minimum + 1).fill(null).map((_, index) => minimum + index);
 }
 
 export function throttle<F extends (...args: any[]) => void | Promise<void>>(

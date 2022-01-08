@@ -12,6 +12,18 @@
         [4, false],
     ];
 
+    const PALETTES = [
+        ["neutral", true],
+        ["accent", false],
+        ["auto", false],
+        ["inverse", false],
+        ["dark", false],
+        ["light", false],
+        ["alert", false],
+        ["affirmative", false],
+        ["negative", false],
+    ];
+
     const SIZINGS = [
         ["default", true],
         ["tiny", false],
@@ -51,6 +63,20 @@
                 </Text>
 
                 <Pagination pages={10} value={5} palette="accent" {steps} />
+            </div>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Palette">
+    <Stack spacing="medium">
+        {#each PALETTES as [palette, is_default] (palette)}
+            <div>
+                <Text is="strong">
+                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <Pagination pages={10} value={5} {palette} />
             </div>
         {/each}
     </Stack>

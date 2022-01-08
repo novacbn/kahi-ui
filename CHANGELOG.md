@@ -1,5 +1,72 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Added the following Actions / Action Features
+
+    -   `action_activate(element: HTMLElement, options: {on_bind: IKeybindCallback}): IKeybindHandle` — Used for activating the current context, e.g. a focused label.
+
+        -   `Enter`, ` ` _(space)_
+
+    -   `action_exit(element: HTMLElement, options: {on_bind: IKeybindCallback}): IKeybindHandle` — Used for exiting the current context, e.g. a prompt.
+
+        -   `Esc`
+
+    -   `action_submit(element: HTMLElement, options: {on_bind: IKeybindCallback}): IKeybindHandle` — Used for submitting the current context, e.g. a focused input.
+
+        -   `Enter`
+
+    -   `navigate_down(element: HTMLElement, options: {on_bind: IKeybindCallback}): IKeybindHandle` — Used for navigating to the next item down.
+
+        -   `ArrowDown`
+        -   Repeatable, `250ms` throttle
+
+    -   `navigate_left(element: HTMLElement, options: {on_bind: IKeybindCallback}): IKeybindHandle` — Used for navigating to the next item left.
+
+        -   `ArrowLeft`
+        -   Repeatable, `250ms` throttle
+
+    -   `navigate_right(element: HTMLElement, options: {on_bind: IKeybindCallback}): IKeybindHandle` — Used for navigating to the next item right.
+
+        -   `ArrowRight`
+        -   Repeatable, `250ms` throttle
+
+    -   `navigate_up(element: HTMLElement, options: {on_bind: IKeybindCallback}): IKeybindHandle` — Used for navigating to the next item up.
+
+        -   `ArrowUp`
+        -   Repeatable, `250ms` throttle
+
+-   Added the following Components / Component Features
+
+    -   Widgets
+
+        -   `DataTable` — Automatically handles rendering tabular data of rows and columns into HTML.
+
+            -   `<DataTable columns={{key: keyof T, text: string}[]}>` — Configures metadata on how `DataTable` should renders the tabular data.
+            -   `<DataTable rows={T[]}>` — Sets the tabular data that `DataTable` is to render.
+
+            -   `<DataTable page={number | string}>` — Sets the current page of the pagination.
+            -   `<DataTable paginate={boolean}>` — Enables `DataTable` to split the tabular data into paged views.
+            -   `<DataTable paging={number | string}>` — Sets how many rows should appear per page.
+
+            -   `<DataTable sorting={keyof T}>` — Sets which row member that `DataTable` is currently sorting by.
+
+                -   `<DataTable columns={{sorting: boolean}[]}>` — Enables sorting for the particular column.
+                -   `<DataTable columns={{sorting_algorithm: (a: T[keyof T], b: T[keyof T]) => number}[]}>` — Optional custom sorter. By default, all row members are lowercased and alphabetized.
+
+            -   `<DataTable sorting_mode="ascending/decending">` — Sets which direction `DataTable` is sorting the row member by.
+
+            -   `<DataTable searching={string}>` — Sets the current search query that `DataTable` is using to filter the tabular data.
+            -   `<DataTable searching_algorithm={(row: T) => boolean}>` — Optional custom searching filter. By default, all row members are lowercased and fuzzy searched.
+
+            -   `<DataTable palette="accent/dark/light/alert/affirmative/negative">` — Alters the rendered color palette.
+            -   `<DataTable sizing="tiny/small/medium/large/huge">` — Alters the sizing of the Widget and children Components.
+            -   `<DataTable variation={"borders" | "stripes" | ["borders", "stripes"]}>` — Alters the appearance of the Component.
+
+            -   `<svelte:fragment let:key={keyof T} let:row={T}>` — Customizes how each column in a row is rendered in a table cell.
+            -   `<svelte:fragment slot="next/previous">` — Customizes the next / previous paging button content.
+            -   `<svelte:fragment slot="unsorted/ascending/decending">` — Customizes the not-sorted, ascending sort, decending sort button content.
+
 ## 0.5.2 - 2022/01/05
 
 -   Fixed the following Components / Component Features

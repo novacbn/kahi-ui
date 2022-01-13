@@ -1,0 +1,3 @@
+@function generate-tier($duration, $function) {
+    @return ("duration": $duration, "function": $function);
+}

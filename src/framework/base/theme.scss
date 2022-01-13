@@ -1,0 +1,179 @@
+@use "sass:map";
+
+@use "../abstracts/palettes";
+@use "../abstracts/variables";
+@use "../abstracts/viewports";
+@use "../abstracts/themes";
+
+:root {
+    /** */
+
+    --scrollbar-background: var(--palette-off-dark-lightest);
+    --scrollbar-foreground: var(--palette-dark-normal);
+    --scrollbar-size: theme("width.1");
+
+    /** */
+
+    --document-background: var(--palette-auto-off-lightest);
+    --document-foreground: var(--palette-inverse-normal);
+
+    --document-font-size: 16px;
+    --document-font-line-height: 1.5rem;
+
+    --selection-background: var(--palette-accent-boldest);
+    --selection-foreground: var(--palette-light-normal);
+}
+
+/**
+ * HACK: Really lame to have to duplicate dark mode variables
+ */
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-palette]) {
+        /** */
+
+        --scrollbar-background: var(--palette-off-dark-boldest);
+        --scrollbar-foreground: var(--palette-dark-normal);
+    }
+}
+
+:root[data-palette="dark"] {
+    /** */
+
+    --scrollbar-background: var(--palette-off-dark-boldest);
+    --scrollbar-foreground: var(--palette-dark-normal);
+}
+
+@include themes.query-theme-mode("light") {
+    --palette-dark-lightest: #{palettes.get-shade("dark", 6, $is-raw: true)};
+    --palette-dark-lighter: #{palettes.get-shade("dark", 5, $is-raw: true)};
+    --palette-dark-light: #{palettes.get-shade("dark", 4, $is-raw: true)};
+    --palette-dark-normal: #{palettes.get-shade("dark", 3, $is-raw: true)};
+    --palette-dark-bold: #{palettes.get-shade("dark", 2, $is-raw: true)};
+    --palette-dark-bolder: #{palettes.get-shade("dark", 1, $is-raw: true)};
+    --palette-dark-boldest: #{palettes.get-shade("dark", 0, $is-raw: true)};
+
+    --palette-light-lightest: #{palettes.get-shade("light", -0, $is-raw: true)};
+    --palette-light-lighter: #{palettes.get-shade("light", -1, $is-raw: true)};
+    --palette-light-light: #{palettes.get-shade("light", -2, $is-raw: true)};
+    --palette-light-normal: #{palettes.get-shade("light", -3, $is-raw: true)};
+    --palette-light-bold: #{palettes.get-shade("light", -4, $is-raw: true)};
+    --palette-light-bolder: #{palettes.get-shade("light", -5, $is-raw: true)};
+    --palette-light-boldest: #{palettes.get-shade("light", -6, $is-raw: true)};
+
+    @include palettes.each() using ($background, $foreground) {
+        @if $background != "dark" and $background != "light" {
+            --palette-#{$background}-lightest: #{palettes.get-shade($background, 6, $is-raw: true)};
+            --palette-#{$background}-lighter: #{palettes.get-shade($background, 5, $is-raw: true)};
+            --palette-#{$background}-light: #{palettes.get-shade($background, 4, $is-raw: true)};
+
+            --palette-#{$background}-normal: #{palettes.get-shade($background, 3, $is-raw: true)};
+
+            --palette-#{$background}-bold: #{palettes.get-shade($background, 2, $is-raw: true)};
+            --palette-#{$background}-bolder: #{palettes.get-shade($background, 1, $is-raw: true)};
+            --palette-#{$background}-boldest: #{palettes.get-shade($background, 0, $is-raw: true)};
+        }
+    }
+
+    --palette-auto-lightest: var(--palette-light-lightest);
+    --palette-auto-lighter: var(--palette-light-lighter);
+    --palette-auto-light: var(--palette-light-light);
+    --palette-auto-normal: var(--palette-light-normal);
+    --palette-auto-bold: var(--palette-light-bold);
+    --palette-auto-bolder: var(--palette-light-bolder);
+    --palette-auto-boldest: var(--palette-light-boldest);
+
+    --palette-inverse-lightest: var(--palette-dark-lightest);
+    --palette-inverse-lighter: var(--palette-dark-lighter);
+    --palette-inverse-light: var(--palette-dark-light);
+    --palette-inverse-normal: var(--palette-dark-normal);
+    --palette-inverse-bold: var(--palette-dark-bold);
+    --palette-inverse-bolder: var(--palette-dark-bolder);
+    --palette-inverse-boldest: var(--palette-dark-boldest);
+}
+
+@include themes.query-theme-mode("dark") {
+    --palette-dark-lightest: #{palettes.get-shade("dark", 0, $is-raw: true)};
+    --palette-dark-lighter: #{palettes.get-shade("dark", 1, $is-raw: true)};
+    --palette-dark-light: #{palettes.get-shade("dark", 2, $is-raw: true)};
+    --palette-dark-normal: #{palettes.get-shade("dark", 3, $is-raw: true)};
+    --palette-dark-bold: #{palettes.get-shade("dark", 4, $is-raw: true)};
+    --palette-dark-bolder: #{palettes.get-shade("dark", 5, $is-raw: true)};
+    --palette-dark-boldest: #{palettes.get-shade("dark", 6, $is-raw: true)};
+
+    --palette-light-lightest: #{palettes.get-shade("light", -6, $is-raw: true)};
+    --palette-light-lighter: #{palettes.get-shade("light", -5, $is-raw: true)};
+    --palette-light-light: #{palettes.get-shade("light", -4, $is-raw: true)};
+    --palette-light-normal: #{palettes.get-shade("light", -3, $is-raw: true)};
+    --palette-light-bold: #{palettes.get-shade("light", -2, $is-raw: true)};
+    --palette-light-bolder: #{palettes.get-shade("light", -1, $is-raw: true)};
+    --palette-light-boldest: #{palettes.get-shade("light", -0, $is-raw: true)};
+
+    @include palettes.each() using ($background, $foreground) {
+        @if $background != "dark" and $background != "light" {
+            --palette-#{$background}-lightest: #{palettes.get-shade(
+                    $background,
+                    -5,
+                    $is-raw: true
+                )};
+            --palette-#{$background}-lighter: #{palettes.get-shade($background, -4, $is-raw: true)};
+            --palette-#{$background}-light: #{palettes.get-shade($background, -3, $is-raw: true)};
+
+            --palette-#{$background}-normal: #{palettes.get-shade($background, -2, $is-raw: true)};
+
+            --palette-#{$background}-bold: #{palettes.get-shade($background, -1, $is-raw: true)};
+            --palette-#{$background}-bolder: #{palettes.get-shade($background, 0, $is-raw: true)};
+            --palette-#{$background}-boldest: #{palettes.get-shade($background, 1, $is-raw: true)};
+        }
+    }
+
+    --palette-auto-lightest: var(--palette-dark-lightest);
+    --palette-auto-lighter: var(--palette-dark-lighter);
+    --palette-auto-light: var(--palette-dark-light);
+    --palette-auto-normal: var(--palette-dark-normal);
+    --palette-auto-bold: var(--palette-dark-bold);
+    --palette-auto-bolder: var(--palette-dark-bolder);
+    --palette-auto-boldest: var(--palette-dark-boldest);
+
+    --palette-inverse-lightest: var(--palette-light-lightest);
+    --palette-inverse-lighter: var(--palette-light-lighter);
+    --palette-inverse-light: var(--palette-light-light);
+    --palette-inverse-normal: var(--palette-light-normal);
+    --palette-inverse-bold: var(--palette-light-bold);
+    --palette-inverse-bolder: var(--palette-light-bolder);
+    --palette-inverse-boldest: var(--palette-light-boldest);
+}
+
+:root {
+    --palette-background-lightest: var(--palette-auto-lightest);
+    --palette-background-lighter: var(--palette-auto-lighter);
+    --palette-background-light: var(--palette-auto-light);
+    --palette-background-normal: var(--palette-auto-normal);
+    --palette-background-bold: var(--palette-auto-bold);
+    --palette-background-bolder: var(--palette-auto-bolder);
+    --palette-background-boldest: var(--palette-auto-boldest);
+
+    --palette-foreground-lightest: var(--palette-inverse-lightest);
+    --palette-foreground-lighter: var(--palette-inverse-lighter);
+    --palette-foreground-light: var(--palette-inverse-light);
+    --palette-foreground-normal: var(--palette-inverse-normal);
+    --palette-foreground-bold: var(--palette-inverse-bold);
+    --palette-foreground-bolder: var(--palette-inverse-bolder);
+    --palette-foreground-boldest: var(--palette-inverse-boldest);
+
+    /**
+     *   NOTE: The Viewport variables below don't /actually/ do anything in
+     *   the Framework. And are instead here to provide the Javascript side
+     *   of things constants to reference
+     */
+
+    @include viewports.each() using ($name, $width, $minimum-width, $maximum-width) {
+        --viewport-#{$name}-base: #{$width};
+        --viewport-#{$name}-minimum: #{$minimum-width};
+        --viewport-#{$name}-maximum: #{$maximum-width};
+    }
+
+    @include variables.each() using ($key, $value) {
+        --#{variables.format-reference($key)}: #{$value};
+    }
+}

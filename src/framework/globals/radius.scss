@@ -1,0 +1,43 @@
+@use "../abstracts/constants";
+@use "../abstracts/variables";
+@use "../abstracts/viewports";
+
+@mixin radius-declarations($name, $value, $prefix: "") {
+    [data-radius~="#{$prefix + $name}"] {
+        --radius: #{$value} !important;
+    }
+}
+
+@mixin shape-declarations($name, $value, $prefix: "") {
+    [data-shape~="#{$prefix + $name}"] {
+        --shape: #{$value} !important;
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include constants.each("radius.") using ($name, $radius) {
+        @include radius-declarations($name, $radius, $prefix);
+    }
+
+    @include variables.each("radius.block.") using ($name, $size) {
+        @include radius-declarations($name, variables.format-var("radius.block.#{$name}"), $prefix);
+    }
+
+    @include constants.each("shape.") using ($name, $radius) {
+        @include shape-declarations($name, $radius, $prefix);
+    }
+
+    @include variables.each("shape.") using ($name, $radius) {
+        @include shape-declarations($name, variables.format-var("shape.#{$name}"), $prefix);
+    }
+}
+
+@if not env("DISABLE_GLOBALS_RADIUS") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_RADIUS_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@use "sass:color";
+@use "sass:math";
+
+@use "./constants";
+@use "./colors";
+
+@function generate-palette($background, $foreground, $shading) {
+    @return ("background": $background, "foreground": $foreground, "shading": $shading);
+}
+
+@mixin each() {
+    @include constants.each("palettes.*.background") using ($name, $background) {
+        $foreground: constants.get("palettes.#{$name}.foreground");
+
+        @content ($name, $foreground);
+    }
+}
+
+@function get-shade($background-name, $step, $is-raw: false) {
+    $background-color: constants.get("palettes.#{$background-name}.background");
+    @if $step == 0 {
+        @return colors.normalize-hsl($background-color, $is-raw);
+    }
+
+    $shading-name: if($step < 0, "dark", "light");
+
+    $shading-stepping: constants.get("palettes.#{$background-name}.shading");
+    $shading-color: constants.get("palettes.#{$shading-name}.background");
+
+    $mixed-color: color.mix($shading-color, $background-color, $shading-stepping * math.abs($step));
+    @return colors.normalize-hsl($mixed-color, $is-raw);
+}

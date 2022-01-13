@@ -1,0 +1,340 @@
+@use "../../framework/abstracts/animations";
+@use "../../framework/abstracts/constants";
+@use "../../framework/abstracts/palettes";
+@use "../../framework/abstracts/sizes";
+@use "../../framework/abstracts/variables";
+@use "../../framework/abstracts/viewports";
+
+/**
+ * NOTE: The below colors are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include constants.define-constants(
+    (
+        "palettes": (
+            "dark":
+                palettes.generate-palette(
+                    $background: hsl(217, 11%, 15%),
+                    $foreground: "light",
+                    $shading: 4%
+                ),
+            "light":
+                palettes.generate-palette(
+                    $background: hsl(0, 0%, 100%),
+                    $foreground: "dark",
+                    $shading: 2%
+                ),
+            "neutral":
+                palettes.generate-palette(
+                    $background: hsl(216, 11%, 55%),
+                    $foreground: "light",
+                    $shading: 12%
+                ),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below colors can be renamed or otherwise added / removed as desired
+ */
+
+@include constants.define-constants(
+    (
+        "palettes": (
+            "accent":
+                palettes.generate-palette(
+                    $background: hsl(200, 31%, 50%),
+                    $foreground: "light",
+                    $shading: 12%
+                ),
+            "alert":
+                palettes.generate-palette(
+                    $background: hsl(42, 75%, 50%),
+                    $foreground: "light",
+                    $shading: 12%
+                ),
+            "affirmative":
+                palettes.generate-palette(
+                    $background: hsl(146, 40%, 50%),
+                    $foreground: "light",
+                    $shading: 12%
+                ),
+            "negative":
+                palettes.generate-palette(
+                    $background: hsl(7, 48%, 55%),
+                    $foreground: "light",
+                    $shading: 12%
+                ),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below viewports are mandatory in ALL themes! They are statically
+ * referenced in the main Javascript codebase
+ */
+
+@include constants.define-constants(
+    (
+        "viewports": (
+            "mobile": 640px,
+            "tablet": 768px,
+            "desktop": 1024px,
+            "widescreen": 1280px,
+        ),
+    )
+);
+
+/**
+ * NOTE: The below font familys are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define-variables(
+    (
+        "font.families": (
+            "block": (
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Helvetica Neue",
+                Arial,
+                "Noto Sans",
+                sans-serif,
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Segoe UI Symbol",
+                "Noto Color Emoji",
+            ),
+            "inline": (
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Helvetica Neue",
+                Arial,
+                "Noto Sans",
+                sans-serif,
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Segoe UI Symbol",
+                "Noto Color Emoji",
+            ),
+            "monospace": (
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                "Liberation Mono",
+                "Courier New",
+                monospace,
+            ),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below font sizes / families are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define-variables(
+    (
+        "fonts": (
+            "sizes.block": sizes.generate-scaling($base: 1.125, $ratio: 1.2),
+            "line-heights.block": sizes.generate-scaling($base: 1, $ratio: 1.15),
+            "sizes.inline": sizes.generate-scaling($base: 0.75, $ratio: 1.15),
+            "line-heights.inline": sizes.generate-scaling($base: 1, $ratio: 1.145),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below spacings are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define-variables(
+    (
+        "spacings": (
+            "block": sizes.generate-scaling($base: 0.125, $ratio: 2),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below spacings can be renamed or otherwise added / removed as desired
+ */
+
+@include constants.define-constants(
+    (
+        "spacings": (
+            "none": 0px,
+            "auto": auto,
+        ),
+    )
+);
+
+/**
+ * NOTE: The below sizes are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define-variables(
+    (
+        "sizes": (
+            "block": sizes.generate-scaling($base: 19.5, $ratio: 1.3),
+            "inline": sizes.generate-scaling($base: 9.5, $ratio: 1.2),
+            "icon": sizes.generate-stepping($base: 16px, $stepping: 8px),
+            "prose": 65ch,
+        ),
+    )
+);
+
+/**
+ * NOTE: The below sizes can be renamed or otherwise added / removed as desired
+ *
+ * NOTE: `%` suffixed units are special cased to be used for `viewport-`
+ * size global attribute values also
+ */
+
+@include constants.define-constants(
+    (
+        "sizes": (
+            "none": 0px,
+            "auto": auto,
+            "25": 25%,
+            "33": 33%,
+            "50": 50%,
+            "66": 66%,
+            "75": 75%,
+            "100": 100%,
+            "content-fit": fit-content,
+            "content-max": max-content,
+            "content-min": min-content,
+        ),
+    )
+);
+
+/**
+ * NOTE: The below radii can be renamed or otherwise added / removed as desired
+ */
+
+@include constants.define-constants(
+    (
+        "radius": (
+            "none": none,
+        ),
+    )
+);
+
+@include variables.define-variables(
+    (
+        "radius": (
+            "block": sizes.generate-scaling($base: 0.125, $ratio: 2),
+        ),
+        "shape": (
+            "circle": 100%,
+            "pill": 9999px,
+        ),
+    )
+);
+
+/**
+ * NOTE: The below easings can be renamed or otherwise added / removed as desired
+ */
+
+@include variables.define-variables(
+    (
+        "easings": (
+            "unknown": cubic-bezier(0.4, 0, 0.6, 1),
+            "ease-out-quad": cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below animation tiers are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define-variables(
+    (
+        "animations": (
+            "attention":
+                animations.generate-tier(
+                    $duration: 1.5s,
+                    $function: variables.format-var("easings.unknown")
+                ),
+            "movement":
+                animations.generate-tier(
+                    $duration: 0.25s,
+                    $function: variables.format-var("easings.ease-out-quad")
+                ),
+            "reveal":
+                animations.generate-tier(
+                    $duration: 0.3s,
+                    $function: variables.format-var("easings.ease-out-quad")
+                ),
+            "visual":
+                animations.generate-tier(
+                    $duration: 0.2s,
+                    $function: variables.format-var("easings.ease-out-quad")
+                ),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below elevation tiers can be renamed or otherwise added / removed as desired
+ */
+
+// TODO: Create function that generates the tiers of elevations
+// HACK: `highest` is same as `higher`
+
+@include constants.define-constants(
+    (
+        "elevations": (
+            "none": none,
+        ),
+    )
+);
+
+@include variables.define-variables(
+    (
+        "elevations": (
+            "lowest": (
+                1px 2px 0 rgba(0, 0, 0, 0.05),
+            ),
+            "lower": (
+                (0 1px 3px 0 rgba(0, 0, 0, 0.1)),
+                (0 1px 2px 0 rgba(0, 0, 0, 0.06)),
+            ),
+            "low": (
+                (0 4px 6px -1px rgba(0, 0, 0, 0.1)),
+                (0 2px 4px -1px rgba(0, 0, 0, 0.06)),
+            ),
+            "medium": (
+                (0 10px 15px -3px rgba(0, 0, 0, 0.1)),
+                (0 4px 6px -2px rgba(0, 0, 0, 0.05)),
+            ),
+            "high": (
+                (0 20px 25px -5px rgba(0, 0, 0, 0.1)),
+                (0 10px 10px -5px rgba(0, 0, 0, 0.04)),
+            ),
+            "higher": (
+                0 25px 50px -12px rgb(0 0 0/0.25),
+            ),
+            "highest": (
+                0 25px 50px -12px rgb(0 0 0/0.25),
+            ),
+        ),
+    )
+);

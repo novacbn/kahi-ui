@@ -1,0 +1,17 @@
+@use "sass:map";
+
+@use "./strings";
+
+@function flatten-dotpath($map, $path: "", $ret: ()) {
+    @each $key, $value in $map {
+        $key: if($path == "", $key, "#{$path}.#{$key}");
+
+        @if type-of($value) == "map" {
+            $ret: flatten-dotpath($value, $key, $ret);
+        } @else {
+            $ret: map.set($ret, $key, $value);
+        }
+    }
+
+    @return $ret;
+}

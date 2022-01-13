@@ -1,0 +1,36 @@
+@use "../abstracts/variables";
+@use "../abstracts/viewports";
+
+@mixin sizing-declarations($size, $prefix: "") {
+    [data-sizing~="#{$prefix}#{$size}"] {
+        @include variables.each("fonts.line-heights.*.#{$size}") using ($tier, $_) {
+            --sizing-font-size-#{$tier}: #{variables.format-var(
+                    "fonts.line-heights.#{$tier}.#{$size}"
+                )};
+        }
+
+        @include variables.each("fonts.sizes.*.#{$size}") using ($tier, $_) {
+            --sizing-font-size-#{$tier}: #{variables.format-var("fonts.sizes.#{$tier}.#{$size}")};
+        }
+
+        @include variables.each("sizes.*.#{$size}") using ($tier, $_) {
+            --sizing-size-#{$tier}: #{variables.format-var("sizes.#{$tier}.#{$size}")};
+        }
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include variables.each("sizes.block.") using ($size, $_) {
+        @include sizing-declarations($size, $prefix);
+    }
+}
+
+@if not env("DISABLE_GLOBALS_SIZINGS") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_SIZINGS_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

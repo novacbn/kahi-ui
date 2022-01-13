@@ -1,0 +1,9 @@
+@use "sass:color";
+
+@function normalize-hsl($color, $is-raw: false) {
+    @if $is-raw {
+        @return color.hue($color) + ", " + color.saturation($color) + ", " + color.lightness($color);
+    }
+
+    @return hsl(color.hue($color), color.saturation($color), color.lightness($color));
+}

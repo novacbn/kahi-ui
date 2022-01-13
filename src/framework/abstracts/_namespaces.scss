@@ -1,0 +1,67 @@
+@use "sass:list";
+@use "sass:map";
+
+@use "./maps";
+@use "./strings";
+
+$namespaces: ();
+
+@mixin define-namespace($key, $value) {
+    $namespaces: map.set($key, $value) !global;
+}
+
+@mixin define-namespaces($map) {
+    $map: maps.flatten-dotpath($map);
+    $namespaces: map.merge($namespaces, $map) !global;
+}
+
+@mixin each($filter: null) {
+    $keys: map.keys($namespaces);
+
+    @each $key in $keys {
+        @if not $filter {
+            $value: map.get($namespaces, $key);
+
+            @content ($key, $value);
+        } @else {
+            $sub-key: strings.filter($key, $filter);
+
+            @if $sub-key {
+                $value: map.get($namespaces, $key);
+
+                @content ($sub-key, $value);
+            }
+        }
+    }
+}
+
+@function get($key) {
+    @if not map.has-key($namespaces, $key) {
+        @error "bad argument #1 to 'namespaces.get' (invalid key '#{$key}')";
+    }
+
+    @return map.get($namespaces, $key);
+}
+
+@function has($key) {
+    @return map.has-key($namespaces, $key);
+}
+
+@function keys($filter: null) {
+    $keys: map.keys($namespaces);
+    @if not $filter {
+        @return $keys;
+    }
+
+    $ret: ();
+
+    @each $key in $keys {
+        $sub-key: strings.filter($key, $filter);
+
+        @if $sub-key {
+            $ret: list.append($ret, $sub-key);
+        }
+    }
+
+    @return $ret;
+}

@@ -1,0 +1,9 @@
+@use "sass:math";
+
+@function scale($base, $ratio, $step) {
+    @return $base * math.pow($ratio, $step);
+}
+
+@function step($base, $stepping, $step) {
+    @return $base + ($stepping * $step);
+}

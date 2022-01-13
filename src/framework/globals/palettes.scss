@@ -1,0 +1,57 @@
+@use "../abstracts/palettes";
+@use "../abstracts/strings";
+
+@mixin palette-declarations($name, $background, $foreground) {
+    $name: strings.format-identifier($name);
+
+    [data-palette="#{$name}"] {
+        --palette-background-lightest: var(--palette-#{$background}-lightest);
+        --palette-background-lighter: var(--palette-#{$background}-lighter);
+        --palette-background-light: var(--palette-#{$background}-light);
+        --palette-background-normal: var(--palette-#{$background}-normal);
+        --palette-background-bold: var(--palette-#{$background}-bold);
+        --palette-background-bolder: var(--palette-#{$background}-bolder);
+        --palette-background-boldest: var(--palette-#{$background}-boldest);
+
+        --palette-foreground-lightest: var(--palette-#{$foreground}-lightest);
+        --palette-foreground-lighter: var(--palette-#{$foreground}-lighter);
+        --palette-foreground-light: var(--palette-#{$foreground}-light);
+        --palette-foreground-normal: var(--palette-#{$foreground}-normal);
+        --palette-foreground-bold: var(--palette-#{$foreground}-bold);
+        --palette-foreground-bolder: var(--palette-#{$foreground}-bolder);
+        --palette-foreground-boldest: var(--palette-#{$foreground}-boldest);
+    }
+}
+
+@mixin declarations() {
+    @include palette-declarations("auto", "auto", "inverse");
+    @include palette-declarations("inverse", "inverse", "auto");
+
+    [data-palette="inherit"] {
+        // NOTE: meh, not worth it enough to mixinify this block
+
+        --palette-background-lightest: inherit;
+        --palette-background-lighter: inherit;
+        --palette-background-light: inherit;
+        --palette-background-normal: inherit;
+        --palette-background-bold: inherit;
+        --palette-background-bolder: inherit;
+        --palette-background-boldest: inherit;
+
+        --palette-foreground-lightest: inherit;
+        --palette-foreground-lighter: inherit;
+        --palette-foreground-light: inherit;
+        --palette-foreground-normal: inherit;
+        --palette-foreground-bold: inherit;
+        --palette-foreground-bolder: inherit;
+        --palette-foreground-boldest: inherit;
+    }
+
+    @include palettes.each() using ($background, $foreground) {
+        @include palette-declarations($background, $background, $foreground);
+    }
+}
+
+@if not env("DISABLE_GLOBALS_PALETTES") {
+    @include declarations();
+}

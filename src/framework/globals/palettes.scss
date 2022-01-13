@@ -5,21 +5,21 @@
     $name: strings.format-identifier($name);
 
     [data-palette="#{$name}"] {
-        --palette-background-lightest: var(--palette-#{$background}-lightest);
-        --palette-background-lighter: var(--palette-#{$background}-lighter);
-        --palette-background-light: var(--palette-#{$background}-light);
-        --palette-background-normal: var(--palette-#{$background}-normal);
-        --palette-background-bold: var(--palette-#{$background}-bold);
-        --palette-background-bolder: var(--palette-#{$background}-bolder);
-        --palette-background-boldest: var(--palette-#{$background}-boldest);
+        --palette-background-lightest: var(--palettes-#{$background}-lightest);
+        --palette-background-lighter: var(--palettes-#{$background}-lighter);
+        --palette-background-light: var(--palettes-#{$background}-light);
+        --palette-background-normal: var(--palettes-#{$background}-normal);
+        --palette-background-bold: var(--palettes-#{$background}-bold);
+        --palette-background-bolder: var(--palettes-#{$background}-bolder);
+        --palette-background-boldest: var(--palettes-#{$background}-boldest);
 
-        --palette-foreground-lightest: var(--palette-#{$foreground}-lightest);
-        --palette-foreground-lighter: var(--palette-#{$foreground}-lighter);
-        --palette-foreground-light: var(--palette-#{$foreground}-light);
-        --palette-foreground-normal: var(--palette-#{$foreground}-normal);
-        --palette-foreground-bold: var(--palette-#{$foreground}-bold);
-        --palette-foreground-bolder: var(--palette-#{$foreground}-bolder);
-        --palette-foreground-boldest: var(--palette-#{$foreground}-boldest);
+        --palette-foreground-lightest: var(--palettes-#{$foreground}-lightest);
+        --palette-foreground-lighter: var(--palettes-#{$foreground}-lighter);
+        --palette-foreground-light: var(--palettes-#{$foreground}-light);
+        --palette-foreground-normal: var(--palettes-#{$foreground}-normal);
+        --palette-foreground-bold: var(--palettes-#{$foreground}-bold);
+        --palette-foreground-bolder: var(--palettes-#{$foreground}-bolder);
+        --palette-foreground-boldest: var(--palettes-#{$foreground}-boldest);
     }
 }
 
@@ -30,21 +30,21 @@
     [data-palette="inherit"] {
         // NOTE: meh, not worth it enough to mixinify this block
 
-        --palette-background-lightest: inherit;
-        --palette-background-lighter: inherit;
-        --palette-background-light: inherit;
-        --palette-background-normal: inherit;
-        --palette-background-bold: inherit;
-        --palette-background-bolder: inherit;
-        --palette-background-boldest: inherit;
+        --palettes-background-lightest: inherit;
+        --palettes-background-lighter: inherit;
+        --palettes-background-light: inherit;
+        --palettes-background-normal: inherit;
+        --palettes-background-bold: inherit;
+        --palettes-background-bolder: inherit;
+        --palettes-background-boldest: inherit;
 
-        --palette-foreground-lightest: inherit;
-        --palette-foreground-lighter: inherit;
-        --palette-foreground-light: inherit;
-        --palette-foreground-normal: inherit;
-        --palette-foreground-bold: inherit;
-        --palette-foreground-bolder: inherit;
-        --palette-foreground-boldest: inherit;
+        --palettes-foreground-lightest: inherit;
+        --palettes-foreground-lighter: inherit;
+        --palettes-foreground-light: inherit;
+        --palettes-foreground-normal: inherit;
+        --palettes-foreground-bold: inherit;
+        --palettes-foreground-bolder: inherit;
+        --palettes-foreground-boldest: inherit;
     }
 
     @include palettes.each() using ($background, $foreground) {

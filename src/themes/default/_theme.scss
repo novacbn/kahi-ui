@@ -93,7 +93,7 @@
 
 @include variables.define-variables(
     (
-        "font.families": (
+        "fonts.families": (
             "block": (
                 ui-sans-serif,
                 system-ui,
@@ -240,7 +240,7 @@
         "radius": (
             "block": sizes.generate-scaling($base: 0.125, $ratio: 2),
         ),
-        "shape": (
+        "shapes": (
             "circle": 100%,
             "pill": 9999px,
         ),

@@ -11,7 +11,7 @@ export const parameters = {
     },
     viewport: {
         viewports: {
-            // NOTE: The viewports have to be slightly less than the actual breakpoints. Storybook
+            // HACK: The viewports have to be slightly less than the actual breakpoints. Storybook
             // adds slightly more to the iframe dimensions (???)
             mobile: {
                 name: "Mobile",

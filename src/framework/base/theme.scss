@@ -1,5 +1,6 @@
 @use "sass:map";
 
+@use "../abstracts/maths";
 @use "../abstracts/palettes";
 @use "../abstracts/variables";
 @use "../abstracts/viewports";
@@ -44,131 +45,145 @@
     --scrollbar-foreground: var(--palette-dark-normal);
 }
 
-@include themes.query-theme-mode("light") {
-    --palettes-dark-lightest: #{palettes.get-shade("dark", 6, $is-raw: true)};
-    --palettes-dark-lighter: #{palettes.get-shade("dark", 5, $is-raw: true)};
-    --palettes-dark-light: #{palettes.get-shade("dark", 4, $is-raw: true)};
-    --palettes-dark-normal: #{palettes.get-shade("dark", 3, $is-raw: true)};
-    --palettes-dark-bold: #{palettes.get-shade("dark", 2, $is-raw: true)};
-    --palettes-dark-bolder: #{palettes.get-shade("dark", 1, $is-raw: true)};
-    --palettes-dark-boldest: #{palettes.get-shade("dark", 0, $is-raw: true)};
+@mixin palette-theme-mode-declarations($background) {
+    --palettes-auto-background-lightest: #{palettes.format-var(
+            $background,
+            "background",
+            "lightest"
+        )};
+    --palettes-auto-background-lighter: #{palettes.format-var($background, "background", "lighter")};
+    --palettes-auto-background-light: #{palettes.format-var($background, "background", "light")};
 
-    --palettes-light-lightest: #{palettes.get-shade("light", -0, $is-raw: true)};
-    --palettes-light-lighter: #{palettes.get-shade("light", -1, $is-raw: true)};
-    --palettes-light-light: #{palettes.get-shade("light", -2, $is-raw: true)};
-    --palettes-light-normal: #{palettes.get-shade("light", -3, $is-raw: true)};
-    --palettes-light-bold: #{palettes.get-shade("light", -4, $is-raw: true)};
-    --palettes-light-bolder: #{palettes.get-shade("light", -5, $is-raw: true)};
-    --palettes-light-boldest: #{palettes.get-shade("light", -6, $is-raw: true)};
+    --palettes-auto-background-normal: #{palettes.format-var($background, "background", "normal")};
+
+    --palettes-auto-background-bold: #{palettes.format-var($background, "background", "bold")};
+    --palettes-auto-background-bolder: #{palettes.format-var($background, "background", "bolder")};
+    --palettes-auto-background-boldest: #{palettes.format-var($background, "background", "boldest")};
+
+    /** */
+
+    --palettes-auto-foreground-lightest: #{palettes.format-var(
+            $background,
+            "foreground",
+            "lightest"
+        )};
+    --palettes-auto-foreground-lighter: #{palettes.format-var($background, "foreground", "lighter")};
+    --palettes-auto-foreground-light: #{palettes.format-var($background, "foreground", "light")};
+
+    --palettes-auto-foreground-normal: #{palettes.format-var($background, "foreground", "normal")};
+
+    --palettes-auto-foreground-bold: #{palettes.format-var($background, "foreground", "bold")};
+    --palettes-auto-foreground-bolder: #{palettes.format-var($background, "foreground", "bolder")};
+    --palettes-auto-foreground-boldest: #{palettes.format-var($background, "foreground", "boldest")};
+}
+
+@mixin palette-stepping-declarations($background, $foreground, $base, $stepping) {
+    --#{palettes.format-reference($background, "background", "lightest")}: #{palettes.get-shade(
+            $background,
+            maths.step($base, $stepping, 0),
+            $is-raw: true
+        )};
+    --#{palettes.format-reference($background, "background", "lighter")}: #{palettes.get-shade(
+            $background,
+            maths.step($base, $stepping, 1),
+            $is-raw: true
+        )};
+    --#{palettes.format-reference($background, "background", "light")}: #{palettes.get-shade(
+            $background,
+            maths.step($base, $stepping, 2),
+            $is-raw: true
+        )};
+
+    --#{palettes.format-reference($background, "background", "normal")}: #{palettes.get-shade(
+            $background,
+            maths.step($base, $stepping, 3),
+            $is-raw: true
+        )};
+
+    --#{palettes.format-reference($background, "background", "bold")}: #{palettes.get-shade(
+            $background,
+            maths.step($base, $stepping, 4),
+            $is-raw: true
+        )};
+    --#{palettes.format-reference($background, "background", "bolder")}: #{palettes.get-shade(
+            $background,
+            maths.step($base, $stepping, 5),
+            $is-raw: true
+        )};
+    --#{palettes.format-reference($background, "background", "boldest")}: #{palettes.get-shade(
+            $background,
+            maths.step($base, $stepping, 6),
+            $is-raw: true
+        )};
+
+    /** */
+
+    --#{palettes.format-reference($background, "foreground", "lightest")}: #{palettes.format-var(
+            $foreground,
+            "background",
+            "lightest"
+        )};
+    --#{palettes.format-reference($background, "foreground", "lighter")}: #{palettes.format-var(
+            $foreground,
+            "background",
+            "lighter"
+        )};
+    --#{palettes.format-reference($background, "foreground", "light")}: #{palettes.format-var(
+            $foreground,
+            "background",
+            "light"
+        )};
+
+    --#{palettes.format-reference($background, "foreground", "normal")}: #{palettes.format-var(
+            $foreground,
+            "background",
+            "normal"
+        )};
+
+    --#{palettes.format-reference($background, "foreground", "bold")}: #{palettes.format-var(
+            $foreground,
+            "background",
+            "bold"
+        )};
+    --#{palettes.format-reference($background, "foreground", "bolder")}: #{palettes.format-var(
+            $foreground,
+            "background",
+            "bolder"
+        )};
+    --#{palettes.format-reference($background, "foreground", "boldest")}: #{palettes.format-var(
+            $foreground,
+            "background",
+            "boldest"
+        )};
+}
+
+@include themes.query-theme-mode("light") {
+    @include palette-stepping-declarations("dark", "light", 6, -1);
+    @include palette-stepping-declarations("light", "dark", 0, -1);
 
     @include palettes.each() using ($background, $foreground) {
         @if $background != "dark" and $background != "light" {
-            --palettes-#{$background}-lightest: #{palettes.get-shade(
-                    $background,
-                    6,
-                    $is-raw: true
-                )};
-            --palettes-#{$background}-lighter: #{palettes.get-shade($background, 5, $is-raw: true)};
-            --palettes-#{$background}-light: #{palettes.get-shade($background, 4, $is-raw: true)};
-
-            --palettes-#{$background}-normal: #{palettes.get-shade($background, 3, $is-raw: true)};
-
-            --palettes-#{$background}-bold: #{palettes.get-shade($background, 2, $is-raw: true)};
-            --palettes-#{$background}-bolder: #{palettes.get-shade($background, 1, $is-raw: true)};
-            --palettes-#{$background}-boldest: #{palettes.get-shade($background, 0, $is-raw: true)};
+            @include palette-stepping-declarations($background, $foreground, 6, -1);
         }
     }
 
-    --palettes-auto-lightest: var(--palette-light-lightest);
-    --palettes-auto-lighter: var(--palette-light-lighter);
-    --palettes-auto-light: var(--palette-light-light);
-    --palettes-auto-normal: var(--palette-light-normal);
-    --palettes-auto-bold: var(--palette-light-bold);
-    --palettes-auto-bolder: var(--palette-light-bolder);
-    --palettes-auto-boldest: var(--palette-light-boldest);
-
-    --palettes-inverse-lightest: var(--palette-dark-lightest);
-    --palettes-inverse-lighter: var(--palette-dark-lighter);
-    --palettes-inverse-light: var(--palette-dark-light);
-    --palettes-inverse-normal: var(--palette-dark-normal);
-    --palettes-inverse-bold: var(--palette-dark-bold);
-    --palettes-inverse-bolder: var(--palette-dark-bolder);
-    --palettes-inverse-boldest: var(--palette-dark-boldest);
+    @include palette-theme-mode-declarations("light");
 }
 
 @include themes.query-theme-mode("dark") {
-    --palettes-dark-lightest: #{palettes.get-shade("dark", 0, $is-raw: true)};
-    --palettes-dark-lighter: #{palettes.get-shade("dark", 1, $is-raw: true)};
-    --palettes-dark-light: #{palettes.get-shade("dark", 2, $is-raw: true)};
-    --palettes-dark-normal: #{palettes.get-shade("dark", 3, $is-raw: true)};
-    --palettes-dark-bold: #{palettes.get-shade("dark", 4, $is-raw: true)};
-    --palettes-dark-bolder: #{palettes.get-shade("dark", 5, $is-raw: true)};
-    --palettes-dark-boldest: #{palettes.get-shade("dark", 6, $is-raw: true)};
-
-    --palettes-light-lightest: #{palettes.get-shade("light", -6, $is-raw: true)};
-    --palettes-light-lighter: #{palettes.get-shade("light", -5, $is-raw: true)};
-    --palettes-light-light: #{palettes.get-shade("light", -4, $is-raw: true)};
-    --palettes-light-normal: #{palettes.get-shade("light", -3, $is-raw: true)};
-    --palettes-light-bold: #{palettes.get-shade("light", -2, $is-raw: true)};
-    --palettes-light-bolder: #{palettes.get-shade("light", -1, $is-raw: true)};
-    --palettes-light-boldest: #{palettes.get-shade("light", -0, $is-raw: true)};
+    @include palette-stepping-declarations("dark", "light", 0, 1);
+    @include palette-stepping-declarations("light", "dark", -6, 1);
 
     @include palettes.each() using ($background, $foreground) {
         @if $background != "dark" and $background != "light" {
-            --palettes-#{$background}-lightest: #{palettes.get-shade(
-                    $background,
-                    -5,
-                    $is-raw: true
-                )};
-            --palettes-#{$background}-lighter: #{palettes.get-shade(
-                    $background,
-                    -4,
-                    $is-raw: true
-                )};
-            --palettes-#{$background}-light: #{palettes.get-shade($background, -3, $is-raw: true)};
-
-            --palettes-#{$background}-normal: #{palettes.get-shade($background, -2, $is-raw: true)};
-
-            --palettes-#{$background}-bold: #{palettes.get-shade($background, -1, $is-raw: true)};
-            --palettes-#{$background}-bolder: #{palettes.get-shade($background, 0, $is-raw: true)};
-            --palettes-#{$background}-boldest: #{palettes.get-shade($background, 1, $is-raw: true)};
+            @include palette-stepping-declarations($background, $foreground, -5, 1);
         }
     }
 
-    --palettes-auto-lightest: var(--palette-dark-lightest);
-    --palettes-auto-lighter: var(--palette-dark-lighter);
-    --palettes-auto-light: var(--palette-dark-light);
-    --palettes-auto-normal: var(--palette-dark-normal);
-    --palettes-auto-bold: var(--palette-dark-bold);
-    --palettes-auto-bolder: var(--palette-dark-bolder);
-    --palettes-auto-boldest: var(--palette-dark-boldest);
-
-    --palettes-inverse-lightest: var(--palette-light-lightest);
-    --palettes-inverse-lighter: var(--palette-light-lighter);
-    --palettes-inverse-light: var(--palette-light-light);
-    --palettes-inverse-normal: var(--palette-light-normal);
-    --palettes-inverse-bold: var(--palette-light-bold);
-    --palettes-inverse-bolder: var(--palette-light-bolder);
-    --palettes-inverse-boldest: var(--palette-light-boldest);
+    @include palette-theme-mode-declarations("dark");
 }
 
 :root {
-    --palettes-background-lightest: var(--palette-auto-lightest);
-    --palettes-background-lighter: var(--palette-auto-lighter);
-    --palettes-background-light: var(--palette-auto-light);
-    --palettes-background-normal: var(--palette-auto-normal);
-    --palettes-background-bold: var(--palette-auto-bold);
-    --palettes-background-bolder: var(--palette-auto-bolder);
-    --palettes-background-boldest: var(--palette-auto-boldest);
-
-    --palettes-foreground-lightest: var(--palette-inverse-lightest);
-    --palettes-foreground-lighter: var(--palette-inverse-lighter);
-    --palettes-foreground-light: var(--palette-inverse-light);
-    --palettes-foreground-normal: var(--palette-inverse-normal);
-    --palettes-foreground-bold: var(--palette-inverse-bold);
-    --palettes-foreground-bolder: var(--palette-inverse-bolder);
-    --palettes-foreground-boldest: var(--palette-inverse-boldest);
-
     /**
      *   NOTE: The Viewport variables below don't /actually/ do anything in
      *   the Framework. And are instead here to provide the Javascript side

@@ -3,6 +3,7 @@
 
 @use "./constants";
 @use "./colors";
+@use "./strings";
 
 @function generate-palette($background, $foreground, $shading) {
     @return ("background": $background, "foreground": $foreground, "shading": $shading);
@@ -29,4 +30,25 @@
 
     $mixed-color: color.mix($shading-color, $background-color, $shading-stepping * math.abs($step));
     @return colors.normalize-hsl($mixed-color, $is-raw);
+}
+
+@function format-reference($key, $face, $shade) {
+    // TODO: validate `$face`
+    // TODO: validate `$shade`
+
+    @if not has($key) {
+        @error "bad argument #1 to 'palettes.format-reference' (invalid key '#{$key}')";
+    }
+
+    @return strings.format-identifier("palettes.#{$key}.#{$face}.#{$shade}");
+}
+
+@function format-var($key, $face, $shade, $fallback: null) {
+    $key: format-reference($key, $face, $shade);
+
+    @if $fallback {
+        @return "var(#{$key}, #{$fallback})";
+    }
+
+    @return "var(--#{$key})";
 }

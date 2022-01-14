@@ -11,6 +11,24 @@ html {
     }
 }
 
+:root {
+    --palette-background-lightest: var(--palette-auto-background-lightest);
+    --palette-background-lighter: var(--palette-auto-background-lighter);
+    --palette-background-light: var(--palette-auto-background-light);
+    --palette-background-normal: var(--palette-auto-background-normal);
+    --palette-background-bold: var(--palette-auto-background-bold);
+    --palette-background-bolder: var(--palette-auto-background-bolder);
+    --palette-background-boldest: var(--palette-auto-background-boldest);
+
+    --palette-foreground-lightest: var(--palette-auto-foreground-lightest);
+    --palette-foreground-lighter: var(--palette-auto-foreground-lighter);
+    --palette-foreground-light: var(--palette-auto-foreground-light);
+    --palette-foreground-normal: var(--palette-auto-foreground-normal);
+    --palette-foreground-bold: var(--palette-auto-foreground-bold);
+    --palette-foreground-bolder: var(--palette-auto-foreground-bolder);
+    --palette-foreground-boldest: var(--palette-auto-foreground-boldest);
+}
+
 * {
     /** TODO: Remove after adding ARIA / Accessibility support */
 

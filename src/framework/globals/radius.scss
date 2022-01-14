@@ -23,11 +23,11 @@
         @include radius-declarations($name, variables.format-var("radius.block.#{$name}"), $prefix);
     }
 
-    @include constants.each("shape.") using ($name, $radius) {
+    @include constants.each("shapes.") using ($name, $radius) {
         @include shape-declarations($name, $radius, $prefix);
     }
 
-    @include variables.each("shape.") using ($name, $radius) {
+    @include variables.each("shapes.") using ($name, $radius) {
         @include shape-declarations($name, variables.format-var("shapes.#{$name}"), $prefix);
     }
 }

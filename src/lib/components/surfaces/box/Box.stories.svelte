@@ -21,10 +21,10 @@
         ["neutral", false],
         ["accent", false],
         ["dark", false],
+        ["light", false],
         ["alert", false],
         ["affirmative", false],
         ["negative", false],
-        ["light", false],
     ];
 
     const SHAPES = [

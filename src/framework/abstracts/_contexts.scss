@@ -1,0 +1,22 @@
+@use "./namespaces";
+@use "./strings";
+
+@function get($key, $default: null) {
+    $selector: strings.format-identifier(&);
+
+    @return namespaces.get("contexts.#{$selector}.#{$key}", $default);
+}
+
+@function has($key) {
+    $selector: strings.format-identifier(&);
+
+    @return namespaces.has("contexts.#{$selector}.#{$key}", $default);
+}
+
+@function set($key, $value) {
+    $selector: strings.format-identifier(&);
+
+    $v: namespaces.set("contexts.#{$selector}.#{$key}", $value);
+
+    @return $v;
+}

@@ -43,10 +43,14 @@
 }
 
 @function format-identifier($key) {
-    $key: string.to-lower-case($key);
+    $key: string.to-lower-case("#{$key}");
 
     $key: replace-all($key, "_", "-");
-    @return replace-all($key, ".", "-");
+    $key: replace-all($key, " ", "-");
+    $key: replace-all($key, ".", "-");
+    $key: replace-all($key, ",", "-");
+
+    @return replace-all($key, "--", "-");
 }
 
 /// Replace `$search` with `$replace` in `$string`

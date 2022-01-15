@@ -35,8 +35,12 @@ $namespaces: ();
     }
 }
 
-@function get($key) {
+@function get($key, $default: null) {
     @if not map.has-key($namespaces, $key) {
+        @if $default != null {
+            @return $default;
+        }
+
         @error "bad argument #1 to 'namespaces.get' (invalid key '#{$key}')";
     }
 
@@ -64,4 +68,10 @@ $namespaces: ();
     }
 
     @return $ret;
+}
+
+@function set($key, $value) {
+    $namespaces: map.set($namespaces, $key, $value) !global;
+
+    @return $value;
 }

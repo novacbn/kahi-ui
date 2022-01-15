@@ -1,5 +1,5 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal";
+    import {Temporal} from "@js-temporal/polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import {DEFAULT_CALENDAR} from "../../../util/locale";
@@ -24,7 +24,9 @@
     let timestamp;
     let value;
 
+    console.log("DayPicker.stories::1");
     let disabled = [Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 2}).toString()];
+    console.log("DayPicker.stories::2");
     let max = Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 3}).toString();
     let min = Temporal.Now.plainDate(DEFAULT_CALENDAR).subtract({days: 3}).toString();
     let highlight = [
@@ -32,6 +34,7 @@
         Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 1}).toString(),
         Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 2}).toString(),
     ];
+    console.log("DayPicker.stories::3");
 </script>
 
 <Meta title="Widgets/DayPicker" />

@@ -1,4 +1,4 @@
-import {Temporal} from "../vendor/js-temporal";
+import {Temporal} from "@js-temporal/polyfill";
 
 import type {PROPERTY_CLOCK_PERIOD} from "../types/datetime";
 import {TOKENS_CLOCK_PERIOD} from "../types/datetime";
@@ -13,7 +13,7 @@ function get_calendar_day(date: Temporal.PlainDate): number {
     return wrap(date.dayOfWeek + 1, 1, date.daysInWeek);
 }
 
-function to_plain_year(year: string | Temporal.YearMonthLike): Temporal.PlainYearMonth {
+function to_plain_year(year: string | Temporal.PlainYearMonthLike): Temporal.PlainYearMonth {
     // NOTE: We need to set the `Temporal.PlainYearMonth.month` values to
     // `1` (January) to bypass month checking, sticking to only year / calendar
 
@@ -21,9 +21,9 @@ function to_plain_year(year: string | Temporal.YearMonthLike): Temporal.PlainYea
 }
 
 export function clamp_day(
-    day: string | Temporal.DateLike,
-    min?: string | Temporal.DateLike,
-    max?: string | Temporal.DateLike
+    day: string | Temporal.PlainDateLike,
+    min?: string | Temporal.PlainDateLike,
+    max?: string | Temporal.PlainDateLike
 ): Temporal.PlainDate {
     if (max && Temporal.PlainDate.compare(day, max) === 1) return Temporal.PlainDate.from(max);
     else if (min && Temporal.PlainDate.compare(day, min) === -1) {
@@ -34,9 +34,9 @@ export function clamp_day(
 }
 
 export function clamp_month(
-    month: string | Temporal.YearMonthLike,
-    min?: string | Temporal.YearMonthLike,
-    max?: string | Temporal.YearMonthLike
+    month: string | Temporal.PlainYearMonthLike,
+    min?: string | Temporal.PlainYearMonthLike,
+    max?: string | Temporal.PlainYearMonthLike
 ): Temporal.PlainYearMonth {
     if (max && Temporal.PlainYearMonth.compare(month, max) === 1) {
         return Temporal.PlainYearMonth.from(max);
@@ -48,9 +48,9 @@ export function clamp_month(
 }
 
 export function clamp_year(
-    year: string | Temporal.YearMonthLike,
-    min?: string | Temporal.YearMonthLike,
-    max?: string | Temporal.YearMonthLike
+    year: string | Temporal.PlainYearMonthLike,
+    min?: string | Temporal.PlainYearMonthLike,
+    max?: string | Temporal.PlainYearMonthLike
 ): Temporal.PlainYearMonth {
     // NOTE: We need to set the `Temporal.PlainYearMonth.month` values to
     // `1` (January) to bypass month checking / normalize months, sticking
@@ -71,7 +71,7 @@ export function clamp_year(
 }
 
 export function get_calendar_quaters(
-    year: string | Temporal.YearMonthLike
+    year: string | Temporal.PlainYearMonthLike
 ): Temporal.PlainYearMonth[][] {
     const _year = to_plain_year(year);
 
@@ -81,7 +81,9 @@ export function get_calendar_quaters(
     );
 }
 
-export function get_calendar_weeks(month: string | Temporal.YearMonthLike): Temporal.PlainDate[][] {
+export function get_calendar_weeks(
+    month: string | Temporal.PlainYearMonthLike
+): Temporal.PlainDate[][] {
     const _month = Temporal.PlainYearMonth.from(month).toPlainDate({day: 1});
 
     const starting_day = _month.subtract({
@@ -100,7 +102,7 @@ export function get_calendar_weeks(month: string | Temporal.YearMonthLike): Temp
 }
 
 export function get_clock_ranges(
-    value?: string | Temporal.TimeLike,
+    value?: string | Temporal.PlainTimeLike,
     hour_12: boolean = false,
     period: PROPERTY_CLOCK_PERIOD = TOKENS_CLOCK_PERIOD.am
 ): [Temporal.PlainTime[], Temporal.PlainTime[], Temporal.PlainTime[]] {
@@ -130,7 +132,7 @@ export function get_daystamp(calendar: string = DEFAULT_CALENDAR): string {
 }
 
 export function get_decade_halves(
-    year: string | Temporal.YearMonthLike
+    year: string | Temporal.PlainYearMonthLike
 ): Temporal.PlainYearMonth[][] {
     let decade = Temporal.PlainYearMonth.from(year);
     decade = decade.with({
@@ -163,8 +165,8 @@ export function get_yearstamp(calendar: string = DEFAULT_CALENDAR): string {
 }
 
 export function has_day(
-    days: readonly (string | Temporal.DateLike)[],
-    day: string | Temporal.DateLike
+    days: readonly (string | Temporal.PlainDateLike)[],
+    day: string | Temporal.PlainDateLike
 ): boolean {
     const _day = Temporal.PlainDate.from(day);
 
@@ -172,8 +174,8 @@ export function has_day(
 }
 
 export function has_month(
-    months: readonly (string | Temporal.YearMonthLike)[],
-    month: string | Temporal.YearMonthLike
+    months: readonly (string | Temporal.PlainYearMonthLike)[],
+    month: string | Temporal.PlainYearMonthLike
 ): boolean {
     const _month = Temporal.PlainYearMonth.from(month);
 
@@ -185,8 +187,8 @@ export function has_timezone(timestamp: string): boolean {
 }
 
 export function has_year(
-    years: readonly (string | Temporal.YearMonthLike)[],
-    year: string | Temporal.YearMonthLike
+    years: readonly (string | Temporal.PlainYearMonthLike)[],
+    year: string | Temporal.PlainYearMonthLike
 ): boolean {
     // NOTE: This is slightly more complicated due to there being no concept
     // of a `Temporal.PlainYear` API
@@ -200,9 +202,9 @@ export function has_year(
 }
 
 export function is_day_in_range(
-    month: string | Temporal.DateLike,
-    max?: string | Temporal.DateLike,
-    min?: string | Temporal.DateLike,
+    month: string | Temporal.PlainDateLike,
+    max?: string | Temporal.PlainDateLike,
+    min?: string | Temporal.PlainDateLike,
     inclusive: boolean = false
 ): boolean {
     if (max && Temporal.PlainDate.compare(max, month) < (inclusive ? 0 : 1)) return false;
@@ -212,9 +214,9 @@ export function is_day_in_range(
 }
 
 export function is_month_in_range(
-    month: string | Temporal.YearMonthLike,
-    max?: string | Temporal.YearMonthLike,
-    min?: string | Temporal.YearMonthLike,
+    month: string | Temporal.PlainYearMonthLike,
+    max?: string | Temporal.PlainYearMonthLike,
+    min?: string | Temporal.PlainYearMonthLike,
     inclusive: boolean = false
 ): boolean {
     if (max && Temporal.PlainYearMonth.compare(max, month) < (inclusive ? 0 : 1)) return false;
@@ -226,9 +228,9 @@ export function is_month_in_range(
 }
 
 export function is_time_in_range(
-    timestamp: string | Temporal.TimeLike,
-    max?: string | Temporal.TimeLike,
-    min?: string | Temporal.TimeLike,
+    timestamp: string | Temporal.PlainTimeLike,
+    max?: string | Temporal.PlainTimeLike,
+    min?: string | Temporal.PlainTimeLike,
     inclusive: boolean = false
 ): boolean {
     if (max && Temporal.PlainTime.compare(max, timestamp) < (inclusive ? 0 : 1)) return false;
@@ -238,9 +240,9 @@ export function is_time_in_range(
 }
 
 export function is_year_in_range(
-    year: string | Temporal.YearMonthLike,
-    max?: string | Temporal.YearMonthLike,
-    min?: string | Temporal.YearMonthLike,
+    year: string | Temporal.PlainYearMonthLike,
+    max?: string | Temporal.PlainYearMonthLike,
+    min?: string | Temporal.PlainYearMonthLike,
     inclusive: boolean = false
 ): boolean {
     // NOTE: This is slightly more complicated due to there being no concept

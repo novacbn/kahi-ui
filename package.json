@@ -63,8 +63,11 @@
         "type": "git",
         "url": "https://github.com/novacbn/kahi-ui.git"
     },
+    "dependencies": {
+        "@js-temporal/polyfill": "^0.3.0",
+        "svelte": "^3.40.2"
+    },
     "devDependencies": {
-        "@js-temporal/polyfill": "^0.2.0",
         "@storybook/addon-actions": "^6.4.0",
         "@storybook/addon-essentials": "^6.4.0",
         "@storybook/addon-svelte-csf": "^1.1.0",
@@ -106,8 +109,5 @@
         "test:svelte": "svelte-check --tsconfig ./tsconfig.json",
         "test:types": "tsc --noEmit",
         "watch:framework": "node ./scripts/build.js --watch"
-    },
-    "dependencies": {
-        "svelte": "^3.40.2"
     }
 }

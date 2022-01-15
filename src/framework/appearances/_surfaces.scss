@@ -1,0 +1,9 @@
+@use "../mixins/colors";
+
+@mixin background($namespace) {
+    @include colors.background($namespace, "bold");
+}
+
+@mixin text($namespace) {
+    @include colors.text($namespace, "lighter");
+}

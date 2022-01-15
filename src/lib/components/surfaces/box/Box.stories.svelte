@@ -40,14 +40,14 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box>This is a Box!</Box>
 </Story>
 
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Box {palette}>
+            <Box palette={is_default ? undefined : palette}>
                 This is a <Text is="strong">
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text> Box!

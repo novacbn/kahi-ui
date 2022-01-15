@@ -1,8 +1,28 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
+
+/*:root {
 
     --box-elevation: none;
     --box-palette-background-normal: var(--palette-auto-off-normal);
     --box-palette-foreground-normal: var(--palette-inverse-normal);
     --box-shape-radius: none;
 }
+*/
+
+@include variables.define-variables(
+    (
+        "box": (
+            "background": (
+                opacity: 1,
+            ),
+            "color": (
+                opacity: 1,
+            ),
+            "border": (
+                "width": 2px,
+                "opacity": 0.1,
+                "style": solid,
+            ),
+        ),
+    )
+);

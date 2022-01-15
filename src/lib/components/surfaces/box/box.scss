@@ -1,3 +1,11 @@
+@use "../../../../framework/appearances/surfaces";
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/transitions";
+
+/*
 .box {
     --elevation: var(--box-elevation);
     --shape-radius: var(--box-shape-radius);
@@ -13,4 +21,18 @@
 
     transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
         color var(--animation-visual-duration) var(--animation-visual-function);
+}
+*/
+
+.box {
+    @include palettes.inherit();
+
+    @include surfaces.background("box");
+    @include surfaces.text("box");
+
+    @include borders.all("box");
+
+    //@include radius.all("box");
+
+    @include transitions.build();
 }

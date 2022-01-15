@@ -1,38 +1,33 @@
 @use "../abstracts/variables";
 
-@mixin all($namespace, $unit) {
+@mixin all($unit) {
     // HACK: By performing an identity calculation here, we can use the
     // same themeing variables over multiple units without defining a set of
     // variables per unit
-    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
 
     border-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin bottom($namespace, $unit) {
-    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
-
+@mixin bottom($unit) {
     border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
     border-bottom-right-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin left($namespace, $unit) {
-    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
-
+@mixin left($unit) {
     border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
     border-top-left-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin right($namespace, $unit) {
-    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
-
+@mixin right($unit) {
     border-bottom-right-radius: calc(var(--shape-radius) * 1#{$unit});
     border-top-right-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin top($namespace, $unit) {
-    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
-
+@mixin top($unit) {
     border-top-left-radius: calc(var(--shape-radius) * 1#{$unit});
     border-top-right-radius: calc(var(--shape-radius) * 1#{$unit});
+}
+
+@mixin var-theme($namespace) {
+    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
 }

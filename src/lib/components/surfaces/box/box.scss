@@ -27,13 +27,14 @@
 */
 
 .box {
-    @include palettes.inherit();
+    @include palettes.var-inherit();
+    @include radius.var-theme("box");
 
     @include surfaces.background("box");
     @include surfaces.text("box");
 
     @include surfaces.borders-all("box");
-    @include surfaces.radius-all("box");
+    @include surfaces.radius-all();
 
     @include transitions.build();
 }

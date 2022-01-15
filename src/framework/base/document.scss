@@ -19,7 +19,7 @@ html {
 */
 
 :root {
-    @include palettes.auto-background();
+    @include palettes.var-auto-background();
 
     // NOTE: The base document background color diverges from
     // "surface" convention so the dark / light palettes stand

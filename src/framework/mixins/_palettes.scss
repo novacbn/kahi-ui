@@ -1,4 +1,4 @@
-@mixin auto-background() {
+@mixin var-auto-background() {
     --palette-background-lightest: var(--palettes-auto-background-lightest);
     --palette-background-lighter: var(--palettes-auto-background-lighter);
     --palette-background-light: var(--palettes-auto-background-light);
@@ -16,7 +16,7 @@
     --palette-foreground-boldest: var(--palettes-auto-foreground-boldest);
 }
 
-@mixin auto-foreground() {
+@mixin var-auto-foreground() {
     --palette-background-lightest: var(--palettes-auto-foreground-lightest);
     --palette-background-lighter: var(--palettes-auto-foreground-lighter);
     --palette-background-light: var(--palettes-auto-foreground-light);
@@ -34,7 +34,7 @@
     --palette-foreground-boldest: var(--palettes-auto-background-boldest);
 }
 
-@mixin neutral-background() {
+@mixin var-neutral-background() {
     --palette-background-lightest: var(--palettes-neutral-background-lightest);
     --palette-background-lighter: var(--palettes-neutral-background-lighter);
     --palette-background-light: var(--palettes-neutral-background-light);
@@ -52,7 +52,7 @@
     --palette-foreground-boldest: var(--palettes-neutral-foreground-boldest);
 }
 
-@mixin neutral-foreground() {
+@mixin var-neutral-foreground() {
     --palette-background-lightest: var(--palettes-neutral-foreground-lightest);
     --palette-background-lighter: var(--palettes-neutral-foreground-lighter);
     --palette-background-light: var(--palettes-neutral-foreground-light);
@@ -70,7 +70,7 @@
     --palette-foreground-boldest: var(--palettes-neutral-background-boldest);
 }
 
-@mixin inherit() {
+@mixin var-inherit() {
     --palette-background-lightest: inherit;
     --palette-background-lighter: inherit;
     --palette-background-light: inherit;

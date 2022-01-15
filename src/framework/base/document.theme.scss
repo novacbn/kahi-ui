@@ -1,0 +1,14 @@
+@use "../abstracts/variables";
+
+@include variables.define-variables(
+    (
+        "document": (
+            "background": (
+                "opacity": 1,
+            ),
+            "color": (
+                "opacity": 1,
+            ),
+        ),
+    )
+);

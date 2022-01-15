@@ -1,3 +1,6 @@
+@use "../abstracts/transitions";
+
+@use "../mixins/colors";
 @use "../mixins/palettes";
 
 /*
@@ -18,8 +21,19 @@ html {
 :root {
     @include palettes.auto-background();
 
-    background-color: hsl(var(--palette-background-lighter));
-    color: hsl(var(--palette-foreground-normal));
+    // NOTE: The base document background color diverges from
+    // "surface" convention so the dark / light palettes stand
+    // out more when used else where as backgrounds
+
+    @include colors.background("document", $face: "background", $shade: "bold");
+    @include colors.text("document", $face: "foreground", $shade: "lightest");
+
+    @include transitions.build();
+}
+
+::selection {
+    @include colors.background("document", $face: "foreground", $shade: "lightest");
+    @include colors.text("document", $face: "background", $shade: "lightest");
 }
 
 /*

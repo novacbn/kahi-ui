@@ -1,0 +1,32 @@
+@use "sass:list";
+
+@use "./variables";
+
+$selector: null;
+$transitions: null;
+
+@function get() {
+    @return $transitions;
+}
+
+@mixin push($property, $animation-tier) {
+    @if not
+        variables.has("animations.#{$animation-tier}.duration") or not
+        variables.has("animations.#{$animation-tier}.function")
+    {
+        @error "bad argument #2 to 'transitions.push' (invalid animation tier '#{$animation-tier}')";
+    }
+
+    @if $selector != & {
+        $transitions: () !global;
+        $selector: & !global;
+    }
+
+    $transitions: list.append(
+        $transitions,
+        (
+            "animation-tier": $animation-tier,
+            "property": $property,
+        )
+    ) !global;
+}

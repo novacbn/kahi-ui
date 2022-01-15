@@ -1,3 +1,4 @@
+import "../package/dist/kahi-ui.theme.default.css";
 import "../package/dist/kahi-ui.framework.css";
 
 export const parameters = {

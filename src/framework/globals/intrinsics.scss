@@ -5,7 +5,7 @@
 @use "../abstracts/variables";
 @use "../abstracts/viewports";
 
-@mixin margin-declarations($name, $value, $prefix: "") {
+@mixin margin-constant-declarations($name, $value, $prefix: "") {
     $name: strings.format-identifier($name);
 
     [data-margin~="#{$prefix + $name}"] {
@@ -39,7 +39,18 @@
     }
 }
 
-@mixin padding-declarations($name, $value, $prefix: "") {
+@mixin margin-root-declarations($name, $value, $prefix: "") {
+    /**
+     * NOTE: Unitless values need to be special cased to be calculated using
+     * the root font size. It's to support having a single set of size themeing
+     * variables, without having to define multiple sets of the same values with
+     * differing units
+     */
+
+    @include margin-constant-declarations($name, calc(#{$value} * 1rem), $prefix);
+}
+
+@mixin padding-constant-declarations($name, $value, $prefix: "") {
     $name: strings.format-identifier($name);
 
     [data-padding~="#{$prefix + $name}"] {
@@ -73,7 +84,11 @@
     }
 }
 
-@mixin size-declarations($name, $value, $prefix: "") {
+@mixin padding-root-declarations($name, $value, $prefix: "") {
+    @include padding-constant-declarations($name, calc(#{$value} * 1rem), $prefix);
+}
+
+@mixin size-constant-declarations($name, $value, $prefix: "") {
     $name: strings.format-identifier($name);
 
     [data-width~="#{$prefix + $name}"] {
@@ -116,7 +131,11 @@
     }
 }
 
-@mixin viewport-declaration($name, $value, $prefix: "") {
+@mixin size-root-declarations($name, $value, $prefix: "") {
+    @include size-constant-declarations($name, calc(#{$value} * 1rem), $prefix);
+}
+
+@mixin size-viewport-declaration($name, $value, $prefix: "") {
     /**
      * NOTE: The `viewport-` global attributes need to be special cased since the
      * dimensions being altered, correspond to their viewport axis (e.g. width uses `vw` units)
@@ -166,22 +185,34 @@
 
 @mixin declarations($prefix: "") {
     @include constants.each("sizes.") using ($name, $size) {
-        @include size-declarations($name, $size, $prefix);
+        @include size-constant-declarations($name, $size, $prefix);
 
         $size: "#{$size}";
         @if strings.ends-with($size, "%") {
-            @include viewport-declaration($name, string.slice($size, 1, -2), $prefix);
+            @include size-viewport-declaration($name, string.slice($size, 1, -2), $prefix);
         }
     }
 
-    @include variables.each("sizes.") using ($name, $size) {
-        @include size-declarations($name, variables.format-var("sizes.#{$name}"), $prefix);
+    @include variables.each("sizes.block.") using ($name, $size) {
+        @include size-root-declarations(
+            $name,
+            variables.format-var("sizes.block.#{$name}"),
+            $prefix
+        );
+    }
+
+    @include variables.each("sizes.icon.") using ($name, $size) {
+        @include size-constant-declarations(
+            "icon-#{$name}",
+            variables.format-var("sizes.icon.#{$name}"),
+            $prefix
+        );
     }
 
     @include viewports.each() using ($name, $width, $minimum-width, $maximum-width) {
         // HACK: Viewports are constants, not variables. So we need to manually format here
 
-        @include size-declarations(
+        @include size-constant-declarations(
             $name,
             "var(--#{strings.format-identifier('viewports.#{$name}.base')})",
             $prefix
@@ -189,18 +220,18 @@
     }
 
     @include constants.each("spacings.") using ($name, $size) {
-        @include margin-declarations($name, $size, $prefix);
-        @include padding-declarations($name, $size, $prefix);
+        @include margin-constant-declarations($name, $size, $prefix);
+        @include padding-constant-declarations($name, $size, $prefix);
     }
 
     @include variables.each("spacings.block.") using ($name, $size) {
-        @include margin-declarations(
+        @include margin-root-declarations(
             $name,
             variables.format-var("spacings.block.#{$name}"),
             $prefix
         );
 
-        @include padding-declarations(
+        @include padding-root-declarations(
             $name,
             variables.format-var("spacings.block.#{$name}"),
             $prefix

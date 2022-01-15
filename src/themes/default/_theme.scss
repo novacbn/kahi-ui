@@ -190,8 +190,7 @@
 @include variables.define-variables(
     (
         "sizes": (
-            "block": sizes.generate-scaling($base: 19.5, $ratio: 1.3),
-            "inline": sizes.generate-scaling($base: 9.5, $ratio: 1.2),
+            "block": sizes.generate-scaling($base: 9.5, $ratio: 1.2),
             "icon": sizes.generate-stepping($base: 16px, $stepping: 8px),
             "prose": 65ch,
         ),

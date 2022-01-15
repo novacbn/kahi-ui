@@ -1,0 +1,61 @@
+@use "../abstracts/variables";
+
+@mixin all($namespace) {
+    border: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
+            "#{$namespace}.border.style"
+        )}
+        hsla(
+            var(--palette-background-lightest),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+}
+
+@mixin x($namespace) {
+    @include left($namespace);
+    @include right($namespace);
+}
+
+@mixin y($namespace) {
+    @include bottom($namespace);
+    @include top($namespace);
+}
+
+@mixin bottom($namespace) {
+    border-bottom: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
+            "#{$namespace}.border.style"
+        )}
+        hsla(
+            var(--palette-background-lightest),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+}
+
+@mixin left($namespace) {
+    border-left: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
+            "#{$namespace}.border.style"
+        )}
+        hsla(
+            var(--palette-background-lightest),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+}
+
+@mixin right($namespace) {
+    border-right: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
+            "#{$namespace}.border.style"
+        )}
+        hsla(
+            var(--palette-background-lightest),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+}
+
+@mixin top($namespace) {
+    border-top: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
+            "#{$namespace}.border.style"
+        )}
+        hsla(
+            var(--palette-background-lightest),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+}

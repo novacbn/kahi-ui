@@ -4,13 +4,13 @@
 
 @mixin radius-declarations($name, $value, $prefix: "") {
     [data-radius~="#{$prefix + $name}"] {
-        --radius: #{$value} !important;
+        --shape-radius: #{$value} !important;
     }
 }
 
 @mixin shape-declarations($name, $value, $prefix: "") {
     [data-shape~="#{$prefix + $name}"] {
-        --shape: #{$value} !important;
+        --shape-radius: #{$value} !important;
     }
 }
 
@@ -19,8 +19,8 @@
         @include radius-declarations($name, $radius, $prefix);
     }
 
-    @include variables.each("radius.block.") using ($name, $size) {
-        @include radius-declarations($name, variables.format-var("radius.block.#{$name}"), $prefix);
+    @include variables.each("radius.") using ($name, $size) {
+        @include radius-declarations($name, variables.format-var("radius.#{$name}"), $prefix);
     }
 
     @include constants.each("shapes.") using ($name, $radius) {

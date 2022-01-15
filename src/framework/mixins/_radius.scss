@@ -1,25 +1,38 @@
 @use "../abstracts/variables";
 
-@mixin all($namespace) {
-    border-radius: #{variables.format-var("#{$namespace}.border.radius")};
+@mixin all($namespace, $unit) {
+    // HACK: By performing an identity calculation here, we can use the
+    // same themeing variables over multiple units without defining a set of
+    // variables per unit
+    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+
+    border-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin bottom($namespace) {
-    border-bottom-left-radius: #{variables.format-var("#{$namespace}.border.radius")};
-    border-bottom-right-radius: #{variables.format-var("#{$namespace}.border.radius")};
+@mixin bottom($namespace, $unit) {
+    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+
+    border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
+    border-bottom-right-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin left($namespace) {
-    border-bottom-left-radius: #{variables.format-var("#{$namespace}.border.radius")};
-    border-top-left-radius: #{variables.format-var("#{$namespace}.border.radius")};
+@mixin left($namespace, $unit) {
+    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+
+    border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
+    border-top-left-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin right($namespace) {
-    border-bottom-right-radius: #{variables.format-var("#{$namespace}.border.radius")};
-    border-top-right-radius: #{variables.format-var("#{$namespace}.border.radius")};
+@mixin right($namespace, $unit) {
+    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+
+    border-bottom-right-radius: calc(var(--shape-radius) * 1#{$unit});
+    border-top-right-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin top($namespace) {
-    border-top-left-radius: #{variables.format-var("#{$namespace}.border.radius")};
-    border-top-right-radius: #{variables.format-var("#{$namespace}.border.radius")};
+@mixin top($namespace, $unit) {
+    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+
+    border-top-left-radius: calc(var(--shape-radius) * 1#{$unit});
+    border-top-right-radius: calc(var(--shape-radius) * 1#{$unit});
 }

@@ -1,61 +1,72 @@
+@use "../abstracts/transitions";
 @use "../abstracts/variables";
 
-@mixin all($namespace) {
+@mixin all($namespace, $face, $shade) {
+    @include transitions.push(border-color, "visual");
+
     border: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
         )}
         hsla(
-            var(--palette-background-lightest),
+            var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
 }
 
-@mixin x($namespace) {
+@mixin x($namespace, $face, $shade) {
     @include left($namespace);
     @include right($namespace);
 }
 
-@mixin y($namespace) {
+@mixin y($namespace, $face, $shade) {
     @include bottom($namespace);
     @include top($namespace);
 }
 
-@mixin bottom($namespace) {
+@mixin bottom($namespace, $face, $shade) {
+    @include transitions.push(border-color, "visual");
+
     border-bottom: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
         )}
         hsla(
-            var(--palette-background-lightest),
+            var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
 }
 
-@mixin left($namespace) {
+@mixin left($namespace, $face, $shade) {
+    @include transitions.push(border-color, "visual");
+
     border-left: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
         )}
         hsla(
-            var(--palette-background-lightest),
+            var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
 }
 
-@mixin right($namespace) {
+@mixin right($namespace, $face, $shade) {
+    @include transitions.push(border-color, "visual");
+
     border-right: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
         )}
         hsla(
-            var(--palette-background-lightest),
+            var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
 }
 
-@mixin top($namespace) {
+@mixin top($namespace, $face, $shade) {
+    @include transitions.push(border-color, "visual");
+
     border-top: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
         )}
         hsla(
-            var(--palette-background-lightest),
+            var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
 }

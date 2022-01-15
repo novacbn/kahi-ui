@@ -1,9 +1,59 @@
+@use "../mixins/borders";
 @use "../mixins/colors";
+@use "../mixins/radius";
+
+@mixin borders-all($namespace) {
+    @include borders.all($namespace, $face: "foreground", $shade: "lightest");
+}
+
+@mixin borders-x($namespace) {
+    @include borders.x($namespace, $face: "foreground", $shade: "lightest");
+}
+
+@mixin borders-y($namespace) {
+    @include borders.y($namespace, $face: "foreground", $shade: "lightest");
+}
+
+@mixin borders-bottom($namespace) {
+    @include borders.bottom($namespace, $face: "foreground", $shade: "lightest");
+}
+
+@mixin borders-left($namespace) {
+    @include borders.left($namespace, $face: "foreground", $shade: "lightest");
+}
+
+@mixin borders-right($namespace) {
+    @include borders.right($namespace, $face: "foreground", $shade: "lightest");
+}
+
+@mixin borders-top($namespace) {
+    @include borders.top($namespace, $face: "foreground", $shade: "lightest");
+}
+
+@mixin radius-all($namespace) {
+    @include radius.all($namespace, $unit: rem);
+}
+
+@mixin radius-bottom($namespace) {
+    @include radius.bottom($namespace, $unit: rem);
+}
+
+@mixin radius-left($namespace) {
+    @include radius.left($namespace, $unit: rem);
+}
+
+@mixin radius-right($namespace) {
+    @include radius.right($namespace, $unit: rem);
+}
+
+@mixin radius-top($namespace) {
+    @include radius.top($namespace, $unit: rem);
+}
 
 @mixin background($namespace) {
-    @include colors.background($namespace, "bold");
+    @include colors.background($namespace, $face: "background", $shade: "lightest");
 }
 
 @mixin text($namespace) {
-    @include colors.text($namespace, "lighter");
+    @include colors.text($namespace, $face: "foreground", $shade: "lightest");
 }

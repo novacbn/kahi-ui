@@ -1,20 +1,20 @@
 @use "../abstracts/transitions";
 @use "../abstracts/variables";
 
-@mixin background($namespace, $shade) {
+@mixin background($namespace, $face, $shade) {
+    @include transitions.push(background-color, "visual");
+
     background-color: hsla(
-        var(--palette-background-#{$shade}),
+        var(--palette-#{$face}-#{$shade}),
         #{variables.format-var("#{$namespace}.background.opacity")}
     );
-
-    @include transitions.push(background-color, "visual");
 }
 
-@mixin text($namespace, $shade) {
+@mixin text($namespace, $face, $shade) {
+    @include transitions.push(color, "visual");
+
     color: hsla(
-        var(--palette-foreground-#{$shade}),
+        var(--palette-#{$face}-#{$shade}),
         #{variables.format-var("#{$namespace}.color.opacity")}
     );
-
-    @include transitions.push(color, "visual");
 }

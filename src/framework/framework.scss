@@ -2,10 +2,11 @@
 // dynamic declarations that happen in the framework (e.g. looping through all palettes)
 
 @import "../themes/default/theme";
+@import "../themes/default/imports";
 
 @import "./base/reset";
 
-// @import "./base/document";
+@import "./base/document";
 
 // @import "../lib/components/typography/heading/heading";
 // @import "../lib/components/typography/text/text";
@@ -48,7 +49,7 @@
 // @import "../lib/components/widgets/widget/widget";
 
 // @import "../lib/components/surfaces/card/card";
-// @import "../lib/components/surfaces/box/box";
+@import "../lib/components/surfaces/box/box";
 // @import "../lib/components/surfaces/hero/hero";
 // @import "../lib/components/surfaces/tile/tile";
 

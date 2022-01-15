@@ -45,8 +45,8 @@
     $key: format-reference($key);
 
     @if $fallback {
-        @return "var(#{$key}, #{$fallback})";
+        @return var(#{$key}, #{$fallback});
     }
 
-    @return "var(--#{$key})";
+    @return var(--#{$key});
 }

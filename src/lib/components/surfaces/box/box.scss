@@ -1,9 +1,11 @@
+@use "../../../../framework/abstracts/transitions";
+
 @use "../../../../framework/appearances/surfaces";
+
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/radius";
-@use "../../../../framework/mixins/transitions";
 
 /*
 .box {
@@ -30,9 +32,8 @@
     @include surfaces.background("box");
     @include surfaces.text("box");
 
-    @include borders.all("box");
-
-    //@include radius.all("box");
+    @include surfaces.borders-all("box");
+    @include surfaces.radius-all("box");
 
     @include transitions.build();
 }

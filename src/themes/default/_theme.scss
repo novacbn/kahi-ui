@@ -17,19 +17,25 @@
                 palettes.generate-palette(
                     $background: hsl(217, 11%, 15%),
                     $foreground: "light",
-                    $shading: 4%
+                    $shading: 3%
                 ),
             "light":
                 palettes.generate-palette(
                     $background: hsl(0, 0%, 100%),
                     $foreground: "dark",
-                    $shading: 2%
+                    $shading: 1%
                 ),
             "neutral":
                 palettes.generate-palette(
                     $background: hsl(216, 11%, 55%),
                     $foreground: "light",
-                    $shading: 12%
+                    $shading: 3%
+                ),
+            "accent":
+                palettes.generate-palette(
+                    $background: hsl(200, 31%, 50%),
+                    $foreground: "light",
+                    $shading: 3%
                 ),
         ),
     )
@@ -42,29 +48,23 @@
 @include constants.define-constants(
     (
         "palettes": (
-            "accent":
-                palettes.generate-palette(
-                    $background: hsl(200, 31%, 50%),
-                    $foreground: "light",
-                    $shading: 12%
-                ),
             "alert":
                 palettes.generate-palette(
                     $background: hsl(42, 75%, 50%),
                     $foreground: "light",
-                    $shading: 12%
+                    $shading: 3%
                 ),
             "affirmative":
                 palettes.generate-palette(
                     $background: hsl(146, 40%, 50%),
                     $foreground: "light",
-                    $shading: 12%
+                    $shading: 3%
                 ),
             "negative":
                 palettes.generate-palette(
                     $background: hsl(7, 48%, 55%),
                     $foreground: "light",
-                    $shading: 12%
+                    $shading: 3%
                 ),
         ),
     )
@@ -237,9 +237,7 @@
 
 @include variables.define-variables(
     (
-        "radius": (
-            "block": sizes.generate-scaling($base: 0.125, $ratio: 2),
-        ),
+        "radius": sizes.generate-scaling($base: 0.125, $ratio: 2),
         "shapes": (
             "circle": 100%,
             "pill": 9999px,

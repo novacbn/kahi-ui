@@ -176,7 +176,7 @@
 
     @include palettes.each() using ($background, $foreground) {
         @if $background != "dark" and $background != "light" {
-            @include palette-stepping-declarations($background, $foreground, -5, 1);
+            @include palette-stepping-declarations($background, $foreground, -6, 1);
         }
     }
 

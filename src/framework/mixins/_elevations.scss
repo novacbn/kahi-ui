@@ -4,10 +4,10 @@
     box-shadow: var(--elevation-shadow);
 }
 
-@mixin var-reset() {
-    --elevation-shadow: none;
-}
-
-@mixin var-theme($namespace) {
-    --elevation-shadow: #{variables.format-var("#{$namespace}.box-shadow")};
+@mixin var-reset($namespace: null) {
+    @if $namespace {
+        --elevation-shadow: #{variables.format-var("#{$namespace}.elevation")};
+    } @else {
+        --elevation-shadow: none;
+    }
 }

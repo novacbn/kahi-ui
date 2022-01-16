@@ -25,3 +25,7 @@
         font-size: #{variables.format-var("#{$namespace}.font.size")};
     }
 }
+
+@mixin weight($namespace) {
+    font-weight: #{variables.format-var("#{$namespace}.font.weight")};
+}

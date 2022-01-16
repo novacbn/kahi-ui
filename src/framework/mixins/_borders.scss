@@ -2,7 +2,7 @@
 @use "../abstracts/variables";
 
 @mixin all($namespace, $face, $shade) {
-    @include transitions.push(border-color, "visual");
+    @include transitions();
 
     border: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
@@ -24,7 +24,7 @@
 }
 
 @mixin bottom($namespace, $face, $shade) {
-    @include transitions.push(border-color, "visual");
+    @include transitions();
 
     border-bottom: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
@@ -36,7 +36,7 @@
 }
 
 @mixin left($namespace, $face, $shade) {
-    @include transitions.push(border-color, "visual");
+    @include transitions();
 
     border-left: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
@@ -48,7 +48,7 @@
 }
 
 @mixin right($namespace, $face, $shade) {
-    @include transitions.push(border-color, "visual");
+    @include transitions();
 
     border-right: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
@@ -60,7 +60,7 @@
 }
 
 @mixin top($namespace, $face, $shade) {
-    @include transitions.push(border-color, "visual");
+    @include transitions();
 
     border-top: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
             "#{$namespace}.border.style"
@@ -69,4 +69,8 @@
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
+}
+
+@mixin transitions() {
+    @include transitions.push(border-color, "visual");
 }

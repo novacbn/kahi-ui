@@ -1,9 +1,9 @@
 @use "../abstracts/variables";
 
-@mixin base() {
+@mixin base($unit) {
     display: flex;
 
-    gap: calc(var(--spacing-y) * 1rem) calc(var(--spacing-x) * 1rem);
+    gap: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
 
     align-items: var(--orientation-align);
     justify-content: var(--orientation-justify);
@@ -11,18 +11,23 @@
     flex-direction: var(--orientation-direction);
 }
 
-@mixin var-reset($direction, $namespace: null) {
+@mixin var-reset($direction, $alignment-x: initial, $alignment-y: initial, $namespace: null) {
     --orientation-direction: #{$direction};
 
-    --orientation-align: var(--flex-alignment-x);
-    --orientation-justify: var(--flex-alignment-y);
+    @if $direction == "column" {
+        --orientation-align: var(--flex-alignment-x);
+        --orientation-justify: var(--flex-alignment-y);
+    } @else {
+        --orientation-align: var(--flex-alignment-y);
+        --orientation-justify: var(--flex-alignment-x);
+    }
 
-    --flex-alignment-x: initial;
-    --flex-alignment-y: initial;
+    --flex-alignment-x: #{$alignment-x};
+    --flex-alignment-y: #{$alignment-y};
 
     @if $namespace {
-        --spacing-x: #{variables.format-var("#{$namespace}.spacing_x")};
-        --spacing-y: #{variables.format-var("#{$namespace}.spacing_y")};
+        --spacing-x: #{variables.format-var("#{$namespace}.spacing.x")};
+        --spacing-y: #{variables.format-var("#{$namespace}.spacing.y")};
     } @else {
         --spacing-x: 0px;
         --spacing-y: 0px;

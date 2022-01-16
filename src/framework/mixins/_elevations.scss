@@ -1,0 +1,13 @@
+@use "../abstracts/variables";
+
+@mixin shadow() {
+    box-shadow: var(--elevation-shadow);
+}
+
+@mixin var-reset() {
+    --elevation-shadow: none;
+}
+
+@mixin var-theme($namespace) {
+    --elevation-shadow: #{variables.format-var("#{$namespace}.box-shadow")};
+}

@@ -152,7 +152,7 @@
             "line-heights": sizes.generate-scaling($base: 1, $ratio: 1.15),
             "sizes": (
                 "block": sizes.generate-scaling($base: 1.125, $ratio: 1.2),
-                "inline": sizes.generate-scaling($base: 0.75, $ratio: 1.15),
+                "inline": sizes.generate-scaling($base: 0.751, $ratio: 1.1),
             ),
         ),
     )

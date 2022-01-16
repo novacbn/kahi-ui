@@ -3,11 +3,8 @@
 
 @mixin sizing-declarations($size, $prefix: "") {
     [data-sizing~="#{$prefix}#{$size}"] {
-        @include variables.each("fonts.line-heights.*.#{$size}") using ($tier, $_) {
-            --sizing-font-size-#{$tier}: #{variables.format-var(
-                    "fonts.line-heights.#{$tier}.#{$size}"
-                )};
-        }
+        --sizing-font-letter-spacing: #{variables.format-var("fonts.letter-spacings.#{$size}")};
+        --sizing-font-line-height: #{variables.format-var("fonts.line-heights.#{$size}")};
 
         @include variables.each("fonts.sizes.*.#{$size}") using ($tier, $_) {
             --sizing-font-size-#{$tier}: #{variables.format-var("fonts.sizes.#{$tier}.#{$size}")};

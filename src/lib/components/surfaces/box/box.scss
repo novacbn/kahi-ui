@@ -4,37 +4,25 @@
 
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/elevations";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/radius";
 
-/*
 .box {
-    --elevation: var(--box-elevation);
-    --shape-radius: var(--box-shape-radius);
-
-    --palette-background-normal: var(--box-palette-background-normal);
-    --palette-foreground-normal: var(--box-palette-foreground-normal);
-
-    background: rgb(var(--palette-background-normal));
-    color: rgb(var(--palette-foreground-normal));
-
-    border-radius: var(--shape-radius);
-    box-shadow: var(--elevation);
-
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function);
-}
-*/
-
-.box {
-    @include palettes.var-inherit();
+    @include elevations.var-reset();
+    @include palettes.var-auto-background();
     @include radius.var-theme("box");
 
     @include surfaces.background("box");
     @include surfaces.text("box");
 
-    @include surfaces.borders-all("box");
+    @include elevations.shadow();
     @include surfaces.radius-all();
 
+    @include borders.transitions();
     @include transitions.build();
+
+    &[data-variation~="borders"] {
+        @include surfaces.borders-all("box");
+    }
 }

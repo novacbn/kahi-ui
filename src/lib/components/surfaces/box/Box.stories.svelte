@@ -9,9 +9,11 @@
     const ELEVATIONS = [
         ["none", true],
         ["lowest", false],
+        ["lower", false],
         ["low", false],
         ["medium", false],
         ["high", false],
+        ["higher", false],
         ["highest", false],
     ];
 
@@ -27,10 +29,20 @@
         ["negative", false],
     ];
 
-    const SHAPES = [
+    const RADIUS = [
         ["none", true],
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
+
+    const SHAPES = [
+        ["circle", false],
         ["pill", false],
-        ["rounded", false],
     ];
 </script>
 
@@ -47,7 +59,19 @@
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Box palette={is_default ? undefined : palette}>
+            <Box palette={is_default ? undefined : palette} padding="small">
+                This is a <Text is="strong">
+                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text> Box!
+            </Box>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Borders">
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
+            <Box palette={is_default ? undefined : palette} variation="borders" padding="small">
                 This is a <Text is="strong">
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text> Box!
@@ -59,9 +83,21 @@
 <Story name="Elevation">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
-            <Box palette="inverse" {elevation}>
+            <Box palette="inverse" elevation={is_default ? undefined : elevation} padding="small">
                 This is a <Text is="strong">
                     {`${elevation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text> Box!
+            </Box>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Radius">
+    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+        {#each RADIUS as [radius, is_default] (radius)}
+            <Box palette="inverse" radius={is_default ? undefined : radius} padding="small">
+                This is a <Text is="strong">
+                    {`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text> Box!
             </Box>
         {/each}
@@ -71,7 +107,7 @@
 <Story name="Shape">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each SHAPES as [shape, is_default] (shape)}
-            <Box palette="inverse" padding="huge" {shape}>
+            <Box palette="inverse" shape={is_default ? undefined : shape} padding="small">
                 This is a <Text is="strong">
                     {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text> Box!

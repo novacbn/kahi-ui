@@ -21,4 +21,4 @@ export const TOKENS_POINTS = {
 
 export type PROPERTY_POINTS = LiteralEnum<keyof typeof TOKENS_POINTS>;
 
-export type PROPERTY_POINTS_BREAKPOINT = BreakpointEnum<keyof typeof TOKENS_POINTS>;
+export type PROPERTY_POINTS_BREAKPOINT = BreakpointEnum<PROPERTY_POINTS>;

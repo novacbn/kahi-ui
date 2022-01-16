@@ -28,6 +28,10 @@
     border-top-right-radius: calc(var(--shape-radius) * 1#{$unit});
 }
 
-@mixin var-theme($namespace) {
-    --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+@mixin var-reset($namespace: null) {
+    @if $namespace {
+        --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+    } @else {
+        --shape-radius: 0;
+    }
 }

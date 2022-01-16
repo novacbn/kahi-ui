@@ -3,18 +3,13 @@
 @include variables.define-variables(
     (
         "box": (
-            "background": (
-                opacity: 1,
-            ),
-            "color": (
-                opacity: 1,
-            ),
+            "background.opacity": 1,
             "border": (
-                "radius": "none",
                 "width": variables.format-var("sizes.borders.tiny"),
                 "opacity": 0.15,
                 "style": solid,
             ),
+            "color.opacity": 1,
         ),
     )
 );

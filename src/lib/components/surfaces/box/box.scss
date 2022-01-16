@@ -12,7 +12,7 @@
     .box {
         @include elevations.var-reset();
         @include palettes.var-auto-background();
-        @include radius.var-theme($namespace: "box");
+        @include radius.var-reset();
 
         @include surfaces.background($namespace: "box");
         @include surfaces.text($namespace: "box");

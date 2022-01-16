@@ -8,21 +8,23 @@
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/radius";
 
-.box {
-    @include elevations.var-reset();
-    @include palettes.var-auto-background();
-    @include radius.var-theme($namespace: "box");
+@if not env("DISABLE_COMPONENTS_SURFACES_BOX") {
+    .box {
+        @include elevations.var-reset();
+        @include palettes.var-auto-background();
+        @include radius.var-theme($namespace: "box");
 
-    @include surfaces.background($namespace: "box");
-    @include surfaces.text($namespace: "box");
+        @include surfaces.background($namespace: "box");
+        @include surfaces.text($namespace: "box");
 
-    @include elevations.shadow();
-    @include surfaces.radius-all();
+        @include elevations.shadow();
+        @include surfaces.radius-all();
 
-    @include borders.transitions();
-    @include transitions.build();
+        @include borders.transitions();
+        @include transitions.build();
 
-    &[data-variation~="borders"] {
-        @include surfaces.borders-all($namespace: "box");
+        &[data-variation~="borders"] {
+            @include surfaces.borders-all($namespace: "box");
+        }
     }
 }

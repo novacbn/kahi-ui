@@ -11,10 +11,10 @@
 .box {
     @include elevations.var-reset();
     @include palettes.var-auto-background();
-    @include radius.var-theme("box");
+    @include radius.var-theme($namespace: "box");
 
-    @include surfaces.background("box");
-    @include surfaces.text("box");
+    @include surfaces.background($namespace: "box");
+    @include surfaces.text($namespace: "box");
 
     @include elevations.shadow();
     @include surfaces.radius-all();
@@ -23,6 +23,6 @@
     @include transitions.build();
 
     &[data-variation~="borders"] {
-        @include surfaces.borders-all("box");
+        @include surfaces.borders-all($namespace: "box");
     }
 }

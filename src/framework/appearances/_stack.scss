@@ -1,0 +1,30 @@
+@use "../abstracts/variables";
+
+@mixin base() {
+    display: flex;
+
+    gap: calc(var(--spacing-y) * 1rem) calc(var(--spacing-x) * 1rem);
+
+    align-items: var(--orientation-align);
+    justify-content: var(--orientation-justify);
+
+    flex-direction: var(--orientation-direction);
+}
+
+@mixin var-reset($direction, $namespace: null) {
+    --orientation-direction: #{$direction};
+
+    --orientation-align: var(--flex-alignment-x);
+    --orientation-justify: var(--flex-alignment-y);
+
+    --flex-alignment-x: initial;
+    --flex-alignment-y: initial;
+
+    @if $namespace {
+        --spacing-x: #{variables.format-var("#{$namespace}.spacing_x")};
+        --spacing-y: #{variables.format-var("#{$namespace}.spacing_y")};
+    } @else {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+}

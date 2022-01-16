@@ -1,23 +1,8 @@
+@use "../../../../framework/appearances/stack";
+
 .stack {
-    --orientation-direction: column;
-
-    --orientation-align: var(--flex-alignment-x);
-    --orientation-justify: var(--flex-alignment-y);
-
-    --flex-alignment-x: initial;
-    --flex-alignment-y: initial;
-
-    --spacing-x: 0;
-    --spacing-y: 0;
-
-    display: flex;
-
-    gap: var(--spacing-y) var(--spacing-x);
-
-    align-items: var(--orientation-align);
-    justify-content: var(--orientation-justify);
-
-    flex-direction: var(--orientation-direction);
+    @include stack.var-reset($direction: column);
+    @include stack.base();
 
     &[data-variation~="wrap"] {
         flex-wrap: wrap;

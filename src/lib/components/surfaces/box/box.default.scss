@@ -1,12 +1,5 @@
 @use "../../../../framework/abstracts/variables";
 
-/*:root {
-
-    --box-elevation: none;
-    --box-shape-radius: none;
-}
-*/
-
 @include variables.define-variables(
     (
         "box": (

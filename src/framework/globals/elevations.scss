@@ -7,7 +7,7 @@
     $name: strings.format-identifier($name);
 
     [data-elevation="#{$name}"] {
-        --elevation: #{$value};
+        --elevation-shadow: #{$value};
     }
 }
 

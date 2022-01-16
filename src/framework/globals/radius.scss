@@ -10,7 +10,7 @@
 
 @mixin shape-declarations($name, $value, $prefix: "") {
     [data-shape~="#{$prefix + $name}"] {
-        --shape-radius: #{$value} !important;
+        border-radius: #{$value} !important;
     }
 }
 

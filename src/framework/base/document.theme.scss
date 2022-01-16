@@ -3,11 +3,15 @@
 @include variables.define-variables(
     (
         "document": (
-            "background": (
-                "opacity": 1,
+            "background.opacity": 1,
+            "color.opacity": 1,
+            "font": (
+                "family": variables.format-var("fonts.families.inline"),
+                "line-height": 1.5,
+                "size": 16px,
             ),
-            "color": (
-                "opacity": 1,
+            "scrollbar": (
+                "background.opacity": 1,
             ),
         ),
     )

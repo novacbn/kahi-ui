@@ -1,0 +1,17 @@
+@use "../abstracts/variables";
+
+@mixin letter-spacing($namespace) {
+    letter-spacing: #{variables.format-var("#{$namespace}.font.letter-spacing")};
+}
+
+@mixin line-height($namespace) {
+    line-height: #{variables.format-var("#{$namespace}.font.line-height")};
+}
+
+@mixin family($namespace) {
+    font-family: #{variables.format-var("#{$namespace}.font.family")};
+}
+
+@mixin size($namespace) {
+    font-size: #{variables.format-var("#{$namespace}.font.size")};
+}

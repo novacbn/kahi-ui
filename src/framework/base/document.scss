@@ -2,21 +2,7 @@
 
 @use "../mixins/colors";
 @use "../mixins/palettes";
-
-/*
-html {
-    @apply bg-[rgb(var(--document-background))] leading-[var(--document-font-line-height)] text-[rgb(var(--document-foreground))];
-
-    font-size: var(--document-font-size);
-
-    transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-    & ::selection {
-        @apply bg-[rgb(var(--selection-background))] text-[rgb(var(--selection-foreground))];
-    }
-}
-*/
+@use "../mixins/text";
 
 :root {
     @include palettes.var-auto-background();
@@ -25,15 +11,19 @@ html {
     // "surface" convention so the dark / light palettes stand
     // out more when used else where as backgrounds
 
-    @include colors.background("document", $face: "background", $shade: "bold");
-    @include colors.text("document", $face: "foreground", $shade: "lightest");
+    @include colors.background($namespace: "document", $face: "background", $shade: "bold");
+    @include colors.text($namespace: "document", $face: "foreground", $shade: "lightest");
+
+    @include text.family($namespace: "document");
+    @include text.line-height($namespace: "document");
+    @include text.size($namespace: "document");
 
     @include transitions.build();
 }
 
 ::selection {
-    @include colors.background("document", $face: "foreground", $shade: "lightest");
-    @include colors.text("document", $face: "background", $shade: "lightest");
+    @include colors.background($namespace: "document", $face: "foreground", $shade: "lightest");
+    @include colors.text($namespace: "document", $face: "background", $shade: "lightest");
 }
 
 /*

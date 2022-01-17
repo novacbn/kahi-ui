@@ -1,24 +1,3 @@
-const ATTRIBUTE_REMAP: Record<string, string | undefined> = {
-    max_height: "max-height",
-    min_height: "min-height",
-    max_width: "max-width",
-    min_width: "min-width",
-    margin_x: "margin-x",
-    margin_y: "margin-y",
-    margin_top: "margin-top",
-    margin_left: "margin-left",
-    margin_bottom: "margin-bottom",
-    margin_right: "margin-right",
-    padding_x: "padding-x",
-    padding_y: "padding-y",
-    padding_top: "padding-top",
-    padding_left: "padding-left",
-    padding_bottom: "padding-bottom",
-    padding_right: "padding-right",
-    span_x: "span-x",
-    span_y: "span-y",
-};
-
 const DATA_ATTRIBUTES: Set<string> = new Set([
     "contents",
     "height",
@@ -27,6 +6,8 @@ const DATA_ATTRIBUTES: Set<string> = new Set([
     "min-height",
     "max-width",
     "min-width",
+    "max-size",
+    "min-size",
     "margin",
     "margin-x",
     "margin-y",
@@ -41,6 +22,7 @@ const DATA_ATTRIBUTES: Set<string> = new Set([
     "padding-left",
     "padding-bottom",
     "padding-right",
+    "size",
     "width",
 ]);
 
@@ -75,6 +57,15 @@ function is_truthy(value: any): boolean {
 }
 
 /**
+ * Returns the property name formatted into a dash-case attribute name
+ * @param attribute
+ * @returns
+ */
+function format_property_name(name: string): string {
+    return name.replaceAll("_", "-");
+}
+
+/**
  * Returns all the CSS variables concated
  * @param props
  * @returns
@@ -97,23 +88,23 @@ export function format_css_variables(props: IProps): string {
  * @returns
  */
 export function map_attributes(props: IProps, set?: Set<string>, prefix: string = ""): IProps {
-    let entries = Object.entries(props).filter((entry) => {
-        let [attribute, value] = entry;
-        attribute = ATTRIBUTE_REMAP[attribute] ?? attribute;
+    const entries = Object.entries(props)
+        .filter((entry) => {
+            const [property, value] = entry;
+            const attribute = format_property_name(property);
 
-        if (set && !set.has(attribute)) return false;
-        return Array.isArray(value) ? value.length > 0 : is_truthy(value);
-    });
+            if (set && !set.has(attribute)) return false;
+            return Array.isArray(value) ? value.length > 0 : is_truthy(value);
+        })
+        .map((entry) => {
+            const [property, value] = entry;
+            const attribute = format_property_name(property);
 
-    entries = entries.map((entry) => {
-        let [attribute, value] = entry;
-        attribute = ATTRIBUTE_REMAP[attribute] ?? attribute;
-
-        return [
-            prefix ? prefix + attribute : attribute,
-            Array.isArray(value) ? value.join(" ") : value,
-        ];
-    });
+            return [
+                prefix ? prefix + attribute : attribute,
+                Array.isArray(value) ? value.join(" ") : value,
+            ];
+        });
 
     return Object.fromEntries(entries);
 }

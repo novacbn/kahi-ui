@@ -6,11 +6,7 @@ import type {BreakpointEnum} from "./viewports";
  */
 export const TOKENS_SIZE = {
     auto: "auto",
-    "content-fit": "content-fit",
-    "content-max": "content-max",
-    "content-min": "content-min",
-    prose: "prose",
-    stretch: "stretch",
+    none: "none",
 
     "25": "25",
     "viewport-25": "viewport-25",
@@ -24,6 +20,31 @@ export const TOKENS_SIZE = {
     "viewport-75": "viewport-75",
     "100": "100",
     "viewport-100": "viewport-100",
+
+    "content-fit": "content-fit",
+    "content-max": "content-max",
+    "content-min": "content-min",
+
+    nano: "nano",
+    "icon-nano": "icon-nano",
+    tiny: "tiny",
+    "icon-tiny": "icon-tiny",
+    small: "small",
+    "icon-small": "icon-small",
+    medium: "medium",
+    "icon-medium": "icon-medium",
+    large: "large",
+    "icon-large": "icon-large",
+    huge: "huge",
+    "icon-huge": "icon-huge",
+    massive: "massive",
+    "icon-massive": "icon-massive",
+    prose: "prose",
+
+    mobile: "mobile",
+    tablet: "tablet",
+    desktop: "desktop",
+    widescreen: "widescreen",
 } as const;
 
 export type PROPERTY_SIZE = LiteralEnum<keyof typeof TOKENS_SIZE>;
@@ -38,4 +59,8 @@ export interface ISizeProperties {
     width?: PROPERTY_SIZE_BREAKPOINT;
     max_width?: PROPERTY_SIZE_BREAKPOINT;
     min_width?: PROPERTY_SIZE_BREAKPOINT;
+
+    size?: PROPERTY_SIZE_BREAKPOINT;
+    max_size?: PROPERTY_SIZE_BREAKPOINT;
+    min_size?: PROPERTY_SIZE_BREAKPOINT;
 }

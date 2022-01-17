@@ -209,6 +209,8 @@
         );
     }
 
+    @include size-constant-declarations("prose", variables.format-var("sizes.prose"), $prefix);
+
     @include viewports.each() using ($name, $width, $minimum-width, $maximum-width) {
         // HACK: Viewports are constants, not variables. So we need to manually format here
 

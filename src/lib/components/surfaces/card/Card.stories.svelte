@@ -5,7 +5,6 @@
 
     import Badge from "../../display/badge/Badge.svelte";
     import Button from "../../interactables/button/Button.svelte";
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Stack from "../../layouts/stack/Stack.svelte";
     import Text from "../../typography/text/Text.svelte";
@@ -13,11 +12,14 @@
     import * as Card from "./index";
 
     const ELEVATIONS = [
-        ["lowest", true],
+        ["lower", true],
         ["none", false],
+        ["lowest", false],
+
         ["low", false],
         ["medium", false],
         ["high", false],
+        ["higher", false],
         ["highest", false],
     ];
 
@@ -27,10 +29,10 @@
     ];
 
     const PALETTES = [
-        ["neutral", true],
-        ["accent", false],
-        ["auto", false],
+        ["auto", true],
         ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -40,11 +42,13 @@
 
     const SIZINGS = [
         ["default", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -109,9 +113,9 @@
 </Story>
 
 <Story name="Palette">
-    <Mosaic sizing="huge" spacing="medium">
+    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Card.Container {palette}>
+            <Card.Container palette={is_default ? undefined : palette} style="max-width:25rem;">
                 <Card.Figure>
                     <img src={IMAGE_BACKGROUND} />
                 </Card.Figure>
@@ -130,13 +134,13 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Mosaic>
+    </Stack>
 </Story>
 
 <Story name="Elevation">
-    <Mosaic sizing="huge" spacing="medium">
+    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
-            <Card.Container {elevation}>
+            <Card.Container elevation={is_default ? undefined : elevation} style="max-width:25rem;">
                 <Card.Figure>
                     <img src={IMAGE_BACKGROUND} />
                 </Card.Figure>
@@ -155,13 +159,13 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Mosaic>
+    </Stack>
 </Story>
 
 <Story name="Sizing">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
-            <Card.Container style="max-width:25rem;" {sizing}>
+            <Card.Container sizing={is_default ? undefined : sizing} style="max-width:25rem;">
                 <Card.Header>
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
@@ -180,9 +184,9 @@
 </Story>
 
 <Story name="Footer Orientation">
-    <Mosaic sizing="huge" spacing="medium">
+    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
-            <Card.Container>
+            <Card.Container style="max-width:25rem;">
                 <Card.Figure>
                     <img src={IMAGE_BACKGROUND} />
                 </Card.Figure>
@@ -200,11 +204,11 @@
                     </Text>
                 </Card.Section>
 
-                <Card.Footer {orientation}>
+                <Card.Footer orientation={is_default ? undefined : orientation}>
                     <Button variation="clear">Cancel</Button>
                     <Button palette="accent">Confirm</Button>
                 </Card.Footer>
             </Card.Container>
         {/each}
-    </Mosaic>
+    </Stack>
 </Story>

@@ -29,6 +29,9 @@
         default: {};
     };
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
@@ -39,6 +42,7 @@
 <figure
     bind:this={element}
     {...map_global_attributes($$props)}
+    class="card--figure {_class}"
     {...map_data_attributes({fit, shape})}
     use:forward_actions={{actions}}
     on:click

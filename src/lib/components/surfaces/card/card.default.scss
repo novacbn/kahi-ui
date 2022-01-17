@@ -1,42 +1,42 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --card-elevation: var(--elevation-lowest);
-    --card-palette-background-normal: var(--palette-auto-off-normal);
-    --card-palette-foreground-normal: var(--palette-inverse-normal);
-    --card-sizing-text-size: var(--document-font-size);
-    --card-sizing-text-line-height: var(--document-font-line-height);
-
-    --card-border-color: var(--palette-inverse-off-lightest);
-    --card-border-radius: var(--radius-small);
-    --card-border-opacity: 0.1;
-    --card-border-width: 2px;
-    --card-padding-x: var(--spacing-local-medium);
-    --card-padding-y: var(--spacing-local-medium);
-
-    /** */
-
-    --card-figure-margin-top: var(--spacing-local-medium);
-
-    /** */
-
-    --card-footer-flex-alignment-x: flex-end;
-    --card-footer-flex-alignment-y: center;
-    --card-footer-gap: var(--spacing-local-small);
-    --card-footer-orientation-direction: row;
-    --card-footer-orientation-align: var(--flex-alignment-y);
-    --card-footer-orientation-justify: var(--flex-alignment-x);
-    --card-footer-margin-top: var(--spacing-local-medium);
-
-    /** */
-
-    --card-header-font-size: var(--font-content-size-local-medium);
-    --card-header-font-weight: bold;
-    --card-header-gap: var(--spacing-local-small);
-    --card-header-line-height: var(--font-content-line-height-medium);
-    --card-header-margin-top: var(--spacing-local-medium);
-
-    /** */
-
-    --card-section-margin-top: var(--spacing-local-small);
-}
+@include variables.define-variables(
+    (
+        "card": (
+            "background.opacity": 1,
+            "border": (
+                "radius": variables.format-var("radius.tiny"),
+                "width": variables.format-var("sizes.borders.tiny"),
+                "opacity": 0.15,
+                "style": solid,
+            ),
+            "color.opacity": 1,
+            "elevation": variables.format-var("elevations.lower"),
+            "margin": (
+                "x": variables.format-var("spacings.block.medium"),
+                "y": variables.format-var("spacings.block.medium"),
+            ),
+            "footer": (
+                "spacing": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "margin.y": variables.format-var("spacings.block.small"),
+            ),
+            "header": (
+                "font": (
+                    "size": variables.format-var("fonts.sizes.inline.large"),
+                    "weight": bold,
+                ),
+                "gap": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "margin.y": variables.format-var("spacings.block.small"),
+            ),
+            "section": (
+                "margin.y": variables.format-var("spacings.block.tiny"),
+            ),
+        ),
+    )
+);

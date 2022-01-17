@@ -1,104 +1,125 @@
-.card {
-    --orientation-direction: var(--card-footer-orientation-direction);
+@use "../../../../framework/abstracts/transitions";
 
-    --orientation-align: var(--card-footer-flex-alignment-y);
-    --orientation-justify: var(--card-footer-flex-alignment-x);
+@use "../../../../framework/appearances/stack";
+@use "../../../../framework/appearances/surfaces";
 
-    --flex-alignment-x: var(--card-footer-flex-alignment-x);
-    --flex-alignment-y: var(--card-footer-flex-alignment-y);
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/elevations";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/text";
 
-    --elevation: var(--card-elevation);
+@if not env("DISABLE_COMPONENTS_SURFACES_CARD") {
+    .card {
+        @include elevations.var-reset($namespace: "card");
+        @include palettes.var-auto-background();
+        @include radius.var-reset($namespace: "card");
+        @include sizings.var-reset-font($tier: "inline");
 
-    --palette-background-normal: var(--card-palette-background-normal);
-    --palette-foreground-normal: var(--card-palette-foreground-normal);
+        display: flex;
+        flex-direction: column;
 
-    --sizing-text-size: var(--card-sizing-text-size);
-    --sizing-text-line-height: var(--card-sizing-text-line-height);
+        @include surfaces.radius-all();
 
-    display: flex;
-    flex-direction: column;
+        @include sizings.font($tier: "inline", $unit: rem);
 
-    font-size: var(--sizing-text-size);
-    line-height: var(--sizing-text-line-height);
+        @include borders.transitions();
+        @include colors.transitions-background();
+        @include colors.transitions-text();
 
-    overflow: hidden;
+        @include transitions.build();
 
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
-        border-color var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function);
+        &:not([data-variation~="flush"]) {
+            @include surfaces.background($namespace: "card");
+            @include surfaces.borders-all($namespace: "card");
+            @include surfaces.text($namespace: "card");
 
-    &:not([data-variation]) {
-        border: var(--card-border-width) rgba(var(--card-border-color), var(--card-border-opacity))
-            solid;
-        border-radius: var(--card-border-radius);
+            @include elevations.shadow();
 
-        background: rgb(var(--palette-background-normal));
-        color: rgb(var(--palette-foreground-normal));
+            & > :is(.card--footer, .card--header, .card--section) {
+                @include intrinsics.margin-x(
+                    $namespace: "card",
+                    $unit: rem,
+                    $sizing-tier: "inline"
+                );
 
-        box-shadow: var(--elevation);
+                &:first-child {
+                    @include intrinsics.margin-top(
+                        $namespace: "card",
+                        $unit: rem,
+                        $sizing-tier: "inline"
+                    );
+                }
 
-        & > :is(footer, header, section) {
-            margin-left: var(--card-padding-x);
-            margin-right: var(--card-padding-x);
-
-            &:first-child {
-                margin-top: var(--card-padding-y);
-            }
-
-            &:last-child {
-                margin-bottom: var(--card-padding-y);
+                &:last-child {
+                    @include intrinsics.margin-bottom(
+                        $namespace: "card",
+                        $unit: rem,
+                        $sizing-tier: "inline"
+                    );
+                }
             }
         }
     }
-}
 
-.card > figure {
-    display: flex;
+    .card--figure {
+        display: flex;
 
-    align-items: center;
-    justify-content: center;
-
-    &:not(:first-child) {
-        margin-top: var(--card-figure-margin-top);
-    }
-}
-
-.card > footer {
-    display: flex;
-
-    flex-direction: var(--orientation-direction);
-
-    align-items: var(--orientation-align);
-    justify-content: var(--orientation-justify);
-
-    gap: var(--card-footer-gap);
-
-    &:not(:first-child) {
-        margin-top: var(--card-footer-margin-top);
-    }
-}
-
-.card > header {
-    display: flex;
-    align-items: center;
-
-    gap: var(--card-header-gap);
-
-    font-size: var(--card-header-font-size);
-    font-weight: var(--card-header-font-weight);
-    line-height: var(--card-header-line-height);
-
-    &:not(:first-child) {
-        margin-top: var(--card-header-margin-top);
-    }
-}
-
-.card > section {
-    &:not(:first-child) {
-        margin-top: var(--card-section-margin-top);
+        align-items: center;
+        justify-content: center;
     }
 
-    &:last-of-type {
-        flex-grow: 1;
+    .card--footer {
+        @include stack.var-reset(
+            $namespace: "card.footer",
+            $direction: row,
+            $alignment-x: flex-end,
+            $alignment-y: center
+        );
+
+        @include stack.base($unit: rem);
+
+        &:not(:first-child) {
+            @include intrinsics.margin-top(
+                $namespace: "card.footer",
+                $unit: rem,
+                $sizing-tier: "inline"
+            );
+        }
+    }
+
+    .card--header {
+        display: flex;
+        align-items: center;
+
+        @include intrinsics.gap-all($namespace: "card.header", $unit: em);
+
+        @include text.size($namespace: "card.header", $unit: em);
+        @include text.weight($namespace: "card.header");
+
+        &:not(:first-child) {
+            @include intrinsics.margin-top(
+                $namespace: "card.header",
+                $unit: rem,
+                $sizing-tier: "inline"
+            );
+        }
+    }
+
+    .card--section {
+        &:last-of-type {
+            flex-grow: 1;
+        }
+
+        &:not(:first-child) {
+            @include intrinsics.margin-top(
+                $namespace: "card.section",
+                $unit: rem,
+                $sizing-tier: "inline"
+            );
+        }
     }
 }

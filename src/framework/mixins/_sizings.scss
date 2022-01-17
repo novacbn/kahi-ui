@@ -1,0 +1,37 @@
+@use "../abstracts/variables";
+
+@mixin font($tier, $unit) {
+    font-size: calc(var(--sizing-font-size-#{$tier}) * 1#{$unit});
+}
+
+@mixin letter-spacing() {
+    line-height: var(--sizing-font-letter-spacing);
+}
+
+@mixin line-height() {
+    line-height: var(--sizing-font-line-height);
+}
+
+@mixin var-reset-font($tier, $namespace: null) {
+    @if $namespace {
+        --sizing-font-size-#{$tier}: #{variables.format-var("#{$namespace}.font.size")};
+    } @else {
+        --sizing-font-size-#{$tier}: 1;
+    }
+}
+
+@mixin var-reset-letter-spacing($namespace: null) {
+    @if $namespace {
+        --sizing-font-letter-spacing: #{variables.format-var("#{$namespace}.font.letter-spacing")};
+    } @else {
+        --sizing-font-letter-spacing: unset;
+    }
+}
+
+@mixin var-reset-line-height($namespace: null) {
+    @if $namespace {
+        --sizing-font-line-height: #{variables.format-var("#{$namespace}.font.line-height")};
+    } @else {
+        --sizing-font-line-height: unset;
+    }
+}

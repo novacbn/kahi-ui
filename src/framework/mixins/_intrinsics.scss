@@ -1,0 +1,231 @@
+@use "../abstracts/variables";
+
+@mixin gap-all($namespace, $unit, $sizing-tier: null) {
+    // NOTE: Honestly `em` units would be a LOT simplier here. However some multi-part
+    // Components might different font sizes on its children. So we need to pull from
+    // the sizing variable instead
+
+    @if $sizing-tier {
+        gap: calc(
+                (
+                        var(--sizing-font-size-#{$sizing-tier}) *
+                            #{variables.format-var("#{$namespace}.gap.y")}
+                    ) *
+                    1#{$unit}
+            )
+            calc(
+                (
+                        var(--sizing-font-size-#{$sizing-tier}) *
+                            #{variables.format-var("#{$namespace}.gap.x")}
+                    ) *
+                    1#{$unit}
+            );
+    } @else {
+        gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * 1#{$unit})
+            calc(#{variables.format-var("#{$namespace}.gap.x")} * 1#{$unit});
+    }
+}
+
+@mixin gap-x($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        column-gap: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.gap.x")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        column-gap: calc(#{variables.format-var("#{$namespace}.gap.x")} * 1#{$unit});
+    }
+}
+
+@mixin gap-y($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        row-gap: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.gap.y")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        row-gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * 1#{$unit});
+    }
+}
+
+@mixin margin-all($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        margin: calc(
+                (
+                        var(--sizing-font-size-#{$sizing-tier}) *
+                            #{variables.format-var("#{$namespace}.margin.y")}
+                    ) *
+                    1#{$unit}
+            )
+            calc(
+                (
+                        var(--sizing-font-size-#{$sizing-tier}) *
+                            #{variables.format-var("#{$namespace}.margin.x")}
+                    ) *
+                    1#{$unit}
+            );
+    } @else {
+        margin: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit})
+            calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+    }
+}
+
+@mixin margin-x($namespace, $unit, $sizing-tier: null) {
+    @include margin-left($namespace, $unit, $sizing-tier);
+    @include margin-right($namespace, $unit, $sizing-tier);
+}
+
+@mixin margin-y($namespace, $unit, $sizing-tier: null) {
+    @include margin-bottom($namespace, $unit, $sizing-tier);
+    @include margin-top($namespace, $unit, $sizing-tier);
+}
+
+@mixin margin-bottom($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        margin-bottom: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.margin.y")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        margin-bottom: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit});
+    }
+}
+
+@mixin margin-left($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        margin-left: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.margin.x")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        margin-left: calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+    }
+}
+
+@mixin margin-right($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        margin-right: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.margin.x")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        margin-right: calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+    }
+}
+
+@mixin margin-top($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        margin-top: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.margin.y")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        margin-top: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit});
+    }
+}
+
+@mixin padding-all($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        padding: calc(
+                (
+                        var(--sizing-font-size-#{$sizing-tier}) *
+                            #{variables.format-var("#{$namespace}.padding.y")}
+                    ) *
+                    1#{$unit}
+            )
+            calc(
+                (
+                        var(--sizing-font-size-#{$sizing-tier}) *
+                            #{variables.format-var("#{$namespace}.padding.x")}
+                    ) *
+                    1#{$unit}
+            );
+    } @else {
+        padding: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit})
+            calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+    }
+}
+
+@mixin padding-x($namespace, $unit, $sizing-tier: null) {
+    @include padding-left($namespace, $unit, $sizing-tier);
+    @include padding-right($namespace, $unit, $sizing-tier);
+}
+
+@mixin padding-y($namespace, $unit, $sizing-tier: null) {
+    @include padding-bottom($namespace, $unit, $sizing-tier);
+    @include padding-top($namespace, $unit, $sizing-tier);
+}
+
+@mixin padding-bottom($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        padding-bottom: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.padding.y")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        padding-bottom: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit});
+    }
+}
+
+@mixin padding-left($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        padding-left: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.padding.x")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        padding-left: calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+    }
+}
+
+@mixin padding-right($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        padding-right: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.padding.x")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        padding-right: calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+    }
+}
+
+@mixin padding-top($namespace, $unit, $sizing-tier: null) {
+    @if $sizing-tier {
+        padding-top: calc(
+            (
+                    var(--sizing-font-size-#{$sizing-tier}) *
+                        #{variables.format-var("#{$namespace}.padding.y")}
+                ) *
+                1#{$unit}
+        );
+    } @else {
+        padding-top: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit});
+    }
+}

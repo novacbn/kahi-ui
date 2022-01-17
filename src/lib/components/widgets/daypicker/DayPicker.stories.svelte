@@ -32,7 +32,6 @@
         Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 1}).toString(),
         Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 2}).toString(),
     ];
-    console.log("DayPicker.stories::3");
 </script>
 
 <Meta title="Widgets/DayPicker" />

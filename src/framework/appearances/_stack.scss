@@ -15,15 +15,15 @@
     --orientation-direction: #{$direction};
 
     @if $direction == "column" {
-        --orientation-align: var(--flex-alignment-x);
-        --orientation-justify: var(--flex-alignment-y);
+        --orientation-align: var(--alignment-flex-x);
+        --orientation-justify: var(--alignment-flex-y);
     } @else {
-        --orientation-align: var(--flex-alignment-y);
-        --orientation-justify: var(--flex-alignment-x);
+        --orientation-align: var(--alignment-flex-y);
+        --orientation-justify: var(--alignment-flex-x);
     }
 
-    --flex-alignment-x: #{$alignment-x};
-    --flex-alignment-y: #{$alignment-y};
+    --alignment-flex-x: #{$alignment-x};
+    --alignment-flex-y: #{$alignment-y};
 
     @if $namespace {
         --spacing-x: #{variables.format-var("#{$namespace}.spacing.x")};

@@ -5,16 +5,16 @@
         --orientation-direction: row !important;
         --orientation-spacing: 0 0 0 var(--spacing-x) !important;
 
-        --orientation-align: var(--flex-alignment-y) !important;
-        --orientation-justify: var(--flex-alignment-x) !important;
+        --orientation-align: var(--alignment-flex-y) !important;
+        --orientation-justify: var(--alignment-flex-x) !important;
     }
 
     [data-orientation~="#{$prefix}vertical"] {
         --orientation-direction: column !important;
         --orientation-spacing: var(--spacing-y) 0 0 0 !important;
 
-        --orientation-align: var(--flex-alignment-x) !important;
-        --orientation-justify: var(--flex-alignment-y) !important;
+        --orientation-align: var(--alignment-flex-x) !important;
+        --orientation-justify: var(--alignment-flex-y) !important;
     }
 }
 

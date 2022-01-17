@@ -15,7 +15,6 @@
         ["lower", true],
         ["none", false],
         ["lowest", false],
-
         ["low", false],
         ["medium", false],
         ["high", false],
@@ -59,7 +58,7 @@
 </Template>
 
 <Story name="Default">
-    <Card.Container style="max-width:25rem;">
+    <Card.Container width="huge">
         <Card.Figure>
             <img src={IMAGE_BACKGROUND} />
         </Card.Figure>
@@ -86,7 +85,7 @@
 </Story>
 
 <Story name="Flush">
-    <Card.Container variation="flush" style="max-width:25rem;">
+    <Card.Container variation="flush" width="huge">
         <Card.Figure>
             <img src={IMAGE_BACKGROUND} />
         </Card.Figure>
@@ -115,7 +114,7 @@
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Card.Container palette={is_default ? undefined : palette} style="max-width:25rem;">
+            <Card.Container palette={is_default ? undefined : palette} width="huge">
                 <Card.Figure>
                     <img src={IMAGE_BACKGROUND} />
                 </Card.Figure>
@@ -140,7 +139,7 @@
 <Story name="Elevation">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
-            <Card.Container elevation={is_default ? undefined : elevation} style="max-width:25rem;">
+            <Card.Container elevation={is_default ? undefined : elevation} width="huge">
                 <Card.Figure>
                     <img src={IMAGE_BACKGROUND} />
                 </Card.Figure>
@@ -165,7 +164,7 @@
 <Story name="Sizing">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
-            <Card.Container sizing={is_default ? undefined : sizing} style="max-width:25rem;">
+            <Card.Container sizing={is_default ? undefined : sizing} width="huge">
                 <Card.Header>
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
@@ -186,7 +185,7 @@
 <Story name="Footer Orientation">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
-            <Card.Container style="max-width:25rem;">
+            <Card.Container width="huge">
                 <Card.Figure>
                     <img src={IMAGE_BACKGROUND} />
                 </Card.Figure>

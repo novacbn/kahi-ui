@@ -21,7 +21,7 @@
                     "x": variables.format-var("spacings.block.small"),
                     "y": variables.format-var("spacings.block.small"),
                 ),
-                "margin.y": variables.format-var("spacings.block.small"),
+                "margin.y": variables.format-var("spacings.block.medium"),
             ),
             "header": (
                 "font": (
@@ -32,10 +32,10 @@
                     "x": variables.format-var("spacings.block.small"),
                     "y": variables.format-var("spacings.block.small"),
                 ),
-                "margin.y": variables.format-var("spacings.block.small"),
+                "margin.y": variables.format-var("spacings.block.medium"),
             ),
             "section": (
-                "margin.y": variables.format-var("spacings.block.tiny"),
+                "margin.y": variables.format-var("spacings.block.small"),
             ),
         ),
     )

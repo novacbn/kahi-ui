@@ -231,15 +231,15 @@
 }
 
 @mixin size-all($namespace, $unit: null) {
-    @include width($namespace, $unit);
-    @include height($namespace, $unit);
+    @include size-width($namespace, $unit);
+    @include size-height($namespace, $unit);
 }
 
 @mixin size-height($namespace, $unit: null) {
     @if $unit {
         height: calc(#{variables.format-var("#{$namespace}.size.height")} * 1#{$unit});
     } @else {
-        height: var(#{variables.format-var("#{$namespace}.size.height")});
+        height: #{variables.format-var("#{$namespace}.size.height")};
     }
 }
 
@@ -247,6 +247,6 @@
     @if $unit {
         width: calc(#{variables.format-var("#{$namespace}.size.width")} * 1#{$unit});
     } @else {
-        width: var(#{variables.format-var("#{$namespace}.size.width")});
+        width: #{variables.format-var("#{$namespace}.size.width")};
     }
 }

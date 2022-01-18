@@ -7,7 +7,7 @@
             "color.opacity": 1,
             "font": (
                 "family": variables.format-var("fonts.families.inline"),
-                "line-height": 1.5,
+                "line-height": variables.format-var("fonts.line-heights.small"),
                 "size": 16px,
             ),
             "scrollbar": (

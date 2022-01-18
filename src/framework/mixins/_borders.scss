@@ -13,14 +13,61 @@
         );
 }
 
+@mixin color-all($namespace, $face, $shade) {
+    @include transitions();
+
+    border-color: hsla(
+        var(--palette-#{$face}-#{$shade}),
+        #{variables.format-var("#{$namespace}.border.opacity")}
+    );
+}
+
+@mixin style-all($namespace) {
+    border-style: #{variables.format-var("#{$namespace}.border.style")};
+}
+
+@mixin width-all($namespace) {
+    border-width: #{variables.format-var("#{$namespace}.border.width")};
+}
+
 @mixin x($namespace, $face, $shade) {
     @include left($namespace);
     @include right($namespace);
 }
 
+@mixin color-x($namespace, $face, $shade) {
+    @include color-left($namespace);
+    @include color-right($namespace);
+}
+
+@mixin style-x($namespace) {
+    @include style-left($namespace);
+    @include style-right($namespace);
+}
+
+@mixin width-x($namespace) {
+    @include width-left($namespace);
+    @include width-right($namespace);
+}
+
 @mixin y($namespace, $face, $shade) {
     @include bottom($namespace);
     @include top($namespace);
+}
+
+@mixin color-y($namespace, $face, $shade) {
+    @include color-bottom($namespace);
+    @include color-top($namespace);
+}
+
+@mixin style-y($namespace) {
+    @include style-bottom($namespace);
+    @include style-top($namespace);
+}
+
+@mixin width-y($namespace) {
+    @include width-bottom($namespace);
+    @include width-top($namespace);
 }
 
 @mixin bottom($namespace, $face, $shade) {
@@ -35,6 +82,23 @@
         );
 }
 
+@mixin color-bottom($namespace, $face, $shade) {
+    @include transitions();
+
+    border-bottom-color: hsla(
+        var(--palette-#{$face}-#{$shade}),
+        #{variables.format-var("#{$namespace}.border.opacity")}
+    );
+}
+
+@mixin style-bottom($namespace) {
+    border-bottom-style: #{variables.format-var("#{$namespace}.border.style")};
+}
+
+@mixin width-bottom($namespace) {
+    border-bottom-width: #{variables.format-var("#{$namespace}.border.width")};
+}
+
 @mixin left($namespace, $face, $shade) {
     @include transitions();
 
@@ -45,6 +109,23 @@
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
+}
+
+@mixin color-left($namespace, $face, $shade) {
+    @include transitions();
+
+    border-left-color: hsla(
+        var(--palette-#{$face}-#{$shade}),
+        #{variables.format-var("#{$namespace}.border.opacity")}
+    );
+}
+
+@mixin style-left($namespace) {
+    border-left-style: #{variables.format-var("#{$namespace}.border.style")};
+}
+
+@mixin width-left($namespace) {
+    border-left-width: #{variables.format-var("#{$namespace}.border.width")};
 }
 
 @mixin right($namespace, $face, $shade) {
@@ -59,6 +140,23 @@
         );
 }
 
+@mixin color-right($namespace, $face, $shade) {
+    @include transitions();
+
+    border-right-color: hsla(
+        var(--palette-#{$face}-#{$shade}),
+        #{variables.format-var("#{$namespace}.border.opacity")}
+    );
+}
+
+@mixin style-right($namespace) {
+    border-right-style: #{variables.format-var("#{$namespace}.border.style")};
+}
+
+@mixin width-right($namespace) {
+    border-right-width: #{variables.format-var("#{$namespace}.border.width")};
+}
+
 @mixin top($namespace, $face, $shade) {
     @include transitions();
 
@@ -69,6 +167,23 @@
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
+}
+
+@mixin color-top($namespace, $face, $shade) {
+    @include transitions();
+
+    border-top-color: hsla(
+        var(--palette-#{$face}-#{$shade}),
+        #{variables.format-var("#{$namespace}.border.opacity")}
+    );
+}
+
+@mixin style-top($namespace) {
+    border-top-style: #{variables.format-var("#{$namespace}.border.style")};
+}
+
+@mixin width-top($namespace) {
+    border-top-width: #{variables.format-var("#{$namespace}.border.width")};
 }
 
 @mixin transitions() {

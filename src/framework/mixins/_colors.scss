@@ -14,6 +14,16 @@
     @include transitions.push(background-color, "visual");
 }
 
+@mixin opacity($namespace) {
+    @include transitions-opacity();
+
+    opacity: #{variables.format-var("#{$namespace}.opacity")};
+}
+
+@mixin transitions-opacity() {
+    @include transitions.push(opacity, "visual");
+}
+
 @mixin text($namespace, $face, $shade) {
     @include transitions-text();
 

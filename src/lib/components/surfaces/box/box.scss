@@ -1,6 +1,6 @@
 @use "../../../../framework/abstracts/transitions";
 
-@use "../../../../framework/appearances/surfaces";
+@use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
@@ -14,17 +14,17 @@
         @include palettes.var-auto-background();
         @include radius.var-reset();
 
-        @include surfaces.background($namespace: "box");
-        @include surfaces.text($namespace: "box");
+        @include surface.background($namespace: "box");
+        @include surface.text($namespace: "box");
 
         @include elevations.shadow();
-        @include surfaces.radius-all();
+        @include surface.radius-all();
 
         @include borders.transitions();
         @include transitions.build();
 
         &[data-variation~="borders"] {
-            @include surfaces.borders-all($namespace: "box");
+            @include surface.borders-all($namespace: "box");
         }
     }
 }

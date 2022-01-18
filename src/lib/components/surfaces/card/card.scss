@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/transitions";
 
 @use "../../../../framework/appearances/stack";
-@use "../../../../framework/appearances/surfaces";
+@use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
@@ -22,7 +22,7 @@
         display: flex;
         flex-direction: column;
 
-        @include surfaces.radius-all();
+        @include surface.radius-all();
 
         @include sizings.font($tier: "inline", $unit: rem);
 
@@ -33,9 +33,9 @@
         @include transitions.build();
 
         &:not([data-variation~="flush"]) {
-            @include surfaces.background($namespace: "card");
-            @include surfaces.borders-all($namespace: "card");
-            @include surfaces.text($namespace: "card");
+            @include surface.background($namespace: "card");
+            @include surface.borders-all($namespace: "card");
+            @include surface.text($namespace: "card");
 
             @include elevations.shadow();
 

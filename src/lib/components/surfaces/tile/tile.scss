@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/transitions";
 
 @use "../../../../framework/appearances/stack";
-@use "../../../../framework/appearances/surfaces";
+@use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
@@ -23,7 +23,7 @@
         align-items: center;
 
         @include intrinsics.gap-all($namespace: "tile", $unit: em);
-        @include surfaces.radius-all();
+        @include surface.radius-all();
 
         @include sizings.font($tier: "inline", $unit: rem);
 
@@ -36,9 +36,9 @@
         &:not([data-variation~="flush"]) {
             @include intrinsics.padding-all($namespace: "tile", $unit: em);
 
-            @include surfaces.background($namespace: "tile");
-            @include surfaces.borders-all($namespace: "tile");
-            @include surfaces.text($namespace: "tile");
+            @include surface.background($namespace: "tile");
+            @include surface.borders-all($namespace: "tile");
+            @include surface.text($namespace: "tile");
 
             @include elevations.shadow();
         }

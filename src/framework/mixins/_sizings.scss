@@ -35,3 +35,11 @@
         --sizing-font-line-height: unset;
     }
 }
+
+@mixin var-reset-size($tier, $namespace: null) {
+    @if $namespace {
+        --sizing-size-#{$tier}: #{variables.format-var("#{$namespace}.size")};
+    } @else {
+        --sizing-size-#{$tier}: 0px;
+    }
+}

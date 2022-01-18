@@ -229,3 +229,24 @@
         padding-top: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit});
     }
 }
+
+@mixin size-all($namespace, $unit: null) {
+    @include width($namespace, $unit);
+    @include height($namespace, $unit);
+}
+
+@mixin size-height($namespace, $unit: null) {
+    @if $unit {
+        height: calc(#{variables.format-var("#{$namespace}.size.height")} * 1#{$unit});
+    } @else {
+        height: var(#{variables.format-var("#{$namespace}.size.height")});
+    }
+}
+
+@mixin size-width($namespace, $unit: null) {
+    @if $unit {
+        width: calc(#{variables.format-var("#{$namespace}.size.width")} * 1#{$unit});
+    } @else {
+        width: var(#{variables.format-var("#{$namespace}.size.width")});
+    }
+}

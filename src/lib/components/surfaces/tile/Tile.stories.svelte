@@ -10,24 +10,26 @@
     import * as Tile from "./index";
 
     const ELEVATIONS = [
-        ["lowest", true],
+        ["lower", true],
         ["none", false],
+        ["lowest", false],
         ["low", false],
         ["medium", false],
         ["high", false],
+        ["higher", false],
         ["highest", false],
     ];
 
     const ORIENTATIONS = [
-        ["horizontal", true],
-        ["vertical", false],
+        ["vertical", true],
+        ["horizontal", false],
     ];
 
     const PALETTES = [
-        ["neutral", true],
-        ["accent", false],
-        ["auto", false],
+        ["auto", true],
         ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -37,11 +39,13 @@
 
     const SIZINGS = [
         ["default", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -96,7 +100,7 @@
 <Story name="Palette">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Tile.Container width="content-max" {palette}>
+            <Tile.Container width="content-max" palette={is_default ? undefined : palette}>
                 <Tile.Figure shape="pill">
                     <img src={IMAGE_AVATAR} />
                 </Tile.Figure>
@@ -120,7 +124,7 @@
 <Story name="Elevation">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
-            <Tile.Container width="content-max" {elevation}>
+            <Tile.Container width="content-max" elevation={is_default ? undefined : elevation}>
                 <Tile.Figure shape="pill">
                     <img src={IMAGE_AVATAR} />
                 </Tile.Figure>
@@ -144,7 +148,7 @@
 <Story name="Sizing">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
-            <Tile.Container width="content-max" {sizing}>
+            <Tile.Container width="content-max" sizing={is_default ? undefined : sizing}>
                 <Tile.Figure shape="pill">
                     <img src={IMAGE_AVATAR} />
                 </Tile.Figure>
@@ -185,7 +189,7 @@
                     </Text>
                 </Tile.Section>
 
-                <Tile.Footer {orientation}>
+                <Tile.Footer orientation={is_default ? undefined : orientation}>
                     <Button palette="affirmative" size="small">Confirm</Button>
                     <Button palette="negative" size="small">Cancel</Button>
                 </Tile.Footer>

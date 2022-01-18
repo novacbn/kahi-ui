@@ -36,6 +36,9 @@
         default: {};
     };
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
@@ -49,6 +52,7 @@
 <footer
     bind:this={element}
     {...map_global_attributes($$props)}
+    class="tile--footer {_class}"
     {...map_data_attributes({
         alignment,
         "alignment-x": alignment_x,

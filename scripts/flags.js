@@ -17,6 +17,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-layouts-stack",
     "--disable-components-surfaces-box",
     "--disable-components-surfaces-card",
+    "--disable-components-surfaces-tile",
     "--disable-globals-alignments",
     "--disable-globals-alignments-responsitivity",
     "--disable-globals-elevations",

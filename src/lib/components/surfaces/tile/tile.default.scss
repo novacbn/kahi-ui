@@ -1,5 +1,8 @@
+@use "../../../../framework/abstracts/variables";
+
+/**
 :root {
-    /** */
+    //
 
     --tile-elevation: var(--elevation-lowest);
     --tile-palette-background-normal: var(--palette-auto-off-normal);
@@ -15,12 +18,12 @@
     --tile-padding-x: var(--spacing-local-medium);
     --tile-padding-y: var(--spacing-local-medium);
 
-    /** */
+    //
 
-    /** HACK: This should really point to variables made for element sizing, but it'll do for now */
+    // HACK: This should really point to variables made for element sizing, but it'll do for now
     --tile-figure-font-size: var(--font-headline-size-local-huge);
 
-    /** */
+    //
 
     --tile-footer-flex-alignment-x: center;
     --tile-footer-flex-alignment-y: center;
@@ -29,10 +32,62 @@
     --tile-footer-orientation-align: var(--flex-alignment-y);
     --tile-footer-orientation-justify: var(--flex-alignment-x);
 
-    /** */
+    //
 
     --tile-header-font-size: var(--font-content-size-local-medium);
     --tile-header-font-weight: bold;
     --tile-header-gap: var(--spacing-local-small);
     --tile-header-line-height: var(--font-content-line-height-medium);
 }
+*/
+
+@include variables.define-variables(
+    (
+        "tile": (
+            "background.opacity": 1,
+            "border": (
+                "radius": variables.format-var("radius.tiny"),
+                "width": variables.format-var("sizes.borders.tiny"),
+                "opacity": 0.15,
+                "style": solid,
+            ),
+            "color.opacity": 1,
+            "elevation": variables.format-var("elevations.lower"),
+            "gap": (
+                "x": variables.format-var("spacings.block.medium"),
+                "y": variables.format-var("spacings.block.medium"),
+            ),
+            "padding": (
+                "x": variables.format-var("spacings.block.medium"),
+                "y": variables.format-var("spacings.block.medium"),
+            ),
+            "figure": (
+                "size": (
+                    "height": 2.25em,
+                    "width": 2.25em,
+                ),
+            ),
+            "footer": (
+                "spacing": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "margin.y": variables.format-var("spacings.block.medium"),
+            ),
+            "header": (
+                "font": (
+                    "size": variables.format-var("fonts.sizes.inline.large"),
+                    "weight": bold,
+                ),
+                "gap": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "margin.y": variables.format-var("spacings.block.medium"),
+            ),
+            "section": (
+                "margin.y": variables.format-var("spacings.block.small"),
+            ),
+        ),
+    )
+);

@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../abstracts/maths";
+@use "../abstracts/colors";
 @use "../abstracts/palettes";
 @use "../abstracts/variables";
 @use "../abstracts/viewports";
@@ -46,6 +46,8 @@
 }
 
 @mixin palette-theme-mode-declarations($background) {
+    /** */
+
     --palettes-auto-background-lightest: #{palettes.format-var(
             $background,
             "background",
@@ -77,42 +79,40 @@
     --palettes-auto-foreground-boldest: #{palettes.format-var($background, "foreground", "boldest")};
 }
 
-@mixin palette-stepping-declarations($background, $foreground, $base, $stepping) {
-    --#{palettes.format-reference($background, "background", "lightest")}: #{palettes.get-shade(
-            $background,
-            maths.step($base, $stepping, 0),
+@mixin palette-declarations($background, $foreground, $palette) {
+    /* */
+
+    // HACK: SASS unfortunately reduces colors down to built-in CSS color
+    // names when applicable. So we need to normalize them here
+
+    --#{palettes.format-reference($background, "background", "lightest")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.palettes.#{$palette}.lightest"),
             $is-raw: true
         )};
-    --#{palettes.format-reference($background, "background", "lighter")}: #{palettes.get-shade(
-            $background,
-            maths.step($base, $stepping, 1),
+    --#{palettes.format-reference($background, "background", "lighter")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.palettes.#{$palette}.lighter"),
             $is-raw: true
         )};
-    --#{palettes.format-reference($background, "background", "light")}: #{palettes.get-shade(
-            $background,
-            maths.step($base, $stepping, 2),
+    --#{palettes.format-reference($background, "background", "light")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.palettes.#{$palette}.light"),
             $is-raw: true
         )};
 
-    --#{palettes.format-reference($background, "background", "normal")}: #{palettes.get-shade(
-            $background,
-            maths.step($base, $stepping, 3),
+    --#{palettes.format-reference($background, "background", "normal")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.palettes.#{$palette}.normal"),
             $is-raw: true
         )};
 
-    --#{palettes.format-reference($background, "background", "bold")}: #{palettes.get-shade(
-            $background,
-            maths.step($base, $stepping, 4),
+    --#{palettes.format-reference($background, "background", "bold")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.palettes.#{$palette}.bold"),
             $is-raw: true
         )};
-    --#{palettes.format-reference($background, "background", "bolder")}: #{palettes.get-shade(
-            $background,
-            maths.step($base, $stepping, 5),
+    --#{palettes.format-reference($background, "background", "bolder")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.palettes.#{$palette}.bolder"),
             $is-raw: true
         )};
-    --#{palettes.format-reference($background, "background", "boldest")}: #{palettes.get-shade(
-            $background,
-            maths.step($base, $stepping, 6),
+    --#{palettes.format-reference($background, "background", "boldest")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.palettes.#{$palette}.boldest"),
             $is-raw: true
         )};
 
@@ -158,26 +158,16 @@
 }
 
 @include themes.query-theme-mode("light") {
-    @include palette-stepping-declarations("dark", "light", 6, -1);
-    @include palette-stepping-declarations("light", "dark", 0, -1);
-
     @include palettes.each() using ($background, $foreground) {
-        @if $background != "dark" and $background != "light" {
-            @include palette-stepping-declarations($background, $foreground, 6, -1);
-        }
+        @include palette-declarations($background, $foreground, "light");
     }
 
     @include palette-theme-mode-declarations("light");
 }
 
 @include themes.query-theme-mode("dark") {
-    @include palette-stepping-declarations("dark", "light", 0, 1);
-    @include palette-stepping-declarations("light", "dark", -6, 1);
-
     @include palettes.each() using ($background, $foreground) {
-        @if $background != "dark" and $background != "light" {
-            @include palette-stepping-declarations($background, $foreground, -6, 1);
-        }
+        @include palette-declarations($background, $foreground, "dark");
     }
 
     @include palette-theme-mode-declarations("dark");

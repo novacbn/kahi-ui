@@ -1,54 +1,152 @@
 @use "sass:color";
-@use "sass:math";
 
 @use "./constants";
 @use "./colors";
 @use "./strings";
 
-@function generate-palette($background, $foreground, $shading) {
-    @return ("background": $background, "foreground": $foreground, "shading": $shading);
+@function generate-color-palette($background, $foreground, $shading) {
+    $dark-background: get("dark.background");
+    $light-background: get("light.background");
+
+    @return (
+        "background": $background,
+        "foreground": $foreground,
+        "palettes": (
+            "dark": (
+                "lightest": colors.shade($background, $dark-background, $shading, 10),
+                "lighter": colors.shade($background, $dark-background, $shading, 9),
+                "light": colors.shade($background, $dark-background, $shading, 8),
+                "normal": colors.shade($background, $dark-background, $shading, 7),
+                "bold": colors.shade($background, $dark-background, $shading, 6),
+                "bolder": colors.shade($background, $dark-background, $shading, 5),
+                "boldest": colors.shade($background, $dark-background, $shading, 4),
+            ),
+            "light": (
+                "lightest": colors.shade($background, $light-background, $shading, 6),
+                "lighter": colors.shade($background, $light-background, $shading, 5),
+                "light": colors.shade($background, $light-background, $shading, 4),
+                "normal": colors.shade($background, $light-background, $shading, 3),
+                "bold": colors.shade($background, $light-background, $shading, 2),
+                "bolder": colors.shade($background, $light-background, $shading, 1),
+                "boldest": $background,
+            ),
+        )
+    );
+}
+
+@function generate-darklight-palette(
+    $dark-background,
+    $dark-shading,
+    $light-background,
+    $light-shading
+) {
+    // NOTE: The `dark` and `light` palettes need to be special-cased due to co-dependency
+
+    @return (
+        "palettes": (
+            "dark": (
+                "background": $dark-background,
+                "foreground": "light",
+                "palettes": (
+                    "dark": (
+                        "lightest": $dark-background,
+                        "lighter":
+                            colors.shade($dark-background, $light-background, $dark-shading, 1),
+                        "light": colors.shade($dark-background, $light-background, $dark-shading, 2),
+                        "normal":
+                            colors.shade($dark-background, $light-background, $dark-shading, 3),
+                        "bold": colors.shade($dark-background, $light-background, $dark-shading, 4),
+                        "bolder":
+                            colors.shade($dark-background, $light-background, $dark-shading, 5),
+                        "boldest":
+                            colors.shade($dark-background, $light-background, $dark-shading, 6),
+                    ),
+                    "light": (
+                        "lightest":
+                            colors.shade($dark-background, $light-background, $dark-shading, 6),
+                        "lighter":
+                            colors.shade($dark-background, $light-background, $dark-shading, 5),
+                        "light": colors.shade($dark-background, $light-background, $dark-shading, 4),
+                        "normal":
+                            colors.shade($dark-background, $light-background, $dark-shading, 3),
+                        "bold": colors.shade($dark-background, $light-background, $dark-shading, 2),
+                        "bolder":
+                            colors.shade($dark-background, $light-background, $dark-shading, 1),
+                        "boldest": $dark-background,
+                    ),
+                ),
+            ),
+            "light": (
+                "background": $light-background,
+                "foreground": "dark",
+                "palettes": (
+                    "dark": (
+                        "lightest":
+                            colors.shade($light-background, $dark-background, $light-shading, 6),
+                        "lighter":
+                            colors.shade($light-background, $dark-background, $light-shading, 5),
+                        "light":
+                            colors.shade($light-background, $dark-background, $light-shading, 4),
+                        "normal":
+                            colors.shade($light-background, $dark-background, $light-shading, 3),
+                        "bold": colors.shade($light-background, $dark-background, $light-shading, 2),
+                        "bolder":
+                            colors.shade($light-background, $dark-background, $light-shading, 1),
+                        "boldest": $light-background,
+                    ),
+                    "light": (
+                        "lightest": $light-background,
+                        "lighter":
+                            colors.shade($light-background, $dark-background, $light-shading, 1),
+                        "light":
+                            colors.shade($light-background, $dark-background, $light-shading, 2),
+                        "normal":
+                            colors.shade($light-background, $dark-background, $light-shading, 3),
+                        "bold": colors.shade($light-background, $dark-background, $light-shading, 4),
+                        "bolder":
+                            colors.shade($light-background, $dark-background, $light-shading, 5),
+                        "boldest":
+                            colors.shade($light-background, $dark-background, $light-shading, 6),
+                    ),
+                ),
+            ),
+        )
+    );
 }
 
 @mixin each() {
     @include constants.each("palettes.*.background") using ($name, $background) {
-        $foreground: constants.get("palettes.#{$name}.foreground");
+        $foreground: get("#{$name}.foreground");
 
         @content ($name, $foreground);
     }
 }
 
-@function get-shade($background-name, $step, $is-raw: false) {
-    $background-color: constants.get("palettes.#{$background-name}.background");
-    @if $step == 0 {
-        @return colors.normalize-hsl($background-color, $is-raw);
-    }
-
-    $shading-name: if($step < 0, "dark", "light");
-
-    $shading-stepping: constants.get("palettes.#{$background-name}.shading");
-    $shading-color: constants.get("palettes.#{$shading-name}.background");
-
-    $mixed-color: color.mix($shading-color, $background-color, $shading-stepping * math.abs($step));
-    @return colors.normalize-hsl($mixed-color, $is-raw);
+@function get($name) {
+    @return constants.get("palettes.#{$name}");
 }
 
-@function format-reference($key, $face, $shade) {
+@function has($name) {
+    @return constants.has("palettes.#{$name}.background");
+}
+
+@function format-reference($name, $face, $shade) {
     // TODO: validate `$face`
     // TODO: validate `$shade`
 
-    @if not has($key) {
-        @error "bad argument #1 to 'palettes.format-reference' (invalid key '#{$key}')";
+    @if not has($name) {
+        @error "bad argument #1 to 'palettes.format-reference' (invalid name '#{$name}')";
     }
 
-    @return strings.format-identifier("palettes.#{$key}.#{$face}.#{$shade}");
+    @return strings.format-identifier("palettes.#{$name}.#{$face}.#{$shade}");
 }
 
-@function format-var($key, $face, $shade, $fallback: null) {
-    $key: format-reference($key, $face, $shade);
+@function format-var($name, $face, $shade, $fallback: null) {
+    $name: format-reference($name, $face, $shade);
 
     @if $fallback {
-        @return var(#{$key}, #{$fallback});
+        @return var(#{$name}, #{$fallback});
     }
 
-    @return var(--#{$key});
+    @return var(--#{$name});
 }

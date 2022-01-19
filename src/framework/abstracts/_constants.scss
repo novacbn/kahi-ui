@@ -4,12 +4,14 @@
     @include namespaces.define-namespace("constants.#{$key}", $value);
 }
 
-@mixin define-constants($map) {
-    @include namespaces.define-namespaces(
-        (
-            "constants": $map,
-        )
-    );
+@mixin define-constants($maps...) {
+    @each $map in $maps {
+        @include namespaces.define-namespaces(
+            (
+                "constants": $map,
+            )
+        );
+    }
 }
 
 @mixin each($filter: "") {

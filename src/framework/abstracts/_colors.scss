@@ -1,5 +1,9 @@
 @use "sass:color";
 
+@function shade($source-color, $shading-color, $stepping, $step) {
+    @return color.mix($shading-color, $source-color, $stepping * $step);
+}
+
 @function normalize-hsl($color, $is-raw: false) {
     @if $is-raw {
         @return color.hue($color) + ", " + color.saturation($color) + ", " + color.lightness($color);

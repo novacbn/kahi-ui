@@ -10,32 +10,25 @@
  * referenced in the main Framework and Component stylesheets
  */
 
+// NOTE: The `dark` and `light` palettes need to be special-cased due to co-dependency
+
+@include constants.define-constants(
+    palettes.generate-darklight-palette(
+        $dark-background: hsl(217, 11%, 15%),
+        $dark-shading: 3%,
+        $light-background: hsl(0, 0%, 99%),
+        $light-shading: 2%
+    )
+);
+
 @include constants.define-constants(
     (
         "palettes": (
-            "dark":
-                palettes.generate-palette(
-                    $background: hsl(217, 11%, 15%),
-                    $foreground: "light",
-                    $shading: 3%
-                ),
-            "light":
-                palettes.generate-palette(
-                    $background: hsl(0, 0%, 100%),
-                    $foreground: "dark",
-                    $shading: 1%
-                ),
             "neutral":
-                palettes.generate-palette(
-                    $background: hsl(216, 11%, 55%),
+                palettes.generate-color-palette(
+                    $background: hsl(216, 15%, 40%),
                     $foreground: "light",
-                    $shading: 3%
-                ),
-            "accent":
-                palettes.generate-palette(
-                    $background: hsl(200, 31%, 50%),
-                    $foreground: "light",
-                    $shading: 3%
+                    $shading: 4%
                 ),
         ),
     )
@@ -48,23 +41,29 @@
 @include constants.define-constants(
     (
         "palettes": (
-            "alert":
-                palettes.generate-palette(
-                    $background: hsl(42, 75%, 50%),
+            "accent":
+                palettes.generate-color-palette(
+                    $background: hsl(200, 36%, 45%),
                     $foreground: "light",
-                    $shading: 3%
+                    $shading: 4%
+                ),
+            "alert":
+                palettes.generate-color-palette(
+                    $background: hsl(35, 65%, 50%),
+                    $foreground: "light",
+                    $shading: 4%
                 ),
             "affirmative":
-                palettes.generate-palette(
-                    $background: hsl(146, 40%, 50%),
+                palettes.generate-color-palette(
+                    $background: hsl(146, 40%, 45%),
                     $foreground: "light",
-                    $shading: 3%
+                    $shading: 4%
                 ),
             "negative":
-                palettes.generate-palette(
-                    $background: hsl(7, 48%, 55%),
+                palettes.generate-color-palette(
+                    $background: hsl(7, 45%, 50%),
                     $foreground: "light",
-                    $shading: 3%
+                    $shading: 4%
                 ),
         ),
     )

@@ -56,7 +56,7 @@
     .tile--footer {
         @include stack.var-reset(
             $namespace: "tile.footer",
-            $direction: column,
+            $direction: row,
             $alignment-x: center,
             $alignment-y: center
         );

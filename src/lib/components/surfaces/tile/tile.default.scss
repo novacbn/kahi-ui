@@ -1,54 +1,13 @@
 @use "../../../../framework/abstracts/variables";
 
-/**
-:root {
-    //
-
-    --tile-elevation: var(--elevation-lowest);
-    --tile-palette-background-normal: var(--palette-auto-off-normal);
-    --tile-palette-foreground-normal: var(--palette-inverse-normal);
-    --tile-sizing-text-size: var(--document-font-size);
-    --tile-sizing-text-line-height: var(--document-font-line-height);
-
-    --tile-border-color: var(--palette-inverse-off-lightest);
-    --tile-border-radius: var(--radius-small);
-    --tile-border-opacity: 0.1;
-    --tile-border-width: 2px;
-    --tile-gap: var(--spacing-local-medium);
-    --tile-padding-x: var(--spacing-local-medium);
-    --tile-padding-y: var(--spacing-local-medium);
-
-    //
-
-    // HACK: This should really point to variables made for element sizing, but it'll do for now
-    --tile-figure-font-size: var(--font-headline-size-local-huge);
-
-    //
-
-    --tile-footer-flex-alignment-x: center;
-    --tile-footer-flex-alignment-y: center;
-    --tile-footer-gap: var(--spacing-local-small);
-    --tile-footer-orientation-direction: row;
-    --tile-footer-orientation-align: var(--flex-alignment-y);
-    --tile-footer-orientation-justify: var(--flex-alignment-x);
-
-    //
-
-    --tile-header-font-size: var(--font-content-size-local-medium);
-    --tile-header-font-weight: bold;
-    --tile-header-gap: var(--spacing-local-small);
-    --tile-header-line-height: var(--font-content-line-height-medium);
-}
-*/
-
 @include variables.define-variables(
     (
         "tile": (
             "background.opacity": 1,
             "border": (
                 "radius": variables.format-var("radius.tiny"),
-                "width": variables.format-var("sizes.borders.tiny"),
-                "opacity": 0.15,
+                "width": variables.format-var("sizes.borders.medium"),
+                "opacity": 0.2,
                 "style": solid,
             ),
             "color.opacity": 1,

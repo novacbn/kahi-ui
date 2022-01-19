@@ -21,8 +21,8 @@
     ];
 
     const ORIENTATIONS = [
-        ["vertical", true],
-        ["horizontal", false],
+        ["horizontal", true],
+        ["vertical", false],
     ];
 
     const PALETTES = [
@@ -70,8 +70,8 @@
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="affirmative" size="small">Add Friend</Button>
-            <Button palette="negative" size="small">Ban User</Button>
+            <Button palette="affirmative" sizing="small">Add Friend</Button>
+            <Button palette="negative" sizing="small">Ban User</Button>
         </Tile.Footer>
     </Tile.Container>
 </Story>
@@ -91,8 +91,8 @@
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="affirmative" size="small">Add Friend</Button>
-            <Button palette="negative" size="small">Ban User</Button>
+            <Button palette="affirmative" sizing="small">Add Friend</Button>
+            <Button palette="negative" sizing="small">Ban User</Button>
         </Tile.Footer>
     </Tile.Container>
 </Story>
@@ -170,7 +170,7 @@
 </Story>
 
 <Story name="Footer Orientation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <Tile.Container width="content-max">
                 <Tile.Figure shape="pill">
@@ -190,8 +190,8 @@
                 </Tile.Section>
 
                 <Tile.Footer orientation={is_default ? undefined : orientation}>
-                    <Button palette="affirmative" size="small">Confirm</Button>
-                    <Button palette="negative" size="small">Cancel</Button>
+                    <Button palette="affirmative" sizing="small">Confirm</Button>
+                    <Button palette="negative" sizing="small">Cancel</Button>
                 </Tile.Footer>
             </Tile.Container>
         {/each}

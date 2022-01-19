@@ -10,9 +10,11 @@ $namespaces: ();
     $namespaces: map.set($key, $value) !global;
 }
 
-@mixin define-namespaces($map) {
-    $map: maps.flatten-dotpath($map);
-    $namespaces: map.merge($namespaces, $map) !global;
+@mixin define-namespaces($maps...) {
+    @each $map in $maps {
+        $map: maps.flatten-dotpath($map);
+        $namespaces: map.merge($namespaces, $map) !global;
+    }
 }
 
 @mixin each($filter: null) {

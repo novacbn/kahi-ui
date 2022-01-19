@@ -7,12 +7,14 @@
     @include namespaces.define-namespace("variables.#{$key}", $value);
 }
 
-@mixin define-variables($map) {
-    @include namespaces.define-namespaces(
-        (
-            "variables": $map,
-        )
-    );
+@mixin define-variables($maps...) {
+    @each $map in $maps {
+        @include namespaces.define-namespaces(
+            (
+                "variables": $map,
+            )
+        );
+    }
 }
 
 @mixin each($filter: "") {

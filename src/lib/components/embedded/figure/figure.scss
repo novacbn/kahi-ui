@@ -1,22 +1,17 @@
-figure {
-    &[data-fit] > * {
-        object-fit: var(--fit-object);
-    }
+@use "../../../../framework/mixins/fit";
+@use "../../../../framework/mixins/radius";
 
-    &[data-shape] > * {
-        border-radius: var(--shape-radius);
-    }
+@if not env("DISABLE_COMPONENTS_EMBEDDED_FIGURE") {
+    .figure {
+        @include fit.var-reset-object();
+        @include radius.var-reset();
 
-    &:not([data-variation]) {
-        &[data-size] > * {
-            width: var(--size-embedded);
-        }
-    }
+        @include fit.object();
+        @include radius.all($unit: rem);
 
-    &[data-variation~="icon"] {
-        &[data-size] > * {
-            width: var(--size-icon);
-            height: var(--size-icon);
+        & > * {
+            border-radius: inherit;
+            object-fit: inherit;
         }
     }
 }

@@ -17,13 +17,41 @@
         ["scale-down", false],
     ];
 
-    const SHAPES = [
+    const RADIUS = [
         ["none", true],
-        ["pill", false],
-        ["rounded", false],
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
     ];
 
-    const SIZES = ["tiny", "small", "medium", "large", "huge"];
+    const SHAPES = [
+        ["circle", false],
+        ["pill", false],
+    ];
+
+    const SIZES_BLOCK = [
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
+
+    const SIZES_ICON = [
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
 </script>
 
 <Meta title="Embedded/Figure" />
@@ -32,7 +60,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Figure max_width="viewport-33">
         <img src={IMAGE_BACKGROUND} />
     </Figure>
@@ -46,9 +74,25 @@
                     {`${fit.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure {fit}>
+                <Figure fit={is_default ? undefined : fit}>
                     <!-- NOTE: Using custom sizing to show how fit plays w/ non-box aspect ratios -->
                     <img src={IMAGE_BACKGROUND} style="width:12rem;height:18rem;" />
+                </Figure>
+            </div>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Radius">
+    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        {#each RADIUS as [radius, is_default]}
+            <div>
+                <Text is="strong">
+                    {`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <Figure size="huge" radius={is_default ? undefined : radius}>
+                    <img src={IMAGE_BACKGROUND} />
                 </Figure>
             </div>
         {/each}
@@ -63,7 +107,7 @@
                     {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure variation="icon" size="huge" {shape}>
+                <Figure size="huge" shape={is_default ? undefined : shape}>
                     <img src={IMAGE_BACKGROUND} />
                 </Figure>
             </div>
@@ -71,30 +115,32 @@
     </Stack>
 </Story>
 
-<Story name="Size">
+<Story name="Block Size">
     <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as size}
+        {#each SIZES_BLOCK as [size, is_default]}
             <div>
                 <Text is="strong">
-                    {size.toUpperCase()} / ICON
+                    {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure variation="icon" {size}>
-                    <img src={IMAGE_AVATAR} />
+                <Figure width={is_default ? undefined : size}>
+                    <img src={IMAGE_BACKGROUND} />
                 </Figure>
             </div>
         {/each}
     </Stack>
+</Story>
 
+<Story name="Icon Size">
     <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as size}
+        {#each SIZES_ICON as [size, is_default]}
             <div>
                 <Text is="strong">
-                    {size.toUpperCase()}
+                    {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure {size}>
-                    <img src={IMAGE_BACKGROUND} />
+                <Figure size={is_default ? undefined : `icon-${size}`}>
+                    <img src={IMAGE_AVATAR} />
                 </Figure>
             </div>
         {/each}

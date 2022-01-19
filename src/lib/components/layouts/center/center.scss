@@ -1,5 +1,7 @@
-.center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@if not env("DISABLE_COMPONENTS_LAYOUTS_CENTER") {
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

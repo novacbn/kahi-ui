@@ -14,7 +14,9 @@ function make_flag_map(argv, ...flags) {
 
 export const BUILD_FLAGS = make_flag_map(
     argv,
+    "--disable-components-embedded-figure",
     "--disable-components-interactables-button",
+    "--disable-components-layouts-center",
     "--disable-components-layouts-stack",
     "--disable-components-surfaces-box",
     "--disable-components-surfaces-card",

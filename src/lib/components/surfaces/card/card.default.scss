@@ -1,42 +1,44 @@
 @use "../../../../framework/abstracts/variables";
 
-@include variables.define-variables(
-    (
-        "card": (
-            "background.opacity": 1,
-            "border": (
-                "radius": variables.format-var("radius.tiny"),
-                "width": variables.format-var("sizes.borders.medium"),
-                "opacity": 0.2,
-                "style": solid,
-            ),
-            "color.opacity": 1,
-            "elevation": variables.format-var("elevations.lower"),
-            "margin": (
-                "x": variables.format-var("spacings.block.medium"),
-                "y": variables.format-var("spacings.block.medium"),
-            ),
-            "footer": (
-                "spacing": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.small"),
+@if not env("DISABLE_COMPONENTS_SURFACES_CARD") {
+    @include variables.define-variables(
+        (
+            "card": (
+                "background.opacity": 1,
+                "border": (
+                    "radius": variables.format-var("radius.tiny"),
+                    "width": variables.format-var("sizes.borders.medium"),
+                    "opacity": 0.2,
+                    "style": solid,
                 ),
-                "margin.y": variables.format-var("spacings.block.medium"),
-            ),
-            "header": (
-                "font": (
-                    "size": variables.format-var("fonts.sizes.inline.large"),
-                    "weight": bold,
+                "color.opacity": 1,
+                "elevation": variables.format-var("elevations.lower"),
+                "margin": (
+                    "x": variables.format-var("spacings.block.medium"),
+                    "y": variables.format-var("spacings.block.medium"),
                 ),
-                "gap": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.small"),
+                "footer": (
+                    "spacing": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                    "margin.y": variables.format-var("spacings.block.medium"),
                 ),
-                "margin.y": variables.format-var("spacings.block.medium"),
+                "header": (
+                    "font": (
+                        "size": variables.format-var("fonts.sizes.inline.large"),
+                        "weight": bold,
+                    ),
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                    "margin.y": variables.format-var("spacings.block.medium"),
+                ),
+                "section": (
+                    "margin.y": variables.format-var("spacings.block.small"),
+                ),
             ),
-            "section": (
-                "margin.y": variables.format-var("spacings.block.small"),
-            ),
-        ),
-    )
-);
+        )
+    );
+}

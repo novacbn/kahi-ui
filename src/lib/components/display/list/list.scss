@@ -1,12 +1,15 @@
-ol,
-ul {
-    margin-left: var(--list-margin-left);
-}
+@use "../../../../framework/mixins/intrinsics";
 
-ol {
-    list-style-type: decimal;
-}
+@if not env("DISABLE_COMPONENTS_DISPLAY_LIST") {
+    .list {
+        @include intrinsics.margin-left($namespace: "list", $unit: rem);
+    }
 
-ul {
-    list-style-type: disc;
+    ol.list {
+        list-style-type: decimal;
+    }
+
+    ul.list {
+        list-style-type: disc;
+    }
 }

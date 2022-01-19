@@ -1,73 +1,75 @@
 @use "../../../../framework/abstracts/variables";
 
-@include variables.define-variables(
-    (
-        "button": (
-            "border": (
-                "radius": variables.format-var("radius.small"),
-                "style": solid,
-                "width": variables.format-var("sizes.borders.tiny"),
-            ),
-            "font": (
-                "size": 1,
-                "weight": bold,
-            ),
-            "gap": (
-                "x": variables.format-var("spacings.block.small"),
-                "y": variables.format-var("spacings.block.small"),
-            ),
-            "padding": (
-                "x": variables.format-var("spacings.block.small"),
-                "y": variables.format-var("spacings.block.small"),
-            ),
-            "disabled": (
-                "opacity": 0.95,
-            ),
-            "loud": (
-                "scale": (
-                    "x": 0.95,
-                    "y": 0.95,
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_BUTTON") {
+    @include variables.define-variables(
+        (
+            "button": (
+                "border": (
+                    "radius": variables.format-var("radius.small"),
+                    "style": solid,
+                    "width": variables.format-var("sizes.borders.tiny"),
                 ),
-            ),
-            "block": (
-                "background.opacity": 1,
-                "color.opacity": 1,
-                "hover": (
+                "font": (
+                    "size": 1,
+                    "weight": bold,
+                ),
+                "gap": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "padding": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "disabled": (
+                    "opacity": 0.95,
+                ),
+                "loud": (
+                    "scale": (
+                        "x": 0.95,
+                        "y": 0.95,
+                    ),
+                ),
+                "block": (
                     "background.opacity": 1,
                     "color.opacity": 1,
+                    "hover": (
+                        "background.opacity": 1,
+                        "color.opacity": 1,
+                    ),
+                    "active": (
+                        "background.opacity": 1,
+                        "color.opacity": 1,
+                    ),
                 ),
-                "active": (
-                    "background.opacity": 1,
+                "clear": (
+                    "background.opacity": 0,
                     "color.opacity": 1,
+                    "hover": (
+                        "background.opacity": 0.2,
+                        "color.opacity": 1,
+                    ),
+                    "active": (
+                        "background.opacity": 0.5,
+                        "color.opacity": 1,
+                    ),
+                ),
+                "outline": (
+                    "background.opacity": 0,
+                    "border.opacity": 1,
+                    "color.opacity": 1,
+                    "hover": (
+                        "background.opacity": 0.2,
+                        "border.opacity": 0.5,
+                        "color.opacity": 1,
+                    ),
+                    "active": (
+                        "background.opacity": 0.5,
+                        "border.opacity": 0,
+                        "color.opacity": 1,
+                    ),
                 ),
             ),
-            "clear": (
-                "background.opacity": 0,
-                "color.opacity": 1,
-                "hover": (
-                    "background.opacity": 0.2,
-                    "color.opacity": 1,
-                ),
-                "active": (
-                    "background.opacity": 0.5,
-                    "color.opacity": 1,
-                ),
-            ),
-            "outline": (
-                "background.opacity": 0,
-                "border.opacity": 1,
-                "color.opacity": 1,
-                "hover": (
-                    "background.opacity": 0.2,
-                    "border.opacity": 0.5,
-                    "color.opacity": 1,
-                ),
-                "active": (
-                    "background.opacity": 0.5,
-                    "border.opacity": 0,
-                    "color.opacity": 1,
-                ),
-            ),
-        ),
-    )
-);
+        )
+    );
+}

@@ -13,7 +13,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         <div>
             <Text>

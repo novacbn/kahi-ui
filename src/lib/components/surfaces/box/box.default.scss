@@ -1,15 +1,17 @@
 @use "../../../../framework/abstracts/variables";
 
-@include variables.define-variables(
-    (
-        "box": (
-            "background.opacity": 1,
-            "border": (
-                "width": variables.format-var("sizes.borders.medium"),
-                "opacity": 0.2,
-                "style": solid,
+@if not env("DISABLE_COMPONENTS_SURFACES_BOX") {
+    @include variables.define-variables(
+        (
+            "box": (
+                "background.opacity": 1,
+                "border": (
+                    "width": variables.format-var("sizes.borders.medium"),
+                    "opacity": 0.2,
+                    "style": solid,
+                ),
+                "color.opacity": 1,
             ),
-            "color.opacity": 1,
-        ),
-    )
-);
+        )
+    );
+}

@@ -1,9 +1,11 @@
 @use "../abstracts/variables";
 
-@mixin gap-all($unit, $namespace: null, $sizing-tier: null) {
+@mixin gap-all($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
     // NOTE: Honestly `em` units would be a LOT simplier here. However some multi-part
     // Components might different font sizes on its children. So we need to pull from
     // the sizing variable instead
+
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
 
     @if $sizing-tier {
         gap: calc(
@@ -21,14 +23,16 @@
                     1#{$unit}
             );
     } @else if ($namespace) {
-        gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * 1#{$unit})
-            calc(#{variables.format-var("#{$namespace}.gap.x")} * 1#{$unit});
+        gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * #{$unit})
+            calc(#{variables.format-var("#{$namespace}.gap.x")} * #{$unit});
     } @else {
-        gap: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
+        gap: calc(var(--spacing-y) * #{$unit}) calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin gap-x($unit, $namespace: null, $sizing-tier: null) {
+@mixin gap-x($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         column-gap: calc(
             (
@@ -38,13 +42,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        column-gap: calc(#{variables.format-var("#{$namespace}.gap.x")} * 1#{$unit});
+        column-gap: calc(#{variables.format-var("#{$namespace}.gap.x")} * #{$unit});
     } @else {
-        column-gap: calc(var(--spacing-x) * 1#{$unit});
+        column-gap: calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin gap-y($unit, $namespace: null, $sizing-tier: null) {
+@mixin gap-y($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         row-gap: calc(
             (
@@ -54,13 +60,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        row-gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * 1#{$unit});
+        row-gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * #{$unit});
     } @else {
-        row-gap: calc(var(--spacing-y) * 1#{$unit});
+        row-gap: calc(var(--spacing-y) * #{$unit});
     }
 }
 
-@mixin margin-all($unit, $namespace: null, $sizing-tier: null) {
+@mixin margin-all($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         margin: calc(
                 (
@@ -77,24 +85,26 @@
                     1#{$unit}
             );
     } @else if ($namespace) {
-        margin: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit})
-            calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+        margin: calc(#{variables.format-var("#{$namespace}.margin.y")} * #{$unit})
+            calc(#{variables.format-var("#{$namespace}.margin.x")} * #{$unit});
     } @else {
-        margin: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
+        margin: calc(var(--spacing-y) * #{$unit}) calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin margin-x($unit, $namespace: null, $sizing-tier: null) {
-    @include margin-left($unit, $namespace, $sizing-tier);
-    @include margin-right($unit, $namespace, $sizing-tier);
+@mixin margin-x($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    @include margin-left($unit, $is-negative, $namespace, $sizing-tier);
+    @include margin-right($unit, $is-negative, $namespace, $sizing-tier);
 }
 
-@mixin margin-y($unit, $namespace: null, $sizing-tier: null) {
-    @include margin-bottom($unit, $namespace, $sizing-tier);
-    @include margin-top($unit, $namespace, $sizing-tier);
+@mixin margin-y($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    @include margin-bottom($unit, $is-negative, $namespace, $sizing-tier);
+    @include margin-top($unit, $is-negative, $namespace, $sizing-tier);
 }
 
-@mixin margin-bottom($unit, $namespace: null, $sizing-tier: null) {
+@mixin margin-bottom($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         margin-bottom: calc(
             (
@@ -104,13 +114,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        margin-bottom: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit});
+        margin-bottom: calc(#{variables.format-var("#{$namespace}.margin.y")} * #{$unit});
     } @else {
-        margin-bottom: calc(var(--spacing-y) * 1#{$unit});
+        margin-bottom: calc(var(--spacing-y) * #{$unit});
     }
 }
 
-@mixin margin-left($unit, $namespace: null, $sizing-tier: null) {
+@mixin margin-left($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         margin-left: calc(
             (
@@ -120,13 +132,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        margin-left: calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+        margin-left: calc(#{variables.format-var("#{$namespace}.margin.x")} * #{$unit});
     } @else {
-        margin-left: calc(var(--spacing-x) * 1#{$unit});
+        margin-left: calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin margin-right($unit, $namespace: null, $sizing-tier: null) {
+@mixin margin-right($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         margin-right: calc(
             (
@@ -136,13 +150,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        margin-right: calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+        margin-right: calc(#{variables.format-var("#{$namespace}.margin.x")} * #{$unit});
     } @else {
-        margin-right: calc(var(--spacing-x) * 1#{$unit});
+        margin-right: calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin margin-top($unit, $namespace: null, $sizing-tier: null) {
+@mixin margin-top($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         margin-top: calc(
             (
@@ -152,13 +168,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        margin-top: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit});
+        margin-top: calc(#{variables.format-var("#{$namespace}.margin.y")} * #{$unit});
     } @else {
-        margin-top: calc(var(--spacing-y) * 1#{$unit});
+        margin-top: calc(var(--spacing-y) * #{$unit});
     }
 }
 
-@mixin padding-all($unit, $namespace: null, $sizing-tier: null) {
+@mixin padding-all($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         padding: calc(
                 (
@@ -175,24 +193,26 @@
                     1#{$unit}
             );
     } @else if ($namespace) {
-        padding: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit})
-            calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+        padding: calc(#{variables.format-var("#{$namespace}.padding.y")} * #{$unit})
+            calc(#{variables.format-var("#{$namespace}.padding.x")} * #{$unit});
     } @else {
-        padding: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
+        padding: calc(var(--spacing-y) * #{$unit}) calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin padding-x($unit, $namespace: null, $sizing-tier: null) {
-    @include padding-left($unit, $namespace, $sizing-tier);
-    @include padding-right($unit, $namespace, $sizing-tier);
+@mixin padding-x($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    @include padding-left($unit, $is-negative, $namespace, $sizing-tier);
+    @include padding-right($unit, $is-negative, $namespace, $sizing-tier);
 }
 
-@mixin padding-y($unit, $namespace: null, $sizing-tier: null) {
-    @include padding-bottom($unit, $namespace, $sizing-tier);
-    @include padding-top($unit, $namespace, $sizing-tier);
+@mixin padding-y($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    @include padding-bottom($unit, $is-negative, $namespace, $sizing-tier);
+    @include padding-top($unit, $is-negative, $namespace, $sizing-tier);
 }
 
-@mixin padding-bottom($unit, $namespace: null, $sizing-tier: null) {
+@mixin padding-bottom($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         padding-bottom: calc(
             (
@@ -202,13 +222,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        padding-bottom: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit});
+        padding-bottom: calc(#{variables.format-var("#{$namespace}.padding.y")} * #{$unit});
     } @else {
-        padding-bottom: calc(var(--spacing-y) * 1#{$unit});
+        padding-bottom: calc(var(--spacing-y) * #{$unit});
     }
 }
 
-@mixin padding-left($unit, $namespace: null, $sizing-tier: null) {
+@mixin padding-left($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         padding-left: calc(
             (
@@ -218,13 +240,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        padding-left: calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+        padding-left: calc(#{variables.format-var("#{$namespace}.padding.x")} * #{$unit});
     } @else {
-        padding-left: calc(var(--spacing-x) * 1#{$unit});
+        padding-left: calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin padding-right($unit, $namespace: null, $sizing-tier: null) {
+@mixin padding-right($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         padding-right: calc(
             (
@@ -234,13 +258,15 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        padding-right: calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+        padding-right: calc(#{variables.format-var("#{$namespace}.padding.x")} * #{$unit});
     } @else {
-        padding-right: calc(var(--spacing-x) * 1#{$unit});
+        padding-right: calc(var(--spacing-x) * #{$unit});
     }
 }
 
-@mixin padding-top($unit, $namespace: null, $sizing-tier: null) {
+@mixin padding-top($unit, $is-negative: false, $namespace: null, $sizing-tier: null) {
+    $unit: if($is-negative, "-1#{$unit}", "1#{$unit}");
+
     @if $sizing-tier {
         padding-top: calc(
             (
@@ -250,9 +276,9 @@
                 1#{$unit}
         );
     } @else if ($namespace) {
-        padding-top: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit});
+        padding-top: calc(#{variables.format-var("#{$namespace}.padding.y")} * #{$unit});
     } @else {
-        padding-top: calc(var(--spacing-y) * 1#{$unit});
+        padding-top: calc(var(--spacing-y) * #{$unit});
     }
 }
 

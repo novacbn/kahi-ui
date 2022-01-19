@@ -2,7 +2,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
 
@@ -37,7 +37,7 @@
         for?: string;
 
         palette?: PROPERTY_PALETTE;
-        size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
         variation?: PROPERTY_VARIATION_BUTTON;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -69,7 +69,7 @@
     export {_for as for};
 
     export let palette: $$Props["palette"] = undefined;
-    export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
     // HACK: Svelte has `tabindex` typed as `number | undefined` unless
@@ -83,7 +83,7 @@
         {...map_global_attributes($$props)}
         role="button"
         class="button {_class}"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({palette, sizing, variation})}
         {...map_aria_attributes({active, disabled})}
         {download}
         {href}
@@ -115,7 +115,7 @@
         class="button {_class}"
         for={_for}
         tabindex={_tabindex}
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({palette, sizing, variation})}
         {...map_aria_attributes({disabled, pressed: active})}
         use:behavior_button={{enabled: true}}
         use:forward_actions={{actions}}
@@ -141,8 +141,9 @@
         <input
             bind:this={element}
             {...map_global_attributes($$props)}
+            class="button {_class}"
             type="reset"
-            {...map_data_attributes({palette, size, variation})}
+            {...map_data_attributes({palette, sizing, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             use:forward_actions={{actions}}
@@ -165,8 +166,9 @@
         <input
             bind:this={element}
             {...map_global_attributes($$props)}
+            class="button {_class}"
             type="submit"
-            {...map_data_attributes({palette, size, variation})}
+            {...map_data_attributes({palette, sizing, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             use:forward_actions={{actions}}
@@ -189,8 +191,9 @@
         <input
             bind:this={element}
             {...map_global_attributes($$props)}
+            class="button {_class}"
             type="button"
-            {...map_data_attributes({palette, size, variation})}
+            {...map_data_attributes({palette, sizing, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             use:forward_actions={{actions}}
@@ -214,7 +217,8 @@
     <button
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({palette, size, variation})}
+        class="button {_class}"
+        {...map_data_attributes({palette, sizing, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({disabled})}
         use:forward_actions={{actions}}

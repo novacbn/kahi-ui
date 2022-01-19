@@ -1,31 +1,73 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --button-palette-background-light: var(--palette-neutral-light);
-    --button-palette-background-normal: var(--palette-neutral-normal);
-    --button-palette-background-bold: var(--palette-neutral-bold);
-    --button-palette-foreground-normal: var(--palette-light-normal);
-    --button-size-text-size: var(--document-font-size);
-    --button-size-text-line-height: var(--document-font-line-height);
-
-    --button-border-radius: var(--radius-medium);
-    --button-border-width: 2px;
-    --button-font-weight: bold;
-    --button-gap: var(--spacing-local-small);
-    --button-padding-x: var(--spacing-local-small);
-    --button-padding-y: var(--spacing-local-tiny);
-
-    --button-active-scale: 0.95;
-    --button-disabled-opacity: 0.4;
-
-    /** */
-
-    --button-clear-active-background-opacity: 0.5;
-    --button-clear-focus-background-opacity: 0.2;
-
-    /** */
-
-    --button-outline-active-background-opacity: 0.5;
-    --button-outline-focus-background-opacity: 0.2;
-    --button-outline-focus-border-opacity: 0.5;
-}
+@include variables.define-variables(
+    (
+        "button": (
+            "border": (
+                "radius": variables.format-var("radius.small"),
+                "style": solid,
+                "width": variables.format-var("sizes.borders.tiny"),
+            ),
+            "font": (
+                "size": 1,
+                "weight": bold,
+            ),
+            "gap": (
+                "x": variables.format-var("spacings.block.small"),
+                "y": variables.format-var("spacings.block.small"),
+            ),
+            "padding": (
+                "x": variables.format-var("spacings.block.small"),
+                "y": variables.format-var("spacings.block.small"),
+            ),
+            "disabled": (
+                "opacity": 0.95,
+            ),
+            "loud": (
+                "scale": (
+                    "x": 0.95,
+                    "y": 0.95,
+                ),
+            ),
+            "block": (
+                "background.opacity": 1,
+                "color.opacity": 1,
+                "hover": (
+                    "background.opacity": 1,
+                    "color.opacity": 1,
+                ),
+                "active": (
+                    "background.opacity": 1,
+                    "color.opacity": 1,
+                ),
+            ),
+            "clear": (
+                "background.opacity": 0,
+                "color.opacity": 1,
+                "hover": (
+                    "background.opacity": 0.2,
+                    "color.opacity": 1,
+                ),
+                "active": (
+                    "background.opacity": 0.5,
+                    "color.opacity": 1,
+                ),
+            ),
+            "outline": (
+                "background.opacity": 0,
+                "border.opacity": 1,
+                "color.opacity": 1,
+                "hover": (
+                    "background.opacity": 0.2,
+                    "border.opacity": 0.5,
+                    "color.opacity": 1,
+                ),
+                "active": (
+                    "background.opacity": 0.5,
+                    "border.opacity": 0,
+                    "color.opacity": 1,
+                ),
+            ),
+        ),
+    )
+);

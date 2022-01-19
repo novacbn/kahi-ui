@@ -1,119 +1,123 @@
-button,
-.button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-    --palette-background-light: var(--button-palette-background-light);
-    --palette-background-normal: var(--button-palette-background-normal);
-    --palette-background-bold: var(--button-palette-background-bold);
-    --palette-foreground-normal: var(--button-palette-foreground-normal);
+@use "../../../../framework/appearances/button";
 
-    --size-text-size: var(--button-size-text-size);
-    --size-text-line-height: var(--button-size-text-line-height);
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_BUTTON") {
+    .button {
+        @include button.base($namespace: "button", $support-loud: true, $support-outline: true);
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    gap: var(--button-gap);
-    padding: var(--button-padding-y) var(--button-padding-x);
-
-    border: solid var(--button-border-width) transparent;
-    border-radius: var(--button-border-radius);
-    outline: none !important;
-
-    font-size: var(--size-text-size);
-    font-weight: var(--button-font-weight);
-    line-height: var(--size-text-line-height);
-
-    text-decoration: none !important;
-
-    cursor: pointer;
-    user-select: none;
-
-    vertical-align: middle;
-    white-space: nowrap;
-
-    transform: scale(1);
-    transition: background var(--animation-visual-duration) var(--animation-visual-function),
-        border-color var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function),
-        transform var(--animation-movement-duration) var(--animation-movement-function);
-
-    &:is(:disabled, [aria-disabled="true"]) {
-        cursor: not-allowed;
-        opacity: var(--button-disabled-opacity);
-    }
-
-    &:not(:disabled, [aria-disabled="true"], [data-variation~="subtle"]) {
-        &:is(:active, [aria-current], [aria-pressed="true"]) {
-            transform: scale(var(--button-active-scale));
+        @include button.state-disabled() {
+            @include button.disabled($namespace: "button.disabled");
         }
-    }
 
-    &:not([data-variation~="clear"], [data-variation~="outline"]) {
-        background: rgb(var(--palette-background-bold));
-        color: rgb(var(--palette-foreground-normal));
+        &:not([data-variation~="subtle"]) {
+            @include button.variation-loud-base($namespace: "button.loud");
 
-        &:not(:disabled, [aria-disabled="true"]) {
-            &:is(:focus, :hover) {
-                background: rgb(var(--palette-background-normal));
-            }
-
-            &:is(:active, [aria-current], [aria-pressed="true"]) {
-                background: rgb(var(--palette-background-light));
+            @include button.state-enabled() {
+                @include button.state-active() {
+                    @include button.variation-loud-active($namespace: "button.loud");
+                }
             }
         }
-    }
 
-    &[data-variation~="clear"] {
-        background: transparent;
-        color: rgb(var(--palette-background-bold));
+        &[data-variation~="subtle"]:not([data-palette]) {
+            @include button.variation-subtle-base($namespace: "button.subtle");
+        }
 
-        &:not(:disabled, [aria-disabled="true"]) {
-            &:is(:focus, :hover) {
-                background: rgba(
-                    var(--palette-background-bold),
-                    var(--button-clear-focus-background-opacity)
-                );
+        &:not([data-variation~="clear"], [data-variation~="outline"]) {
+            @include button.variation-block-base($namespace: "button.block");
+
+            &[data-variation~="subtle"]:not([data-palette]) {
+                @include button.variation-block-base($namespace: "button.block", $is-inverse: true);
             }
 
-            &:is(:active, [aria-current], [aria-pressed="true"]) {
-                background: rgba(
-                    var(--palette-background-bold),
-                    var(--button-clear-active-background-opacity)
-                );
-                color: rgb(var(--palette-foreground-normal));
+            @include button.state-enabled() {
+                @include button.state-hover() {
+                    @include button.variation-block-hover($namespace: "button.block.hover");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-block-hover(
+                            $namespace: "button.block.hover",
+                            $is-inverse: true
+                        );
+                    }
+                }
+
+                @include button.state-active() {
+                    @include button.variation-block-active($namespace: "button.block.active");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-block-active(
+                            $namespace: "button.block.active",
+                            $is-inverse: true
+                        );
+                    }
+                }
             }
         }
-    }
 
-    &[data-variation~="outline"] {
-        background: transparent;
-        border-color: rgb(var(--palette-background-bold));
-        color: rgb(var(--palette-background-normal));
+        &[data-variation~="clear"] {
+            @include button.variation-clear-base($namespace: "button.clear");
 
-        &:not(:disabled, [aria-disabled="true"]) {
-            &:is(:focus, :hover) {
-                background-color: rgba(
-                    var(--palette-background-bold),
-                    var(--button-clear-focus-background-opacity)
-                );
-                border-color: rgba(
-                    var(--palette-background-bold),
-                    var(--button-clear-focus-border-opacity)
+            &[data-variation~="subtle"]:not([data-palette]) {
+                @include button.variation-clear-base($namespace: "button.clear", $is-inverse: true);
+            }
+
+            @include button.state-enabled() {
+                @include button.state-hover() {
+                    @include button.variation-clear-hover($namespace: "button.clear.hover");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-clear-hover(
+                            $namespace: "button.clear.hover",
+                            $is-inverse: true
+                        );
+                    }
+                }
+
+                @include button.state-active() {
+                    @include button.variation-clear-active($namespace: "button.clear.active");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-clear-active(
+                            $namespace: "button.clear.active",
+                            $is-inverse: true
+                        );
+                    }
+                }
+            }
+        }
+
+        &[data-variation~="outline"] {
+            @include button.variation-outline-base($namespace: "button.outline");
+
+            &[data-variation~="subtle"]:not([data-palette]) {
+                @include button.variation-outline-base(
+                    $namespace: "button.outline",
+                    $is-inverse: true
                 );
             }
 
-            &:is(:active, [aria-current], [aria-pressed="true"]) {
-                background: rgba(
-                    var(--palette-background-bold),
-                    var(--button-outline-active-background-opacity)
-                );
-                border-color: transparent;
-                color: rgb(var(--palette-foreground-normal));
+            @include button.state-enabled() {
+                @include button.state-hover() {
+                    @include button.variation-outline-hover($namespace: "button.outline.hover");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-outline-hover(
+                            $namespace: "button.outline.hover",
+                            $is-inverse: true
+                        );
+                    }
+                }
+
+                @include button.state-active() {
+                    @include button.variation-outline-active($namespace: "button.outline.active");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-outline-active(
+                            $namespace: "button.outline.active",
+                            $is-inverse: true
+                        );
+                    }
+                }
             }
         }
     }

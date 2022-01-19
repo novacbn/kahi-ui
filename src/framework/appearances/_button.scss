@@ -1,0 +1,238 @@
+@use "../abstracts/transitions";
+@use "../abstracts/variables";
+
+@use "../mixins/borders";
+@use "../mixins/colors";
+@use "../mixins/intrinsics";
+@use "../mixins/palettes";
+@use "../mixins/radius";
+@use "../mixins/sizings";
+@use "../mixins/text";
+
+@mixin base($namespace, $support-loud: false, $support-outline: false) {
+    @include palettes.var-neutral-background();
+    @include radius.var-reset($namespace: $namespace);
+    @include sizings.var-reset-font($tier: "inline", $namespace: $namespace);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    @include intrinsics.gap-all($namespace: $namespace, $unit: em);
+    @include intrinsics.padding-all($namespace: $namespace, $unit: em);
+
+    @include radius.all($unit: "rem");
+    outline: none !important; // TODO: Remove during accessibility pass
+
+    @include sizings.font($tier: "inline", $unit: rem);
+    @include text.weight($namespace);
+    line-height: 1;
+
+    text-decoration: none !important;
+
+    cursor: pointer;
+    user-select: none;
+
+    vertical-align: middle;
+    white-space: nowrap;
+
+    @include colors.transitions-background();
+    @include colors.transitions-opacity();
+    @include colors.transitions-text();
+
+    @if ($support-outline) {
+        border-color: transparent;
+        @include borders.style-all($namespace: $namespace);
+        @include borders.width-all($namespace: $namespace);
+
+        @include borders.transitions();
+    }
+
+    @if ($support-loud) {
+        @include transitions-loud();
+    }
+
+    @include transitions.build();
+}
+
+@mixin state-active() {
+    &:is(:active, [aria-current], [aria-pressed="true"]) {
+        @content;
+    }
+}
+
+@mixin state-disabled() {
+    &:is(:disabled, [aria-disabled="true"]) {
+        @content;
+    }
+}
+
+@mixin state-enabled() {
+    &:not(:disabled, [aria-disabled="true"]) {
+        @content;
+    }
+}
+
+@mixin state-hover() {
+    &:is(:focus, :hover) {
+        @content;
+    }
+}
+
+@mixin disabled($namespace) {
+    cursor: not-allowed;
+    @include colors.opacity($namespace: $namespace);
+}
+
+@mixin variation-loud-base($namespace) {
+    transform: scale(1);
+}
+
+@mixin variation-loud-active($namespace) {
+    transform: scale(
+        #{variables.format-var("#{$namespace}.scale.x")},
+        #{variables.format-var("#{$namespace}.scale.y")}
+    );
+}
+
+@mixin transitions-loud() {
+    @include transitions.push(transform, "movement");
+}
+
+@mixin variation-subtle-base($namespace) {
+    @include palettes.var-inherit();
+}
+
+@mixin variation-block-base($namespace, $is-inverse: false) {
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "bolder"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "background", "foreground"),
+        $shade: "normal"
+    );
+}
+
+@mixin variation-block-hover($namespace, $is-inverse: false) {
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "light"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "background", "foreground"),
+        $shade: "normal"
+    );
+}
+
+@mixin variation-block-active($namespace, $is-inverse: false) {
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "lightest"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "background", "foreground"),
+        $shade: "normal"
+    );
+}
+
+@mixin variation-clear-base($namespace, $is-inverse: false) {
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+}
+
+@mixin variation-clear-hover($namespace, $is-inverse: false) {
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+}
+
+@mixin variation-clear-active($namespace, $is-inverse: false) {
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "background", "foreground"),
+        $shade: "normal"
+    );
+}
+
+@mixin variation-outline-base($namespace, $is-inverse: false) {
+    @include borders.color-all(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+}
+
+@mixin variation-outline-hover($namespace, $is-inverse: false) {
+    @include borders.color-all(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+}
+
+@mixin variation-outline-active($namespace, $is-inverse: false) {
+    @include borders.color-all(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.background(
+        $namespace: $namespace,
+        $face: if($is-inverse, "foreground", "background"),
+        $shade: "boldest"
+    );
+    @include colors.text(
+        $namespace: $namespace,
+        $face: if($is-inverse, "background", "foreground"),
+        $shade: "normal"
+    );
+}

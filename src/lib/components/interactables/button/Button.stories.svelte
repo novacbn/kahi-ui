@@ -21,11 +21,13 @@
 
     const SIZES = [
         ["default", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -134,11 +136,11 @@
     </Stack>
 </Story>
 
-<Story name="Size">
+<Story name="Sizing">
     <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
-            <Button {size}>
-                {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+        {#each SIZES as [sizing, is_default]}
+            <Button sizing={is_default ? undefined : sizing}>
+                {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>
         {/each}

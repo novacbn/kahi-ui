@@ -1,19 +1,33 @@
-[data-fit="none"] {
-    --fit-object: none;
+@use "../abstracts/viewports";
+
+@mixin declarations($prefix: "") {
+    [data-fit~="#{$prefix}none"] {
+        --fit-object: none;
+    }
+
+    [data-fit~="#{$prefix}contain"] {
+        --fit-object: contain;
+    }
+
+    [data-fit~="#{$prefix}cover"] {
+        --fit-object: cover;
+    }
+
+    [data-fit~="#{$prefix}fill"] {
+        --fit-object: fill;
+    }
+
+    [data-fit~="#{$prefix}scale-down"] {
+        --fit-object: scale-down;
+    }
 }
 
-[data-fit="contain"] {
-    --fit-object: contain;
-}
+@if not env("DISABLE_GLOBALS_FIT") {
+    @include declarations();
 
-[data-fit="cover"] {
-    --fit-object: cover;
-}
-
-[data-fit="fill"] {
-    --fit-object: fill;
-}
-
-[data-fit="scale-down"] {
-    --fit-object: scale-down;
+    @if not env("DISABLE_GLOBALS_FIT_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
 }

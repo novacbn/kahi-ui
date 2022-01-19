@@ -23,6 +23,8 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-globals-alignments-responsitivity",
     "--disable-globals-elevations",
     "--disable-globals-elevations-responsitivity",
+    "--disable-globals-fit",
+    "--disable-globals-fit-responsitivity",
     "--disable-globals-grid",
     "--disable-globals-grid-responsitivity",
     "--disable-globals-intrinsics",

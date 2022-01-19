@@ -1,0 +1,11 @@
+@mixin object() {
+    object-fit: var(--fit-object);
+}
+
+@mixin var-reset-object($namespace: null) {
+    @if $namespace {
+        --fit-object: #{variables.format-var("#{$namespace}.object.fit")};
+    } @else {
+        --fit-object: fill;
+    }
+}

@@ -1,5 +1,18 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --group-stacked-item-margin: calc(var(--spacing-root-small) * -1);
+@if not env("DISABLE_COMPONENTS_LAYOUTS_GROUP") {
+    @include variables.define-variables(
+        (
+            "group": (
+                "item": (
+                    "stacked": (
+                        "spacing": (
+                            "x": variables.format-var("spacings.block.medium"),
+                            "y": variables.format-var("spacings.block.medium"),
+                        ),
+                    ),
+                ),
+            ),
+        )
+    );
 }

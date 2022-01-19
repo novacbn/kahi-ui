@@ -17,6 +17,17 @@
         ["horizontal", true],
         ["vertical", false],
     ];
+
+    const SPACINGS = [
+        ["medium", true],
+        ["none", false],
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
 </script>
 
 <Meta title="Layouts/Group" />
@@ -35,14 +46,14 @@
 
 <Story name="Orientation">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each ORIENTATIONS as [orientation, is_default]}
+        {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <div>
                 <Text is="strong">
                     {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
                 <Box palette="inverse" padding="small">
-                    <Group {orientation}>
+                    <Group orientation={is_default ? undefined : orientation}>
                         <Button>Button 1</Button>
                         <Button>Button 2</Button>
                         <Button>Button 3</Button>
@@ -53,31 +64,65 @@
     </Stack>
 </Story>
 
-<Story name="Stacked">
+<Story name="Stacked - Preview">
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each ORIENTATIONS as [orientation, is_default]}
+        {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <div>
                 <Text is="strong">
                     {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
                 <br />
-                <Group variation="stacked" {orientation}>
-                    <Figure variation="icon" size="medium" shape="pill">
+                <Group variation="stacked" orientation={is_default ? undefined : orientation}>
+                    <Figure size="icon-medium" shape="pill">
                         <img src={IMAGE_AVATAR} />
                     </Figure>
 
-                    <Figure variation="icon" size="medium" shape="pill">
+                    <Figure size="icon-medium" shape="pill">
                         <img src={IMAGE_AVATAR} />
                     </Figure>
 
-                    <Figure variation="icon" size="medium" shape="pill">
+                    <Figure size="icon-medium" shape="pill">
                         <img src={IMAGE_AVATAR} />
                     </Figure>
 
                     <Center
                         padding-x={orientation === "horizontal" ? "small" : undefined}
                         padding-y={orientation === "vertical" ? "small" : undefined}
+                    >
+                        <Text is="small">+7</Text>
+                    </Center>
+                </Group>
+            </div>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Stacked - Spacing">
+    <Stack spacing="medium">
+        {#each SPACINGS as [spacing, is_default] (spacing)}
+            <div>
+                <Text is="strong">
+                    {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <br />
+                <Group variation="stacked" spacing={is_default ? undefined : spacing}>
+                    <Figure size="icon-medium" shape="pill">
+                        <img src={IMAGE_AVATAR} />
+                    </Figure>
+
+                    <Figure size="icon-medium" shape="pill">
+                        <img src={IMAGE_AVATAR} />
+                    </Figure>
+
+                    <Figure size="icon-medium" shape="pill">
+                        <img src={IMAGE_AVATAR} />
+                    </Figure>
+
+                    <Center
+                        padding-x={spacing === "horizontal" ? "small" : undefined}
+                        padding-y={spacing === "vertical" ? "small" : undefined}
                     >
                         <Text is="small">+7</Text>
                     </Center>

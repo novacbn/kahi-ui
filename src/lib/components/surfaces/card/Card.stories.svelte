@@ -189,7 +189,7 @@
     </Stack>
 </Story>
 
-<Story name="Footer Orientation">
+<Story name="Footer - Orientation">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <Card.Container width="huge">
@@ -215,7 +215,7 @@
     </Stack>
 </Story>
 
-<Story name="Footer Spacing">
+<Story name="Footer - Spacing">
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SPACINGS as [spacing, is_default] (spacing)}
             <Card.Container width="huge">

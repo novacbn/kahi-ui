@@ -29,7 +29,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Stack>
         <Box palette="alert" style="width:3rem;height:3rem;" />
         <Box palette="affirmative" style="width:3rem;height:3rem;" />

@@ -1,6 +1,6 @@
 @use "../abstracts/variables";
 
-@mixin gap-all($namespace, $unit, $sizing-tier: null) {
+@mixin gap-all($unit, $namespace: null, $sizing-tier: null) {
     // NOTE: Honestly `em` units would be a LOT simplier here. However some multi-part
     // Components might different font sizes on its children. So we need to pull from
     // the sizing variable instead
@@ -20,13 +20,15 @@
                     ) *
                     1#{$unit}
             );
-    } @else {
+    } @else if ($namespace) {
         gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * 1#{$unit})
             calc(#{variables.format-var("#{$namespace}.gap.x")} * 1#{$unit});
+    } @else {
+        gap: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin gap-x($namespace, $unit, $sizing-tier: null) {
+@mixin gap-x($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         column-gap: calc(
             (
@@ -35,12 +37,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         column-gap: calc(#{variables.format-var("#{$namespace}.gap.x")} * 1#{$unit});
+    } @else {
+        column-gap: calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin gap-y($namespace, $unit, $sizing-tier: null) {
+@mixin gap-y($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         row-gap: calc(
             (
@@ -49,12 +53,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         row-gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * 1#{$unit});
+    } @else {
+        row-gap: calc(var(--spacing-y) * 1#{$unit});
     }
 }
 
-@mixin margin-all($namespace, $unit, $sizing-tier: null) {
+@mixin margin-all($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         margin: calc(
                 (
@@ -70,23 +76,25 @@
                     ) *
                     1#{$unit}
             );
-    } @else {
+    } @else if ($namespace) {
         margin: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit})
             calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+    } @else {
+        margin: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin margin-x($namespace, $unit, $sizing-tier: null) {
-    @include margin-left($namespace, $unit, $sizing-tier);
-    @include margin-right($namespace, $unit, $sizing-tier);
+@mixin margin-x($unit, $namespace: null, $sizing-tier: null) {
+    @include margin-left($unit, $namespace, $sizing-tier);
+    @include margin-right($unit, $namespace, $sizing-tier);
 }
 
-@mixin margin-y($namespace, $unit, $sizing-tier: null) {
-    @include margin-bottom($namespace, $unit, $sizing-tier);
-    @include margin-top($namespace, $unit, $sizing-tier);
+@mixin margin-y($unit, $namespace: null, $sizing-tier: null) {
+    @include margin-bottom($unit, $namespace, $sizing-tier);
+    @include margin-top($unit, $namespace, $sizing-tier);
 }
 
-@mixin margin-bottom($namespace, $unit, $sizing-tier: null) {
+@mixin margin-bottom($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         margin-bottom: calc(
             (
@@ -95,12 +103,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         margin-bottom: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit});
+    } @else {
+        margin-bottom: calc(var(--spacing-y) * 1#{$unit});
     }
 }
 
-@mixin margin-left($namespace, $unit, $sizing-tier: null) {
+@mixin margin-left($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         margin-left: calc(
             (
@@ -109,12 +119,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         margin-left: calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+    } @else {
+        margin-left: calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin margin-right($namespace, $unit, $sizing-tier: null) {
+@mixin margin-right($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         margin-right: calc(
             (
@@ -123,12 +135,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         margin-right: calc(#{variables.format-var("#{$namespace}.margin.x")} * 1#{$unit});
+    } @else {
+        margin-right: calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin margin-top($namespace, $unit, $sizing-tier: null) {
+@mixin margin-top($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         margin-top: calc(
             (
@@ -137,12 +151,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         margin-top: calc(#{variables.format-var("#{$namespace}.margin.y")} * 1#{$unit});
+    } @else {
+        margin-top: calc(var(--spacing-y) * 1#{$unit});
     }
 }
 
-@mixin padding-all($namespace, $unit, $sizing-tier: null) {
+@mixin padding-all($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         padding: calc(
                 (
@@ -158,23 +174,25 @@
                     ) *
                     1#{$unit}
             );
-    } @else {
+    } @else if ($namespace) {
         padding: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit})
             calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+    } @else {
+        padding: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin padding-x($namespace, $unit, $sizing-tier: null) {
-    @include padding-left($namespace, $unit, $sizing-tier);
-    @include padding-right($namespace, $unit, $sizing-tier);
+@mixin padding-x($unit, $namespace: null, $sizing-tier: null) {
+    @include padding-left($unit, $namespace, $sizing-tier);
+    @include padding-right($unit, $namespace, $sizing-tier);
 }
 
-@mixin padding-y($namespace, $unit, $sizing-tier: null) {
-    @include padding-bottom($namespace, $unit, $sizing-tier);
-    @include padding-top($namespace, $unit, $sizing-tier);
+@mixin padding-y($unit, $namespace: null, $sizing-tier: null) {
+    @include padding-bottom($unit, $namespace, $sizing-tier);
+    @include padding-top($unit, $namespace, $sizing-tier);
 }
 
-@mixin padding-bottom($namespace, $unit, $sizing-tier: null) {
+@mixin padding-bottom($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         padding-bottom: calc(
             (
@@ -183,12 +201,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         padding-bottom: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit});
+    } @else {
+        padding-bottom: calc(var(--spacing-y) * 1#{$unit});
     }
 }
 
-@mixin padding-left($namespace, $unit, $sizing-tier: null) {
+@mixin padding-left($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         padding-left: calc(
             (
@@ -197,12 +217,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         padding-left: calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+    } @else {
+        padding-left: calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin padding-right($namespace, $unit, $sizing-tier: null) {
+@mixin padding-right($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         padding-right: calc(
             (
@@ -211,12 +233,14 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         padding-right: calc(#{variables.format-var("#{$namespace}.padding.x")} * 1#{$unit});
+    } @else {
+        padding-right: calc(var(--spacing-x) * 1#{$unit});
     }
 }
 
-@mixin padding-top($namespace, $unit, $sizing-tier: null) {
+@mixin padding-top($unit, $namespace: null, $sizing-tier: null) {
     @if $sizing-tier {
         padding-top: calc(
             (
@@ -225,8 +249,10 @@
                 ) *
                 1#{$unit}
         );
-    } @else {
+    } @else if ($namespace) {
         padding-top: calc(#{variables.format-var("#{$namespace}.padding.y")} * 1#{$unit});
+    } @else {
+        padding-top: calc(var(--spacing-y) * 1#{$unit});
     }
 }
 

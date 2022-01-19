@@ -1,4 +1,4 @@
-@use "../abstracts/variables";
+@use "../mixins/spacings";
 
 @mixin base($unit) {
     display: flex;
@@ -25,11 +25,5 @@
     --alignment-flex-x: #{$alignment-x};
     --alignment-flex-y: #{$alignment-y};
 
-    @if $namespace {
-        --spacing-x: #{variables.format-var("#{$namespace}.spacing.x")};
-        --spacing-y: #{variables.format-var("#{$namespace}.spacing.y")};
-    } @else {
-        --spacing-x: 0px;
-        --spacing-y: 0px;
-    }
+    @include spacings.var-reset($namespace: $namespace);
 }

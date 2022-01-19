@@ -1,0 +1,11 @@
+@use "../abstracts/variables";
+
+@mixin var-reset($namespace: null) {
+    @if $namespace {
+        --spacing-x: #{variables.format-var("#{$namespace}.spacing.x")};
+        --spacing-y: #{variables.format-var("#{$namespace}.spacing.y")};
+    } @else {
+        --spacing-x: 0px;
+        --spacing-y: 0px;
+    }
+}

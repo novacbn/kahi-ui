@@ -47,6 +47,17 @@
         ["huge", false],
         ["massive", false],
     ];
+
+    const SPACINGS = [
+        ["small", true],
+        ["none", false],
+        ["nano", false],
+        ["tiny", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
 </script>
 
 <Meta title="Surfaces/Tile" />
@@ -55,7 +66,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Tile.Container width="content-max">
         <Tile.Figure shape="pill">
             <img src={IMAGE_AVATAR} />
@@ -125,10 +136,6 @@
     <Stack orientation="horizontal" spacing="medium" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
             <Tile.Container width="content-max" elevation={is_default ? undefined : elevation}>
-                <Tile.Figure shape="pill">
-                    <img src={IMAGE_AVATAR} />
-                </Tile.Figure>
-
                 <Tile.Section>
                     <Tile.Header>
                         {`${elevation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
@@ -173,10 +180,6 @@
     <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <Tile.Container width="content-max">
-                <Tile.Figure shape="pill">
-                    <img src={IMAGE_AVATAR} />
-                </Tile.Figure>
-
                 <Tile.Section>
                     <Tile.Header>
                         {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
@@ -190,6 +193,31 @@
                 </Tile.Section>
 
                 <Tile.Footer orientation={is_default ? undefined : orientation}>
+                    <Button palette="affirmative" sizing="small">Confirm</Button>
+                    <Button palette="negative" sizing="small">Cancel</Button>
+                </Tile.Footer>
+            </Tile.Container>
+        {/each}
+    </Stack>
+</Story>
+
+<Story name="Footer Spacing">
+    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each SPACINGS as [spacing, is_default] (spacing)}
+            <Tile.Container width="content-max">
+                <Tile.Section>
+                    <Tile.Header>
+                        {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Tile.Header>
+
+                    <Text>
+                        <Text is="small">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </Text>
+                    </Text>
+                </Tile.Section>
+
+                <Tile.Footer spacing={is_default ? undefined : spacing}>
                     <Button palette="affirmative" sizing="small">Confirm</Button>
                     <Button palette="negative" sizing="small">Cancel</Button>
                 </Tile.Footer>

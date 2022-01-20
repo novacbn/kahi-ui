@@ -11,7 +11,7 @@
     // "surface" convention so the dark / light palettes stand
     // out more when used else where as backgrounds
 
-    @include colors.background($namespace: "document", $face: "background", $shade: "normal");
+    @include colors.background($namespace: "document", $face: "background", $shade: "light");
     @include colors.text($namespace: "document", $face: "foreground", $shade: "lightest");
 
     @include text.family($namespace: "document");

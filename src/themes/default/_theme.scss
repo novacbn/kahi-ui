@@ -14,10 +14,12 @@
 
 @include constants.define-constants(
     palettes.generate-darklight-palette(
-        $dark-background: hsl(217, 11%, 15%),
-        $dark-shading: 5%,
-        $light-background: hsl(0, 0%, 99%),
-        $light-shading: 2.5%
+        $dark-background: hsl(217, 11%, 20%),
+        $dark-dark-shading: 3%,
+        $dark-light-shading: 4%,
+        $light-background: hsl(0, 0%, 100%),
+        $light-dark-shading: 3%,
+        $light-light-shading: 1%
     )
 );
 
@@ -26,10 +28,10 @@
         "palettes": (
             "neutral":
                 palettes.generate-color-palette(
-                    $background: hsl(216, 10%, 35%),
+                    $background: hsl(216, 10%, 50%),
                     $foreground: "light",
-                    $dark-shading: 2%,
-                    $light-shading: 3%
+                    $dark-shading: 3%,
+                    $light-shading: 1%
                 ),
         ),
     )

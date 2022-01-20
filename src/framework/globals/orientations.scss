@@ -7,6 +7,7 @@
 
         --orientation-align: var(--alignment-flex-y) !important;
         --orientation-justify: var(--alignment-flex-x) !important;
+        --orientation-grow: var(--alignment-flex-x-grow) !important;
     }
 
     [data-orientation~="#{$prefix}vertical"] {
@@ -15,6 +16,7 @@
 
         --orientation-align: var(--alignment-flex-x) !important;
         --orientation-justify: var(--alignment-flex-y) !important;
+        --orientation-grow: var(--alignment-flex-y-grow) !important;
     }
 }
 

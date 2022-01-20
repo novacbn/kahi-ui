@@ -131,10 +131,10 @@
             <Text is="strong">STRETCH X</Text>
 
             <Box palette="inverse" padding="small">
-                <Stack alignment="stretch" style="width:6rem;height:12rem;">
-                    <Box palette="alert" style="min-width:3rem;min-height:3rem;" />
-                    <Box palette="affirmative" style="min-width:3rem;height:3rem;" />
-                    <Box palette="negative" style="min-width:3rem;height:3rem;" />
+                <Stack alignment-x="stretch" style="width:6rem;height:12rem;">
+                    <Box palette="alert" style="min-width:3rem;height:4rem;" />
+                    <Box palette="affirmative" style="min-width:3rem;height:4rem;" />
+                    <Box palette="negative" style="min-width:3rem;height:4rem;" />
                 </Stack>
             </Box>
         </div>
@@ -183,6 +183,18 @@
                     <Box palette="alert" style="width:3rem;height:3rem;" />
                     <Box palette="affirmative" style="width:3rem;height:3rem;" />
                     <Box palette="negative" style="width:3rem;height:3rem;" />
+                </Stack>
+            </Box>
+        </div>
+
+        <div>
+            <Text is="strong">STRETCH Y</Text>
+
+            <Box palette="inverse" padding="small" width="content-min">
+                <Stack alignment_y="stretch" style="height:12rem;">
+                    <Box palette="alert" style="width:3rem;min-height:3rem;" />
+                    <Box palette="affirmative" style="width:3rem;min-height:3rem;" />
+                    <Box palette="negative" style="width:3rem;min-height:3rem;" />
                 </Stack>
             </Box>
         </div>

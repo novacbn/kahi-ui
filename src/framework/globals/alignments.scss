@@ -18,7 +18,9 @@
 
     [data-alignment~="#{$prefix}stretch"] {
         --alignment-flex-x: stretch !important;
+        --alignment-flex-x-grow: 1 !important;
         --alignment-flex-y: stretch !important;
+        --alignment-flex-y-grow: 1 !important;
 
         --alignment-grid-x: stretch !important;
         --alignment-grid-y: stretch !important;
@@ -37,6 +39,7 @@
 
     [data-alignment-x~="#{$prefix}stretch"] {
         --alignment-flex-x: stretch !important;
+        --alignment-flex-x-grow: 1 !important;
         --alignment-grid-x: stretch !important;
     }
 
@@ -61,6 +64,7 @@
 
     [data-alignment-y~="#{$prefix}stretch"] {
         --alignment-flex-y: stretch !important;
+        --alignment-flex-y-grow: 1 !important;
         --alignment-grid-y: stretch !important;
     }
 

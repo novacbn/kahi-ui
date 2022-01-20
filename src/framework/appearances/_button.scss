@@ -114,7 +114,7 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "normal"
+        $shade: "light"
     );
 }
 
@@ -127,7 +127,7 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "normal"
+        $shade: "light"
     );
 }
 
@@ -140,7 +140,7 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "normal"
+        $shade: "light"
     );
 }
 
@@ -179,7 +179,7 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "normal"
+        $shade: "light"
     );
 }
 
@@ -233,6 +233,6 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "normal"
+        $shade: "light"
     );
 }

@@ -11,7 +11,19 @@
                 "size": 16px,
             ),
             "scrollbar": (
-                "background.opacity": 1,
+                "standard": (
+                    "size": auto,
+                ),
+                "webkit": (
+                    "size": 0.65rem,
+                ),
+                "thumb": (
+                    "background.opacity": 1,
+                    "padding": variables.format-var("spacings.block.tiny"),
+                ),
+                "track": (
+                    "background.opacity": 1,
+                ),
             ),
         ),
     )

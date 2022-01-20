@@ -233,7 +233,7 @@
     // TODO: validate `$face`
     // TODO: validate `$shade`
 
-    @if not has($name) {
+    @if not has($name) and $name != "auto" {
         @error "bad argument #1 to 'palettes.format-reference' (invalid name '#{$name}')";
     }
 

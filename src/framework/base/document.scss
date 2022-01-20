@@ -1,18 +1,36 @@
+@use "../abstracts/palettes";
 @use "../abstracts/transitions";
+@use "../abstracts/variables";
 
 @use "../mixins/colors";
-@use "../mixins/palettes";
 @use "../mixins/text";
 
 :root {
-    @include palettes.var-auto-background();
+    // HACK: Would use `palettes.var-auto-background()`, but then there would
+    // be an import naming conflict
+
+    --palette-background-lightest: var(--palettes-auto-background-lightest);
+    --palette-background-lighter: var(--palettes-auto-background-lighter);
+    --palette-background-light: var(--palettes-auto-background-light);
+    --palette-background-normal: var(--palettes-auto-background-normal);
+    --palette-background-bold: var(--palettes-auto-background-bold);
+    --palette-background-bolder: var(--palettes-auto-background-bolder);
+    --palette-background-boldest: var(--palettes-auto-background-boldest);
+
+    --palette-foreground-lightest: var(--palettes-auto-foreground-lightest);
+    --palette-foreground-lighter: var(--palettes-auto-foreground-lighter);
+    --palette-foreground-light: var(--palettes-auto-foreground-light);
+    --palette-foreground-normal: var(--palettes-auto-foreground-normal);
+    --palette-foreground-bold: var(--palettes-auto-foreground-bold);
+    --palette-foreground-bolder: var(--palettes-auto-foreground-bolder);
+    --palette-foreground-boldest: var(--palettes-auto-foreground-boldest);
 
     // NOTE: The base document background color diverges from
     // "surface" convention so the dark / light palettes stand
     // out more when used else where as backgrounds
 
-    @include colors.background($namespace: "document", $face: "background", $shade: "light");
-    @include colors.text($namespace: "document", $face: "foreground", $shade: "lightest");
+    @include colors.background($namespace: "document", $face: "background", $shade: "lighter");
+    @include colors.text($namespace: "document", $face: "foreground", $shade: "light");
 
     @include text.family($namespace: "document");
     @include text.line-height($namespace: "document");
@@ -22,28 +40,58 @@
 }
 
 ::selection {
-    @include colors.background($namespace: "document", $face: "foreground", $shade: "lightest");
-    @include colors.text($namespace: "document", $face: "background", $shade: "lightest");
+    // NOTE: Should follow the "surface" convention of shading, just with the inverse of faces
+
+    @include colors.background($namespace: "document", $face: "foreground", $shade: "lighter");
+    @include colors.text($namespace: "document", $face: "background", $shade: "light");
 }
 
-/*
 * {
     // TODO: Remove after adding ARIA / Accessibility support
 
     -webkit-tap-highlight-color: transparent;
 
-    scrollbar-width: auto;
-    scrollbar-color: rgb(var(--scrollbar-foreground)) rgb(var(--scrollbar-background));
+    scrollbar-width: #{variables.format-var("document.scrollbar.standard.size")};
+    scrollbar-color: hsla(
+            #{palettes.format-var($name: "auto", $face: "foreground", $shade: "light")},
+            #{variables.format-var("document.scrollbar.thumb.background.opacity")}
+        )
+        hsla(
+            #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
+            #{variables.format-var("document.scrollbar.track.background.opacity")}
+        );
 }
 
 ::-webkit-scrollbar {
-    @apply h-[var(--scrollbar-size)] w-[var(--scrollbar-size)];
+    width: calc(
+        #{variables.format-var("document.scrollbar.webkit.size")} + (#{variables.format-var(
+                        "document.scrollbar.thumb.padding"
+                    )} * 1rem)
+    );
+    height: calc(
+        #{variables.format-var("document.scrollbar.webkit.size")} + (#{variables.format-var(
+                        "document.scrollbar.thumb.padding"
+                    )} * 1rem)
+    );
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    border: calc(variables.format-var("document.scrollbar.thumb.padding") * 1rem) solid
+        rgba(255, 255, 255, 0);
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-[rgb(var(--scrollbar-background))];
+    background-color: hsla(
+        #{palettes.format-var($name: "auto", $face: "background", $shade: "bolder")},
+        #{variables.format-var("document.scrollbar.track.background.opacity")}
+    );
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-[rgb(var(--scrollbar-foreground))];
-}*/
+    background-clip: padding-box;
+
+    background-color: hsla(
+        #{palettes.format-var($name: "auto", $face: "foreground", $shade: "light")},
+        #{variables.format-var("document.scrollbar.thumb.background.opacity")}
+    );
+}

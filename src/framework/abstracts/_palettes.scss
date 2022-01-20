@@ -4,7 +4,7 @@
 @use "./colors";
 @use "./strings";
 
-@function generate-color-palette($background, $foreground, $shading) {
+@function generate-color-palette($background, $foreground, $dark-shading, $light-shading) {
     $dark-background: get("dark.background");
     $light-background: get("light.background");
 
@@ -13,22 +13,22 @@
         "foreground": $foreground,
         "palettes": (
             "dark": (
-                "lightest": colors.shade($background, $dark-background, $shading, 10),
-                "lighter": colors.shade($background, $dark-background, $shading, 9),
-                "light": colors.shade($background, $dark-background, $shading, 8),
-                "normal": colors.shade($background, $dark-background, $shading, 7),
-                "bold": colors.shade($background, $dark-background, $shading, 6),
-                "bolder": colors.shade($background, $dark-background, $shading, 5),
-                "boldest": colors.shade($background, $dark-background, $shading, 4),
+                "lightest": colors.shade($background, $dark-background, $dark-shading, 10),
+                "lighter": colors.shade($background, $dark-background, $dark-shading, 9),
+                "light": colors.shade($background, $dark-background, $dark-shading, 8),
+                "normal": colors.shade($background, $dark-background, $dark-shading, 7),
+                "bold": colors.shade($background, $dark-background, $dark-shading, 6),
+                "bolder": colors.shade($background, $dark-background, $dark-shading, 5),
+                "boldest": colors.shade($background, $dark-background, $dark-shading, 4),
             ),
             "light": (
-                "lightest": colors.shade($background, $light-background, $shading, 6),
-                "lighter": colors.shade($background, $light-background, $shading, 5),
-                "light": colors.shade($background, $light-background, $shading, 4),
-                "normal": colors.shade($background, $light-background, $shading, 3),
-                "bold": colors.shade($background, $light-background, $shading, 2),
-                "bolder": colors.shade($background, $light-background, $shading, 1),
-                "boldest": $background,
+                "lightest": colors.shade($background, $light-background, $light-shading, 10),
+                "lighter": colors.shade($background, $light-background, $light-shading, 9),
+                "light": colors.shade($background, $light-background, $light-shading, 8),
+                "normal": colors.shade($background, $light-background, $light-shading, 7),
+                "bold": colors.shade($background, $light-background, $light-shading, 6),
+                "bolder": colors.shade($background, $light-background, $light-shading, 5),
+                "boldest": colors.shade($background, $light-background, $light-shading, 4),
             ),
         )
     );

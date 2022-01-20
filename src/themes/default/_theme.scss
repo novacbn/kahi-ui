@@ -15,9 +15,9 @@
 @include constants.define-constants(
     palettes.generate-darklight-palette(
         $dark-background: hsl(217, 11%, 15%),
-        $dark-shading: 3%,
+        $dark-shading: 5%,
         $light-background: hsl(0, 0%, 99%),
-        $light-shading: 2%
+        $light-shading: 2.5%
     )
 );
 
@@ -26,9 +26,10 @@
         "palettes": (
             "neutral":
                 palettes.generate-color-palette(
-                    $background: hsl(216, 15%, 40%),
+                    $background: hsl(216, 10%, 35%),
                     $foreground: "light",
-                    $shading: 4%
+                    $dark-shading: 2%,
+                    $light-shading: 3%
                 ),
         ),
     )
@@ -43,27 +44,31 @@
         "palettes": (
             "accent":
                 palettes.generate-color-palette(
-                    $background: hsl(200, 36%, 45%),
+                    $background: hsl(200, 30%, 40%),
                     $foreground: "light",
-                    $shading: 4%
+                    $dark-shading: 2%,
+                    $light-shading: 3%
                 ),
             "alert":
                 palettes.generate-color-palette(
-                    $background: hsl(35, 65%, 50%),
+                    $background: hsl(35, 50%, 50%),
                     $foreground: "light",
-                    $shading: 4%
+                    $dark-shading: 2%,
+                    $light-shading: 3%
                 ),
             "affirmative":
                 palettes.generate-color-palette(
-                    $background: hsl(146, 40%, 45%),
+                    $background: hsl(146, 40%, 40%),
                     $foreground: "light",
-                    $shading: 4%
+                    $dark-shading: 2%,
+                    $light-shading: 3%
                 ),
             "negative":
                 palettes.generate-color-palette(
                     $background: hsl(7, 45%, 50%),
                     $foreground: "light",
-                    $shading: 4%
+                    $dark-shading: 2%,
+                    $light-shading: 3%
                 ),
         ),
     )

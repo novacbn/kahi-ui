@@ -10,11 +10,13 @@
 
     const SPACINGS = [
         ["none", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -24,7 +26,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette="inverse" padding="small" max_width="content-max">
         LEFT
         <Spacer is="span" spacing_x="huge" />

@@ -14,7 +14,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Scrollable style="width:25rem;height:15rem;">
         <Spacer spacing="huge" />
         <Spacer spacing="huge" />

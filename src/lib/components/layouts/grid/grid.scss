@@ -1,3 +1,6 @@
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/spacings";
+
 @if not env("DISABLE_COMPONENTS_LAYOUTS_GRID") {
     .grid {
         --grid-alignment-x: initial;
@@ -5,13 +8,12 @@
 
         --points: initial;
 
-        --spacing-x: 0;
-        --spacing-y: 0;
+        @include spacings.var-reset();
 
         display: grid;
         grid-auto-flow: row dense;
 
-        gap: var(--spacing-y) var(--spacing-x);
+        @include intrinsics.gap-all($unit: rem);
 
         align-items: var(--grid-alignment-y);
         justify-content: var(--grid-alignment-x);

@@ -50,7 +50,7 @@
         align-items: center;
         justify-content: center;
 
-        @include intrinsics.size-all("tile.figure");
+        @include intrinsics.size-all($namespace: "tile.figure");
     }
 
     .tile--footer {

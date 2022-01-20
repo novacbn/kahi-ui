@@ -99,7 +99,7 @@
                     <Grid.Container
                         points="3"
                         spacing={is_default ? undefined : spacing}
-                        style="width:12rem;"
+                        style="width:20rem;"
                     >
                         <Box palette="alert" variation="borders" style="height:3rem;" />
                         <Box palette="affirmative" variation="borders" style="height:3rem;" />

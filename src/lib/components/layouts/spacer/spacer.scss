@@ -1,18 +1,22 @@
-.spacer {
-    --spacing-x: 0;
-    --spacing-y: 0;
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/spacings";
 
-    flex-grow: 1;
-    flex-shrink: 1;
+@if not env("DISABLE_COMPONENTS_LAYOUTS_SPACER") {
+    .spacer {
+        @include spacings.var-reset();
 
-    place-self: stretch;
-}
+        flex-grow: 1;
+        flex-shrink: 1;
 
-div.spacer {
-    height: var(--spacing-y);
-    width: var(--spacing-x);
-}
+        place-self: stretch;
+    }
 
-span.spacer {
-    margin: var(--spacing-y) var(--spacing-x);
+    div.spacer {
+        height: calc(var(--spacing-y) * 1rem);
+        width: calc(var(--spacing-x) * 1rem);
+    }
+
+    span.spacer {
+        @include intrinsics.margin-all($unit: rem);
+    }
 }

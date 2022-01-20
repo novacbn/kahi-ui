@@ -1,3 +1,5 @@
-.scrollable {
-    overflow: auto;
+@if not env("DISABLE_COMPONENTS_LAYOUTS_SCROLLABLE") {
+    .scrollable {
+        overflow: auto;
+    }
 }

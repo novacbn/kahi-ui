@@ -5,7 +5,7 @@
         --spacing-x: #{variables.format-var("#{$namespace}.spacing.x")};
         --spacing-y: #{variables.format-var("#{$namespace}.spacing.y")};
     } @else {
-        --spacing-x: 0px;
-        --spacing-y: 0px;
+        --spacing-x: 0;
+        --spacing-y: 0;
     }
 }

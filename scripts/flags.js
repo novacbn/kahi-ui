@@ -20,6 +20,8 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-layouts-center",
     "--disable-components-layouts-grid",
     "--disable-components-layouts-group",
+    "--disable-components-layouts-scrollable",
+    "--disable-components-layouts-spacer",
     "--disable-components-layouts-stack",
     "--disable-components-surfaces-box",
     "--disable-components-surfaces-card",

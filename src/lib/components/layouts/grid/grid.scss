@@ -1,35 +1,37 @@
-.grid {
-    --grid-alignment-x: initial;
-    --grid-alignment-y: initial;
+@if not env("DISABLE_COMPONENTS_LAYOUTS_GRID") {
+    .grid {
+        --grid-alignment-x: initial;
+        --grid-alignment-y: initial;
 
-    --points: initial;
+        --points: initial;
 
-    --spacing-x: 0;
-    --spacing-y: 0;
+        --spacing-x: 0;
+        --spacing-y: 0;
 
-    display: grid;
-    grid-auto-flow: row dense;
+        display: grid;
+        grid-auto-flow: row dense;
 
-    gap: var(--spacing-y) var(--spacing-x);
+        gap: var(--spacing-y) var(--spacing-x);
 
-    align-items: var(--grid-alignment-y);
-    justify-content: var(--grid-alignment-x);
+        align-items: var(--grid-alignment-y);
+        justify-content: var(--grid-alignment-x);
 
-    grid-template-columns: repeat(var(--points), 1fr);
+        grid-template-columns: repeat(var(--points), 1fr);
 
-    & > * {
-        margin: 0;
+        & > * {
+            margin: 0;
+        }
     }
-}
 
-.grid-item {
-    --span-x: 1;
-    --span-y: 1;
+    .grid-item {
+        --span-x: 1;
+        --span-y: 1;
 
-    display: contents;
+        display: contents;
 
-    & > * {
-        grid-column: span var(--span-x) / span var(--span-x);
-        grid-row: span var(--span-y) / span var(--span-y);
+        & > * {
+            grid-column: span var(--span-x) / span var(--span-x);
+            grid-row: span var(--span-y) / span var(--span-y);
+        }
     }
 }

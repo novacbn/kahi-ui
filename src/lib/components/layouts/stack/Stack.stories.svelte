@@ -31,9 +31,9 @@
 
 <Story name="Preview">
     <Stack.Container>
-        <Box palette="alert" style="width:3rem;height:3rem;" />
-        <Box palette="affirmative" style="width:3rem;height:3rem;" />
-        <Box palette="negative" style="width:3rem;height:3rem;" />
+        <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+        <Box palette="affirmative" variation="borders" style="width:3rem;height:3rem;" />
+        <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
     </Stack.Container>
 </Story>
 
@@ -47,9 +47,17 @@
 
                 <Box palette="inverse" padding="small" width="content-min">
                     <Stack.Container {orientation}>
-                        <Box palette="alert" style="width:3rem;height:3rem;" />
-                        <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                        <Box palette="negative" style="width:3rem;height:3rem;" />
+                        <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                        <Box
+                            palette="affirmative"
+                            variation="borders"
+                            style="width:3rem;height:3rem;"
+                        />
+                        <Box
+                            palette="negative"
+                            variation="borders"
+                            style="width:3rem;height:3rem;"
+                        />
                     </Stack.Container>
                 </Box>
             </div>
@@ -59,25 +67,25 @@
 
 <Story name="Wrap">
     <Stack.Container orientation="horizontal" spacing="huge" variation="wrap">
-        <Box palette="alert" style="width:6rem;height:6rem;" />
-        <Box palette="affirmative" style="width:6rem;height:6rem;" />
-        <Box palette="negative" style="width:6rem;height:6rem;" />
+        <Box palette="alert" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="affirmative" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="negative" variation="borders" style="width:6rem;height:6rem;" />
 
-        <Box palette="alert" style="width:6rem;height:6rem;" />
-        <Box palette="affirmative" style="width:6rem;height:6rem;" />
-        <Box palette="negative" style="width:6rem;height:6rem;" />
+        <Box palette="alert" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="affirmative" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="negative" variation="borders" style="width:6rem;height:6rem;" />
 
-        <Box palette="alert" style="width:6rem;height:6rem;" />
-        <Box palette="affirmative" style="width:6rem;height:6rem;" />
-        <Box palette="negative" style="width:6rem;height:6rem;" />
+        <Box palette="alert" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="affirmative" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="negative" variation="borders" style="width:6rem;height:6rem;" />
 
-        <Box palette="alert" style="width:6rem;height:6rem;" />
-        <Box palette="affirmative" style="width:6rem;height:6rem;" />
-        <Box palette="negative" style="width:6rem;height:6rem;" />
+        <Box palette="alert" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="affirmative" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="negative" variation="borders" style="width:6rem;height:6rem;" />
 
-        <Box palette="alert" style="width:6rem;height:6rem;" />
-        <Box palette="affirmative" style="width:6rem;height:6rem;" />
-        <Box palette="negative" style="width:6rem;height:6rem;" />
+        <Box palette="alert" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="affirmative" variation="borders" style="width:6rem;height:6rem;" />
+        <Box palette="negative" variation="borders" style="width:6rem;height:6rem;" />
     </Stack.Container>
 </Story>
 
@@ -91,9 +99,17 @@
 
                 <Box palette="inverse" padding="small" width="content-min">
                     <Stack.Container {spacing}>
-                        <Box palette="alert" style="width:3rem;height:3rem;" />
-                        <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                        <Box palette="negative" style="width:3rem;height:3rem;" />
+                        <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                        <Box
+                            palette="affirmative"
+                            variation="borders"
+                            style="width:3rem;height:3rem;"
+                        />
+                        <Box
+                            palette="negative"
+                            variation="borders"
+                            style="width:3rem;height:3rem;"
+                        />
                     </Stack.Container>
                 </Box>
             </div>
@@ -103,11 +119,11 @@
 
 <Story name="Stretch">
     <Stack.Container orientation="horizontal" width="100">
-        <Box palette="alert" style="width:3rem;height:3rem;" />
+        <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
         <Stack.Item variation="stretch">
-            <Box palette="affirmative" style="min-width:3rem;height:3rem;" />
+            <Box palette="affirmative" variation="borders" style="min-width:3rem;height:3rem;" />
         </Stack.Item>
-        <Box palette="negative" style="width:3rem;height:3rem;" />
+        <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
     </Stack.Container>
 </Story>
 
@@ -117,10 +133,14 @@
             <Text is="strong">DEFAULT</Text>
 
             <Box palette="inverse" padding="small" width="content-min">
-                <Stack.Container {...$$props}>
-                    <Box palette="alert" style="width:3rem;height:3rem;" />
-                    <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                    <Box palette="negative" style="width:3rem;height:3rem;" />
+                <Stack.Container>
+                    <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="width:3rem;height:3rem;"
+                    />
+                    <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
                 </Stack.Container>
             </Box>
         </div>
@@ -130,9 +150,13 @@
 
             <Box palette="inverse" padding="small">
                 <Stack.Container alignment="center" style="width:6rem;height:12rem;">
-                    <Box palette="alert" style="width:3rem;height:3rem;" />
-                    <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                    <Box palette="negative" style="width:3rem;height:3rem;" />
+                    <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="width:3rem;height:3rem;"
+                    />
+                    <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
                 </Stack.Container>
             </Box>
         </div>
@@ -142,9 +166,17 @@
 
             <Box palette="inverse" padding="small">
                 <Stack.Container alignment-x="stretch" style="width:6rem;height:12rem;">
-                    <Box palette="alert" style="min-width:3rem;height:4rem;" />
-                    <Box palette="affirmative" style="min-width:3rem;height:4rem;" />
-                    <Box palette="negative" style="min-width:3rem;height:4rem;" />
+                    <Box palette="alert" variation="borders" style="min-width:3rem;height:4rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="min-width:3rem;height:4rem;"
+                    />
+                    <Box
+                        palette="negative"
+                        variation="borders"
+                        style="min-width:3rem;height:4rem;"
+                    />
                 </Stack.Container>
             </Box>
         </div>
@@ -154,9 +186,13 @@
 
             <Box palette="inverse" padding="small">
                 <Stack.Container alignment_x="left" style="width:6rem;">
-                    <Box palette="alert" style="width:3rem;height:3rem;" />
-                    <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                    <Box palette="negative" style="width:3rem;height:3rem;" />
+                    <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="width:3rem;height:3rem;"
+                    />
+                    <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
                 </Stack.Container>
             </Box>
         </div>
@@ -166,9 +202,13 @@
 
             <Box palette="inverse" padding="small" style="width:6rem;">
                 <Stack.Container alignment_x="right">
-                    <Box palette="alert" style="width:3rem;height:3rem;" />
-                    <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                    <Box palette="negative" style="width:3rem;height:3rem;" />
+                    <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="width:3rem;height:3rem;"
+                    />
+                    <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
                 </Stack.Container>
             </Box>
         </div>
@@ -178,9 +218,13 @@
 
             <Box palette="inverse" padding="small" width="content-min">
                 <Stack.Container alignment_y="top" style="height:12rem;">
-                    <Box palette="alert" style="width:3rem;height:3rem;" />
-                    <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                    <Box palette="negative" style="width:3rem;height:3rem;" />
+                    <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="width:3rem;height:3rem;"
+                    />
+                    <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
                 </Stack.Container>
             </Box>
         </div>
@@ -190,9 +234,13 @@
 
             <Box palette="inverse" padding="small" width="content-min">
                 <Stack.Container alignment_y="bottom" style="height:12rem;">
-                    <Box palette="alert" style="width:3rem;height:3rem;" />
-                    <Box palette="affirmative" style="width:3rem;height:3rem;" />
-                    <Box palette="negative" style="width:3rem;height:3rem;" />
+                    <Box palette="alert" variation="borders" style="width:3rem;height:3rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="width:3rem;height:3rem;"
+                    />
+                    <Box palette="negative" variation="borders" style="width:3rem;height:3rem;" />
                 </Stack.Container>
             </Box>
         </div>
@@ -202,9 +250,17 @@
 
             <Box palette="inverse" padding="small" width="content-min">
                 <Stack.Container alignment_y="stretch" style="height:12rem;">
-                    <Box palette="alert" style="width:3rem;min-height:3rem;" />
-                    <Box palette="affirmative" style="width:3rem;min-height:3rem;" />
-                    <Box palette="negative" style="width:3rem;min-height:3rem;" />
+                    <Box palette="alert" variation="borders" style="width:3rem;min-height:3rem;" />
+                    <Box
+                        palette="affirmative"
+                        variation="borders"
+                        style="width:3rem;min-height:3rem;"
+                    />
+                    <Box
+                        palette="negative"
+                        variation="borders"
+                        style="width:3rem;min-height:3rem;"
+                    />
                 </Stack.Container>
             </Box>
         </div>

@@ -13,14 +13,14 @@
                         var(--sizing-font-size-#{$sizing-tier}) *
                             #{variables.format-var("#{$namespace}.gap.y")}
                     ) *
-                    1#{$unit}
+                    #{$unit}
             )
             calc(
                 (
                         var(--sizing-font-size-#{$sizing-tier}) *
                             #{variables.format-var("#{$namespace}.gap.x")}
                     ) *
-                    1#{$unit}
+                    #{$unit}
             );
     } @else if ($namespace) {
         gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * #{$unit})
@@ -39,7 +39,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.gap.x")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         column-gap: calc(#{variables.format-var("#{$namespace}.gap.x")} * #{$unit});
@@ -57,7 +57,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.gap.y")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         row-gap: calc(#{variables.format-var("#{$namespace}.gap.y")} * #{$unit});
@@ -75,14 +75,14 @@
                         var(--sizing-font-size-#{$sizing-tier}) *
                             #{variables.format-var("#{$namespace}.margin.y")}
                     ) *
-                    1#{$unit}
+                    #{$unit}
             )
             calc(
                 (
                         var(--sizing-font-size-#{$sizing-tier}) *
                             #{variables.format-var("#{$namespace}.margin.x")}
                     ) *
-                    1#{$unit}
+                    #{$unit}
             );
     } @else if ($namespace) {
         margin: calc(#{variables.format-var("#{$namespace}.margin.y")} * #{$unit})
@@ -111,7 +111,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.margin.y")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         margin-bottom: calc(#{variables.format-var("#{$namespace}.margin.y")} * #{$unit});
@@ -129,7 +129,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.margin.x")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         margin-left: calc(#{variables.format-var("#{$namespace}.margin.x")} * #{$unit});
@@ -147,7 +147,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.margin.x")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         margin-right: calc(#{variables.format-var("#{$namespace}.margin.x")} * #{$unit});
@@ -165,7 +165,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.margin.y")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         margin-top: calc(#{variables.format-var("#{$namespace}.margin.y")} * #{$unit});
@@ -183,14 +183,14 @@
                         var(--sizing-font-size-#{$sizing-tier}) *
                             #{variables.format-var("#{$namespace}.padding.y")}
                     ) *
-                    1#{$unit}
+                    #{$unit}
             )
             calc(
                 (
                         var(--sizing-font-size-#{$sizing-tier}) *
                             #{variables.format-var("#{$namespace}.padding.x")}
                     ) *
-                    1#{$unit}
+                    #{$unit}
             );
     } @else if ($namespace) {
         padding: calc(#{variables.format-var("#{$namespace}.padding.y")} * #{$unit})
@@ -219,7 +219,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.padding.y")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         padding-bottom: calc(#{variables.format-var("#{$namespace}.padding.y")} * #{$unit});
@@ -237,7 +237,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.padding.x")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         padding-left: calc(#{variables.format-var("#{$namespace}.padding.x")} * #{$unit});
@@ -255,7 +255,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.padding.x")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         padding-right: calc(#{variables.format-var("#{$namespace}.padding.x")} * #{$unit});
@@ -273,7 +273,7 @@
                     var(--sizing-font-size-#{$sizing-tier}) *
                         #{variables.format-var("#{$namespace}.padding.y")}
                 ) *
-                1#{$unit}
+                #{$unit}
         );
     } @else if ($namespace) {
         padding-top: calc(#{variables.format-var("#{$namespace}.padding.y")} * #{$unit});

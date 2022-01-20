@@ -2,7 +2,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -37,10 +37,10 @@
     </Box>
 
     <FileDropInput multiple on:change={on_change}>
-        <Stack spacing="medium">
+        <Stack.Container spacing="medium">
             <Text is="strong" style="font-size:3em;">&uparrow;</Text>
             <Text>Drag-and-drop files here...</Text>
-        </Stack>
+        </Stack.Container>
     </FileDropInput>
 </Story>
 
@@ -48,12 +48,12 @@
     <Mosaic sizing="huge" spacing="medium">
         {#each PALETTES as [palette, is_default]}
             <FileDropInput {palette}>
-                <Stack spacing="medium">
+                <Stack.Container spacing="medium">
                     <Text is="strong" style="font-size:3em;">&uparrow;</Text>
                     <Text>
                         {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                     </Text>
-                </Stack>
+                </Stack.Container>
             </FileDropInput>
         {/each}
     </Mosaic>

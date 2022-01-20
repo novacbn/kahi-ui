@@ -2,7 +2,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Divider from "../../layouts/divider/Divider.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Anchor from "../anchor/Anchor.svelte";
@@ -61,7 +61,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
             <Omni.Container
                 max_width="content-max"
@@ -82,7 +82,7 @@
                 </Omni.Footer>
             </Omni.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Sticky">

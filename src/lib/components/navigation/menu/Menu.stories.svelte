@@ -5,7 +5,7 @@
     import Radio from "../../interactables/radio/Radio.svelte";
     import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Menu from "./";
@@ -171,7 +171,7 @@
 </Story>
 
 <Story name="Orientation">
-    <Stack alignment_y="top" orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container alignment_y="top" orientation="horizontal" spacing="medium" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <div>
                 <Text is="strong">
@@ -184,5 +184,5 @@
                 </Menu.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

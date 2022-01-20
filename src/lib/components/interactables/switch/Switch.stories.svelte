@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Switch from "./Switch.svelte";
@@ -43,7 +43,7 @@
 </Story>
 
 <Story name="State">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Switch id="switch-state-default">DEFAULT</Switch>
         <Switch id="switch-state-state" state>STATE</Switch>
 
@@ -52,11 +52,11 @@
 
         <Switch id="switch-state-disabled-no-state" disabled>DISABLED NO-STATE</Switch>
         <Switch id="switch-state-disabled-state" disabled state>DISABLED STATE</Switch>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <div>
                 <Text>
@@ -68,11 +68,11 @@
                 <Switch {palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SIZES as [size, is_default]}
             <div>
                 <Text>
@@ -84,5 +84,5 @@
                 <Switch {size} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

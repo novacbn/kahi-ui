@@ -5,7 +5,7 @@
     import Text from "../../typography/text/Text.svelte";
 
     import Mosaic from "../mosaic/Mosaic.svelte";
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import Divider from "./Divider.svelte";
 
@@ -47,7 +47,7 @@
 </Story>
 
 <Story name="Orientation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <div>
             <Text is="strong">HORIZONTAL / DEFAULT</Text>
 
@@ -67,11 +67,11 @@
                 <Divider orientation="vertical" />
             </Box>
         </div>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Text">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         <Box palette="inverse" padding="small" style="width:12rem;">
             <Divider>HORIZONTAL</Divider>
         </Box>
@@ -83,5 +83,5 @@
         >
             <Divider orientation="vertical">VERTICAL</Divider>
         </Box>
-    </Stack>
+    </Stack.Container>
 </Story>

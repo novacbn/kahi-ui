@@ -3,7 +3,7 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Progress from "./Progress.svelte";
@@ -55,8 +55,8 @@
 </Story>
 
 <Story name="Palette">
-    <Stack spacing="medium">
-        <Stack orientation="horizontal" spacing="medium">
+    <Stack.Container spacing="medium">
+        <Stack.Container orientation="horizontal" spacing="medium">
             {#each PALETTES as [palette, is_default] (palette)}
                 <div>
                     <Text is="strong">
@@ -72,7 +72,7 @@
                     />
                 </div>
             {/each}
-        </Stack>
+        </Stack.Container>
 
         <Mosaic sizing="medium" spacing="medium">
             {#each PALETTES as [palette, is_default] (palette)}
@@ -87,12 +87,12 @@
                 </div>
             {/each}
         </Mosaic>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Size">
-    <Stack spacing="medium">
-        <Stack orientation="horizontal" spacing="medium">
+    <Stack.Container spacing="medium">
+        <Stack.Container orientation="horizontal" spacing="medium">
             {#each SIZES as [size, is_default] (size)}
                 <div>
                     <Text is="strong">
@@ -104,7 +104,7 @@
                     <Progress shape="circle" value="0.5" size={is_default ? undefined : size} />
                 </div>
             {/each}
-        </Stack>
+        </Stack.Container>
 
         <Mosaic sizing="medium" spacing="medium">
             {#each SIZES as [size, is_default] (size)}
@@ -119,11 +119,11 @@
                 </div>
             {/each}
         </Mosaic>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Indeterminate">
-    <Stack orientation="horizontal" spacing="medium">
+    <Stack.Container orientation="horizontal" spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
@@ -135,7 +135,7 @@
                 <Progress shape="circle" palette={is_default ? undefined : palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Mosaic sizing="medium" spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}

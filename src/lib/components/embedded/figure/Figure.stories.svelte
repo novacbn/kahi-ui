@@ -4,7 +4,7 @@
     import IMAGE_AVATAR from "../../../../../.storybook/assets/avatar.webp";
     import IMAGE_BACKGROUND from "../../../../../.storybook/assets/background.webp";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Figure from "./Figure.svelte";
@@ -67,7 +67,7 @@
 </Story>
 
 <Story name="Fit">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each FITS as [fit, is_default]}
             <div>
                 <Text is="strong">
@@ -80,11 +80,11 @@
                 </Figure>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Radius">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each RADIUS as [radius, is_default]}
             <div>
                 <Text is="strong">
@@ -96,11 +96,11 @@
                 </Figure>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Shape">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SHAPES as [shape, is_default]}
             <div>
                 <Text is="strong">
@@ -112,11 +112,11 @@
                 </Figure>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Block Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SIZES_BLOCK as [size, is_default]}
             <div>
                 <Text is="strong">
@@ -128,11 +128,11 @@
                 </Figure>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Icon Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SIZES_ICON as [size, is_default]}
             <div>
                 <Text is="strong">
@@ -144,5 +144,5 @@
                 </Figure>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

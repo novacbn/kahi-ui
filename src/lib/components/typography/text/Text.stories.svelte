@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
 
     import Text from "./Text.svelte";
 
@@ -63,7 +63,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <div style="max-width:25ch;">
                 <Text is="strong">
@@ -78,11 +78,11 @@
                 </Text>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Size">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each SIZES as [size, is_default]}
             <div style="max-width:25ch;">
                 <Text is="strong">
@@ -97,11 +97,11 @@
                 </Text>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Align">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each ALIGNMENTS as [align, is_default]}
             <div style="max-width:25ch;">
                 <Text is="strong">
@@ -116,11 +116,11 @@
                 </Text>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Transform">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each TRANSFORMS as [transform, is_default]}
             <div style="max-width:25ch;">
                 <Text is="strong">
@@ -135,11 +135,11 @@
                 </Text>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Variation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each VARIATIONS as [variation, is_default]}
             <div style="max-width:25ch;">
                 <Text is="strong">
@@ -154,7 +154,7 @@
                 </Text>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Pre">
@@ -172,7 +172,7 @@ p q r s t u v w x y z &lbrace; | &rbrace; ~
 </Story>
 
 <Story name="Other Tags">
-    <Stack alignment_x="left" spacing="medium">
+    <Stack.Container alignment_x="left" spacing="medium">
         <Text is="abbr">Abbreviation</Text>
 
         <Text is="b">Bold</Text>
@@ -194,5 +194,5 @@ p q r s t u v w x y z &lbrace; | &rbrace; ~
 
         <Text is="sub">sub</Text>
         <Text is="sup">sup</Text>
-    </Stack>
+    </Stack.Container>
 </Story>

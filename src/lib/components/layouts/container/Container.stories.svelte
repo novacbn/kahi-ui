@@ -3,7 +3,7 @@
 
     import Text from "../../typography/text/Text.svelte";
 
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import Container from "./Container.svelte";
 
@@ -34,7 +34,7 @@
 </Story>
 
 <Story name="Viewport">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each VIEWPORTS as [viewport, is_default] (viewport)}
             <Container {viewport}>
                 <Text is="strong">
@@ -49,5 +49,5 @@
                 </Text>
             </Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

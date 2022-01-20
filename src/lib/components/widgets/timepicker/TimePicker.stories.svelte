@@ -2,7 +2,7 @@
     import {Temporal} from "@js-temporal/polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -118,7 +118,7 @@
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -128,5 +128,5 @@
                 <TimePicker palette="accent" width="content-max" {sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

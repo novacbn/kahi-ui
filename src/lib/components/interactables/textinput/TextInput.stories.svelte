@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
 
     import TextInput from "./TextInput.svelte";
 
@@ -74,7 +74,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <TextInput
                 value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
@@ -82,11 +82,11 @@
                 {palette}
             />
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Block">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <TextInput
                 variation="block"
@@ -95,11 +95,11 @@
                 {palette}
             />
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Flush">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <TextInput
                 variation="flush"
@@ -108,11 +108,11 @@
                 {palette}
             />
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SIZES as [size, is_default]}
             <TextInput
                 value={`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
@@ -120,7 +120,7 @@
                 {size}
             />
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="TextArea">

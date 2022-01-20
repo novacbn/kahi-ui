@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Box from "./Box.svelte";
@@ -57,7 +57,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
             <Box palette={is_default ? undefined : palette} padding="small">
                 This is a <Text is="strong">
@@ -65,11 +65,11 @@
                 </Text> Box!
             </Box>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Borders">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
             <Box palette={is_default ? undefined : palette} variation="borders" padding="small">
                 This is a <Text is="strong">
@@ -77,11 +77,11 @@
                 </Text> Box!
             </Box>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Elevation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
             <Box palette="inverse" elevation={is_default ? undefined : elevation} padding="small">
                 This is a <Text is="strong">
@@ -89,11 +89,11 @@
                 </Text> Box!
             </Box>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Radius">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each RADIUS as [radius, is_default] (radius)}
             <Box palette="inverse" radius={is_default ? undefined : radius} padding="small">
                 This is a <Text is="strong">
@@ -101,11 +101,11 @@
                 </Text> Box!
             </Box>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Shape">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each SHAPES as [shape, is_default] (shape)}
             <Box palette="inverse" shape={is_default ? undefined : shape} padding="small">
                 This is a <Text is="strong">
@@ -113,5 +113,5 @@
                 </Text> Box!
             </Box>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

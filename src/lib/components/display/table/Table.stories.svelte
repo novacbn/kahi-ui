@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -200,7 +200,7 @@
 </Story>
 
 <Story name="Sizing">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -250,7 +250,7 @@
                 </Table.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="colspan + rowspan">

@@ -4,7 +4,7 @@
 
     import {DEFAULT_CALENDAR} from "../../../util/locale";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import DateStamp from "./DateStamp.svelte";
@@ -33,7 +33,7 @@
 <Story name="Custom Format">
     <Text is="strong">DAY</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_DAY as format (format)}
             <div>
                 <Text>
@@ -45,11 +45,11 @@
                 <DateStamp timestamp={now} day={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">MONTH</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_MONTH as format (format)}
             <div>
                 <Text>
@@ -61,11 +61,11 @@
                 <DateStamp timestamp={now} month={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">WEEKDAY</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_WEEKDAY as format (format)}
             <div>
                 <Text>
@@ -77,11 +77,11 @@
                 <DateStamp timestamp={now} weekday={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">YEAR</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_YEAR as format (format)}
             <div>
                 <Text>
@@ -93,5 +93,5 @@
                 <DateStamp timestamp={now} year={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

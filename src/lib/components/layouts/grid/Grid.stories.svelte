@@ -3,17 +3,19 @@
 
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import * as Grid from "./";
 
     const SPACINGS = [
         ["none", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -23,7 +25,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Grid.Container points={["6", "mobile:3", "tablet:4", "desktop:5"]} spacing="medium">
         <Box palette="alert" style="height:3rem;" />
         <Box palette="affirmative" style="height:3rem;" />
@@ -56,7 +58,7 @@
 </Story>
 
 <Story name="Points">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each new Array(12) as _, index}
             <div>
                 <Text is="strong">{12 - index}</Text>
@@ -82,19 +84,23 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Spacing">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each SPACINGS as [spacing, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each SPACINGS as [spacing, is_default] (spacing)}
             <div>
                 <Text is="strong">
                     {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
                 <Box palette="inverse" padding="small">
-                    <Grid.Container points="3" {spacing} style="width:12rem;">
+                    <Grid.Container
+                        points="3"
+                        spacing={is_default ? undefined : spacing}
+                        style="width:12rem;"
+                    >
                         <Box palette="alert" style="height:3rem;" />
                         <Box palette="affirmative" style="height:3rem;" />
                         <Box palette="negative" style="height:3rem;" />
@@ -106,7 +112,7 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Span">

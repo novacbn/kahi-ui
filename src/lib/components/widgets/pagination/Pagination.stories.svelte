@@ -1,6 +1,6 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Pagination from "./Pagination.svelte";
@@ -55,7 +55,7 @@
 </Story>
 
 <Story name="Steps">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each STEPS as [steps, is_default] (steps)}
             <div>
                 <Text is="strong">
@@ -65,11 +65,11 @@
                 <Pagination pages={10} value={5} palette="accent" {steps} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Palette">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
@@ -79,11 +79,11 @@
                 <Pagination pages={10} value={5} {palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Sizing">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -93,5 +93,5 @@
                 <Pagination pages={10} value={5} palette="accent" {sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

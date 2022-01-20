@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Dot from "./Dot.svelte";
@@ -35,7 +35,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <div>
                 <Text>
@@ -47,11 +47,11 @@
                 <Dot palette={palette === "default" ? undefined : palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Animation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each ANIMATIONS as [animation, is_default]}
             <div>
                 <Text>
@@ -63,5 +63,5 @@
                 <Dot {animation} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

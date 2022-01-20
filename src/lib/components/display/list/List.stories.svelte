@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import * as List from "./index";
@@ -14,7 +14,7 @@
 </Template>
 
 <Story name="Preview">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <div>
             <Text>
                 <Text is="strong">ORDERED</Text>
@@ -38,5 +38,5 @@
                 </List.Container>
             </Text>
         </div>
-    </Stack>
+    </Stack.Container>
 </Story>

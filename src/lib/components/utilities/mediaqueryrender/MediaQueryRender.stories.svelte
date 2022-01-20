@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -15,7 +15,7 @@
 </Template>
 
 <Story name="Preview">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         <MediaQueryRender queries="(min-width: 1280px) and (min-height: 720px)">
             <Box palette="affirmative" padding="small">
                 This is only rendered when the Viewport is at least sHD resolution
@@ -53,5 +53,5 @@
                 </Text> the main interaction device is mouse / stylus.
             </Box>
         </MediaQueryRender>
-    </Stack>
+    </Stack.Container>
 </Story>

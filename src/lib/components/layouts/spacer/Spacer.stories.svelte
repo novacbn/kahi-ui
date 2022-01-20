@@ -4,7 +4,7 @@
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import Spacer from "./Spacer.svelte";
 
@@ -33,7 +33,7 @@
 </Story>
 
 <Story name="Element">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         <div>
             <Text is="strong">DIV / DEFAULT</Text>
 
@@ -53,15 +53,15 @@
                 RIGHT
             </Box>
         </div>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Spacing">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         <div>
             <Text is="strong">DIV / DEFAULT</Text>
 
-            <Stack orientation="horizontal" spacing="medium" variation="wrap">
+            <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
                 {#each SPACINGS as [spacing, is_default]}
                     <div>
                         <Text is="strong">
@@ -75,13 +75,13 @@
                         </Box>
                     </div>
                 {/each}
-            </Stack>
+            </Stack.Container>
         </div>
 
         <div>
             <Text is="strong">SPAN</Text>
 
-            <Stack orientation="horizontal" spacing="medium" variation="wrap">
+            <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
                 {#each SPACINGS as [spacing, is_default]}
                     <div>
                         <Text is="strong">
@@ -95,7 +95,7 @@
                         </Box>
                     </div>
                 {/each}
-            </Stack>
+            </Stack.Container>
         </div>
-    </Stack>
+    </Stack.Container>
 </Story>

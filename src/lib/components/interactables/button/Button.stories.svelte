@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
     import Check from "../check/Check.svelte";
 
@@ -37,49 +37,49 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Button>This is a Button!</Button>
 </Story>
 
 <Story name="State">
     <Text is="strong">DEFAULT</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Button>DEFAULT</Button>
         <Button disabled>DISABLED INACTIVE</Button>
         <Button active>ACTIVE</Button>
         <Button active disabled>DISABLED ACTIVE</Button>
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">OUTLINE</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Button variation="outline">DEFAULT</Button>
         <Button variation="outline" disabled>DISABLED INACTIVE</Button>
         <Button variation="outline" active>ACTIVE</Button>
         <Button variation="outline" active disabled>DISABLED ACTIVE</Button>
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">CLEAR</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Button variation="clear">DEFAULT</Button>
         <Button variation="clear" disabled>DISABLED INACTIVE</Button>
         <Button variation="clear" active>ACTIVE</Button>
         <Button variation="clear" active disabled>DISABLED ACTIVE</Button>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Palette">
     <Text is="strong">DEFAULT</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <Button palette={is_default ? undefined : palette}>
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">SUBTLE</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <Button variation="subtle" palette={is_default ? undefined : palette}>
                 SUBTLE
@@ -87,22 +87,22 @@
                 Button
             </Button>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Outline">
     <Text is="strong">DEFAULT</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <Button variation="outline" palette={is_default ? undefined : palette}>
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">SUBTLE</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <Button variation={["subtle", "outline"]} palette={is_default ? undefined : palette}>
                 SUBTLE
@@ -110,22 +110,22 @@
                 Button
             </Button>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Clear">
     <Text is="strong">DEFAULT</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <Button variation="clear" palette={is_default ? undefined : palette}>
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">SUBTLE</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <Button variation={["subtle", "clear"]} palette={is_default ? undefined : palette}>
                 SUBTLE
@@ -133,22 +133,22 @@
                 Button
             </Button>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SIZES as [sizing, is_default]}
             <Button sizing={is_default ? undefined : sizing}>
                 {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
             </Button>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Type">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         <Button>This is a DEFAULT Button!</Button>
 
         <Button href="https://google.com" target="_blank" rel="noopener noreferrer">
@@ -160,7 +160,7 @@
         <Button value="This is an INPUT Button!" />
         <Button type="submit" value="This is a SUBMIT Button!" />
         <Button type="reset" value="This is a RESET Button!" />
-    </Stack>
+    </Stack.Container>
 
     <Check id="button-type-check" />
 </Story>

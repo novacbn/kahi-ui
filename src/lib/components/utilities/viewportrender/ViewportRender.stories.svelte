@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
 
     import ViewportRender from "./ViewportRender.svelte";
@@ -22,7 +22,7 @@
 </Template>
 
 <Story name="Preview">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each VIEWPORTS as viewport, index (viewport)}
             <ViewportRender {...{[viewport]: true}}>
                 <Box palette={PALETTES[index % PALETTES.length]} padding="small">
@@ -46,5 +46,5 @@
                 I am only visible on {VIEWPORTS_STATIONARY.join(", ").toUpperCase()} Viewports!
             </Box>
         </ViewportRender>
-    </Stack>
+    </Stack.Container>
 </Story>

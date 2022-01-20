@@ -19,7 +19,7 @@
     import * as Table from "../../display/table";
     import Button from "../../interactables/button/Button.svelte";
     import NumberInput from "../../interactables/numberinput/NumberInput.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import TextInput from "../../interactables/textinput/TextInput.svelte";
 
     type IDataTableRow = $$Generic<Record<string, any>>;
@@ -233,7 +233,7 @@
                         <Button
                             disabled={!IS_BROWSER}
                             variation={["subtle", "clear"]}
-                            size={sizing}
+                            {sizing}
                             {palette}
                             on:click={on_sorting_click.bind(null, column.key)}
                         >
@@ -284,7 +284,7 @@
 
                 <Table.Column colspan={columns.length}>
                     {#if paginate}
-                        <Stack
+                        <Stack.Container
                             orientation="horizontal"
                             alignment_x="right"
                             alignment_y="center"
@@ -310,7 +310,7 @@
                             <Button
                                 disabled={_page === 1}
                                 variation={["subtle", "clear"]}
-                                size={sizing}
+                                {sizing}
                                 {palette}
                                 on:click={on_paging_step.bind(null, -1)}
                             >
@@ -320,13 +320,13 @@
                             <Button
                                 disabled={_page === _pages}
                                 variation={["subtle", "clear"]}
-                                size={sizing}
+                                {sizing}
                                 {palette}
                                 on:click={on_paging_step.bind(null, 1)}
                             >
                                 <slot name="next">&gt;</slot>
                             </Button>
-                        </Stack>
+                        </Stack.Container>
                     {/if}
                 </Table.Column>
             </Table.Row>

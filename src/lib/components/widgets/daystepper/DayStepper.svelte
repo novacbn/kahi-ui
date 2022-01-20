@@ -13,7 +13,7 @@
     import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import WidgetButton from "../widget/WidgetButton.svelte";
     import WidgetContainer from "../widget/WidgetContainer.svelte";
     import WidgetHeader from "../widget/WidgetHeader.svelte";
@@ -97,7 +97,7 @@
 </script>
 
 <WidgetContainer {...$$props} bind:element class="day-stepper {_class}">
-    <Stack orientation="horizontal" alignment_y="center">
+    <Stack.Container orientation="horizontal" alignment_y="center">
         <WidgetHeader>
             {_day.toLocaleString(locale ?? DEFAULT_LOCALE, {
                 day: day ?? "2-digit",
@@ -123,5 +123,5 @@
         >
             <slot name="next">&gt;</slot>
         </WidgetButton>
-    </Stack>
+    </Stack.Container>
 </WidgetContainer>

@@ -2,7 +2,7 @@
     import {Temporal} from "@js-temporal/polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import TimeStamp from "./TimeStamp.svelte";
@@ -27,7 +27,7 @@
 </Story>
 
 <Story name="Twelve (12) / Twenty-Four (24) Hour">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         <div>
             <Text>
                 <Text is="strong">12 HOUR</Text>
@@ -55,13 +55,13 @@
                 second="2-digit"
             />
         </div>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Custom Format">
     <Text is="strong">HOUR</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_HOUR as format (format)}
             <div>
                 <Text>
@@ -79,11 +79,11 @@
                 />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">MINUTE</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_MINUTE as format (format)}
             <div>
                 <Text>
@@ -101,11 +101,11 @@
                 />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">SECOND</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_SECOND as format (format)}
             <div>
                 <Text>
@@ -117,5 +117,5 @@
                 <TimeStamp timestamp={now} hour="2-digit" minute="2-digit" second={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

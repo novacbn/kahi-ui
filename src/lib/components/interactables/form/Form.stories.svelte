@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -39,7 +39,7 @@
         <Text is="sup">{check_logic_state}</Text>
     </Text>
 
-    <Stack orientation="horizontal" spacing="small" variation="wrap" margin_top="small">
+    <Stack.Container orientation="horizontal" spacing="small" variation="wrap" margin_top="small">
         <Form.Group name="form-group-check" bind:logic_state={check_logic_state}>
             <Check id="form-group-check-cheese" palette="accent" size="tiny" value="cheese">
                 Cheese
@@ -57,7 +57,7 @@
                 Pineapple
             </Check>
         </Form.Group>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Form.Group Radio">
@@ -66,7 +66,7 @@
         <Text is="sup">{radio_logic_state}</Text>
     </Text>
 
-    <Stack spacing="small" margin_top="small">
+    <Stack.Container spacing="small" margin_top="small">
         <Form.Group logic_name="form-group-radio" bind:logic_state={radio_logic_state}>
             <Radio id="form-group-radio-bubblegum" palette="accent" size="tiny" value="bubblegum">
                 Bubblegum
@@ -80,7 +80,7 @@
                 Vanilla
             </Radio>
         </Form.Group>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Form.Label Group">

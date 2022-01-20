@@ -3,7 +3,7 @@
 
     import Button from "../components/interactables/button/Button.svelte";
     import Spacer from "../components/layouts/spacer/Spacer.svelte";
-    import Stack from "../components/layouts/stack/Stack.svelte";
+    import * as Stack from "../components/layouts/stack";
     import Anchor from "../components/navigation/anchor/Anchor.svelte";
     import Box from "../components/surfaces/box/Box.svelte";
     import Heading from "../components/typography/heading/Heading.svelte";
@@ -109,7 +109,7 @@
 
 <Story name="width">
     <Heading>width</Heading>
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SIZINGS as sizing, index}
             <div>
                 <Text is="strong">{sizing.toUpperCase()}</Text>
@@ -118,10 +118,10 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Heading margin_top="medium">min-width</Heading>
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SIZINGS as sizing, index}
             <div>
                 <Text is="strong">{sizing.toUpperCase()}</Text>
@@ -130,10 +130,10 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Heading margin_top="medium">min-width</Heading>
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SIZINGS as sizing, index}
             <div>
                 <Text is="strong">{sizing.toUpperCase()}</Text>
@@ -142,12 +142,12 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="height">
     <Heading>height</Heading>
-    <Stack orientation="horizontal" spacing="medium">
+    <Stack.Container orientation="horizontal" spacing="medium">
         {#each SIZINGS as sizing, index}
             <div>
                 <Text is="strong">{sizing.toUpperCase()}</Text>
@@ -156,10 +156,10 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Heading margin_top="medium">max-height</Heading>
-    <Stack orientation="horizontal" spacing="medium">
+    <Stack.Container orientation="horizontal" spacing="medium">
         {#each SIZINGS as sizing, index}
             <div>
                 <Text is="strong">{sizing.toUpperCase()}</Text>
@@ -168,10 +168,10 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Heading margin_top="medium">min-height</Heading>
-    <Stack orientation="horizontal" spacing="medium">
+    <Stack.Container orientation="horizontal" spacing="medium">
         {#each SIZINGS as sizing, index}
             <div>
                 <Text is="strong">{sizing.toUpperCase()}</Text>
@@ -180,15 +180,20 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="margin">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each DIRECTIONS as direction}
             <div>
                 <Heading>margin{direction ? `_${direction}` : ""}</Heading>
-                <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+                <Stack.Container
+                    orientation="horizontal"
+                    alignment_y="top"
+                    spacing="medium"
+                    variation="wrap"
+                >
                     {#each SPACINGS as spacing}
                         <Box palette="negative">
                             <Box
@@ -199,18 +204,23 @@
                             </Box>
                         </Box>
                     {/each}
-                </Stack>
+                </Stack.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="padding">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each DIRECTIONS as direction}
             <div>
                 <Heading>padding{direction ? `_${direction}` : ""}</Heading>
-                <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+                <Stack.Container
+                    orientation="horizontal"
+                    alignment_y="top"
+                    spacing="medium"
+                    variation="wrap"
+                >
                     {#each SPACINGS as spacing}
                         <Box
                             palette="accent"
@@ -221,8 +231,8 @@
                             </Box>
                         </Box>
                     {/each}
-                </Stack>
+                </Stack.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

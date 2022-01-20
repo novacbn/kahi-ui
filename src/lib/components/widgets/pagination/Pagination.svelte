@@ -14,7 +14,7 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
 
     type $$Events = {
         select: CustomEvent<{page: number}>;
@@ -91,7 +91,7 @@
     }
 </script>
 
-<Stack
+<Stack.Container
     {...$$props}
     bind:element
     class="pagination {_class}"
@@ -103,7 +103,7 @@
         href={format_href(_prev_value)}
         disabled={_value === _prev_value}
         variation={["subtle", "clear"]}
-        size={sizing}
+        {sizing}
         {palette}
         on:click={on_button_click.bind(null, _prev_value)}
     >
@@ -116,7 +116,7 @@
         href={format_href(1)}
         disabled={value === 1}
         variation={["subtle", "clear"]}
-        size={sizing}
+        {sizing}
         {palette}
         on:click={on_button_click.bind(null, 1)}
     >
@@ -132,7 +132,7 @@
             href={format_href(page)}
             disabled={value === page}
             variation={["subtle", "clear"]}
-            size={sizing}
+            {sizing}
             {palette}
             on:click={on_button_click.bind(null, page)}
         >
@@ -149,7 +149,7 @@
             href={format_href(_pages)}
             disabled={_value === _pages}
             variation={["subtle", "clear"]}
-            size={sizing}
+            {sizing}
             {palette}
             on:click={on_button_click.bind(null, _pages)}
         >
@@ -163,10 +163,10 @@
         href={format_href(_next_value)}
         disabled={_value === _next_value}
         variation={["subtle", "clear"]}
-        size={sizing}
+        {sizing}
         {palette}
         on:click={on_button_click.bind(null, _next_value)}
     >
         <slot name="next">&gt;</slot>
     </Button>
-</Stack>
+</Stack.Container>

@@ -4,7 +4,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Button from "../../interactables/button/Button.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Tile from "./index";
@@ -109,7 +109,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
             <Tile.Container width="content-max" palette={is_default ? undefined : palette}>
                 <Tile.Figure shape="pill">
@@ -129,11 +129,11 @@
                 </Tile.Section>
             </Tile.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Elevation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
             <Tile.Container width="content-max" elevation={is_default ? undefined : elevation}>
                 <Tile.Section>
@@ -149,11 +149,11 @@
                 </Tile.Section>
             </Tile.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <Tile.Container width="content-max" sizing={is_default ? undefined : sizing}>
                 <Tile.Figure shape="pill">
@@ -173,11 +173,11 @@
                 </Tile.Section>
             </Tile.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Footer Orientation">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <Tile.Container width="content-max">
                 <Tile.Section>
@@ -198,11 +198,11 @@
                 </Tile.Footer>
             </Tile.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Footer Spacing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SPACINGS as [spacing, is_default] (spacing)}
             <Tile.Container width="content-max">
                 <Tile.Section>
@@ -223,5 +223,5 @@
                 </Tile.Footer>
             </Tile.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

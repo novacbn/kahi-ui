@@ -9,7 +9,7 @@
     import Text from "../../typography/text/Text.svelte";
 
     import Center from "../center/Center.svelte";
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import Group from "./Group.svelte";
 
@@ -45,7 +45,7 @@
 </Story>
 
 <Story name="Orientation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <div>
                 <Text is="strong">
@@ -61,11 +61,11 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Stacked - Preview">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <div>
                 <Text is="strong">
@@ -95,11 +95,11 @@
                 </Group>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Stacked - Spacing">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SPACINGS as [spacing, is_default] (spacing)}
             <div>
                 <Text is="strong">
@@ -129,5 +129,5 @@
                 </Group>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

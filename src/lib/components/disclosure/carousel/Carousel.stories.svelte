@@ -2,7 +2,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Center from "../../layouts/center/Center.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -54,7 +54,7 @@
 </Story>
 
 <Story name="Orientation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default]}
             <div>
                 <Text is="strong">
@@ -72,11 +72,11 @@
                 </Carousel.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Spacing">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each SPACINGS as [spacing, is_default]}
             <div>
                 <Text is="strong">
@@ -94,5 +94,5 @@
                 </Carousel.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

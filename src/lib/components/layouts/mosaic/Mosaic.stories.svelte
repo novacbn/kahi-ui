@@ -4,7 +4,7 @@
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import Mosaic from "./Mosaic.svelte";
 
@@ -66,7 +66,7 @@
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SIZINGS as [sizing, is_default]}
             <div>
                 <Text is="strong">
@@ -82,11 +82,11 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Spacing">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each SPACINGS as [spacing, is_default]}
             <div>
                 <Text is="strong">
@@ -102,5 +102,5 @@
                 </Box>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

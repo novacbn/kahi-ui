@@ -6,7 +6,7 @@
     import Badge from "../../display/badge/Badge.svelte";
     import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Card from "./index";
@@ -123,7 +123,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
             <Card.Container palette={is_default ? undefined : palette} width="huge">
                 <Card.Figure>
@@ -144,11 +144,11 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Elevation">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
             <Card.Container elevation={is_default ? undefined : elevation} width="huge">
                 <Card.Header>
@@ -165,11 +165,11 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <Card.Container sizing={is_default ? undefined : sizing} width="huge">
                 <Card.Header>
@@ -186,11 +186,11 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Footer - Orientation">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <Card.Container width="huge">
                 <Card.Header>
@@ -212,11 +212,11 @@
                 </Card.Footer>
             </Card.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Footer - Spacing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SPACINGS as [spacing, is_default] (spacing)}
             <Card.Container width="huge">
                 <Card.Header>
@@ -238,5 +238,5 @@
                 </Card.Footer>
             </Card.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

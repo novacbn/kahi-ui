@@ -1,1 +1,2 @@
-export {default as Stack} from "./Stack.svelte";
+export {default as Container} from "./StackContainer.svelte";
+export {default as Item} from "./StackItem.svelte";

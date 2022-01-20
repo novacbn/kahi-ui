@@ -10,4 +10,14 @@
             flex-wrap: wrap;
         }
     }
+
+    .stack-item {
+        display: contents;
+
+        &[data-variation~="stretch"] {
+            & > * {
+                flex-grow: 1;
+            }
+        }
+    }
 }

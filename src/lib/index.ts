@@ -65,7 +65,8 @@ export * from "./components/layouts/mosaic";
 export * from "./components/layouts/position";
 export * from "./components/layouts/scrollable";
 export * from "./components/layouts/spacer";
-export * from "./components/layouts/stack";
+import * as Stack from "./components/layouts/stack";
+export {Stack};
 
 export * from "./components/navigation/anchor";
 import * as Aside from "./components/navigation/aside";

@@ -20,7 +20,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Text is="strong">Anchor</Text>
 
     <Clickable.Container>

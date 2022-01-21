@@ -1,23 +1,33 @@
-.clickable {
-    display: contents;
+@use "../../../../framework/abstracts/variables";
 
-    & > * {
-        position: relative;
+@if not env("DISABLE_COMPONENTS_OVERLAYS_CLICKABLE") {
+    // TODO: Maybe update to use `contain` and do `display: fixed`?
 
-        & :not(.clickable-item):is(a[href], button, input, label[for]) {
+    .clickable {
+        display: contents;
+
+        & > * {
             position: relative;
-            z-index: var(--clickable-content-z-index);
+
+            & :not(.clickable--item):is(a[href], button, input, label[for]) {
+                position: relative;
+                z-index: #{variables.format-var("clickable.interactable.z-index")};
+            }
         }
     }
-}
 
-.clickable-item::before {
-    display: block;
-    position: absolute;
+    .clickable--item {
+        position: static;
 
-    content: "";
+        &::before {
+            display: block;
+            position: absolute;
 
-    inset: 0;
+            content: "";
 
-    z-index: var(--clickable-item-z-index);
+            inset: 0;
+
+            z-index: #{variables.format-var("clickable.item.z-index")};
+        }
+    }
 }

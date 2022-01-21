@@ -1,9 +1,16 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --clickable-content-z-index: 2;
-
-    /** */
-
-    --clickable-item-z-index: 1;
+@if not env("DISABLE_COMPONENTS_OVERLAYS_CLICKABLE") {
+    @include variables.define-variables(
+        (
+            "clickable": (
+                "interactable": (
+                    "z-index": variables.format-var("z-index.inline.content"),
+                ),
+                "item": (
+                    "z-index": variables.format-var("z-index.inline.base"),
+                ),
+            ),
+        )
+    );
 }

@@ -2,7 +2,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Divider from "../../layouts/divider/Divider.svelte";
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
+    import * as Mosaic from "../../layouts/mosaic";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -77,7 +77,7 @@
 </Story>
 
 <Story name="Palette">
-    <Mosaic sizing="medium" spacing="medium">
+    <Mosaic.Container sizing="medium" spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <Aside.Container palette={palette === "default" ? undefined : palette}>
                 <Aside.Header>
@@ -108,7 +108,7 @@
                 </Aside.Footer>
             </Aside.Container>
         {/each}
-    </Mosaic>
+    </Mosaic.Container>
 </Story>
 
 <Story name="Sticky">

@@ -2,7 +2,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Button from "../../interactables/button/Button.svelte";
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
+    import * as Mosaic from "../../layouts/mosaic";
     import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
@@ -74,7 +74,7 @@
             {/each}
         </Stack.Container>
 
-        <Mosaic sizing="medium" spacing="medium">
+        <Mosaic.Container sizing="medium" spacing="medium">
             {#each PALETTES as [palette, is_default] (palette)}
                 <div>
                     <Text is="strong">
@@ -86,7 +86,7 @@
                     <Progress value="0.5" palette={is_default ? undefined : palette} />
                 </div>
             {/each}
-        </Mosaic>
+        </Mosaic.Container>
     </Stack.Container>
 </Story>
 
@@ -106,7 +106,7 @@
             {/each}
         </Stack.Container>
 
-        <Mosaic sizing="medium" spacing="medium">
+        <Mosaic.Container sizing="medium" spacing="medium">
             {#each SIZES as [size, is_default] (size)}
                 <div>
                     <Text is="strong">
@@ -118,7 +118,7 @@
                     <Progress value="0.5" size={is_default ? undefined : size} />
                 </div>
             {/each}
-        </Mosaic>
+        </Mosaic.Container>
     </Stack.Container>
 </Story>
 
@@ -137,7 +137,7 @@
         {/each}
     </Stack.Container>
 
-    <Mosaic sizing="medium" spacing="medium">
+    <Mosaic.Container sizing="medium" spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
@@ -149,5 +149,5 @@
                 <Progress palette={is_default ? undefined : palette} />
             </div>
         {/each}
-    </Mosaic>
+    </Mosaic.Container>
 </Story>

@@ -4,7 +4,7 @@
 
     import Text from "../../typography/text/Text.svelte";
 
-    import Mosaic from "../mosaic/Mosaic.svelte";
+    import * as Mosaic from "../mosaic";
     import * as Stack from "../stack";
 
     import Divider from "./Divider.svelte";
@@ -33,7 +33,7 @@
 </Story>
 
 <Story name="Palette">
-    <Mosaic sizing="large" spacing="medium">
+    <Mosaic.Container sizing="large" spacing="medium">
         {#each PALETTES as [palette, is_default]}
             <div>
                 <Text is="strong">
@@ -43,7 +43,7 @@
                 <Divider {palette} />
             </div>
         {/each}
-    </Mosaic>
+    </Mosaic.Container>
 </Story>
 
 <Story name="Orientation">

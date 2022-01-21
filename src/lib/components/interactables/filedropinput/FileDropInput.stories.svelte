@@ -1,7 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
+    import * as Mosaic from "../../layouts/mosaic";
     import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
@@ -45,7 +45,7 @@
 </Story>
 
 <Story name="Palette">
-    <Mosaic sizing="huge" spacing="medium">
+    <Mosaic.Container sizing="huge" spacing="medium">
         {#each PALETTES as [palette, is_default]}
             <FileDropInput {palette}>
                 <Stack.Container spacing="medium">
@@ -56,5 +56,5 @@
                 </Stack.Container>
             </FileDropInput>
         {/each}
-    </Mosaic>
+    </Mosaic.Container>
 </Story>

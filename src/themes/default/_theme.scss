@@ -299,6 +299,26 @@
 );
 
 /**
+ * NOTE: The below z level tiers are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define-variables(
+    (
+        "z-index": (
+            "inline": (
+                "base": 10,
+                "popover": 19,
+            ),
+            "block": (
+                "base": 20,
+                "overlay": 29,
+            ),
+        ),
+    )
+);
+
+/**
  * NOTE: The below elevation tiers can be renamed or otherwise added / removed as desired
  */
 

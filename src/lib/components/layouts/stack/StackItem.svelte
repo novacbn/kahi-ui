@@ -33,7 +33,7 @@
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="stack-item {_class}"
+    class="stack--item {_class}"
     {...map_data_attributes({
         variation,
     })}

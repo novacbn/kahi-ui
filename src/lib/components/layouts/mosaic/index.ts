@@ -1,1 +1,2 @@
-export {default as Mosaic} from "./Mosaic.svelte";
+export {default as Container} from "./MosaicContainer.svelte";
+export {default as Item} from "./MosaicItem.svelte";

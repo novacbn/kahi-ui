@@ -1,28 +1,15 @@
-@use "../../../../framework/mixins/intrinsics";
-@use "../../../../framework/mixins/spacings";
+@use "../../../../framework/appearances/grid";
 
 @if not env("DISABLE_COMPONENTS_LAYOUTS_GRID") {
     .grid {
-        --grid-alignment-x: initial;
-        --grid-alignment-y: initial;
+        @include grid.var-reset();
 
         --points: initial;
 
-        @include spacings.var-reset();
+        @include grid.base($unit: rem);
 
-        display: grid;
         grid-auto-flow: row dense;
-
-        @include intrinsics.gap-all($unit: rem);
-
-        align-items: var(--grid-alignment-y);
-        justify-content: var(--grid-alignment-x);
-
         grid-template-columns: repeat(var(--points), 1fr);
-
-        & > * {
-            margin: 0;
-        }
     }
 
     .grid--item {

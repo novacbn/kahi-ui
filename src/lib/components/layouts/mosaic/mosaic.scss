@@ -1,22 +1,29 @@
-.mosaic {
-    --grid-alignment-x: initial;
-    --grid-alignment-y: initial;
+@use "../../../../framework/appearances/grid";
 
-    --sizing-content: initial;
+@use "../../../../framework/mixins/sizings";
 
-    --spacing-x: 0;
-    --spacing-y: 0;
+@if not env("DISABLE_COMPONENTS_LAYOUTS_MOSAIC") {
+    .mosaic {
+        @include grid.var-reset();
+        @include sizings.var-reset-size($tier: "block");
 
-    display: grid;
+        @include grid.base($unit: rem);
 
-    gap: var(--spacing-y) var(--spacing-x);
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(calc(var(--sizing-size-block) * 1rem), 1fr)
+        );
+    }
 
-    align-items: var(--grid-alignment-y);
-    justify-content: var(--grid-alignment-x);
+    .mosaic--item {
+        --span-x: 1;
+        --span-y: 1;
 
-    grid-template-columns: repeat(auto-fill, minmax(var(--sizing-content), 1fr));
+        display: contents;
 
-    & > * {
-        margin: 0;
+        & > * {
+            grid-column: span var(--span-x) / span var(--span-x);
+            grid-row: span var(--span-y) / span var(--span-y);
+        }
     }
 }

@@ -1,10 +1,10 @@
-@use "../../../../framework/appearances/stack";
+@use "../../../../framework/appearances/flex";
 
 @if not env("DISABLE_COMPONENTS_LAYOUTS_STACK") {
     .stack {
-        @include stack.var-reset($direction: column);
+        @include flex.var-reset($direction: column);
 
-        @include stack.base($unit: rem);
+        @include flex.base($unit: rem);
 
         &[data-variation~="wrap"] {
             flex-wrap: wrap;

@@ -1,6 +1,6 @@
 @use "../../../../framework/abstracts/transitions";
 
-@use "../../../../framework/appearances/stack";
+@use "../../../../framework/appearances/flex";
 @use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/borders";
@@ -54,14 +54,14 @@
     }
 
     .tile--footer {
-        @include stack.var-reset(
+        @include flex.var-reset(
             $namespace: "tile.footer",
             $direction: row,
             $alignment-x: center,
             $alignment-y: center
         );
 
-        @include stack.base($unit: em);
+        @include flex.base($unit: em);
 
         margin-left: auto;
     }

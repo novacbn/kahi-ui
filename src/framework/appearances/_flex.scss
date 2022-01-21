@@ -1,17 +1,19 @@
+@use "../mixins/intrinsics";
 @use "../mixins/spacings";
 
 @mixin base($unit) {
     display: flex;
-
-    gap: calc(var(--spacing-y) * 1#{$unit}) calc(var(--spacing-x) * 1#{$unit});
+    flex-direction: var(--orientation-direction);
 
     align-items: var(--orientation-align);
     justify-content: var(--orientation-justify);
 
-    flex-direction: var(--orientation-direction);
+    @include intrinsics.gap-all($unit: $unit);
 
     & > * {
         flex-grow: var(--orientation-grow);
+
+        margin: 0;
     }
 }
 

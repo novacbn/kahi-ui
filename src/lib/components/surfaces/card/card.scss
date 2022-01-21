@@ -1,6 +1,6 @@
 @use "../../../../framework/abstracts/transitions";
 
-@use "../../../../framework/appearances/stack";
+@use "../../../../framework/appearances/flex";
 @use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/borders";
@@ -73,14 +73,14 @@
     }
 
     .card--footer {
-        @include stack.var-reset(
+        @include flex.var-reset(
             $namespace: "card.footer",
             $direction: row,
             $alignment-x: flex-end,
             $alignment-y: center
         );
 
-        @include stack.base($unit: rem);
+        @include flex.base($unit: rem);
 
         &:not(:first-child) {
             @include intrinsics.margin-top(

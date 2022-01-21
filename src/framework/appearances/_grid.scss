@@ -1,0 +1,22 @@
+@use "../mixins/intrinsics";
+@use "../mixins/spacings";
+
+@mixin base($unit) {
+    display: grid;
+
+    align-items: var(--grid-alignment-y);
+    justify-content: var(--grid-alignment-x);
+
+    @include intrinsics.gap-all($unit: $unit);
+
+    & > * {
+        margin: 0;
+    }
+}
+
+@mixin var-reset($namespace: null) {
+    --grid-alignment-x: initial;
+    --grid-alignment-y: initial;
+
+    @include spacings.var-reset($namespace: $namespace);
+}

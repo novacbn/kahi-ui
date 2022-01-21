@@ -51,9 +51,9 @@
 }
 
 @mixin background($namespace) {
-    @include colors.background($namespace, $face: "background", $shade: "lighter");
+    @include colors.background($namespace, $face: "background", $shade: "lightest");
 }
 
 @mixin text($namespace) {
-    @include colors.text($namespace, $face: "foreground", $shade: "light");
+    @include colors.text($namespace, $face: "foreground", $shade: "lighter");
 }

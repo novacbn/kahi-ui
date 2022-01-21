@@ -30,7 +30,7 @@
     // out more when used else where as backgrounds
 
     @include colors.background($namespace: "document", $face: "background", $shade: "lighter");
-    @include colors.text($namespace: "document", $face: "foreground", $shade: "light");
+    @include colors.text($namespace: "document", $face: "foreground", $shade: "lighter");
 
     @include text.family($namespace: "document");
     @include text.line-height($namespace: "document");
@@ -42,8 +42,8 @@
 ::selection {
     // NOTE: Should follow the "surface" convention of shading, just with the inverse of faces
 
-    @include colors.background($namespace: "document", $face: "foreground", $shade: "lighter");
-    @include colors.text($namespace: "document", $face: "background", $shade: "light");
+    @include colors.background($namespace: "document", $face: "foreground", $shade: "lightest");
+    @include colors.text($namespace: "document", $face: "background", $shade: "lighter");
 }
 
 * {
@@ -57,7 +57,7 @@
             #{variables.format-var("document.scrollbar.thumb.background.opacity")}
         )
         hsla(
-            #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
+            #{palettes.format-var($name: "auto", $face: "background", $shade: "bolder")},
             #{variables.format-var("document.scrollbar.track.background.opacity")}
         );
 }

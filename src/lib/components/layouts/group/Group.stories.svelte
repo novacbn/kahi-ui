@@ -19,12 +19,12 @@
     ];
 
     const SPACINGS = [
-        ["medium", true],
+        ["large", true],
         ["none", false],
         ["nano", false],
         ["tiny", false],
         ["small", false],
-        ["large", false],
+        ["medium", false],
         ["huge", false],
         ["massive", false],
     ];

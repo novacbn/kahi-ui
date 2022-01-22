@@ -51,11 +51,11 @@
     ];
 
     const SPACINGS = [
-        ["small", true],
+        ["medium", true],
         ["none", false],
         ["nano", false],
         ["tiny", false],
-        ["medium", false],
+        ["small", false],
         ["large", false],
         ["huge", false],
         ["massive", false],
@@ -90,7 +90,7 @@
         </Card.Section>
 
         <Card.Footer>
-            <Button palette="accent">Book Flight</Button>
+            <Button palette="accent" sizing="small">Book Flight</Button>
         </Card.Footer>
     </Card.Container>
 </Story>
@@ -117,7 +117,7 @@
         </Card.Section>
 
         <Card.Footer>
-            <Button palette="accent">Book Flight</Button>
+            <Button palette="accent" sizing="small">Book Flight</Button>
         </Card.Footer>
     </Card.Container>
 </Story>
@@ -207,8 +207,8 @@
                 </Card.Section>
 
                 <Card.Footer orientation={is_default ? undefined : orientation}>
-                    <Button variation="clear">Cancel</Button>
-                    <Button palette="accent">Confirm</Button>
+                    <Button variation="clear" sizing="small">Cancel</Button>
+                    <Button palette="accent" sizing="small">Confirm</Button>
                 </Card.Footer>
             </Card.Container>
         {/each}
@@ -233,8 +233,8 @@
                 </Card.Section>
 
                 <Card.Footer spacing={is_default ? undefined : spacing}>
-                    <Button variation="clear">Cancel</Button>
-                    <Button palette="accent">Confirm</Button>
+                    <Button variation="clear" sizing="small">Cancel</Button>
+                    <Button palette="accent" sizing="small">Confirm</Button>
                 </Card.Footer>
             </Card.Container>
         {/each}

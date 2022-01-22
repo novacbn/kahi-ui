@@ -172,7 +172,7 @@
 @include variables.define-variables(
     (
         "spacings": (
-            "block": sizes.generate-scaling($base: 0.125, $ratio: 2),
+            "block": sizes.generate-scaling($base: 0.125, $ratio: 1.75),
         ),
     )
 );

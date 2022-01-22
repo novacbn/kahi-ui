@@ -14,15 +14,15 @@
                 "color.opacity": 1,
                 "elevation": variables.format-var("elevations.lower"),
                 "margin": (
-                    "x": variables.format-var("spacings.block.medium"),
-                    "y": variables.format-var("spacings.block.medium"),
+                    "x": variables.format-var("spacings.block.large"),
+                    "y": variables.format-var("spacings.block.large"),
                 ),
                 "footer": (
                     "spacing": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.format-var("spacings.block.medium"),
+                        "y": variables.format-var("spacings.block.medium"),
                     ),
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.format-var("spacings.block.large"),
                 ),
                 "header": (
                     "font": (
@@ -30,13 +30,13 @@
                         "weight": bold,
                     ),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.format-var("spacings.block.medium"),
+                        "y": variables.format-var("spacings.block.medium"),
                     ),
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.format-var("spacings.block.large"),
                 ),
                 "section": (
-                    "margin.y": variables.format-var("spacings.block.small"),
+                    "margin.y": variables.format-var("spacings.block.medium"),
                 ),
             ),
         )

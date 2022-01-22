@@ -49,11 +49,11 @@
     ];
 
     const SPACINGS = [
-        ["small", true],
+        ["medium", true],
         ["none", false],
         ["nano", false],
         ["tiny", false],
-        ["medium", false],
+        ["small", false],
         ["large", false],
         ["huge", false],
         ["massive", false],
@@ -81,8 +81,8 @@
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="affirmative" sizing="small">Add Friend</Button>
-            <Button palette="negative" sizing="small">Ban User</Button>
+            <Button palette="affirmative" sizing="tiny">Add Friend</Button>
+            <Button palette="negative" sizing="tiny">Ban User</Button>
         </Tile.Footer>
     </Tile.Container>
 </Story>
@@ -102,8 +102,8 @@
         </Tile.Section>
 
         <Tile.Footer>
-            <Button palette="affirmative" sizing="small">Add Friend</Button>
-            <Button palette="negative" sizing="small">Ban User</Button>
+            <Button palette="affirmative" sizing="tiny">Add Friend</Button>
+            <Button palette="negative" sizing="tiny">Ban User</Button>
         </Tile.Footer>
     </Tile.Container>
 </Story>
@@ -193,8 +193,8 @@
                 </Tile.Section>
 
                 <Tile.Footer orientation={is_default ? undefined : orientation}>
-                    <Button palette="affirmative" sizing="small">Confirm</Button>
-                    <Button palette="negative" sizing="small">Cancel</Button>
+                    <Button palette="affirmative" sizing="tiny">Confirm</Button>
+                    <Button palette="negative" sizing="tiny">Cancel</Button>
                 </Tile.Footer>
             </Tile.Container>
         {/each}
@@ -218,8 +218,8 @@
                 </Tile.Section>
 
                 <Tile.Footer spacing={is_default ? undefined : spacing}>
-                    <Button palette="affirmative" sizing="small">Confirm</Button>
-                    <Button palette="negative" sizing="small">Cancel</Button>
+                    <Button palette="affirmative" sizing="tiny">Confirm</Button>
+                    <Button palette="negative" sizing="tiny">Cancel</Button>
                 </Tile.Footer>
             </Tile.Container>
         {/each}

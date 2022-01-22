@@ -1,7 +1,11 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --container-viewport: var(--sizes-prose);
-
-    --container-padding-x: var(--spacing-root-large);
+@if not env("DISABLE_COMPONENTS_LAYOUTS_CONTAINER") {
+    @include variables.define-variables(
+        (
+            "container": (
+                "padding.x": variables.format-var("spacings.block.huge"),
+            ),
+        )
+    );
 }

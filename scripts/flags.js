@@ -18,6 +18,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-embedded-figure",
     "--disable-components-interactables-button",
     "--disable-components-layouts-center",
+    "--disable-components-layouts-container",
     "--disable-components-layouts-grid",
     "--disable-components-layouts-group",
     "--disable-components-layouts-mosaic",

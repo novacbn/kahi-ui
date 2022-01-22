@@ -29,6 +29,22 @@
         ["huge", false],
         ["massive", false],
     ];
+
+    const RADIUS = [
+        ["none", false],
+        ["nano", false],
+        ["tiny", false],
+        ["small", true],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
+
+    const SHAPES = [
+        ["circle", false],
+        ["pill", false],
+    ];
 </script>
 
 <Meta title="Interactables/Button" />
@@ -70,7 +86,7 @@
 <Story name="Palette">
     <Text is="strong">DEFAULT</Text>
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Button palette={is_default ? undefined : palette}>
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
@@ -80,7 +96,7 @@
 
     <Text is="strong">SUBTLE</Text>
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Button variation="subtle" palette={is_default ? undefined : palette}>
                 SUBTLE
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
@@ -93,7 +109,7 @@
 <Story name="Outline">
     <Text is="strong">DEFAULT</Text>
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Button variation="outline" palette={is_default ? undefined : palette}>
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
@@ -103,7 +119,7 @@
 
     <Text is="strong">SUBTLE</Text>
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Button variation={["subtle", "outline"]} palette={is_default ? undefined : palette}>
                 SUBTLE
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
@@ -116,7 +132,7 @@
 <Story name="Clear">
     <Text is="strong">DEFAULT</Text>
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Button variation="clear" palette={is_default ? undefined : palette}>
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button
@@ -126,7 +142,7 @@
 
     <Text is="strong">SUBTLE</Text>
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <Button variation={["subtle", "clear"]} palette={is_default ? undefined : palette}>
                 SUBTLE
                 {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
@@ -136,9 +152,31 @@
     </Stack.Container>
 </Story>
 
+<Story name="Radius">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each RADIUS as [radius, is_default] (radius)}
+            <Button radius={is_default ? undefined : radius}>
+                {`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                Button
+            </Button>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Shape">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each SHAPES as [shape, is_default] (shape)}
+            <Button shape={is_default ? undefined : shape}>
+                {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                Button
+            </Button>
+        {/each}
+    </Stack.Container>
+</Story>
+
 <Story name="Sizing">
     <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as [sizing, is_default]}
+        {#each SIZES as [sizing, is_default] (sizing)}
             <Button sizing={is_default ? undefined : sizing}>
                 {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button

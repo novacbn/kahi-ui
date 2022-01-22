@@ -4,19 +4,22 @@
 @use "../mixins/borders";
 @use "../mixins/colors";
 @use "../mixins/intrinsics";
-@use "../mixins/palettes";
 @use "../mixins/radius";
 @use "../mixins/sizings";
 @use "../mixins/text";
 
-@mixin base($namespace, $support-loud: false, $support-outline: false) {
-    @include palettes.var-neutral-background();
+@mixin base(
+    $namespace,
+    $alignment-x: center,
+    $alignment-y: center,
+    $support-loud: false,
+    $support-outline: false
+) {
     @include radius.var-reset($namespace: $namespace);
-    @include sizings.var-reset-font($tier: "inline", $namespace: $namespace);
 
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    align-items: #{$alignment-y};
+    justify-content: #{$alignment-x};
 
     position: relative;
 
@@ -26,7 +29,7 @@
     @include radius.all($unit: "rem");
     outline: none !important; // TODO: Remove during accessibility pass
 
-    @include sizings.font($tier: "inline", $unit: rem);
+    @include sizings.font($unit: rem, $tier: "inline");
     @include text.weight($namespace);
     line-height: 1;
 
@@ -99,10 +102,6 @@
 
 @mixin transitions-loud() {
     @include transitions.push(transform, "movement");
-}
-
-@mixin variation-subtle-base($namespace) {
-    @include palettes.var-inherit();
 }
 
 @mixin variation-block-base($namespace, $is-inverse: false) {

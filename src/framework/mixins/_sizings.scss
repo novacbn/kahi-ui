@@ -1,15 +1,29 @@
 @use "../abstracts/variables";
 
-@mixin font($tier, $unit) {
-    font-size: calc(var(--sizing-font-size-#{$tier}) * 1#{$unit});
+@mixin font($unit, $tier: null, $namespace: null) {
+    @if $namespace {
+        font-size: calc(#{variables.format-var("#{$namespace}.font.size")} * 1#{$unit});
+    } @else {
+        font-size: calc(var(--sizing-font-size-#{$tier}) * 1#{$unit});
+    }
 }
 
-@mixin letter-spacing() {
-    line-height: var(--sizing-font-letter-spacing);
+@mixin letter-spacing($unit, $namespace: null) {
+    @if $namespace {
+        letter-spacing: calc(
+            #{variables.format-var("#{$namespace}.font.letter-spacing")} * 1#{$unit}
+        );
+    } @else {
+        letter-spacing: calc(var(--sizing-font-letter-spacing) * 1#{$unit});
+    }
 }
 
-@mixin line-height() {
-    line-height: var(--sizing-font-line-height);
+@mixin line-height($namespace: null) {
+    @if $namespace {
+        line-height: #{variables.format-var("#{$namespace}.font.line-height")};
+    } @else {
+        line-height: var(--sizing-font-line-height);
+    }
 }
 
 @mixin var-reset-font($tier, $namespace: null) {

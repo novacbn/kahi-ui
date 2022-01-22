@@ -24,7 +24,7 @@
 
         @include surface.radius-all();
 
-        @include sizings.font($tier: "inline", $unit: rem);
+        @include sizings.font($unit: rem, $tier: "inline");
 
         @include borders.transitions();
         @include colors.transitions-background();

@@ -1,7 +1,13 @@
 @use "../../../../framework/appearances/button";
 
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+
 @if not env("DISABLE_COMPONENTS_INTERACTABLES_BUTTON") {
     .button {
+        @include palettes.var-neutral-background();
+        @include sizings.var-reset-font($tier: "inline", $namespace: "button");
+
         @include button.base($namespace: "button", $support-loud: true, $support-outline: true);
 
         @include button.state-disabled() {
@@ -19,7 +25,7 @@
         }
 
         &[data-variation~="subtle"]:not([data-palette]) {
-            @include button.variation-subtle-base($namespace: "button.subtle");
+            @include palettes.var-inherit();
         }
 
         &:not([data-variation~="clear"], [data-variation~="outline"]) {

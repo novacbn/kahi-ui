@@ -6,11 +6,11 @@
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/elevations";
+@use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/sizings";
 @use "../../../../framework/mixins/radius";
-@use "../../../../framework/mixins/text";
 
 @if not env("DISABLE_COMPONENTS_SURFACES_TILE") {
     .tile {
@@ -25,7 +25,7 @@
         @include intrinsics.gap-all($namespace: "tile", $unit: em);
         @include surface.radius-all();
 
-        @include sizings.font($unit: rem, $tier: "inline");
+        @include fonts.size($unit: rem, $sizing-tier: "inline");
 
         @include borders.transitions();
         @include colors.transitions-background();
@@ -72,8 +72,8 @@
 
         @include intrinsics.gap-all($namespace: "tile.header", $unit: em);
 
-        @include text.size($namespace: "tile.header", $unit: em);
-        @include text.weight($namespace: "tile.header");
+        @include fonts.size($namespace: "tile.header", $unit: em);
+        @include fonts.weight($namespace: "tile.header");
     }
 
     .tile--section {

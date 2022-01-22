@@ -3,20 +3,19 @@
 
 @use "../mixins/borders";
 @use "../mixins/colors";
+@use "../mixins/fonts";
 @use "../mixins/intrinsics";
 @use "../mixins/radius";
 @use "../mixins/sizings";
-@use "../mixins/text";
 
 @mixin base(
     $namespace,
     $alignment-x: center,
     $alignment-y: center,
     $support-loud: false,
+    $support-radius: false,
     $support-outline: false
 ) {
-    @include radius.var-reset($namespace: $namespace);
-
     display: inline-flex;
     align-items: #{$alignment-y};
     justify-content: #{$alignment-x};
@@ -26,12 +25,11 @@
     @include intrinsics.gap-all($namespace: $namespace, $unit: em);
     @include intrinsics.padding-all($namespace: $namespace, $unit: em);
 
-    @include radius.all($unit: "rem");
     outline: none !important; // TODO: Remove during accessibility pass
 
-    @include sizings.font($unit: rem, $tier: "inline");
-    @include text.weight($namespace);
-    line-height: 1;
+    @include fonts.line-height($support-sizing: true);
+    @include fonts.size($unit: rem, $sizing-tier: "inline");
+    @include fonts.weight($namespace);
 
     text-decoration: none !important;
 
@@ -45,6 +43,10 @@
     @include colors.transitions-opacity();
     @include colors.transitions-text();
 
+    @if ($support-loud) {
+        @include transitions-loud();
+    }
+
     @if ($support-outline) {
         border-color: transparent;
         @include borders.style-all($namespace: $namespace);
@@ -53,8 +55,10 @@
         @include borders.transitions();
     }
 
-    @if ($support-loud) {
-        @include transitions-loud();
+    @if $support-radius {
+        @include radius.all($unit: "rem");
+    } @else {
+        @include radius.all($namespace: $namespace, $unit: "rem");
     }
 
     @include transitions.build();

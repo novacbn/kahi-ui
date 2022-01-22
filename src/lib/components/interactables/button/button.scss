@@ -2,13 +2,21 @@
 
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/radius";
 
 @if not env("DISABLE_COMPONENTS_INTERACTABLES_BUTTON") {
     .button {
         @include palettes.var-neutral-background();
+        @include radius.var-reset($namespace: "button");
         @include sizings.var-reset-font($tier: "inline", $namespace: "button");
+        @include sizings.var-reset-line-height($namespace: "button");
 
-        @include button.base($namespace: "button", $support-loud: true, $support-outline: true);
+        @include button.base(
+            $namespace: "button",
+            $support-loud: true,
+            $support-radius: true,
+            $support-outline: true
+        );
 
         @include button.state-disabled() {
             @include button.disabled($namespace: "button.disabled");

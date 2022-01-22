@@ -10,6 +10,7 @@
                     "width": variables.format-var("sizes.borders.tiny"),
                 ),
                 "font": (
+                    "line-height": variables.format-var("fonts.line-heights.medium"),
                     "size": 1,
                     "weight": bold,
                 ),
@@ -18,8 +19,8 @@
                     "y": variables.format-var("spacings.block.small"),
                 ),
                 "padding": (
-                    "x": variables.format-var("spacings.block.medium"),
-                    "y": variables.format-var("spacings.block.medium"),
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.tiny"),
                 ),
                 "disabled": (
                     "opacity": 0.95,

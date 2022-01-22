@@ -3,7 +3,7 @@
 @use "../abstracts/variables";
 
 @use "../mixins/colors";
-@use "../mixins/text";
+@use "../mixins/fonts";
 
 :root {
     // HACK: Would use `palettes.var-auto-background()`, but then there would
@@ -32,9 +32,9 @@
     @include colors.background($namespace: "document", $face: "background", $shade: "lighter");
     @include colors.text($namespace: "document", $face: "foreground", $shade: "lighter");
 
-    @include text.family($namespace: "document");
-    @include text.line-height($namespace: "document");
-    @include text.size($namespace: "document");
+    @include fonts.family($namespace: "document");
+    @include fonts.line-height($namespace: "document");
+    @include fonts.size($namespace: "document");
 
     @include transitions.build();
 }

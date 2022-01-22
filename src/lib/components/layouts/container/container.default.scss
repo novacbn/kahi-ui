@@ -4,7 +4,7 @@
     @include variables.define-variables(
         (
             "container": (
-                "padding.x": variables.format-var("spacings.block.huge"),
+                "padding.x": variables.format-var("spacings.block.large"),
             ),
         )
     );

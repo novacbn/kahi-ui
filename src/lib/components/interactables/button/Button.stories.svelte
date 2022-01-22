@@ -31,10 +31,10 @@
     ];
 
     const RADIUS = [
+        ["small", true],
         ["none", false],
         ["nano", false],
         ["tiny", false],
-        ["small", true],
         ["medium", false],
         ["large", false],
         ["huge", false],

@@ -7,6 +7,9 @@ import {IS_SERVER} from "../util/environment";
 
 export type IHTMLPaletteStore = Writable<string>;
 
+/**
+ * @deprecated Use `htmlmode` instead.
+ */
 export function htmlpalette(): IHTMLPaletteStore {
     if (IS_SERVER) return readable("") as IHTMLPaletteStore;
 
@@ -47,3 +50,5 @@ export function htmlpalette(): IHTMLPaletteStore {
         },
     };
 }
+
+export const htmlmode = htmlpalette;

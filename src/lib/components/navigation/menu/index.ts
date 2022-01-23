@@ -6,4 +6,12 @@ export {default as Divider} from "./MenuDivider.svelte";
 export {default as Heading} from "./MenuHeading.svelte";
 export {default as Item} from "./MenuItem.svelte";
 export {default as Label} from "./MenuLabel.svelte";
-export {default as SubMenu} from "./MenuSubMenu.svelte";
+
+import _SubMenu from "./MenuSubMenu.svelte";
+
+/**
+ * @deprecated Use `<Menu.Section>` instead.
+ */
+export const SubMenu = _SubMenu;
+
+export const Section = _SubMenu;

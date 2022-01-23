@@ -11,7 +11,7 @@
     import * as Menu from "./";
 
     const PALETTES = [
-        ["default", true],
+        ["subtle", true],
         ["accent", false],
         ["auto", false],
         ["inverse", false],
@@ -26,6 +26,16 @@
         ["vertical", true],
         ["horizontal", false],
     ];
+
+    const SIZINGS = [
+        ["medium", true],
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
 </script>
 
 <Meta title="Navigation/Menu" />
@@ -34,7 +44,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Menu.Container>
         <Menu.Button>
             Dot
@@ -48,6 +58,102 @@
             <span>ICON</span>
         </Menu.Button>
     </Menu.Container>
+</Story>
+
+<Story name="Section">
+    <Menu.Container>
+        <Menu.Heading>DISPLAY</Menu.Heading>
+
+        <Menu.Section>
+            <Menu.Button>
+                Badge
+                <Spacer />
+                <span>ICON</span>
+            </Menu.Button>
+        </Menu.Section>
+
+        <Menu.Heading>FEEDBACK</Menu.Heading>
+
+        <Menu.Section>
+            <Menu.Button>
+                Dot
+                <Spacer />
+                <span>ICON</span>
+            </Menu.Button>
+
+            <Menu.Button>
+                Spinner
+                <Spacer />
+                <span>ICON</span>
+            </Menu.Button>
+        </Menu.Section>
+    </Menu.Container>
+</Story>
+
+<Story name="Divider">
+    <Mosaic.Container sizing="medium" spacing="medium">
+        <div>
+            <Text is="strong">SEPARATOR DIVIDER / DEFAULT</Text>
+
+            <Menu.Container>
+                <Menu.Section>
+                    <Menu.Button>
+                        Badge
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+                </Menu.Section>
+
+                <Menu.Divider />
+
+                <Menu.Section>
+                    <Menu.Button>
+                        Dot
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+
+                    <Menu.Button>
+                        Spinner
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+                </Menu.Section>
+            </Menu.Container>
+        </div>
+
+        <div>
+            <Text is="strong">TEXT DIVIDER</Text>
+
+            <Menu.Container>
+                <Menu.Divider>DISPLAY</Menu.Divider>
+
+                <Menu.Section>
+                    <Menu.Button>
+                        Badge
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+                </Menu.Section>
+
+                <Menu.Divider>FEEDBACK</Menu.Divider>
+
+                <Menu.Section>
+                    <Menu.Button>
+                        Dot
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+
+                    <Menu.Button>
+                        Spinner
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+                </Menu.Section>
+            </Menu.Container>
+        </div>
+    </Mosaic.Container>
 </Story>
 
 <Story name="Label">
@@ -68,103 +174,53 @@
     </Menu.Container>
 </Story>
 
-<Story name="Sub Menu">
-    <Menu.Container>
-        <Menu.Heading>
-            DISPLAY
-            <svelte:fragment slot="sub-menu">
-                <Menu.SubMenu>
-                    <Menu.Button>
-                        Badge
-                        <Spacer />
-                        <span>ICON</span>
-                    </Menu.Button>
-                </Menu.SubMenu>
-            </svelte:fragment>
-        </Menu.Heading>
-
-        <Menu.Heading>
-            FEEDBACK
-
-            <svelte:fragment slot="sub-menu">
-                <Menu.SubMenu>
-                    <Menu.Button>
-                        Dot
-                        <Spacer />
-                        <span>ICON</span>
-                    </Menu.Button>
-
-                    <Menu.Button>
-                        Spinner
-                        <Spacer />
-                        <span>ICON</span>
-                    </Menu.Button>
-                </Menu.SubMenu>
-            </svelte:fragment>
-        </Menu.Heading>
-    </Menu.Container>
-</Story>
-
-<Story name="Text Divider">
-    <Menu.Container>
-        <Menu.Divider>
-            DISPLAY
-            <svelte:fragment slot="sub-menu">
-                <Menu.SubMenu>
-                    <Menu.Button>
-                        Badge
-                        <Spacer />
-                        <span>ICON</span>
-                    </Menu.Button>
-                </Menu.SubMenu>
-            </svelte:fragment>
-        </Menu.Divider>
-
-        <Menu.Divider>
-            FEEDBACK
-
-            <svelte:fragment slot="sub-menu">
-                <Menu.SubMenu>
-                    <Menu.Button>
-                        Dot
-                        <Spacer />
-                        <span>ICON</span>
-                    </Menu.Button>
-
-                    <Menu.Button>
-                        Spinner
-                        <Spacer />
-                        <span>ICON</span>
-                    </Menu.Button>
-                </Menu.SubMenu>
-            </svelte:fragment>
-        </Menu.Divider>
-    </Menu.Container>
-</Story>
-
 <Story name="Palette">
     <Mosaic.Container sizing="medium" spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Menu.Container>
+            <Menu.Container palette={is_default ? undefined : palette}>
                 <Menu.Heading>
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-
-                    <svelte:fragment slot="sub-menu">
-                        <Menu.SubMenu>
-                            <Menu.Button palette={is_default ? undefined : palette} active>
-                                Dot
-                                <Spacer />
-                                <span>ICON</span>
-                            </Menu.Button>
-
-                            <Menu.Button palette={is_default ? undefined : palette}>
-                                Spinner
-                                <Spacer />
-                                <span>ICON</span>
-                            </Menu.Button>
-                        </Menu.SubMenu>
-                    </svelte:fragment>
                 </Menu.Heading>
+
+                <Menu.Section>
+                    <Menu.Button active>
+                        Dot
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+
+                    <Menu.Button>
+                        Spinner
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+                </Menu.Section>
+            </Menu.Container>
+        {/each}
+    </Mosaic.Container>
+</Story>
+
+<Story name="Sizing">
+    <Mosaic.Container sizing="medium" spacing="medium">
+        {#each SIZINGS as [sizing, is_default] (sizing)}
+            <Menu.Container sizing={is_default ? undefined : sizing}>
+                <Menu.Heading>
+                    {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Menu.Heading>
+
+                <Menu.Section>
+                    <Menu.Button active>
+                        Dot
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+
+                    <Menu.Button>
+                        Spinner
+                        <Spacer />
+                        <span>ICON</span>
+                    </Menu.Button>
+                </Menu.Section>
             </Menu.Container>
         {/each}
     </Mosaic.Container>

@@ -1,6 +1,8 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {ISizeProperties} from "../../../types/sizes";
+    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -11,9 +13,12 @@
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLLIElement;
+        element?: HTMLDivElement;
     } & IHTML5Properties &
-        IGlobalProperties;
+        IGlobalProperties &
+        IMarginProperties &
+        IPaddingProperties &
+        ISizeProperties;
 
     type $$Slots = {
         default: {};
@@ -21,11 +26,15 @@
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 </script>
 
-<li
+<div
     bind:this={element}
     {...map_global_attributes($$props)}
+    class="menu--section {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -43,4 +52,4 @@
     on:pointerup
 >
     <slot />
-</li>
+</div>

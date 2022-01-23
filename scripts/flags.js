@@ -25,6 +25,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-layouts-scrollable",
     "--disable-components-layouts-spacer",
     "--disable-components-layouts-stack",
+    "--disable-components-navigation-menu",
     "--disable-components-overlays-clickable",
     "--disable-components-surfaces-box",
     "--disable-components-surfaces-card",

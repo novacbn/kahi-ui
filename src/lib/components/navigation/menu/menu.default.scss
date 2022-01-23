@@ -1,0 +1,54 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_NAVIGATION_MENU") {
+    @include variables.define-variables(
+        (
+            "menu": (
+                "font.size": 1,
+                "spacing": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "item": (
+                    "background.opacity": 0,
+                    "border.radius": variables.format-var("radius.small"),
+                    "color.opacity": 1,
+                    "font": (
+                        "size": 1,
+                        "weight": normal,
+                    ),
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                    "padding": (
+                        "x": variables.format-var("spacings.block.medium"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                    "disabled": (
+                        "opacity": 0.95,
+                    ),
+                    "hover": (
+                        "background.opacity": 0.2,
+                        "color.opacity": 1,
+                    ),
+                    "active": (
+                        "background.opacity": 0.75,
+                        "color.opacity": 1,
+                    ),
+                ),
+                "heading": (
+                    "font": (
+                        "letter-spacing": variables.format-var("fonts.letter-spacings.tiny"),
+                        "size": variables.format-var("fonts.sizes.inline.small"),
+                        "weight": bold,
+                    ),
+                    "opacity": 0.5,
+                ),
+                "section": (
+                    "padding.x": variables.format-var("spacings.block.medium"),
+                ),
+            ),
+        )
+    );
+}

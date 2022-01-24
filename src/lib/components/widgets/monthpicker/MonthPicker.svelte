@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {Temporal} from "../../../vendor/js-temporal";
+    import type {Temporal} from "@js-temporal/polyfill";
     import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";

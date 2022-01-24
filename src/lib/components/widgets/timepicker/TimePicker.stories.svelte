@@ -1,5 +1,5 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal";
+    import {Temporal} from "@js-temporal/polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Stack from "../../layouts/stack/Stack.svelte";

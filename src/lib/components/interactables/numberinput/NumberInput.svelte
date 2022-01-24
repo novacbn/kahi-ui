@@ -43,9 +43,17 @@
 
         characters?: number | string;
 
+        /**
+         * @deprecated Use `<NumberInput alignment_x="...">` instead.
+         */
         align?: PROPERTY_TEXT_ALIGNMENT;
+        alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         palette?: PROPERTY_PALETTE;
+        /**
+         * @deprecated Use `<NumberInput sizing="...">` instead.
+         */
         size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING;
         variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -67,9 +75,17 @@
 
     export let characters: $$Props["characters"] = undefined;
 
+    /**
+     * @deprecated Use `<NumberInput alignment_x="...">` instead.
+     */
     export let align: $$Props["align"] = undefined;
+    export let alignment_x: $$Props["alignment_x"] = undefined;
     export let palette: $$Props["palette"] = undefined;
+    /**
+     * @deprecated Use `<NumberInput sizing="...">` instead.
+     */
     export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
     let _value: string | undefined = value?.toString();
@@ -93,7 +109,12 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     type="text"
-    {...map_data_attributes({align, palette, size, variation})}
+    {...map_data_attributes({
+        align: align ?? alignment_x,
+        palette,
+        size: size ?? sizing,
+        variation,
+    })}
     {...map_attributes({
         disabled,
         id: _id,

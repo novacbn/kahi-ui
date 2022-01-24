@@ -21,6 +21,9 @@
         fit?: PROPERTY_FIT;
         shape?: PROPERTY_SHAPE;
         size?: PROPERTY_SIZING;
+        /**
+         * @deprecated Removed in `0.6.0` for `icon-` prefixed global sizes
+         */
         variation?: "icon";
     } & IHTML5Properties &
         IGlobalProperties &

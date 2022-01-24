@@ -22,7 +22,11 @@
         disabled?: boolean;
 
         palette?: PROPERTY_PALETTE;
+        /**
+         * @deprecated Use `<Popover.Button sizing="...">` instead.
+         */
         size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING;
         variation?: PROPERTY_VARIATION_BUTTON;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -41,7 +45,11 @@
     export let disabled: $$Props["disabled"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
+    /**
+     * @deprecated Use `<Popover.Button sizing="...">` instead.
+     */
     export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
     const _popover_id = CONTEXT_POPOVER_ID.get();
@@ -57,11 +65,11 @@
     {...$$props}
     bind:element
     for={$_popover_id}
+    size={size ?? sizing}
     {actions}
     {active}
     {disabled}
     {palette}
-    {size}
     {variation}
     {tabindex}
     on:click

@@ -56,9 +56,17 @@
         resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
 
+        /**
+         * @deprecated Use `<TextInput alignment_x="...">` instead.
+         */
         align?: PROPERTY_TEXT_ALIGNMENT;
+        alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         palette?: PROPERTY_PALETTE;
+        /**
+         * @deprecated Use `<TextInput sizing="...">` instead.
+         */
         size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING;
         transform?: PROPERTY_TEXT_TRANSFORM;
         variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
@@ -95,9 +103,17 @@
     export let resizable: $$Props["resizable"] = undefined;
     export let spell_check: $$Props["spell_check"] = undefined;
 
+    /**
+     * @deprecated Use `<TextInput alignment_x="...">` instead.
+     */
     export let align: $$Props["align"] = undefined;
+    export let alignment_x: $$Props["alignment_x"] = undefined;
     export let palette: $$Props["palette"] = undefined;
+    /**
+     * @deprecated Use `<TextInput sizing="...">` instead.
+     */
     export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
     export let transform: $$Props["transform"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
@@ -118,7 +134,14 @@
     <textarea
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, palette, resizable, size, transform, variation})}
+        {...map_data_attributes({
+            align: align ?? alignment_x,
+            palette,
+            resizable,
+            size: size ?? sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             cols: characters,
             disabled,
@@ -157,7 +180,13 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="email"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        {...map_data_attributes({
+            align: align ?? alignment_x,
+            palette,
+            size: size ?? sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -196,7 +225,13 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="password"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        {...map_data_attributes({
+            align: align ?? alignment_x,
+            palette,
+            size: size ?? sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -235,7 +270,13 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="search"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        {...map_data_attributes({
+            align: align ?? alignment_x,
+            palette,
+            size: size ?? sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -274,7 +315,13 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="url"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        {...map_data_attributes({
+            align: align ?? alignment_x,
+            palette,
+            size: size ?? sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -313,7 +360,13 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="text"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        {...map_data_attributes({
+            align: align ?? alignment_x,
+            palette,
+            size: size ?? sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,

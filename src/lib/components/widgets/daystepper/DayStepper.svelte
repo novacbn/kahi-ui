@@ -12,10 +12,9 @@
     import {clamp_day, get_daystamp, is_day_in_range} from "../../../util/datetime";
     import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
+    import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import * as Stack from "../../layouts/stack";
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
     import WidgetHeader from "../widget/WidgetHeader.svelte";
 
     const dispatch = createEventDispatcher();
@@ -96,32 +95,38 @@
     $: _step = step ? (typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step)) : 1;
 </script>
 
-<WidgetContainer {...$$props} bind:element class="day-stepper {_class}">
-    <Stack.Container orientation="horizontal" alignment_y="center">
-        <WidgetHeader>
-            {_day.toLocaleString(locale ?? DEFAULT_LOCALE, {
-                day: day ?? "2-digit",
-                month: month ?? "long",
-                weekday: weekday ?? "long",
-            })}
-        </WidgetHeader>
+<StackContainer
+    bind:element
+    {...$$restProps}
+    class="day-stepper {_class}"
+    orientation="horizontal"
+    alignment_y="center"
+>
+    <WidgetHeader>
+        {_day.toLocaleString(locale ?? DEFAULT_LOCALE, {
+            day: day ?? "2-digit",
+            month: month ?? "long",
+            weekday: weekday ?? "long",
+        })}
+    </WidgetHeader>
 
-        <Spacer is="span" />
+    <Spacer is="span" />
 
-        <WidgetButton
-            disabled={disabled || !is_day_in_range(_day, undefined, min)}
-            {palette}
-            on:click={on_day_select.bind(null, _step * -1)}
-        >
-            <slot name="previous">&lt;</slot>
-        </WidgetButton>
+    <Button
+        disabled={disabled || !is_day_in_range(_day, undefined, min)}
+        variation={["subtle", "clear"]}
+        {palette}
+        on:click={on_day_select.bind(null, _step * -1)}
+    >
+        <slot name="previous">&lt;</slot>
+    </Button>
 
-        <WidgetButton
-            disabled={disabled || !is_day_in_range(_day, max)}
-            {palette}
-            on:click={on_day_select.bind(null, _step)}
-        >
-            <slot name="next">&gt;</slot>
-        </WidgetButton>
-    </Stack.Container>
-</WidgetContainer>
+    <Button
+        disabled={disabled || !is_day_in_range(_day, max)}
+        variation={["subtle", "clear"]}
+        {palette}
+        on:click={on_day_select.bind(null, _step)}
+    >
+        <slot name="next">&gt;</slot>
+    </Button>
+</StackContainer>

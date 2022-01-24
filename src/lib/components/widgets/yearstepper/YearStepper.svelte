@@ -12,10 +12,9 @@
     import {clamp_year, get_yearstamp, is_year_in_range} from "../../../util/datetime";
     import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
+    import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import * as Stack from "../../layouts/stack";
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
     import WidgetHeader from "../widget/WidgetHeader.svelte";
 
     const dispatch = createEventDispatcher();
@@ -92,28 +91,34 @@
     $: _year = Temporal.PlainYearMonth.from(value ?? _yearstamp);
 </script>
 
-<WidgetContainer {...$$props} bind:element class="year-stepper {_class}">
-    <Stack.Container orientation="horizontal" alignment_y="center">
-        <WidgetHeader>
-            {_year.toLocaleString(locale ?? DEFAULT_LOCALE, {year: year ?? "numeric"})}
-        </WidgetHeader>
+<StackContainer
+    {...$$restProps}
+    bind:element
+    class="year-stepper {_class}"
+    orientation="horizontal"
+    alignment_y="center"
+>
+    <WidgetHeader>
+        {_year.toLocaleString(locale ?? DEFAULT_LOCALE, {year: year ?? "numeric"})}
+    </WidgetHeader>
 
-        <Spacer is="span" />
+    <Spacer is="span" />
 
-        <WidgetButton
-            disabled={disabled || !is_year_in_range(_year, undefined, min)}
-            {palette}
-            on:click={on_year_select.bind(null, _step * -1)}
-        >
-            <slot name="previous">&lt;</slot>
-        </WidgetButton>
+    <Button
+        disabled={disabled || !is_year_in_range(_year, undefined, min)}
+        variation={["subtle", "clear"]}
+        {palette}
+        on:click={on_year_select.bind(null, _step * -1)}
+    >
+        <slot name="previous">&lt;</slot>
+    </Button>
 
-        <WidgetButton
-            disabled={disabled || !is_year_in_range(_year, max)}
-            {palette}
-            on:click={on_year_select.bind(null, _step)}
-        >
-            <slot name="next">&gt;</slot>
-        </WidgetButton>
-    </Stack.Container>
-</WidgetContainer>
+    <Button
+        disabled={disabled || !is_year_in_range(_year, max)}
+        variation={["subtle", "clear"]}
+        {palette}
+        on:click={on_year_select.bind(null, _step)}
+    >
+        <slot name="next">&gt;</slot>
+    </Button>
+</StackContainer>

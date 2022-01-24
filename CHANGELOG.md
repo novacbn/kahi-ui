@@ -121,6 +121,14 @@
 
                 -   **NOTE**: `<Text alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
 
+-   Deprecated the following Stores / Store Features
+
+    -   `htmlpalette`
+
+        -   **(BREAKING)** Being renamed to `htmlmode` due to theme mode attribute being changed `<html data-palette="dark/light">` -> `<html data-mode="dark/light">`.
+
+            -   **NOTE**: `htmlmode` was made available as an alias in this release, to help with progressively migrating codebases.
+
 ## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features

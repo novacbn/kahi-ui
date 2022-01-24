@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.5.4 - 2022/01/24
 
 -   Upgraded [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) `v0.2.0` -> `v0.3.0`.
 

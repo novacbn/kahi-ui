@@ -18,6 +18,9 @@
 
         is?: "div" | "main";
 
+        /**
+         * @deprecated Removed in `0.6.0` in favor of `viewport-` prefixed `width` / `max_width` globals
+         */
         viewport?: PROPERTY_VIEWPORT_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &

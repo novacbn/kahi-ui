@@ -3,6 +3,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISvelteKitAnchorProperties} from "../../../types/sveltekit";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -30,7 +31,8 @@
 
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
-        IGlobalProperties;
+        IGlobalProperties &
+        ISvelteKitAnchorProperties;
 
     type $$Slots = {
         default: {};

@@ -17,7 +17,11 @@
         element?: HTMLSpanElement;
 
         palette?: PROPERTY_PALETTE;
+        /**
+         * @deprecated Use `<Spinner sizing="...">` instead.
+         */
         size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -29,14 +33,18 @@
     export {_class as class};
 
     export let palette: $$Props["palette"] = undefined;
+    /**
+     * @deprecated Use `<Spinner sizing="...">` instead.
+     */
     export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 </script>
 
 <span
     bind:this={element}
     {...map_global_attributes($$props)}
     class="spinner {_class}"
-    {...map_data_attributes({palette, size})}
+    {...map_data_attributes({palette, size: size ?? sizing})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

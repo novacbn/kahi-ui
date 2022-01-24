@@ -7,6 +7,139 @@
     -   **NOTE**: Fixes Chrome 96+ not working on the datetime Widgets.
     -   **IMPORTANT**: Firefox 96+ is still broken, although with a different issue regarding non-ISO 8601 calendar handling.
 
+-   Deprecated the following Components / Component Features
+
+    -   Embedded
+
+        -   `Figure`
+
+            -   **(BREAKING)** `<Figure variation="icon">` — Being replaced with global `icon-` prefixed `size` property values, e.g. `size="icon-small"`.
+
+    -   Feedback
+
+        -   `Progress`
+
+            -   **(BREAKING)** `<Progress size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Progress sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Spinner sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   **(BREAKING)** `<Button size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Button sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Check`
+
+            -   **(BREAKING)** `<Check size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Check sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `NumberInput`
+
+            -   **(BREAKING)** `<NumberInput align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<NumberInput alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<NumberInput size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<NumberInput sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Radio`
+
+            -   **(BREAKING)** `<Radio size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Radio sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Switch`
+
+            -   **(BREAKING)** `<Switch size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Switch sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `TextInput`
+
+            -   **(BREAKING)** `<TextInput align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<TextInput alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<TextInput sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Layouts
+
+        -   `Container`
+
+            -   **(BREAKING)** `<Container viewport>` — Being replaced with global `viewport-` prefixed `max_width` property values, e.g. `max_width="viewport-mobile"`.
+
+        -   `Mosaic`
+
+            -   **(BREAKING)** `<Mosaic>` — Being converted into a multi-part Component, `<Mosaic.Container>`.
+
+        -   `Stack`
+
+            -   **(BREAKING)** `<Stack>` — Being converted into a multi-part Component, `<Stack.Container>`.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   **(BREAKING)** `<Menu.Divider>` / `<Menu.Heading>` `slot="sub-menu"` — DOM tree structure for `Menu` will be restructured, removing the need for the slot.
+            -   **(BREAKING)** `<Menu.SubMenu>` — Being renamed to Framework-consistent `<Menu.Section>`.
+
+                -   **NOTE**: `<Menu.Section>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   **(BREAKING)** `<Overlay.Button size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Overlay.Button sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Popover`
+
+            -   **(BREAKING)** `<Popover.Button size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Popover.Button sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Typography
+
+        -   `Heading`
+
+            -   **(BREAKING)** `<Heading align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<Heading alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Text`
+
+            -   **(BREAKING)** `<Text align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<Text alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+-   Deprecated the following Stores / Store Features
+
+    -   `htmlpalette`
+
+        -   **(BREAKING)** Being renamed to `htmlmode` due to theme mode attribute being changed `<html data-palette="dark/light">` -> `<html data-mode="dark/light">`.
+
+            -   **NOTE**: `htmlmode` was made available as an alias in this release, to help with progressively migrating codebases.
+
+-   Updated the following Components / Component Features
+
+    -   `*`
+
+        -   `<* sveltekit:noscroll={boolean} sveltekit:prefetch={boolean}>` — Added missing typings.
+
 ## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features

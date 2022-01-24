@@ -36,8 +36,12 @@
         state?: boolean;
         value?: string;
 
-        palette?: PROPERTY_PALETTE;
+        palette?: PROPERTY_PALETTE
+        /**
+         * @deprecated Use `<Switch sizing="...">` instead.
+         */;
         size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -58,7 +62,11 @@
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;
+    /**
+     * @deprecated Use `<Switch sizing="...">` instead.
+     */
     export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
     const _form_id = CONTEXT_FORM_ID.get();
     const _form_name = CONTEXT_FORM_NAME.get();
@@ -87,7 +95,7 @@
                 {...map_global_attributes($$props)}
                 type="checkbox"
                 role="switch"
-                {...map_data_attributes({palette, size})}
+                {...map_data_attributes({palette, size: size ?? sizing})}
                 {...map_aria_attributes({pressed: active})}
                 {...map_attributes({
                     disabled,
@@ -125,7 +133,7 @@
         {...map_global_attributes($$props)}
         type="checkbox"
         role="switch"
-        {...map_data_attributes({palette, size})}
+        {...map_data_attributes({palette, size: size ?? sizing})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
             disabled,

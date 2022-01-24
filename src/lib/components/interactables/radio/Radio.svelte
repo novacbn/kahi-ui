@@ -38,7 +38,11 @@
         value?: string;
 
         palette?: PROPERTY_PALETTE;
+        /**
+         * @deprecated Use `<Radio sizing="...">` instead.
+         */
         size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING;
         variation?: PROPERTY_VARIATION_TOGGLE;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -60,7 +64,11 @@
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;
+    /**
+     * @deprecated Use `<Radio sizing="...">` instead.
+     */
     export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
     const _form_id = CONTEXT_FORM_ID.get();
@@ -89,7 +97,7 @@
                 bind:this={element}
                 {...map_global_attributes($$props)}
                 type="radio"
-                {...map_data_attributes({palette, size, variation})}
+                {...map_data_attributes({palette, size: size ?? sizing, variation})}
                 {...map_aria_attributes({pressed: active})}
                 {...map_attributes({
                     disabled,
@@ -126,7 +134,7 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="radio"
-        {...map_data_attributes({palette, size, variation})}
+        {...map_data_attributes({palette, size: size ?? sizing, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
             disabled,

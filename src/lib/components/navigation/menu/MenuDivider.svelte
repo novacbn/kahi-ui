@@ -18,6 +18,9 @@
     type $$Slots = {
         default: {};
 
+        /**
+         * @deprecated `Menu` DOM structure is being updated in `0.6.0`, removing need for `sub-menu` slot.
+         */
         "sub-menu": {};
     };
 

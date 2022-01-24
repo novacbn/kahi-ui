@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Upgraded [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) `v0.2.0` -> `v0.3.0`.
+
+    -   **NOTE**: Fixes Chrome 96+ not working on the datetime Widgets.
+    -   **IMPORTANT**: Firefox 96+ is still broken, although with a different issue regarding non-ISO 8601 calendar handling.
+
 ## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features

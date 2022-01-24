@@ -30,7 +30,11 @@
 
         palette?: PROPERTY_PALETTE;
         shape?: "circle";
+        /**
+         * @deprecated Use `<Progress sizing="...">` instead.
+         */
         size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -44,7 +48,11 @@
 
     export let palette: $$Props["palette"] = undefined;
     export let shape: $$Props["shape"] = undefined;
+    /**
+     * @deprecated Use `<Progress sizing="...">` instead.
+     */
     export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 </script>
 
 <div
@@ -55,7 +63,7 @@
     })}
     role="progressbar"
     {...map_aria_attributes({valuemax: 1, valuemin: 0, valuenow: value})}
-    {...map_data_attributes({palette, size})}
+    {...map_data_attributes({palette, size: size ?? sizing})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

@@ -129,6 +129,12 @@
 
             -   **NOTE**: `htmlmode` was made available as an alias in this release, to help with progressively migrating codebases.
 
+-   Updated the following Components / Component Features
+
+    -   `*`
+
+        -   `<* sveltekit:noscroll={boolean} sveltekit:prefetch={boolean}>` — Added missing typings.
+
 ## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features

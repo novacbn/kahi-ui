@@ -2,10 +2,12 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Button from "../../interactables/button/Button.svelte";
+    import NumberInput from "../../interactables/numberinput/NumberInput.svelte";
     import Box from "../../surfaces/box/Box.svelte";
 
     import Animation from "./Animation.svelte";
 
+    let iterations = 0;
     let variation = "play";
 
     function on_variation_click(event) {
@@ -89,7 +91,15 @@
     </Animation>
 </Story>
 
-<Story name="Iterations">...</Story>
+<Story name="Iterations">
+    <NumberInput bind:value={iterations} />
+
+    <Animation animation="bounce" {iterations}>
+        <Box palette="inverse" padding="small" max_width="content-max">
+            I booouunce, I bounce so far awaaaaaay~!
+        </Box>
+    </Animation>
+</Story>
 
 <Story name="Bounce">
     <Animation animation="bounce">

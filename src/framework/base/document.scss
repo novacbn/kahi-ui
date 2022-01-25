@@ -2,6 +2,8 @@
 @use "../abstracts/transitions";
 @use "../abstracts/variables";
 
+@use "../appearances/surface";
+
 @use "../mixins/colors";
 @use "../mixins/fonts";
 
@@ -30,7 +32,7 @@
     // out more when used else where as backgrounds
 
     @include colors.background($namespace: "document", $face: "background", $shade: "lighter");
-    @include colors.text($namespace: "document", $face: "foreground", $shade: "lighter");
+    @include surface.text($namespace: "document");
 
     @include fonts.family($namespace: "document");
     @include fonts.line-height($namespace: "document");
@@ -40,10 +42,8 @@
 }
 
 ::selection {
-    // NOTE: Should follow the "surface" convention of shading, just with the inverse of faces
-
-    @include colors.background($namespace: "document", $face: "foreground", $shade: "lightest");
-    @include colors.text($namespace: "document", $face: "background", $shade: "lighter");
+    @include surface.background($namespace: "document", $is-inverse: true);
+    @include surface.text($namespace: "document", $is-inverse: true);
 }
 
 * {
@@ -65,24 +65,24 @@
 ::-webkit-scrollbar {
     width: calc(
         #{variables.format-var("document.scrollbar.webkit.size")} + (#{variables.format-var(
-                        "document.scrollbar.thumb.padding"
+                        "document.scrollbar.track.padding"
                     )} * 1rem)
     );
     height: calc(
         #{variables.format-var("document.scrollbar.webkit.size")} + (#{variables.format-var(
-                        "document.scrollbar.thumb.padding"
+                        "document.scrollbar.track.padding"
                     )} * 1rem)
     );
 }
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
-    border: calc(variables.format-var("document.scrollbar.thumb.padding") * 1rem) solid
+    border: calc(variables.format-var("document.scrollbar.track.padding") * 1rem) solid
         rgba(255, 255, 255, 0);
 }
 
 ::-webkit-scrollbar-track {
     background-color: hsla(
-        #{palettes.format-var($name: "auto", $face: "background", $shade: "bolder")},
+        #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
         #{variables.format-var("document.scrollbar.track.background.opacity")}
     );
 }

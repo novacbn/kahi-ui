@@ -50,10 +50,18 @@
     @include radius.top($unit: rem);
 }
 
-@mixin background($namespace) {
-    @include colors.background($namespace, $face: "background", $shade: "lightest");
+@mixin background($namespace, $is-inverse: false) {
+    @include colors.background(
+        $namespace,
+        if($is-inverse, "foreground", "background"),
+        $shade: "lightest"
+    );
 }
 
-@mixin text($namespace) {
-    @include colors.text($namespace, $face: "foreground", $shade: "lighter");
+@mixin text($namespace, $is-inverse: false) {
+    @include colors.text(
+        $namespace,
+        $face: if($is-inverse, "background", "foreground"),
+        $shade: "light"
+    );
 }

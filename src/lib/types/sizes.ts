@@ -1,4 +1,4 @@
-import type {LiteralEnum} from "./util";
+import type {LiteralObject} from "./util";
 import type {BreakpointEnum} from "./viewports";
 
 /**
@@ -47,7 +47,7 @@ export const TOKENS_SIZE = {
     widescreen: "widescreen",
 } as const;
 
-export type PROPERTY_SIZE = LiteralEnum<keyof typeof TOKENS_SIZE>;
+export type PROPERTY_SIZE = LiteralObject<typeof TOKENS_SIZE>;
 
 export type PROPERTY_SIZE_BREAKPOINT = BreakpointEnum<keyof typeof TOKENS_SIZE>;
 

@@ -1,4 +1,4 @@
-import type {LiteralEnum} from "./util";
+import type {LiteralEnum, LiteralObject} from "./util";
 
 /**
  * Represents the valid loading behaviors that can be applied to Framework Components
@@ -52,10 +52,8 @@ export type PROPERTY_BEHAVIOR_TRANSITION = LiteralEnum<TOKENS_BEHAVIOR_TRANSITIO
 
 export type PROPERTY_BEHAVIOR_LOADING = LiteralEnum<TOKENS_BEHAVIOR_LOADING>;
 
-export type PROPERTY_BEHAVIOR_LOADING_EAGER = LiteralEnum<
-    keyof typeof TOKENS_BEHAVIOR_LOADING_EAGER
->;
+export type PROPERTY_BEHAVIOR_LOADING_EAGER = LiteralObject<typeof TOKENS_BEHAVIOR_LOADING_EAGER>;
 
-export type PROPERTY_BEHAVIOR_LOADING_LAZY = LiteralEnum<keyof typeof TOKENS_BEHAVIOR_LOADING_LAZY>;
+export type PROPERTY_BEHAVIOR_LOADING_LAZY = LiteralObject<typeof TOKENS_BEHAVIOR_LOADING_LAZY>;
 
 export type PROPERTY_BEHAVIOR_TOGGLE = LiteralEnum<TOKENS_BEHAVIOR_TOGGLE>;

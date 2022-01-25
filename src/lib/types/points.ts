@@ -1,4 +1,4 @@
-import type {LiteralEnum} from "./util";
+import type {LiteralObject} from "./util";
 import type {BreakpointEnum} from "./viewports";
 
 /**
@@ -19,6 +19,6 @@ export const TOKENS_POINTS = {
     "12": "12",
 } as const;
 
-export type PROPERTY_POINTS = LiteralEnum<keyof typeof TOKENS_POINTS>;
+export type PROPERTY_POINTS = LiteralObject<typeof TOKENS_POINTS>;
 
 export type PROPERTY_POINTS_BREAKPOINT = BreakpointEnum<PROPERTY_POINTS>;

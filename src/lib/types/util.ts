@@ -14,3 +14,8 @@ export type DelimitEnum<Delimits extends string, Values extends string> = ArrayE
  * @private
  */
 export type LiteralEnum<T extends string> = `${T}`;
+
+/**
+ * @private
+ */
+export type LiteralObject<T extends Record<string, boolean | number | string>> = `${T[keyof T]}`;

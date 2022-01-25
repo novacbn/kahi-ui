@@ -1,10 +1,8 @@
 <script lang="ts">
-    import type {PROPERTY_BEHAVIOR_TRANSITION} from "../../../types/behaviors";
-    import type {PROPERTY_DIRECTIONS} from "../../../types/directions";
+    import type {PROPERTY_ANIMATION_NAMES} from "../../../types/animations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
-    import type {PROPERTY_TRANSITION_NAMES} from "../../../types/transitions";
-    import type {PROPERTY_VARIATION_TRANSITION} from "../../../types/variations";
+    import type {PROPERTY_VARIATION_ANIMATION} from "../../../types/variations";
 
     import {
         format_css_variables,
@@ -16,21 +14,16 @@
         animationend: AnimationEvent;
 
         animationstart: AnimationEvent;
-
-        transitionend: TransitionEvent;
-
-        transitionstart: TransitionEvent;
     };
 
     type $$Props = {
         element?: HTMLDivElement;
 
-        animation: PROPERTY_TRANSITION_NAMES;
-        behavior?: PROPERTY_BEHAVIOR_TRANSITION;
+        animation: PROPERTY_ANIMATION_NAMES;
         delay?: number | string;
         duration?: number | string;
-        direction?: PROPERTY_DIRECTIONS;
-        variation?: PROPERTY_VARIATION_TRANSITION;
+        iterations?: number | string;
+        variation?: PROPERTY_VARIATION_ANIMATION;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -46,20 +39,19 @@
     export {_class as class};
 
     export let animation: $$Props["animation"];
-    export let behavior: $$Props["behavior"] = undefined;
     export let delay: $$Props["delay"] = undefined;
     export let duration: $$Props["duration"] = undefined;
-    export let direction: $$Props["direction"] = undefined;
+    export let iterations: $$Props["iterations"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
-    $: _variables = format_css_variables({delay, duration});
+    $: _variables = format_css_variables({delay, duration, iterations});
 </script>
 
 <div
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="transition {_class}"
-    {...map_data_attributes({animation, behavior, direction, variation})}
+    class="animation {_class}"
+    {...map_data_attributes({animation, variation})}
     on:animationend
     on:animationstart
     on:transitionend

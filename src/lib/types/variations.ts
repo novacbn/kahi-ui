@@ -1,6 +1,13 @@
 import type {ArrayEnum, LiteralEnum, LiteralObject} from "./util";
 
-import type {ArrayEnum, LiteralEnum} from "./util";
+/**
+ * Represents the tiers of animation variation tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_ANIMATION {
+    enter = "enter",
+
+    exit = "exit",
+}
 
 /**
  * Represents the tiers of flex variations tokens that can be applied to Framework Components
@@ -90,6 +97,8 @@ export enum TOKENS_VARIATION_TABLE {
 export const TOKENS_VARIATION_TOGGLE = {
     [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
 } as const;
+
+export type PROPERTY_VARIATION_ANIMATION = LiteralEnum<TOKENS_VARIATION_ANIMATION>;
 
 export type PROPERTY_VARIATION_BUTTON =
     | `${TOKENS_VARIATION_FILL.subtle}`

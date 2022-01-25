@@ -101,6 +101,7 @@ export * from "./components/typography/code";
 export * from "./components/typography/heading";
 export * from "./components/typography/text";
 
+export * from "./components/utilities/animation";
 export * from "./components/utilities/browserrender";
 export * from "./components/utilities/intersectionrender";
 export * from "./components/utilities/mediaqueryrender";

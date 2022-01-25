@@ -7,8 +7,8 @@
 
     display: inline-block;
 
-    animation-duration: calc(var(--animation-duration) * var(--duration));
     animation-delay: calc(var(--animation-duration) * var(--delay));
+    animation-duration: calc(var(--animation-duration) * var(--duration));
     animation-iteration-count: var(--iterations);
 
     &:is(:not([data-variation]), [data-variation~="play"]) {

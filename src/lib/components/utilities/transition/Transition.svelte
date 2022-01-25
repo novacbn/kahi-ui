@@ -23,7 +23,9 @@
     };
 
     type $$Props = {
-        element?: HTMLDivElement;
+        element?: HTMLDivElement | HTMLSpanElement;
+
+        is?: "div" | "span";
 
         animation: PROPERTY_TRANSITION_NAMES;
         behavior?: PROPERTY_BEHAVIOR_TRANSITION;
@@ -42,8 +44,9 @@
 
     let _class: $$Props["class"] = "";
     export let style: $$Props["style"] = "";
-
     export {_class as class};
+
+    export let is: $$Props["is"] = undefined;
 
     export let animation: $$Props["animation"];
     export let behavior: $$Props["behavior"] = undefined;
@@ -55,16 +58,32 @@
     $: _variables = format_css_variables({delay, duration});
 </script>
 
-<div
-    bind:this={element}
-    {...map_global_attributes($$props)}
-    class="transition {_class}"
-    {...map_data_attributes({animation, behavior, direction, variation})}
-    on:animationend
-    on:animationstart
-    on:transitionend
-    on:transitionstart
-    style={_variables ? `${style}${_variables};` : style}
->
-    <slot />
-</div>
+{#if is === "span"}
+    <span
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        class="transition {_class}"
+        {...map_data_attributes({animation, behavior, direction, variation})}
+        on:animationend
+        on:animationstart
+        on:transitionend
+        on:transitionstart
+        style={_variables ? `${style}${_variables};` : style}
+    >
+        <slot />
+    </span>
+{:else}
+    <div
+        bind:this={element}
+        {...map_global_attributes($$props)}
+        class="transition {_class}"
+        {...map_data_attributes({animation, behavior, direction, variation})}
+        on:animationend
+        on:animationstart
+        on:transitionend
+        on:transitionstart
+        style={_variables ? `${style}${_variables};` : style}
+    >
+        <slot />
+    </div>
+{/if}

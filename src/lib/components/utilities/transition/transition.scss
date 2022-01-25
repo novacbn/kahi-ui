@@ -168,6 +168,10 @@
     }
 }
 
+span.transition {
+    display: inline-block;
+}
+
 .transition:not([data-behavior]) {
     animation: var(--animation-name) var(--animation-duration) var(--animation-function)
         var(--animation-delay) both;

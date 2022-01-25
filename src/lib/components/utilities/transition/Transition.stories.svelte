@@ -3,7 +3,9 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import * as Grid from "../../layouts/grid";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
+    import Text from "../../typography/text/Text.svelte";
 
     import Transition from "./Transition.svelte";
 
@@ -12,6 +14,11 @@
         ["left", false],
         ["right", false],
         ["top", false],
+    ];
+
+    const IS = [
+        ["div", true],
+        ["span", false],
     ];
 
     let hidden = false;
@@ -82,6 +89,24 @@
     <Transition animation="clip" duration={3.25} {variation}>
         <Box palette="inverse" padding="small">hello world!</Box>
     </Transition>
+</Story>
+
+<Story name="Elements">
+    <Button on:click={on_variation_click}>Toggle Variation</Button>
+
+    <Stack.Container spacing="medium" orientation="horizontal" variation="wrap">
+        {#each IS as [is, is_default] (is)}
+            <div>
+                <Text is="strong">
+                    {`${is.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <Transition is={is_default ? undefined : is} animation="clip" {variation}>
+                    <Box palette="inverse" padding="medium">hello world!</Box>
+                </Transition>
+            </div>
+        {/each}
+    </Stack.Container>
 </Story>
 
 <Story name="Clip - Preview">

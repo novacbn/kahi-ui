@@ -5,8 +5,6 @@
     --duration: 1;
     --iterations: infinite;
 
-    display: inline-block;
-
     animation-delay: calc(var(--animation-duration) * var(--delay));
     animation-duration: calc(var(--animation-duration) * var(--duration));
     animation-iteration-count: var(--iterations);
@@ -38,6 +36,10 @@
         animation-name: animation-pulse;
         animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
     }
+}
+
+span.animation {
+    display: inline-block;
 }
 
 /**!
@@ -73,6 +75,7 @@
         transform: translateY(-25%);
         animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
     }
+
     50% {
         transform: translateY(0);
         animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -84,6 +87,7 @@
         transform: scale(1);
         opacity: 1;
     }
+
     75%,
     100% {
         transform: scale(2);
@@ -96,6 +100,7 @@
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }

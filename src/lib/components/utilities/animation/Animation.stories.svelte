@@ -3,9 +3,16 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import NumberInput from "../../interactables/numberinput/NumberInput.svelte";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
+    import Text from "../../typography/text/Text.svelte";
 
     import Animation from "./Animation.svelte";
+
+    const IS = [
+        ["div", true],
+        ["span", false],
+    ];
 
     let iterations = 0;
     let variation = "play";
@@ -99,6 +106,24 @@
             I booouunce, I bounce so far awaaaaaay~!
         </Box>
     </Animation>
+</Story>
+
+<Story name="Elements">
+    <Stack.Container spacing="medium" orientation="horizontal" variation="wrap">
+        {#each IS as [is, is_default] (is)}
+            <div>
+                <Text is="strong">
+                    {`${is.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <Animation is={is_default ? undefined : is} animation="bounce">
+                    <Box palette="inverse" padding="small" max_width="content-max">
+                        I booouunce, I bounce so far awaaaaaay~!
+                    </Box>
+                </Animation>
+            </div>
+        {/each}
+    </Stack.Container>
 </Story>
 
 <Story name="Bounce">

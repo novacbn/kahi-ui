@@ -255,13 +255,16 @@
 
 /**
  * NOTE: The below easings can be renamed or otherwise added / removed as desired
+ *
+ * SOURCE: https://easings.net
  */
 
 @include variables.define-variables(
     (
         "easings": (
             "unknown": cubic-bezier(0.4, 0, 0.6, 1),
-            "ease-out-quad": cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            "ease-out-quad": cubic-bezier(0.5, 1, 0.89, 1),
+            "ease-in-out-cubic": cubic-bezier(0.65, 0, 0.35, 1),
         ),
     )
 );
@@ -287,7 +290,7 @@
             "reveal":
                 animations.generate-tier(
                     $duration: 0.3s,
-                    $function: variables.format-var("easings.ease-out-quad")
+                    $function: variables.format-var("easings.ease-in-out-cubic")
                 ),
             "visual":
                 animations.generate-tier(

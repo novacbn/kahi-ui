@@ -1,13 +1,160 @@
+@use "../../../../framework/abstracts/variables";
+
+@mixin animation-clip {
+    &[data-animation~="clip"] {
+        @content;
+    }
+}
+
+@mixin animation-fade {
+    &[data-animation~="fade"] {
+        @content;
+    }
+}
+
+@mixin animation-scale {
+    &[data-animation~="scale"] {
+        @content;
+    }
+}
+
+@mixin animation-slide {
+    &[data-animation~="slide"] {
+        @content;
+    }
+}
+
+@mixin animation-var-directional($name) {
+    @include direction-bottom() {
+        --animation-enter: transition-#{$name}-bottom-enter;
+        --animation-exit: transition-#{$name}-bottom-exit;
+    }
+
+    @include direction-left() {
+        --animation-enter: transition-#{$name}-left-enter;
+        --animation-exit: transition-#{$name}-left-exit;
+    }
+
+    @include direction-right() {
+        --animation-enter: transition-#{$name}-right-enter;
+        --animation-exit: transition-#{$name}-right-exit;
+    }
+
+    @include direction-top() {
+        --animation-enter: transition-#{$name}-top-enter;
+        --animation-exit: transition-#{$name}-top-exit;
+    }
+}
+
+@mixin animation-var-singular($name) {
+    --animation-enter: transition-#{$name}-enter;
+    --animation-exit: transition-#{$name}-exit;
+}
+
+@mixin direction-bottom() {
+    &:is(:not([data-direction]), [data-direction="bottom"]) {
+        @content;
+    }
+}
+
+@mixin direction-left() {
+    &[data-direction="left"] {
+        @content;
+    }
+}
+
+@mixin direction-right() {
+    &[data-direction="right"] {
+        @content;
+    }
+}
+
+@mixin direction-top() {
+    &[data-direction="top"] {
+        @content;
+    }
+}
+
+@mixin keyframes-clip($direction, $clip-path) {
+    @keyframes transition-clip-#{$direction}-enter {
+        0% {
+            clip-path: inset(#{$clip-path});
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 1;
+        }
+
+        100% {
+            clip-path: inset(-10% -10% -10% -10%);
+            opacity: 1;
+        }
+    }
+
+    @keyframes transition-clip-#{$direction}-exit {
+        0% {
+            clip-path: inset(-10% -10% -10% -10%);
+            opacity: 1;
+        }
+
+        25% {
+            opacity: 1;
+        }
+
+        100% {
+            clip-path: inset(#{$clip-path});
+            opacity: 0;
+        }
+    }
+}
+
+@mixin keyframes-slide($direction, $translation) {
+    @keyframes transition-slide-#{$direction}-enter {
+        0% {
+            transform: translate(#{$translation});
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(0%, 0%);
+            opacity: 1;
+        }
+    }
+
+    @keyframes transition-slide-#{$direction}-exit {
+        0% {
+            transform: translate(0%, 0%);
+            opacity: 1;
+        }
+
+        25% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(#{$translation});
+            opacity: 0;
+        }
+    }
+}
+
 .transition {
     --delay: 0;
     --duration: 1;
 
     --animation-name: unset;
-    --animation-duration: calc(var(--animation-reveal-duration) * var(--duration));
-    --animation-delay: calc(var(--animation-reveal-duration) * var(--delay));
+    --animation-duration: calc(
+        #{variables.format-var("animations.reveal.duration")} * var(--duration)
+    );
+    --animation-delay: calc(#{variables.format-var("animations.reveal.duration")} * var(--delay));
     --animation-enter: unset;
     --animation-exit: unset;
-    --animation-function: var(--animation-reveal-function);
+    --animation-function: #{variables.format-var("animations.reveal.function")};
     --animation-visible: 1;
 
     &[data-variation~="enter"] {
@@ -25,63 +172,29 @@
     animation: var(--animation-name) var(--animation-duration) var(--animation-function)
         var(--animation-delay) both;
 
-    &[data-animation~="clip"] {
-        &:is(:not([data-direction]), [data-direction="bottom"]) {
-            --animation-enter: transition-clip-bottom-enter;
-            --animation-exit: transition-clip-bottom-exit;
-        }
-
-        &[data-direction="top"] {
-            --animation-enter: transition-clip-top-enter;
-            --animation-exit: transition-clip-top-exit;
-        }
-
-        &[data-direction="left"] {
-            --animation-enter: transition-clip-left-enter;
-            --animation-exit: transition-clip-left-exit;
-        }
-
-        &[data-direction="right"] {
-            --animation-enter: transition-clip-right-enter;
-            --animation-exit: transition-clip-right-exit;
-        }
+    @include animation-clip() {
+        @include animation-var-directional($name: "clip");
     }
 
-    &[data-animation~="fade"] {
-        --animation-enter: transition-fade-enter;
-        --animation-exit: transition-fade-exit;
+    @include animation-fade() {
+        @include animation-var-singular($name: "fade");
     }
 
-    &[data-animation~="scale"] {
-        --animation-enter: transition-scale-enter;
-        --animation-exit: transition-scale-exit;
+    @include animation-scale() {
+        @include animation-var-singular($name: "scale");
     }
 
-    &[data-animation~="slide"] {
-        &:is(:not([data-direction]), [data-direction="bottom"]) {
-            --animation-enter: transition-slide-bottom-enter;
-            --animation-exit: transition-slide-bottom-exit;
-        }
-
-        &[data-direction="top"] {
-            --animation-enter: transition-slide-top-enter;
-            --animation-exit: transition-slide-top-exit;
-        }
-
-        &[data-direction="left"] {
-            --animation-enter: transition-slide-left-enter;
-            --animation-exit: transition-slide-left-exit;
-        }
-
-        &[data-direction="right"] {
-            --animation-enter: transition-slide-right-enter;
-            --animation-exit: transition-slide-right-exit;
-        }
+    @include animation-slide() {
+        @include animation-var-directional($name: "slide");
     }
 }
 
 .transition[data-behavior~="explicit"] {
-    &[data-animation~="clip"] {
+    // NOTE: Since we don't need to write out exit keyframes for `transition`-based
+    // implementation, there's no point in mixinifying these animations. We would just
+    // be adding to complexity / line count
+
+    @include animation-clip() {
         opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
 
         transition: clip-path var(--animation-duration) var(--animation-function)
@@ -89,41 +202,41 @@
             opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
                 calc(var(--animation-delay) + var(--animation-duration) * 0.25);
 
-        &:is(:not([data-direction]), [data-direction="bottom"]) {
+        @include direction-bottom() {
             clip-path: inset(
                 calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10% -10% -10%
             );
         }
 
-        &[data-direction="top"] {
-            clip-path: inset(
-                -10% -10%
-                    calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10%
-            );
-        }
-
-        &[data-direction="left"] {
+        @include direction-left() {
             clip-path: inset(
                 -10% calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10% -10%
             );
         }
 
-        &[data-direction="right"] {
+        @include direction-right() {
             clip-path: inset(
                 -10% -10% -10% calc(-10% * var(--animation-visible) + 100% * (1 -
                                     var(--animation-visible)))
             );
         }
+
+        @include direction-top() {
+            clip-path: inset(
+                -10% -10%
+                    calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10%
+            );
+        }
     }
 
-    &[data-animation~="fade"] {
+    @include animation-fade() {
         opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
 
         transition: opacity var(--animation-duration) var(--animation-function)
             var(--animation-delay);
     }
 
-    &[data-animation~="scale"] {
+    @include animation-scale() {
         opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
         transform: scale(calc(1 * var(--animation-visible) + 0.5 * (1 - var(--animation-visible))));
 
@@ -133,7 +246,7 @@
                 calc(var(--animation-delay) + var(--animation-duration) * 0.25);
     }
 
-    &[data-animation~="slide"] {
+    @include animation-slide() {
         opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
 
         transition: transform var(--animation-duration) var(--animation-function)
@@ -141,163 +254,63 @@
             opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
                 calc(var(--animation-delay) + var(--animation-duration) * 0.25);
 
-        &:is(:not([data-direction]), [data-direction="bottom"]) {
+        @include direction-bottom() {
             transform: translate(
                 0%,
                 calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible)))
             );
         }
 
-        &[data-direction="top"] {
-            transform: translate(
-                0%,
-                calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible)))
-            );
-        }
-
-        &[data-direction="left"] {
+        @include direction-left() {
             transform: translate(
                 calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible))),
                 0%
             );
         }
 
-        &[data-direction="right"] {
+        @include direction-right() {
             transform: translate(
                 calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible))),
                 0%
             );
         }
+
+        @include direction-top() {
+            transform: translate(
+                0%,
+                calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible)))
+            );
+        }
     }
 }
 
-@keyframes transition-clip-bottom-enter {
-    0% {
-        clip-path: inset(100% -10% -10% -10%);
-        opacity: 0;
-    }
+@include keyframes-clip(
+    $direction: "bottom",
+    $clip-path: (
+        100% -10% -10% -10%,
+    )
+);
+@include keyframes-clip(
+    $direction: "left",
+    $clip-path: (
+        -10% 100% -10% -10%,
+    )
+);
+@include keyframes-clip(
+    $direction: "right",
+    $clip-path: (
+        -10% -10% -10% 100%,
+    )
+);
+@include keyframes-clip(
+    $direction: "top",
+    $clip-path: (
+        -10% -10% 100% -10%,
+    )
+);
 
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-clip-bottom-exit {
-    0% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(100% -10% -10% -10%);
-        opacity: 0;
-    }
-}
-
-@keyframes transition-clip-left-enter {
-    0% {
-        clip-path: inset(-10% 100% -10% -10%);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-clip-left-exit {
-    0% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(-10% 100% -10% -10%);
-        opacity: 0;
-    }
-}
-
-@keyframes transition-clip-right-enter {
-    0% {
-        clip-path: inset(-10% -10% -10% 100%);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-clip-right-exit {
-    0% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(-10% -10% -10% 100%);
-        opacity: 0;
-    }
-}
-
-@keyframes transition-clip-top-enter {
-    0% {
-        clip-path: inset(-10% -10% 100% -10%);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-clip-top-exit {
-    0% {
-        clip-path: inset(-10% -10% -10% -10%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        clip-path: inset(-10% -10% 100% -10%);
-        opacity: 0;
-    }
-}
+// NOTE: These non-directional animations don't really need to be parameterized. And
+// without being directional, we would just be mixinifying them for the sake of it
 
 @keyframes transition-fade-enter {
     0% {
@@ -351,130 +364,31 @@
     }
 }
 
-@keyframes transition-slide-bottom-enter {
-    0% {
-        transform: translate(0%, 100%);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-slide-bottom-exit {
-    0% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(0%, 100%);
-        opacity: 0;
-    }
-}
-
-@keyframes transition-slide-left-enter {
-    0% {
-        transform: translate(-100%, 0%);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-slide-left-exit {
-    0% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(-100%, 0%);
-        opacity: 0;
-    }
-}
-
-@keyframes transition-slide-right-enter {
-    0% {
-        transform: translate(100%, 0%);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-slide-right-exit {
-    0% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(100%, 0%);
-        opacity: 0;
-    }
-}
-
-@keyframes transition-slide-top-enter {
-    0% {
-        transform: translate(0%, -100%);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-slide-top-exit {
-    0% {
-        transform: translate(0%, 0%);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(0%, -100%);
-        opacity: 0;
-    }
-}
+@include keyframes-slide(
+    $direction: "bottom",
+    $translation: (
+        0%,
+        100%,
+    )
+);
+@include keyframes-slide(
+    $direction: "left",
+    $translation: (
+        -100%,
+        0%,
+    )
+);
+@include keyframes-slide(
+    $direction: "right",
+    $translation: (
+        100%,
+        0%,
+    )
+);
+@include keyframes-slide(
+    $direction: "top",
+    $translation: (
+        0%,
+        -100%,
+    )
+);

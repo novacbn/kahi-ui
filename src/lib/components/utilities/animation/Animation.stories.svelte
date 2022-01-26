@@ -101,11 +101,13 @@
 <Story name="Iterations">
     <NumberInput bind:value={iterations} />
 
-    <Animation animation="bounce" {iterations}>
-        <Box palette="inverse" padding="small" max_width="content-max">
-            I booouunce, I bounce so far awaaaaaay~!
-        </Box>
-    </Animation>
+    {#key iterations}
+        <Animation animation="bounce" {iterations}>
+            <Box palette="inverse" padding="small" max_width="content-max">
+                I booouunce, I bounce so far awaaaaaay~!
+            </Box>
+        </Animation>
+    {/key}
 </Story>
 
 <Story name="Elements">

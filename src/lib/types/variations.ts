@@ -39,11 +39,6 @@ export enum TOKENS_VARIATION_POSITIONAL {
 
     container = "container",
 
-    /**
-     * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
-     */
-    floated = "floated",
-
     indicator = "indicator",
 
     raised = "raised",
@@ -76,7 +71,6 @@ export const TOKENS_VARIATION_INTERACTIVE = {
 
 export const TOKENS_VARIATION_POSITION = {
     [TOKENS_VARIATION_POSITIONAL.action]: TOKENS_VARIATION_POSITIONAL.action,
-    [TOKENS_VARIATION_POSITIONAL.floated]: TOKENS_VARIATION_POSITIONAL.floated,
     [TOKENS_VARIATION_POSITIONAL.indicator]: TOKENS_VARIATION_POSITIONAL.indicator,
     [TOKENS_VARIATION_POSITIONAL.raised]: TOKENS_VARIATION_POSITIONAL.raised,
 } as const;

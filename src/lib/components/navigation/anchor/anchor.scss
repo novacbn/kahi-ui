@@ -1,3 +1,5 @@
+@use "../../../../framework/appearances/anchor";
+
 @use "../../../../framework/abstracts/transitions";
 @use "../../../../framework/abstracts/variables";
 
@@ -5,22 +7,20 @@
 
 @if not env("DISABLE_COMPONENTS_NAVIGATION_ANCHOR") {
     .anchor {
-        text-decoration: #{variables.format-var("anchor.text.decoration")};
+        @include anchor.base($namespace: "anchor");
 
-        color: inherit;
-        cursor: pointer;
+        @include anchor.state-disabled() {
+            @include anchor.base-disabled($namespace: "anchor.disabled");
+        }
 
-        color: inherit;
-
-        @include colors.transitions-text();
-        @include transitions.build();
-
-        &:hover {
-            text-decoration: #{variables.format-var("anchor.hover.text.decoration")};
+        @include anchor.state-enabled() {
+            @include anchor.state-hover() {
+                @include anchor.base-hover($namespace: "anchor.hover");
+            }
         }
 
         &[data-palette] {
-            @include colors.text($namespace: "anchor", $face: "background", $shade: "boldest");
+            @include anchor.variation-palette($namespace: "anchor.palette");
         }
     }
 }

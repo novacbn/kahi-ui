@@ -57,7 +57,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="menu--item {_class}"
-    {...map_aria_attributes({pressed: active, current: active ? "page" : undefined, disabled})}
+    {...map_aria_attributes({current: active ? "page" : undefined, disabled})}
     {...map_data_attributes({palette})}
     {download}
     {href}

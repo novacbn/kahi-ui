@@ -66,7 +66,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="anchor {_class}"
-    {...map_aria_attributes({pressed: active, current, disabled})}
+    {...map_aria_attributes({current, disabled})}
     {...map_data_attributes({palette})}
     {download}
     {href}

@@ -6,7 +6,7 @@
     import Anchor from "./Anchor.svelte";
 
     const PALETTES = [
-        ["inherit", true],
+        ["subtle", true],
         ["auto", false],
         ["inverse", false],
         ["accent", false],
@@ -24,9 +24,17 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
         Goto google.com
+    </Anchor>
+</Story>
+
+<Story name="State">
+    <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">DEFAULT</Anchor>
+
+    <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer" disabled>
+        DISABLED
     </Anchor>
 </Story>
 

@@ -1,0 +1,58 @@
+@use "../abstracts/transitions";
+@use "../abstracts/variables";
+
+@use "../mixins/borders";
+@use "../mixins/colors";
+@use "../mixins/fonts";
+@use "../mixins/intrinsics";
+@use "../mixins/radius";
+@use "../mixins/sizings";
+
+@mixin base($namespace) {
+    text-decoration: #{variables.format-var("#{$namespace}.text.decoration")};
+
+    color: inherit;
+    cursor: pointer;
+
+    color: inherit;
+
+    @include colors.transitions-text();
+    @include transitions.build();
+}
+
+@mixin base-disabled($namespace) {
+    cursor: not-allowed;
+    @include colors.opacity($namespace: $namespace);
+}
+
+@mixin base-hover($namespace) {
+    text-decoration: #{variables.format-var("#{$namespace}.text.decoration")};
+}
+
+@mixin state-active() {
+    &:is(:active, [aria-current], [aria-pressed="true"]) {
+        @content;
+    }
+}
+
+@mixin state-disabled() {
+    &:is(:disabled, [aria-disabled="true"]) {
+        @content;
+    }
+}
+
+@mixin state-enabled() {
+    &:not(:disabled, [aria-disabled="true"]) {
+        @content;
+    }
+}
+
+@mixin state-hover() {
+    &:is(:focus, :hover) {
+        @content;
+    }
+}
+
+@mixin variation-palette($namespace) {
+    @include colors.text($namespace: $namespace, $face: "background", $shade: "boldest");
+}

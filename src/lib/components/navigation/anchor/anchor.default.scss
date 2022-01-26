@@ -4,10 +4,15 @@
     @include variables.define-variables(
         (
             "anchor": (
-                "color.opacity": 1,
                 "text.decoration": none,
+                "disabled": (
+                    "opacity": 0.5,
+                ),
                 "hover": (
                     "text.decoration": underline,
+                ),
+                "palette": (
+                    "color.opacity": 1,
                 ),
             ),
         )

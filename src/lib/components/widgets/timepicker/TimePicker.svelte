@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {Temporal} from "@js-temporal/polyfill";
+    import {Temporal} from "../../../../vendor/js-temporal-polyfill";
     import {createEventDispatcher, onMount, tick} from "svelte";
 
     import type {PROPERTY_CLOCK_PERIOD} from "../../../types/datetime";

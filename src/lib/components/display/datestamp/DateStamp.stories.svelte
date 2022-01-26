@@ -1,5 +1,5 @@
 <script>
-    import {Temporal} from "@js-temporal/polyfill";
+    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import {DEFAULT_CALENDAR} from "../../../util/locale";

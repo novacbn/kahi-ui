@@ -10,6 +10,7 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
+    import {behavior_anchor} from "../../../actions/behavior_anchor";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
@@ -63,6 +64,7 @@
     {href}
     {rel}
     {target}
+    use:behavior_anchor={{enabled: true}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

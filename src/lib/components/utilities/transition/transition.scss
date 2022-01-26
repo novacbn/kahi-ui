@@ -143,256 +143,269 @@
     }
 }
 
-.transition {
-    --delay: 0;
-    --duration: 1;
+@if not env("DISABLE_COMPONENTS_UTILITIES_TRANSITION") {
+    .transition {
+        --delay: 0;
+        --duration: 1;
 
-    --animation-name: unset;
-    --animation-duration: calc(
-        #{variables.format-var("animations.reveal.duration")} * var(--duration)
-    );
-    --animation-delay: calc(#{variables.format-var("animations.reveal.duration")} * var(--delay));
-    --animation-enter: unset;
-    --animation-exit: unset;
-    --animation-function: #{variables.format-var("animations.reveal.function")};
-    --animation-visible: 1;
-
-    &[data-variation~="enter"] {
-        --animation-name: var(--animation-enter);
+        --animation-name: unset;
+        --animation-duration: calc(
+            #{variables.format-var("animations.reveal.duration")} * var(--duration)
+        );
+        --animation-delay: calc(
+            #{variables.format-var("animations.reveal.duration")} * var(--delay)
+        );
+        --animation-enter: unset;
+        --animation-exit: unset;
+        --animation-function: #{variables.format-var("animations.reveal.function")};
         --animation-visible: 1;
-    }
 
-    &[data-variation~="exit"] {
-        --animation-name: var(--animation-exit);
-        --animation-visible: 0;
-    }
-}
-
-span.transition {
-    display: inline-block;
-}
-
-.transition:not([data-behavior]) {
-    animation: var(--animation-name) var(--animation-duration) var(--animation-function)
-        var(--animation-delay) both;
-
-    @include animation-clip() {
-        @include animation-var-directional($name: "clip");
-    }
-
-    @include animation-fade() {
-        @include animation-var-singular($name: "fade");
-    }
-
-    @include animation-scale() {
-        @include animation-var-singular($name: "scale");
-    }
-
-    @include animation-slide() {
-        @include animation-var-directional($name: "slide");
-    }
-}
-
-.transition[data-behavior~="explicit"] {
-    // NOTE: Since we don't need to write out exit keyframes for `transition`-based
-    // implementation, there's no point in mixinifying these animations. We would just
-    // be adding to complexity / line count
-
-    @include animation-clip() {
-        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
-
-        transition: clip-path var(--animation-duration) var(--animation-function)
-                var(--animation-delay),
-            opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
-                calc(var(--animation-delay) + var(--animation-duration) * 0.25);
-
-        @include direction-bottom() {
-            clip-path: inset(
-                calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10% -10% -10%
-            );
+        &[data-variation~="enter"] {
+            --animation-name: var(--animation-enter);
+            --animation-visible: 1;
         }
 
-        @include direction-left() {
-            clip-path: inset(
-                -10% calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10% -10%
-            );
-        }
-
-        @include direction-right() {
-            clip-path: inset(
-                -10% -10% -10% calc(-10% * var(--animation-visible) + 100% * (1 -
-                                    var(--animation-visible)))
-            );
-        }
-
-        @include direction-top() {
-            clip-path: inset(
-                -10% -10%
-                    calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10%
-            );
+        &[data-variation~="exit"] {
+            --animation-name: var(--animation-exit);
+            --animation-visible: 0;
         }
     }
 
-    @include animation-fade() {
-        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
-
-        transition: opacity var(--animation-duration) var(--animation-function)
-            var(--animation-delay);
+    span.transition {
+        display: inline-block;
     }
 
-    @include animation-scale() {
-        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
-        transform: scale(calc(1 * var(--animation-visible) + 0.5 * (1 - var(--animation-visible))));
+    .transition:not([data-behavior]) {
+        animation: var(--animation-name)
+            var(--animation-duration)
+            var(--animation-function)
+            var(--animation-delay)
+            both;
 
-        transition: transform var(--animation-duration) var(--animation-function)
-                var(--animation-delay),
-            opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
-                calc(var(--animation-delay) + var(--animation-duration) * 0.25);
-    }
-
-    @include animation-slide() {
-        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
-
-        transition: transform var(--animation-duration) var(--animation-function)
-                var(--animation-delay),
-            opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
-                calc(var(--animation-delay) + var(--animation-duration) * 0.25);
-
-        @include direction-bottom() {
-            transform: translate(
-                0%,
-                calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible)))
-            );
+        @include animation-clip() {
+            @include animation-var-directional($name: "clip");
         }
 
-        @include direction-left() {
-            transform: translate(
-                calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible))),
-                0%
-            );
+        @include animation-fade() {
+            @include animation-var-singular($name: "fade");
         }
 
-        @include direction-right() {
-            transform: translate(
-                calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible))),
-                0%
-            );
+        @include animation-scale() {
+            @include animation-var-singular($name: "scale");
         }
 
-        @include direction-top() {
-            transform: translate(
-                0%,
-                calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible)))
-            );
+        @include animation-slide() {
+            @include animation-var-directional($name: "slide");
         }
     }
+
+    .transition[data-behavior~="explicit"] {
+        // NOTE: Since we don't need to write out exit keyframes for `transition`-based
+        // implementation, there's no point in mixinifying these animations. We would just
+        // be adding to complexity / line count
+
+        @include animation-clip() {
+            opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+
+            transition: clip-path var(--animation-duration) var(--animation-function)
+                    var(--animation-delay),
+                opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
+                    calc(var(--animation-delay) + var(--animation-duration) * 0.25);
+
+            @include direction-bottom() {
+                clip-path: inset(
+                    calc(-10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))) -10% -10% -10%
+                );
+            }
+
+            @include direction-left() {
+                clip-path: inset(
+                    -10% calc(
+                            -10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))
+                        ) -10% -10%
+                );
+            }
+
+            @include direction-right() {
+                clip-path: inset(
+                    -10% -10% -10% calc(-10% * var(--animation-visible) + 100% * (1 -
+                                        var(--animation-visible)))
+                );
+            }
+
+            @include direction-top() {
+                clip-path: inset(
+                    -10% -10%
+                        calc(
+                            -10% * var(--animation-visible) + 100% * (1 - var(--animation-visible))
+                        ) -10%
+                );
+            }
+        }
+
+        @include animation-fade() {
+            opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+
+            transition: opacity var(--animation-duration) var(--animation-function)
+                var(--animation-delay);
+        }
+
+        @include animation-scale() {
+            opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+            transform: scale(
+                calc(1 * var(--animation-visible) + 0.5 * (1 - var(--animation-visible)))
+            );
+
+            transition: transform var(--animation-duration) var(--animation-function)
+                    var(--animation-delay),
+                opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
+                    calc(var(--animation-delay) + var(--animation-duration) * 0.25);
+        }
+
+        @include animation-slide() {
+            opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+
+            transition: transform var(--animation-duration) var(--animation-function)
+                    var(--animation-delay),
+                opacity calc(var(--animation-duration) * 0.75) var(--animation-function)
+                    calc(var(--animation-delay) + var(--animation-duration) * 0.25);
+
+            @include direction-bottom() {
+                transform: translate(
+                    0%,
+                    calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible)))
+                );
+            }
+
+            @include direction-left() {
+                transform: translate(
+                    calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible))),
+                    0%
+                );
+            }
+
+            @include direction-right() {
+                transform: translate(
+                    calc(0% * var(--animation-visible) + 100% * (1 - var(--animation-visible))),
+                    0%
+                );
+            }
+
+            @include direction-top() {
+                transform: translate(
+                    0%,
+                    calc(0% * var(--animation-visible) + -100% * (1 - var(--animation-visible)))
+                );
+            }
+        }
+    }
+
+    @include keyframes-clip(
+        $direction: "bottom",
+        $clip-path: (
+            100% -10% -10% -10%,
+        )
+    );
+    @include keyframes-clip(
+        $direction: "left",
+        $clip-path: (
+            -10% 100% -10% -10%,
+        )
+    );
+    @include keyframes-clip(
+        $direction: "right",
+        $clip-path: (
+            -10% -10% -10% 100%,
+        )
+    );
+    @include keyframes-clip(
+        $direction: "top",
+        $clip-path: (
+            -10% -10% 100% -10%,
+        )
+    );
+
+    // NOTE: These non-directional animations don't really need to be parameterized. And
+    // without being directional, we would just be mixinifying them for the sake of it
+
+    @keyframes transition-fade-enter {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes transition-fade-exit {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes transition-scale-enter {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes transition-scale-exit {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        25% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+    }
+
+    @include keyframes-slide(
+        $direction: "bottom",
+        $translation: (
+            0%,
+            100%,
+        )
+    );
+    @include keyframes-slide(
+        $direction: "left",
+        $translation: (
+            -100%,
+            0%,
+        )
+    );
+    @include keyframes-slide(
+        $direction: "right",
+        $translation: (
+            100%,
+            0%,
+        )
+    );
+    @include keyframes-slide(
+        $direction: "top",
+        $translation: (
+            0%,
+            -100%,
+        )
+    );
 }
-
-@include keyframes-clip(
-    $direction: "bottom",
-    $clip-path: (
-        100% -10% -10% -10%,
-    )
-);
-@include keyframes-clip(
-    $direction: "left",
-    $clip-path: (
-        -10% 100% -10% -10%,
-    )
-);
-@include keyframes-clip(
-    $direction: "right",
-    $clip-path: (
-        -10% -10% -10% 100%,
-    )
-);
-@include keyframes-clip(
-    $direction: "top",
-    $clip-path: (
-        -10% -10% 100% -10%,
-    )
-);
-
-// NOTE: These non-directional animations don't really need to be parameterized. And
-// without being directional, we would just be mixinifying them for the sake of it
-
-@keyframes transition-fade-enter {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes transition-fade-exit {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes transition-scale-enter {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes transition-scale-exit {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-}
-
-@include keyframes-slide(
-    $direction: "bottom",
-    $translation: (
-        0%,
-        100%,
-    )
-);
-@include keyframes-slide(
-    $direction: "left",
-    $translation: (
-        -100%,
-        0%,
-    )
-);
-@include keyframes-slide(
-    $direction: "right",
-    $translation: (
-        100%,
-        0%,
-    )
-);
-@include keyframes-slide(
-    $direction: "top",
-    $translation: (
-        0%,
-        -100%,
-    )
-);

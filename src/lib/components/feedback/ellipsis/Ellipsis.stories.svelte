@@ -18,7 +18,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Stack.Container alignment_x="left" spacing="medium">
         <Button disabled>
             <Text is="span">

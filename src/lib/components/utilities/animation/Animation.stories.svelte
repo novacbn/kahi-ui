@@ -135,7 +135,7 @@
 </Story>
 
 <Story name="Ping">
-    <Animation animation="ping">
+    <Animation is="span" animation="ping">
         <Box palette="inverse" padding="small" max_width="content-max">
             I piiinggg, I ping so far awaaaaaay~!
         </Box>

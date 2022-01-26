@@ -78,6 +78,9 @@
 ::-webkit-scrollbar-thumb {
     border: calc(variables.format-var("document.scrollbar.track.padding") * 1rem) solid
         rgba(255, 255, 255, 0);
+
+    @include colors.transitions-background();
+    @include transitions.build();
 }
 
 ::-webkit-scrollbar-track {

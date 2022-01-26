@@ -16,7 +16,7 @@
     palettes.generate-darklight-palette(
         $dark-background: hsl(217, 11%, 20%),
         $dark-dark-shading: 3%,
-        $dark-light-shading: 4%,
+        $dark-light-shading: 3%,
         $light-background: hsl(0, 0%, 99%),
         $light-dark-shading: 3%,
         $light-light-shading: 3%
@@ -28,10 +28,10 @@
         "palettes": (
             "neutral":
                 palettes.generate-color-palette(
-                    $background: hsl(216, 10%, 50%),
+                    $background: hsl(216, 10%, 45%),
                     $foreground: "light",
                     $dark-shading: 3%,
-                    $light-shading: 1%
+                    $light-shading: 3%
                 ),
         ),
     )
@@ -46,30 +46,30 @@
         "palettes": (
             "accent":
                 palettes.generate-color-palette(
-                    $background: hsl(200, 30%, 40%),
+                    $background: hsl(200, 30%, 45%),
                     $foreground: "light",
-                    $dark-shading: 2%,
+                    $dark-shading: 3%,
                     $light-shading: 3%
                 ),
             "alert":
                 palettes.generate-color-palette(
-                    $background: hsl(35, 50%, 50%),
+                    $background: hsl(35, 55%, 55%),
                     $foreground: "light",
-                    $dark-shading: 2%,
+                    $dark-shading: 3%,
                     $light-shading: 3%
                 ),
             "affirmative":
                 palettes.generate-color-palette(
-                    $background: hsl(146, 40%, 40%),
+                    $background: hsl(146, 40%, 45%),
                     $foreground: "light",
-                    $dark-shading: 2%,
+                    $dark-shading: 3%,
                     $light-shading: 3%
                 ),
             "negative":
                 palettes.generate-color-palette(
-                    $background: hsl(7, 45%, 50%),
+                    $background: hsl(7, 50%, 55%),
                     $foreground: "light",
-                    $dark-shading: 2%,
+                    $dark-shading: 3%,
                     $light-shading: 3%
                 ),
         ),

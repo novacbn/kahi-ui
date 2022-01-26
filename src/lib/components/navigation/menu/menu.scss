@@ -77,7 +77,7 @@
             @include button.base-disabled($namespace: "menu.item.disabled");
         }
 
-        @include button.state-enabled() {
+        @include button.state-disabled($is-inverse: true) {
             @include button.state-hover() {
                 @include button.variation-clear-hover(
                     $namespace: "menu.item.hover",

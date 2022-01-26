@@ -1,10 +1,5 @@
 @use "../../../../framework/appearances/anchor";
 
-@use "../../../../framework/abstracts/transitions";
-@use "../../../../framework/abstracts/variables";
-
-@use "../../../../framework/mixins/colors";
-
 @if not env("DISABLE_COMPONENTS_NAVIGATION_ANCHOR") {
     .anchor {
         @include anchor.base($namespace: "anchor");
@@ -13,7 +8,7 @@
             @include anchor.base-disabled($namespace: "anchor.disabled");
         }
 
-        @include anchor.state-enabled() {
+        @include anchor.state-disabled($is-inverse: true) {
             @include anchor.state-hover() {
                 @include anchor.base-hover($namespace: "anchor.hover");
             }

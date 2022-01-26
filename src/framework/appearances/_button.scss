@@ -69,27 +69,39 @@
     @include colors.opacity($namespace: $namespace);
 }
 
-@mixin state-active() {
-    &:is(:active, [aria-current], [aria-pressed="true"]) {
-        @content;
+@mixin state-active($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:active, [aria-current], [aria-pressed="true"]) {
+            @content;
+        }
+    } @else {
+        &:is(:active, [aria-current], [aria-pressed="true"]) {
+            @content;
+        }
     }
 }
 
-@mixin state-disabled() {
-    &:is(:disabled, [aria-disabled="true"]) {
-        @content;
+@mixin state-disabled($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:disabled, [aria-disabled="true"]) {
+            @content;
+        }
+    } @else {
+        &:is(:disabled, [aria-disabled="true"]) {
+            @content;
+        }
     }
 }
 
-@mixin state-enabled() {
-    &:not(:disabled, [aria-disabled="true"]) {
-        @content;
-    }
-}
-
-@mixin state-hover() {
-    &:is(:focus, :hover) {
-        @content;
+@mixin state-hover($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:focus, :hover) {
+            @content;
+        }
+    } @else {
+        &:is(:focus, :hover) {
+            @content;
+        }
     }
 }
 

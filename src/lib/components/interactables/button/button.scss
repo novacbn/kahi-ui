@@ -25,7 +25,7 @@
         &:not([data-variation~="subtle"]) {
             @include button.variation-loud-base($namespace: "button.loud");
 
-            @include button.state-enabled() {
+            @include button.state-disabled($is-inverse: true) {
                 @include button.state-active() {
                     @include button.variation-loud-active($namespace: "button.loud");
                 }
@@ -43,7 +43,7 @@
                 @include button.variation-block-base($namespace: "button.block", $is-inverse: true);
             }
 
-            @include button.state-enabled() {
+            @include button.state-disabled($is-inverse: true) {
                 @include button.state-hover() {
                     @include button.variation-block-hover($namespace: "button.block.hover");
 
@@ -75,7 +75,7 @@
                 @include button.variation-clear-base($namespace: "button.clear", $is-inverse: true);
             }
 
-            @include button.state-enabled() {
+            @include button.state-disabled($is-inverse: true) {
                 @include button.state-hover() {
                     @include button.variation-clear-hover($namespace: "button.clear.hover");
 
@@ -110,7 +110,7 @@
                 );
             }
 
-            @include button.state-enabled() {
+            @include button.state-disabled($is-inverse: true) {
                 @include button.state-hover() {
                     @include button.variation-outline-hover($namespace: "button.outline.hover");
 

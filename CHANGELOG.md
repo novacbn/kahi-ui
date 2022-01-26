@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.5.5 - 2022/01/26
 
 -   Vendored new [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) `v0.3.0` version.
 

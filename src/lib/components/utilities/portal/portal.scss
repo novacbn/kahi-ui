@@ -1,3 +1,5 @@
-.portal {
-    display: contents;
+@if not env("DISABLE_COMPONENTS_UTILITIES_PORTAL") {
+    .portal {
+        display: contents;
+    }
 }

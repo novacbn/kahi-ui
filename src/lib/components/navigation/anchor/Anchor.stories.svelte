@@ -6,9 +6,10 @@
     import Anchor from "./Anchor.svelte";
 
     const PALETTES = [
-        ["accent", true],
+        ["inherit", true],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -32,7 +33,12 @@
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer" {palette}>
+            <Anchor
+                href="https://google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                palette={is_default ? undefined : palette}
+            >
                 Goto google.com ({`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`})
             </Anchor>
         {/each}

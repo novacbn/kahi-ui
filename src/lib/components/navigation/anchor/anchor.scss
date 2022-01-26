@@ -1,15 +1,26 @@
-a {
-    text-decoration: var(--anchor-text-decoration);
+@use "../../../../framework/abstracts/transitions";
+@use "../../../../framework/abstracts/variables";
 
-    cursor: pointer;
+@use "../../../../framework/mixins/colors";
 
-    transition: color var(--animation-visual-duration) var(--animation-visual-function);
+@if not env("DISABLE_COMPONENTS_NAVIGATION_ANCHOR") {
+    .anchor {
+        text-decoration: #{variables.format-var("anchor.text.decoration")};
 
-    &:hover {
-        text-decoration: var(--anchor-hover-text-decoration);
-    }
+        color: inherit;
+        cursor: pointer;
 
-    &[data-palette] {
-        color: rgb(var(--palette-background-boldest));
+        color: inherit;
+
+        @include colors.transitions-text();
+        @include transitions.build();
+
+        &:hover {
+            text-decoration: #{variables.format-var("anchor.hover.text.decoration")};
+        }
+
+        &[data-palette] {
+            @include colors.text($namespace: "anchor", $face: "background", $shade: "boldest");
+        }
     }
 }

@@ -1,7 +1,15 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --anchor-text-decoration: none;
-
-    --anchor-hover-text-decoration: underline;
+@if not env("DISABLE_COMPONENTS_NAVIGATION_ANCHOR") {
+    @include variables.define-variables(
+        (
+            "anchor": (
+                "color.opacity": 1,
+                "text.decoration": none,
+                "hover": (
+                    "text.decoration": underline,
+                ),
+            ),
+        )
+    );
 }

@@ -14,6 +14,7 @@ import {SASS_FUNCTIONS} from "./functions.js";
 
 const ESBUILD_DEFAULT_OPTIONS = {
     sourcemap: ARGUMENT_MINIFY ? undefined : "external",
+    incremental: ARGUMENT_WATCH,
     watch: ARGUMENT_WATCH,
 
     minify: ARGUMENT_MINIFY,

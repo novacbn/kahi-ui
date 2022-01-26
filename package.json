@@ -64,7 +64,6 @@
         "url": "https://github.com/novacbn/kahi-ui.git"
     },
     "dependencies": {
-        "big-integer": "^1.6.51",
         "svelte": "^3.40.2"
     },
     "devDependencies": {

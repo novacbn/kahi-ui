@@ -8,6 +8,7 @@
     } from "../../../types/shapes";
     import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
+    import type {ISvelteKitAnchorProperties} from "../../../types/sveltekit";
     import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
 
     import {behavior_button} from "../../../actions/behavior_button";
@@ -47,7 +48,8 @@
         variation?: PROPERTY_VARIATION_BUTTON;
     } & IHTML5Properties &
         IGlobalProperties &
-        IMarginProperties;
+        IMarginProperties &
+        ISvelteKitAnchorProperties;
 
     type $$Slots = {
         default: {};

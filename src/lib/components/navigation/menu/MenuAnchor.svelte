@@ -2,6 +2,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {ISvelteKitAnchorProperties} from "../../../types/sveltekit";
 
     import {
         map_aria_attributes,
@@ -28,7 +29,8 @@
 
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
-        IGlobalProperties;
+        IGlobalProperties &
+        ISvelteKitAnchorProperties;
 
     type $$Slots = {
         default: {};

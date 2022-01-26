@@ -1,11 +1,9 @@
 <script lang="ts">
-    import type {SvelteComponent} from "svelte";
-
-    import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {IGlobalProperties} from "../../../types/global";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {ISizeProperties} from "../../../types/sizes";
-    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import type {IMarginProperties} from "../../../types/spacings";
+    import type {ISvelteKitAnchorProperties} from "../../../types/sveltekit";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -16,22 +14,22 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
-    import BreadcrumbGroup from "./BreadcrumbGroup.svelte";
+    import BreadcrumbSeparator from "./BreadcrumbSeparator.svelte";
 
     type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLElement;
+        element?: HTMLButtonElement;
 
-        separator?: string | typeof SvelteComponent;
+        active?: boolean;
+        disabled?: boolean;
 
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
-        IPaddingProperties &
-        ISizeProperties;
+        ISvelteKitAnchorProperties;
 
     type $$Slots = {
         default: {};
@@ -43,17 +41,19 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let separator: $$Props["separator"] = "/";
+    export let active: $$Props["active"] = undefined;
+    export let disabled: $$Props["disabled"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 </script>
 
-<nav
+<button
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="breadcrumb {_class}"
-    {...map_aria_attributes({label: "breadcrumb"})}
+    class="breadcrumb--item {_class}"
+    {...map_aria_attributes({pressed: active})}
     {...map_data_attributes({palette})}
+    {disabled}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -70,7 +70,9 @@
     on:pointerout
     on:pointerup
 >
-    <BreadcrumbGroup {separator}>
-        <slot />
-    </BreadcrumbGroup>
-</nav>
+    <slot />
+</button>
+
+{#if !active}
+    <BreadcrumbSeparator />
+{/if}

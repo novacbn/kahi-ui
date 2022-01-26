@@ -1,10 +1,26 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --breadcrumb-button-inactive-opacity: 0.6;
-
-    /** */
-
-    --breadcrumb-separator-margin-x: var(--spacing-local-tiny);
-    --breadcrumb-separator-opacity: 0.3;
+@if not env("DISABLE_COMPONENTS_NAVIGATION_BREADCRUMB") {
+    @include variables.define-variables(
+        (
+            "breadcrumb": (
+                "gap.x": variables.format-var("spacings.block.tiny"),
+                "item": (
+                    "text.decoration": none,
+                    "inactive": (
+                        "opacity": 0.75,
+                    ),
+                    "hover": (
+                        "text.decoration": underline,
+                    ),
+                    "palette": (
+                        "color.opacity": 1,
+                    ),
+                ),
+                "separator": (
+                    "opacity": 0.5,
+                ),
+            ),
+        )
+    );
 }

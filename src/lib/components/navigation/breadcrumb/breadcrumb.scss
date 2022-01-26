@@ -1,24 +1,35 @@
-.breadcrumb ol {
-    display: flex;
-    margin: 0;
-}
+@use "../../../../framework/appearances/anchor";
 
-.breadcrumb li {
-    display: inline-flex;
-    align-items: center;
+@use "../../../../framework/abstracts/variables";
 
-    /**
-        TODO: Next major version, change to detect `role=button`
-    */
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/intrinsics";
 
-    & > a:not([aria-current]) {
-        opacity: var(--breadcrumb-button-inactive-opacity);
+@if not env("DISABLE_COMPONENTS_NAVIGATION_BREADCRUMB") {
+    .breadcrumb {
+        display: inline-flex;
+
+        @include intrinsics.gap-x($namespace: "breadcrumb", $unit: em);
     }
 
-    & > [role="presentation"] {
-        margin-left: var(--breadcrumb-separator-margin-x);
-        margin-right: var(--breadcrumb-separator-margin-x);
+    .breadcrumb--item {
+        @include anchor.base($namespace: "breadcrumb.item");
 
-        opacity: var(--breadcrumb-separator-opacity);
+        @include anchor.state-hover() {
+            @include anchor.base-hover($namespace: "breadcrumb.item.hover");
+        }
+
+        @include anchor.state-active($is-inverse: true) {
+            @include colors.opacity("breadcrumb.item.inactive");
+        }
+
+        .breadcrumb[data-palette] &,
+        &[data-palette] {
+            @include anchor.variation-palette($namespace: "breadcrumb.item.palette");
+        }
+    }
+
+    .breadcrumb--separator {
+        @include colors.opacity("breadcrumb.separator");
     }
 }

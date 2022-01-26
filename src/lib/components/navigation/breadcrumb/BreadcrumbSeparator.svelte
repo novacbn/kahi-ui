@@ -14,9 +14,7 @@
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLLIElement;
-
-        active?: boolean;
+        element?: HTMLSpanElement;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -28,20 +26,22 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
-    export let active: $$Props["active"] = undefined;
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 
     const _breadcrumb_separator = CONTEXT_BREADCRUMB_SEPARATOR.get();
-
     if (!_breadcrumb_separator) {
         throw new ReferenceError(
-            "bad initialization to `Breadcrumb.Item` (failed to get `breadcrumb_separator` Svelte Store from context)"
+            "bad initialization to `Breadcrumb.Separator` (failed to get `breadcrumb_separator` Svelte Store from context)"
         );
     }
 </script>
 
-<li
+<span
     bind:this={element}
     {...map_global_attributes($$props)}
+    role="presentation"
+    class="breadcrumb--separator {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -58,15 +58,9 @@
     on:pointerout
     on:pointerup
 >
-    <slot />
-
-    {#if !active}
-        <span role="presentation">
-            {#if typeof $_breadcrumb_separator === "string"}
-                {$_breadcrumb_separator}
-            {:else}
-                <svelte:component this={$_breadcrumb_separator} />
-            {/if}
-        </span>
+    {#if typeof $_breadcrumb_separator === "string"}
+        {$_breadcrumb_separator}
+    {:else}
+        <svelte:component this={$_breadcrumb_separator} />
     {/if}
-</li>
+</span>

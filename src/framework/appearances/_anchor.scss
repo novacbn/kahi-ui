@@ -14,7 +14,8 @@
     color: inherit;
     cursor: pointer;
 
-    color: inherit;
+    /** TODO: Remove during ARIA pass */
+    outline: none !important;
 
     @include colors.transitions-text();
     @include transitions.build();

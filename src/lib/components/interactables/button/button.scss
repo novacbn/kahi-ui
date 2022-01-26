@@ -19,7 +19,7 @@
         );
 
         @include button.state-disabled() {
-            @include button.disabled($namespace: "button.disabled");
+            @include button.base-disabled($namespace: "button.disabled");
         }
 
         &:not([data-variation~="subtle"]) {

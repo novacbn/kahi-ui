@@ -74,7 +74,7 @@
         }
 
         @include button.state-disabled() {
-            @include button.disabled($namespace: "menu.item.disabled");
+            @include button.base-disabled($namespace: "menu.item.disabled");
         }
 
         @include button.state-enabled() {

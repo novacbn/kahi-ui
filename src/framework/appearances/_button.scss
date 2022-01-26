@@ -64,6 +64,11 @@
     @include transitions.build();
 }
 
+@mixin base-disabled($namespace) {
+    cursor: not-allowed;
+    @include colors.opacity($namespace: $namespace);
+}
+
 @mixin state-active() {
     &:is(:active, [aria-current], [aria-pressed="true"]) {
         @content;
@@ -86,11 +91,6 @@
     &:is(:focus, :hover) {
         @content;
     }
-}
-
-@mixin disabled($namespace) {
-    cursor: not-allowed;
-    @include colors.opacity($namespace: $namespace);
 }
 
 @mixin variation-loud-base($namespace) {

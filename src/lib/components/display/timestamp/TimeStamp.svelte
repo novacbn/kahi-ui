@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {Temporal} from "../../../../vendor/js-temporal-polyfill";
+    import {Temporal} from "../../../vendor/js-temporal-polyfill";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";

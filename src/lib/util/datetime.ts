@@ -20,17 +20,6 @@ function to_plain_year(year: string | Temporal.PlainYearMonthLike): Temporal.Pla
     return Temporal.PlainYearMonth.from(year).with({month: 1});
 }
 
-export function get_calendar_quaters(
-    year: string | Temporal.PlainYearMonthLike
-): Temporal.PlainYearMonth[][] {
-    const _year = to_plain_year(year);
-
-    return chunk(
-        fill((index) => _year.add({months: index}), _year.monthsInYear),
-        _year.monthsInYear / 4
-    );
-}
-
 export function get_calendar_weeks(
     month: string | Temporal.PlainYearMonthLike
 ): Temporal.PlainDate[][] {
@@ -123,15 +112,6 @@ export function has_day(
     return !!days.find((entry) => _day.equals(entry));
 }
 
-export function has_month(
-    months: readonly (string | Temporal.PlainYearMonthLike)[],
-    month: string | Temporal.PlainYearMonthLike
-): boolean {
-    const _month = Temporal.PlainYearMonth.from(month);
-
-    return !!months.find((entry) => _month.equals(entry));
-}
-
 export function has_timezone(timestamp: string): boolean {
     return EXPRESSION_TIMEZONE.test(timestamp);
 }
@@ -159,20 +139,6 @@ export function is_day_in_range(
 ): boolean {
     if (max && Temporal.PlainDate.compare(max, month) < (inclusive ? 0 : 1)) return false;
     else if (min && Temporal.PlainDate.compare(min, month) > (inclusive ? 0 : -1)) return false;
-
-    return true;
-}
-
-export function is_month_in_range(
-    month: string | Temporal.PlainYearMonthLike,
-    max?: string | Temporal.PlainYearMonthLike,
-    min?: string | Temporal.PlainYearMonthLike,
-    inclusive: boolean = false
-): boolean {
-    if (max && Temporal.PlainYearMonth.compare(max, month) < (inclusive ? 0 : 1)) return false;
-    else if (min && Temporal.PlainYearMonth.compare(min, month) > (inclusive ? 0 : -1)) {
-        return false;
-    }
 
     return true;
 }

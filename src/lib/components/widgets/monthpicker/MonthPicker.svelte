@@ -6,7 +6,6 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
-    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import {TOKENS_SPACING} from "../../../types/spacings";
 
@@ -93,7 +92,6 @@
     }
 
     $: _quaters = get_calendar_quaters(timestamp);
-    $: _sizing = sizing ?? TOKENS_SIZING.medium;
 </script>
 
 <StackContainer
@@ -113,7 +111,7 @@
                     active={includes_month(_month, value)}
                     disabled={!is_month_in_range(_month, min, max, true) ||
                         (disabled instanceof Array ? includes_month(_month, disabled) : disabled)}
-                    sizing={_sizing}
+                    {sizing}
                     on:click={on_month_click.bind(null, _month)}
                 >
                     {format_month(_month, locale, {

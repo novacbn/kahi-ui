@@ -70,21 +70,6 @@ export function get_daystamp(calendar: string = DEFAULT_CALENDAR): string {
     return Temporal.Now.plainDate(calendar).toString({calendarName: "always"});
 }
 
-export function get_decade_halves(
-    year: string | Temporal.PlainYearMonthLike
-): Temporal.PlainYearMonth[][] {
-    let decade = Temporal.PlainYearMonth.from(year);
-    decade = decade.with({
-        year: Math.floor(decade.year / 10) * 10,
-        month: 1,
-    });
-
-    return chunk(
-        fill((index) => decade.add({years: index}), 10),
-        5
-    );
-}
-
 export function get_monthstamp(calendar: string = DEFAULT_CALENDAR): string {
     return Temporal.Now.plainDate(calendar).toPlainYearMonth().toString({calendarName: "always"});
 }
@@ -92,15 +77,6 @@ export function get_monthstamp(calendar: string = DEFAULT_CALENDAR): string {
 export function get_timestamp(): string {
     // NOTE: Temporal API only accepts ISO 8601 for zoned time
     return Temporal.Now.zonedDateTimeISO().toString({calendarName: "always"});
-}
-
-export function get_yearstamp(calendar: string = DEFAULT_CALENDAR): string {
-    // NOTE: There isn't anything like a `Temporal.PlainYear`, so we're just returning
-    // a `Temporal.PlainYearMonth` that is always January of the current year
-    return Temporal.Now.plainDate(calendar)
-        .toPlainYearMonth()
-        .with({month: 1})
-        .toString({calendarName: "always"});
 }
 
 export function has_day(
@@ -114,21 +90,6 @@ export function has_day(
 
 export function has_timezone(timestamp: string): boolean {
     return EXPRESSION_TIMEZONE.test(timestamp);
-}
-
-export function has_year(
-    years: readonly (string | Temporal.PlainYearMonthLike)[],
-    year: string | Temporal.PlainYearMonthLike
-): boolean {
-    // NOTE: This is slightly more complicated due to there being no concept
-    // of a `Temporal.PlainYear` API
-    const _year = to_plain_year(year);
-
-    return !!years.find((entry) => {
-        const _entry = to_plain_year(entry);
-
-        return _year.equals(_entry);
-    });
 }
 
 export function is_day_in_range(
@@ -151,29 +112,6 @@ export function is_time_in_range(
 ): boolean {
     if (max && Temporal.PlainTime.compare(max, timestamp) < (inclusive ? 0 : 1)) return false;
     else if (min && Temporal.PlainTime.compare(min, timestamp) > (inclusive ? 0 : -1)) return false;
-
-    return true;
-}
-
-export function is_year_in_range(
-    year: string | Temporal.PlainYearMonthLike,
-    max?: string | Temporal.PlainYearMonthLike,
-    min?: string | Temporal.PlainYearMonthLike,
-    inclusive: boolean = false
-): boolean {
-    // NOTE: This is slightly more complicated due to there being no concept
-    // of a `Temporal.PlainYear` API
-    const _year = to_plain_year(year);
-
-    if (max) {
-        const _max = to_plain_year(max);
-        if (Temporal.PlainYearMonth.compare(_max, _year) < (inclusive ? 0 : 1)) return false;
-    }
-
-    if (min) {
-        const _min = to_plain_year(min);
-        if (Temporal.PlainYearMonth.compare(_min, _year) > (inclusive ? 0 : -1)) return false;
-    }
 
     return true;
 }

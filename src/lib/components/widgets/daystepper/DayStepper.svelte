@@ -81,6 +81,7 @@
     export let value: string = now_day();
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
     function on_day_select(difference: number, event: MouseEvent): void {
         if (readonly) return;
@@ -115,6 +116,7 @@
         disabled={disabled || !is_day_in_range(value, min)}
         variation={["subtle", "clear"]}
         {palette}
+        {sizing}
         on:click={on_day_select.bind(null, _step * -1)}
     >
         <slot name="previous">&lt;</slot>
@@ -124,6 +126,7 @@
         disabled={disabled || !is_day_in_range(value, undefined, max)}
         variation={["subtle", "clear"]}
         {palette}
+        {sizing}
         on:click={on_day_select.bind(null, _step)}
     >
         <slot name="next">&gt;</slot>

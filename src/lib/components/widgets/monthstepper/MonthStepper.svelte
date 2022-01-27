@@ -78,6 +78,7 @@
     export let value = now_month();
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
     function on_month_select(difference: number, event: MouseEvent): void {
         if (readonly) return;
@@ -111,6 +112,7 @@
         disabled={disabled || !is_month_in_range(value, min)}
         variation={["subtle", "clear"]}
         {palette}
+        {sizing}
         on:click={on_month_select.bind(null, _step * -1)}
     >
         <slot name="previous">&lt;</slot>
@@ -119,6 +121,7 @@
     <Button
         disabled={disabled || !is_month_in_range(value, undefined, max)}
         variation={["subtle", "clear"]}
+        {sizing}
         {palette}
         on:click={on_month_select.bind(null, _step)}
     >

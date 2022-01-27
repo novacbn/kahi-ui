@@ -1,8 +1,7 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
+    import {add_years, now_year, subtract_years} from "../../../util/datetime/years";
 
     import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
@@ -21,16 +20,10 @@
 
     let calendar;
     let locale;
-    let value;
+    let value = now_year();
 
-    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .add({years: 5})
-        .toString();
-    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .subtract({years: 5})
-        .toString();
+    let max = add_years(value, 5);
+    let min = subtract_years(value, 5);
     let step = 3;
 </script>
 
@@ -40,7 +33,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <YearStepper palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">

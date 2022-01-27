@@ -18,10 +18,9 @@
     } from "../../../util/datetime";
     import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
-    import WidgetHeader from "../widget/WidgetHeader.svelte";
-    import WidgetSection from "../widget/WidgetSection.svelte";
+    import Button from "../../interactables/button/Button.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
+    import Text from "../../typography/text/Text.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -107,22 +106,24 @@
     $: _value = value ?? [];
 </script>
 
-<WidgetContainer {...$$props} bind:element class="day-picker {_class}">
-    <WidgetSection>
+<StackContainer bind:element {...$$restProps} class="day-picker {_class}" spacing="small">
+    <StackContainer orientation="horizontal" spacing="small" alignment_x="stretch">
         {#each _weeks[0] as _day (_day.dayOfWeek)}
-            <WidgetHeader>
+            <Text is="strong" sizing="small" alignment_x="center">
                 {_day
                     .toLocaleString(locale ?? DEFAULT_LOCALE, {weekday: weekday ?? "short"})
                     .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
-            </WidgetHeader>
+            </Text>
         {/each}
-    </WidgetSection>
+    </StackContainer>
 
     {#each _weeks as _week, _week_index (_week_index)}
-        <WidgetSection>
+        <StackContainer orientation="horizontal" spacing="small" alignment_x="stretch">
             {#each _week as _day (`${_day.month}${_day.day}`)}
-                <WidgetButton
-                    variation={has_day(_highlight, _day) ? "outline" : undefined}
+                <Button
+                    variation={has_day(_highlight, _day)
+                        ? ["subtle", "outline"]
+                        : ["subtle", "clear"]}
                     palette={_day.dayOfWeek > 5 ? undefined : palette}
                     active={has_day(_value, _day)}
                     disabled={!is_day_in_range(_day, max, min, true) ||
@@ -130,8 +131,8 @@
                     on:click={on_day_click.bind(null, _day)}
                 >
                     {_day.toLocaleString(locale, {day: day ?? "2-digit"})}
-                </WidgetButton>
+                </Button>
             {/each}
-        </WidgetSection>
+        </StackContainer>
     {/each}
-</WidgetContainer>
+</StackContainer>

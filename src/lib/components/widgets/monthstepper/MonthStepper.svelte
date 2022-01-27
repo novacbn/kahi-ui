@@ -1,5 +1,4 @@
 <script lang="ts">
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
@@ -9,8 +8,13 @@
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {clamp_month, get_monthstamp, is_month_in_range} from "../../../util/datetime";
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+    import {
+        add_months,
+        clamp_month,
+        format_month,
+        is_month_in_range,
+        now_month,
+    } from "../../../util/datetime/months";
 
     import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
@@ -29,7 +33,6 @@
         disabled?: boolean;
         readonly?: boolean;
 
-        calendar?: string;
         locale?: string;
 
         month?: Intl.DateTimeFormatOptions["month"];
@@ -62,7 +65,6 @@
     export let disabled: $$Props["disabled"] = undefined;
     export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 
     export let month: $$Props["month"] = undefined;
@@ -72,24 +74,20 @@
     export let min: $$Props["min"] = undefined;
     export let step: $$Props["step"] = undefined;
 
-    export let value: $$Props["value"] = undefined;
+    export let value = now_month();
 
     export let palette: $$Props["palette"] = undefined;
 
     function on_month_select(difference: number, event: MouseEvent): void {
         if (readonly) return;
 
-        value = clamp_month(_month.add({months: difference}), min, max).toString({
-            calendarName: "always",
-        });
+        value = add_months(value, difference);
+        value = clamp_month(value, min, max);
 
         dispatch("change");
     }
 
-    const _monthstamp = get_monthstamp(calendar ?? DEFAULT_CALENDAR);
-
-    $: _month = Temporal.PlainYearMonth.from(value ?? _monthstamp);
-    $: _step = step ? (typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step)) : 1;
+    $: _step = Math.abs((typeof step === "string" ? parseInt(step) : step) ?? 1);
 </script>
 
 <StackContainer
@@ -100,7 +98,7 @@
     alignment_y="center"
 >
     <WidgetHeader>
-        {_month.toLocaleString(locale ?? DEFAULT_LOCALE, {
+        {format_month(value, locale, {
             month: month ?? "long",
             year: year ?? "numeric",
         })}
@@ -109,7 +107,7 @@
     <Spacer is="span" />
 
     <Button
-        disabled={disabled || !is_month_in_range(_month, undefined, min)}
+        disabled={disabled || !is_month_in_range(value, min)}
         variation={["subtle", "clear"]}
         {palette}
         on:click={on_month_select.bind(null, _step * -1)}
@@ -118,7 +116,7 @@
     </Button>
 
     <Button
-        disabled={disabled || !is_month_in_range(_month, max)}
+        disabled={disabled || !is_month_in_range(value, undefined, max)}
         variation={["subtle", "clear"]}
         {palette}
         on:click={on_month_select.bind(null, _step)}

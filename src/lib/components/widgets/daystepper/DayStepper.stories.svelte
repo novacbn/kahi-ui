@@ -1,8 +1,7 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
+    import {add_days, now_day, subtract_days} from "../../../util/datetime/days";
 
     import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
@@ -21,10 +20,10 @@
 
     let calendar;
     let locale;
-    let value;
+    let value = now_day();
 
-    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 5}).toString();
-    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR).subtract({days: 5}).toString();
+    let max = add_days(value, 5);
+    let min = subtract_days(value, 5);
     let step = 3;
 </script>
 
@@ -34,7 +33,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <DayStepper palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">

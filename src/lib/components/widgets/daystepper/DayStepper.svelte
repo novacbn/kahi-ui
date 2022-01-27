@@ -20,7 +20,7 @@
     import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import StackContainer from "../../layouts/stack/StackContainer.svelte";
-    import WidgetHeader from "../widget/WidgetHeader.svelte";
+    import Text from "../../typography/text/Text.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -102,13 +102,13 @@
     orientation="horizontal"
     alignment_y="center"
 >
-    <WidgetHeader>
+    <Text is="strong" {sizing}>
         {format_day(value, locale, {
             day: day ?? "2-digit",
             month: month ?? "long",
             weekday: weekday ?? "long",
         })}
-    </WidgetHeader>
+    </Text>
 
     <Spacer is="span" />
 

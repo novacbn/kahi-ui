@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type {Temporal} from "@js-temporal/polyfill";
     import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
@@ -8,18 +7,21 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import {TOKENS_SPACING} from "../../../types/spacings";
 
+    import {get_year_halves} from "../../../util/datetime/calendars";
+    import type {IYearFormatOptions} from "../../../util/datetime/years";
     import {
-        get_decade_halves,
-        get_yearstamp,
-        has_year,
+        format_year,
+        now_year,
+        includes_year,
+        is_year,
         is_year_in_range,
-    } from "../../../util/datetime";
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+    } from "../../../util/datetime/years";
 
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
-    import WidgetSection from "../widget/WidgetSection.svelte";
+    import Button from "../../interactables/button/Button.svelte";
+    import GridContainer from "../../layouts/grid/GridContainer.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -34,10 +36,9 @@
         once?: boolean;
         readonly?: boolean;
 
-        calendar?: string;
         locale?: string;
 
-        year?: Intl.DateTimeFormatOptions["year"];
+        year?: IYearFormatOptions["year"];
 
         disabled?: boolean | readonly string[];
         max?: string;
@@ -64,7 +65,6 @@
     export let once: $$Props["once"] = undefined;
     export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 
     export let year: $$Props["year"] = undefined;
@@ -73,55 +73,51 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let highlight: $$Props["highlight"] = undefined;
-    export let timestamp: $$Props["timestamp"] = undefined;
-    export let value: $$Props["value"] = undefined;
+    export let highlight: readonly string[] = [now_year()];
+    export let timestamp: string = now_year();
+    export let value: readonly string[] = [];
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
-    function on_year_click(year: Temporal.PlainYearMonth, event: MouseEvent): void {
+    function on_year_click(year: string, event: MouseEvent): void {
         if (readonly) return;
 
-        if (!once && has_year(_value, year)) {
-            value = multiple ? _value.filter((entry) => !year.equals(entry)) : [];
+        if (!once && includes_year(year, value)) {
+            value = multiple ? value.filter((entry) => !is_year(year, entry)) : [];
+        } else value = multiple ? [...value, year] : [year];
 
-            dispatch("change");
-        } else {
-            value = multiple
-                ? [..._value, year.toString({calendarName: "always"})]
-                : [year.toString({calendarName: "always"})];
-
-            dispatch("change");
-        }
+        dispatch("change");
     }
 
-    // HACK: We could do `_highlight = [_timestamp]`, however that would tie `highlight`'s
-    // default value to `timestamp`. Which might not be expected or wanted default behavior
-
-    const _yearstamp = get_yearstamp(calendar ?? DEFAULT_CALENDAR);
-
-    $: _highlight = highlight ?? [_yearstamp];
-    $: _halfs = get_decade_halves(timestamp ?? _yearstamp);
-    $: _value = value ?? [];
+    $: _halfves = get_year_halves(timestamp);
 </script>
 
-<WidgetContainer {...$$props} bind:element class="year-picker {_class}">
-    {#each _halfs as _half, _half_index (_half_index)}
-        <WidgetSection>
-            {#each _half as _year (_year.year)}
-                <WidgetButton
-                    variation={has_year(_highlight, _year) ? "outline" : undefined}
-                    palette={_year.year % 10 === 0 || _year.year % 10 === 9 ? undefined : palette}
-                    active={has_year(_value, _year)}
-                    disabled={!is_year_in_range(_year, max, min, true) ||
-                        (disabled instanceof Array ? has_year(disabled, _year) : disabled)}
+<StackContainer
+    bind:element
+    {...$$restProps}
+    class="year-picker {_class}"
+    spacing={TOKENS_SPACING.small}
+>
+    {#each _halfves as _half, _half_index (_half_index)}
+        <GridContainer spacing="small" style="--points:{_half.length};">
+            {#each _half as _year, _year_index (_year)}
+                <Button
+                    variation={includes_year(_year, highlight)
+                        ? ["subtle", "outline"]
+                        : ["subtle", "clear"]}
+                    palette={_year_index === 0 ? undefined : palette}
+                    active={includes_year(_year, value)}
+                    disabled={!is_year_in_range(_year, min, max, true) ||
+                        (disabled instanceof Array ? includes_year(_year, disabled) : disabled)}
+                    {sizing}
                     on:click={on_year_click.bind(null, _year)}
                 >
-                    {_year
-                        .toLocaleString(locale ?? DEFAULT_LOCALE, {year: year ?? "numeric"})
-                        .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
-                </WidgetButton>
+                    {format_year(_year, locale, {
+                        year: year ?? "numeric",
+                    })}
+                </Button>
             {/each}
-        </WidgetSection>
+        </GridContainer>
     {/each}
-</WidgetContainer>
+</StackContainer>

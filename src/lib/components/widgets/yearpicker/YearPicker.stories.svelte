@@ -1,8 +1,7 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
+    import {add_years, now_year, subtract_years} from "../../../util/datetime/years";
 
     import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
@@ -11,36 +10,26 @@
     import YearPicker from "./YearPicker.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["medium", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
-        ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
+
+    const now = now_year();
 
     let calendar;
     let locale;
     let timestamp;
     let value;
 
-    let disabled = [
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 1}).toString(),
-    ];
-    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .add({years: 3})
-        .toString();
-    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .subtract({years: 3})
-        .toString();
-    let highlight = [
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 1}).toString(),
-
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 2}).toString(),
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 3}).toString(),
-    ];
+    let disabled = [add_years(now, 1), subtract_years(now, 1)];
+    let max = add_years(now, 2);
+    let min = subtract_years(now, 2);
+    let highlight = [now, add_years(now, 2), subtract_years(now, 2)];
 </script>
 
 <Meta title="Widgets/YearPicker" />
@@ -49,7 +38,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <YearPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">

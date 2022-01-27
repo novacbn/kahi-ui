@@ -9,7 +9,7 @@
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import {TOKENS_SPACING} from "../../../types/spacings";
 
-    import {get_calendar_quaters} from "../../../util/datetime/calendars";
+    import {get_month_quaters} from "../../../util/datetime/calendars";
     import type {IMonthFormatOptions} from "../../../util/datetime/months";
     import {
         format_month,
@@ -91,7 +91,7 @@
         dispatch("change");
     }
 
-    $: _quaters = get_calendar_quaters(timestamp);
+    $: _quaters = get_month_quaters(timestamp);
 </script>
 
 <StackContainer

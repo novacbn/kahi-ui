@@ -38,7 +38,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <MonthPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">

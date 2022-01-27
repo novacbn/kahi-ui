@@ -42,18 +42,18 @@ export function clamp_month(
     // we want to preserve the input day instead of resetting it all the time
 
     const source_date = from_datestamp(timestamp);
-    const adjusted_date = from_datestamp(timestamp, {day: 1});
+    const month_date = source_date.with({day: 1});
 
     if (maximum) {
         const maximum_date = from_datestamp(maximum, {day: 1});
-        if (Temporal.PlainDate.compare(maximum_date, adjusted_date) < (inclusive ? 0 : 1)) {
+        if (Temporal.PlainDate.compare(maximum_date, month_date) < (inclusive ? 0 : 1)) {
             return to_datestamp(maximum_date, {day: source_date.day});
         }
     }
 
     if (minimum) {
         const minimum_date = from_datestamp(minimum, {day: 1});
-        if (Temporal.PlainDate.compare(minimum_date, adjusted_date) > (inclusive ? 0 : -1)) {
+        if (Temporal.PlainDate.compare(minimum_date, month_date) > (inclusive ? 0 : -1)) {
             return to_datestamp(minimum_date, {day: source_date.day});
         }
     }
@@ -75,16 +75,14 @@ export function get_month(timestamp: string): number {
     return from_datestamp(timestamp).month;
 }
 
-export function includes_month(timestamp: string, targets: string[]): boolean {
+export function includes_month(timestamp: string, targets: readonly string[]): boolean {
     const source_date = from_datestamp(timestamp, {day: 1});
 
-    return (
-        targets.find((target, index) => {
-            const target_date = from_datestamp(target, {day: 1});
+    return !!targets.find((target, index) => {
+        const target_date = from_datestamp(target, {day: 1});
 
-            return source_date.equals(target_date);
-        }) !== null
-    );
+        return source_date.equals(target_date);
+    });
 }
 
 export function is_month(timestamp: string, target: string): boolean {

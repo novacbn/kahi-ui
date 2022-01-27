@@ -8,6 +8,7 @@
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
+    import type {IMonthFormatOptions} from "../../../util/datetime/months";
     import {
         add_months,
         clamp_month,
@@ -35,8 +36,8 @@
 
         locale?: string;
 
-        month?: Intl.DateTimeFormatOptions["month"];
-        year?: Intl.DateTimeFormatOptions["year"];
+        month?: IMonthFormatOptions["month"];
+        year?: IMonthFormatOptions["year"];
 
         max?: string;
         min?: string;

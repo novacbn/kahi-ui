@@ -79,16 +79,14 @@ export function get_day(timestamp: string): number {
     return from_datestamp(timestamp).day;
 }
 
-export function includes_day(timestamp: string, targets: string[]): boolean {
+export function includes_day(timestamp: string, targets: readonly string[]): boolean {
     const source_date = from_datestamp(timestamp);
 
-    return (
-        targets.find((target, index) => {
-            const target_date = from_datestamp(target);
+    return !!targets.find((target, index) => {
+        const target_date = from_datestamp(target);
 
-            return source_date.equals(target_date);
-        }) !== null
-    );
+        return source_date.equals(target_date);
+    });
 }
 
 export function is_day(timestamp: string, target: string): boolean {

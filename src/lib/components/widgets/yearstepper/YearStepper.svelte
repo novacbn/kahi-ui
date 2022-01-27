@@ -8,6 +8,7 @@
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
+    import type {IYearFormatOptions} from "../../../util/datetime/years";
     import {
         add_years,
         clamp_year,
@@ -35,7 +36,7 @@
 
         locale?: string;
 
-        year?: Intl.DateTimeFormatOptions["year"];
+        year?: IYearFormatOptions["year"];
 
         max?: string;
         min?: string;

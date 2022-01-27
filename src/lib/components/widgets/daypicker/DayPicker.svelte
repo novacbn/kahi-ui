@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type {Temporal} from "@js-temporal/polyfill";
     import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
@@ -10,14 +9,16 @@
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import {TOKENS_SPACING} from "../../../types/spacings";
 
+    import {get_week_days} from "../../../util/datetime/calendars";
+    import type {IDayFormatOptions} from "../../../util/datetime/days";
     import {
-        get_calendar_weeks,
-        get_daystamp,
-        get_monthstamp,
-        has_day,
+        format_day,
+        includes_day,
+        is_day,
         is_day_in_range,
-    } from "../../../util/datetime";
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+        now_day,
+    } from "../../../util/datetime/days";
+    import {now_month} from "../../../util/datetime/months";
 
     import Button from "../../interactables/button/Button.svelte";
     import GridContainer from "../../layouts/grid/GridContainer.svelte";
@@ -37,11 +38,10 @@
         once?: boolean;
         readonly?: boolean;
 
-        calendar?: string;
         locale?: string;
 
-        day?: Intl.DateTimeFormatOptions["day"];
-        weekday?: Intl.DateTimeFormatOptions["weekday"];
+        day?: IDayFormatOptions["day"];
+        weekday?: IDayFormatOptions["weekday"];
 
         disabled?: boolean | readonly string[];
         max?: string;
@@ -68,7 +68,6 @@
     export let once: $$Props["once"] = undefined;
     export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 
     export let day: $$Props["day"] = undefined;
@@ -78,35 +77,24 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let highlight: $$Props["highlight"] = undefined;
-    export let timestamp: $$Props["timestamp"] = undefined;
-    export let value: $$Props["value"] = undefined;
+    export let highlight: readonly string[] = [now_day()];
+    export let timestamp: string = now_month();
+    export let value: readonly string[] = [];
 
     export let palette: $$Props["palette"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
 
-    function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
+    function on_day_click(day: string, event: MouseEvent): void {
         if (readonly) return;
 
-        if (!once && has_day(_value, day)) {
-            value = multiple ? _value.filter((entry) => !day.equals(entry)) : [];
+        if (!once && includes_day(day, value)) {
+            value = multiple ? value.filter((entry) => !is_day(day, entry)) : [];
+        } else value = multiple ? [...value, day] : [day];
 
-            dispatch("change");
-        } else {
-            value = multiple
-                ? [..._value, day.toString({calendarName: "always"})]
-                : [day.toString({calendarName: "always"})];
-
-            dispatch("change");
-        }
+        dispatch("change");
     }
 
-    const _daystamp = get_daystamp(calendar ?? DEFAULT_CALENDAR);
-    const _monthstamp = get_monthstamp(calendar ?? DEFAULT_CALENDAR);
-
-    $: _highlight = highlight ?? [_daystamp];
-    $: _weeks = get_calendar_weeks(timestamp ?? _monthstamp);
-    $: _value = value ?? [];
+    $: _weeks = get_week_days(timestamp);
 </script>
 
 <StackContainer
@@ -116,30 +104,34 @@
     spacing={TOKENS_SPACING.small}
 >
     <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_weeks[0].length};">
-        {#each _weeks[0] as _day (_day.dayOfWeek)}
+        {#each _weeks[0] as _day (_day)}
             <Text is="strong" alignment_x="center" {sizing}>
-                {_day
-                    .toLocaleString(locale ?? DEFAULT_LOCALE, {weekday: weekday ?? "short"})
-                    .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
+                {format_day(_day, locale, {
+                    weekday: weekday ?? "short",
+                })}
             </Text>
         {/each}
     </GridContainer>
 
     {#each _weeks as _week, _week_index (_week_index)}
         <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_week.length};">
-            {#each _week as _day (`${_day.month}${_day.day}`)}
+            {#each _week as _day, _day_index (_day)}
                 <Button
-                    variation={has_day(_highlight, _day)
+                    variation={includes_day(_day, highlight)
                         ? ["subtle", "outline"]
                         : ["subtle", "clear"]}
-                    palette={_day.dayOfWeek > 5 ? undefined : palette}
-                    active={has_day(_value, _day)}
-                    disabled={!is_day_in_range(_day, max, min, true) ||
-                        (disabled instanceof Array ? has_day(disabled, _day) : disabled)}
+                    palette={_day_index === 0 || _day_index === _week.length - 1
+                        ? undefined
+                        : palette}
+                    active={includes_day(_day, value)}
+                    disabled={!is_day_in_range(_day, min, max, true) ||
+                        (disabled instanceof Array ? includes_day(_day, disabled) : disabled)}
                     {sizing}
                     on:click={on_day_click.bind(null, _day)}
                 >
-                    {_day.toLocaleString(locale, {day: day ?? "2-digit"})}
+                    {format_day(_day, locale, {
+                        day: day ?? "2-digit",
+                    })}
                 </Button>
             {/each}
         </GridContainer>

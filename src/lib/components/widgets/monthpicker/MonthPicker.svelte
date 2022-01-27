@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type {Temporal} from "@js-temporal/polyfill";
     import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
@@ -7,20 +6,24 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import {TOKENS_SPACING} from "../../../types/spacings";
 
+    import {get_calendar_quaters} from "../../../util/datetime/calendars";
+    import type {IMonthFormatOptions} from "../../../util/datetime/months";
     import {
-        get_calendar_quaters,
-        get_monthstamp,
-        get_yearstamp,
-        has_month,
+        format_month,
+        includes_month,
+        is_month,
         is_month_in_range,
-    } from "../../../util/datetime";
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+        now_month,
+    } from "../../../util/datetime/months";
+    import {now_year} from "../../../util/datetime/years";
 
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
-    import WidgetSection from "../widget/WidgetSection.svelte";
+    import Button from "../../interactables/button/Button.svelte";
+    import GridContainer from "../../layouts/grid/GridContainer.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -35,10 +38,9 @@
         once?: boolean;
         readonly?: boolean;
 
-        calendar?: string;
         locale?: string;
 
-        month?: Intl.DateTimeFormatOptions["month"];
+        month?: IMonthFormatOptions["month"];
 
         disabled?: boolean | readonly string[];
         max?: string;
@@ -65,7 +67,6 @@
     export let once: $$Props["once"] = undefined;
     export let readonly: $$Props["readonly"] = undefined;
 
-    export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 
     export let month: $$Props["month"] = undefined;
@@ -74,53 +75,52 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let highlight: $$Props["highlight"] = undefined;
-    export let timestamp: $$Props["timestamp"] = undefined;
-    export let value: $$Props["value"] = undefined;
+    export let highlight: readonly string[] = [now_month()];
+    export let timestamp: string = now_year();
+    export let value: readonly string[] = [];
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
-    function on_month_click(month: Temporal.PlainYearMonth, event: MouseEvent): void {
+    function on_month_click(month: string, event: MouseEvent): void {
         if (readonly) return;
 
-        if (!once && has_month(_value, month)) {
-            value = multiple ? _value.filter((entry) => !month.equals(entry)) : [];
+        if (!once && includes_month(month, value)) {
+            value = multiple ? value.filter((entry) => !is_month(month, entry)) : [];
+        } else value = multiple ? [...value, month] : [month];
 
-            dispatch("change");
-        } else {
-            value = multiple
-                ? [..._value, month.toString({calendarName: "always"})]
-                : [month.toString({calendarName: "always"})];
-
-            dispatch("change");
-        }
+        dispatch("change");
     }
 
-    const _monthstamp = get_monthstamp(calendar ?? DEFAULT_CALENDAR);
-    const _yearstamp = get_yearstamp(calendar ?? DEFAULT_CALENDAR);
-
-    $: _highlight = highlight ?? [_monthstamp];
-    $: _quaters = get_calendar_quaters(timestamp ?? _yearstamp);
-    $: _value = value ?? [];
+    $: _quaters = get_calendar_quaters(timestamp);
+    $: _sizing = sizing ?? TOKENS_SIZING.medium;
 </script>
 
-<WidgetContainer {...$$props} bind:element class="month-picker {_class}">
+<StackContainer
+    bind:element
+    {...$$restProps}
+    class="month-picker {_class}"
+    spacing={TOKENS_SPACING.small}
+>
     {#each _quaters as _quater, _quater_index (_quater_index)}
-        <WidgetSection>
-            {#each _quater as _month (_month.month)}
-                <WidgetButton
-                    variation={has_month(_highlight, _month) ? "outline" : undefined}
-                    palette={_month.month % (_month.monthsInYear / 4) === 1 ? undefined : palette}
-                    active={has_month(_value, _month)}
-                    disabled={!is_month_in_range(_month, max, min, true) ||
-                        (disabled instanceof Array ? has_month(disabled, _month) : disabled)}
+        <GridContainer spacing="small" style="--points:{_quater.length};">
+            {#each _quater as _month, _month_index (_month)}
+                <Button
+                    variation={includes_month(_month, highlight)
+                        ? ["subtle", "outline"]
+                        : ["subtle", "clear"]}
+                    palette={_month_index === 0 ? undefined : palette}
+                    active={includes_month(_month, value)}
+                    disabled={!is_month_in_range(_month, min, max, true) ||
+                        (disabled instanceof Array ? includes_month(_month, disabled) : disabled)}
+                    sizing={_sizing}
                     on:click={on_month_click.bind(null, _month)}
                 >
-                    {_month
-                        .toLocaleString(locale ?? DEFAULT_LOCALE, {month: month ?? "short"})
-                        .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
-                </WidgetButton>
+                    {format_month(_month, locale, {
+                        month: month ?? "short",
+                    })}
+                </Button>
             {/each}
-        </WidgetSection>
+        </GridContainer>
     {/each}
-</WidgetContainer>
+</StackContainer>

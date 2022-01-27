@@ -1,8 +1,7 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
+    import {add_months, now_month, subtract_months} from "../../../util/datetime/months";
 
     import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
@@ -11,35 +10,26 @@
     import MonthPicker from "./MonthPicker.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["medium", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
-        ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
+
+    const now = now_month();
 
     let calendar;
     let locale;
     let timestamp;
     let value;
 
-    let disabled = [
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({months: 1}).toString(),
-    ];
-    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .add({months: 2})
-        .toString();
-    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .subtract({months: 2})
-        .toString();
-    let highlight = [
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({months: 1}).toString(),
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({months: 2}).toString(),
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({months: 3}).toString(),
-    ];
+    let disabled = [add_months(now, 1), subtract_months(now, 1)];
+    let max = add_months(now, 2);
+    let min = subtract_months(now, 2);
+    let highlight = [now, add_months(now, 2), subtract_months(now, 2)];
 </script>
 
 <Meta title="Widgets/MonthPicker" />

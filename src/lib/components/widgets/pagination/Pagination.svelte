@@ -14,7 +14,7 @@
 
     import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import * as Stack from "../../layouts/stack";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
 
     type $$Events = {
         select: CustomEvent<{page: number}>;
@@ -91,8 +91,8 @@
     }
 </script>
 
-<Stack.Container
-    {...$$props}
+<StackContainer
+    {...$$restProps}
     bind:element
     class="pagination {_class}"
     orientation="horizontal"
@@ -169,4 +169,4 @@
     >
         <slot name="next">&gt;</slot>
     </Button>
-</Stack.Container>
+</StackContainer>

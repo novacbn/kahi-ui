@@ -1,5 +1,6 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
+
     import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
@@ -25,12 +26,13 @@
     ];
 
     const SIZINGS = [
-        ["default", true],
+        ["medium", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
-        ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let value = 5;

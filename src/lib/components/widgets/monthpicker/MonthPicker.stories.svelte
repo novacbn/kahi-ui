@@ -1,7 +1,8 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {add_months, now_month, subtract_months} from "../../../util/datetime/months";
+    import {now_day} from "../../../util/datetime/days";
+    import {add_months, subtract_months} from "../../../util/datetime/months";
 
     import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
@@ -19,17 +20,15 @@
         ["massive", false],
     ];
 
-    const now = now_month();
-
     let calendar;
     let locale;
-    let timestamp;
+    let timestamp = now_day();
     let value;
 
-    let disabled = [add_months(now, 1), subtract_months(now, 1)];
-    let max = add_months(now, 2);
-    let min = subtract_months(now, 2);
-    let highlight = [now, add_months(now, 2), subtract_months(now, 2)];
+    let disabled = [add_months(timestamp, 1), subtract_months(timestamp, 1)];
+    let max = add_months(timestamp, 2);
+    let min = subtract_months(timestamp, 2);
+    let highlight = [timestamp, add_months(timestamp, 2), subtract_months(timestamp, 2)];
 </script>
 
 <Meta title="Widgets/MonthPicker" />

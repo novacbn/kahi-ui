@@ -1,7 +1,8 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {add_years, now_year, subtract_years} from "../../../util/datetime/years";
+    import {now_day} from "../../../util/datetime/days";
+    import {add_years, subtract_years} from "../../../util/datetime/years";
 
     import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
@@ -19,17 +20,15 @@
         ["massive", false],
     ];
 
-    const now = now_year();
-
     let calendar;
     let locale;
-    let timestamp;
+    let timestamp = now_day();
     let value;
 
-    let disabled = [add_years(now, 1), subtract_years(now, 1)];
-    let max = add_years(now, 2);
-    let min = subtract_years(now, 2);
-    let highlight = [now, add_years(now, 2), subtract_years(now, 2)];
+    let disabled = [add_years(timestamp, 1), subtract_years(timestamp, 1)];
+    let max = add_years(timestamp, 2);
+    let min = subtract_years(timestamp, 2);
+    let highlight = [timestamp, add_years(timestamp, 2), subtract_years(timestamp, 2)];
 </script>
 
 <Meta title="Widgets/YearPicker" />

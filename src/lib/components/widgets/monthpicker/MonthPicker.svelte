@@ -101,7 +101,7 @@
     spacing={TOKENS_SPACING.small}
 >
     {#each _quaters as _quater, _quater_index (_quater_index)}
-        <GridContainer spacing="small" style="--points:{_quater.length};">
+        <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_quater.length};">
             {#each _quater as _month, _month_index (_month)}
                 <Button
                     variation={includes_month(_month, highlight)

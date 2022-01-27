@@ -8,6 +8,7 @@
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import {TOKENS_SPACING} from "../../../types/spacings";
 
     import {
         get_calendar_weeks,
@@ -19,6 +20,7 @@
     import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
 
     import Button from "../../interactables/button/Button.svelte";
+    import GridContainer from "../../layouts/grid/GridContainer.svelte";
     import StackContainer from "../../layouts/stack/StackContainer.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -81,6 +83,7 @@
     export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
     function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
         if (readonly) return;
@@ -106,19 +109,24 @@
     $: _value = value ?? [];
 </script>
 
-<StackContainer bind:element {...$$restProps} class="day-picker {_class}" spacing="small">
-    <StackContainer orientation="horizontal" spacing="small" alignment_x="stretch">
+<StackContainer
+    bind:element
+    {...$$restProps}
+    class="day-picker {_class}"
+    spacing={TOKENS_SPACING.small}
+>
+    <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_weeks[0].length};">
         {#each _weeks[0] as _day (_day.dayOfWeek)}
-            <Text is="strong" sizing="small" alignment_x="center">
+            <Text is="strong" alignment_x="center" {sizing}>
                 {_day
                     .toLocaleString(locale ?? DEFAULT_LOCALE, {weekday: weekday ?? "short"})
                     .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
             </Text>
         {/each}
-    </StackContainer>
+    </GridContainer>
 
     {#each _weeks as _week, _week_index (_week_index)}
-        <StackContainer orientation="horizontal" spacing="small" alignment_x="stretch">
+        <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_week.length};">
             {#each _week as _day (`${_day.month}${_day.day}`)}
                 <Button
                     variation={has_day(_highlight, _day)
@@ -128,11 +136,12 @@
                     active={has_day(_value, _day)}
                     disabled={!is_day_in_range(_day, max, min, true) ||
                         (disabled instanceof Array ? has_day(disabled, _day) : disabled)}
+                    {sizing}
                     on:click={on_day_click.bind(null, _day)}
                 >
                     {_day.toLocaleString(locale, {day: day ?? "2-digit"})}
                 </Button>
             {/each}
-        </StackContainer>
+        </GridContainer>
     {/each}
 </StackContainer>

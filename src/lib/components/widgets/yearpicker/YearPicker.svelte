@@ -100,7 +100,7 @@
     spacing={TOKENS_SPACING.small}
 >
     {#each _halfves as _half, _half_index (_half_index)}
-        <GridContainer spacing="small" style="--points:{_half.length};">
+        <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_half.length};">
             {#each _half as _year, _year_index (_year)}
                 <Button
                     variation={includes_year(_year, highlight)

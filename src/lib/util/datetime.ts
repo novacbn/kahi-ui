@@ -20,56 +20,6 @@ function to_plain_year(year: string | Temporal.PlainYearMonthLike): Temporal.Pla
     return Temporal.PlainYearMonth.from(year).with({month: 1});
 }
 
-export function clamp_day(
-    day: string | Temporal.PlainDateLike,
-    min?: string | Temporal.PlainDateLike,
-    max?: string | Temporal.PlainDateLike
-): Temporal.PlainDate {
-    if (max && Temporal.PlainDate.compare(day, max) === 1) return Temporal.PlainDate.from(max);
-    else if (min && Temporal.PlainDate.compare(day, min) === -1) {
-        return Temporal.PlainDate.from(min);
-    }
-
-    return Temporal.PlainDate.from(day);
-}
-
-export function clamp_month(
-    month: string | Temporal.PlainYearMonthLike,
-    min?: string | Temporal.PlainYearMonthLike,
-    max?: string | Temporal.PlainYearMonthLike
-): Temporal.PlainYearMonth {
-    if (max && Temporal.PlainYearMonth.compare(month, max) === 1) {
-        return Temporal.PlainYearMonth.from(max);
-    } else if (min && Temporal.PlainYearMonth.compare(month, min) === -1) {
-        return Temporal.PlainYearMonth.from(min);
-    }
-
-    return Temporal.PlainYearMonth.from(month);
-}
-
-export function clamp_year(
-    year: string | Temporal.PlainYearMonthLike,
-    min?: string | Temporal.PlainYearMonthLike,
-    max?: string | Temporal.PlainYearMonthLike
-): Temporal.PlainYearMonth {
-    // NOTE: We need to set the `Temporal.PlainYearMonth.month` values to
-    // `1` (January) to bypass month checking / normalize months, sticking
-    // to only year / calendar
-    const _year = to_plain_year(year);
-
-    if (max) {
-        const _max = to_plain_year(max);
-        if (Temporal.PlainYearMonth.compare(_year, _max) === 1) return _max;
-    }
-
-    if (min) {
-        const _min = to_plain_year(min);
-        if (Temporal.PlainYearMonth.compare(_year, _min) === -1) return _min;
-    }
-
-    return _year;
-}
-
 export function get_calendar_quaters(
     year: string | Temporal.PlainYearMonthLike
 ): Temporal.PlainYearMonth[][] {

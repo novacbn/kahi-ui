@@ -10,12 +10,13 @@
     import MonthStepper from "./MonthStepper.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["medium", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
-        ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let calendar;

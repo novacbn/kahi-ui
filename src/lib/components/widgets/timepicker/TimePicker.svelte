@@ -9,15 +9,17 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import {TOKENS_SPACING} from "../../../types/spacings";
 
     import {get_clock_ranges, get_timestamp, is_time_in_range} from "../../../util/datetime";
     import {scroll_into_container} from "../../../util/element";
     import {DEFAULT_HOUR_12, DEFAULT_LOCALE} from "../../../util/locale";
 
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
-    import WidgetSection from "../widget/WidgetSection.svelte";
+    import Button from "../../interactables/button/Button.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
+    import Scrollable from "../../layouts/scrollable/Scrollable.svelte";
 
     type $$Events = {
         change: CustomEvent<void>;
@@ -57,7 +59,7 @@
 
     const dispatch = createEventDispatcher();
 
-    let container_element: HTMLElement;
+    let container_element: HTMLDivElement;
 
     export let element: $$Props["element"] = undefined;
 
@@ -83,6 +85,7 @@
     export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
     // HACK: For UX (User Experience), it's a good idea here to match the period to the initial time
     export let period: $$Props["period"] =
@@ -137,99 +140,133 @@
 
     $: _highlight = Temporal.PlainTime.from(highlight ?? _timestamp);
     $: _value = value ? Temporal.PlainTime.from(value) : null;
+
+    $: _sizing = sizing ?? TOKENS_SIZING.medium;
 </script>
 
-<WidgetContainer {...$$props} bind:element class="time-picker {_class}">
-    <WidgetSection bind:element={container_element} spacing="none">
-        <WidgetSection orientation="vertical">
-            {#each _hours as _hour (_hour.hour)}
-                <WidgetButton
-                    variation={_highlight.hour === _hour.hour ? "outline" : undefined}
-                    palette={_hour.hour % 12 === 0 || _hour.hour === 23 ? undefined : palette}
-                    active={_value ? _value.hour === _hour.hour : false}
-                    disabled={disabled || !is_time_in_range(_hour, max, min, true)}
-                    on:click={on_time_click.bind(null, _hour)}
-                >
-                    {_hour.toLocaleString(locale ?? DEFAULT_LOCALE, {
-                        hour: hour ?? "2-digit",
-                        hour12: _hour_12,
-                    })}
-                </WidgetButton>
-            {/each}
-        </WidgetSection>
+<StackContainer
+    {...$$restProps}
+    bind:element
+    class="time-picker {_class}"
+    spacing={TOKENS_SPACING.small}
+>
+    <StackContainer bind:element={container_element} orientation="horizontal" alignment_x="stretch">
+        <Scrollable height={_sizing}>
+            <StackContainer spacing={TOKENS_SPACING.small}>
+                {#each _hours as _hour (_hour.hour)}
+                    <Button
+                        variation={_highlight.hour === _hour.hour
+                            ? ["subtle", "outline"]
+                            : ["subtle", "clear"]}
+                        palette={_hour.hour % 12 === 0 || _hour.hour === 23 ? undefined : palette}
+                        active={_value ? _value.hour === _hour.hour : false}
+                        disabled={disabled || !is_time_in_range(_hour, max, min, true)}
+                        sizing={_sizing}
+                        on:click={on_time_click.bind(null, _hour)}
+                    >
+                        {_hour.toLocaleString(locale ?? DEFAULT_LOCALE, {
+                            hour: hour ?? "2-digit",
+                            hour12: _hour_12,
+                        })}
+                    </Button>
+                {/each}
+            </StackContainer>
+        </Scrollable>
 
-        <WidgetSection orientation="vertical">
-            {#each _minutes as _minute (_minute.minute)}
-                <WidgetButton
-                    variation={_highlight.hour === _minute.hour &&
-                    _highlight.minute === _minute.minute
-                        ? "outline"
-                        : undefined}
-                    palette={_minute.minute % 5 === 0 ? undefined : palette}
-                    active={_value
-                        ? _value.hour === _minute.hour && _value.minute === _minute.minute
-                        : false}
-                    disabled={disabled || !is_time_in_range(_minute, max, min, true)}
-                    on:click={on_time_click.bind(null, _minute)}
-                >
-                    {_minute.toLocaleString(locale ?? DEFAULT_LOCALE, {
-                        minute: minute ?? "2-digit",
-                    })}
-                </WidgetButton>
-            {/each}
-        </WidgetSection>
+        <Scrollable height={_sizing}>
+            <StackContainer spacing={TOKENS_SPACING.small}>
+                {#each _minutes as _minute (_minute.minute)}
+                    <Button
+                        variation={_highlight.hour === _minute.hour &&
+                        _highlight.minute === _minute.minute
+                            ? ["subtle", "outline"]
+                            : ["subtle", "clear"]}
+                        palette={_minute.minute % 5 === 0 ? undefined : palette}
+                        active={_value
+                            ? _value.hour === _minute.hour && _value.minute === _minute.minute
+                            : false}
+                        disabled={disabled || !is_time_in_range(_minute, max, min, true)}
+                        sizing={_sizing}
+                        on:click={on_time_click.bind(null, _minute)}
+                    >
+                        {_minute.toLocaleString(locale ?? DEFAULT_LOCALE, {
+                            minute: minute ?? "2-digit",
+                        })}
+                    </Button>
+                {/each}
+            </StackContainer>
+        </Scrollable>
 
-        <WidgetSection orientation="vertical">
-            {#each _seconds as _second (_second.second)}
-                <WidgetButton
-                    variation={_highlight.hour === _second.hour &&
-                    _highlight.minute === _second.minute &&
-                    _highlight.second === _second.second
-                        ? "outline"
-                        : undefined}
-                    palette={_second.second % 5 === 0 ? undefined : palette}
-                    active={_value
-                        ? _value.hour === _second.hour &&
-                          _value.minute === _second.minute &&
-                          _value.second === _second.second
-                        : false}
-                    disabled={disabled || !is_time_in_range(_second, max, min, true)}
-                    on:click={on_time_click.bind(null, _second)}
-                >
-                    {_second.toLocaleString(locale ?? DEFAULT_LOCALE, {
-                        second: second ?? "2-digit",
-                    })}
-                </WidgetButton>
-            {/each}
-        </WidgetSection>
-    </WidgetSection>
+        <Scrollable height={_sizing}>
+            <StackContainer spacing={TOKENS_SPACING.small}>
+                {#each _seconds as _second (_second.second)}
+                    <Button
+                        variation={_highlight.hour === _second.hour &&
+                        _highlight.minute === _second.minute &&
+                        _highlight.second === _second.second
+                            ? ["subtle", "outline"]
+                            : ["subtle", "clear"]}
+                        palette={_second.second % 5 === 0 ? undefined : palette}
+                        active={_value
+                            ? _value.hour === _second.hour &&
+                              _value.minute === _second.minute &&
+                              _value.second === _second.second
+                            : false}
+                        disabled={disabled || !is_time_in_range(_second, max, min, true)}
+                        sizing={_sizing}
+                        on:click={on_time_click.bind(null, _second)}
+                    >
+                        {_second.toLocaleString(locale ?? DEFAULT_LOCALE, {
+                            second: second ?? "2-digit",
+                        })}
+                    </Button>
+                {/each}
+            </StackContainer>
+        </Scrollable>
+    </StackContainer>
 
     {#if _hour_12 || now}
         <!-- TODO: Figure out localization strategy for below text strings -->
-        <WidgetSection>
+        <StackContainer
+            orientation="horizontal"
+            alignment_x="stretch"
+            spacing={TOKENS_SPACING.small}
+        >
             {#if now}
-                <WidgetButton {disabled} {palette} on:click={on_now_click}>NOW</WidgetButton>
+                <Button
+                    variation={["subtle", "clear"]}
+                    {disabled}
+                    {palette}
+                    sizing={_sizing}
+                    on:click={on_now_click}
+                >
+                    NOW
+                </Button>
             {/if}
 
             {#if _hour_12}
-                <WidgetButton
+                <Button
                     active={period === TOKENS_CLOCK_PERIOD.am}
+                    variation={["subtle", "clear"]}
                     {disabled}
                     {palette}
+                    sizing={_sizing}
                     on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.am)}
                 >
                     AM
-                </WidgetButton>
+                </Button>
 
-                <WidgetButton
+                <Button
                     active={period === TOKENS_CLOCK_PERIOD.pm}
+                    variation={["subtle", "clear"]}
                     {disabled}
                     {palette}
+                    sizing={_sizing}
                     on:click={on_period_click.bind(null, TOKENS_CLOCK_PERIOD.pm)}
                 >
                     PM
-                </WidgetButton>
+                </Button>
             {/if}
-        </WidgetSection>
+        </StackContainer>
     {/if}
-</WidgetContainer>
+</StackContainer>

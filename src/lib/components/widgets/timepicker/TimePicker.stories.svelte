@@ -9,12 +9,13 @@
     import TimePicker from "./TimePicker.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["medium", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
-        ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let calendar;
@@ -125,7 +126,11 @@
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <TimePicker palette="accent" width="content-max" {sizing} />
+                <TimePicker
+                    palette="accent"
+                    width="content-max"
+                    sizing={is_default ? undefined : sizing}
+                />
             </div>
         {/each}
     </Stack.Container>

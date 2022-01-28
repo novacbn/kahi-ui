@@ -2,14 +2,14 @@ import {Temporal} from "../../vendor/js-temporal-polyfill";
 
 import {DEFAULT_DAY, DEFAULT_LOCALE, DEFAULT_MONTH, DEFAULT_WEEKDAY, DEFAULT_YEAR} from "../locale";
 
-import {from_datestamp, to_datestamp} from "./timestamps";
+import {from_datestamp, to_datestamp} from "./datestamps";
 
 // NOTE: We're abstracting datetime operations here so if we again run into breaking changes
 // with the polyfill, Temporal API, or even just want to switch out the backing API, only
 // this file needs changing. And by operating solely on string-based IO, we keep things simple
 // in regards to API calls and typing
 
-// NOTE: Whenever timestamp strings enter or leave a utility function, they _must_
+// NOTE: Whenever datestamp strings enter or leave a utility function, they _must_
 // be parsed and converted into ISO-8601 calendars. Otherwise conditionals and arithmetic
 // will fail due to potential mismatch. And we want to align with Browsers where
 // they **ONLY** accept ISO-8601 strings for `<input />` elements
@@ -34,19 +34,19 @@ const DEFAULT_FORMAT_OPTIONS: IDayFormatOptions = {
     year: DEFAULT_YEAR,
 };
 
-export function add_days(timestamp: string, days: number): string {
-    const date = from_datestamp(timestamp).add({days});
+export function add_days(datestamp: string, days: number): string {
+    const date = from_datestamp(datestamp).add({days});
 
     return to_datestamp(date);
 }
 
 export function clamp_day(
-    timestamp: string,
+    datestamp: string,
     minimum?: string,
     maximum?: string,
     inclusive: boolean = false
 ): string {
-    const date = from_datestamp(timestamp);
+    const date = from_datestamp(datestamp);
 
     if (maximum) {
         const maximum_date = from_datestamp(maximum);
@@ -66,21 +66,21 @@ export function clamp_day(
 }
 
 export function format_day(
-    timestamp: string,
+    datestamp: string,
     locale: string = DEFAULT_LOCALE,
     options: IDayFormatOptions = DEFAULT_FORMAT_OPTIONS
 ): string {
-    const date = from_datestamp(timestamp);
+    const date = from_datestamp(datestamp);
 
     return date.toLocaleString(locale, options);
 }
 
-export function get_day(timestamp: string): number {
-    return from_datestamp(timestamp).day;
+export function get_day(datestamp: string): number {
+    return from_datestamp(datestamp).day;
 }
 
-export function includes_day(timestamp: string, targets: readonly string[]): boolean {
-    const source_date = from_datestamp(timestamp);
+export function includes_day(datestamp: string, targets: readonly string[]): boolean {
+    const source_date = from_datestamp(datestamp);
 
     return !!targets.find((target, index) => {
         const target_date = from_datestamp(target);
@@ -89,20 +89,20 @@ export function includes_day(timestamp: string, targets: readonly string[]): boo
     });
 }
 
-export function is_day(timestamp: string, target: string): boolean {
-    const source_date = from_datestamp(timestamp);
+export function is_day(datestamp: string, target: string): boolean {
+    const source_date = from_datestamp(datestamp);
     const target_date = from_datestamp(target);
 
     return source_date.equals(target_date);
 }
 
 export function is_day_in_range(
-    timestamp: string,
+    datestamp: string,
     minimum?: string,
     maximum?: string,
     inclusive: boolean = false
 ): boolean {
-    const date = from_datestamp(timestamp);
+    const date = from_datestamp(datestamp);
 
     if (maximum) {
         const maximum_date = from_datestamp(maximum);
@@ -117,18 +117,20 @@ export function is_day_in_range(
     return true;
 }
 
-export function set_day(timestamp: string, day: number): string {
-    const date = from_datestamp(timestamp).with({day});
+export function set_day(datestamp: string, day: number): string {
+    const date = from_datestamp(datestamp).with({day});
 
     return to_datestamp(date);
 }
 
 export function now_day(): string {
-    return Temporal.Now.plainDate("iso8601").toString({calendarName: "never"});
+    const date = Temporal.Now.plainDateISO();
+
+    return to_datestamp(date);
 }
 
-export function subtract_days(timestamp: string, days: number): string {
-    const date = from_datestamp(timestamp).subtract({days});
+export function subtract_days(datestamp: string, days: number): string {
+    const date = from_datestamp(datestamp).subtract({days});
 
     return to_datestamp(date);
 }

@@ -3,14 +3,14 @@ import type {Temporal} from "../../vendor/js-temporal-polyfill";
 import {chunk, fill} from "../functional";
 import {wrap} from "../math";
 
-import {from_datestamp, to_datestamp} from "./timestamps";
+import {from_datestamp, to_datestamp} from "./datestamps";
 
 function get_calendar_day(date: Temporal.PlainDate): number {
     return wrap(date.dayOfWeek + 1, 1, date.daysInWeek);
 }
 
-export function get_month_quaters(timestamp: string): string[][] {
-    const source_date = from_datestamp(timestamp);
+export function get_month_quaters(datestamp: string): string[][] {
+    const source_date = from_datestamp(datestamp);
     const year_date = source_date.with({day: 1, month: 1});
 
     const months = fill((index) => {
@@ -22,8 +22,8 @@ export function get_month_quaters(timestamp: string): string[][] {
     return chunk(months, year_date.monthsInYear / 4);
 }
 
-export function get_year_halves(timestamp: string): string[][] {
-    const source_date = from_datestamp(timestamp);
+export function get_year_halves(datestamp: string): string[][] {
+    const source_date = from_datestamp(datestamp);
     const year_date = source_date.with({
         day: 1,
         month: 1,
@@ -39,8 +39,8 @@ export function get_year_halves(timestamp: string): string[][] {
     return chunk(years, 5);
 }
 
-export function get_week_days(timestamp: string): string[][] {
-    const source_date = from_datestamp(timestamp, {day: 1});
+export function get_week_days(datestamp: string): string[][] {
+    const source_date = from_datestamp(datestamp, {day: 1});
 
     const starting_date = source_date.subtract({
         days: get_calendar_day(source_date) - 1,

@@ -1,21 +1,36 @@
 import {Temporal} from "../../vendor/js-temporal-polyfill";
 
-export function from_datestamp(
-    timestamp: string | Temporal.PlainDateLike,
-    modify?: Temporal.PlainDateLike
-): Temporal.PlainDate {
-    if (modify) return Temporal.PlainDate.from(timestamp).withCalendar("iso8601").with(modify);
-    return Temporal.PlainDate.from(timestamp).withCalendar("iso8601");
+const DEFAULT_MODIFY: Temporal.PlainTimeLike = {
+    // NOTE: We need to reset the smaller units, otherwise
+    // they'll be added to output timestamps
+    millisecond: 0,
+    microsecond: 0,
+    nanosecond: 0,
+};
+
+export function from_timestamp(
+    timestamp: string | Temporal.PlainTimeLike,
+    modify: Temporal.PlainTimeLike = {}
+): Temporal.PlainTime {
+    // @ts-expect-error - HACK: Umm... what? `.with` accepts both of the objects directly
+    // fine. However if I do the below spread, suddenly typing error?
+    return Temporal.PlainTime.from(timestamp).with({
+        ...DEFAULT_MODIFY,
+        ...modify,
+    });
 }
 
-export function to_datestamp(date: Temporal.PlainDate, modify?: Temporal.PlainDateLike): string {
-    if (modify) {
-        return date.withCalendar("iso8601").with(modify).toString({
-            calendarName: "never",
-        });
-    }
-
-    return date.withCalendar("iso8601").toString({
-        calendarName: "never",
-    });
+export function to_timestamp(
+    time: Temporal.PlainTime,
+    modify: Temporal.PlainTimeLike = {}
+): string {
+    return (
+        time
+            // @ts-expect-error
+            .with({
+                ...DEFAULT_MODIFY,
+                ...modify,
+            })
+            .toString()
+    );
 }

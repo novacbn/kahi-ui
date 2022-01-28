@@ -116,8 +116,6 @@ export * from "./components/widgets/monthpicker";
 export * from "./components/widgets/monthstepper";
 export * from "./components/widgets/pagination";
 export * from "./components/widgets/timepicker";
-import * as Widget from "./components/widgets/widget";
-export {Widget};
 export * from "./components/widgets/yearpicker";
 export * from "./components/widgets/yearstepper";
 

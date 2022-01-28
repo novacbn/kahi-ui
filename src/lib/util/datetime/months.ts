@@ -26,6 +26,10 @@ const DEFAULT_FORMAT_OPTIONS: IMonthFormatOptions = {
     year: DEFAULT_YEAR,
 };
 
+const RESET_UNITS: Temporal.PlainDateLike = {
+    day: 1,
+};
+
 export function add_months(datestamp: string, months: number): string {
     const date = from_datestamp(datestamp).add({months});
 
@@ -42,17 +46,17 @@ export function clamp_month(
     // we want to preserve the input day instead of resetting it all the time
 
     const source_date = from_datestamp(datestamp);
-    const month_date = source_date.with({day: 1});
+    const month_date = source_date.with(RESET_UNITS);
 
     if (maximum) {
-        const maximum_date = from_datestamp(maximum, {day: 1});
+        const maximum_date = from_datestamp(maximum, RESET_UNITS);
         if (Temporal.PlainDate.compare(maximum_date, month_date) < (inclusive ? 0 : 1)) {
             return to_datestamp(maximum_date, {day: source_date.day});
         }
     }
 
     if (minimum) {
-        const minimum_date = from_datestamp(minimum, {day: 1});
+        const minimum_date = from_datestamp(minimum, RESET_UNITS);
         if (Temporal.PlainDate.compare(minimum_date, month_date) > (inclusive ? 0 : -1)) {
             return to_datestamp(minimum_date, {day: source_date.day});
         }
@@ -76,18 +80,18 @@ export function get_month(datestamp: string): number {
 }
 
 export function includes_month(datestamp: string, targets: readonly string[]): boolean {
-    const source_date = from_datestamp(datestamp, {day: 1});
+    const source_date = from_datestamp(datestamp, RESET_UNITS);
 
     return !!targets.find((target, index) => {
-        const target_date = from_datestamp(target, {day: 1});
+        const target_date = from_datestamp(target, RESET_UNITS);
 
         return source_date.equals(target_date);
     });
 }
 
 export function is_month(datestamp: string, target: string): boolean {
-    const source_date = from_datestamp(datestamp, {day: 1});
-    const target_date = from_datestamp(target, {day: 1});
+    const source_date = from_datestamp(datestamp, RESET_UNITS);
+    const target_date = from_datestamp(target, RESET_UNITS);
 
     return source_date.equals(target_date);
 }
@@ -98,15 +102,15 @@ export function is_month_in_range(
     maximum?: string,
     inclusive: boolean = false
 ): boolean {
-    const date = from_datestamp(datestamp, {day: 1});
+    const date = from_datestamp(datestamp, RESET_UNITS);
 
     if (maximum) {
-        const maximum_date = from_datestamp(maximum, {day: 1});
+        const maximum_date = from_datestamp(maximum, RESET_UNITS);
         if (Temporal.PlainDate.compare(maximum_date, date) < (inclusive ? 0 : 1)) return false;
     }
 
     if (minimum) {
-        const minimum_date = from_datestamp(minimum, {day: 1});
+        const minimum_date = from_datestamp(minimum, RESET_UNITS);
         if (Temporal.PlainDate.compare(minimum_date, date) > (inclusive ? 0 : -1)) return false;
     }
 
@@ -116,7 +120,7 @@ export function is_month_in_range(
 export function now_month(): string {
     const date = Temporal.Now.plainDateISO();
 
-    return to_datestamp(date, {day: 1});
+    return to_datestamp(date, RESET_UNITS);
 }
 
 export function set_month(datestamp: string, month: number): string {

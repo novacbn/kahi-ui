@@ -22,6 +22,12 @@ const DEFAULT_FORMAT_OPTIONS: IYearFormatOptions = {
     year: DEFAULT_YEAR,
 };
 
+const RESET_UNITS: Temporal.PlainDateLike = {
+    day: 1,
+
+    month: 1,
+};
+
 export function add_years(datestamp: string, years: number): string {
     const date = from_datestamp(datestamp).add({years});
 
@@ -38,17 +44,17 @@ export function clamp_year(
     // we want to preserve the input day instead of resetting it all the time
 
     const source_date = from_datestamp(datestamp);
-    const year_date = source_date.with({day: 1, month: 1});
+    const year_date = source_date.with(RESET_UNITS);
 
     if (maximum) {
-        const maximum_date = from_datestamp(maximum, {day: 1, month: 1});
+        const maximum_date = from_datestamp(maximum, RESET_UNITS);
         if (Temporal.PlainDate.compare(maximum_date, year_date) < (inclusive ? 0 : 1)) {
             return to_datestamp(maximum_date, {day: source_date.day, month: source_date.month});
         }
     }
 
     if (minimum) {
-        const minimum_date = from_datestamp(minimum, {day: 1, month: 1});
+        const minimum_date = from_datestamp(minimum, RESET_UNITS);
         if (Temporal.PlainDate.compare(minimum_date, year_date) > (inclusive ? 0 : -1)) {
             return to_datestamp(minimum_date, {day: source_date.day, month: source_date.month});
         }
@@ -72,18 +78,18 @@ export function get_year(datestamp: string): number {
 }
 
 export function includes_year(datestamp: string, targets: readonly string[]): boolean {
-    const source_date = from_datestamp(datestamp, {day: 1, month: 1});
+    const source_date = from_datestamp(datestamp, RESET_UNITS);
 
     return !!targets.find((target, index) => {
-        const target_date = from_datestamp(target, {day: 1, month: 1});
+        const target_date = from_datestamp(target, RESET_UNITS);
 
         return source_date.equals(target_date);
     });
 }
 
 export function is_year(datestamp: string, target: string): boolean {
-    const source_date = from_datestamp(datestamp, {day: 1, month: 1});
-    const target_date = from_datestamp(target, {day: 1, month: 1});
+    const source_date = from_datestamp(datestamp, RESET_UNITS);
+    const target_date = from_datestamp(target, RESET_UNITS);
 
     return source_date.equals(target_date);
 }
@@ -94,15 +100,15 @@ export function is_year_in_range(
     maximum?: string,
     inclusive: boolean = false
 ): boolean {
-    const date = from_datestamp(datestamp, {day: 1, month: 1});
+    const date = from_datestamp(datestamp, RESET_UNITS);
 
     if (maximum) {
-        const maximum_date = from_datestamp(maximum, {day: 1, month: 1});
+        const maximum_date = from_datestamp(maximum, RESET_UNITS);
         if (Temporal.PlainDate.compare(maximum_date, date) < (inclusive ? 0 : 1)) return false;
     }
 
     if (minimum) {
-        const minimum_date = from_datestamp(minimum, {day: 1, month: 1});
+        const minimum_date = from_datestamp(minimum, RESET_UNITS);
         if (Temporal.PlainDate.compare(minimum_date, date) > (inclusive ? 0 : -1)) return false;
     }
 
@@ -112,7 +118,7 @@ export function is_year_in_range(
 export function now_year(): string {
     const date = Temporal.Now.plainDateISO();
 
-    return to_datestamp(date, {day: 1, month: 1});
+    return to_datestamp(date, RESET_UNITS);
 }
 
 export function set_year(datestamp: string, year: number): string {

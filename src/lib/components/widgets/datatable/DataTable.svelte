@@ -14,7 +14,7 @@
     import {IS_BROWSER} from "../../../util/environment";
     import {debounce} from "../../../util/functional";
     import {navigate_up, navigate_down} from "../../../util/keybind";
-    import {clamp} from "../../../util/number";
+    import {clamp} from "../../../util/math";
 
     import * as Table from "../../display/table";
     import Button from "../../interactables/button/Button.svelte";

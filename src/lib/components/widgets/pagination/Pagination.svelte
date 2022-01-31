@@ -9,7 +9,7 @@
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {range} from "../../../util/functional";
-    import {clamp} from "../../../util/number";
+    import {clamp} from "../../../util/math";
     import {format_tokens} from "../../../util/string";
 
     import Button from "../../interactables/button/Button.svelte";

@@ -39,14 +39,14 @@
                 ),
                 "heading": (
                     "font": (
-                        "letter-spacing": variables.format-var("fonts.letter-spacings.tiny"),
-                        "size": variables.format-var("fonts.sizes.inline.small"),
+                        "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
+                        "size": variables.format-var("fonts.sizes.inline.nano"),
                         "weight": bold,
                     ),
                     "opacity": 0.5,
                 ),
                 "section": (
-                    "padding.x": variables.format-var("spacings.block.medium"),
+                    "padding.x": variables.format-var("spacings.block.small"),
                 ),
             ),
         )

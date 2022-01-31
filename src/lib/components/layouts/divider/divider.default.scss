@@ -1,15 +1,32 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --divider-border-radius: var(--radius-small);
-    --divider-margin: var(--spacing-root-medium);
-    --divider-opacity: 0.4;
-    --divider-width: 1px;
-
-    /** */
-
-    --divider-text-font-size: 80%;
-    --divider-text-font-weight: bold;
-    --divider-text-gap: var(--spacing-local-small);
-    --divider-text-letter-spacing: 0.1em;
+@if not env("DISABLE_COMPONENTS_LAYOUTS_DIVIDER") {
+    @include variables.define-variables(
+        (
+            "divider": (
+                "border.radius": variables.format-var("radius.tiny"),
+                "color.opacity": 1,
+                "margin": (
+                    "x": variables.format-var("spacings.block.medium"),
+                    "y": variables.format-var("spacings.block.medium"),
+                ),
+                "opacity": 0.5,
+                "size": (
+                    "height": variables.format-var("sizes.borders.nano"),
+                    "width": variables.format-var("sizes.borders.nano"),
+                ),
+                "text": (
+                    "font": (
+                        "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
+                        "size": variables.format-var("fonts.sizes.inline.nano"),
+                        "weight": bold,
+                    ),
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+            ),
+        )
+    );
 }

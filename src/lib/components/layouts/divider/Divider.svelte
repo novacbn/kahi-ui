@@ -39,6 +39,7 @@
     <span
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="divider"
         role="separator"
         {...map_data_attributes({orientation, palette})}
         on:click
@@ -62,6 +63,7 @@
     <hr
         bind:this={element}
         {...map_global_attributes($$props)}
+        class="divider"
         {...map_data_attributes({orientation, palette})}
         use:forward_actions={{actions}}
         on:click

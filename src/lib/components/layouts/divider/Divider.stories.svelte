@@ -10,10 +10,10 @@
     import Divider from "./Divider.svelte";
 
     const PALETTES = [
-        ["neutral", true],
-        ["accent", false],
+        ["inherit", true],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -34,13 +34,13 @@
 
 <Story name="Palette">
     <Mosaic.Container sizing="large" spacing="medium">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Divider {palette} />
+                <Divider palette={is_default ? undefined : palette} />
             </div>
         {/each}
     </Mosaic.Container>

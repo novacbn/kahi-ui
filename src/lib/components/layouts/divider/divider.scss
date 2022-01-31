@@ -1,84 +1,95 @@
-hr,
-span[role="separator"] {
-    display: block;
+@use "../../../../framework/abstracts/transitions";
 
-    color: currentColor;
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
 
-    opacity: var(--divider-opacity);
-    pointer-events: none;
-    user-select: none;
+@if not env("DISABLE_COMPONENTS_LAYOUTS_DIVIDER") {
+    .divider {
+        @include palettes.var-inherit();
 
-    transition: color var(--animation-visual-duration) var(--animation-visual-function),
-        opacity var(--animation-visual-duration) var(--animation-visual-function);
+        display: flex;
 
-    &[data-palette] {
-        color: rgb(var(--palette-background-bold));
-    }
+        @include colors.text($namespace: "divider", $face: "foreground", $shade: "light");
+        @include colors.opacity($namespace: "divider");
 
-    &:not([data-orientation]) {
-        width: 100%;
-        margin: var(--divider-margin) 0;
-    }
+        pointer-events: none;
+        user-select: none;
 
-    &[data-orientation="vertical"] {
-        height: 100%;
-        margin: 0 var(--divider-margin);
-    }
-}
+        @include transitions.build();
 
-hr {
-    border: none;
-    background: currentColor;
-    border-radius: var(--divider-border-radius);
+        &[data-palette] {
+            @include colors.text($namespace: "divider", $face: "background", $shade: "bolder");
+        }
 
-    &:not([data-orientation]) {
-        height: var(--divider-width);
-    }
+        &:not([data-orientation]) {
+            @include intrinsics.margin-y($namespace: "divider", $unit: rem);
 
-    &[data-orientation="vertical"] {
-        width: var(--divider-width);
-    }
-}
+            width: 100%;
+        }
 
-span[role="separator"] {
-    display: inline-flex;
+        &[data-orientation="vertical"] {
+            @include intrinsics.margin-x($namespace: "divider", $unit: rem);
 
-    align-items: center;
-    justify-content: center;
-
-    gap: var(--divider-text-gap);
-
-    font-size: var(--divider-text-font-size);
-    font-weight: var(--divider-text-font-weight);
-    letter-spacing: var(--divider-text-letter-spacing);
-
-    text-align: center;
-    white-space: nowrap;
-
-    &::before,
-    &::after {
-        display: block;
-        flex-grow: 1;
-
-        background: currentColor;
-        border-radius: var(--divider-border-radius);
-
-        content: "";
-    }
-
-    &:not([data-orientation]) {
-        &::before,
-        &::after {
-            height: var(--divider-width);
+            height: 100%;
         }
     }
 
-    &[data-orientation="vertical"] {
-        writing-mode: vertical-rl;
+    hr.divider {
+        border: none;
+        background: currentColor;
+
+        @include radius.all($namespace: "divider", $unit: rem);
+
+        &:not([data-orientation]) {
+            @include intrinsics.size-height($namespace: "divider");
+        }
+
+        &[data-orientation="vertical"] {
+            @include intrinsics.size-width($namespace: "divider");
+        }
+    }
+
+    span.divider {
+        align-items: center;
+        justify-content: center;
+
+        @include intrinsics.gap-all($namespace: "divider.text", $unit: rem);
+
+        @include fonts.size($namespace: "divider.text", $unit: rem);
+        @include fonts.weight($namespace: "divider.text");
+        @include fonts.letter-spacing($namespace: "divider.text", $unit: em);
+
+        text-align: center;
+        white-space: nowrap;
 
         &::before,
         &::after {
-            width: var(--divider-width);
+            display: block;
+            flex-grow: 1;
+
+            background: currentColor;
+            @include radius.all($namespace: "divider", $unit: rem);
+
+            content: "";
+        }
+
+        &:not([data-orientation]) {
+            &::before,
+            &::after {
+                @include intrinsics.size-height($namespace: "divider");
+            }
+        }
+
+        &[data-orientation="vertical"] {
+            writing-mode: vertical-rl;
+
+            &::before,
+            &::after {
+                @include intrinsics.size-width($namespace: "divider");
+            }
         }
     }
 }

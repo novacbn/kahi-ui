@@ -2,8 +2,6 @@
     import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
-
     import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
@@ -17,7 +15,7 @@
 
     const FORMATS_YEAR = ["2-digit", "numeric"];
 
-    const now = Temporal.Now.plainDate(DEFAULT_CALENDAR).toString();
+    const now = Temporal.Now.plainDateISO().toString();
 </script>
 
 <Meta title="Display/DateStamp" />

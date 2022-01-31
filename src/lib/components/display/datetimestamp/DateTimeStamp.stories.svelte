@@ -2,7 +2,7 @@
     import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR, DEFAULT_TIMEZONE} from "../../../util/locale";
+    import {DEFAULT_TIMEZONE} from "../../../util/locale";
 
     import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
@@ -23,7 +23,7 @@
 
     const FORMATS_SECOND = ["2-digit", "numeric"];
 
-    const now = Temporal.Now.zonedDateTime(DEFAULT_CALENDAR, DEFAULT_TIMEZONE).toString();
+    const now = Temporal.Now.zonedDateTimeISO(DEFAULT_TIMEZONE).toString();
 </script>
 
 <Meta title="Display/DateTimeStamp" />

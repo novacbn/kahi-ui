@@ -3,6 +3,7 @@ import {Temporal} from "../../vendor/js-temporal-polyfill";
 import {DEFAULT_LOCALE, DEFAULT_MONTH, DEFAULT_YEAR} from "../locale";
 
 import {from_datestamp, to_datestamp} from "./datestamps";
+import type {IYearFormatOptions} from "./years";
 
 // NOTE: We're abstracting datetime operations here so if we again run into breaking changes
 // with the polyfill, Temporal API, or even just want to switch out the backing API, only
@@ -14,11 +15,9 @@ import {from_datestamp, to_datestamp} from "./datestamps";
 // will fail due to potential mismatch. And we want to align with Browsers where
 // they **ONLY** accept ISO-8601 strings for `<input />` elements
 
-export interface IMonthFormatOptions {
+export type IMonthFormatOptions = {
     month?: Intl.DateTimeFormatOptions["month"];
-
-    year?: Intl.DateTimeFormatOptions["year"];
-}
+} & IYearFormatOptions;
 
 const DEFAULT_FORMAT_OPTIONS: IMonthFormatOptions = {
     month: DEFAULT_MONTH,

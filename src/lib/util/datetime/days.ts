@@ -3,6 +3,7 @@ import {Temporal} from "../../vendor/js-temporal-polyfill";
 import {DEFAULT_DAY, DEFAULT_LOCALE, DEFAULT_MONTH, DEFAULT_WEEKDAY, DEFAULT_YEAR} from "../locale";
 
 import {from_datestamp, to_datestamp} from "./datestamps";
+import type {IMonthFormatOptions} from "./months";
 
 // NOTE: We're abstracting datetime operations here so if we again run into breaking changes
 // with the polyfill, Temporal API, or even just want to switch out the backing API, only
@@ -14,15 +15,11 @@ import {from_datestamp, to_datestamp} from "./datestamps";
 // will fail due to potential mismatch. And we want to align with Browsers where
 // they **ONLY** accept ISO-8601 strings for `<input />` elements
 
-export interface IDayFormatOptions {
+export type IDayFormatOptions = {
     day?: Intl.DateTimeFormatOptions["day"];
 
-    month?: Intl.DateTimeFormatOptions["month"];
-
     weekday?: Intl.DateTimeFormatOptions["weekday"];
-
-    year?: Intl.DateTimeFormatOptions["year"];
-}
+} & IMonthFormatOptions;
 
 const DEFAULT_FORMAT_OPTIONS: IDayFormatOptions = {
     day: DEFAULT_DAY,

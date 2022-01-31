@@ -1,24 +1,30 @@
-.dot {
-    display: inline-block;
+@use "../../../../framework/abstracts/transitions";
 
-    width: 1em;
-    height: 1em;
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/palettes";
 
-    position: relative;
+@if not env("DISABLE_COMPONENTS_FEEDBACK_DOT") {
+    .dot {
+        @include palettes.var-inherit();
 
-    background: currentColor;
-    border-radius: var(--dot-border-radius);
+        display: inline-block;
 
-    font-size: var(--dot-font-size);
+        @include intrinsics.size-all($namespace: "dot");
 
-    vertical-align: middle;
+        @include colors.background($namespace: "dot", $face: "foreground", $shade: "light");
+        @include radius.all($namespace: "dot");
 
-    user-select: none;
-    pointer-events: none;
+        vertical-align: middle;
 
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function);
+        pointer-events: none;
+        user-select: none;
 
-    &[data-palette] {
-        color: rgb(var(--palette-background-bold));
+        @include transitions.build();
+
+        &[data-palette] {
+            @include colors.background($namespace: "dot", $face: "background", $shade: "bolder");
+        }
     }
 }

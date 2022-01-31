@@ -1,6 +1,16 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --dot-border-radius: var(--radius-circle);
-    --dot-font-size: var(--font-content-size-root-nano);
+@if not env("DISABLE_COMPONENTS_FEEDBACK_DOT") {
+    @include variables.define-variables(
+        (
+            "dot": (
+                "background.opacity": 1,
+                "border.radius": variables.format-var("shapes.circle"),
+                "size": (
+                    "height": variables.format-var("sizes.icon.nano"),
+                    "width": variables.format-var("sizes.icon.nano"),
+                ),
+            ),
+        )
+    );
 }

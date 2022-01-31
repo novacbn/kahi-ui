@@ -1,67 +1,95 @@
 @use "../abstracts/variables";
 
-@mixin all($unit, $namespace: null) {
-    // HACK: By performing an identity calculation here, we can use the
-    // same themeing variables over multiple units without defining a set of
-    // variables per unit
+@mixin all($namespace: null, $unit: null) {
+    @if $namespace {
+        @if $unit {
+            // HACK: By performing an identity calculation here, we can use the
+            // same themeing variables over multiple units without defining a set of
+            // variables per unit
 
-    @if ($namespace) {
-        border-radius: calc(#{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit});
+            border-radius: calc(#{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit});
+        } @else {
+            border-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+        }
     } @else {
         border-radius: calc(var(--shape-radius) * 1#{$unit});
     }
 }
 
-@mixin bottom($unit, $namespace: null) {
-    @if ($namespace) {
-        border-bottom-left-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
-        border-bottom-right-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
+@mixin bottom($namespace: null, $unit: null) {
+    @if $namespace {
+        @if $unit {
+            border-bottom-left-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+            border-bottom-right-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+        } @else {
+            border-bottom-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+            border-bottom-right-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")}
+            );
+        }
     } @else {
         border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
         border-bottom-right-radius: calc(var(--shape-radius) * 1#{$unit});
     }
 }
 
-@mixin left($unit, $namespace: null) {
-    @if ($namespace) {
-        border-bottom-left-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
-        border-top-left-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
+@mixin left($namespace: null, $unit: null) {
+    @if $namespace {
+        @if $unit {
+            border-bottom-left-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+            border-top-left-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+        } @else {
+            border-bottom-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+            border-top-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+        }
     } @else {
         border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
         border-top-left-radius: calc(var(--shape-radius) * 1#{$unit});
     }
 }
 
-@mixin right($unit, $namespace: null) {
-    @if ($namespace) {
-        border-bottom-right-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
-        border-top-right-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
+@mixin right($namespace: null, $unit: null) {
+    @if $namespace {
+        @if $unit {
+            border-bottom-right-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+            border-top-right-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+        } @else {
+            border-bottom-right-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")}
+            );
+            border-top-right-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+        }
     } @else {
         border-bottom-right-radius: calc(var(--shape-radius) * 1#{$unit});
         border-top-right-radius: calc(var(--shape-radius) * 1#{$unit});
     }
 }
 
-@mixin top($unit, $namespace: null) {
-    @if ($namespace) {
-        border-top-left-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
-        border-top-right-radius: calc(
-            #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
-        );
+@mixin top($namespace: null, $unit: null) {
+    @if $namespace {
+        @if $unit {
+            border-top-left-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+            border-top-right-radius: calc(
+                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+            );
+        } @else {
+            border-top-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+            border-top-right-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+        }
     } @else {
         border-top-left-radius: calc(var(--shape-radius) * 1#{$unit});
         border-top-right-radius: calc(var(--shape-radius) * 1#{$unit});

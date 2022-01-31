@@ -1,5 +1,7 @@
 @use "../../../../framework/appearances/button";
+@use "../../../../framework/appearances/divider";
 @use "../../../../framework/appearances/flex";
+@use "../../../../framework/appearances/legend";
 
 @use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/fonts";
@@ -8,59 +10,44 @@
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/sizings";
 
-/*
-.menu {
-    & ul {
-        @apply flex items-stretch ml-0;
-
-        flex-direction: var(--orientation-direction);
-
-        & > li {
-            @apply flex flex-col min-w-max;
-
-            & > ul {
-                @apply mt-[var(--spacing-y)] px-[var(--spacing-local-small)];
-            }
-
-            & + li {
-                margin: var(--orientation-spacing);
-            }
-
-            & > :is(hr, span[role="separator"]) {
-                @apply m-0;
-            }
-
-            & > span[role="separator"]::before {
-                @apply max-w-[1ch];
-            }
-        }
-    }
-}
-*/
-
 @if not env("DISABLE_COMPONENTS_NAVIGATION_MENU") {
     .menu {
-        @include palettes.var-inherit();
         @include sizings.var-reset-font($tier: "inline", $namespace: "menu");
 
         @include flex.var-reset($direction: column, $namespace: "menu");
 
         @include flex.base($unit: em);
         @include fonts.size($unit: rem, $sizing-tier: "inline");
-    }
-
-    .menu--divider {
-        user-select: none;
-    }
-
-    .menu--heading {
-        @include colors.opacity($namespace: "menu.heading");
-
-        @include fonts.letter-spacing($namespace: "menu.heading", $unit: em);
-        @include fonts.size($namespace: "menu.heading", $unit: em);
-        @include fonts.weight($namespace: "menu.heading");
 
         user-select: none;
+    }
+
+    p.menu--heading {
+        @include legend.base($namespace: "menu.heading", $support-opacity: true);
+    }
+
+    hr.menu--heading,
+    p.menu--heading[data-variation~="divider"] {
+        @include divider.base($namespace: "menu.heading");
+    }
+
+    hr.menu--heading {
+        @include divider.variation-divider-base($namespace: "menu.heading");
+        @include divider.variation-divider-horizontal($namespace: "menu.heading");
+    }
+
+    p.menu--heading[data-variation~="divider"] {
+        @include divider.variation-text-base($namespace: "menu.heading");
+
+        &::before,
+        &::after {
+            @include divider.variation-text-pseudo-base($namespace: "menu.heading");
+            @include divider.variation-text-pseudo-horizontal($namespace: "menu.heading");
+        }
+
+        &::before {
+            max-width: 1ch;
+        }
     }
 
     .menu--item {

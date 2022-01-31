@@ -6,15 +6,16 @@
     import * as Mosaic from "../../layouts/mosaic";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import * as Stack from "../../layouts/stack";
+    import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Menu from "./";
 
     const PALETTES = [
         ["subtle", true],
-        ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -104,7 +105,7 @@
                     </Menu.Button>
                 </Menu.Section>
 
-                <Menu.Divider />
+                <Menu.Heading />
 
                 <Menu.Section>
                     <Menu.Button>
@@ -123,10 +124,10 @@
         </div>
 
         <div>
-            <Text is="strong">TEXT DIVIDER</Text>
+            <Text is="strong">HEADING DIVIDER</Text>
 
             <Menu.Container>
-                <Menu.Divider>DISPLAY</Menu.Divider>
+                <Menu.Heading variation="divider">DISPLAY</Menu.Heading>
 
                 <Menu.Section>
                     <Menu.Button>
@@ -136,7 +137,7 @@
                     </Menu.Button>
                 </Menu.Section>
 
-                <Menu.Divider>FEEDBACK</Menu.Divider>
+                <Menu.Heading variation="divider">FEEDBACK</Menu.Heading>
 
                 <Menu.Section>
                     <Menu.Button>
@@ -196,6 +197,34 @@
                     </Menu.Button>
                 </Menu.Section>
             </Menu.Container>
+        {/each}
+    </Mosaic.Container>
+</Story>
+
+<Story name="Subtle">
+    <Mosaic.Container sizing="medium" spacing="medium">
+        {#each PALETTES as [palette, is_default] (palette)}
+            <Box padding="small" palette={is_default ? undefined : palette}>
+                <Menu.Container>
+                    <Menu.Heading variation="divider">
+                        {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Menu.Heading>
+
+                    <Menu.Section>
+                        <Menu.Button active>
+                            Dot
+                            <Spacer />
+                            <span>ICON</span>
+                        </Menu.Button>
+
+                        <Menu.Button>
+                            Spinner
+                            <Spacer />
+                            <span>ICON</span>
+                        </Menu.Button>
+                    </Menu.Section>
+                </Menu.Container>
+            </Box>
         {/each}
     </Mosaic.Container>
 </Story>

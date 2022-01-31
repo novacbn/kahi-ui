@@ -38,12 +38,22 @@
                     ),
                 ),
                 "heading": (
+                    "border.radius": variables.format-var("radius.tiny"),
+                    "color.opacity": 1,
                     "font": (
                         "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
                         "size": variables.format-var("fonts.sizes.inline.nano"),
                         "weight": bold,
                     ),
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
                     "opacity": 0.5,
+                    "size": (
+                        "height": variables.format-var("sizes.borders.nano"),
+                        "width": variables.format-var("sizes.borders.nano"),
+                    ),
                 ),
                 "section": (
                     "padding.x": variables.format-var("spacings.block.small"),

@@ -62,6 +62,6 @@
     @include colors.text(
         $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "light"
+        $shade: "normal"
     );
 }

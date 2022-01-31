@@ -129,7 +129,7 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "light"
+        $shade: "normal"
     );
 }
 
@@ -142,7 +142,7 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "light"
+        $shade: "normal"
     );
 }
 
@@ -155,7 +155,7 @@
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "light"
+        $shade: "normal"
     );
 }
 
@@ -163,12 +163,12 @@
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "normal"
     );
 }
 
@@ -176,12 +176,12 @@
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "normal"
     );
 }
 
@@ -189,12 +189,12 @@
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "light"
+        $shade: "normal"
     );
 }
 
@@ -202,17 +202,17 @@
     @include borders.color-all(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "normal"
     );
 }
 
@@ -220,17 +220,17 @@
     @include borders.color-all(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "normal"
     );
 }
 
@@ -238,16 +238,16 @@
     @include borders.color-all(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "boldest"
+        $shade: "lightest"
     );
     @include colors.text(
         $namespace: $namespace,
         $face: if($is-inverse, "background", "foreground"),
-        $shade: "light"
+        $shade: "normal"
     );
 }

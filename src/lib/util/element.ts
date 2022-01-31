@@ -59,7 +59,8 @@ export function query_focusable_elements<T extends Element>(element: Document | 
 export function scroll_into_container(
     target: HTMLElement | string,
     position: "center" | "end" | "start" = "start",
-    behavior: ScrollBehavior = "auto"
+    behavior: ScrollBehavior = "auto",
+    parent?: HTMLElement
 ): void {
     const target_element =
         typeof target === "string" ? document.querySelector<HTMLElement>(target) : target;
@@ -69,7 +70,7 @@ export function scroll_into_container(
         );
     }
 
-    const container_element = target_element.parentElement;
+    const container_element = parent ?? target_element.parentElement;
     if (!container_element) {
         throw ReferenceError(
             "bad argument #0 to 'scroll_into_container' (target doesn't have parent element)"

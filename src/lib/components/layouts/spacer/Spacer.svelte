@@ -1,7 +1,6 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
-    import type {PROPERTY_ORIENTATION_BREAKPOINT} from "../../../types/orientations";
     import type {PROPERTY_SPACING_BREAKPOINT} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";

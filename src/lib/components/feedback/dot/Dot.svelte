@@ -3,7 +3,6 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_POSITION} from "../../../types/positions";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";

@@ -1,5 +1,4 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import {add_hours, subtract_hours} from "../../../util/datetime/hours";

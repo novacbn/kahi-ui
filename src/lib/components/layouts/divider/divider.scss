@@ -1,12 +1,4 @@
-@use "../../../../framework/abstracts/transitions";
-
 @use "../../../../framework/appearances/divider";
-
-@use "../../../../framework/mixins/colors";
-@use "../../../../framework/mixins/fonts";
-@use "../../../../framework/mixins/intrinsics";
-@use "../../../../framework/mixins/palettes";
-@use "../../../../framework/mixins/radius";
 
 @if not env("DISABLE_COMPONENTS_LAYOUTS_DIVIDER") {
     .divider {

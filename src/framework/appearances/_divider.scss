@@ -10,7 +10,7 @@
 @mixin base($namespace, $support-palette: false) {
     display: flex;
 
-    @include colors.text($namespace: $namespace, $face: "foreground", $shade: "light");
+    @include colors.text($namespace: $namespace, $face: "foreground", $shade: "normal");
     @include colors.opacity($namespace: $namespace);
 
     pointer-events: none;

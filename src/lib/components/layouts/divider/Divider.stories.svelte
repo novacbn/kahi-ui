@@ -28,7 +28,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Divider />
 </Story>
 

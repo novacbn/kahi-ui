@@ -1,0 +1,19 @@
+@use "../abstracts/transitions";
+
+@use "../mixins/colors";
+@use "../mixins/fonts";
+@use "../mixins/intrinsics";
+
+@mixin base($namespace, $support-opacity: false) {
+    @include intrinsics.gap-all($namespace: $namespace, $unit: rem);
+
+    @include fonts.size($namespace: $namespace, $unit: rem);
+    @include fonts.weight($namespace: $namespace);
+    @include fonts.letter-spacing($namespace: $namespace, $unit: em);
+
+    @if $support-opacity {
+        @include colors.opacity($namespace: $namespace);
+
+        @include transitions.build();
+    }
+}

@@ -1,0 +1,87 @@
+@use "../abstracts/transitions";
+
+@use "../mixins/colors";
+@use "../mixins/fonts";
+@use "../mixins/intrinsics";
+@use "../mixins/radius";
+
+@use "./legend";
+
+@mixin base($namespace, $support-palette: false) {
+    display: flex;
+
+    @include colors.text($namespace: $namespace, $face: "foreground", $shade: "light");
+    @include colors.opacity($namespace: $namespace);
+
+    pointer-events: none;
+    user-select: none;
+
+    @include transitions.build();
+
+    @if $support-palette {
+        &[data-palette] {
+            @include colors.text($namespace: $namespace, $face: "background", $shade: "bolder");
+        }
+    }
+}
+
+@mixin base-horizontal($namespace) {
+    @include intrinsics.margin-y($namespace: $namespace, $unit: rem);
+
+    width: 100%;
+}
+
+@mixin base-vertical($namespace) {
+    @include intrinsics.margin-x($namespace: $namespace, $unit: rem);
+
+    height: 100%;
+}
+
+@mixin variation-divider-base($namespace) {
+    border: none;
+    background: currentColor;
+
+    @include radius.all($namespace: $namespace, $unit: rem);
+}
+
+@mixin variation-divider-horizontal($namespace) {
+    @include intrinsics.size-height($namespace: $namespace);
+}
+
+@mixin variation-divider-vertical($namespace) {
+    @include intrinsics.size-width($namespace: $namespace);
+}
+
+@mixin variation-text-base($namespace, $support-legend: false) {
+    align-items: center;
+    justify-content: center;
+
+    @if $support-legend {
+        @include legend.base($namespace);
+    }
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+@mixin variation-text-vertical() {
+    writing-mode: vertical-rl;
+}
+
+@mixin variation-text-pseudo-base($namespace) {
+    display: block;
+    flex-grow: 1;
+
+    background: currentColor;
+    @include radius.all($namespace: $namespace, $unit: rem);
+
+    content: "";
+}
+
+@mixin variation-text-pseudo-horizontal($namespace) {
+    @include intrinsics.size-height($namespace: $namespace);
+}
+
+@mixin variation-text-pseudo-vertical($namespace) {
+    @include intrinsics.size-width($namespace: $namespace);
+}

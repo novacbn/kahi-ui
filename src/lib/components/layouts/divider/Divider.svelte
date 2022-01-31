@@ -36,11 +36,11 @@
 </script>
 
 {#if $$slots["default"]}
-    <span
+    <p
         bind:this={element}
         {...map_global_attributes($$props)}
-        class="divider"
         role="separator"
+        class="divider"
         {...map_data_attributes({orientation, palette})}
         on:click
         on:contextmenu
@@ -58,7 +58,7 @@
         on:pointerup
     >
         <slot />
-    </span>
+    </p>
 {:else}
     <hr
         bind:this={element}

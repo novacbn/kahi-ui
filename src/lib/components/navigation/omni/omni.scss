@@ -1,92 +1,102 @@
-.omni {
-    --palette-background-normal: var(--omni-palette-background-normal);
-    --palette-foreground-normal: var(--omni-palette-foreground-normal);
+@use "../../../../framework/abstracts/transitions";
 
-    display: flex;
+@use "../../../../framework/appearances/surface";
 
-    position: relative;
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/planes";
 
-    gap: var(--omni-gap-y) var(--omni-gap-x);
-    padding: var(--omni-padding-y) var(--omni-padding-x);
+@if not env("DISABLE_COMPONENTS_NAVIGATION_OMNI") {
+    .omni {
+        @include palettes.var-auto-background();
 
-    background: rgb(var(--palette-background-normal));
-    border-color: rgba(var(--palette-inverse-off-lightest), var(--omni-border-opacity));
-    color: rgb(var(--palette-foreground-normal));
+        display: flex;
 
-    z-index: 1;
+        position: relative;
 
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
-        border-color var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function);
+        @include intrinsics.gap-all($namespace: "omni", $unit: rem);
+        @include intrinsics.padding-all($namespace: "omni", $unit: rem);
 
-    &:is(:not([data-placement]), [data-placement="top"]) {
-        border-bottom-width: var(--omni-border-width);
-    }
+        @include surface.background($namespace: "omni");
+        @include borders.transitions();
+        @include borders.style-all($namespace: "omni");
+        @include surface.text($namespace: "omni");
 
-    &[data-placement="bottom"] {
-        border-top-width: var(--omni-border-width);
-    }
+        @include transitions.build();
 
-    &[data-variation~="sticky"] {
-        position: sticky;
-        left: 0;
-
-        &:is(:not([data-placement]), [data-placement="top"]) {
-            top: 0;
+        &:is(:not([data-placement]), [data-placement~="top"]) {
+            @include surface.borders-bottom($namespace: "omni");
+            @include borders.width-bottom($namespace: "omni");
         }
 
-        &[data-placement="bottom"] {
-            top: 100%;
+        &[data-placement~="bottom"] {
+            @include surface.borders-top($namespace: "omni");
+            @include borders.width-top($namespace: "omni");
+        }
+
+        &[data-variation~="sticky"] {
+            position: sticky;
+            left: 0;
+
+            @include planes.z-index($namespace: "omni.sticky");
+
+            &:is(:not([data-placement]), [data-placement~="top"]) {
+                top: 0;
+            }
+
+            &[data-placement~="bottom"] {
+                top: 100%;
+            }
         }
     }
-}
 
-.omni > header {
-    display: flex;
+    .omni--header {
+        display: flex;
 
-    align-items: center;
-    justify-content: flex-start;
-
-    gap: var(--omni-header-gap-y) var(--omni-header-gap-x);
-
-    font-size: var(--omni-header-font-size);
-    font-weight: var(--omni-header-font-weight);
-
-    letter-spacing: var(--omni-header-letter-spacing);
-    line-height: var(--omni-header-line-height);
-
-    user-select: none;
-    white-space: nowrap;
-
-    & > a {
-        display: inline-flex;
         align-items: center;
+        justify-content: flex-start;
+
+        @include intrinsics.gap-all($namespace: "omni.header", $unit: rem);
+
+        @include fonts.size($namespace: "omni.header", $unit: rem);
+        @include fonts.letter-spacing($namespace: "omni.header", $unit: em);
+        @include fonts.weight($namespace: "omni.header");
+
+        user-select: none;
+        white-space: nowrap;
+
+        & > a {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        & > hr[data-orientation~="vertical"] {
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
 
-    & > hr[data-orientation="vertical"] {
-        margin-left: 0;
-        margin-right: 0;
+    .omni--footer {
+        display: flex;
+
+        align-items: center;
+        justify-content: flex-end;
+
+        @include intrinsics.gap-all($namespace: "omni.footer", $unit: rem);
+
+        margin-left: auto;
     }
-}
 
-.omni > footer {
-    display: flex;
+    .omni--section {
+        display: flex;
 
-    align-items: center;
-    justify-content: flex-end;
+        align-items: center;
+        justify-content: center;
 
-    gap: var(--omni-footer-gap-y) var(--omni-footer-gap-x);
+        @include intrinsics.gap-all($namespace: "omni.section", $unit: rem);
 
-    margin-left: auto;
-}
-
-.omni > section {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: var(--omni-section-gap-y) var(--omni-section-gap-x);
-
-    flex-grow: 1;
+        flex-grow: 1;
+    }
 }

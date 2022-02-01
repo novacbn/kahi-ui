@@ -11,10 +11,10 @@
     import * as Omni from "./";
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
-        ["auto", false],
+        ["auto", true],
         ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -34,7 +34,7 @@
     <slot />
 </Template>
 
-<Story name="Preview - Basic">
+<Story name="Preview">
     <Omni.Container palette="dark" width="viewport-100">
         <Omni.Header>
             <Anchor href="#">Kahi UI</Anchor>

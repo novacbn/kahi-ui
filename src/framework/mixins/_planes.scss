@@ -1,0 +1,5 @@
+@use "../abstracts/variables";
+
+@mixin z-index($namespace) {
+    z-index: #{variables.format-var("#{$namespace}.z-index")};
+}

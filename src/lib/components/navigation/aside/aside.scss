@@ -1,85 +1,95 @@
-.aside {
-    --palette-background-normal: var(--aside-palette-background-normal);
-    --palette-foreground-normal: var(--aside-palette-foreground-normal);
+@use "../../../../framework/abstracts/transitions";
 
-    display: flex;
-    flex-direction: column;
+@use "../../../../framework/appearances/surface";
 
-    position: relative;
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/planes";
 
-    background-color: rgb(var(--palette-background-normal));
-    border-style: solid;
-    border-color: rgba(var(--palette-inverse-off-lightest), var(--aside-border-opacity));
-    color: rgb(var(--palette-foreground-normal));
+@if not env("DISABLE_COMPONENTS_NAVIGATION_ASIDE") {
+    .aside {
+        @include palettes.var-auto-background();
 
-    z-index: 1;
+        display: flex;
+        flex-direction: column;
 
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
-        border-color var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function);
+        position: relative;
 
-    &:is(:not([data-placement]), [data-placement="left"]) {
-        border-right-width: var(--aside-border-width);
-    }
+        @include surface.background($namespace: "aside");
+        @include borders.transitions();
+        @include borders.style-all($namespace: "aside");
+        @include surface.text($namespace: "aside");
 
-    &[data-placement="right"] {
-        border-left-width: var(--aside-border-width);
-    }
+        @include transitions.build();
 
-    &[data-variation~="sticky"] {
-        position: sticky;
-        top: 0;
-
-        &:is(:not([data-placement]), [data-placement="left"]) {
-            left: 0;
+        &:is(:not([data-placement]), [data-placement~="left"]) {
+            @include surface.borders-right($namespace: "aside");
+            @include borders.width-right($namespace: "aside");
         }
 
-        &[data-placement="right"] {
-            left: 100%;
+        &[data-placement~="right"] {
+            @include surface.borders-left($namespace: "aside");
+            @include borders.width-left($namespace: "aside");
+        }
+
+        &[data-variation~="sticky"] {
+            position: sticky;
+            top: 0;
+
+            @include planes.z-index($namespace: "aside.sticky");
+
+            &:is(:not([data-placement]), [data-placement~="left"]) {
+                left: 0;
+            }
+
+            &[data-placement~="right"] {
+                left: 100%;
+            }
         }
     }
-}
 
-.aside > footer {
-    display: flex;
+    .aside--footer {
+        display: flex;
 
-    align-items: center;
-    justify-content: center;
+        align-items: center;
+        justify-content: center;
 
-    gap: var(--aside-footer-gap-y) var(--aside-footer-gap-x);
+        @include intrinsics.gap-all($namespace: "aside.footer", $unit: rem);
 
-    margin-top: auto;
-    padding: 0 var(--aside-footer-padding-x) var(--aside-footer-padding-bottom)
-        var(--aside-footer-padding-x);
-}
+        margin-top: auto;
 
-.aside > header {
-    padding: var(--aside-header-padding-y) var(--aside-header-padding-x);
-
-    font-size: var(--aside-header-font-size);
-    font-weight: var(--aside-header-font-weight);
-
-    line-height: var(--aside-header-line-height);
-    letter-spacing: var(--aside-header-letter-spacing);
-
-    text-align: center;
-
-    user-select: none;
-    white-space: nowrap;
-}
-
-.aside > section {
-    margin-bottom: var(--aside-section-margin-bottom);
-    padding: var(--aside-section-padding-y) var(--aside-section-padding-x);
-
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    &:not(:last-of-type) {
-        flex-shrink: 0;
+        @include intrinsics.padding-x($namespace: "aside.footer", $unit: rem);
+        @include intrinsics.padding-bottom($namespace: "aside.footer", $unit: rem);
     }
 
-    &:last-of-type {
-        flex-shrink: 1;
+    .aside--header {
+        @include intrinsics.padding-all($namespace: "aside.header", $unit: rem);
+
+        @include fonts.size($namespace: "aside.header", $unit: rem);
+        @include fonts.letter-spacing($namespace: "aside.header", $unit: em);
+        @include fonts.weight($namespace: "aside.header");
+
+        text-align: center;
+
+        user-select: none;
+        white-space: nowrap;
+    }
+
+    .aside--section {
+        @include intrinsics.margin-bottom($namespace: "aside.section", $unit: rem);
+        @include intrinsics.padding-all($namespace: "aside.section", $unit: rem);
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        &:not(:last-of-type) {
+            flex-shrink: 0;
+        }
+
+        &:last-of-type {
+            flex-shrink: 1;
+        }
     }
 }

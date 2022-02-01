@@ -1,31 +1,48 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --aside-palette-background-normal: var(--palette-auto-off-normal);
-    --aside-palette-foreground-normal: var(--palette-inverse-normal);
-
-    --aside-border-width: 2px;
-    --aside-border-opacity: 0.1;
-
-    /** */
-
-    --aside-footer-gap-x: var(--spacing-root-small);
-    --aside-footer-gap-y: var(--spacing-root-small);
-    --aside-footer-padding-bottom: var(--spacing-root-medium);
-    --aside-footer-padding-x: var(--spacing-root-large);
-
-    /** */
-
-    --aside-header-font-size: var(--font-headline-size-root-huge);
-    --aside-header-font-weight: bold;
-    --aside-header-line-height: var(--font-headline-line-height-huge);
-    --aside-header-letter-spacing: 0.1em;
-    --aside-header-padding-x: var(--spacing-root-large);
-    --aside-header-padding-y: var(--spacing-root-large);
-
-    /** */
-
-    --aside-section-margin-bottom: var(--spacing-root-medium);
-    --aside-section-padding-x: var(--spacing-root-large);
-    --aside-section-padding-y: var(--spacing-root-small);
+@if not env("DISABLE_COMPONENTS_NAVIGATION_ASIDE") {
+    @include variables.define-variables(
+        (
+            "aside": (
+                "background.opacity": 1,
+                "border": (
+                    "width": variables.format-var("sizes.borders.medium"),
+                    "opacity": 0.2,
+                    "style": solid,
+                ),
+                "color.opacity": 1,
+                "sticky": (
+                    "z-index": variables.format-var("z-index.block.float"),
+                ),
+                "footer": (
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                    "padding": (
+                        "x": variables.format-var("spacings.block.large"),
+                        "y": variables.format-var("spacings.block.medium"),
+                    ),
+                ),
+                "header": (
+                    "font": (
+                        "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
+                        "size": variables.format-var("fonts.sizes.block.huge"),
+                        "weight": bold,
+                    ),
+                    "padding": (
+                        "x": variables.format-var("spacings.block.large"),
+                        "y": variables.format-var("spacings.block.large"),
+                    ),
+                ),
+                "section": (
+                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "padding": (
+                        "x": variables.format-var("spacings.block.large"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+            ),
+        )
+    );
 }

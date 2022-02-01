@@ -1,32 +1,51 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --omni-palette-background-normal: var(--palette-auto-off-normal);
-    --omni-palette-foreground-normal: var(--palette-inverse-normal);
-
-    --omni-border-width: 2px;
-    --omni-border-opacity: 0.1;
-    --omni-gap-x: var(--spacing-local-small);
-    --omni-gap-y: var(--spacing-local-small);
-    --omni-padding-x: var(--spacing-root-large);
-    --omni-padding-y: var(--spacing-root-medium);
-
-    /** */
-
-    --omni-footer-gap-x: var(--spacing-local-small);
-    --omni-footer-gap-y: var(--spacing-local-small);
-
-    /** */
-
-    --omni-header-gap-x: var(--spacing-local-small);
-    --omni-header-gap-y: var(--spacing-local-small);
-    --omni-header-font-weight: bold;
-    --omni-header-font-size: var(--font-headline-size-root-medium);
-    --omni-header-letter-spacing: 0.1em;
-    --omni-header-line-height: var(--font-headline-line-height-medium);
-
-    /** */
-
-    --omni-section-gap-x: var(--spacing-local-small);
-    --omni-section-gap-y: var(--spacing-local-small);
+@if not env("DISABLE_COMPONENTS_NAVIGATION_OMNI") {
+    @include variables.define-variables(
+        (
+            "omni": (
+                "background.opacity": 1,
+                "border": (
+                    "width": variables.format-var("sizes.borders.medium"),
+                    "opacity": 0.2,
+                    "style": solid,
+                ),
+                "color.opacity": 1,
+                "gap": (
+                    "x": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.small"),
+                ),
+                "padding": (
+                    "x": variables.format-var("spacings.block.medium"),
+                    "y": variables.format-var("spacings.block.medium"),
+                ),
+                "sticky": (
+                    "z-index": variables.format-var("z-index.block.float"),
+                ),
+                "footer": (
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+                "header": (
+                    "font": (
+                        "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
+                        "size": variables.format-var("fonts.sizes.block.medium"),
+                        "weight": bold,
+                    ),
+                    "gap": (
+                        "x": variables.format-var("spacings.block.medium"),
+                        "y": variables.format-var("spacings.block.medium"),
+                    ),
+                ),
+                "section": (
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+            ),
+        )
+    );
 }

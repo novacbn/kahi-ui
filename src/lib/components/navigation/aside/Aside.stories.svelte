@@ -12,10 +12,10 @@
     import * as Aside from "./";
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
-        ["auto", false],
+        ["auto", true],
         ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -35,8 +35,8 @@
     <slot />
 </Template>
 
-<Story name="Preview - Basic">
-    <Aside.Container palette="dark" max_width="content-max" height="viewport-100">
+<Story name="Preview">
+    <Aside.Container palette="light" max_width="content-max" height="viewport-100">
         <Aside.Header>
             <Anchor href="#">Kahi UI</Anchor>
             <Divider />

@@ -28,6 +28,8 @@
         actions?: IForwardedActions;
         element?: HTMLAnchorElement | HTMLButtonElement | HTMLInputElement | HTMLLabelElement;
 
+        is?: "a" | "button" | "input" | "label";
+
         active?: boolean;
         disabled?: boolean;
 
@@ -65,6 +67,8 @@
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
+    export let is: $$Props["is"] = undefined;
+
     export let type: $$Props["type"] = undefined;
     export let value: $$Props["value"] = "";
 
@@ -87,7 +91,7 @@
     $: _tabindex = tabindex as number | undefined;
 </script>
 
-{#if href}
+{#if is === "a"}
     <a
         bind:this={element}
         {...map_global_attributes($$props)}
@@ -117,7 +121,7 @@
     >
         <slot />
     </a>
-{:else if _for}
+{:else if is === "label"}
     <label
         bind:this={element}
         {...map_global_attributes($$props)}
@@ -146,7 +150,7 @@
     >
         <slot />
     </label>
-{:else if value}
+{:else if is === "input"}
     {#if type === "reset"}
         <input
             bind:this={element}

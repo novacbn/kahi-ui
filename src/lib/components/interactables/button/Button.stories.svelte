@@ -152,6 +152,24 @@
     </Stack.Container>
 </Story>
 
+<Story name="Elements">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        <Button>This is a DEFAULT Button!</Button>
+
+        <Button is="a" href="https://google.com" target="_blank" rel="noopener noreferrer">
+            This is an ANCHOR Button!
+        </Button>
+
+        <Button is="label" for="button-type-check">This is a LABEL Button!</Button>
+
+        <Button is="input" value="This is an INPUT Button!" />
+        <Button is="input" type="submit" value="This is a SUBMIT Button!" />
+        <Button is="input" type="reset" value="This is a RESET Button!" />
+    </Stack.Container>
+
+    <Check id="button-type-check" />
+</Story>
+
 <Story name="Radius">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each RADIUS as [radius, is_default] (radius)}
@@ -183,22 +201,4 @@
             </Button>
         {/each}
     </Stack.Container>
-</Story>
-
-<Story name="Type">
-    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        <Button>This is a DEFAULT Button!</Button>
-
-        <Button href="https://google.com" target="_blank" rel="noopener noreferrer">
-            This is an ANCHOR Button!
-        </Button>
-
-        <Button for="button-type-check">This is a LABEL Button!</Button>
-
-        <Button value="This is an INPUT Button!" />
-        <Button type="submit" value="This is a SUBMIT Button!" />
-        <Button type="reset" value="This is a RESET Button!" />
-    </Stack.Container>
-
-    <Check id="button-type-check" />
 </Story>

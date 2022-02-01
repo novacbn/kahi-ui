@@ -76,7 +76,7 @@
                         <Text is="kbd">CTRL+X</Text>
                     </Menu.Button>
 
-                    <Menu.Divider />
+                    <Menu.Heading />
 
                     <Menu.Button>
                         Delete
@@ -157,7 +157,7 @@
                         <Text is="kbd">CTRL+X</Text>
                     </Menu.Button>
 
-                    <Menu.Divider />
+                    <Menu.Heading />
 
                     <Menu.Button bind:element={target_element}>
                         Delete

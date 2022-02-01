@@ -8,7 +8,8 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_RADIUS_BREAKPOINT} from "../../../types/shapes";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
@@ -29,8 +30,9 @@
         value?: number | string;
 
         palette?: PROPERTY_PALETTE;
-        shape?: "circle";
-        size?: PROPERTY_SIZING;
+        radius?: PROPERTY_RADIUS_BREAKPOINT;
+        shape?: "bar" | "circle";
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -43,8 +45,9 @@
     export let value: $$Props["value"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
+    export let radius: $$Props["radius"] = undefined;
     export let shape: $$Props["shape"] = undefined;
-    export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 </script>
 
 <div
@@ -54,8 +57,9 @@
         style: `${style ? `${style};` : ""}${value ? `--value:${value};` : ""}`,
     })}
     role="progressbar"
+    class="progress"
     {...map_aria_attributes({valuemax: 1, valuemin: 0, valuenow: value})}
-    {...map_data_attributes({palette, size})}
+    {...map_data_attributes({palette, radius, sizing})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

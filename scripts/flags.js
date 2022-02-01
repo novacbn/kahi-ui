@@ -19,6 +19,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-embedded-figure",
     "--disable-components-feedback-dot",
     "--disable-components-feedback-ellipsis",
+    "--disable-components-feedback-progress",
     "--disable-components-interactables-button",
     "--disable-components-layouts-center",
     "--disable-components-layouts-container",

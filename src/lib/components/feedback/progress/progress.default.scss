@@ -1,9 +1,18 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --progress-palette-background-bold: var(--palette-neutral-bold);
-    --progress-size-icon: var(--sizes-icon-medium);
-
-    --progress-background-opacity: 0.5;
-    --progress-border-radius: var(--radius-pill);
+@if not env("DISABLE_COMPONENTS_FEEDBACK_PROGRESS") {
+    @include variables.define-variables(
+        (
+            "progress": (
+                "border.radius": variables.format-var("radius.medium"),
+                "size": variables.format-var("sizes.icon.medium"),
+                "indicator": (
+                    "background.opacity": 1,
+                ),
+                "track": (
+                    "background.opacity": 0.5,
+                ),
+            ),
+        )
+    );
 }

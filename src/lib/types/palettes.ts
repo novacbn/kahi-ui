@@ -12,6 +12,8 @@ export enum TOKENS_PALETTE {
 
     accent = "accent",
 
+    neutral = "neutral",
+
     dark = "dark",
 
     light = "light",

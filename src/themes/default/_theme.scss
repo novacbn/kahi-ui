@@ -28,7 +28,7 @@
         "palettes": (
             "neutral":
                 palettes.generate-color-palette(
-                    $background: hsl(216, 10%, 45%),
+                    $background: hsl(200, 10%, 35%),
                     $foreground: "light",
                     $dark-shading: 3%,
                     $light-shading: 3%
@@ -316,6 +316,7 @@
             ),
             "block": (
                 "base": 20,
+                "float": 21,
                 "overlay": 29,
             ),
         ),

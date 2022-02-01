@@ -1,5 +1,5 @@
 import type {Readable} from "svelte/store";
-import {derived} from "svelte/store";
+import {derived, readable} from "svelte/store";
 
 import {IS_BROWSER} from "../util/environment";
 
@@ -9,7 +9,6 @@ import {prefersdark} from "./prefersscheme";
 export type IDarkModeStore = Readable<boolean>;
 
 export function darkmode(): IDarkModeStore {
-    // @ts-expect-error - Callback function is optional
     if (!IS_BROWSER) return readable<boolean>(false);
 
     const dark_store = prefersdark();

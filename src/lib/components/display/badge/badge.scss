@@ -1,33 +1,52 @@
-.badge {
-    --shape-radius: none;
+@use "../../../../framework/abstracts/transitions";
 
-    --palette-background-normal: var(--badge-palette-background-normal);
-    --palette-foreground-normal: var(--badge-palette-foreground-normal);
+@use "../../../../framework/appearances/anchor";
 
-    display: inline-flex;
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/radius";
 
-    align-items: center;
-    justify-content: center;
+@if not env("DISABLE_COMPONENTS_DISPLAY_BADGE") {
+    .badge {
+        @include radius.var-reset($namespace: "badge");
 
-    gap: var(--badge-gap);
+        display: inline-flex;
 
-    padding: var(--badge-padding-y) var(--badge-padding-x);
+        align-items: center;
+        justify-content: center;
 
-    position: relative;
+        @include intrinsics.gap-all($namespace: "badge", $unit: em);
+        @include intrinsics.padding-all($namespace: "badge", $unit: em);
 
-    background: rgb(var(--palette-background-normal));
-    color: rgb(var(--palette-foreground-normal));
+        @include radius.all($unit: em);
 
-    border-radius: var(--shape-radius);
+        @include colors.background($namespace: "badge", $face: "foreground", $shade: "lightest");
+        @include colors.text($namespace: "badge", $face: "background", $shade: "normal");
+        text-shadow: 0px 0px 0px currentColor;
 
-    font-size: var(--badge-font-size);
-    font-weight: var(--badge-font-weight);
-    line-height: var(--badge-line-height);
+        @include fonts.size($namespace: "badge", $unit: em);
+        @include fonts.weight($namespace: "badge");
 
-    text-shadow: var(--badge-text-shadow) rgb(var(--palette-foreground-normal));
-    vertical-align: middle;
-    white-space: nowrap;
+        @include transitions.build();
 
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function);
+        &[data-palette] {
+            @include colors.background(
+                $namespace: "badge",
+                $face: "background",
+                $shade: "lightest"
+            );
+            @include colors.text($namespace: "badge", $face: "foreground", $shade: "normal");
+        }
+    }
+
+    :is(a, button).badge {
+        cursor: pointer;
+
+        user-select: none;
+
+        @include anchor.state-hover() {
+            text-decoration: underline;
+        }
+    }
 }

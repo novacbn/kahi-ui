@@ -1,10 +1,18 @@
 # CHANGELOG
 
-## 0.5.5 - 2022/01/26
+## v0.5.6 - 2022/02/01
+
+-   Fixed the following Stores / Store Features
+
+    -   `darkmode`
+
+        -   Fixed missing import to `readable` from `svelte/store` which would cause `darkmode` to throw an exception on SSR.
+
+## v0.5.5 - 2022/01/26
 
 -   Vendored new [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) `v0.3.0` version.
 
-## 0.5.4 - 2022/01/24
+## v0.5.4 - 2022/01/24
 
 -   Upgraded [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) `v0.2.0` -> `v0.3.0`.
 
@@ -144,7 +152,7 @@
 
         -   `<* sveltekit:noscroll={boolean} sveltekit:prefetch={boolean}>` — Added missing typings.
 
-## 0.5.3 - 2022/01/08
+## v0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features
 
@@ -219,7 +227,7 @@
 
             -   Fixed paging button generation not properly showing full step range on tailend of page count.
 
-## 0.5.2 - 2022/01/05
+## v0.5.2 - 2022/01/05
 
 -   Fixed the following Components / Component Features
 
@@ -233,7 +241,7 @@
 
             -   `<svelte:fragment slot="close/open">` — Updated to default to `<span>&blacktriangledown;/&blacktriangleright;</span>` respectively.
 
-## 0.5.1 - 2022/01/05
+## v0.5.1 - 2022/01/05
 
 -   Added the following Components / Component Features
 
@@ -282,7 +290,7 @@
 
             -   `<Button variation="outline">` — Updated background fill on click to be not as bold, matching `variation="clear"`.
 
-## 0.5.0 - 2022/01/02
+## v0.5.0 - 2022/01/02
 
 -   Migrated the following Components: `Aside`, `Omni`.
 

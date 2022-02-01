@@ -24,6 +24,9 @@
         default: {};
     };
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 </script>
@@ -31,6 +34,7 @@
 <header
     bind:this={element}
     {...map_global_attributes($$props)}
+    class="hero--header {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

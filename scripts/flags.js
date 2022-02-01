@@ -37,6 +37,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-overlays-clickable",
     "--disable-components-surfaces-box",
     "--disable-components-surfaces-card",
+    "--disable-components-surfaces-hero",
     "--disable-components-surfaces-tile",
     "--disable-components-utilities-animation",
     "--disable-components-utilities-portal",

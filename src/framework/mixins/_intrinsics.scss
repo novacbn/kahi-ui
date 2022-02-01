@@ -287,6 +287,16 @@
     @include size-height($namespace, $unit);
 }
 
+@mixin size-max-all($namespace, $unit: null) {
+    @include size-max-width($namespace, $unit);
+    @include size-max-height($namespace, $unit);
+}
+
+@mixin size-min-all($namespace, $unit: null) {
+    @include size-min-width($namespace, $unit);
+    @include size-min-height($namespace, $unit);
+}
+
 @mixin size-height($namespace, $unit: null) {
     @if $unit {
         height: calc(#{variables.format-var("#{$namespace}.size.height")} * 1#{$unit});
@@ -295,10 +305,42 @@
     }
 }
 
+@mixin size-max-height($namespace, $unit: null) {
+    @if $unit {
+        max-height: calc(#{variables.format-var("#{$namespace}.size.max-height")} * 1#{$unit});
+    } @else {
+        max-height: #{variables.format-var("#{$namespace}.size.max-height")};
+    }
+}
+
+@mixin size-min-height($namespace, $unit: null) {
+    @if $unit {
+        min-height: calc(#{variables.format-var("#{$namespace}.size.min-height")} * 1#{$unit});
+    } @else {
+        min-height: #{variables.format-var("#{$namespace}.size.min-height")};
+    }
+}
+
 @mixin size-width($namespace, $unit: null) {
     @if $unit {
         width: calc(#{variables.format-var("#{$namespace}.size.width")} * 1#{$unit});
     } @else {
         width: #{variables.format-var("#{$namespace}.size.width")};
+    }
+}
+
+@mixin size-max-width($namespace, $unit: null) {
+    @if $unit {
+        max-width: calc(#{variables.format-var("#{$namespace}.size.max-width")} * 1#{$unit});
+    } @else {
+        max-width: #{variables.format-var("#{$namespace}.size.max-width")};
+    }
+}
+
+@mixin size-min-width($namespace, $unit: null) {
+    @if $unit {
+        min-width: calc(#{variables.format-var("#{$namespace}.size.min-width")} * 1#{$unit});
+    } @else {
+        min-width: #{variables.format-var("#{$namespace}.size.min-width")};
     }
 }

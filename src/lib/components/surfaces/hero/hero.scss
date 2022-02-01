@@ -1,59 +1,57 @@
-.hero {
-    --palette-background-normal: var(--hero-palette-background-normal);
-    --palette-foreground-normal: var(--hero-palette-foreground-normal);
+@use "../../../../framework/abstracts/transitions";
 
-    display: flex;
-    flex-direction: column;
+@use "../../../../framework/appearances/surface";
 
-    align-items: center;
-    justify-content: center;
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
 
-    padding: var(--hero-padding-y) var(--hero-padding-x);
+@if not env("DISABLE_COMPONENTS_SURFACES_HERO") {
+    .hero {
+        @include palettes.var-auto-background();
 
-    background: rgb(var(--palette-background-normal));
-    color: rgb(var(--palette-foreground-normal));
+        display: flex;
+        flex-direction: column;
 
-    text-align: center;
+        align-items: center;
+        justify-content: center;
 
-    transition: background-color var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function);
-}
+        @include intrinsics.padding-all($namespace: "hero", $unit: rem);
 
-.hero > footer {
-    display: flex;
-    align-items: center;
+        @include surface.background($namespace: "hero");
+        @include surface.text($namespace: "hero");
 
-    gap: var(--hero-footer-gap);
+        text-align: center;
 
-    max-width: var(--hero-footer-max-width);
-
-    font-size: var(--hero-footer-font-size);
-    line-height: var(--hero-footer-line-height);
-
-    &:not(:first-child) {
-        margin-top: var(--hero-footer-margin-top);
+        @include transitions.build();
     }
-}
 
-.hero > header {
-    max-width: var(--hero-header-max-width);
+    .hero--footer {
+        display: flex;
+        align-items: center;
 
-    font-size: var(--hero-header-font-size);
-    font-weight: var(--hero-header-font-weight);
-    line-height: var(--hero-header-line-height);
+        @include intrinsics.gap-all($namespace: "hero.footer", $unit: rem);
 
-    &:not(:first-child) {
-        margin-top: var(--hero-header-margin-top);
+        @include intrinsics.size-max-width($namespace: "hero.footer");
+
+        @include fonts.size($namespace: "hero.footer", $unit: rem);
+        line-height: 1;
+
+        &:not(:first-child) {
+            @include intrinsics.margin-top($namespace: "hero.footer", $unit: rem);
+        }
     }
-}
 
-.hero > section {
-    max-width: var(--hero-section-max-width);
+    .hero--header {
+        @include intrinsics.size-max-width($namespace: "hero.header");
 
-    font-size: var(--hero-section-font-size);
-    line-height: var(--hero-section-line-height);
+        @include fonts.size($namespace: "hero.header", $unit: rem);
+        @include fonts.weight($namespace: "hero.header");
+    }
 
-    &:not(:first-child) {
-        margin-top: var(--hero-section-margin-top);
+    .hero--section {
+        @include intrinsics.size-max-width($namespace: "hero.section");
+
+        @include fonts.size($namespace: "hero.section", $unit: rem);
     }
 }

@@ -9,7 +9,6 @@ import {prefersdark} from "./prefersscheme";
 export type IDarkModeStore = Readable<boolean>;
 
 export function darkmode(): IDarkModeStore {
-    // @ts-expect-error - Callback function is optional
     if (!IS_BROWSER) return readable<boolean>(false);
 
     const dark_store = prefersdark();

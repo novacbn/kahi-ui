@@ -39,7 +39,6 @@ export * from "./components/display/timestamp";
 export * from "./components/feedback/ellipsis";
 export * from "./components/feedback/dot";
 export * from "./components/feedback/progress";
-export * from "./components/feedback/spinner";
 
 export * from "./components/embedded/figure";
 

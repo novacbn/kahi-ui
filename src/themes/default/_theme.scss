@@ -262,7 +262,6 @@
 @include variables.define-variables(
     (
         "easings": (
-            "unknown": cubic-bezier(0.4, 0, 0.6, 1),
             "ease-out-quad": cubic-bezier(0.5, 1, 0.89, 1),
             "ease-in-out-cubic": cubic-bezier(0.65, 0, 0.35, 1),
         ),
@@ -277,11 +276,6 @@
 @include variables.define-variables(
     (
         "animations": (
-            "attention":
-                animations.generate-tier(
-                    $duration: 1.5s,
-                    $function: variables.format-var("easings.unknown")
-                ),
             "movement":
                 animations.generate-tier(
                     $duration: 0.25s,
@@ -328,7 +322,7 @@
  */
 
 // TODO: Create function that generates the tiers of elevations
-// HACK: `highest` is same as `higher`
+// HACK: `highest` is currently the same as `higher`
 
 @include constants.define-constants(
     (

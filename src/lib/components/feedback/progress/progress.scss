@@ -83,7 +83,21 @@
     }
 }
 
-@keyframes progress-circle-indeterminate {
+/* 1.5s cubic-bezier(0.4, 0, 0.6, 1) */
+
+@keyframes progress-circle-indeterminate-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 3s cubic-bezier(0.4, 0, 0.6, 1) */
+
+@keyframes progress-circle-indeterminate-value {
     0% {
         stroke-dashoffset: 88px;
     }

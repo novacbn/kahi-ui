@@ -32,7 +32,7 @@
 
         <Hero.Footer>
             <Button palette="light" variation="clear">Go Back</Button>
-            <Button palette="neutral">Submit Ticket</Button>
+            <Button palette="affirmative">Submit Ticket</Button>
         </Hero.Footer>
     </Hero.Container>
 </Story>

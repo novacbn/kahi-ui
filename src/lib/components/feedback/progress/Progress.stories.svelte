@@ -103,33 +103,35 @@
 </Story>
 
 <Story name="Indeterminate">
-    <Stack.Container orientation="horizontal" spacing="medium">
-        {#each PALETTES as [palette, is_default] (palette)}
-            <div>
-                <Text is="strong">
-                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-                </Text>
+    <Stack.Container spacing="medium">
+        <Stack.Container orientation="horizontal" spacing="medium">
+            {#each PALETTES as [palette, is_default] (palette)}
+                <div>
+                    <Text is="strong">
+                        {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Text>
 
-                <br />
+                    <br />
 
-                <Progress shape="circle" palette={is_default ? undefined : palette} />
-            </div>
-        {/each}
+                    <Progress shape="circle" palette={is_default ? undefined : palette} />
+                </div>
+            {/each}
+        </Stack.Container>
+
+        <Mosaic.Container sizing="medium" spacing="medium">
+            {#each PALETTES as [palette, is_default] (palette)}
+                <div>
+                    <Text is="strong">
+                        {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Text>
+
+                    <br />
+
+                    <Progress palette={is_default ? undefined : palette} />
+                </div>
+            {/each}
+        </Mosaic.Container>
     </Stack.Container>
-
-    <Mosaic.Container sizing="medium" spacing="medium">
-        {#each PALETTES as [palette, is_default] (palette)}
-            <div>
-                <Text is="strong">
-                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-                </Text>
-
-                <br />
-
-                <Progress palette={is_default ? undefined : palette} />
-            </div>
-        {/each}
-    </Mosaic.Container>
 </Story>
 
 <Story name="Radius">

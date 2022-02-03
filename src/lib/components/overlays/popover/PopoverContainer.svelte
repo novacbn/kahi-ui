@@ -78,6 +78,7 @@
 {#if logic_id}
     <input
         role="presentation"
+        class="popover--state"
         id={logic_id}
         type="checkbox"
         bind:checked={logic_state}

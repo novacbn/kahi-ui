@@ -62,7 +62,7 @@
         <Popover.Button palette="accent">Open Menu</Popover.Button>
 
         <Popover.Section alignment_x="right" spacing="medium">
-            <Box elevation="high" padding="medium" shape="rounded">
+            <Box elevation="high" padding="medium" shape="rounded" variation="borders">
                 <Menu.Container>
                     <Menu.Button>
                         Copy
@@ -117,10 +117,16 @@
                 logic_id="popover-preview-omni-overflow"
                 dismissible
             >
-                <Popover.Button variation="clear">+</Popover.Button>
+                <Popover.Button variation={["subtle", "clear"]}>+</Popover.Button>
 
                 <Popover.Section alignment_x="left" spacing="small">
-                    <Box palette="auto" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="auto"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         <Menu.Container>
                             <Menu.Button variation="clear" active>Docs</Menu.Button>
                             <Menu.Button variation="clear">Playground</Menu.Button>
@@ -143,7 +149,7 @@
         <Popover.Button palette="accent">Open AUTO FOCUSED Popover</Popover.Button>
 
         <Popover.Section alignment_x="right" spacing="medium">
-            <Box elevation="high" padding="medium" shape="rounded">
+            <Box elevation="high" padding="medium" shape="rounded" variation="borders">
                 <Menu.Container>
                     <Menu.Button>
                         Copy
@@ -179,7 +185,13 @@
         <Popover.Button>Open LAZY Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">
-            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+            <Box
+                palette="inverse"
+                elevation="high"
+                padding="medium"
+                shape="rounded"
+                variation="borders"
+            >
                 LAZY Popover
             </Box>
         </Popover.Section>
@@ -196,7 +208,13 @@
         <Popover.Button>Open NON-DISMISSIBLE Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">
-            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+            <Box
+                palette="inverse"
+                elevation="high"
+                padding="medium"
+                shape="rounded"
+                variation="borders"
+            >
                 NON-DISMISSIBLE Popover
             </Box>
         </Popover.Section>
@@ -206,7 +224,13 @@
         <Popover.Button>Open DISMISSIBLE Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">
-            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+            <Box
+                palette="inverse"
+                elevation="high"
+                padding="medium"
+                shape="rounded"
+                variation="borders"
+            >
                 DISMISSIBLE Popover
             </Box>
         </Popover.Section>
@@ -222,7 +246,13 @@
         <Popover.Button>Open NON-ONCE Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">
-            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+            <Box
+                palette="inverse"
+                elevation="high"
+                padding="medium"
+                shape="rounded"
+                variation="borders"
+            >
                 NON-ONCE Popover
             </Box>
         </Popover.Section>
@@ -232,7 +262,13 @@
         <Popover.Button>Open ONCE Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">
-            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+            <Box
+                palette="inverse"
+                elevation="high"
+                padding="medium"
+                shape="rounded"
+                variation="borders"
+            >
                 ONCE Popover
             </Box>
         </Popover.Section>
@@ -244,7 +280,13 @@
         <Popover.Button>Open TOGGABLE Popover</Popover.Button>
 
         <Popover.Section alignment_x="right">
-            <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+            <Box
+                palette="inverse"
+                elevation="high"
+                padding="medium"
+                shape="rounded"
+                variation="borders"
+            >
                 TOGGABLE Popover
                 <br />
                 <Button on:click={on_toggle_click}>Toggle Popover</Button>
@@ -262,7 +304,13 @@
                 </Popover.Button>
 
                 <Popover.Section {placement}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {placement.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
@@ -280,7 +328,13 @@
                 </Popover.Button>
 
                 <Popover.Section placement="bottom" {alignment_x}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {alignment_x.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
@@ -294,7 +348,13 @@
                 </Popover.Button>
 
                 <Popover.Section placement="left" {alignment_y}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {alignment_y.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
@@ -312,7 +372,13 @@
                 </Popover.Button>
 
                 <Popover.Section {spacing}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {spacing.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
@@ -330,7 +396,13 @@
                 </Popover.Button>
 
                 <Popover.Section animation="clip" direction={placement} {placement}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {placement.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
@@ -348,7 +420,13 @@
                 </Popover.Button>
 
                 <Popover.Section animation="fade" direction={placement} {placement}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {placement.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
@@ -366,7 +444,13 @@
                 </Popover.Button>
 
                 <Popover.Section animation="scale" direction={placement} {placement}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {placement.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>
@@ -384,7 +468,13 @@
                 </Popover.Button>
 
                 <Popover.Section animation="slide" direction={placement} {placement}>
-                    <Box palette="inverse" elevation="high" padding="medium" shape="rounded">
+                    <Box
+                        palette="inverse"
+                        elevation="high"
+                        padding="medium"
+                        shape="rounded"
+                        variation="borders"
+                    >
                         {placement.toUpperCase()} Popover
                     </Box>
                 </Popover.Section>

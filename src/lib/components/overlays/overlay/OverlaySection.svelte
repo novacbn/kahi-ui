@@ -107,7 +107,7 @@
 <section
     bind:this={element}
     {...map_global_attributes($$props)}
-    class="{_overlay_id ? 'transition' : ''} {_class}"
+    class="overlay--section {_overlay_id ? 'transition' : ''} {_class}"
     {...map_data_attributes({
         animation: _overlay_id ? animation ?? TOKENS_TRANSITION_NAMES.scale : undefined,
         alignment,

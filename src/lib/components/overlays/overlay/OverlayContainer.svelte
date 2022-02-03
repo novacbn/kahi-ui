@@ -84,6 +84,7 @@
 {#if logic_id}
     <input
         role="presentation"
+        class="overlay--state"
         id={logic_id}
         type="checkbox"
         bind:checked={logic_state}

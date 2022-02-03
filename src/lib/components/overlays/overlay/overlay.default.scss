@@ -1,0 +1,11 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_OVERLAYS_OVERLAY") {
+    @include variables.define-variables(
+        (
+            "overlay": (
+                "z-index": variables.format-var("z-index.block.overlay"),
+            ),
+        )
+    );
+}

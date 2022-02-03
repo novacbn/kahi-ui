@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
 
@@ -21,6 +22,8 @@
     type $$Props = {
         actions?: IForwardedActions;
         element?: HTMLLabelElement;
+
+        palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -31,6 +34,11 @@
     const _scrolllock = scrolllock();
 
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
+    export let palette: $$Props["palette"] = undefined;
 
     if (!_overlay_state) {
         throw new ReferenceError(
@@ -44,7 +52,9 @@
 <Backdrop
     {...$$props}
     bind:element
+    class="overlay--backdrop {_class}"
     for={_overlay_dismissible && $_overlay_dismissible && _overlay_id ? $_overlay_id : undefined}
+    {palette}
     on:click
     on:contextmenu
     on:dblclick

@@ -1,63 +1,57 @@
-.overlay {
-    display: block;
-    position: fixed;
+@use "../../../../framework/appearances/flex";
 
-    inset: 0;
+@use "../../../../framework/mixins/planes";
 
-    z-index: 2;
-}
+@if not env("DISABLE_COMPONENTS_OVERLAYS_OVERLAY") {
+    .overlay {
+        display: block;
+        position: fixed;
 
-.overlay > .backdrop {
-    pointer-events: auto;
-}
+        inset: 0;
 
-.overlay > section {
-    --orientation-direction: column;
+        @include planes.z-index($namespace: "overlay");
+    }
 
-    --orientation-align: var(--flex-alignment-x);
-    --orientation-justify: var(--flex-alignment-y);
-
-    --flex-alignment-x: center;
-    --flex-alignment-y: center;
-
-    --spacing-x: 0;
-    --spacing-y: 0;
-
-    display: flex;
-    position: absolute;
-
-    flex-direction: var(--orientation-direction);
-    gap: var(--spacing-y) var(--spacing-x);
-
-    align-items: var(--orientation-align);
-    justify-content: var(--orientation-justify);
-
-    inset: 0;
-
-    & > * {
+    .overlay--backdrop {
         pointer-events: auto;
     }
-}
 
-.overlay,
-.overlay > section {
-    pointer-events: none;
-}
+    .overlay--section {
+        @include flex.var-reset($direction: column, $alignment-x: center, $alignment-y: center);
 
-input[type="checkbox"][role="presentation"] {
-    &:not(:checked) + .overlay {
-        & > :is(.backdrop, .transition) {
-            /**
-             * HACK: We're abusing `Backdrop` / `Transition` Component's internal state CSS vars to
-             * make `Overlay` transitions SSR-able
-             */
+        @include flex.base($unit: rem);
 
-            --animation-visible: 0;
+        position: absolute;
+
+        inset: 0;
+
+        & > * {
+            pointer-events: auto;
         }
+    }
 
-        & > .backdrop,
-        & > section > * {
-            pointer-events: none;
+    .overlay,
+    .overlay--section {
+        pointer-events: none;
+    }
+
+    .overlay--state {
+        display: none;
+
+        &:not(:checked) + .overlay {
+            & > :is(.overlay--backdrop, .overlay--section) {
+                /**
+                 * HACK: We're abusing `Backdrop` / `Transition` Component's internal state CSS vars to
+                 * make `Overlay` transitions SSR-able
+                 */
+
+                --animation-visible: 0;
+            }
+
+            & > .overlay--backdrop,
+            & > .overlay--section > * {
+                pointer-events: none;
+            }
         }
     }
 }

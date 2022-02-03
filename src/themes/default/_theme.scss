@@ -28,16 +28,16 @@
         "palettes": (
             "accent":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(200, 45%, 32.5%),
-                    $light-base: hsl(200, 32.5%, 45%),
+                    $dark-base: hsl(200, 45%, 35%),
+                    $light-base: hsl(200, 35%, 45%),
                     $foreground: "light",
                     $dark-shading: 3%,
                     $light-shading: 2%
                 ),
             "neutral":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(195, 17.5%, 40%),
-                    $light-base: hsl(195, 7.5%, 40%),
+                    $dark-base: hsl(195, 12.5%, 40%),
+                    $light-base: hsl(195, 2.5%, 40%),
                     $foreground: "light",
                     $dark-shading: 3%,
                     $light-shading: 2%

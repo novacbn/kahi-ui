@@ -12,6 +12,8 @@
         @include radius.var-reset($namespace: "progress");
         @include sizings.var-reset-size($namespace: "progress", $tier: "icon");
 
+        display: inline-block;
+
         --value: 0;
 
         pointer-events: none;
@@ -93,13 +95,10 @@
 
                 & circle:last-child {
                     animation: progress-circle-indeterminate-indicator
-                            3s
+                            2s
                             cubic-bezier(0.4, 0, 0.6, 1)
                             infinite,
-                        progress-circle-indeterminate-spin
-                            0.75s
-                            cubic-bezier(0.4, 0, 0.6, 1)
-                            infinite;
+                        progress-circle-indeterminate-spin 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
                 }
             }
         }
@@ -124,7 +123,7 @@
             stroke-dashoffset: 88px;
         }
 
-        50% {
+        75% {
             stroke-dashoffset: -88px;
         }
 

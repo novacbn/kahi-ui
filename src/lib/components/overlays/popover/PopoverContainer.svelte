@@ -5,11 +5,13 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_REFERENCE_TARGET} from "../../../types/references";
+    import type {PROPERTY_VARIATION_POPOVER} from "../../../types/variations";
+    import {TOKENS_VARIATION_POPOVER} from "../../../types/variations";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
-    import {map_global_attributes} from "../../../util/attributes";
+    import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
     import {action_exit} from "../../../util/keybind";
 
     import PopoverGroup from "./PopoverGroup.svelte";
@@ -32,6 +34,8 @@
         dismissible?: boolean;
         loading?: PROPERTY_BEHAVIOR_LOADING_LAZY;
         once?: boolean;
+
+        variation?: PROPERTY_VARIATION_POPOVER;
     } & IHTML5Properties &
         IGlobalProperties;
 
@@ -60,6 +64,8 @@
     export let loading: $$Props["loading"] = undefined;
     export let once: $$Props["once"] = undefined;
 
+    export let variation: $$Props["variation"] = undefined;
+
     function on_group_change(event: CustomEvent<void>): void {
         dispatch(logic_state ? "active" : "dismiss");
     }
@@ -75,7 +81,7 @@
 
 <svelte:window use:action_exit={{on_bind: on_dismiss}} />
 
-{#if logic_id}
+{#if variation !== TOKENS_VARIATION_POPOVER.tooltip && logic_id}
     <input
         role="presentation"
         class="popover--state"
@@ -90,6 +96,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="popover {_class}"
+    {...map_data_attributes({variation})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -107,6 +114,7 @@
     on:pointerup
 >
     <PopoverGroup
+        variation={variation ?? TOKENS_VARIATION_POPOVER.popover}
         {logic_id}
         {focus_target}
         {dismissible}

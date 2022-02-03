@@ -41,7 +41,9 @@
         CONTEXT_POPOVER_LOADING,
         CONTEXT_POPOVER_ONCE,
         CONTEXT_POPOVER_STATE,
+        CONTEXT_POPOVER_VARIATION,
     } from "./PopoverGroup.svelte";
+    import {TOKENS_VARIATION_POPOVER} from "../../../types/variations";
 
     type $$Events = {
         transitionend: TransitionEvent;
@@ -99,6 +101,8 @@
     const _popover_loading = CONTEXT_POPOVER_LOADING.get();
     const _popover_once = CONTEXT_POPOVER_ONCE.get();
 
+    const _popover_variation = CONTEXT_POPOVER_VARIATION.get();
+
     function on_dismiss(): void {
         if (_popover_dismissible && $_popover_dismissible && _popover_state && $_popover_state) {
             $_popover_state = false;
@@ -110,6 +114,16 @@
             $_popover_state = false;
         }
     }
+
+    $: _animatable =
+        (_popover_id && $_popover_id) ||
+        (_popover_variation && $_popover_variation === TOKENS_VARIATION_POPOVER.tooltip);
+    $: _enabled =
+        _popover_state &&
+        $_popover_state &&
+        _popover_variation &&
+        $_popover_variation === TOKENS_VARIATION_POPOVER.popover;
+    $: _label = _popover_id ? `label[for="${$_popover_id}"]` : undefined;
 </script>
 
 <section
@@ -117,11 +131,11 @@
     {...map_global_attributes($$props)}
     class="popover--section {_popover_id ? 'transition' : ''} {_class}"
     {...map_data_attributes({
-        animation: _popover_id ? animation ?? TOKENS_TRANSITION_NAMES.clip : undefined,
+        animation: _animatable ? animation ?? TOKENS_TRANSITION_NAMES.clip : undefined,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
-        behavior: _popover_id ? "explicit" : "",
-        direction: _popover_id
+        behavior: _animatable ? "explicit" : "",
+        direction: _animatable
             ? DIRECTIONS_LOOKUP[placement ?? TOKENS_DIRECTIONS.bottom]
             : undefined,
         placement,
@@ -130,20 +144,20 @@
         "spacing-y": spacing_y,
     })}
     use:click_inside={{
-        ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,
+        ignore: _label,
         on_click_inside: on_once,
     }}
     use:click_outside={{
-        ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,
+        ignore: _label,
         on_click_outside: on_dismiss,
     }}
     use:lost_focus={{
-        enabled: _popover_state ? $_popover_state : false,
-        ignore: _popover_id ? `label[for="${$_popover_id}"]` : undefined,
+        enabled: _enabled,
+        ignore: _label,
         on_lost_focus: on_dismiss,
     }}
     use:auto_focus={{
-        enabled: _popover_state && $_popover_state,
+        enabled: _enabled,
         target: _popover_focus_target ? $_popover_focus_target : null,
     }}
     use:forward_actions={{actions}}

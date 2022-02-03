@@ -140,6 +140,20 @@
     </Omni.Container>
 </Story>
 
+<Story name="Preview - Tooltip">
+    <Popover.Container variation="tooltip">
+        Hover me!
+
+        <Popover.Section alignment_x="right" spacing="nano" animation="fade">
+            <Box elevation="low" palette="neutral" padding="small" radius="nano">
+                I contain extra information!
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
+
+    Plus some other text...
+</Story>
+
 <Story name="Auto Focus - Focus Target">
     <Popover.Container
         logic_id="popover-auto-focus"

@@ -88,7 +88,7 @@
     .popover--state {
         display: none;
 
-        &:not(:checked) + .popover {
+        &:not(:checked) + .popover:is(:not([data-variation]), [data-variation~="popover"]) {
             & > .popover--section {
                 /**
                  * HACK: We're abusing `Transition` Component's internal state CSS vars to
@@ -98,6 +98,22 @@
                 --animation-visible: 0;
 
                 pointer-events: none;
+            }
+        }
+    }
+
+    .popover[data-variation~="tooltip"] {
+        &:not(:active, :hover) {
+            & > .popover--section {
+                --animation-visible: 0;
+
+                pointer-events: none;
+            }
+        }
+
+        &:is(:active, :hover) {
+            & > .popover--section {
+                --delay: 1.25;
             }
         }
     }

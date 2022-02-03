@@ -32,6 +32,15 @@ export enum TOKENS_VARIATION_FILL {
 }
 
 /**
+ * Represents the `Popover`-centric variation tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_POPOVER {
+    popover = "popover",
+
+    tooltip = "tooltip",
+}
+
+/**
  * Represents the tiers of filling positional tokens that can be applied to Framework Components
  */
 export enum TOKENS_VARIATION_POSITIONAL {
@@ -108,6 +117,8 @@ export type PROPERTY_VARIATION_INTERACTIVE = LiteralObject<typeof TOKENS_VARIATI
 export type PROPERTY_VARIATION_SURFACE = LiteralObject<typeof TOKENS_VARIATION_SURFACE>;
 
 export type PROPERTY_VARIATION_TABLE = ArrayEnum<LiteralEnum<TOKENS_VARIATION_TABLE>>;
+
+export type PROPERTY_VARIATION_POPOVER = LiteralEnum<TOKENS_VARIATION_POPOVER>;
 
 export type PROPERTY_VARIATION_POSITION = LiteralObject<typeof TOKENS_VARIATION_POSITION>;
 

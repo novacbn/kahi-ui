@@ -102,6 +102,9 @@
             $_overlay_state = false;
         }
     }
+
+    $: _animatable = _overlay_id && $_overlay_id;
+    $: _enabled = _overlay_state && $_overlay_state;
 </script>
 
 <section
@@ -109,12 +112,12 @@
     {...map_global_attributes($$props)}
     class="overlay--section {_overlay_id ? 'transition' : ''} {_class}"
     {...map_data_attributes({
-        animation: _overlay_id ? animation ?? TOKENS_TRANSITION_NAMES.scale : undefined,
+        animation: _animatable ? animation ?? TOKENS_TRANSITION_NAMES.scale : undefined,
         alignment,
         "alignment-x": alignment_x,
         "alignment-y": alignment_y,
-        behavior: _overlay_id ? "explicit" : "",
-        direction: _overlay_id ? direction : undefined,
+        behavior: _animatable ? "explicit" : "",
+        direction: _animatable ? direction : undefined,
         orientation,
         spacing,
         "spacing-x": spacing_x,
@@ -125,12 +128,12 @@
         on_click_inside: on_once,
     }}
     use:trap_focus={{
-        enabled: _overlay_state && $_overlay_state,
+        enabled: _enabled,
         first: _overlay_focus_first ? $_overlay_focus_first : null,
         last: _overlay_focus_last ? $_overlay_focus_last : null,
     }}
     use:auto_focus={{
-        enabled: _overlay_state && $_overlay_state,
+        enabled: _enabled,
         target: _overlay_focus_target ? $_overlay_focus_target : null,
     }}
     use:forward_actions={{actions}}

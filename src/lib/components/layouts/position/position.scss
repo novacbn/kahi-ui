@@ -1,86 +1,89 @@
-.position {
-    display: inline-block;
+@use "../../../../framework/mixins/spacings";
 
-    &[data-variation~="action"] {
-        --spacing-x: var(--position-action-margin-x);
-        --spacing-y: var(--position-action-margin-y);
+@if not env("DISABLE_COMPONENTS_LAYOUTS_POSITION") {
+    .position {
+        display: inline-block;
 
-        position: fixed;
+        &[data-variation~="action"] {
+            @include spacings.var-reset($namespace: "position.action");
 
-        &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
-            right: var(--spacing-x);
-        }
-
-        &[data-alignment-x="left"] {
-            left: var(--spacing-x);
-        }
-
-        &:is(:not([data-alignment-y]), [data-alignment-y="bottom"]) {
-            bottom: var(--spacing-y);
-        }
-
-        &[data-alignment-y="top"] {
-            top: var(--spacing-y);
-        }
-    }
-
-    &:is([data-variation~="floated"], [data-variation~="indicator"]) {
-        position: absolute;
-
-        &:is(:not([data-alignment-y]), [data-alignment-y="top"]) {
-            top: 0;
+            position: fixed;
 
             &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
-                right: 0;
-                transform: translate(50%, -50%);
+                right: calc(var(--spacing-x) * 1rem);
             }
 
             &[data-alignment-x="left"] {
-                left: 0;
-                transform: translate(-50%, -50%);
+                left: calc(var(--spacing-x) * 1rem);
+            }
+
+            &:is(:not([data-alignment-y]), [data-alignment-y="bottom"]) {
+                bottom: calc(var(--spacing-y) * 1rem);
+            }
+
+            &[data-alignment-y="top"] {
+                top: calc(var(--spacing-y) * 1rem);
             }
         }
 
-        &[data-alignment-y="bottom"] {
-            bottom: 0;
+        &[data-variation~="indicator"] {
+            position: absolute;
 
-            &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
-                right: 0;
-                transform: translate(50%, 50%);
+            &:is(:not([data-alignment-y]), [data-alignment-y="top"]) {
+                top: 0;
+
+                &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
+                    right: 0;
+                    transform: translate(50%, -50%);
+                }
+
+                &[data-alignment-x="left"] {
+                    left: 0;
+                    transform: translate(-50%, -50%);
+                }
             }
 
-            &[data-alignment-x="left"] {
-                left: 0;
-                transform: translate(-50%, 50%);
+            &[data-alignment-y="bottom"] {
+                bottom: 0;
+
+                &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
+                    right: 0;
+                    transform: translate(50%, 50%);
+                }
+
+                &[data-alignment-x="left"] {
+                    left: 0;
+                    transform: translate(-50%, 50%);
+                }
             }
         }
-    }
 
-    &[data-variation~="raised"] {
-        position: relative;
+        &[data-variation~="raised"] {
+            position: relative;
 
-        &:is(:not([data-placement]), [data-placement="top"]) {
-            transform: translateY(-50%);
+            &:is(:not([data-placement]), [data-placement="top"]) {
+                transform: translateY(-50%);
+            }
+
+            &[data-placement="bottom"] {
+                transform: translateY(50%);
+            }
+
+            &[data-placement="left"] {
+                transform: translateX(-50%);
+            }
+
+            &[data-placement="right"] {
+                transform: translateX(50%);
+            }
         }
 
-        &[data-placement="bottom"] {
-            transform: translateY(50%);
+        &[data-variation~="container"] {
+            position: absolute;
         }
 
-        &[data-placement="left"] {
-            transform: translateX(-50%);
+        &[data-variation~="viewport"] {
+            position: fixed;
         }
-
-        &[data-placement="right"] {
-            transform: translateX(50%);
-        }
-    }
-
-    &[data-variation~="container"] {
-        position: absolute;
-    }
-
-    &[data-variation~="viewport"] {
-        position: fixed;
     }
 }

@@ -1,6 +1,16 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --position-action-margin-x: var(--spacing-root-small);
-    --position-action-margin-y: var(--spacing-root-small);
+@if not env("DISABLE_COMPONENTS_LAYOUTS_POSITION") {
+    @include variables.define-variables(
+        (
+            "position": (
+                "action": (
+                    "spacing": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+            ),
+        )
+    );
 }

@@ -1,17 +1,29 @@
-.backdrop {
-    --animation-visible: 1;
+@use "../../../../framework/abstracts/transitions";
 
-    display: block;
-    position: fixed;
+@use "../../../../framework/appearances/surface";
 
-    inset: 0;
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/palettes";
 
-    background: rgba(var(--backdrop-background-color), var(--backdrop-background-opacity));
-    opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+@if not env("DISABLE_COMPONENTS_OVERLAYS_BACKDROP") {
+    .backdrop {
+        @include palettes.var-palette($palette: "auto", $is-inverse: true);
 
-    transition: opacity var(--animation-reveal-duration) var(--animation-reveal-function);
+        --animation-visible: 1;
 
-    &[for] {
-        cursor: pointer;
+        display: block;
+        position: fixed;
+
+        inset: 0;
+
+        @include surface.background($namespace: "backdrop");
+        opacity: calc(1 * var(--animation-visible) + 0 * (1 - var(--animation-visible)));
+
+        @include colors.transitions-opacity();
+        @include transitions.build();
+
+        &[for] {
+            cursor: pointer;
+        }
     }
 }

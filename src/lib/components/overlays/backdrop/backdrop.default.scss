@@ -1,6 +1,11 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --backdrop-background-color: var(--palette-inverse-boldest);
-    --backdrop-background-opacity: 0.3;
+@if not env("DISABLE_COMPONENTS_OVERLAYS_BACKDROP") {
+    @include variables.define-variables(
+        (
+            "backdrop": (
+                "background.opacity": 0.25,
+            ),
+        )
+    );
 }

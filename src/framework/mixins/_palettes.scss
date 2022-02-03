@@ -70,6 +70,42 @@
     --palette-foreground-boldest: var(--palettes-neutral-background-boldest);
 }
 
+@mixin var-palette($palette, $is-inverse: false) {
+    @if $is-inverse {
+        --palette-background-lightest: var(--palettes-#{$palette}-foreground-lightest);
+        --palette-background-lighter: var(--palettes-#{$palette}-foreground-lighter);
+        --palette-background-light: var(--palettes-#{$palette}-foreground-light);
+        --palette-background-normal: var(--palettes-#{$palette}-foreground-normal);
+        --palette-background-bold: var(--palettes-#{$palette}-foreground-bold);
+        --palette-background-bolder: var(--palettes-#{$palette}-foreground-bolder);
+        --palette-background-boldest: var(--palettes-#{$palette}-foreground-boldest);
+
+        --palette-foreground-lightest: var(--palettes-#{$palette}-background-lightest);
+        --palette-foreground-lighter: var(--palettes-#{$palette}-background-lighter);
+        --palette-foreground-light: var(--palettes-#{$palette}-background-light);
+        --palette-foreground-normal: var(--palettes-#{$palette}-background-normal);
+        --palette-foreground-bold: var(--palettes-#{$palette}-background-bold);
+        --palette-foreground-bolder: var(--palettes-#{$palette}-background-bolder);
+        --palette-foreground-boldest: var(--palettes-#{$palette}-background-boldest);
+    } @else {
+        --palette-background-lightest: var(--palettes-#{$palette}-background-lightest);
+        --palette-background-lighter: var(--palettes-#{$palette}-background-lighter);
+        --palette-background-light: var(--palettes-#{$palette}-background-light);
+        --palette-background-normal: var(--palettes-#{$palette}-background-normal);
+        --palette-background-bold: var(--palettes-#{$palette}-background-bold);
+        --palette-background-bolder: var(--palettes-#{$palette}-background-bolder);
+        --palette-background-boldest: var(--palettes-#{$palette}-background-boldest);
+
+        --palette-foreground-lightest: var(--palettes-#{$palette}-foreground-lightest);
+        --palette-foreground-lighter: var(--palettes-#{$palette}-foreground-lighter);
+        --palette-foreground-light: var(--palettes-#{$palette}-foreground-light);
+        --palette-foreground-normal: var(--palettes-#{$palette}-foreground-normal);
+        --palette-foreground-bold: var(--palettes-#{$palette}-foreground-bold);
+        --palette-foreground-bolder: var(--palettes-#{$palette}-foreground-bolder);
+        --palette-foreground-boldest: var(--palettes-#{$palette}-foreground-boldest);
+    }
+}
+
 @mixin var-inherit() {
     --palette-background-lightest: inherit;
     --palette-background-lighter: inherit;

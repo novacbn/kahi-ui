@@ -8,7 +8,7 @@
 @use "../mixins/fonts";
 
 :root {
-    // HACK: Would use `palettes.var-auto-background()`, but then there would
+    // HACK: Would use `palettes.var-palette()`, but then there would
     // be an import naming conflict
 
     --palette-background-lightest: var(--palettes-auto-background-lightest);

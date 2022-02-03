@@ -10,7 +10,7 @@
 
 @if not env("DISABLE_COMPONENTS_NAVIGATION_ASIDE") {
     .aside {
-        @include palettes.var-auto-background();
+        @include palettes.var-palette($palette: "auto");
 
         display: flex;
         flex-direction: column;

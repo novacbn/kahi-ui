@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type {PROPERTY_ANIMATION_FEEDBACK} from "../../../types/animations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
@@ -16,7 +15,6 @@
         actions?: IForwardedActions;
         element?: HTMLSpanElement;
 
-        animation?: PROPERTY_ANIMATION_FEEDBACK;
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -28,7 +26,6 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let animation: $$Props["animation"] = undefined;
     export let palette: $$Props["palette"] = undefined;
 </script>
 
@@ -36,7 +33,7 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     class="dot {_class}"
-    {...map_data_attributes({animation, palette})}
+    {...map_data_attributes({palette})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

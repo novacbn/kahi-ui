@@ -37,6 +37,9 @@ jobs:
             - name: Build Library
               run: npm run build
 
+            - name: Report Artifact Sizes
+              run: npm run report
+
             - name: Build Storybook Preview
               if: github.event_name == 'pull_request'
               run: npm run build:storybook

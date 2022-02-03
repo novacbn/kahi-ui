@@ -1,13 +1,17 @@
 import {readdirSync, lstatSync, readFileSync} from "fs";
 import {join, relative} from "path";
+import {argv, cwd} from "process";
 import {brotliCompressSync, gzipSync} from "zlib";
 
+import kleur from "kleur";
 import xbytes from "xbytes";
 
-import {PATH_CWD, PATH_DIST_DIRECTORY} from "./constants.js";
+const PATH_CWD = cwd();
+
+const PATH_TARGET = argv[argv.length - 1];
 
 async function generate_report(file_path) {
-    const relative_path = relative(PATH_CWD, file_path);
+    const relative_path = relative(PATH_TARGET, file_path);
 
     const content = readFileSync(file_path);
     const content_brotli = brotliCompressSync(content);
@@ -33,12 +37,14 @@ async function report_directory(directory_path) {
         file_paths.map((file_path, index) => generate_report(file_path))
     );
 
-    console.log(`BUILD SIZES (${relative_path}):\n`);
+    console.log(`ARTIFACT SIZES (${kleur.dim().underline(relative_path)}):\n`);
     for (const report of reports) {
         console.log(
-            `- ${report.path}: ${report.raw} (BROTLI: ${report.brotli}) (GZIP: ${report.gzip})`
+            `- ${report.path}: ${kleur.cyan(report.raw)} (${kleur.dim("BROTLI")}: ${kleur.yellow(
+                report.brotli
+            )}) (${kleur.dim("GZIP")}: ${kleur.red(report.gzip)})`
         );
     }
 }
 
-report_directory(PATH_DIST_DIRECTORY);
+report_directory(PATH_TARGET);

@@ -11,6 +11,8 @@
     @include fonts.weight($namespace: $namespace);
     @include fonts.letter-spacing($namespace: $namespace, $unit: em);
 
+    text-transform: uppercase;
+
     @if $support-opacity {
         @include colors.opacity($namespace: $namespace);
 

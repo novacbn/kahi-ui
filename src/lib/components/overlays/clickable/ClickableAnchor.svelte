@@ -15,7 +15,6 @@
         actions?: IForwardedActions;
         element?: HTMLAnchorElement;
 
-        active?: boolean;
         current?: PROPERTY_ARIA_CURRENT;
         disabled?: boolean;
 
@@ -39,7 +38,6 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let active: $$Props["active"] = undefined;
     export let current: $$Props["current"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
@@ -56,12 +54,12 @@
     {...$$restProps}
     class="clickable--item {_class}"
     {actions}
-    {active}
     {current}
     {disabled}
     {download}
     {href}
     {rel}
+    {palette}
     {target}
     on:click
     on:contextmenu

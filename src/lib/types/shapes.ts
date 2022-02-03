@@ -20,9 +20,9 @@ export enum TOKENS_RADIUS {
  * Represents the preset border radius tokens that can be applied to Framework Components
  */
 export enum TOKENS_SHAPE {
-    pill = "pill",
+    circle = "circle",
 
-    rounded = "rounded",
+    pill = "pill",
 }
 
 export type PROPERTY_RADIUS = LiteralEnum<TOKENS_RADIUS>;

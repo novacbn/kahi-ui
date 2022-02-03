@@ -33,6 +33,7 @@ const ESBUILD_DEFAULT_OPTIONS = {
     plugins: [
         sassPlugin({
             functions: SASS_FUNCTIONS,
+            style: ARGUMENT_MINIFY ? "compressed" : "expanded",
         }),
     ],
 };

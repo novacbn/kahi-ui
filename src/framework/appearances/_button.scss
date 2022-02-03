@@ -124,7 +124,7 @@
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "bolder"
+        $shade: "bold"
     );
     @include colors.text(
         $namespace: $namespace,
@@ -137,7 +137,7 @@
     @include colors.background(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
-        $shade: "light"
+        $shade: "lighter"
     );
     @include colors.text(
         $namespace: $namespace,

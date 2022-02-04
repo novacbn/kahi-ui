@@ -22,14 +22,12 @@
     <Stack.Container alignment_x="left" spacing="medium">
         <Button disabled>
             <Text is="span">
-                Submit
-                <Ellipsis />
+                Submit<Ellipsis />
             </Text>
         </Button>
 
         <Heading>
-            Loading
-            <Ellipsis />
+            Loading<Ellipsis />
         </Heading>
     </Stack.Container>
 </Story>
@@ -38,37 +36,32 @@
     <NumberInput bind:value={iterations} />
 
     <Heading>
-        Loading
         {#key iterations}
-            <Ellipsis {iterations} />
+            Loading<Ellipsis {iterations} />
         {/key}
     </Heading>
 </Story>
 
 <Story name="Slot">
     <Heading>
-        Loading
-        <Ellipsis>/</Ellipsis>
+        Loading<Ellipsis>/</Ellipsis>
     </Heading>
 </Story>
 
 <Story name="Bounce">
     <Heading>
-        Loading
-        <Ellipsis animation="bounce" />
+        Loading<Ellipsis animation="bounce" />
     </Heading>
 </Story>
 
 <Story name="Pulse">
     <Heading>
-        Loading
-        <Ellipsis animation="pulse" />
+        Loading<Ellipsis animation="pulse" />
     </Heading>
 </Story>
 
 <Story name="Ping">
     <Heading>
-        Loading
-        <Ellipsis animation="ping" />
+        Loading<Ellipsis animation="ping" />
     </Heading>
 </Story>

@@ -72,11 +72,11 @@ $minimum-size: 0px;
         @return ("maximum": $width, "minimum": $minimum-size);
     }
 
-    @if $width == $maximum-width {
-        @return ("maximum": $maximum-size, "minimum": $width);
-    }
-
     $closest-width: get-closest($name);
+
+    @if $width == $maximum-width {
+        @return ("maximum": $maximum-size, "minimum": $closest-width + 1px);
+    }
 
     @return ("maximum": $width, "minimum": $closest-width + 1px);
 }

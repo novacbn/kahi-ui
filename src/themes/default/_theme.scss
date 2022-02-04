@@ -69,6 +69,14 @@
                     $dark-shading: 3%,
                     $light-shading: 3%
                 ),
+            "informative":
+                palettes.generate-color-palette(
+                    $dark-base: hsl(215, 25%, 50%),
+                    $light-base: hsl(215, 35%, 55%),
+                    $foreground: "light",
+                    $dark-shading: 3%,
+                    $light-shading: 3%
+                ),
             "negative":
                 palettes.generate-color-palette(
                     $dark-base: hsl(10, 40%, 50%),

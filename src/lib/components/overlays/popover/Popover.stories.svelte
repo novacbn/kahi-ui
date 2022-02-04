@@ -152,6 +152,19 @@
     </Popover.Container>
 
     Plus some other text...
+
+    <br />
+    <br />
+
+    <Popover.Container variation="tooltip">
+        <Button palette="accent">Some Undescriptive Button</Button>
+
+        <Popover.Section alignment_x="right" spacing="nano" animation="fade">
+            <Box elevation="low" palette="neutral" padding="small" radius="nano">
+                I describe the button!
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
 </Story>
 
 <Story name="Auto Focus - Focus Target">

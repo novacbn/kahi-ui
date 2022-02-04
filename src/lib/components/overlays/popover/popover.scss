@@ -103,7 +103,7 @@
     }
 
     .popover[data-variation~="tooltip"] {
-        &:not(:active, :hover) {
+        &:not(:active, :hover, :focus-within) {
             & > .popover--section {
                 --animation-visible: 0;
 
@@ -111,7 +111,7 @@
             }
         }
 
-        &:is(:active, :hover) {
+        &:is(:active, :hover, :focus-within) {
             & > .popover--section {
                 --delay: 1.25;
             }

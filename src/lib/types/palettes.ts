@@ -22,6 +22,8 @@ export enum TOKENS_PALETTE {
 
     affirmative = "affirmative",
 
+    informative = "informative",
+
     negative = "negative",
 }
 

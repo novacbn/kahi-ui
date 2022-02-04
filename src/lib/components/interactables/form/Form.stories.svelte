@@ -33,6 +33,22 @@
     </Form.Control>
 </Story>
 
+<Story name="Form.FieldSet">
+    <Form.FieldSet>
+        <Form.Legend>Personal Details</Form.Legend>
+
+        <Form.Control logic_id="form-fieldset-first-name" logic_name="form-fieldset-first-name">
+            <Form.Label>First Name</Form.Label>
+            <TextInput value="John" />
+        </Form.Control>
+
+        <Form.Control logic_id="form-fieldset-first-name" logic_name="form-fieldset-first-name">
+            <Form.Label>Last Name</Form.Label>
+            <TextInput value="Smith" />
+        </Form.Control>
+    </Form.FieldSet>
+</Story>
+
 <Story name="Form.Group Check">
     <Text is="strong">
         Select Pizza Toppings
@@ -83,9 +99,20 @@
     </Stack.Container>
 </Story>
 
+<Story name="Form.HelpText">
+    <Form.HelpText>
+        Make sure to enter a valid E-Mail Address, e.g.
+        <Code>sample@sample.org</Code>
+    </Form.HelpText>
+</Story>
+
 <Story name="Form.Label Group">
     <Form.Label for="form-label-group">
         <Check />
         Click me!
     </Form.Label>
+</Story>
+
+<Story name="Form.Legend">
+    <Form.Legend>Personal Details</Form.Legend>
 </Story>

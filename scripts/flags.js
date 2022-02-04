@@ -21,6 +21,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-feedback-ellipsis",
     "--disable-components-feedback-progress",
     "--disable-components-interactables-button",
+    "--disable-components-interactables-form",
     "--disable-components-layouts-center",
     "--disable-components-layouts-container",
     "--disable-components-layouts-divider",

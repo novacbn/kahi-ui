@@ -5,6 +5,8 @@
 @use "../mixins/intrinsics";
 
 @mixin base($namespace, $support-opacity: false) {
+    display: inline-flex;
+
     @include intrinsics.gap-all($namespace: $namespace, $unit: rem);
 
     @include fonts.size($namespace: $namespace, $unit: rem);

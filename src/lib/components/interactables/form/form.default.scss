@@ -1,9 +1,48 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --form-control-gap: var(--spacing-local-small);
-
-    /** */
-
-    --form-label-gap: var(--spacing-local-small);
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_FORM") {
+    @include variables.define-variables(
+        (
+            "form": (
+                "control": (
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+                "field-set": (
+                    "border": (
+                        "width": variables.format-var("sizes.borders.nano"),
+                        "opacity": 0.5,
+                        "style": solid,
+                    ),
+                    "padding": (
+                        "x": variables.format-var("spacings.block.medium"),
+                        "y": variables.format-var("spacings.block.medium"),
+                    ),
+                ),
+                "help-text": (
+                    "font.size": variables.format-var("fonts.sizes.inline.tiny"),
+                ),
+                "label": (
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+                "legend": (
+                    "color.opacity": 0.5,
+                    "font": (
+                        "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
+                        "size": variables.format-var("fonts.sizes.inline.nano"),
+                        "weight": bold,
+                    ),
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                ),
+            ),
+        )
+    );
 }

@@ -2,7 +2,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
@@ -37,7 +37,7 @@
         value?: string;
 
         palette?: PROPERTY_PALETTE;
-        size?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -49,6 +49,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let id: $$Props["id"] = "";
     export let name: $$Props["name"] = "";
 
@@ -58,7 +61,7 @@
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;
-    export let size: $$Props["size"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
     const _form_id = CONTEXT_FORM_ID.get();
     const _form_name = CONTEXT_FORM_NAME.get();
@@ -85,9 +88,10 @@
             <input
                 bind:this={element}
                 {...map_global_attributes($$props)}
-                type="checkbox"
                 role="switch"
-                {...map_data_attributes({palette, size})}
+                type="checkbox"
+                class="switch {_class}"
+                {...map_data_attributes({palette, sizing})}
                 {...map_aria_attributes({pressed: active})}
                 {...map_attributes({
                     disabled,
@@ -123,9 +127,10 @@
     <input
         bind:this={element}
         {...map_global_attributes($$props)}
-        type="checkbox"
         role="switch"
-        {...map_data_attributes({palette, size})}
+        type="checkbox"
+        class="switch {_class}"
+        {...map_data_attributes({palette, sizing})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
             disabled,

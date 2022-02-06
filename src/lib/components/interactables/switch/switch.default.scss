@@ -1,27 +1,44 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --switch-palette-background-bold: var(--palette-neutral-bold);
-    --switch-palette-foreground-normal: var(--palette-light-normal);
-    --switch-size-text-size: var(--document-font-size);
-    --switch-size-text-line-height: var(--document-font-line-height);
-
-    --switch-border-radius: var(--radius-pill);
-    --switch-padding: var(--spacing-local-small);
-
-    --switch-active-scale: 0.95;
-    --switch-disabled-opacity: 0.4;
-
-    /** */
-
-    --switch-dot-active-clip-path: 0% 25% 0% 25% round var(--switch-border-radius);
-    --switch-dot-checked-clip-path: 0% 0% 0% 50% round var(--switch-border-radius);
-    --switch-dot-unchecked-clip-path: 0% 50% 0% 0% round var(--switch-border-radius);
-    --switch-dot-font-size: 0.625em;
-
-    /** */
-
-    --switch-block-background-opacity: 0.2;
-    --switch-block-checked-active-background-opacity: 0.75;
-    --switch-block-unchecked-active-background-opacity: 0.5;
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_SWITCH") {
+    @include variables.define-variables(
+        (
+            "switch": (
+                "font.size": variables.format-var("fonts.sizes.inline.tiny"),
+                "active": (
+                    "scale": (
+                        "x": 0.95,
+                        "y": 0.95,
+                    ),
+                ),
+                "disabled": (
+                    "opacity": 0.5,
+                ),
+                "checked": (
+                    "background.opacity": 1,
+                    "color.opacity": 1,
+                    "active": (
+                        "background.opacity": 0.5,
+                        "color.opacity": 1,
+                    ),
+                    "focus": (
+                        "background.opacity": 0.75,
+                        "color.opacity": 1,
+                    ),
+                ),
+                "unchecked": (
+                    "background.opacity": 0.25,
+                    "color.opacity": 1,
+                    "active": (
+                        "background.opacity": 0.75,
+                        "color.opacity": 1,
+                    ),
+                    "focus": (
+                        "background.opacity": 0.5,
+                        "color.opacity": 1,
+                    ),
+                ),
+            ),
+        )
+    );
 }

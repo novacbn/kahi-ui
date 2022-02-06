@@ -24,6 +24,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-interactables-check",
     "--disable-components-interactables-form",
     "--disable-components-interactables-radio",
+    "--disable-components-interactbales-switch",
     "--disable-components-layouts-center",
     "--disable-components-layouts-container",
     "--disable-components-layouts-divider",

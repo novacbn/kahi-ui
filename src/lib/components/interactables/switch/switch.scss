@@ -1,96 +1,73 @@
-[role="switch"] {
-    --palette-background-bold: var(--switch-palette-background-bold);
-    --palette-foreground-normal: var(--switch-palette-foreground-normal);
+@use "../../../../framework/abstracts/transitions";
+@use "../../../../framework/abstracts/variables";
 
-    --size-text-size: var(--switch-size-text-size);
-    --size-text-line-height: var(--switch-size-text-line-height);
+@use "../../../../framework/appearances/toggle";
 
-    appearance: none;
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/transforms";
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_SWITCH") {
+    .switch {
+        @include palettes.var-palette($palette: "neutral");
+        @include sizings.var-reset-font($tier: "inline", $namespace: "switch");
 
-    position: relative;
+        @include toggle.base($namespace: "switch");
+        border-radius: #{variables.format-var("shapes.pill")};
 
-    padding: var(--switch-padding);
+        @include toggle.state-disabled() {
+            @include toggle.base-disabled($namespace: "switch");
+        }
 
-    background: rgba(var(--palette-background-bold), var(--switch-block-background-opacity));
-    border-radius: var(--switch-border-radius);
-    color: rgb(var(--palette-background-bold));
-
-    font-size: var(--size-text-size);
-    line-height: var(--size-text-line-height);
-
-    cursor: pointer;
-    user-select: none;
-
-    vertical-align: middle;
-    white-space: nowrap;
-
-    outline: none !important;
-    transform: scale(1);
-
-    transition: background var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function),
-        transform var(--animation-movement-duration) var(--animation-movement-function);
-
-    &:disabled {
-        cursor: not-allowed;
-        opacity: var(--switch-disabled-opacity);
-    }
-
-    &::before {
-        content: "";
-
-        width: 2em;
-        height: 1em;
-
-        background: currentColor;
-        font-size: var(--switch-dot-font-size);
-
-        transition: clip-path var(--animation-movement-duration) var(--animation-movement-function);
-    }
-
-    &:not(:checked) {
-        color: rgb(var(--palette-background-bold));
+        @include toggle.state-active() {
+            @include toggle.variation-loud-active($namespace: "switch");
+        }
 
         &::before {
-            clip-path: inset(var(--switch-dot-unchecked-clip-path));
+            @include toggle.pseudo-base($width: 2);
+
+            clip-path: inset(0% 50% 0% 0% round #{variables.format-var("shapes.pill")});
+
+            @include transitions.push(clip-path, "movement");
+
+            @include transitions.build();
         }
 
-        &:enabled:is(:active, :hover),
-        &[aria-pressed="true"] {
-            background: rgba(
-                var(--palette-background-bold),
-                var(--switch-block-unchecked-active-background-opacity)
-            );
-        }
-    }
-
-    &:checked {
-        background: rgb(var(--palette-background-bold));
-        color: rgb(var(--palette-foreground-normal));
-
-        &::before {
-            clip-path: inset(var(--switch-dot-checked-clip-path));
+        @include toggle.state-checked() {
+            &::before {
+                clip-path: inset(0% 0% 0% 50% round #{variables.format-var("shapes.pill")});
+            }
         }
 
-        &:enabled:is(:active, :hover),
-        &[aria-pressed="true"] {
-            background: rgba(
-                var(--palette-background-bold),
-                var(--switch-block-checked-active-background-opacity)
-            );
+        @include toggle.state-active() {
+            &::before {
+                clip-path: inset(0% 25% 0% 25% round #{variables.format-var("shapes.pill")});
+            }
         }
-    }
 
-    &:enabled:active,
-    &[aria-pressed="true"] {
-        transform: scale(var(--switch-active-scale));
+        @include toggle.state-checked($is-inverse: true) {
+            @include toggle.variation-block-base($namespace: "switch");
 
-        &::before {
-            clip-path: inset(var(--switch-dot-active-clip-path));
+            @include toggle.state-focus() {
+                @include toggle.variation-block-focus($namespace: "switch");
+            }
+
+            @include toggle.state-active() {
+                @include toggle.variation-block-active($namespace: "switch");
+            }
+        }
+
+        @include toggle.state-checked() {
+            @include toggle.variation-block-base($namespace: "switch", $is-checked: true);
+
+            @include toggle.state-focus() {
+                @include toggle.variation-block-focus($namespace: "switch", $is-checked: true);
+            }
+
+            @include toggle.state-active() {
+                @include toggle.variation-block-active($namespace: "switch", $is-checked: true);
+            }
         }
     }
 }

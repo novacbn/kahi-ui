@@ -1,0 +1,179 @@
+@use "../abstracts/transitions";
+
+@use "../mixins/colors";
+@use "../mixins/fonts";
+@use "../mixins/transforms";
+
+@mixin base($namespace) {
+    appearance: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: 0.4em;
+
+    outline: none !important; // TODO: Remove during accessibility pass
+
+    @include fonts.size($sizing-tier: "inline", $unit: rem);
+
+    cursor: pointer;
+    user-select: none;
+
+    vertical-align: middle;
+    white-space: nowrap;
+
+    @include variation-loud-base($namespace: $namespace);
+
+    @include colors.transitions-background();
+    @include colors.transitions-opacity();
+    @include colors.transitions-text();
+    @include transforms.transitions();
+
+    @include transitions.build();
+}
+
+@mixin base-disabled($namespace) {
+    cursor: not-allowed;
+    @include colors.opacity($namespace: "#{$namespace}.disabled");
+}
+
+@mixin pseudo-base($multiply-width: 1, $multiply-height: 1) {
+    content: "";
+
+    width: calc(0.7em * $multiply-width);
+    height: calc(0.7em * $multiply-height);
+
+    background: currentColor;
+}
+
+@mixin pseudo-state-active() {
+    &:enabled:not(:checked):is(:active, :focus, :hover),
+    &:is(:checked, [aria-pressed="true"]) {
+        @content;
+    }
+}
+
+@mixin state-active($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:enabled:active, [aria-pressed="true"]) {
+            @content;
+        }
+    } @else {
+        &:is(:enabled:active, [aria-pressed="true"]) {
+            @content;
+        }
+    }
+}
+
+@mixin state-checked($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:checked) {
+            @content;
+        }
+    } @else {
+        &:checked {
+            @content;
+        }
+    }
+}
+
+@mixin state-disabled($is-inverse: false) {
+    @if $is-inverse {
+        &:enabled {
+            @content;
+        }
+    } @else {
+        &:disabled {
+            @content;
+        }
+    }
+}
+
+@mixin state-focus($is-inverse: false) {
+    @if $is-inverse {
+        &:enabled:not(:focus, :hover) {
+            @content;
+        }
+    } @else {
+        &:enabled:is(:focus, :hover) {
+            @content;
+        }
+    }
+}
+
+@mixin variation-loud-base($namespace) {
+    transform: scale(1);
+}
+
+@mixin variation-loud-active($namespace) {
+    @include transforms.scale("#{$namespace}.active");
+}
+
+@mixin variation-block-base($namespace, $is-checked: false) {
+    @include colors.background(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}",
+        $face: "background",
+        $shade: "bolder"
+    );
+
+    @include colors.text(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}",
+        $face: if($is-checked, "foreground", "background"),
+        $shade: if($is-checked, "normal", "bolder")
+    );
+}
+
+@mixin variation-block-active($namespace, $is-checked: false) {
+    @include colors.background(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.active",
+        $face: "background",
+        $shade: "bolder"
+    );
+
+    @include colors.text(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.active",
+        $face: if($is-checked, "background", "foreground"),
+        $shade: if($is-checked, "bolder", "normal")
+    );
+}
+
+@mixin variation-block-focus($namespace, $is-checked: false) {
+    @include colors.background(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.focus",
+        $face: "background",
+        $shade: "bolder"
+    );
+
+    @include colors.text(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.focus",
+        $face: if($is-checked, "foreground", "background"),
+        $shade: if($is-checked, "normal", "bolder")
+    );
+}
+
+@mixin variation-flush-base($namespace, $is-checked: false) {
+    @include colors.text(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}",
+        $face: "background",
+        $shade: "bolder"
+    );
+}
+
+@mixin variation-flush-active($namespace, $is-checked: false) {
+    @include colors.text(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.active",
+        $face: "background",
+        $shade: "bolder"
+    );
+}
+
+@mixin variation-flush-focus($namespace, $is-checked: false) {
+    @include colors.text(
+        $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.focus",
+        $face: "background",
+        $shade: "bolder"
+    );
+}

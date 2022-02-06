@@ -1,31 +1,66 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --radio-palette-background-bold: var(--palette-neutral-bold);
-    --radio-palette-foreground-normal: var(--palette-light-normal);
-    --radio-size-text-size: var(--document-font-size);
-    --radio-size-text-line-height: var(--document-font-line-height);
-
-    --radio-border-radius: var(--radius-circle);
-    --radio-padding: var(--spacing-local-small);
-
-    --radio-active-scale: 0.95;
-    --radio-disabled-opacity: 0.4;
-
-    /** */
-
-    --radio-dot-checked-clip-path: 0% 0% 0% 0% round var(--radio-border-radius);
-    --radio-dot-unchecked-clip-path: 50% 50% 50% 50% round var(--radio-border-radius);
-    --radio-dot-font-size: 0.625em;
-
-    /** */
-
-    --radio-block-background-opacity: 0.2;
-    --radio-block-checked-active-background-opacity: 0.75;
-    --radio-block-unchecked-active-background-opacity: 0.5;
-
-    /** */
-
-    --radio-flush-checked-active-color-opacity: 0.75;
-    --radio-flush-unchecked-active-color-opacity: 0.5;
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_RADIO") {
+    @include variables.define-variables(
+        (
+            "radio": (
+                "font.size": variables.format-var("fonts.sizes.inline.small"),
+                "active": (
+                    "scale": (
+                        "x": 0.95,
+                        "y": 0.95,
+                    ),
+                ),
+                "disabled": (
+                    "opacity": 0.5,
+                ),
+                "block": (
+                    "checked": (
+                        "background.opacity": 1,
+                        "color.opacity": 1,
+                        "active": (
+                            "background.opacity": 0.5,
+                            "color.opacity": 0.5,
+                        ),
+                        "focus": (
+                            "background.opacity": 0.75,
+                            "color.opacity": 0.75,
+                        ),
+                    ),
+                    "unchecked": (
+                        "background.opacity": 0.25,
+                        "color.opacity": 0,
+                        "active": (
+                            "background.opacity": 0.75,
+                            "color.opacity": 1,
+                        ),
+                        "focus": (
+                            "background.opacity": 0.5,
+                            "color.opacity": 0.75,
+                        ),
+                    ),
+                ),
+                "flush": (
+                    "checked": (
+                        "color.opacity": 1,
+                        "active": (
+                            "color.opacity": 0.5,
+                        ),
+                        "focus": (
+                            "color.opacity": 0.75,
+                        ),
+                    ),
+                    "unchecked": (
+                        "color.opacity": 0,
+                        "active": (
+                            "color.opacity": 1,
+                        ),
+                        "focus": (
+                            "color.opacity": 0.75,
+                        ),
+                    ),
+                ),
+            ),
+        )
+    );
 }

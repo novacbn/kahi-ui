@@ -1,128 +1,107 @@
-[type="radio"] {
-    --palette-background-bold: var(--radio-palette-background-bold);
-    --palette-foreground-normal: var(--radio-palette-foreground-normal);
+@use "../../../../framework/abstracts/transitions";
 
-    --size-text-size: var(--radio-size-text-size);
-    --size-text-line-height: var(--radio-size-text-line-height);
+@use "../../../../framework/appearances/toggle";
 
-    appearance: none;
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/transforms";
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_RADIO") {
+    .radio {
+        @include palettes.var-palette($palette: "neutral");
+        @include sizings.var-reset-font($tier: "inline", $namespace: "radio");
 
-    position: relative;
+        @include toggle.base($namespace: "radio");
+        border-radius: 100%;
 
-    padding: var(--radio-padding);
-
-    border-radius: var(--radio-border-radius);
-
-    font-size: var(--size-text-size);
-    line-height: var(--size-text-line-height);
-
-    cursor: pointer;
-    user-select: none;
-
-    vertical-align: middle;
-    white-space: nowrap;
-
-    outline: none !important;
-    transform: scale(1);
-
-    transition: background var(--animation-visual-duration) var(--animation-visual-function),
-        color var(--animation-visual-duration) var(--animation-visual-function),
-        transform var(--animation-movement-duration) var(--animation-movement-function);
-
-    &:disabled {
-        cursor: not-allowed;
-        opacity: var(--radio-disabled-opacity);
-    }
-
-    &::before {
-        content: "";
-
-        width: 1em;
-        height: 1em;
-
-        background: currentColor;
-        font-size: var(--radio-dot-font-size);
-
-        clip-path: inset(var(--radio-dot-unchecked-clip-path));
-        transition: clip-path var(--animation-movement-duration) var(--animation-movement-function);
-    }
-
-    &:enabled:active,
-    &[aria-pressed="true"] {
-        transform: scale(var(--radio-active-scale));
-    }
-
-    &:not(:checked) {
-        &:enabled:is(:active, :hover),
-        &[aria-pressed="true"] {
-            &::before {
-                clip-path: inset(var(--radio-dot-checked-clip-path));
-            }
+        @include toggle.state-disabled() {
+            @include toggle.base-disabled($namespace: "radio");
         }
-    }
 
-    &:checked {
+        @include toggle.state-active() {
+            @include toggle.variation-loud-active($namespace: "radio");
+        }
+
         &::before {
-            clip-path: inset(var(--radio-dot-checked-clip-path));
+            @include toggle.pseudo-base();
+
+            border-radius: inherit;
+
+            transform: scale(0);
+
+            @include transforms.transitions();
+
+            @include transitions.build();
         }
-    }
 
-    &:not([data-variation]) {
-        background: rgba(var(--palette-background-bold), var(--radio-block-background-opacity));
-        color: rgb(var(--palette-background-bold));
-
-        &:not(:checked) {
-            color: rgb(var(--palette-background-bold));
-
-            &:enabled:is(:active, :hover),
-            &[aria-pressed="true"] {
-                background: rgba(
-                    var(--palette-background-bold),
-                    var(--radio-block-unchecked-active-background-opacity)
-                );
+        @include toggle.pseudo-state-active() {
+            &::before {
+                transform: scale(1);
             }
         }
 
-        &:checked {
-            background: rgb(var(--palette-background-bold));
-            color: rgb(var(--palette-foreground-normal));
+        &:is(:not([data-variation]), [data-variation~="block"]) {
+            @include toggle.state-checked($is-inverse: true) {
+                @include toggle.variation-block-base($namespace: "radio.block");
 
-            &:enabled:is(:active, :hover),
-            &[aria-pressed="true"] {
-                background: rgba(
-                    var(--palette-background-bold),
-                    var(--radio-block-checked-active-background-opacity)
-                );
+                @include toggle.state-focus() {
+                    @include toggle.variation-block-focus($namespace: "radio.block");
+                }
+
+                @include toggle.state-active() {
+                    @include toggle.variation-block-active($namespace: "radio.block");
+                }
+            }
+
+            @include toggle.state-checked() {
+                @include toggle.variation-block-base($namespace: "radio.block", $is-checked: true);
+
+                @include toggle.state-focus() {
+                    @include toggle.variation-block-focus(
+                        $namespace: "radio.block",
+                        $is-checked: true
+                    );
+                }
+
+                @include toggle.state-active() {
+                    @include toggle.variation-block-active(
+                        $namespace: "radio.block",
+                        $is-checked: true
+                    );
+                }
             }
         }
-    }
 
-    &[data-variation="flush"] {
-        &:not(:checked) {
-            color: rgb(var(--palette-background-bold));
+        &[data-variation~="flush"] {
+            @include toggle.state-checked($is-inverse: true) {
+                @include toggle.variation-flush-base($namespace: "radio.flush");
 
-            &:enabled:is(:active, :hover),
-            &[aria-pressed="true"] {
-                color: rgba(
-                    var(--palette-background-bold),
-                    var(--radio-flush-unchecked-active-color-opacity)
-                );
+                @include toggle.state-focus() {
+                    @include toggle.variation-flush-focus($namespace: "radio.flush");
+                }
+
+                @include toggle.state-active() {
+                    @include toggle.variation-flush-active($namespace: "radio.flush");
+                }
             }
-        }
 
-        &:checked {
-            color: rgb(var(--palette-background-bold));
+            @include toggle.state-checked() {
+                @include toggle.variation-flush-base($namespace: "radio.flush", $is-checked: true);
 
-            &:enabled:is(:active, :hover),
-            &[aria-pressed="true"] {
-                color: rgba(
-                    var(--palette-background-bold),
-                    var(--radio-flush-checked-active-color-opacity)
-                );
+                @include toggle.state-focus() {
+                    @include toggle.variation-flush-focus(
+                        $namespace: "radio.flush",
+                        $is-checked: true
+                    );
+                }
+
+                @include toggle.state-active() {
+                    @include toggle.variation-flush-active(
+                        $namespace: "radio.flush",
+                        $is-checked: true
+                    );
+                }
             }
         }
     }

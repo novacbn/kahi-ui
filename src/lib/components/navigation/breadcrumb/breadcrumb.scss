@@ -15,12 +15,14 @@
     .breadcrumb--item {
         @include anchor.base($namespace: "breadcrumb.item");
 
-        @include anchor.state-hover() {
-            @include anchor.base-hover($namespace: "breadcrumb.item.hover");
+        @include colors.opacity("breadcrumb.item");
+
+        @include anchor.state-focus() {
+            @include anchor.base-focus($namespace: "breadcrumb.item");
         }
 
         @include anchor.state-active($is-inverse: true) {
-            @include colors.opacity("breadcrumb.item.inactive");
+            @include colors.opacity("breadcrumb.item.active");
         }
 
         .breadcrumb[data-palette] &,

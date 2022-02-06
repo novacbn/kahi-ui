@@ -60,31 +60,25 @@
         }
 
         @include button.state-disabled() {
-            @include button.base-disabled($namespace: "menu.item.disabled");
+            @include button.base-disabled($namespace: "menu.item");
         }
 
         @include button.state-disabled($is-inverse: true) {
-            @include button.state-hover() {
-                @include button.variation-clear-hover(
-                    $namespace: "menu.item.hover",
-                    $is-inverse: true
-                );
+            @include button.state-focus() {
+                @include button.variation-clear-focus($namespace: "menu.item", $is-inverse: true);
 
                 .menu[data-palette] &,
                 &[data-palette] {
-                    @include button.variation-clear-hover($namespace: "menu.item.hover");
+                    @include button.variation-clear-focus($namespace: "menu.item");
                 }
             }
 
             @include button.state-active() {
-                @include button.variation-clear-active(
-                    $namespace: "menu.item.active",
-                    $is-inverse: true
-                );
+                @include button.variation-clear-active($namespace: "menu.item", $is-inverse: true);
 
                 .menu[data-palette] &,
                 &[data-palette] {
-                    @include button.variation-clear-active($namespace: "menu.item.active");
+                    @include button.variation-clear-active($namespace: "menu.item");
                 }
             }
         }

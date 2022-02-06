@@ -28,12 +28,12 @@
                     "disabled": (
                         "opacity": 0.5,
                     ),
-                    "hover": (
-                        "background.opacity": 0.2,
-                        "color.opacity": 1,
-                    ),
                     "active": (
                         "background.opacity": 0.75,
+                        "color.opacity": 1,
+                    ),
+                    "focus": (
+                        "background.opacity": 0.2,
                         "color.opacity": 1,
                     ),
                 ),

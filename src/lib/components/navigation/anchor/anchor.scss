@@ -5,12 +5,12 @@
         @include anchor.base($namespace: "anchor");
 
         @include anchor.state-disabled() {
-            @include anchor.base-disabled($namespace: "anchor.disabled");
+            @include anchor.base-disabled($namespace: "anchor");
         }
 
         @include anchor.state-disabled($is-inverse: true) {
-            @include anchor.state-hover() {
-                @include anchor.base-hover($namespace: "anchor.hover");
+            @include anchor.state-focus() {
+                @include anchor.base-focus($namespace: "anchor");
             }
         }
 

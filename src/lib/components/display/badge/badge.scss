@@ -45,7 +45,7 @@
 
         user-select: none;
 
-        @include anchor.state-hover() {
+        @include anchor.state-focus() {
             text-decoration: underline;
         }
     }

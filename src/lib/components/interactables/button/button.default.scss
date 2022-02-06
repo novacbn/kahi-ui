@@ -26,19 +26,21 @@
                     "opacity": 0.5,
                 ),
                 "loud": (
-                    "scale": (
-                        "x": 0.95,
-                        "y": 0.95,
+                    "active": (
+                        "scale": (
+                            "x": 0.95,
+                            "y": 0.95,
+                        ),
                     ),
                 ),
                 "block": (
                     "background.opacity": 1,
                     "color.opacity": 1,
-                    "hover": (
+                    "active": (
                         "background.opacity": 1,
                         "color.opacity": 1,
                     ),
-                    "active": (
+                    "focus": (
                         "background.opacity": 1,
                         "color.opacity": 1,
                     ),
@@ -46,12 +48,12 @@
                 "clear": (
                     "background.opacity": 0,
                     "color.opacity": 1,
-                    "hover": (
-                        "background.opacity": 0.2,
-                        "color.opacity": 1,
-                    ),
                     "active": (
                         "background.opacity": 0.5,
+                        "color.opacity": 1,
+                    ),
+                    "focus": (
+                        "background.opacity": 0.2,
                         "color.opacity": 1,
                     ),
                 ),
@@ -59,14 +61,14 @@
                     "background.opacity": 0,
                     "border.opacity": 1,
                     "color.opacity": 1,
-                    "hover": (
-                        "background.opacity": 0.2,
-                        "border.opacity": 0.5,
-                        "color.opacity": 1,
-                    ),
                     "active": (
                         "background.opacity": 0.5,
                         "border.opacity": 0,
+                        "color.opacity": 1,
+                    ),
+                    "focus": (
+                        "background.opacity": 0.2,
+                        "border.opacity": 0.5,
                         "color.opacity": 1,
                     ),
                 ),

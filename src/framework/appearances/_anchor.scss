@@ -23,11 +23,11 @@
 
 @mixin base-disabled($namespace) {
     cursor: not-allowed;
-    @include colors.opacity($namespace: $namespace);
+    @include colors.opacity($namespace: "#{$namespace}.disabled");
 }
 
-@mixin base-hover($namespace) {
-    text-decoration: #{variables.format-var("#{$namespace}.text.decoration")};
+@mixin base-focus($namespace) {
+    text-decoration: #{variables.format-var("#{$namespace}.focus.text.decoration")};
 }
 
 @mixin state-active($is-inverse: false) {
@@ -54,7 +54,7 @@
     }
 }
 
-@mixin state-hover($is-inverse: false) {
+@mixin state-focus($is-inverse: false) {
     @if $is-inverse {
         &:not(:focus, :hover) {
             @content;

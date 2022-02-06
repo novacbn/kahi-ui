@@ -19,7 +19,7 @@
         );
 
         @include button.state-disabled() {
-            @include button.base-disabled($namespace: "button.disabled");
+            @include button.base-disabled($namespace: "button");
         }
 
         &:not([data-variation~="subtle"]) {
@@ -44,23 +44,23 @@
             }
 
             @include button.state-disabled($is-inverse: true) {
-                @include button.state-hover() {
-                    @include button.variation-block-hover($namespace: "button.block.hover");
+                @include button.state-focus() {
+                    @include button.variation-block-focus($namespace: "button.block");
 
                     &[data-variation~="subtle"]:not([data-palette]) {
-                        @include button.variation-block-hover(
-                            $namespace: "button.block.hover",
+                        @include button.variation-block-focus(
+                            $namespace: "button.block",
                             $is-inverse: true
                         );
                     }
                 }
 
                 @include button.state-active() {
-                    @include button.variation-block-active($namespace: "button.block.active");
+                    @include button.variation-block-active($namespace: "button.block");
 
                     &[data-variation~="subtle"]:not([data-palette]) {
                         @include button.variation-block-active(
-                            $namespace: "button.block.active",
+                            $namespace: "button.block",
                             $is-inverse: true
                         );
                     }
@@ -76,23 +76,23 @@
             }
 
             @include button.state-disabled($is-inverse: true) {
-                @include button.state-hover() {
-                    @include button.variation-clear-hover($namespace: "button.clear.hover");
+                @include button.state-focus() {
+                    @include button.variation-clear-focus($namespace: "button.clear");
 
                     &[data-variation~="subtle"]:not([data-palette]) {
-                        @include button.variation-clear-hover(
-                            $namespace: "button.clear.hover",
+                        @include button.variation-clear-focus(
+                            $namespace: "button.clear",
                             $is-inverse: true
                         );
                     }
                 }
 
                 @include button.state-active() {
-                    @include button.variation-clear-active($namespace: "button.clear.active");
+                    @include button.variation-clear-active($namespace: "button.clear");
 
                     &[data-variation~="subtle"]:not([data-palette]) {
                         @include button.variation-clear-active(
-                            $namespace: "button.clear.active",
+                            $namespace: "button.clear",
                             $is-inverse: true
                         );
                     }
@@ -111,23 +111,23 @@
             }
 
             @include button.state-disabled($is-inverse: true) {
-                @include button.state-hover() {
-                    @include button.variation-outline-hover($namespace: "button.outline.hover");
+                @include button.state-focus() {
+                    @include button.variation-outline-focus($namespace: "button.outline");
 
                     &[data-variation~="subtle"]:not([data-palette]) {
-                        @include button.variation-outline-hover(
-                            $namespace: "button.outline.hover",
+                        @include button.variation-outline-focus(
+                            $namespace: "button.outline",
                             $is-inverse: true
                         );
                     }
                 }
 
                 @include button.state-active() {
-                    @include button.variation-outline-active($namespace: "button.outline.active");
+                    @include button.variation-outline-active($namespace: "button.outline");
 
                     &[data-variation~="subtle"]:not([data-palette]) {
                         @include button.variation-outline-active(
-                            $namespace: "button.outline.active",
+                            $namespace: "button.outline",
                             $is-inverse: true
                         );
                     }

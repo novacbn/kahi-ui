@@ -1,0 +1,13 @@
+@use "../../framework/abstracts/transitions";
+@use "../../framework/abstracts/variables";
+
+@mixin scale($namespace) {
+    transform: scale(
+        #{variables.format-var("#{$namespace}.scale.x")},
+        #{variables.format-var("#{$namespace}.scale.y")}
+    );
+}
+
+@mixin transitions() {
+    @include transitions.push(transform, "movement");
+}

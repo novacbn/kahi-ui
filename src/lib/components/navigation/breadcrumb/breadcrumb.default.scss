@@ -6,11 +6,12 @@
             "breadcrumb": (
                 "gap.x": variables.format-var("spacings.block.tiny"),
                 "item": (
+                    "opacity": 0.75,
                     "text.decoration": none,
-                    "inactive": (
-                        "opacity": 0.75,
+                    "active": (
+                        "opacity": 1,
                     ),
-                    "hover": (
+                    "focus": (
                         "text.decoration": underline,
                     ),
                     "palette": (

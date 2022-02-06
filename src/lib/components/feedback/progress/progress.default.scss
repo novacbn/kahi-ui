@@ -5,7 +5,7 @@
         (
             "progress": (
                 "border.radius": variables.format-var("radius.medium"),
-                "size": variables.format-var("sizes.icon.medium"),
+                "font.size": variables.format-var("fonts.sizes.inline.medium"),
                 "indicator": (
                     "background.opacity": 1,
                 ),

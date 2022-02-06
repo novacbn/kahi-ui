@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/transitions";
 @use "../../../../framework/abstracts/variables";
 
-@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/radius";
 @use "../../../../framework/mixins/sizings";
@@ -10,18 +10,19 @@
     .progress {
         @include palettes.var-palette($palette: "neutral");
         @include radius.var-reset($namespace: "progress");
-        @include sizings.var-reset-size($namespace: "progress", $tier: "icon");
+        @include sizings.var-reset-font($namespace: "progress", $tier: "inline");
 
         display: inline-block;
 
         --value: 0;
 
-        pointer-events: none;
+        @include fonts.size($sizing-tier: "inline", $unit: rem);
+
         user-select: none;
 
         &:empty {
             width: 100%;
-            height: calc(var(--sizing-size-icon) * 0.25);
+            height: 0.5em;
 
             @include radius.all($unit: rem);
 
@@ -53,7 +54,8 @@
 
         &:not(:empty) {
             & svg {
-                @include intrinsics.size-all($sizing-tier: "icon");
+                width: 1.75em;
+                height: 1.75em;
             }
 
             & circle {

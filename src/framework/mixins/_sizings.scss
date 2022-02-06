@@ -1,17 +1,5 @@
 @use "../abstracts/variables";
 
-@mixin font($unit, $tier: null, $namespace: null) {
-    @if $namespace {
-        font-size: calc(
-            var(--sizing-font-size-#{$tier}) *
-                #{variables.format-var("#{$namespace}.font.size")} *
-                1#{$unit}
-        );
-    } @else {
-        font-size: calc(var(--sizing-font-size-#{$tier}) * 1#{$unit});
-    }
-}
-
 @mixin var-reset-font($tier, $namespace: null) {
     @if $namespace {
         --sizing-font-size-#{$tier}: #{variables.format-var("#{$namespace}.font.size")};

@@ -1,7 +1,22 @@
 @use "../abstracts/variables";
 @use "../abstracts/viewports";
 
-@mixin sizing-declarations($size, $prefix: "") {
+@mixin sizing-inherit-declarations($prefix: "") {
+    [data-sizing~="#{$prefix}inherit"] {
+        --sizing-font-letter-spacing: inherit;
+        --sizing-font-line-height: inherit;
+
+        @include variables.each("fonts.sizes.*.nano") using ($tier, $_) {
+            --sizing-font-size-#{$tier}: inherit;
+        }
+
+        @include variables.each("sizes.*.nano") using ($tier, $_) {
+            --sizing-size-#{$tier}: inherit;
+        }
+    }
+}
+
+@mixin sizing-var-declarations($size, $prefix: "") {
     [data-sizing~="#{$prefix}#{$size}"] {
         --sizing-font-letter-spacing: #{variables.format-var("fonts.letter-spacings.#{$size}")};
         --sizing-font-line-height: #{variables.format-var("fonts.line-heights.#{$size}")};
@@ -18,7 +33,8 @@
 
 @mixin declarations($prefix: "") {
     @include variables.each("sizes.block.") using ($size, $_) {
-        @include sizing-declarations($size, $prefix);
+        @include sizing-inherit-declarations($prefix);
+        @include sizing-var-declarations($size, $prefix);
     }
 }
 

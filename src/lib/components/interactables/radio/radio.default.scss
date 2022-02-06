@@ -4,7 +4,7 @@
     @include variables.define-variables(
         (
             "radio": (
-                "font.size": variables.format-var("fonts.sizes.inline.small"),
+                "font.size": variables.format-var("fonts.sizes.inline.tiny"),
                 "active": (
                     "scale": (
                         "x": 0.95,

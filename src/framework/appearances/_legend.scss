@@ -7,9 +7,9 @@
 @mixin base($namespace, $support-opacity: false) {
     display: inline-flex;
 
-    @include intrinsics.gap-all($namespace: $namespace, $unit: rem);
+    @include intrinsics.gap-all($namespace: $namespace, $unit: em);
 
-    @include fonts.size($namespace: $namespace, $unit: rem);
+    @include fonts.size($namespace: $namespace, $unit: em);
     @include fonts.weight($namespace: $namespace);
     @include fonts.letter-spacing($namespace: $namespace, $unit: em);
 

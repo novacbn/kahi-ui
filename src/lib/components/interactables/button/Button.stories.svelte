@@ -20,12 +20,11 @@
         ["negative", false],
     ];
 
-    const SIZES = [
-        ["default", true],
+    const SIZINGS = [
+        ["medium", true],
         ["nano", false],
         ["tiny", false],
         ["small", false],
-        ["medium", false],
         ["large", false],
         ["huge", false],
         ["massive", false],
@@ -195,7 +194,7 @@
 
 <Story name="Sizing">
     <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as [sizing, is_default] (sizing)}
+        {#each SIZINGS as [sizing, is_default] (sizing)}
             <Button sizing={is_default ? undefined : sizing}>
                 {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 Button

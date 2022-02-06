@@ -11,7 +11,7 @@
                     "y": variables.format-var("spacings.block.large"),
                 ),
                 "footer": (
-                    "font.size": variables.format-var("fonts.sizes.block.nano"),
+                    "font.size": variables.format-var("fonts.sizes.inline.medium"),
                     "gap": (
                         "x": variables.format-var("spacings.block.small"),
                         "y": variables.format-var("spacings.block.small"),
@@ -23,7 +23,7 @@
                 ),
                 "header": (
                     "font": (
-                        "size": variables.format-var("fonts.sizes.block.massive"),
+                        "size": variables.format-var("fonts.sizes.block.huge"),
                         "weight": bold,
                     ),
                     "margin.y": variables.format-var("spacings.block.medium"),
@@ -32,7 +32,7 @@
                     ),
                 ),
                 "section": (
-                    "font.size": variables.format-var("fonts.sizes.block.tiny"),
+                    "font.size": variables.format-var("fonts.sizes.inline.large"),
                     "size": (
                         "max-width": variables.format-var("sizes.prose"),
                     ),

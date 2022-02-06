@@ -168,10 +168,10 @@
     (
         "fonts": (
             "letter-spacings": sizes.generate-scaling($base: 0.025, $ratio: 2),
-            "line-heights": sizes.generate-scaling($base: 1, $ratio: 1.15),
+            "line-heights": sizes.generate-scaling($base: 1, $ratio: 1.125),
             "sizes": (
-                "block": sizes.generate-scaling($base: 1.125, $ratio: 1.2),
-                "inline": sizes.generate-scaling($base: 0.75, $ratio: 1.1006424163),
+                "block": sizes.generate-scaling($base: 1.541, $ratio: 1.155),
+                "inline": sizes.generate-scaling($base: 0.75, $ratio: 1.155),
             ),
         ),
     )

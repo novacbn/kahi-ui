@@ -2,7 +2,6 @@
 @use "sass:map";
 
 @use "./maps";
-@use "./strings";
 
 $namespaces: ();
 
@@ -26,7 +25,7 @@ $namespaces: ();
 
             @content ($key, $value);
         } @else {
-            $sub-key: strings.filter($key, $filter);
+            $sub-key: str-filter($key, $filter);
 
             @if $sub-key {
                 $value: map.get($namespaces, $key);
@@ -62,7 +61,7 @@ $namespaces: ();
     $ret: ();
 
     @each $key in $keys {
-        $sub-key: strings.filter($key, $filter);
+        $sub-key: str-filter($key, $filter);
 
         @if $sub-key {
             $ret: list.append($ret, $sub-key);

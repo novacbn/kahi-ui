@@ -1,103 +1,13 @@
 @use "sass:list";
 @use "sass:string";
 
-@function ends-with($string, $search) {
-    $length: string.length($search) * -1;
-
-    @if string.slice($string, $length) == $search {
-        @return $length;
-    }
-
-    @return null;
-}
-
-@function filter($string, $filter: null) {
-    @if not $filter {
-        @return $string;
-    }
-
-    $index: string.index($filter, "*");
-    $length: string.length($filter);
-
-    $parts: split($filter, "*");
-
-    @if $parts {
-        $first-part: list.nth($parts, 1);
-        $last-part: list.nth($parts, 2);
-
-        $first-index: starts-with($string, $first-part);
-        $last-index: ends-with($string, $last-part);
-
-        @if $first-index and $last-index {
-            @return string.slice($string, $first-index + 1, $last-index - 1);
-        }
-    } @else {
-        $part-index: starts-with($string, $filter);
-
-        @if $part-index {
-            @return string.slice($string, $part-index + 1);
-        }
-    }
-
-    @return null;
-}
-
 @function format-identifier($key) {
     $key: string.to-lower-case("#{$key}");
 
-    $key: replace-all($key, "_", "-");
-    $key: replace-all($key, " ", "-");
-    $key: replace-all($key, ".", "-");
-    $key: replace-all($key, ",", "-");
+    $key: str-replaceall($key, "_", "-");
+    $key: str-replaceall($key, " ", "-");
+    $key: str-replaceall($key, ".", "-");
+    $key: str-replaceall($key, ",", "-");
 
-    @return replace-all($key, "--", "-");
-}
-
-/// Replace `$search` with `$replace` in `$string`
-/// @author Kitty Giraudel
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
-@function replace($string, $search, $replace: "") {
-    $index: string.index($string, $search);
-
-    @if $index {
-        @return string.slice($string, 1, $index - 1) + $replace +
-            replace(string.slice($string, $index + string.length($search)), $search, $replace);
-    }
-
-    @return $string;
-}
-
-@function replace-all($string, $search, $replace: "") {
-    @while string.index($string, $search) {
-        $string: replace($string, $search, $replace);
-    }
-
-    @return $string;
-}
-
-@function split($string, $search) {
-    $index: string.index($string, $search);
-    @if not $index {
-        @return null;
-    }
-
-    $length: string.length($search);
-
-    $first-part: string.slice($string, 1, $index - 1);
-    $last-part: string.slice($string, $index + 1);
-
-    @return ($first-part, $last-part);
-}
-
-@function starts-with($string, $search) {
-    $length: string.length($search);
-
-    @if string.slice($string, 1, $length) == $search {
-        @return $length;
-    }
-
-    @return null;
+    @return str-replaceall($key, "--", "-");
 }

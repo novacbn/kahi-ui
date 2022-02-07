@@ -188,7 +188,7 @@
         @include size-constant-declarations($name, $size, $prefix);
 
         $size: "#{$size}";
-        @if strings.ends-with($size, "%") {
+        @if str-endswith($size, "%") {
             @include size-viewport-declaration($name, string.slice($size, 1, -2), $prefix);
         }
     }

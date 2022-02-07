@@ -14,7 +14,8 @@
                     "border.radius": variables.format-var("radius.small"),
                     "color.opacity": 1,
                     "font": (
-                        "size": 1,
+                        "line-height": variables.format-var("fonts.line-heights.small"),
+                        "size": variables.format-var("fonts.sizes.inline.small"),
                         "weight": normal,
                     ),
                     "gap": (

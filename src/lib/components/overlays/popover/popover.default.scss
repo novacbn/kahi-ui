@@ -5,6 +5,9 @@
         (
             "popover": (
                 "z-index": variables.format-var("z-index.inline.popover"),
+                "tooltip": (
+                    "animation.delay": 0.375s,
+                ),
             ),
         )
     );

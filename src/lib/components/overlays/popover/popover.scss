@@ -1,3 +1,5 @@
+@use "../../../../framework/abstracts/variables";
+
 @use "../../../../framework/mixins/planes";
 @use "../../../../framework/mixins/spacings";
 
@@ -113,7 +115,7 @@
 
         &:is(:active, :hover, :focus-within) {
             & > .popover--section {
-                --delay: 1.25;
+                --animation-delay: #{variables.format-var("popover.tooltip.animation.delay")};
             }
         }
     }

@@ -9,7 +9,6 @@
         @include palettes.var-palette($palette: "neutral");
         @include radius.var-reset($namespace: "button");
         @include sizings.var-reset-font($tier: "inline", $namespace: "button");
-        @include sizings.var-reset-line-height($namespace: "button");
 
         @include button.base(
             $namespace: "button",

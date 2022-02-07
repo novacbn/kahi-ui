@@ -28,7 +28,6 @@
 
     outline: none !important; // TODO: Remove during accessibility pass
 
-    @include fonts.line-height($support-sizing: true);
     @include fonts.size($unit: rem, $sizing-tier: "inline");
     @include fonts.weight($namespace);
 

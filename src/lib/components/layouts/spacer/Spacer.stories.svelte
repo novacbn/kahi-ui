@@ -34,7 +34,7 @@
     </Box>
 </Story>
 
-<Story name="Element">
+<Story name="Elements">
     <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         <div>
             <Text is="strong">DIV / DEFAULT</Text>

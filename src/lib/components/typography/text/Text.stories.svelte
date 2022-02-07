@@ -172,7 +172,7 @@ p q r s t u v w x y z &lbrace; | &rbrace; ~
 </Text>
 </Story>
 
-<Story name="Other Tags">
+<Story name="Elements">
     <Stack.Container alignment_x="left" spacing="medium">
         <Text is="abbr">Abbreviation</Text>
 

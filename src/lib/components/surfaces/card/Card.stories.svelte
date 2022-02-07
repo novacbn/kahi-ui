@@ -41,10 +41,9 @@
     ];
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
         ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],

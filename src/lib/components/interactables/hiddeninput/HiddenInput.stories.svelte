@@ -12,7 +12,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette="negative">View the sibling element below this one in devtools.</Box>
 
     <HiddenInput value="This is a HiddenInput" />

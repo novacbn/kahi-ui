@@ -18,7 +18,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette={enabled ? "affirmative" : "negative"} padding="small">
         {enabled
             ? "unselect the checkbox to restore focus"

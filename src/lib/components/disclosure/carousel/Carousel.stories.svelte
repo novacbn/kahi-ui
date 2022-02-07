@@ -31,7 +31,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Carousel.Container style="width:300px;height:200px;">
         <Carousel.Section>
             <Box palette="negative">

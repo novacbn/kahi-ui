@@ -27,7 +27,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Dot />
 </Story>
 

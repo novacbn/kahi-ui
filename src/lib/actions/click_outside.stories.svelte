@@ -20,7 +20,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <div
         class="box"
         data-palette={is_clicked ? "affirmative" : "negative"}

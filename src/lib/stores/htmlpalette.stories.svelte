@@ -16,7 +16,7 @@
     <slot />
 </Template>
 
-<Story name="default">
+<Story name="Preview">
     <Heading>Application Global Palette</Heading>
 
     <Text>

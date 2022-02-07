@@ -20,7 +20,7 @@
     <slot />
 </Template>
 
-<Story name="default">
+<Story name="Preview">
     <Button on:click={on_click}>Toggle Scroll Lock</Button>
 
     <Box palette="accent" padding="small">

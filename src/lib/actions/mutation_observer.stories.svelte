@@ -21,7 +21,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Button on:click={on_click}>Toggle Palette</Button>
 
     <div class="box" data-palette={palette} use:mutation_observer={{attributes: true, on_mutate}}>

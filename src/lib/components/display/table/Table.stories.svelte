@@ -23,7 +23,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Table.Container>
         <Table.Header>
             <Table.Row>

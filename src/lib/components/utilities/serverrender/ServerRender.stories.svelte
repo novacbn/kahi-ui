@@ -10,6 +10,6 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <ServerRender>This will only render on Server.</ServerRender>
 </Story>

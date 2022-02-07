@@ -22,7 +22,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box
         palette={is_clicked ? "affirmative" : "negative"}
         padding="small"

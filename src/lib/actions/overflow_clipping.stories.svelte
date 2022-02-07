@@ -28,7 +28,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette="negative" margin_bottom="small">
         resize the below boxes, then hit the check to add new content
     </Box>

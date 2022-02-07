@@ -18,7 +18,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Spacer spacing="huge" />
     <Spacer spacing="huge" />
 

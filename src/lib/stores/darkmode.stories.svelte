@@ -14,7 +14,7 @@
     <slot />
 </Template>
 
-<Story name="default">
+<Story name="Preview">
     <Text>
         {$darkmode_store ? "Darkmode is enabled!" : "Lightmode is enabled!"}
     </Text>

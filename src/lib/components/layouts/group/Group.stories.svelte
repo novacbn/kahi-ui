@@ -36,7 +36,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Group>
         <Button>Button 1</Button>
         <Button>Button 2</Button>

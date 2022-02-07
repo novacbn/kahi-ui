@@ -25,7 +25,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Heading>Viewports Enabled</Heading>
 
     <Text>Mobile: <Code>{$mobile_store}</Code></Text>

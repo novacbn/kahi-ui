@@ -10,6 +10,6 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <BrowserRender>This will only render on Browser.</BrowserRender>
 </Story>

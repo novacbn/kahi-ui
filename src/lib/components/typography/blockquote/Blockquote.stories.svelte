@@ -26,7 +26,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Blockquote.Container max_width="prose" margin_x="auto" margin_y="medium">
         <Text margin_bottom="medium">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta, urna vel

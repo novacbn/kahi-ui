@@ -55,7 +55,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Heading>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
         Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in

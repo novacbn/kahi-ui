@@ -32,7 +32,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette="negative" margin_bottom="medium">
         Drop files into box and read output in devtools.
     </Box>

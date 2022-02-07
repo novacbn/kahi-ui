@@ -54,7 +54,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Tab.Container logic_name="tab-default" logic_state="tab-default-1" alignment_x="stretch">
         <Tab.Group logic_id="tab-default-1">
             <Tab.Label palette="accent">Tab One <span>ICON</span></Tab.Label>

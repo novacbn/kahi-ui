@@ -22,7 +22,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <TimeStamp timestamp={now} />
 </Story>
 

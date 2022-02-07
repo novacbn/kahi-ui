@@ -37,7 +37,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Accordion.Container logic_name="accordion-default">
         <Accordion.Group logic_id="accordion-default-1">
             <Accordion.Label palette="accent">Section One</Accordion.Label>

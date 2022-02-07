@@ -17,7 +17,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Heading>User Color Scheme Preferences</Heading>
 
     <Text>

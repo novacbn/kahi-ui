@@ -26,7 +26,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Code>import * as Kahi from "@kahi-ui/framework";</Code>
 </Story>
 

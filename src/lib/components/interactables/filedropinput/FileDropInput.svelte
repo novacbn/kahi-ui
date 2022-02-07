@@ -89,6 +89,7 @@
 
     <input
         type="file"
+        class="file-drop-input--input"
         {...map_attributes({
             accept,
             disabled,

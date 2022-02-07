@@ -47,8 +47,8 @@
 
 <Story name="Palette">
     <Mosaic.Container sizing="huge" spacing="medium">
-        {#each PALETTES as [palette, is_default]}
-            <FileDropInput {palette}>
+        {#each PALETTES as [palette, is_default] (palette)}
+            <FileDropInput palette={is_default ? undefined : palette}>
                 <Stack.Container spacing="medium">
                     <Text is="strong" style="font-size:3em;">&uparrow;</Text>
                     <Text>

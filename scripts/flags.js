@@ -22,6 +22,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-feedback-progress",
     "--disable-components-interactables-button",
     "--disable-components-interactables-check",
+    "--disable-components-interactbales-file-drop-input",
     "--disable-components-interactables-form",
     "--disable-components-interactbales-number-input",
     "--disable-components-interactables-radio",

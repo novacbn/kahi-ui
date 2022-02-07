@@ -13,6 +13,9 @@
 
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let id: $$Props["id"] = undefined;
     export let name: $$Props["name"] = undefined;
 
@@ -28,6 +31,7 @@
 <input
     bind:this={element}
     {...map_global_attributes($$props)}
+    class="hidden-input {_class}"
     type="hidden"
     {...map_attributes({
         id: _id,

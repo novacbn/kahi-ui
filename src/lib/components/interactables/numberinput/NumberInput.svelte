@@ -6,6 +6,10 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
+    import type {
+        PROPERTY_RADIUS_BREAKPOINT,
+        PROPERTY_SHAPE_BREAKPOINT,
+    } from "../../../types/shapes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
@@ -43,9 +47,11 @@
 
         characters?: number | string;
 
-        align?: PROPERTY_TEXT_ALIGNMENT;
+        alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         palette?: PROPERTY_PALETTE;
-        size?: PROPERTY_SIZING;
+        radius?: PROPERTY_RADIUS_BREAKPOINT;
+        shape?: PROPERTY_SHAPE_BREAKPOINT;
+        sizing?: PROPERTY_SIZING;
         variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -54,6 +60,9 @@
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 
     export let id: $$Props["id"] = "";
     export let name: $$Props["name"] = "";
@@ -67,9 +76,11 @@
 
     export let characters: $$Props["characters"] = undefined;
 
-    export let align: $$Props["align"] = undefined;
+    export let alignment_x: $$Props["alignment_x"] = undefined;
     export let palette: $$Props["palette"] = undefined;
-    export let size: $$Props["size"] = undefined;
+    export let radius: $$Props["radius"] = undefined;
+    export let shape: $$Props["shape"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
     let _value: string | undefined = value?.toString();
@@ -93,7 +104,8 @@
     bind:this={element}
     {...map_global_attributes($$props)}
     type="text"
-    {...map_data_attributes({align, palette, size, variation})}
+    class="number-input {_class}"
+    {...map_data_attributes({alignment_x, palette, radius, shape, sizing, variation})}
     {...map_attributes({
         disabled,
         id: _id,

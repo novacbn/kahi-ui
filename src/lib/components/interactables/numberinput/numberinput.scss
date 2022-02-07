@@ -8,48 +8,48 @@
 @use "../../../../framework/mixins/sizings";
 @use "../../../../framework/mixins/transforms";
 
-@if not env("DISABLE_COMPONENTS_INTERACTABLES_TEXT_INPUT") {
-    .text-input {
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_NUMBER_INPUT") {
+    .number-input {
         @include alignments.var-reset-text();
         @include palettes.var-palette($palette: "neutral");
-        @include radius.var-reset($namespace: "text-input");
-        @include sizings.var-reset-font($tier: "inline", $namespace: "text-input");
+        @include radius.var-reset($namespace: "number-input");
+        @include sizings.var-reset-font($tier: "inline", $namespace: "number-input");
         @include transforms.var-reset-text();
 
-        @include field.base($namespace: "text-input");
+        @include field.base($namespace: "number-input");
 
         @include field.state-disabled() {
-            @include field.base-disabled($namespace: "text-input");
+            @include field.base-disabled($namespace: "number-input");
         }
 
         &::placeholder {
-            @include field.pseudo-placeholder-base($namespace: "text-input");
+            @include field.pseudo-placeholder-base($namespace: "number-input");
         }
 
         &:not([data-variation]) {
-            @include field.variation-outline-base($namespace: "text-input.outline");
+            @include field.variation-outline-base($namespace: "number-input.outline");
 
             @include field.state-disabled($is-inverse: true) {
                 @include field.state-hover() {
-                    @include field.variation-outline-hover($namespace: "text-input.outline");
+                    @include field.variation-outline-hover($namespace: "number-input.outline");
                 }
 
                 @include field.state-active() {
-                    @include field.variation-outline-active($namespace: "text-input.outline");
+                    @include field.variation-outline-active($namespace: "number-input.outline");
                 }
             }
         }
 
         &[data-variation="block"] {
-            @include field.variation-block-base($namespace: "text-input.block");
+            @include field.variation-block-base($namespace: "number-input.block");
 
             @include field.state-disabled($is-inverse: true) {
                 @include field.state-hover() {
-                    @include field.variation-block-hover($namespace: "text-input.block");
+                    @include field.variation-block-hover($namespace: "number-input.block");
                 }
 
                 @include field.state-active() {
-                    @include field.variation-block-active($namespace: "text-input.block");
+                    @include field.variation-block-active($namespace: "number-input.block");
                 }
             }
         }
@@ -58,7 +58,7 @@
             @include field.variation-flush-base();
 
             &[data-palette] {
-                @include field.variation-flush-palette($namespace: "text-input.flush");
+                @include field.variation-flush-palette($namespace: "number-input.flush");
             }
 
             @include field.state-disabled($is-inverse: true) {
@@ -71,12 +71,5 @@
         &:not([cols], [size]) {
             width: 100%;
         }
-    }
-
-    textarea.text-input {
-        max-width: 100%;
-        max-height: 100%;
-
-        resize: none;
     }
 }

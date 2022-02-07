@@ -8,6 +8,22 @@
     );
 }
 
+@mixin text($namespace: null) {
+    @if $namespace {
+        text-transform: #{variables.format-var("#{$namespace}.transform.text")};
+    } @else {
+        text-transform: var(--transform-text);
+    }
+}
+
 @mixin transitions() {
     @include transitions.push(transform, "movement");
+}
+
+@mixin var-reset-text($transform: inherit, $namespace: null) {
+    @if $namespace {
+        --transform-text: #{variables.format-var("#{$namespace}.transform.text")};
+    } @else {
+        --transform-text: #{$transform};
+    }
 }

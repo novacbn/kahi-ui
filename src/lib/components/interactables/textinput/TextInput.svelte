@@ -3,8 +3,12 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {PROPERTY_RESIZEABLE} from "../../../types/resizable";
+    import type {
+        PROPERTY_RADIUS_BREAKPOINT,
+        PROPERTY_SHAPE_BREAKPOINT,
+    } from "../../../types/shapes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_TEXT_ALIGNMENT, PROPERTY_TEXT_TRANSFORM} from "../../../types/typography";
     import type {PROPERTY_VARIATION_INPUT} from "../../../types/variations";
@@ -56,9 +60,11 @@
         resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
 
-        align?: PROPERTY_TEXT_ALIGNMENT;
+        alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         palette?: PROPERTY_PALETTE;
-        size?: PROPERTY_SIZING;
+        radius?: PROPERTY_RADIUS_BREAKPOINT;
+        shape?: PROPERTY_SHAPE_BREAKPOINT;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
         transform?: PROPERTY_TEXT_TRANSFORM;
         variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
@@ -70,6 +76,9 @@
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 
     export let id: $$Props["id"] = "";
     export let name: $$Props["name"] = "";
@@ -95,9 +104,11 @@
     export let resizable: $$Props["resizable"] = undefined;
     export let spell_check: $$Props["spell_check"] = undefined;
 
-    export let align: $$Props["align"] = undefined;
+    export let alignment_x: $$Props["alignment_x"] = undefined;
     export let palette: $$Props["palette"] = undefined;
-    export let size: $$Props["size"] = undefined;
+    export let radius: $$Props["radius"] = undefined;
+    export let shape: $$Props["shape"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
     export let transform: $$Props["transform"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
@@ -118,7 +129,17 @@
     <textarea
         bind:this={element}
         {...map_global_attributes($$props)}
-        {...map_data_attributes({align, palette, resizable, size, transform, variation})}
+        class="text-input {_class}"
+        {...map_data_attributes({
+            alignment_x,
+            palette,
+            resizable,
+            radius,
+            shape,
+            sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             cols: characters,
             disabled,
@@ -157,7 +178,16 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="email"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text-input {_class}"
+        {...map_data_attributes({
+            alignment_x,
+            palette,
+            radius,
+            shape,
+            sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -196,7 +226,16 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="password"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text-input {_class}"
+        {...map_data_attributes({
+            alignment_x,
+            palette,
+            radius,
+            shape,
+            sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -235,7 +274,16 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="search"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text-input {_class}"
+        {...map_data_attributes({
+            alignment_x,
+            palette,
+            radius,
+            shape,
+            sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -274,7 +322,16 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="url"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text-input {_class}"
+        {...map_data_attributes({
+            alignment_x,
+            palette,
+            radius,
+            shape,
+            sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,
@@ -313,7 +370,16 @@
         bind:this={element}
         {...map_global_attributes($$props)}
         type="text"
-        {...map_data_attributes({align, palette, size, transform, variation})}
+        class="text-input {_class}"
+        {...map_data_attributes({
+            alignment_x,
+            palette,
+            radius,
+            shape,
+            sizing,
+            transform,
+            variation,
+        })}
         {...map_attributes({
             disabled,
             id: _id,

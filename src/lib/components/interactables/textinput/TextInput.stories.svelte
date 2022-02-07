@@ -5,6 +5,14 @@
 
     import TextInput from "./TextInput.svelte";
 
+    const ALIGNMENTS_X = [
+        ["inherit", true],
+        ["left", false],
+        ["center", false],
+        ["right", false],
+        ["justify", false],
+    ];
+
     const CHARACTERS_HEXADECIMAL = new Set([
         "a",
         "b",
@@ -33,16 +41,41 @@
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
-    const SIZES = [
-        ["default", true],
+    const RADIUS = [
+        ["small", true],
+        ["none", false],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
+    ];
+
+    const SHAPES = [
+        ["circle", false],
+        ["pill", false],
+    ];
+
+    const SIZINGS = [
+        ["small", true],
+        ["nano", false],
+        ["tiny", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
+
+    const TRANSFORMS = [
+        ["inherit", true],
+        ["capitalize", false],
+        ["lowercase", false],
+        ["uppercase", false],
     ];
 
     function on_mask(event) {
@@ -61,7 +94,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <TextInput value="This is a TextInput" />
 </Story>
 
@@ -75,11 +108,11 @@
 
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <TextInput
+                palette={is_default ? undefined : palette}
                 value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
                 characters="20"
-                {palette}
             />
         {/each}
     </Stack.Container>
@@ -87,12 +120,12 @@
 
 <Story name="Block">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <TextInput
                 variation="block"
+                palette={is_default ? undefined : palette}
                 value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
                 characters="20"
-                {palette}
             />
         {/each}
     </Stack.Container>
@@ -100,24 +133,72 @@
 
 <Story name="Flush">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <TextInput
                 variation="flush"
+                palette={is_default ? undefined : palette}
                 value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
                 characters="20"
-                {palette}
             />
         {/each}
     </Stack.Container>
 </Story>
 
-<Story name="Size">
-    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
+<Story name="Alignments">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each ALIGNMENTS_X as [alignment_x, is_default] (alignment_x)}
             <TextInput
-                value={`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+                alignment_x={is_default ? undefined : alignment_x}
+                value={`${alignment_x.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
                 characters="20"
-                {size}
+            />
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Transforms">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each TRANSFORMS as [transform, is_default] (transform)}
+            <TextInput
+                transform={is_default ? undefined : transform}
+                value={`${transform.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+                characters="20"
+            />
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Radius">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each RADIUS as [radius, is_default] (radius)}
+            <TextInput
+                radius={is_default ? undefined : radius}
+                value={`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+                characters="20"
+            />
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Shapes">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each SHAPES as [shape, is_default] (shape)}
+            <TextInput
+                shape={is_default ? undefined : shape}
+                value={`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+                characters="20"
+            />
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Sizing">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        {#each SIZINGS as [sizing, is_default] (sizing)}
+            <TextInput
+                sizing={is_default ? undefined : sizing}
+                value={`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
+                characters="20"
             />
         {/each}
     </Stack.Container>

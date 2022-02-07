@@ -6,6 +6,7 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
+    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import type {IYearFormatOptions} from "../../../util/datetime/years";
@@ -18,9 +19,9 @@
     } from "../../../util/datetime/years";
 
     import Button from "../../interactables/button/Button.svelte";
+    import FormLegend from "../../interactables/form/FormLegend.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import StackContainer from "../../layouts/stack/StackContainer.svelte";
-    import Text from "../../typography/text/Text.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -89,7 +90,19 @@
     }
 
     $: _step = Math.abs((typeof step === "string" ? parseInt(step) : step) ?? 1);
+
+    $: _sizing = sizing ?? TOKENS_SIZING.small;
 </script>
+
+<!--
+    HACK: We want textual Components, e.g. `<Form.Legend>` to scale with the
+    non-textual, e.g. `<Button>` in a way that keeps the size difference intact.
+
+    We could do mapping to the next lower tier, e.g. `<YearStepper sizing="medium">` maps
+    to `<Form.Legend sizing="small">`, but that wouldn't work in edge cases
+    like `<YearStepper sizing="nano">`. And since the datetime Widgets are JS-only, we can
+    ignore size considerations and just throw in a quick inline-style
+-->
 
 <StackContainer
     {...$$restProps}
@@ -97,20 +110,21 @@
     class="year-stepper {_class}"
     orientation="horizontal"
     alignment_y="center"
+    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1rem);"
 >
-    <Text is="strong" {sizing}>
+    <FormLegend is="span">
         {format_year(value, locale, {
             year: year ?? "numeric",
         })}
-    </Text>
+    </FormLegend>
 
     <Spacer is="span" />
 
     <Button
         disabled={disabled || !is_year_in_range(value, min)}
         variation={["subtle", "clear"]}
+        sizing={_sizing}
         {palette}
-        {sizing}
         on:click={on_year_select.bind(null, _step * -1)}
     >
         <slot name="previous">&lt;</slot>
@@ -119,8 +133,8 @@
     <Button
         disabled={disabled || !is_year_in_range(value, undefined, max)}
         variation={["subtle", "clear"]}
+        sizing={_sizing}
         {palette}
-        {sizing}
         on:click={on_year_select.bind(null, _step)}
     >
         <slot name="next">&gt;</slot>

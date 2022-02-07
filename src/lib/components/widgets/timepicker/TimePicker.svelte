@@ -6,7 +6,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {ISizeProperties} from "../../../types/sizes";
+    import type {ISizeProperties, PROPERTY_SIZE_BREAKPOINT} from "../../../types/sizes";
     import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
@@ -167,7 +167,8 @@
     $: _minutes = get_clock_minutes(_timestamp);
     $: _seconds = get_clock_seconds(_timestamp);
 
-    $: _sizing = sizing ?? TOKENS_SIZING.medium;
+    $: _sizing = (sizing ?? TOKENS_SIZING.small) as PROPERTY_SIZE_BREAKPOINT &
+        PROPERTY_SIZING_BREAKPOINT;
 </script>
 
 <StackContainer

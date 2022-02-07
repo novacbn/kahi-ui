@@ -12,10 +12,10 @@
     import TimePicker from "./TimePicker.svelte";
 
     const SIZINGS = [
-        ["medium", true],
+        ["small", true],
         ["nano", false],
         ["tiny", false],
-        ["small", false],
+        ["medium", false],
         ["large", false],
         ["huge", false],
         ["massive", false],

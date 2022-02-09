@@ -5,19 +5,18 @@
 
     import Text from "./Text.svelte";
 
-    const ALIGNMENTS = [
-        ["default", true],
-        ["center", false],
-        ["justify", false],
+    const ALIGNMENTS_X = [
+        ["inherit", true],
         ["left", false],
+        ["center", false],
         ["right", false],
+        ["justify", false],
     ];
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
+        ["inverse", true],
         ["auto", false],
-        ["inverse", false],
+        ["accent", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -26,24 +25,25 @@
         ["negative", false],
     ];
 
-    const SIZES = [
-        ["default", true],
+    const SIZINGS = [
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     const TRANSFORMS = [
-        ["default", true],
+        ["inherit", true],
         ["capitalize", false],
         ["lowercase", false],
         ["uppercase", false],
     ];
 
     const VARIATIONS = [
-        ["default", true],
+        ["none", true],
         ["truncate", false],
     ];
 </script>
@@ -65,13 +65,13 @@
 
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <div style="max-width:25ch;">
                 <Text is="strong">
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Text palette={palette === "default" ? undefined : palette}>
+                <Text palette={is_default ? undefined : palette}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
                     rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
@@ -82,15 +82,15 @@
     </Stack.Container>
 </Story>
 
-<Story name="Size">
+<Story name="Sizing - Inline">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
+        {#each SIZINGS as [sizing, is_default] (sizing)}
             <div style="max-width:25ch;">
                 <Text is="strong">
-                    {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Text size={size === "default" ? undefined : size}>
+                <Text sizing={is_default ? undefined : sizing}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
                     rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
@@ -101,15 +101,15 @@
     </Stack.Container>
 </Story>
 
-<Story name="Align">
+<Story name="Sizing - Block">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each ALIGNMENTS as [align, is_default]}
+        {#each SIZINGS as [sizing, is_default] (sizing)}
             <div style="max-width:25ch;">
                 <Text is="strong">
-                    {`${align.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Text align={align === "default" ? undefined : align}>
+                <Text variation="block" sizing={is_default ? undefined : sizing}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
                     rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
@@ -120,15 +120,34 @@
     </Stack.Container>
 </Story>
 
-<Story name="Transform">
+<Story name="Alignments">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each TRANSFORMS as [transform, is_default]}
+        {#each ALIGNMENTS_X as [alignment_x, is_default] (alignment_x)}
+            <div style="max-width:25ch;">
+                <Text is="strong">
+                    {`${alignment_x.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <Text alignment_x={is_default ? undefined : alignment_x}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
+                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
+                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus.
+                </Text>
+            </div>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Transforms">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each TRANSFORMS as [transform, is_default] (transform)}
             <div style="max-width:25ch;">
                 <Text is="strong">
                     {`${transform.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Text transform={transform === "default" ? undefined : transform}>
+                <Text transform={is_default ? undefined : transform}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
                     rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
@@ -141,13 +160,13 @@
 
 <Story name="Variation">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each VARIATIONS as [variation, is_default]}
+        {#each VARIATIONS as [variation, is_default] (variation)}
             <div style="max-width:25ch;">
                 <Text is="strong">
                     {`${variation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Text variation={variation === "default" ? undefined : variation}>
+                <Text variation={is_default ? undefined : variation}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
                     orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
                     rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et

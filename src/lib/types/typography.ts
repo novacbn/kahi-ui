@@ -1,7 +1,7 @@
 import type {ArrayEnum, LiteralEnum} from "./util";
 
 export enum TOKENS_HEADING_VARIATION {
-    headline = "headline",
+    block = "block",
 
     truncate = "truncate",
 }

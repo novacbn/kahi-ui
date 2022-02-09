@@ -1,25 +1,40 @@
 @use "../abstracts/transitions";
 @use "../abstracts/variables";
 
-@mixin all($namespace, $face, $shade) {
+@mixin all($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
-    border: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
-            "#{$namespace}.border.style"
-        )}
-        hsla(
+    @if $palette {
+        border: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-all($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-color: hsla(
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
-}
-
-@mixin color-all($namespace, $face, $shade) {
-    @include transitions();
-
-    border-color: hsla(
-        var(--palette-#{$face}-#{$shade}),
-        #{variables.format-var("#{$namespace}.border.opacity")}
-    );
+    }
 }
 
 @mixin style-all($namespace) {
@@ -30,14 +45,14 @@
     border-width: #{variables.format-var("#{$namespace}.border.width")};
 }
 
-@mixin x($namespace, $face, $shade) {
-    @include left($namespace);
-    @include right($namespace);
+@mixin x($namespace, $face, $shade, $palette: null) {
+    @include left($namespace, $face, $shade, $palette);
+    @include right($namespace, $face, $shade, $palette);
 }
 
-@mixin color-x($namespace, $face, $shade) {
-    @include color-left($namespace);
-    @include color-right($namespace);
+@mixin color-x($namespace, $face, $shade, $palette: null) {
+    @include color-left($namespace, $face, $shade, $palette);
+    @include color-right($namespace, $face, $shade, $palette);
 }
 
 @mixin style-x($namespace) {
@@ -50,14 +65,14 @@
     @include width-right($namespace);
 }
 
-@mixin y($namespace, $face, $shade) {
-    @include bottom($namespace);
-    @include top($namespace);
+@mixin y($namespace, $face, $shade, $palette: null) {
+    @include bottom($namespace, $face, $shade, $palette);
+    @include top($namespace, $face, $shade, $palette);
 }
 
-@mixin color-y($namespace, $face, $shade) {
-    @include color-bottom($namespace);
-    @include color-top($namespace);
+@mixin color-y($namespace, $face, $shade, $palette: null) {
+    @include color-bottom($namespace, $face, $shade, $palette);
+    @include color-top($namespace, $face, $shade, $palette);
 }
 
 @mixin style-y($namespace) {
@@ -70,25 +85,40 @@
     @include width-top($namespace);
 }
 
-@mixin bottom($namespace, $face, $shade) {
+@mixin bottom($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
-    border-bottom: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
-            "#{$namespace}.border.style"
-        )}
-        hsla(
+    @if $palette {
+        border-bottom: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-bottom: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-bottom($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-bottom-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-bottom-color: hsla(
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
-}
-
-@mixin color-bottom($namespace, $face, $shade) {
-    @include transitions();
-
-    border-bottom-color: hsla(
-        var(--palette-#{$face}-#{$shade}),
-        #{variables.format-var("#{$namespace}.border.opacity")}
-    );
+    }
 }
 
 @mixin style-bottom($namespace) {
@@ -99,25 +129,40 @@
     border-bottom-width: #{variables.format-var("#{$namespace}.border.width")};
 }
 
-@mixin left($namespace, $face, $shade) {
+@mixin left($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
-    border-left: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
-            "#{$namespace}.border.style"
-        )}
-        hsla(
+    @if $palette {
+        border-left: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-left: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-left($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-left-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-left-color: hsla(
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
-}
-
-@mixin color-left($namespace, $face, $shade) {
-    @include transitions();
-
-    border-left-color: hsla(
-        var(--palette-#{$face}-#{$shade}),
-        #{variables.format-var("#{$namespace}.border.opacity")}
-    );
+    }
 }
 
 @mixin style-left($namespace) {
@@ -128,25 +173,40 @@
     border-left-width: #{variables.format-var("#{$namespace}.border.width")};
 }
 
-@mixin right($namespace, $face, $shade) {
+@mixin right($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
-    border-right: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
-            "#{$namespace}.border.style"
-        )}
-        hsla(
+    @if $palette {
+        border-right: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-right: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-right($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-right-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-right-color: hsla(
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
-}
-
-@mixin color-right($namespace, $face, $shade) {
-    @include transitions();
-
-    border-right-color: hsla(
-        var(--palette-#{$face}-#{$shade}),
-        #{variables.format-var("#{$namespace}.border.opacity")}
-    );
+    }
 }
 
 @mixin style-right($namespace) {
@@ -157,25 +217,40 @@
     border-right-width: #{variables.format-var("#{$namespace}.border.width")};
 }
 
-@mixin top($namespace, $face, $shade) {
+@mixin top($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
-    border-top: #{variables.format-var("#{$namespace}.border.width")} #{variables.format-var(
-            "#{$namespace}.border.style"
-        )}
-        hsla(
+    @if $palette {
+        border-top: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-top: #{variables.format-var("#{$namespace}.border.width")}
+            #{variables.format-var("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.format-var("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-top($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-top-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.format-var("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-top-color: hsla(
             var(--palette-#{$face}-#{$shade}),
             #{variables.format-var("#{$namespace}.border.opacity")}
         );
-}
-
-@mixin color-top($namespace, $face, $shade) {
-    @include transitions();
-
-    border-top-color: hsla(
-        var(--palette-#{$face}-#{$shade}),
-        #{variables.format-var("#{$namespace}.border.opacity")}
-    );
+    }
 }
 
 @mixin style-top($namespace) {

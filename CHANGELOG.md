@@ -145,7 +145,7 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
         -   `Animation` — Applies a repeating animation to the child elements.
 
-            -   `<Animation on:animationend={AnimationEvent} on:animationstart={AnimationEvent}>` —
+            -   `<Animation on:animationend={AnimationEvent} on:animationstart={AnimationEvent}>` — Passthrough of the Browser [`animationend`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event) / [`animationstart`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationstart_event) events.
             -   `<Animation is="div/span">` — Alters the rendered element.
             -   `<Animation animation="bounce/ping/pulse">` — Alters which animation is rendered.
             -   `<Animation delay={number | string}>` — Adjusts how long until the animation starts playing by a percentage multiplier of the base duration.
@@ -161,7 +161,7 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
     -   Widgets
 
-        -   `*(Picker/Stepper)`
+        -   `*Picker` / `*Stepper`
 
             -   Fixed datetime Components not working on FireFox 96+.
 
@@ -210,7 +210,7 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
     -   Widgets
 
-        -   `*Picker` / `Stepper`
+        -   `*Picker` / `*Stepper`
 
             -   **(BREAKING)** `<* calendar>` — Due to breaking bug in the Temporal API polyfill, this property has been removed and will be revisited at a later time.
             -   **(BREAKING)** `<* highlight timestamp value>` — Due to a breaking bug in the Temporal API polyfill and to align with Web Browsers, this property now _only_ accepts [ISO 8601](https://www.w3.org/TR/NOTE-datetime) timestamps which don't specify calendars. Working only with the ISO 8601 calendar.
@@ -305,6 +305,13 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   **(BREAKING)** `<Text align>` — Consolidated into `<Text alignment_x>`.
             -   **(BREAKING)** `<Text size>` — Consolidated into `<Text sizing>`.
+
+    -   Widgets
+
+        -   `TimePicker`
+
+            -   **(BREAKING)** `<TimePicker disabled={string[]}>` — Was updated to accept `string[]` instead of `string`.
+            -   **(BREAKING)** `<TimePicker highlight={string[]}>` — Was updated to accept `string[]` instead of `string`.
 
 ## 0.5.3 - 2022/01/08
 

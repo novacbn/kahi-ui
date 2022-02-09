@@ -4,9 +4,9 @@ import type {ArrayEnum, LiteralEnum, LiteralObject} from "./util";
  * Represents the tiers of animation variation tokens that can be applied to Framework Components
  */
 export enum TOKENS_VARIATION_ANIMATION {
-    enter = "enter",
+    pause = "pause",
 
-    exit = "exit",
+    play = "play",
 }
 
 /**

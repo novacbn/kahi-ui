@@ -1,53 +1,98 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --heading-font-weight: bold;
-
-    /** */
-
-    --heading-h1-font-size: var(--font-content-size-root-massive);
-    --heading-h1-line-height: var(--font-content-line-height-massive);
-
-    --heading-h1-headline-font-size: var(--font-headline-size-root-massive);
-    --heading-h1-headline-line-height: var(--font-headline-line-height-massive);
-
-    /** */
-
-    --heading-h2-font-size: var(--font-content-size-root-huge);
-    --heading-h2-line-height: var(--font-content-line-height-huge);
-
-    --heading-h2-headline-font-size: var(--font-headline-size-root-huge);
-    --heading-h2-headline-line-height: var(--font-headline-line-height-huge);
-
-    /** */
-
-    --heading-h3-font-size: var(--font-content-size-root-large);
-    --heading-h3-line-height: var(--font-content-line-height-large);
-
-    --heading-h3-headline-font-size: var(--font-headline-size-root-large);
-    --heading-h3-headline-line-height: var(--font-headline-line-height-large);
-
-    /** */
-
-    --heading-h4-font-size: var(--font-content-size-root-medium);
-    --heading-h4-line-height: var(--font-content-line-height-medium);
-
-    --heading-h4-headline-font-size: var(--font-headline-size-root-medium);
-    --heading-h4-headline-line-height: var(--font-headline-line-height-medium);
-
-    /** */
-
-    --heading-h5-font-size: var(--font-content-size-root-small);
-    --heading-h5-line-height: var(--font-content-line-height-small);
-
-    --heading-h5-headline-font-size: var(--font-headline-size-root-small);
-    --heading-h5-headline-line-height: var(--font-headline-line-height-small);
-
-    /** */
-
-    --heading-h6-font-size: var(--font-content-size-root-tiny);
-    --heading-h6-line-height: var(--font-content-line-height-tiny);
-
-    --heading-h6-headline-font-size: var(--font-headline-size-root-tiny);
-    --heading-h6-headline-line-height: var(--font-headline-line-height-tiny);
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_HEADING") {
+    @include variables.define-variables(
+        (
+            "heading": (
+                "block": (
+                    "h1": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.massive"),
+                            "size": variables.format-var("fonts.sizes.block.massive"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h2": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.huge"),
+                            "size": variables.format-var("fonts.sizes.block.huge"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h3": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.large"),
+                            "size": variables.format-var("fonts.sizes.block.large"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h4": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.medium"),
+                            "size": variables.format-var("fonts.sizes.block.medium"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h5": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.small"),
+                            "size": variables.format-var("fonts.sizes.block.small"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h6": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.tiny"),
+                            "size": variables.format-var("fonts.sizes.block.tiny"),
+                            "weight": bold,
+                        ),
+                    ),
+                ),
+                "inline": (
+                    "h1": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.massive"),
+                            "size": variables.format-var("fonts.sizes.inline.massive"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h2": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.huge"),
+                            "size": variables.format-var("fonts.sizes.inline.huge"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h3": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.large"),
+                            "size": variables.format-var("fonts.sizes.inline.large"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h4": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.medium"),
+                            "size": variables.format-var("fonts.sizes.inline.medium"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h5": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.small"),
+                            "size": variables.format-var("fonts.sizes.inline.small"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h6": (
+                        "font": (
+                            "line-height": variables.format-var("fonts.line-heights.tiny"),
+                            "size": variables.format-var("fonts.sizes.inline.tiny"),
+                            "weight": bold,
+                        ),
+                    ),
+                ),
+            ),
+        )
+    );
 }

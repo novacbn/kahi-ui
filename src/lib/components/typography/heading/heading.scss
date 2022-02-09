@@ -1,89 +1,104 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: currentColor;
-    font-weight: var(--heading-font-weight);
+@use "../../../../framework/abstracts/transitions";
 
-    transition: color var(--animation-visual-duration) var(--animation-visual-function);
+@use "../../../../framework/mixins/alignments";
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/transforms";
 
-    &[data-align] {
-        text-align: var(--align-text);
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_HEADING") {
+    .heading {
+        @include alignments.var-reset-text();
+        @include transforms.var-reset-text();
+
+        color: currentColor;
+
+        @include alignments.text();
+        @include transforms.text();
+
+        @include colors.transitions-text();
+
+        @include transitions.build();
+
+        &[data-palette] {
+            @include colors.text($namespace: "text", $face: "background", $shade: "boldest");
+        }
+
+        &[data-variation~="truncate"] {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     }
 
-    &[data-palette] {
-        color: rgb(var(--palette-background-normal));
+    h1.heading {
+        @include fonts.line-height($namespace: "heading.inline.h1");
+        @include fonts.size($namespace: "heading.inline.h1", $unit: rem);
+        @include fonts.weight($namespace: "heading.inline.h1");
+
+        &[data-variation~="block"] {
+            @include fonts.line-height($namespace: "heading.block.h1");
+            @include fonts.size($namespace: "heading.block.h1", $unit: rem);
+            @include fonts.weight($namespace: "heading.block.h1");
+        }
     }
 
-    &[data-transform] {
-        text-transform: var(--transform-text);
+    h2.heading {
+        @include fonts.line-height($namespace: "heading.inline.h2");
+        @include fonts.size($namespace: "heading.inline.h2", $unit: rem);
+        @include fonts.weight($namespace: "heading.inline.h2");
+
+        &[data-variation~="block"] {
+            @include fonts.line-height($namespace: "heading.block.h2");
+            @include fonts.size($namespace: "heading.block.h2", $unit: rem);
+            @include fonts.weight($namespace: "heading.block.h2");
+        }
     }
 
-    &[data-variation~="truncate"] {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+    h3.heading {
+        @include fonts.line-height($namespace: "heading.inline.h3");
+        @include fonts.size($namespace: "heading.inline.h3", $unit: rem);
+        @include fonts.weight($namespace: "heading.inline.h3");
+
+        &[data-variation~="block"] {
+            @include fonts.line-height($namespace: "heading.block.h3");
+            @include fonts.size($namespace: "heading.block.h3", $unit: rem);
+            @include fonts.weight($namespace: "heading.block.h3");
+        }
     }
-}
 
-h1 {
-    font-size: var(--heading-h1-font-size);
-    line-height: var(--heading-h1-line-height);
+    h4.heading {
+        @include fonts.line-height($namespace: "heading.inline.h4");
+        @include fonts.size($namespace: "heading.inline.h4", $unit: rem);
+        @include fonts.weight($namespace: "heading.inline.h4");
 
-    &[data-variation~="headline"] {
-        font-size: var(--heading-h1-headline-font-size);
-        line-height: var(--heading-h1-headline-line-height);
+        &[data-variation~="block"] {
+            @include fonts.line-height($namespace: "heading.block.h4");
+            @include fonts.size($namespace: "heading.block.h4", $unit: rem);
+            @include fonts.weight($namespace: "heading.block.h4");
+        }
     }
-}
 
-h2 {
-    font-size: var(--heading-h2-font-size);
-    line-height: var(--heading-h2-line-height);
+    h5.heading {
+        @include fonts.line-height($namespace: "heading.inline.h5");
+        @include fonts.size($namespace: "heading.inline.h5", $unit: rem);
+        @include fonts.weight($namespace: "heading.inline.h5");
 
-    &[data-variation~="headline"] {
-        font-size: var(--heading-h2-headline-font-size);
-        line-height: var(--heading-h2-headline-line-height);
+        &[data-variation~="block"] {
+            @include fonts.line-height($namespace: "heading.block.h5");
+            @include fonts.size($namespace: "heading.block.h5", $unit: rem);
+            @include fonts.weight($namespace: "heading.block.h5");
+        }
     }
-}
 
-h3 {
-    font-size: var(--heading-h3-font-size);
-    line-height: var(--heading-h3-line-height);
+    h6.heading {
+        @include fonts.line-height($namespace: "heading.inline.h6");
+        @include fonts.size($namespace: "heading.inline.h6", $unit: rem);
+        @include fonts.weight($namespace: "heading.inline.h6");
 
-    &[data-variation~="headline"] {
-        font-size: var(--heading-h3-headline-font-size);
-        line-height: var(--heading-h3-headline-line-height);
-    }
-}
-
-h4 {
-    font-size: var(--heading-h4-font-size);
-    line-height: var(--heading-h4-line-height);
-
-    &[data-variation~="headline"] {
-        font-size: var(--heading-h4-headline-font-size);
-        line-height: var(--heading-h4-headline-line-height);
-    }
-}
-
-h5 {
-    font-size: var(--heading-h5-font-size);
-    line-height: var(--heading-h5-line-height);
-
-    &[data-variation~="headline"] {
-        font-size: var(--heading-h5-headline-font-size);
-        line-height: var(--heading-h5-headline-line-height);
-    }
-}
-
-h6 {
-    font-size: var(--heading-h6-font-size);
-    line-height: var(--heading-h6-line-height);
-
-    &[data-variation~="headline"] {
-        font-size: var(--heading-h6-headline-font-size);
-        line-height: var(--heading-h6-headline-line-height);
+        &[data-variation~="block"] {
+            @include fonts.line-height($namespace: "heading.block.h6");
+            @include fonts.size($namespace: "heading.block.h6", $unit: rem);
+            @include fonts.weight($namespace: "heading.block.h6");
+        }
     }
 }

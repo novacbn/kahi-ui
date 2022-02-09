@@ -11,7 +11,7 @@
 @mixin base($namespace) {
     text-decoration: #{variables.format-var("#{$namespace}.text.decoration")};
 
-    color: inherit;
+    color: currentColor;
     cursor: pointer;
 
     /** TODO: Remove during ARIA pass */

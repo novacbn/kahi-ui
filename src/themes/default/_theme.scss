@@ -29,15 +29,15 @@
             "accent":
                 palettes.generate-color-palette(
                     $dark-base: hsl(200, 25%, 45%),
-                    $light-base: hsl(200, 35%, 50%),
+                    $light-base: hsl(200, 30%, 50%),
                     $foreground: "light",
                     $dark-shading: 3%,
                     $light-shading: 3%
                 ),
             "neutral":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(195, 2.5%, 40%),
-                    $light-base: hsl(195, 5%, 35%),
+                    $dark-base: hsl(195, 7.5%, 40%),
+                    $light-base: hsl(195, 5%, 45%),
                     $foreground: "light",
                     $dark-shading: 3%,
                     $light-shading: 3%
@@ -71,8 +71,8 @@
                 ),
             "informative":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(215, 25%, 50%),
-                    $light-base: hsl(215, 35%, 55%),
+                    $dark-base: hsl(210, 30%, 50%),
+                    $light-base: hsl(210, 40%, 55%),
                     $foreground: "light",
                     $dark-shading: 3%,
                     $light-shading: 3%

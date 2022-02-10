@@ -23,7 +23,6 @@
         @include fonts.line-height($support-sizing: true);
         @include fonts.size($sizing-tier: "inline", $unit: rem);
 
-        @include colors.transitions-background();
         @include colors.transitions-text();
         @include colors.transitions-opacity();
 

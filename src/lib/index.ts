@@ -30,6 +30,7 @@ export {Tab};
 export * from "./components/display/badge";
 export * from "./components/display/datestamp";
 export * from "./components/display/datetimestamp";
+export * from "./components/display/kbd";
 import * as List from "./components/display/list";
 export {List};
 import * as Table from "./components/display/table";

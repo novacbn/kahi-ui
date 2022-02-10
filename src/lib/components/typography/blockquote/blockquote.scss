@@ -1,18 +1,27 @@
-blockquote {
-    position: relative;
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
 
-    padding: var(--blockquote-padding-y) var(--blockquote-padding-x);
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_BLOCKQUOTE") {
+    .blockquote {
+        position: relative;
 
-    background: rgba(var(--blockquote-background-color), var(--blockquote-background-opacity));
-    border-left: var(--blockquote-border-width) var(--blockquote-border-style)
-        rgb(var(--blockquote-border-color));
-    border-radius: var(--blockquote-border-radius);
+        padding: var(--blockquote-padding-y) var(--blockquote-padding-x);
 
-    transition: background var(--animation-visual-duration) var(--animation-visual-function),
-        border-color var(--animation-visual-duration) var(--animation-visual-function);
+        background: rgba(var(--blockquote-background-color), var(--blockquote-background-opacity));
+        border-left: var(--blockquote-border-width)
+            var(--blockquote-border-style)
+            rgb(var(--blockquote-border-color));
+        border-radius: var(--blockquote-border-radius);
 
-    &[data-palette] {
-        border-color: rgb(var(--palette-background-normal));
-        background: rgba(var(--palette-background-lightest), var(--blockquote-background-opacity));
+        transition: background var(--animation-visual-duration) var(--animation-visual-function),
+            border-color var(--animation-visual-duration) var(--animation-visual-function);
+
+        &[data-palette] {
+            border-color: rgb(var(--palette-background-normal));
+            background: rgba(
+                var(--palette-background-lightest),
+                var(--blockquote-background-opacity)
+            );
+        }
     }
 }

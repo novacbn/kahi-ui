@@ -44,36 +44,6 @@
         }
     }
 
-    kbd.text {
-        @include intrinsics.padding-all($namespace: "text.kbd", $unit: em);
-
-        @include colors.background(
-            $namespace: "text.kbd",
-            $palette: "auto",
-            $face: "background",
-            $shade: "bolder"
-        );
-        @include colors.text(
-            $namespace: "text.kbd",
-            $palette: "auto",
-            $face: "foreground",
-            $shade: "normal"
-        );
-        @include borders.bottom(
-            $namespace: "text.kbd",
-            $palette: "neutral",
-            $face: "background",
-            $shade: "bolder"
-        );
-        @include radius.all($namespace: "text.kbd", $unit: em);
-
-        @include fonts.size($namespace: "text.kbd", $unit: em);
-        @include fonts.family($namespace: "text.kbd");
-        @include fonts.weight($namespace: "text.kbd");
-
-        white-space: nowrap;
-    }
-
     small.text {
         @include fonts.size($namespace: "text.small", $unit: em);
         @include colors.opacity($namespace: "text.small");

@@ -5,25 +5,6 @@
         (
             "text": (
                 "color.opacity": 1,
-                "kbd": (
-                    "background.opacity": 0.75,
-                    "border": (
-                        "opacity": 1,
-                        "radius": variables.format-var("radius.small"),
-                        "style": ridge,
-                        "width": variables.format-var("sizes.borders.large"),
-                    ),
-                    "color.opacity": 1,
-                    "font": (
-                        "family": variables.format-var("fonts.families.monospace"),
-                        "size": variables.format-var("fonts.sizes.inline.nano"),
-                        "weight": bolder,
-                    ),
-                    "padding": (
-                        "x": variables.format-var("spacings.block.medium"),
-                        "y": variables.format-var("spacings.block.small"),
-                    ),
-                ),
                 "small": (
                     "font.size": variables.format-var("fonts.sizes.inline.tiny"),
                     "opacity": 0.75,

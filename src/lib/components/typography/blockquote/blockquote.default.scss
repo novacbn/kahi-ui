@@ -1,6 +1,6 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
+/*:root {
     --blockquote-background-color: var(--palette-inverse-off-lightest);
     --blockquote-background-opacity: 0.2;
     --blockquote-border-color: var(--palette-neutral-normal);
@@ -9,4 +9,14 @@
     --blockquote-border-radius: var(--radius-small);
     --blockquote-padding-x: var(--spacing-root-large);
     --blockquote-padding-y: var(--spacing-root-medium);
+}*/
+
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_BLOCKQUOTE") {
+    @include variables.define-variables(
+        (
+            "blockquote": (
+                "a": "b",
+            ),
+        )
+    );
 }

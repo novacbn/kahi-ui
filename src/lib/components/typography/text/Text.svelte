@@ -29,7 +29,6 @@
             | "em"
             | "i"
             | "ins"
-            | "kbd"
             | "mark"
             | "p"
             | "pre"
@@ -218,30 +217,6 @@
     >
         <slot />
     </ins>
-{:else if is === "kbd"}
-    <kbd
-        bind:this={element}
-        {...map_global_attributes($$props)}
-        class="text {_class}"
-        {...map_data_attributes({alignment_x, palette, transform, variation})}
-        use:forward_actions={{actions}}
-        on:click
-        on:contextmenu
-        on:dblclick
-        on:focusin
-        on:focusout
-        on:keydown
-        on:keyup
-        on:pointercancel
-        on:pointerdown
-        on:pointerenter
-        on:pointerleave
-        on:pointermove
-        on:pointerout
-        on:pointerup
-    >
-        <slot />
-    </kbd>
 {:else if is === "mark"}
     <mark
         bind:this={element}

@@ -7,10 +7,10 @@
     import * as Blockquote from "./";
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
+        ["neutral", true],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -54,11 +54,8 @@
 
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
-            <Blockquote.Container
-                max_width="prose"
-                palette={palette === "default" ? undefined : palette}
-            >
+        {#each PALETTES as [palette, is_default] (palette)}
+            <Blockquote.Container max_width="prose" palette={is_default ? undefined : palette}>
                 <Text margin_bottom="medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta, urna vel
                     tristique varius, ipsum erat auctor odio, id imperdiet mauris velit eget quam.

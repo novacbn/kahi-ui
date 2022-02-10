@@ -1,27 +1,26 @@
+@use "../../../../framework/abstracts/transitions";
+
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/radius";
 
 @if not env("DISABLE_COMPONENTS_TYPOGRAPHY_BLOCKQUOTE") {
     .blockquote {
+        @include palettes.var-palette($palette: "neutral");
+
         position: relative;
 
-        padding: var(--blockquote-padding-y) var(--blockquote-padding-x);
+        @include intrinsics.padding-all($namespace: "blockquote", $unit: em);
 
-        background: rgba(var(--blockquote-background-color), var(--blockquote-background-opacity));
-        border-left: var(--blockquote-border-width)
-            var(--blockquote-border-style)
-            rgb(var(--blockquote-border-color));
-        border-radius: var(--blockquote-border-radius);
+        @include colors.background($namespace: "blockquote", $face: "background", $shade: "bolder");
+        @include borders.left($namespace: "blockquote", $face: "background", $shade: "bolder");
+        @include radius.all($namespace: "blockquote", $unit: em);
 
-        transition: background var(--animation-visual-duration) var(--animation-visual-function),
-            border-color var(--animation-visual-duration) var(--animation-visual-function);
+        @include borders.transitions();
+        @include colors.transitions-background();
 
-        &[data-palette] {
-            border-color: rgb(var(--palette-background-normal));
-            background: rgba(
-                var(--palette-background-lightest),
-                var(--blockquote-background-opacity)
-            );
-        }
+        @include transitions.build();
     }
 }

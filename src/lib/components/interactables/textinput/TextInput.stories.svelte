@@ -110,13 +110,17 @@
     <TextInput max="5" min="3" />
 </Story>
 
+<Story name="TextArea + Spans">
+    <TextInput is="textarea" value="This is a TextArea" span_x="20" span_y="5" />
+</Story>
+
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
             <TextInput
                 palette={is_default ? undefined : palette}
                 value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -129,7 +133,7 @@
                 variation="block"
                 palette={is_default ? undefined : palette}
                 value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -142,7 +146,7 @@
                 variation="flush"
                 palette={is_default ? undefined : palette}
                 value={`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -154,7 +158,7 @@
             <TextInput
                 alignment_x={is_default ? undefined : alignment_x}
                 value={`${alignment_x.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -166,7 +170,7 @@
             <TextInput
                 transform={is_default ? undefined : transform}
                 value={`${transform.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -178,7 +182,7 @@
             <TextInput
                 radius={is_default ? undefined : radius}
                 value={`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -190,7 +194,7 @@
             <TextInput
                 shape={is_default ? undefined : shape}
                 value={`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -202,12 +206,8 @@
             <TextInput
                 sizing={is_default ? undefined : sizing}
                 value={`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""} TextInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
-</Story>
-
-<Story name="TextArea">
-    <TextInput is="textarea" value="This is a TextArea" characters="20" lines="5" />
 </Story>

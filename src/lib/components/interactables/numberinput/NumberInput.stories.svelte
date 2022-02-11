@@ -82,7 +82,7 @@
                 placeholder={`${palette.toUpperCase()}${
                     is_default ? " / DEFAULT" : ""
                 } NumberInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -97,7 +97,7 @@
                 placeholder={`${palette.toUpperCase()}${
                     is_default ? " / DEFAULT" : ""
                 } NumberInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -112,7 +112,7 @@
                 placeholder={`${palette.toUpperCase()}${
                     is_default ? " / DEFAULT" : ""
                 } NumberInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -126,7 +126,7 @@
                 placeholder={`${alignment_x.toUpperCase()}${
                     is_default ? " / DEFAULT" : ""
                 } NumberInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -152,7 +152,7 @@
             <NumberInput
                 radius={is_default ? undefined : radius}
                 placeholder={`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""} NumberInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -164,7 +164,7 @@
             <NumberInput
                 shape={is_default ? undefined : shape}
                 placeholder={`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""} NumberInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>
@@ -176,7 +176,7 @@
             <NumberInput
                 sizing={is_default ? undefined : sizing}
                 placeholder={`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""} NumberInput`}
-                characters="20"
+                span_x="20"
             />
         {/each}
     </Stack.Container>

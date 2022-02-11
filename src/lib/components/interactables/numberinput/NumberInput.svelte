@@ -49,7 +49,7 @@
         max?: number | string;
         min?: number | string;
 
-        characters?: number | string;
+        span_x?: number | string;
 
         alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         palette?: PROPERTY_PALETTE;
@@ -81,7 +81,7 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let characters: $$Props["characters"] = undefined;
+    export let span_x: $$Props["span_x"] = undefined;
 
     export let alignment_x: $$Props["alignment_x"] = undefined;
     export let palette: $$Props["palette"] = undefined;
@@ -149,7 +149,7 @@
         placeholder,
         readonly,
         required,
-        size: characters,
+        size: span_x,
         value,
     })}
     use:mask_input={{enabled: true, on_mask}}

@@ -54,8 +54,8 @@
         min?: number | string;
         pattern?: RegExp | string;
 
-        characters?: number | string;
-        lines?: number | string;
+        span_x?: number | string;
+        span_y?: number | string;
 
         resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
@@ -98,8 +98,8 @@
     export let min: $$Props["min"] = undefined;
     export let pattern: $$Props["pattern"] = "";
 
-    export let characters: $$Props["characters"] = undefined;
-    export let lines: $$Props["lines"] = undefined;
+    export let span_x: $$Props["span_x"] = undefined;
+    export let span_y: $$Props["span_y"] = undefined;
 
     export let resizable: $$Props["resizable"] = undefined;
     export let spell_check: $$Props["spell_check"] = undefined;
@@ -144,7 +144,7 @@
             variation,
         })}
         {...map_attributes({
-            cols: characters,
+            cols: span_x,
             disabled,
             id: _id,
             maxlength: max,
@@ -153,8 +153,8 @@
             placeholder,
             readonly,
             required,
-            rows: lines,
-            spellcheck: spell_check === undefined ? undefined : spell_check.toString(),
+            rows: span_y,
+            spellcheck: spell_check,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
@@ -201,7 +201,7 @@
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -249,7 +249,7 @@
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -297,7 +297,7 @@
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -345,7 +345,7 @@
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -393,7 +393,7 @@
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}

@@ -50,7 +50,7 @@
 </script>
 
 <Backdrop
-    {...$$props}
+    {...$$restProps}
     bind:element
     class="overlay--backdrop {_class}"
     for={_overlay_dismissible && $_overlay_dismissible && _overlay_id ? $_overlay_id : undefined}

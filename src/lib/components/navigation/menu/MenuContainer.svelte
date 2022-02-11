@@ -46,7 +46,7 @@
 
 <nav
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="menu {_class}"
     {...map_data_attributes({orientation, palette, sizing})}
     use:forward_actions={{actions}}

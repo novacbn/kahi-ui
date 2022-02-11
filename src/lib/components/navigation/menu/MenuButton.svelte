@@ -43,7 +43,7 @@
 
 <button
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="menu--item {_class}"
     {...map_data_attributes({palette})}
     {...map_aria_attributes({pressed: active})}

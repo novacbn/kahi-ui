@@ -33,7 +33,7 @@
 {#if $$slots["default"]}
     <p
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="separator"
         class="menu--heading {_class}"
         {...map_data_attributes({variation})}
@@ -58,7 +58,7 @@
 {:else}
     <hr
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="menu--heading {_class}"
         use:forward_actions={{actions}}
         on:click

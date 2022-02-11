@@ -57,7 +57,7 @@
 </script>
 
 <Button
-    {...$$props}
+    {...$$restProps}
     bind:element
     is="label"
     class="popover--button {_class}"

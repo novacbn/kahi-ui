@@ -131,7 +131,7 @@
 {#if is === "textarea"}
     <textarea
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text-input {_class}"
         {...map_data_attributes({
             alignment_x,
@@ -179,7 +179,7 @@
 {:else if type === "email"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="email"
         class="text-input {_class}"
         {...map_data_attributes({
@@ -227,7 +227,7 @@
 {:else if type === "password"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="password"
         class="text-input {_class}"
         {...map_data_attributes({
@@ -275,7 +275,7 @@
 {:else if type === "search"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="search"
         class="text-input {_class}"
         {...map_data_attributes({
@@ -323,7 +323,7 @@
 {:else if type === "url"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="url"
         class="text-input {_class}"
         {...map_data_attributes({
@@ -371,7 +371,7 @@
 {:else}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="text"
         class="text-input {_class}"
         {...map_data_attributes({

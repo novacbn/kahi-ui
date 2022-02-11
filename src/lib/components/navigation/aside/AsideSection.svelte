@@ -33,7 +33,7 @@
 
 <section
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="aside--section {_class}"
     use:forward_actions={{actions}}
     on:click

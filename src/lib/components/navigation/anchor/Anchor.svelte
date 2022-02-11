@@ -63,7 +63,7 @@
 
 <a
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="anchor {_class}"
     {...map_aria_attributes({current, disabled})}
     {...map_data_attributes({palette})}

@@ -38,7 +38,7 @@
 {#if $$slots["default"]}
     <p
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="separator"
         class="divider"
         {...map_data_attributes({orientation, palette})}
@@ -62,7 +62,7 @@
 {:else}
     <hr
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="divider"
         {...map_data_attributes({orientation, palette})}
         use:forward_actions={{actions}}

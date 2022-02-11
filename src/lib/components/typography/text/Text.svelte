@@ -76,7 +76,7 @@
 {#if is === "abbr"}
     <abbr
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -100,7 +100,7 @@
 {:else if is === "b"}
     <b
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -124,7 +124,7 @@
 {:else if is === "del"}
     <del
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -148,7 +148,7 @@
 {:else if is === "em"}
     <em
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -172,7 +172,7 @@
 {:else if is === "i"}
     <i
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -196,7 +196,7 @@
 {:else if is === "ins"}
     <ins
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -220,7 +220,7 @@
 {:else if is === "mark"}
     <mark
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -244,7 +244,7 @@
 {:else if is === "pre"}
     <pre
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({
             alignment_x,
@@ -272,7 +272,7 @@
 {:else if is === "s"}
     <s
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -296,7 +296,7 @@
 {:else if is === "samp"}
     <samp
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -320,7 +320,7 @@
 {:else if is === "small"}
     <small
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
@@ -344,7 +344,7 @@
 {:else if is === "span"}
     <span
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -368,7 +368,7 @@
 {:else if is === "strong"}
     <strong
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -392,7 +392,7 @@
 {:else if is === "sub"}
     <sub
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -416,7 +416,7 @@
 {:else if is === "sup"}
     <sup
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -440,7 +440,7 @@
 {:else if is === "u"}
     <u
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
@@ -464,7 +464,7 @@
 {:else}
     <p
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
         {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}

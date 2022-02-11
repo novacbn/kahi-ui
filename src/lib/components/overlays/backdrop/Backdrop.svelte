@@ -36,7 +36,7 @@
 {#if _for}
     <label
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="button"
         class="backdrop {_class}"
         for={_for}
@@ -61,7 +61,7 @@
 {:else}
     <div
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="backdrop {_class}"
         {...map_data_attributes({palette})}
         use:forward_actions={{actions}}

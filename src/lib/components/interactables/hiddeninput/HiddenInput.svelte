@@ -30,7 +30,7 @@
 
 <input
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="hidden-input {_class}"
     type="hidden"
     {...map_attributes({

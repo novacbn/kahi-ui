@@ -56,7 +56,7 @@
 {#if is === "h6"}
     <h6
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
         {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
@@ -80,7 +80,7 @@
 {:else if is === "h5"}
     <h5
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
         {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
@@ -104,7 +104,7 @@
 {:else if is === "h4"}
     <h4
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
         {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
@@ -128,7 +128,7 @@
 {:else if is === "h3"}
     <h3
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
         {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
@@ -152,7 +152,7 @@
 {:else if is === "h2"}
     <h2
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
         {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
@@ -176,7 +176,7 @@
 {:else}
     <h1
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
         {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}

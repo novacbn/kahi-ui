@@ -128,7 +128,7 @@
 
 <section
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="popover--section {_popover_id ? 'transition' : ''} {_class}"
     {...map_data_attributes({
         animation: _animatable ? animation ?? TOKENS_TRANSITION_NAMES.clip : undefined,

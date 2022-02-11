@@ -53,7 +53,7 @@
 <div
     bind:this={element}
     {...map_global_attributes({
-        ...$$props,
+        ...$$restProps,
         style: `${style ? `${style};` : ""}${value ? `--value:${value};` : ""}`,
     })}
     role="progressbar"

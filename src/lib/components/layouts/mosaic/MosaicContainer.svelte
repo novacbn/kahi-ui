@@ -68,7 +68,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="mosaic {_class}"
     {...map_data_attributes({
         alignment,

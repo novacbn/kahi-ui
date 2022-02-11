@@ -37,7 +37,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="mosaic--item {_class}"
     {...map_data_attributes({
         span,

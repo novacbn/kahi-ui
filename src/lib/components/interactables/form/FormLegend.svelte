@@ -35,7 +35,7 @@
 {#if is === "span"}
     <span
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="form--legend {_class}"
         use:forward_actions={{actions}}
         on:click
@@ -58,7 +58,7 @@
 {:else}
     <legend
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="form--legend {_class}"
         use:forward_actions={{actions}}
         on:click

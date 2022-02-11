@@ -40,7 +40,7 @@
 
 <nav
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="omni {_class}"
     {...map_data_attributes({palette, placement, variation})}
     on:click

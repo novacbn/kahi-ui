@@ -94,7 +94,7 @@
 {#if is === "a"}
     <a
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="button"
         class="button {_class}"
         {...map_data_attributes({palette, radius, shape, sizing, variation})}
@@ -124,7 +124,7 @@
 {:else if is === "label"}
     <label
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="button"
         class="button {_class}"
         for={_for}
@@ -154,7 +154,7 @@
     {#if type === "reset"}
         <input
             bind:this={element}
-            {...map_global_attributes($$props)}
+            {...map_global_attributes($$restProps)}
             class="button {_class}"
             type="reset"
             {...map_data_attributes({palette, radius, shape, sizing, variation})}
@@ -179,7 +179,7 @@
     {:else if type === "submit"}
         <input
             bind:this={element}
-            {...map_global_attributes($$props)}
+            {...map_global_attributes($$restProps)}
             class="button {_class}"
             type="submit"
             {...map_data_attributes({palette, radius, shape, sizing, variation})}
@@ -204,7 +204,7 @@
     {:else}
         <input
             bind:this={element}
-            {...map_global_attributes($$props)}
+            {...map_global_attributes($$restProps)}
             class="button {_class}"
             type="button"
             {...map_data_attributes({palette, radius, shape, sizing, variation})}
@@ -230,7 +230,7 @@
 {:else}
     <button
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="button {_class}"
         {...map_data_attributes({palette, radius, shape, sizing, variation})}
         {...map_aria_attributes({pressed: active})}

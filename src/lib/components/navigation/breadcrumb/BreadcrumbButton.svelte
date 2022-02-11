@@ -49,7 +49,7 @@
 
 <button
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="breadcrumb--item {_class}"
     {...map_aria_attributes({pressed: active})}
     {...map_data_attributes({palette})}

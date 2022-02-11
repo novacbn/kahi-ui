@@ -137,7 +137,7 @@
 
 <input
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     type="text"
     class="number-input {_class}"
     {...map_data_attributes({alignment_x, palette, radius, shape, sizing, variation})}

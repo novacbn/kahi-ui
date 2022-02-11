@@ -38,7 +38,7 @@
 {#if is === "ol"}
     <ol
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="list {_class}"
         use:forward_actions={{actions}}
         on:click
@@ -61,7 +61,7 @@
 {:else}
     <ul
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="list {_class}"
         use:forward_actions={{actions}}
         on:click

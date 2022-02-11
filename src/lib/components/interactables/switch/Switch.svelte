@@ -87,7 +87,7 @@
         <FormLabel>
             <input
                 bind:this={element}
-                {...map_global_attributes($$props)}
+                {...map_global_attributes($$restProps)}
                 role="switch"
                 type="checkbox"
                 class="switch {_class}"
@@ -126,7 +126,7 @@
 {:else}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="switch"
         type="checkbox"
         class="switch {_class}"

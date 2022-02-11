@@ -47,7 +47,7 @@
 
 <label
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="form--label {_class}"
     {...map_aria_attributes({disabled, pressed: active})}
     for={_logic_for}

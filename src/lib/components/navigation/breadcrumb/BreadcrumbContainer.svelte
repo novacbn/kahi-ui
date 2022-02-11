@@ -50,7 +50,7 @@
 
 <nav
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="breadcrumb {_class}"
     {...map_aria_attributes({label: "breadcrumb"})}
     {...map_data_attributes({palette})}

@@ -53,7 +53,7 @@
 <div
     bind:this={element}
     role="group"
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="group {_class}"
     {...map_data_attributes({
         orientation,

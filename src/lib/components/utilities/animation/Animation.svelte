@@ -53,7 +53,7 @@
 {#if is === "span"}
     <span
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="animation {_class}"
         {...map_data_attributes({animation, variation})}
         on:animationend
@@ -67,7 +67,7 @@
 {:else}
     <div
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="animation {_class}"
         {...map_data_attributes({animation, variation})}
         on:animationend

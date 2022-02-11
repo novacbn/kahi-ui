@@ -58,7 +58,7 @@
 <FormGroup logic_id={_for}>
     <label
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="button"
         class="menu--item {_class}"
         {...map_data_attributes({palette})}

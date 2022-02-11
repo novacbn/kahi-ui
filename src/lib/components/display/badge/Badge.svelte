@@ -58,7 +58,7 @@
 {#if is === "a"}
     <a
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="badge {_class}"
         {...map_data_attributes({palette, radius, shape})}
         {download}
@@ -86,7 +86,7 @@
 {:else if is === "button"}
     <button
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="badge {_class}"
         {...map_data_attributes({palette, radius, shape})}
         use:forward_actions={{actions}}
@@ -110,7 +110,7 @@
 {:else}
     <span
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="badge {_class}"
         {...map_data_attributes({palette, radius, shape})}
         use:forward_actions={{actions}}

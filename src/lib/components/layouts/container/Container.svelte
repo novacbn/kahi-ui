@@ -38,7 +38,7 @@
 {#if is === "article"}
     <article
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="container {_class}"
         use:forward_actions={{actions}}
         on:click
@@ -61,7 +61,7 @@
 {:else if is === "main"}
     <main
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="container {_class}"
         use:forward_actions={{actions}}
         on:click
@@ -84,7 +84,7 @@
 {:else}
     <div
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="container {_class}"
         use:forward_actions={{actions}}
         on:click

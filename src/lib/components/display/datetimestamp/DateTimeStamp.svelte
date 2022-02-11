@@ -78,7 +78,7 @@
 
 <time
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="date-time-stamp {_class}"
     datetime={_datetime.withCalendar("iso8601").toString({calendarName: "never"})}
     use:forward_actions={{actions}}

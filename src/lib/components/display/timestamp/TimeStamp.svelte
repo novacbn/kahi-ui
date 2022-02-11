@@ -54,7 +54,7 @@
 
 <time
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="time-stamp {_class}"
     datetime={_time.toString()}
     use:forward_actions={{actions}}

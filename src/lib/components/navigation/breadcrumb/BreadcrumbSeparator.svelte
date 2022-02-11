@@ -39,7 +39,7 @@
 
 <span
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     role="presentation"
     class="breadcrumb--separator {_class}"
     use:forward_actions={{actions}}

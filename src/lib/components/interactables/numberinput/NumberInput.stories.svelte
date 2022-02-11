@@ -51,13 +51,6 @@
         ["huge", false],
         ["massive", false],
     ];
-
-    const TRANSFORMS = [
-        ["inherit", true],
-        ["capitalize", false],
-        ["lowercase", false],
-        ["uppercase", false],
-    ];
 </script>
 
 <Meta title="Interactables/NumberInput" />
@@ -127,20 +120,6 @@
                     is_default ? " / DEFAULT" : ""
                 } NumberInput`}
                 span_x="20"
-            />
-        {/each}
-    </Stack.Container>
-</Story>
-
-<Story name="Transforms">
-    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each TRANSFORMS as [transform, is_default] (transform)}
-            <NumberInput
-                transform={is_default ? undefined : transform}
-                placeholder={`${transform.toUpperCase()}${
-                    is_default ? " / DEFAULT" : ""
-                } NumberInput`}
-                characters="20"
             />
         {/each}
     </Stack.Container>

@@ -43,7 +43,7 @@
 
         max?: string;
         min?: string;
-        step?: number | string;
+        steps?: number | string;
 
         value?: string;
 
@@ -77,7 +77,7 @@
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
-    export let step: $$Props["step"] = undefined;
+    export let steps: $$Props["steps"] = undefined;
 
     export let value: string = now_day();
 
@@ -93,7 +93,7 @@
         dispatch("change");
     }
 
-    $: _step = Math.abs((typeof step === "string" ? parseInt(step) : step) ?? 1);
+    $: _steps = Math.abs((typeof steps === "string" ? parseInt(steps) : steps) ?? 1);
 
     $: _sizing = sizing ?? TOKENS_SIZING.small;
 </script>
@@ -131,7 +131,7 @@
         variation={["subtle", "clear"]}
         sizing={_sizing}
         {palette}
-        on:click={on_day_select.bind(null, _step * -1)}
+        on:click={on_day_select.bind(null, _steps * -1)}
     >
         <slot name="previous">&lt;</slot>
     </Button>
@@ -141,7 +141,7 @@
         variation={["subtle", "clear"]}
         sizing={_sizing}
         {palette}
-        on:click={on_day_select.bind(null, _step)}
+        on:click={on_day_select.bind(null, _steps)}
     >
         <slot name="next">&gt;</slot>
     </Button>

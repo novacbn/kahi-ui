@@ -25,7 +25,7 @@
 
     let max = add_months(value, 5);
     let min = subtract_months(value, 5);
-    let step = 3;
+    let steps = 3;
 </script>
 
 <Meta title="Widgets/MonthStepper" />
@@ -66,19 +66,19 @@
     </Code>
 </Story>
 
-<Story name="Step">
-    <MonthStepper palette="accent" {step} bind:calendar bind:locale bind:value />
+<Story name="Steps">
+    <MonthStepper palette="accent" {steps} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, value, step}, null, 4)}
+        {JSON.stringify({calendar, locale, value, steps}, null, 4)}
     </Code>
 </Story>
 
-<Story name="Step + Maximum + Minimum">
-    <MonthStepper palette="accent" {step} {max} {min} bind:calendar bind:locale bind:value />
+<Story name="Steps + Maximum + Minimum">
+    <MonthStepper palette="accent" {steps} {max} {min} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, value, step, max, min}, null, 4)}
+        {JSON.stringify({calendar, locale, value, steps, max, min}, null, 4)}
     </Code>
 </Story>
 

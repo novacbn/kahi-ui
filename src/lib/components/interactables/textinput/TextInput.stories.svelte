@@ -106,6 +106,10 @@
     <TextInput mask on:mask={on_mask} />
 </Story>
 
+<Story name="Maximum + Minimum">
+    <TextInput max="5" min="3" />
+</Story>
+
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}

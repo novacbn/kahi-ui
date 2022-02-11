@@ -50,8 +50,8 @@
         value?: string;
 
         mask?: boolean;
-        max_length?: number | undefined;
-        min_length?: number | undefined;
+        max?: number | string;
+        min?: number | string;
         pattern?: RegExp | string;
 
         characters?: number | string;
@@ -94,8 +94,8 @@
     export let value: $$Props["value"] = "";
 
     export let mask: $$Props["mask"] = undefined;
-    export let max_length: $$Props["max_length"] = undefined;
-    export let min_length: $$Props["min_length"] = undefined;
+    export let max: $$Props["max"] = undefined;
+    export let min: $$Props["min"] = undefined;
     export let pattern: $$Props["pattern"] = "";
 
     export let characters: $$Props["characters"] = undefined;
@@ -122,7 +122,10 @@
     $: _id = _form_id ? $_form_id : id;
     $: _name = _form_name ? $_form_name : name;
 
-    $: _pattern = typeof pattern === "string" ? pattern : (pattern as RegExp).source;
+    // NOTE: `RegExp.toString` returns the expression with the forward slash
+    // boundries (`/.../`), which is not compatible with the `<input pattern>`
+    // attribute. So we can use `RegExp.source` here which doesn't include them
+    $: _pattern = pattern instanceof RegExp ? pattern.source : pattern;
 </script>
 
 {#if is === "textarea"}
@@ -144,8 +147,8 @@
             cols: characters,
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max,
+            minlength: min,
             name: _name,
             placeholder,
             readonly,
@@ -191,8 +194,8 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
@@ -239,8 +242,8 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
@@ -287,8 +290,8 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
@@ -335,8 +338,8 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
@@ -383,8 +386,8 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,

@@ -70,6 +70,10 @@
     <NumberInput value={42} />
 </Story>
 
+<Story name="Maximum + Minimum">
+    <NumberInput max={84} min={-84} value={42} />
+</Story>
+
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}

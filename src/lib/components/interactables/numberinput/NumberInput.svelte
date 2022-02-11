@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-    const EXPRESSION_NUMBER = "-?\\d+\\.?\\d*";
+    const EXPRESSION_NUMBER = /^-?\d*\.?\d*$/;
 </script>
 
 <script lang="ts">
@@ -16,6 +16,7 @@
     import type {PROPERTY_TEXT_ALIGNMENT} from "../../../types/typography";
     import type {PROPERTY_VARIATION_INPUT} from "../../../types/variations";
 
+    import type {IMaskInputEvent} from "../../../actions/mask_input";
     import {mask_input} from "../../../actions/mask_input";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -44,6 +45,9 @@
 
         placeholder?: string;
         value?: number;
+
+        max?: number | string;
+        min?: number | string;
 
         characters?: number | string;
 
@@ -74,6 +78,9 @@
     export let placeholder: $$Props["placeholder"] = "";
     export let value: $$Props["value"] = undefined;
 
+    export let max: $$Props["max"] = undefined;
+    export let min: $$Props["min"] = undefined;
+
     export let characters: $$Props["characters"] = undefined;
 
     export let alignment_x: $$Props["alignment_x"] = undefined;
@@ -92,11 +99,39 @@
         if (!element) return;
 
         const new_value = element.value;
-        value = new_value ? parseFloat(new_value) : undefined;
+
+        // NOTE: We need to special case the minus (`-`) symbol so
+        // users can start writing negative numbers without number
+        // characters being present
+        value = new_value && new_value !== "-" ? parseFloat(new_value) : undefined;
+    }
+
+    function on_mask(event: IMaskInputEvent): void {
+        const {value} = event.detail;
+        if (!value) return;
+
+        if (!EXPRESSION_NUMBER.test(value)) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else if (_max || _min) {
+            const parsed = parseFloat(value);
+
+            if ((_max && _max < parsed) || (_min && _min > parsed)) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        }
     }
 
     $: _id = _form_id ? $_form_id : id;
     $: _name = _form_name ? $_form_name : name;
+
+    $: _max = typeof max === "string" ? parseFloat(max) : max;
+    $: _min = typeof min === "string" ? parseFloat(min) : min;
+    // NOTE: The `<input pattern />` already handles the expressions as
+    // single line (`^...$`), so we need to strip it from output
+    $: _pattern = EXPRESSION_NUMBER.source.slice(1, -1);
+
     $: _value = value?.toString();
 </script>
 
@@ -110,14 +145,14 @@
         disabled,
         id: _id,
         name: _name,
-        pattern: EXPRESSION_NUMBER,
+        pattern: _pattern,
         placeholder,
         readonly,
         required,
         size: characters,
         value,
     })}
-    use:mask_input={{enabled: true, pattern: EXPRESSION_NUMBER}}
+    use:mask_input={{enabled: true, on_mask}}
     on:input={on_input}
     bind:value={_value}
     use:forward_actions={{actions}}

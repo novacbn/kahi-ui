@@ -46,6 +46,8 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
             -   `<Badge is="a/button" href={string}>` — Alters the `Badge` to render an underline on hover.
             -   `<Badge radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" shape="circle/pill/{VIEWPORT}:{SHAPE}">` — Alters the border radius rendered.
 
+        -   `Kbd` — Renders text in a manner that resembles a keycap from a keyboard, to represent a key binding. e.g. `CTRL+C` which typically means "Copy"
+
     -   Embedded
 
         -   `Figure`
@@ -78,6 +80,7 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
         -   `NumberInput`
 
             -   `<NumberInput radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" shape="circle/pill/{VIEWPORT}:{SHAPE}">` — Alters the border radius rendered.
+            -   `<NumberInput max={number | string} min={number | string}>` — Masks the user input from entering numbers not within the specified range.
 
         -   `TextInput`
 
@@ -208,6 +211,14 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   **(BREAKING)** `<svelte:fragment slot="sub-menu">` — With the new DOM structure, the `<Menu.Section>` Components can just be composed as sibling elements.
 
+    -   Typography
+
+        -   `Text`
+
+            -   **(BREAKING)** `<Text is="kbd">` — Due to not acting strictly as a text modifier, it migrated to becoming its own `Kbd` Component.
+
+                . e.g. `<Text is="kbd">CTRL+C</Text>` -> `<Kbd>CTRL+C</Kbd>`
+
     -   Widgets
 
         -   `*Picker` / `*Stepper`
@@ -251,8 +262,9 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
         -   `NumberInput`
 
-            -   **(BREAKING)** `<NumberInput size>` — Consolidated into `<NumberInput sizing>`.
             -   **(BREAKING)** `<NumberInput align>` — Consolidated into `<NumberInput alignment_x>`.
+            -   **(BREAKING)** `<NumberInput characters>` — Consolidated into `<NumberInput span_x>`.
+            -   **(BREAKING)** `<NumberInput size>` — Consolidated into `<NumberInput sizing>`.
 
         -   `Switch`
 
@@ -260,8 +272,11 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
         -   `TextInput`
 
-            -   **(BREAKING)** `<TextInput size>` — Consolidated into `<TextInput sizing>`.
             -   **(BREAKING)** `<TextInput align>` — Consolidated into `<TextInput alignment_x>`.
+            -   **(BREAKING)** `<TextInput characters lines>` — Consolidated into `<TextInput span_x span_y>`.
+            -   **(BREAKING)** `<TextInput max_length>` — Consolidated into `<TextInput max>`.
+            -   **(BREAKING)** `<TextInput min_length>` — Consolidated into `<TextInput min>`.
+            -   **(BREAKING)** `<TextInput size>` — Consolidated into `<TextInput sizing>`.
 
     -   Layouts
 

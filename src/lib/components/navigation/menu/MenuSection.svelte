@@ -13,7 +13,7 @@
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLDivElement;
+        element?: HTMLElement;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -31,7 +31,7 @@
     export {_class as class};
 </script>
 
-<div
+<section
     bind:this={element}
     {...map_global_attributes($$props)}
     class="menu--section {_class}"
@@ -52,4 +52,4 @@
     on:pointerup
 >
     <slot />
-</div>
+</section>

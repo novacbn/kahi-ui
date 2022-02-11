@@ -323,10 +323,22 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
     -   Widgets
 
+        -   `DayStepper`
+
+            -   **(BREAKING)** `<DayStepper step>` — Consolidated into `<DayStepper steps>`.
+
+        -   `MonthStepper`
+
+            -   **(BREAKING)** `<MonthStepper step>` — Consolidated into `<MonthStepper steps>`.
+
         -   `TimePicker`
 
             -   **(BREAKING)** `<TimePicker disabled={string[]}>` — Was updated to accept `string[]` instead of `string`.
             -   **(BREAKING)** `<TimePicker highlight={string[]}>` — Was updated to accept `string[]` instead of `string`.
+
+        -   `YearStepper`
+
+            -   **(BREAKING)** `<YearStepper step>` — Consolidated into `<YearStepper steps>`.
 
 ## 0.5.3 - 2022/01/08
 

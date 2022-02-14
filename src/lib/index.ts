@@ -133,10 +133,10 @@ export * from "./actions/overflow_clipping";
 export * from "./actions/trap_focus";
 
 export * from "./stores/htmlmode";
-export * from "./stores/darkmode";
 export * from "./stores/mediaquery";
 export * from "./stores/prefersscheme";
 export * from "./stores/scrolllock";
+export * from "./stores/thememode";
 export * from "./stores/viewport";
 
 export * from "./util/environment";

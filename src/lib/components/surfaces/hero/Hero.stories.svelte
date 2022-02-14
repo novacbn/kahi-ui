@@ -41,7 +41,7 @@
 <Story name="Palette">
     <Grid.Container spacing="medium" points={["3", "desktop:2", "tablet:1", "mobile:1"]}>
         {#each PALETTES as [palette, is_default] (palette)}
-            <Hero.Container {palette}>
+            <Hero.Container palette={is_default ? undefined : palette}>
                 <Hero.Header>404</Hero.Header>
                 <Hero.Section>
                     The page you tried to access is missing or no longer available.

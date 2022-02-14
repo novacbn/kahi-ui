@@ -5,6 +5,7 @@
     import IMAGE_BACKGROUND from "../../../../../.storybook/assets/background.webp";
 
     import * as Stack from "../../layouts/stack";
+    import * as Mosaic from "../../layouts/mosaic";
     import Text from "../../typography/text/Text.svelte";
 
     import Figure from "./Figure.svelte";
@@ -76,7 +77,7 @@
 
                 <Figure fit={is_default ? undefined : fit}>
                     <!-- NOTE: Using custom sizing to show how fit plays w/ non-box aspect ratios -->
-                    <img src={IMAGE_BACKGROUND} style="width:12rem;height:18rem;" />
+                    <img src={IMAGE_BACKGROUND} data-width="tiny" data-height="medium" />
                 </Figure>
             </div>
         {/each}
@@ -84,35 +85,35 @@
 </Story>
 
 <Story name="Radius">
-    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Mosaic.Container sizing="tiny" spacing="medium">
         {#each RADIUS as [radius, is_default]}
             <div>
                 <Text is="strong">
                     {`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure size="huge" radius={is_default ? undefined : radius}>
+                <Figure radius={is_default ? undefined : radius}>
                     <img src={IMAGE_BACKGROUND} />
                 </Figure>
             </div>
         {/each}
-    </Stack.Container>
+    </Mosaic.Container>
 </Story>
 
 <Story name="Shape">
-    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Mosaic.Container sizing="tiny" spacing="medium">
         {#each SHAPES as [shape, is_default]}
             <div>
                 <Text is="strong">
                     {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure size="huge" shape={is_default ? undefined : shape}>
+                <Figure shape={is_default ? undefined : shape}>
                     <img src={IMAGE_BACKGROUND} />
                 </Figure>
             </div>
         {/each}
-    </Stack.Container>
+    </Mosaic.Container>
 </Story>
 
 <Story name="Block Size">

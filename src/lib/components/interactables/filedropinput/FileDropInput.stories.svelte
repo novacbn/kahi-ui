@@ -39,7 +39,7 @@
 
     <FileDropInput multiple on:change={on_change}>
         <Stack.Container spacing="medium">
-            <Text is="strong" style="font-size:3em;">&uparrow;</Text>
+            <Text is="strong" variation="block" sizing="large">&uparrow;</Text>
             <Text>Drag-and-drop files here...</Text>
         </Stack.Container>
     </FileDropInput>
@@ -50,7 +50,7 @@
         {#each PALETTES as [palette, is_default] (palette)}
             <FileDropInput palette={is_default ? undefined : palette}>
                 <Stack.Container spacing="medium">
-                    <Text is="strong" style="font-size:3em;">&uparrow;</Text>
+                    <Text is="strong" variation="block" sizing="large">&uparrow;</Text>
                     <Text>
                         {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                     </Text>

@@ -37,15 +37,17 @@
     <Form.FieldSet>
         <Form.Legend>Personal Details</Form.Legend>
 
-        <Form.Control logic_id="form-fieldset-first-name" logic_name="form-fieldset-first-name">
-            <Form.Label>First Name</Form.Label>
-            <TextInput value="John" />
-        </Form.Control>
+        <Stack.Container spacing="medium">
+            <Form.Control logic_id="form-fieldset-first-name" logic_name="form-fieldset-first-name">
+                <Form.Label>First Name</Form.Label>
+                <TextInput value="John" />
+            </Form.Control>
 
-        <Form.Control logic_id="form-fieldset-first-name" logic_name="form-fieldset-first-name">
-            <Form.Label>Last Name</Form.Label>
-            <TextInput value="Smith" />
-        </Form.Control>
+            <Form.Control logic_id="form-fieldset-first-name" logic_name="form-fieldset-first-name">
+                <Form.Label>Last Name</Form.Label>
+                <TextInput value="Smith" />
+            </Form.Control>
+        </Stack.Container>
     </Form.FieldSet>
 </Story>
 

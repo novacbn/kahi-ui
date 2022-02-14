@@ -1,8 +1,10 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Dot from "../../feedback/dot/Dot.svelte";
     import Button from "../../interactables/button/Button.svelte";
     import NumberInput from "../../interactables/numberinput/NumberInput.svelte";
+    import Position from "../../layouts/position/Position.svelte";
     import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
@@ -29,11 +31,16 @@
 </Template>
 
 <Story name="Preview">
-    <Animation animation="bounce">
-        <Box palette="inverse" padding="small" max_width="content-max">
-            I booouunce, I bounce so far awaaaaaay~!
-        </Box>
-    </Animation>
+    <div data-margin="massive">
+        <Button palette="accent">
+            Inbox
+            <Position variation="indicator">
+                <Animation animation="ping">
+                    <Dot palette="negative" />
+                </Animation>
+            </Position>
+        </Button>
+    </div>
 </Story>
 
 <Story name="Delay">

@@ -58,8 +58,6 @@
         {...map_data_attributes({animation, variation})}
         on:animationend
         on:animationstart
-        on:transitionend
-        on:transitionstart
         style={_variables ? `${style}${_variables};` : style}
     >
         <slot />
@@ -72,8 +70,6 @@
         {...map_data_attributes({animation, variation})}
         on:animationend
         on:animationstart
-        on:transitionend
-        on:transitionstart
         style={_variables ? `${style}${_variables};` : style}
     >
         <slot />

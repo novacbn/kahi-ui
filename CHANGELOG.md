@@ -340,6 +340,12 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   **(BREAKING)** `<YearStepper step>` — Consolidated into `<YearStepper steps>`.
 
+-   Updated the following Stores / Store Features
+
+    -   `htmlmode`
+
+        -   **(BREAKING)** `htmlpalette` — Renamed to `htmlmode` to reflect `<html data-palette>` attribute was renamed to `<html data-mode>`.
+
 ## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features

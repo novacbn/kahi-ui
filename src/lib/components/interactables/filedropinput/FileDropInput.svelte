@@ -25,8 +25,6 @@
         actions?: IForwardedActions;
         element?: HTMLDivElement;
 
-        disabled?: boolean;
-
         accept?: string;
         multiple?: boolean;
 
@@ -49,8 +47,6 @@
 
     export let id: $$Props["id"] = undefined;
     export let name: $$Props["name"] = undefined;
-
-    export let disabled: $$Props["disabled"] = undefined;
 
     export let accept: $$Props["accept"] = undefined;
     export let multiple: $$Props["multiple"] = undefined;
@@ -92,7 +88,6 @@
         class="file-drop-input--input"
         {...map_attributes({
             accept,
-            disabled,
             id: _id,
             multiple,
             name: _name,

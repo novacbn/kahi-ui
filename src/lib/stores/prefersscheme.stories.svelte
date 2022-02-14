@@ -5,10 +5,13 @@
     import Heading from "../components/typography/heading/Heading.svelte";
     import Text from "../components/typography/text/Text.svelte";
 
-    import {prefersscheme} from "./prefersscheme";
+    import {prefersdark, preferslight, prefersscheme} from "./prefersscheme";
 
-    const darkmode_store = prefersscheme("dark");
-    const lightmode_store = prefersscheme("light");
+    const darkscheme_store = prefersscheme("dark");
+    const lightscheme_store = prefersscheme("light");
+
+    const darkscheme_shortcut_store = prefersdark();
+    const lightscheme_shortcut_store = preferslight();
 </script>
 
 <Meta title="Stores/prefersscheme" />
@@ -21,10 +24,22 @@
     <Heading>User Color Scheme Preferences</Heading>
 
     <Text>
-        Darkmode: <Code>{$darkmode_store}</Code>
+        Dark Scheme Preference: <Code>{$darkscheme_store}</Code>
     </Text>
 
     <Text>
-        Lightmode: <Code>{$lightmode_store}</Code>
+        Light Scheme Preference: <Code>{$lightscheme_store}</Code>
+    </Text>
+</Story>
+
+<Story name="Built-In Shortcuts">
+    <Heading>User Color Scheme Preferences</Heading>
+
+    <Text>
+        Dark Scheme Preference: <Code>{$darkscheme_shortcut_store}</Code>
+    </Text>
+
+    <Text>
+        Light Scheme Preference: <Code>{$lightscheme_shortcut_store}</Code>
     </Text>
 </Story>

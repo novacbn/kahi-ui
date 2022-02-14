@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {PROPERTY_ELEVATION} from "../../../types/elevations";
+    import type {PROPERTY_ELEVATION_BREAKPOINT} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
@@ -19,7 +19,7 @@
         actions?: IForwardedActions;
         element?: HTMLDivElement;
 
-        elevation?: PROPERTY_ELEVATION;
+        elevation?: PROPERTY_ELEVATION_BREAKPOINT;
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING_BREAKPOINT;
         variation?: PROPERTY_VARIATION_SURFACE;

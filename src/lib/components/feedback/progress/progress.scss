@@ -96,11 +96,10 @@
                 }
 
                 & circle:last-child {
-                    animation: progress-circle-indeterminate-indicator
-                            2s
-                            cubic-bezier(0.4, 0, 0.6, 1)
-                            infinite,
-                        progress-circle-indeterminate-spin 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                    animation: progress-circle-indeterminate
+                        2s
+                        cubic-bezier(0.4, 0, 0.6, 1)
+                        infinite;
                 }
             }
         }
@@ -120,9 +119,15 @@
         }
     }
 
-    @keyframes progress-circle-indeterminate-indicator {
+    @keyframes progress-circle-indeterminate {
         0% {
             stroke-dashoffset: 88px;
+
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(360deg);
         }
 
         75% {
@@ -131,16 +136,8 @@
 
         100% {
             stroke-dashoffset: -88px;
-        }
-    }
 
-    @keyframes progress-circle-indeterminate-spin {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
+            transform: rotate(720deg);
         }
     }
 }

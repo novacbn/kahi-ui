@@ -160,6 +160,16 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   `<Transition is="span">` — Renders as an inline `<span>` element.
 
+-   Added the following Stores / Store Features
+
+    -   `htmlmode`
+
+        `htmldark(): Readable<boolean>` / `htmllight(): Readable<boolean>` — Returns `true` if `<html data-mode="dark">` or `<html data-mode="light">` are valid respectively.
+
+    -   `thememode`
+
+        -   `lightmode(): Readable<boolean>` — Returns `true` if `(prefers-color-scheme: light)` is valid and `<html data-mode>` is not set, or, if `<html data-mode="light">` is valid.
+
 -   Fixed the following Components / Component Features
 
     -   Widgets

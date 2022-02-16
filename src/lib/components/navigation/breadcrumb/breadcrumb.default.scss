@@ -6,10 +6,10 @@
             "breadcrumb": (
                 "gap.x": variables.format-var("spacings.block.tiny"),
                 "item": (
-                    "opacity": 0.75,
+                    "opacity": 1,
                     "text.decoration": none,
                     "active": (
-                        "opacity": 1,
+                        "opacity": 0.75,
                     ),
                     "focus": (
                         "text.decoration": underline,

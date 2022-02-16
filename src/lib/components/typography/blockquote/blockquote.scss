@@ -7,7 +7,8 @@
 @use "../../../../framework/mixins/radius";
 
 @if not env("DISABLE_COMPONENTS_TYPOGRAPHY_BLOCKQUOTE") {
-    .blockquote {
+    .blockquote,
+    .article > blockquote {
         @include palettes.var-palette($palette: "neutral");
 
         position: relative;
@@ -22,5 +23,13 @@
         @include colors.transitions-background();
 
         @include transitions.build();
+    }
+
+    .article > blockquote:not(:last-child) {
+        @include intrinsics.margin-bottom($namespace: "blockquote.article", $unit: em);
+    }
+
+    .article > blockquote > :not(:last-child) {
+        @include intrinsics.margin-bottom($namespace: "blockquote.article.children", $unit: em);
     }
 }

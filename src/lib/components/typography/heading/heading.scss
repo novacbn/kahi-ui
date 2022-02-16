@@ -3,10 +3,12 @@
 @use "../../../../framework/mixins/alignments";
 @use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/transforms";
 
 @if not env("DISABLE_COMPONENTS_TYPOGRAPHY_HEADING") {
-    .heading {
+    .heading,
+    .article > :is(h1, h2, h3, h4, h5, h6) {
         @include alignments.var-reset-text();
         @include transforms.var-reset-text();
 
@@ -30,7 +32,8 @@
         }
     }
 
-    h1.heading {
+    h1.heading,
+    .article > h1 {
         @include fonts.line-height($namespace: "heading.inline.h1");
         @include fonts.size($namespace: "heading.inline.h1", $unit: rem);
         @include fonts.weight($namespace: "heading.inline.h1");
@@ -42,7 +45,8 @@
         }
     }
 
-    h2.heading {
+    h2.heading,
+    .article > h2 {
         @include fonts.line-height($namespace: "heading.inline.h2");
         @include fonts.size($namespace: "heading.inline.h2", $unit: rem);
         @include fonts.weight($namespace: "heading.inline.h2");
@@ -54,7 +58,8 @@
         }
     }
 
-    h3.heading {
+    h3.heading,
+    .article > h3 {
         @include fonts.line-height($namespace: "heading.inline.h3");
         @include fonts.size($namespace: "heading.inline.h3", $unit: rem);
         @include fonts.weight($namespace: "heading.inline.h3");
@@ -66,7 +71,8 @@
         }
     }
 
-    h4.heading {
+    h4.heading,
+    .article > h4 {
         @include fonts.line-height($namespace: "heading.inline.h4");
         @include fonts.size($namespace: "heading.inline.h4", $unit: rem);
         @include fonts.weight($namespace: "heading.inline.h4");
@@ -78,7 +84,8 @@
         }
     }
 
-    h5.heading {
+    h5.heading,
+    .article > h5 {
         @include fonts.line-height($namespace: "heading.inline.h5");
         @include fonts.size($namespace: "heading.inline.h5", $unit: rem);
         @include fonts.weight($namespace: "heading.inline.h5");
@@ -90,7 +97,8 @@
         }
     }
 
-    h6.heading {
+    h6.heading,
+    .article > h6 {
         @include fonts.line-height($namespace: "heading.inline.h6");
         @include fonts.size($namespace: "heading.inline.h6", $unit: rem);
         @include fonts.weight($namespace: "heading.inline.h6");
@@ -100,5 +108,9 @@
             @include fonts.size($namespace: "heading.block.h6", $unit: rem);
             @include fonts.weight($namespace: "heading.block.h6");
         }
+    }
+
+    .article > :is(h1, h2, h3, h4, h5, h6):not(:last-child) {
+        @include intrinsics.margin-bottom($namespace: "heading.article", $unit: em);
     }
 }

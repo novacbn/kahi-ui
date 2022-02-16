@@ -1,15 +1,26 @@
 @use "../../../../framework/mixins/intrinsics";
 
 @if not env("DISABLE_COMPONENTS_DISPLAY_LIST") {
-    .list {
+    .list,
+    .article > :is(ol, ul) {
         @include intrinsics.margin-left($unit: rem, $namespace: "list");
     }
 
-    ol.list {
+    ol.list,
+    .article > ol {
         list-style-type: decimal;
     }
 
-    ul.list {
+    ul.list,
+    .article > ul {
         list-style-type: disc;
+    }
+
+    .article > :is(ol, ul):not(:last-child) {
+        @include intrinsics.margin-bottom($namespace: "list.article", $unit: em);
+    }
+
+    .article > :is(ol, ul) p {
+        @include intrinsics.margin-bottom($namespace: "list.article.children", $unit: em);
     }
 }

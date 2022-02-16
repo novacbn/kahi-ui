@@ -7,42 +7,42 @@
                 "block": (
                     "h1": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.massive"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.block.massive"),
                             "weight": bold,
                         ),
                     ),
                     "h2": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.huge"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.block.huge"),
                             "weight": bold,
                         ),
                     ),
                     "h3": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.large"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.block.large"),
                             "weight": bold,
                         ),
                     ),
                     "h4": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.medium"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.block.medium"),
                             "weight": bold,
                         ),
                     ),
                     "h5": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.small"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.block.small"),
                             "weight": bold,
                         ),
                     ),
                     "h6": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.tiny"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.block.tiny"),
                             "weight": bold,
                         ),
@@ -51,46 +51,49 @@
                 "inline": (
                     "h1": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.massive"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.inline.massive"),
                             "weight": bold,
                         ),
                     ),
                     "h2": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.huge"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.inline.huge"),
                             "weight": bold,
                         ),
                     ),
                     "h3": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.large"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.inline.large"),
                             "weight": bold,
                         ),
                     ),
                     "h4": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.medium"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.inline.medium"),
                             "weight": bold,
                         ),
                     ),
                     "h5": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.small"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.inline.small"),
                             "weight": bold,
                         ),
                     ),
                     "h6": (
                         "font": (
-                            "line-height": variables.format-var("fonts.line-heights.tiny"),
+                            "line-height": 1,
                             "size": variables.format-var("fonts.sizes.inline.tiny"),
                             "weight": bold,
                         ),
                     ),
+                ),
+                "article": (
+                    "margin.y": variables.format-var("spacings.block.small"),
                 ),
             ),
         )

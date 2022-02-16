@@ -1,7 +1,8 @@
 @use "../../../../framework/appearances/divider";
 
 @if not env("DISABLE_COMPONENTS_LAYOUTS_DIVIDER") {
-    .divider {
+    .divider,
+    .article > hr {
         @include divider.base($namespace: "divider", $support-palette: true);
 
         &:is(:not([data-orientation]), [data-orientation~="horizontal"]) {
@@ -13,7 +14,8 @@
         }
     }
 
-    hr.divider {
+    hr.divider,
+    .article > hr {
         @include divider.variation-divider-base($namespace: "divider");
 
         &:is(:not([data-orientation]), [data-orientation~="horizontal"]) {

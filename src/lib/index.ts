@@ -54,6 +54,7 @@ export * from "./components/interactables/radio";
 export * from "./components/interactables/switch";
 export * from "./components/interactables/textinput";
 
+export * from "./components/layouts/article";
 export * from "./components/layouts/center";
 export * from "./components/layouts/container";
 export * from "./components/layouts/divider";

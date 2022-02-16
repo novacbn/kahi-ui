@@ -46,12 +46,28 @@
         value?: string;
 
         mask?: boolean;
+        max?: number | undefined;
+        /**
+         * @deprecated Use `<Text max="...">` instead.
+         */
         max_length?: number | undefined;
+        min?: number | undefined;
+        /**
+         * @deprecated Use `<Text min="...">` instead.
+         */
         min_length?: number | undefined;
         pattern?: RegExp | string;
 
+        /**
+         * @deprecated Use `<Text span_x="...">` instead.
+         */
         characters?: number | string;
+        span_x?: number | string;
+        /**
+         * @deprecated Use `<Text span_x="...">` instead.
+         */
         lines?: number | string;
+        span_y?: number | string;
 
         resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
@@ -93,12 +109,29 @@
     export let value: $$Props["value"] = "";
 
     export let mask: $$Props["mask"] = undefined;
+    export let max: $$Props["max"] = undefined;
+    /**
+     * @deprecated Use `<Text max="...">` instead.
+     */
     export let max_length: $$Props["max_length"] = undefined;
+    export let min: $$Props["min"] = undefined;
+    /**
+     * @deprecated Use `<Text min="...">` instead.
+     */
     export let min_length: $$Props["min_length"] = undefined;
     export let pattern: $$Props["pattern"] = "";
 
+    /**
+     * @deprecated Use `<Text span_x="...">` instead.
+     */
     export let characters: $$Props["characters"] = undefined;
+    export let span_x: $$Props["span_x"] = undefined;
+
+    /**
+     * @deprecated Use `<Text span_y="...">` instead.
+     */
     export let lines: $$Props["lines"] = undefined;
+    export let span_y: $$Props["span_y"] = undefined;
 
     export let resizable: $$Props["resizable"] = undefined;
     export let spell_check: $$Props["spell_check"] = undefined;
@@ -143,16 +176,16 @@
             variation,
         })}
         {...map_attributes({
-            cols: characters,
+            cols: characters ?? span_x,
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max_length ?? max,
+            minlength: min_length ?? min,
             name: _name,
             placeholder,
             readonly,
             required,
-            rows: lines,
+            rows: lines ?? span_y,
             spellcheck: spell_check === undefined ? undefined : spell_check.toString(),
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -190,14 +223,14 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max_length ?? max,
+            minlength: min_length ?? min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: characters ?? span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -235,14 +268,14 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max_length ?? max,
+            minlength: min_length ?? min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: characters ?? span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -280,14 +313,14 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max_length ?? max,
+            minlength: min_length ?? min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: characters ?? span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -325,14 +358,14 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max_length ?? max,
+            minlength: min_length ?? min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: characters ?? span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -370,14 +403,14 @@
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length,
-            minlength: min_length,
+            maxlength: max_length ?? max,
+            minlength: min_length ?? min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters,
+            size: characters ?? span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}

@@ -36,6 +36,9 @@
         once?: boolean;
         readonly?: boolean;
 
+        /**
+         * @deprecated Being removed in `v0.6.0` due to cross-calendar manipulation being removed.
+         */
         calendar?: string;
         locale?: string;
 
@@ -67,6 +70,9 @@
     export let once: $$Props["once"] = undefined;
     export let readonly: $$Props["readonly"] = undefined;
 
+    /**
+     * @deprecated Being removed in `v0.6.0` due to cross-calendar manipulation being removed.
+     */
     export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 

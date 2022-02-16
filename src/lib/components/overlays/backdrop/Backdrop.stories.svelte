@@ -45,7 +45,14 @@
     <Backdrop {palette} />
 
     <Position variation="action">
-        <Stack.Container orientation="horizontal" spacing="small">
+        <Stack.Container
+            orientation="horizontal"
+            alignment_x="right"
+            spacing="small"
+            variation="wrap"
+            max_width="prose"
+            margin_left="auto"
+        >
             {#each PALETTES as [palette, is_default] (palette)}
                 <Button
                     {palette}

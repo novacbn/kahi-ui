@@ -33,10 +33,12 @@
 </Story>
 
 <Story name="State">
-    <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">DEFAULT</Anchor>
+    <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
+        Goto google.com (DEFAULT)
+    </Anchor>
 
     <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer" disabled>
-        DISABLED
+        Goto google.com (DISABLED)
     </Anchor>
 </Story>
 

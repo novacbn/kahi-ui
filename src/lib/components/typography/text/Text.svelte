@@ -20,7 +20,7 @@
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLElement | HTMLParagraphElement | HTMLPreElement | HTMLSpanElement;
+        element?: HTMLElement | HTMLParagraphElement | HTMLSpanElement;
 
         is?:
             | "abbr"
@@ -31,7 +31,6 @@
             | "ins"
             | "mark"
             | "p"
-            | "pre"
             | "s"
             | "samp"
             | "small"
@@ -241,34 +240,6 @@
     >
         <slot />
     </mark>
-{:else if is === "pre"}
-    <pre
-        bind:this={element}
-        {...map_global_attributes($$restProps)}
-        class="text {_class}"
-        {...map_data_attributes({
-            alignment_x,
-            palette,
-            transform,
-            variation,
-        })}
-        use:forward_actions={{actions}}
-        on:click
-        on:contextmenu
-        on:dblclick
-        on:focusin
-        on:focusout
-        on:keydown
-        on:keyup
-        on:pointercancel
-        on:pointerdown
-        on:pointerenter
-        on:pointerleave
-        on:pointermove
-        on:pointerout
-        on:pointerup>
-            <slot />
-    </pre>
 {:else if is === "s"}
     <s
         bind:this={element}

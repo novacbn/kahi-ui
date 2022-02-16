@@ -88,6 +88,16 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
     -   Layouts
 
+        -   `Article` — Adds styling to classes HTML tags used to render typical Markdown output.
+
+            -   `<a>` — Renders similarly to `<Anchor>` along with a palette color configured by theme.
+            -   `<blockquote>` / `<cite>` — Renders similarly to `<Blockquote.Container>` / `<Blockquote.Cite>`, with inner children spacing and bottom margin.
+            -   `<hr>` — Renders similarly to `<Divider>`.
+            -   `<h1>~<h6>` — Renders similarly to `<Heading is="{TAG}">` along with bottom margin.
+            -   `<ol>` / `<ul>` — Renders similarly to `<List is="{TAG}">` along with bottom margin + paragraph spacing.
+            -   `<p>` — Renders similarly to `<Text>` along with bottom margin.
+            -   `<small>` — Renders similarly to `<Text is="small">`.
+
         -   `Container`
 
             -   `<Container is="article">` — Renders as an `<article>` semantic element.

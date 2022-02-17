@@ -22,6 +22,9 @@
         actions?: IForwardedActions;
         element?: HTMLElement | HTMLParagraphElement | HTMLPreElement | HTMLSpanElement;
 
+        /**
+         * @deprecated `<Text is="kbd">` is being elevated to a standalone `<Kbd>` Component in `v0.6.0`.
+         */
         is?:
             | "abbr"
             | "b"
@@ -72,6 +75,9 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    /**
+     * @deprecated `<Text is="kbd">` is being elevated to a standalone `<Kbd>` Component in `v0.6.0`.
+     */
     export let is: $$Props["is"] = "p";
 
     /**

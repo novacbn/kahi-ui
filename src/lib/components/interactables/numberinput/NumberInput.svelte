@@ -41,7 +41,11 @@
         placeholder?: string;
         value?: number;
 
+        /**
+         * @deprecated Use `<NumberInput span_x="...">` instead.
+         */
         characters?: number | string;
+        span_x?: number | string;
 
         /**
          * @deprecated Use `<NumberInput alignment_x="...">` instead.
@@ -73,7 +77,11 @@
     export let placeholder: $$Props["placeholder"] = "";
     export let value: $$Props["value"] = undefined;
 
+    /**
+     * @deprecated Use `<NumberInput span_x="...">` instead.
+     */
     export let characters: $$Props["characters"] = undefined;
+    export let span_x: $$Props["span_x"] = undefined;
 
     /**
      * @deprecated Use `<NumberInput alignment_x="...">` instead.
@@ -123,7 +131,7 @@
         placeholder,
         readonly,
         required,
-        size: characters,
+        size: characters ?? span_x,
         value,
     })}
     use:mask_input={{enabled: true, pattern: EXPRESSION_NUMBER}}

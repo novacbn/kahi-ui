@@ -24,17 +24,28 @@
         actions?: IForwardedActions;
         element?: HTMLAnchorElement | HTMLButtonElement | HTMLInputElement | HTMLLabelElement;
 
+        is?: "a" | "button" | "label" | "input";
+
         active?: boolean;
         disabled?: boolean;
 
         type?: "reset" | "submit";
+        /**
+         * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="input">`.
+         */
         value?: string;
 
         download?: string;
+        /**
+         * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="a">`.
+         */
         href?: string;
         rel?: string;
         target?: string;
 
+        /**
+         * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="label">`.
+         */
         for?: string;
 
         palette?: PROPERTY_PALETTE;
@@ -56,6 +67,8 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    export let is: $$Props["is"] = undefined;
+
     let _class: $$Props["class"] = "";
     export let tabindex: $$Props["tabindex"] = 0;
     export {_class as class};
@@ -64,13 +77,22 @@
     export let disabled: $$Props["disabled"] = undefined;
 
     export let type: $$Props["type"] = undefined;
+    /**
+     * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="input">`.
+     */
     export let value: $$Props["value"] = "";
 
     export let download: $$Props["download"] = undefined;
+    /**
+     * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="href">`.
+     */
     export let href: $$Props["href"] = undefined;
     export let rel: $$Props["rel"] = undefined;
     export let target: $$Props["target"] = undefined;
 
+    /**
+     * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="label">`.
+     */
     let _for: $$Props["for"] = undefined;
     export {_for as for};
 
@@ -87,7 +109,7 @@
     $: _tabindex = tabindex as number | undefined;
 </script>
 
-{#if href}
+{#if href || is === "a"}
     <a
         bind:this={element}
         {...map_global_attributes($$props)}
@@ -117,7 +139,7 @@
     >
         <slot />
     </a>
-{:else if _for}
+{:else if _for || is === "label"}
     <label
         bind:this={element}
         {...map_global_attributes($$props)}
@@ -146,7 +168,7 @@
     >
         <slot />
     </label>
-{:else if value}
+{:else if value || is === "input"}
     {#if type === "reset"}
         <input
             bind:this={element}

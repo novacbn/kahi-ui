@@ -1,5 +1,83 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   Deprecated the following Components / Component Features
+
+    -   Display
+
+        -   `Table`
+
+            -   `<Table.Column colspan>` / `<Table.Heading colspan>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
+
+                -   **NOTE**: `<Table.Column span_x>` / `<Table.Heading span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   `<Table.Column rowspan>` / `<Table.Heading rowspan>` — Being consolidated into `span_y` property, e.g. `span_y="3"`.
+
+                -   **NOTE**: `<Table.Column span_y>` / `<Table.Heading span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Feedback
+
+        -   `Dot`
+
+            -   **(BREAKING)** `<Dot animation>` — Being replaced with generalized `<Animation>` Component.
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner>` — Being replaced by `<Progress shape="circle" value={undefined}>` indeterminate animation.
+
+        -   `Wave`
+
+            -   **(BREAKING)** `<Wave>` — Being replaced by expanded `<Ellipsis>` functionality, e.g. `<Ellipsis animation="bounce" iterations="5">`.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   **(BREAKING)** `<Button href for value>` — Will require explicit `is` property being set to switch between HTML tags.
+
+                -   **NOTE**: `<Button is="a/label/input">` was made available as an optional property in this release, to help with progressively migrating codebases.
+
+        -   `NumberInput`
+
+            -   **(BREAKING)** `<NumberInput characters>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
+
+                -   **NOTE**: `<NumberInput span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `TextInput`
+
+            -   **(BREAKING)** `<TextInput characters>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
+
+                -   **NOTE**: `<TextInput span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput lines>` — Being consolidated into `span_y` property, e.g. `span_y="3"`.
+
+                -   **NOTE**: `<TextInput span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput max_length>` — Being consolidated into `max` property, e.g. `max="8"`.
+
+                -   **NOTE**: `<TextInput max>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput min_length>` — Being consolidated into `min` property, e.g. `min="2"`.
+
+                -   **NOTE**: `<TextInput min>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Typography
+
+        -   `Text`
+
+            -   **(BREAKING)** `<Text is="kbd">` — Will be elevated to a standalone `<Kbd>` Component.
+
+    -   Widgets
+
+        -   `DayPicker` / `DayStepper` / `MonthPicker` / `MonthStepper` / `YearPicker` / `YearStepper`
+
+            -   **(BREAKING)** `<* calendar>` — Being removed due to not accepting non ISO 8601 calendar datestamps in the future and to better align with Browsers.
+
+        -   `TimePicker`
+
+            -   **(BREAKING)** `<TimePicker highlight>` — Will be updated to accept string arrays (_`string[]`_) instead of singular strings (_`string`_).
+
 ## v0.5.6 - 2022/02/01
 
 -   Fixed the following Stores / Store Features

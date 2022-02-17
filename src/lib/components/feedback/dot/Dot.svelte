@@ -17,6 +17,9 @@
         actions?: IForwardedActions;
         element?: HTMLSpanElement;
 
+        /**
+         * @deprecated Being removed in `v0.6.0` for a generalized `<Animation>` Component.
+         */
         animation?: PROPERTY_ANIMATION_FEEDBACK;
         palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
@@ -29,6 +32,9 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
+    /**
+     * @deprecated Being removed in `v0.6.0` for a generalized `<Animation>` Component.
+     */
     export let animation: $$Props["animation"] = undefined;
     export let palette: $$Props["palette"] = undefined;
 </script>

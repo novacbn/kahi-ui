@@ -44,6 +44,9 @@
         max?: string;
         min?: string;
 
+        /**
+         * @deprecated Being updated in `v0.6.0` to accept `string[]` instead of `string`.
+         */
         highlight?: string;
         value?: string;
 
@@ -79,6 +82,9 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
+    /**
+     * @deprecated Being updated in `v0.6.0` to accept `string[]` instead of `string`.
+     */
     export let highlight: $$Props["highlight"] = undefined;
     export let value: $$Props["value"] = undefined;
 

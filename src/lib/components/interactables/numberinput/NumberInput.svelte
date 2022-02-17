@@ -42,7 +42,7 @@
         value?: number;
 
         /**
-         * @deprecated Use `<Text span_x="...">` instead.
+         * @deprecated Use `<NumberInput span_x="...">` instead.
          */
         characters?: number | string;
         span_x?: number | string;
@@ -78,7 +78,7 @@
     export let value: $$Props["value"] = undefined;
 
     /**
-     * @deprecated Use `<Text span_x="...">` instead.
+     * @deprecated Use `<NumberInput span_x="...">` instead.
      */
     export let characters: $$Props["characters"] = undefined;
     export let span_x: $$Props["span_x"] = undefined;

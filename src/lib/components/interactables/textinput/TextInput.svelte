@@ -59,12 +59,12 @@
         pattern?: RegExp | string;
 
         /**
-         * @deprecated Use `<Text span_x="...">` instead.
+         * @deprecated Use `<TextInput span_x="...">` instead.
          */
         characters?: number | string;
         span_x?: number | string;
         /**
-         * @deprecated Use `<Text span_x="...">` instead.
+         * @deprecated Use `<TextInput span_y="...">` instead.
          */
         lines?: number | string;
         span_y?: number | string;
@@ -111,24 +111,24 @@
     export let mask: $$Props["mask"] = undefined;
     export let max: $$Props["max"] = undefined;
     /**
-     * @deprecated Use `<Text max="...">` instead.
+     * @deprecated Use `<TextInput max="...">` instead.
      */
     export let max_length: $$Props["max_length"] = undefined;
     export let min: $$Props["min"] = undefined;
     /**
-     * @deprecated Use `<Text min="...">` instead.
+     * @deprecated Use `<TextInput min="...">` instead.
      */
     export let min_length: $$Props["min_length"] = undefined;
     export let pattern: $$Props["pattern"] = "";
 
     /**
-     * @deprecated Use `<Text span_x="...">` instead.
+     * @deprecated Use `<TextInput span_x="...">` instead.
      */
     export let characters: $$Props["characters"] = undefined;
     export let span_x: $$Props["span_x"] = undefined;
 
     /**
-     * @deprecated Use `<Text span_y="...">` instead.
+     * @deprecated Use `<TextInput span_y="...">` instead.
      */
     export let lines: $$Props["lines"] = undefined;
     export let span_y: $$Props["span_y"] = undefined;

@@ -15,8 +15,8 @@
         actions?: IForwardedActions;
         element?: HTMLTableCellElement;
 
-        colspan?: number | string;
-        rowspan?: number | string;
+        span_x?: number | string;
+        span_y?: number | string;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -30,14 +30,14 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
-    export let colspan: $$Props["colspan"] = undefined;
-    export let rowspan: $$Props["rowspan"] = undefined;
+    export let span_x: $$Props["span_x"] = undefined;
+    export let span_y: $$Props["span_y"] = undefined;
 </script>
 
 <th
     bind:this={element}
     {...map_global_attributes($$props)}
-    {...map_attributes({colspan, rowspan})}
+    {...map_attributes({colspan: span_x, rowspan: span_y})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

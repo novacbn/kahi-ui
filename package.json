@@ -3,7 +3,7 @@
     "description": "Straight-forward Svelte UI for the Web",
     "author": "novacbn",
     "license": "MIT",
-    "version": "0.5.3",
+    "version": "0.5.7",
     "type": "module",
     "main": "index.js",
     "types": "index.d.ts",
@@ -64,7 +64,6 @@
         "url": "https://github.com/novacbn/kahi-ui.git"
     },
     "dependencies": {
-        "big-integer": "^1.6.51",
         "svelte": "^3.40.2"
     },
     "devDependencies": {

@@ -366,6 +366,242 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
         -   **(BREAKING)** `htmlpalette` — Renamed to `htmlmode` to reflect `<html data-palette>` attribute was renamed to `<html data-mode>`.
 
+## v0.5.7 - 2022/02/16
+
+-   Deprecated the following Components / Component Features
+
+    -   Display
+
+        -   `Table`
+
+            -   `<Table.Column colspan>` / `<Table.Heading colspan>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
+
+                -   **NOTE**: `<Table.Column span_x>` / `<Table.Heading span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   `<Table.Column rowspan>` / `<Table.Heading rowspan>` — Being consolidated into `span_y` property, e.g. `span_y="3"`.
+
+                -   **NOTE**: `<Table.Column span_y>` / `<Table.Heading span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Feedback
+
+        -   `Dot`
+
+            -   **(BREAKING)** `<Dot animation>` — Being replaced with generalized `<Animation>` Component.
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner>` — Being replaced by `<Progress shape="circle" value={undefined}>` indeterminate animation.
+
+        -   `Wave`
+
+            -   **(BREAKING)** `<Wave>` — Being replaced by expanded `<Ellipsis>` functionality, e.g. `<Ellipsis animation="bounce" iterations="5">`.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   **(BREAKING)** `<Button href for value>` — Will require explicit `is` property being set to switch between HTML tags.
+
+                -   **NOTE**: `<Button is="a/label/input">` was made available as an optional property in this release, to help with progressively migrating codebases.
+
+        -   `NumberInput`
+
+            -   **(BREAKING)** `<NumberInput characters>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
+
+                -   **NOTE**: `<NumberInput span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `TextInput`
+
+            -   **(BREAKING)** `<TextInput characters>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
+
+                -   **NOTE**: `<TextInput span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput lines>` — Being consolidated into `span_y` property, e.g. `span_y="3"`.
+
+                -   **NOTE**: `<TextInput span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput max_length>` — Being consolidated into `max` property, e.g. `max="8"`.
+
+                -   **NOTE**: `<TextInput max>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput min_length>` — Being consolidated into `min` property, e.g. `min="2"`.
+
+                -   **NOTE**: `<TextInput min>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Typography
+
+        -   `Text`
+
+            -   **(BREAKING)** `<Text is="kbd">` — Will be elevated to a standalone `<Kbd>` Component.
+
+    -   Widgets
+
+        -   `DayPicker` / `DayStepper` / `MonthPicker` / `MonthStepper` / `YearPicker` / `YearStepper`
+
+            -   **(BREAKING)** `<* calendar>` — Being removed due to not accepting non ISO 8601 calendar datestamps in the future and to better align with Browsers.
+
+        -   `DayStepper` / `MonthStepper` / `YearStepper`
+
+            -   **(BREAKING)** `<* step>` — Being consolidated into `steps` property, e.g. `steps="3"`.
+
+                -   **NOTE**: `<* steps>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `TimePicker`
+
+            -   **(BREAKING)** `<TimePicker highlight>` — Will be updated to accept string arrays (_`string[]`_) instead of singular strings (_`string`_).
+
+## v0.5.6 - 2022/02/01
+
+-   Fixed the following Stores / Store Features
+
+    -   `darkmode`
+
+        -   Fixed missing import to `readable` from `svelte/store` which would cause `darkmode` to throw an exception on SSR.
+
+## v0.5.5 - 2022/01/26
+
+-   Vendored new [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) `v0.3.0` version.
+
+## v0.5.4 - 2022/01/24
+
+-   Upgraded [`@js-temporal/polyfill`](https://github.com/js-temporal/temporal-polyfill) `v0.2.0` -> `v0.3.0`.
+
+    -   **NOTE**: Fixes Chrome 96+ not working on the datetime Widgets.
+    -   **IMPORTANT**: Firefox 96+ is still broken, although with a different issue regarding non-ISO 8601 calendar handling.
+
+-   Deprecated the following Components / Component Features
+
+    -   Embedded
+
+        -   `Figure`
+
+            -   **(BREAKING)** `<Figure variation="icon">` — Being replaced with global `icon-` prefixed `size` property values, e.g. `size="icon-small"`.
+
+    -   Feedback
+
+        -   `Progress`
+
+            -   **(BREAKING)** `<Progress size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Progress sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Spinner sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   **(BREAKING)** `<Button size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Button sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Check`
+
+            -   **(BREAKING)** `<Check size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Check sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `NumberInput`
+
+            -   **(BREAKING)** `<NumberInput align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<NumberInput alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<NumberInput size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<NumberInput sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Radio`
+
+            -   **(BREAKING)** `<Radio size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Radio sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Switch`
+
+            -   **(BREAKING)** `<Switch size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Switch sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `TextInput`
+
+            -   **(BREAKING)** `<TextInput align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<TextInput alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   **(BREAKING)** `<TextInput size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<TextInput sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Layouts
+
+        -   `Container`
+
+            -   **(BREAKING)** `<Container viewport>` — Being replaced with global `viewport-` prefixed `max_width` property values, e.g. `max_width="viewport-mobile"`.
+
+        -   `Mosaic`
+
+            -   **(BREAKING)** `<Mosaic>` — Being converted into a multi-part Component, `<Mosaic.Container>`.
+
+        -   `Stack`
+
+            -   **(BREAKING)** `<Stack>` — Being converted into a multi-part Component, `<Stack.Container>`.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   **(BREAKING)** `<Menu.Divider>` / `<Menu.Heading>` `slot="sub-menu"` — DOM tree structure for `Menu` will be restructured, removing the need for the slot.
+            -   **(BREAKING)** `<Menu.SubMenu>` — Being renamed to Framework-consistent `<Menu.Section>`.
+
+                -   **NOTE**: `<Menu.Section>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   **(BREAKING)** `<Overlay.Button size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Overlay.Button sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Popover`
+
+            -   **(BREAKING)** `<Popover.Button size>` — Being consolidated into `sizing` property, e.g. `sizing="small"`.
+
+                -   **NOTE**: `<Popover.Button sizing>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+    -   Typography
+
+        -   `Heading`
+
+            -   **(BREAKING)** `<Heading align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<Heading alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+        -   `Text`
+
+            -   **(BREAKING)** `<Text align>` — Being consolidated into `alignment_x` property, e.g. `alignment_x="justify"`.
+
+                -   **NOTE**: `<Text alignment_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+-   Deprecated the following Stores / Store Features
+
+    -   `htmlpalette`
+
+        -   **(BREAKING)** Being renamed to `htmlmode` due to theme mode attribute being changed `<html data-palette="dark/light">` -> `<html data-mode="dark/light">`.
+
+            -   **NOTE**: `htmlmode` was made available as an alias in this release, to help with progressively migrating codebases.
+
+-   Updated the following Components / Component Features
+
+    -   `*`
+
+        -   `<* sveltekit:noscroll={boolean} sveltekit:prefetch={boolean}>` — Added missing typings.
+
 ## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features

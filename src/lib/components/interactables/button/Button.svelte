@@ -64,10 +64,10 @@
     export let tabindex: $$Props["tabindex"] = 0;
     export {_class as class};
 
+    export let is: $$Props["is"] = undefined;
+
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
-
-    export let is: $$Props["is"] = undefined;
 
     export let type: $$Props["type"] = undefined;
     export let value: $$Props["value"] = "";

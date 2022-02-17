@@ -48,12 +48,12 @@
         mask?: boolean;
         max?: number | undefined;
         /**
-         * @deprecated Use `<Text max="...">` instead.
+         * @deprecated Use `<TextInput max="...">` instead.
          */
         max_length?: number | undefined;
         min?: number | undefined;
         /**
-         * @deprecated Use `<Text min="...">` instead.
+         * @deprecated Use `<TextInput min="...">` instead.
          */
         min_length?: number | undefined;
         pattern?: RegExp | string;

@@ -74,6 +74,12 @@
 
             -   **(BREAKING)** `<* calendar>` — Being removed due to not accepting non ISO 8601 calendar datestamps in the future and to better align with Browsers.
 
+        -   `DayStepper` / `MonthStepper` / `YearStepper`
+
+            -   **(BREAKING)** `<* step>` — Being consolidated into `steps` property, e.g. `steps="3"`.
+
+                -   **NOTE**: `<* steps>` was made available as an alias in this release, to help with progressively migrating codebases.
+
         -   `TimePicker`
 
             -   **(BREAKING)** `<TimePicker highlight>` — Will be updated to accept string arrays (_`string[]`_) instead of singular strings (_`string`_).

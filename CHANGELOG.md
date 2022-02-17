@@ -4,6 +4,18 @@
 
 -   Deprecated the following Components / Component Features
 
+    -   Display
+
+        -   `Table`
+
+            -   `<Table.Column colspan>` / `<Table.Heading colspan>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
+
+                -   **NOTE**: `<Table.Column span_x>` / `<Table.Heading span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+
+            -   `<Table.Column rowspan>` / `<Table.Heading rowspan>` — Being consolidated into `span_y` property, e.g. `span_y="3"`.
+
+                -   **NOTE**: `<Table.Column span_y>` / `<Table.Heading span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
+
     -   Feedback
 
         -   `Dot`
@@ -24,7 +36,7 @@
 
             -   **(BREAKING)** `<Button href for value>` — Will require explicit `is` property being set to switch between HTML tags.
 
-            -   **NOTE**: `<Button is="a/label/input">` was made available as an optional property in this release, to help with progressively migrating codebases.
+                -   **NOTE**: `<Button is="a/label/input">` was made available as an optional property in this release, to help with progressively migrating codebases.
 
         -   `NumberInput`
 
@@ -36,19 +48,19 @@
 
             -   **(BREAKING)** `<TextInput characters>` — Being consolidated into `span_x` property, e.g. `span_x="3"`.
 
-                -   **NOTE**: `<NumberInput span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
+                -   **NOTE**: `<TextInput span_x>` was made available as an alias in this release, to help with progressively migrating codebases.
 
             -   **(BREAKING)** `<TextInput lines>` — Being consolidated into `span_y` property, e.g. `span_y="3"`.
 
-                -   **NOTE**: `<NumberInput span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
+                -   **NOTE**: `<TextInput span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
 
             -   **(BREAKING)** `<TextInput max_length>` — Being consolidated into `max_length` property, e.g. `max="8"`.
 
-                -   **NOTE**: `<NumberInput max>` was made available as an alias in this release, to help with progressively migrating codebases.
+                -   **NOTE**: `<TextInput max>` was made available as an alias in this release, to help with progressively migrating codebases.
 
             -   **(BREAKING)** `<TextInput min_length>` — Being consolidated into `min_length` property, e.g. `min="2"`.
 
-                -   **NOTE**: `<NumberInput min>` was made available as an alias in this release, to help with progressively migrating codebases.
+                -   **NOTE**: `<TextInput min>` was made available as an alias in this release, to help with progressively migrating codebases.
 
     -   Typography
 

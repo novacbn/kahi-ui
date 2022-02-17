@@ -54,11 +54,11 @@
 
                 -   **NOTE**: `<TextInput span_y>` was made available as an alias in this release, to help with progressively migrating codebases.
 
-            -   **(BREAKING)** `<TextInput max_length>` — Being consolidated into `max_length` property, e.g. `max="8"`.
+            -   **(BREAKING)** `<TextInput max_length>` — Being consolidated into `max` property, e.g. `max="8"`.
 
                 -   **NOTE**: `<TextInput max>` was made available as an alias in this release, to help with progressively migrating codebases.
 
-            -   **(BREAKING)** `<TextInput min_length>` — Being consolidated into `min_length` property, e.g. `min="2"`.
+            -   **(BREAKING)** `<TextInput min_length>` — Being consolidated into `min` property, e.g. `min="2"`.
 
                 -   **NOTE**: `<TextInput min>` was made available as an alias in this release, to help with progressively migrating codebases.
 

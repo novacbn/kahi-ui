@@ -41,7 +41,11 @@
 
         max?: string;
         min?: string;
+        /**
+         * @deprecated Use `<MonthStepper steps="...">` instead.
+         */
         step?: number | string;
+        steps?: number | string;
 
         value?: string;
         palette?: PROPERTY_PALETTE;
@@ -77,7 +81,11 @@
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
+    /**
+     * @deprecated Use `<MonthStepper steps="...">` instead.
+     */
     export let step: $$Props["step"] = undefined;
+    export let steps: $$Props["steps"] = undefined;
 
     export let value: $$Props["value"] = undefined;
 
@@ -104,6 +112,11 @@
 
     $: _month = Temporal.PlainYearMonth.from(value ?? _monthstamp);
     $: _step = step ? (typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step)) : 1;
+    $: _steps = steps
+        ? typeof steps === "string"
+            ? Math.abs(parseInt(steps))
+            : Math.abs(steps)
+        : undefined;
 </script>
 
 <WidgetContainer {...$$props} bind:element class="month-stepper {_class}">
@@ -120,7 +133,7 @@
         <WidgetButton
             disabled={disabled || !is_month_in_range(_month, undefined, min)}
             {palette}
-            on:click={on_month_select.bind(null, _step * -1)}
+            on:click={on_month_select.bind(null, (_steps ?? _step) * -1)}
         >
             <slot name="previous">&lt;</slot>
         </WidgetButton>
@@ -128,7 +141,7 @@
         <WidgetButton
             disabled={disabled || !is_month_in_range(_month, max)}
             {palette}
-            on:click={on_month_select.bind(null, _step)}
+            on:click={on_month_select.bind(null, _steps ?? _step)}
         >
             <slot name="next">&gt;</slot>
         </WidgetButton>

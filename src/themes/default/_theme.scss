@@ -14,12 +14,12 @@
 
 @include constants.define-constants(
     palettes.generate-darklight-palette(
-        $dark-base: hsl(217, 15%, 20%),
-        $dark-dark-shading: 3%,
-        $dark-light-shading: 3%,
-        $light-base: hsl(0, 0%, 99%),
-        $light-dark-shading: 3%,
-        $light-light-shading: 3%
+        $dark-base: hsl(217, 15%, 15%),
+        $dark-dark-shading: 4%,
+        $dark-light-shading: 4%,
+        $light-base: hsl(0, 0%, 100%),
+        $light-dark-shading: 4%,
+        $light-light-shading: 4%
     )
 );
 
@@ -29,18 +29,18 @@
             "accent":
                 palettes.generate-color-palette(
                     $dark-base: hsl(200, 25%, 45%),
-                    $light-base: hsl(200, 30%, 50%),
+                    $light-base: hsl(200, 30%, 45%),
                     $foreground: "light",
-                    $dark-shading: 3%,
-                    $light-shading: 3%
+                    $dark-shading: 4%,
+                    $light-shading: 4%
                 ),
             "neutral":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(195, 7.5%, 40%),
-                    $light-base: hsl(195, 5%, 45%),
+                    $dark-base: hsl(195, 10%, 40%),
+                    $light-base: hsl(195, 5%, 40%),
                     $foreground: "light",
-                    $dark-shading: 3%,
-                    $light-shading: 3%
+                    $dark-shading: 4%,
+                    $light-shading: 4%
                 ),
         ),
     )
@@ -56,34 +56,34 @@
             "alert":
                 palettes.generate-color-palette(
                     $dark-base: hsl(35, 45%, 50%),
-                    $light-base: hsl(35, 55%, 55%),
+                    $light-base: hsl(35, 55%, 50%),
                     $foreground: "light",
-                    $dark-shading: 3%,
-                    $light-shading: 3%
+                    $dark-shading: 4%,
+                    $light-shading: 4%
                 ),
             "affirmative":
                 palettes.generate-color-palette(
                     $dark-base: hsl(145, 30%, 40%),
-                    $light-base: hsl(145, 40%, 45%),
+                    $light-base: hsl(145, 40%, 40%),
                     $foreground: "light",
-                    $dark-shading: 3%,
-                    $light-shading: 3%
+                    $dark-shading: 4%,
+                    $light-shading: 4%
                 ),
             "informative":
                 palettes.generate-color-palette(
                     $dark-base: hsl(210, 30%, 50%),
-                    $light-base: hsl(210, 40%, 55%),
+                    $light-base: hsl(210, 40%, 50%),
                     $foreground: "light",
-                    $dark-shading: 3%,
-                    $light-shading: 3%
+                    $dark-shading: 4%,
+                    $light-shading: 4%
                 ),
             "negative":
                 palettes.generate-color-palette(
                     $dark-base: hsl(10, 40%, 50%),
-                    $light-base: hsl(10, 50%, 55%),
+                    $light-base: hsl(10, 50%, 50%),
                     $foreground: "light",
-                    $dark-shading: 3%,
-                    $light-shading: 3%
+                    $dark-shading: 4%,
+                    $light-shading: 4%
                 ),
         ),
     )

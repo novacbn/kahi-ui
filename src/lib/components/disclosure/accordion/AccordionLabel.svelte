@@ -97,7 +97,8 @@
         } else if (state) $_accordion_state = $_accordion_id;
     });
 
-    $: state = $_accordion_id ? $_accordion_state.includes($_accordion_id) : false;
+    $: state =
+        $_accordion_id && $_accordion_state ? $_accordion_state.includes($_accordion_id) : false;
 
     // HACK: Svelte has `tabindex` typed as `number | undefined` unless
     // you pass a string literal into the markup

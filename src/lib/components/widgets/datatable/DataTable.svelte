@@ -273,16 +273,16 @@
                 <Table.Column>
                     <slot name="search">
                         <TextInput
-                            characters="10"
-                            size={sizing}
+                            span_x="10"
                             value={searching}
                             {palette}
+                            {sizing}
                             on:input={debounce(on_searching_input, 250)}
                         />
                     </slot>
                 </Table.Column>
 
-                <Table.Column colspan={columns.length}>
+                <Table.Column span_x={columns.length}>
                     {#if paginate}
                         <Stack.Container
                             orientation="horizontal"
@@ -291,11 +291,11 @@
                             spacing="small"
                         >
                             <NumberInput
-                                characters="1"
+                                span_x="1"
                                 value={_page}
-                                align="right"
+                                alignment_x="right"
                                 {palette}
-                                size={sizing}
+                                {sizing}
                                 actions={[
                                     [navigate_up, {on_bind: on_paging_step.bind(null, 1)}],
                                     [navigate_down, {on_bind: on_paging_step.bind(null, -1)}],

@@ -74,7 +74,9 @@
     }
 
     afterUpdate(() => {
-        if (state) $_tab_state = $_tab_id;
+        // HACK: If the "CONTEXT_TAB_ID" store was made that means `<Tab.Group>` was
+        // initialized with a valid `logic_id` value. So this should /always/ be a string
+        if (state) $_tab_state = $_tab_id as string;
     });
 
     $: state = $_tab_state === $_tab_id;

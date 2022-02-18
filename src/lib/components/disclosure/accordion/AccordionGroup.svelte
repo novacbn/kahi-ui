@@ -52,14 +52,14 @@
 
     const _accordion_behavior = CONTEXT_ACCORDION_BEHAVIOR.create(behavior);
 
-    function on_state_property_update(state: string | string[]): void {
+    function on_state_property_update(state: IStateValue): void {
         if (_accordion_state && state !== $_accordion_state) {
             $_accordion_state = state;
             dispatch("change");
         }
     }
 
-    function on_state_store_update(state: string | string[]): void {
+    function on_state_store_update(state: IStateValue): void {
         if (state !== logic_state) {
             logic_state = state;
             dispatch("change");
@@ -72,7 +72,8 @@
     $: if (_accordion_behavior) $_accordion_behavior = behavior as PROPERTY_BEHAVIOR_TOGGLE;
 
     $: if (logic_state !== undefined) on_state_property_update(logic_state);
-    $: if (_accordion_state) on_state_store_update($_accordion_state);
+    $: if (_accordion_state)
+        on_state_store_update($_accordion_state ?? (logic_state as IStateValue));
 </script>
 
 <slot />

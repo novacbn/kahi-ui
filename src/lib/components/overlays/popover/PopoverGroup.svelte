@@ -97,7 +97,7 @@
     $: if (_popover_variation) $_popover_variation = variation as PROPERTY_VARIATION_POPOVER;
 
     $: if (logic_state !== undefined) on_state_property_update(logic_state);
-    $: if (_popover_state) on_state_store_update($_popover_state);
+    $: if (_popover_state) on_state_store_update($_popover_state ?? (logic_state as boolean));
 </script>
 
 <slot />

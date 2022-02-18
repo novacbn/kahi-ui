@@ -41,8 +41,11 @@
     // TODO: `Transition` support for `loading=lazy`
 
     let state: boolean = true;
-    $: if (_tab_id && _tab_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy)
-        state = $_tab_state === $_tab_id;
+    $: {
+        if (_tab_id && _tab_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy) {
+            state = $_tab_state === $_tab_id;
+        }
+    }
 </script>
 
 <section

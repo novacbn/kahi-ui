@@ -82,7 +82,7 @@
         else _form_state.remove(value);
     }
 
-    $: if (_form_state && value) state = $_form_state.includes(value);
+    $: if (_form_state && $_form_state && value) state = $_form_state.includes(value);
 </script>
 
 {#if $$slots["default"]}

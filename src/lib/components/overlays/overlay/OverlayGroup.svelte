@@ -99,7 +99,7 @@
     $: if (_overlay_once) $_overlay_once = once as boolean;
 
     $: if (logic_state !== undefined) on_state_property_update(logic_state);
-    $: if (_overlay_state) on_state_store_update($_overlay_state);
+    $: if (_overlay_state) on_state_store_update($_overlay_state ?? (logic_state as boolean));
 </script>
 
 <slot />

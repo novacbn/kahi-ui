@@ -6,6 +6,10 @@
             "check": (
                 "border.radius": variables.format-var("radius.tiny"),
                 "font.size": variables.format-var("fonts.sizes.inline.tiny"),
+                "padding": (
+                    "x": 0.425,
+                    "y": 0.425,
+                ),
                 "active": (
                     "scale": (
                         "x": 0.95,

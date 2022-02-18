@@ -2,6 +2,7 @@
 
 @use "../mixins/colors";
 @use "../mixins/fonts";
+@use "../mixins/intrinsics";
 @use "../mixins/transforms";
 
 @mixin base($namespace) {
@@ -13,7 +14,7 @@
 
     position: relative;
 
-    padding: 0.5em;
+    @include intrinsics.padding-all($namespace: $namespace, $unit: em);
 
     outline: none !important; // TODO: Remove during accessibility pass
 
@@ -40,11 +41,11 @@
     @include colors.opacity($namespace: "#{$namespace}.disabled");
 }
 
-@mixin pseudo-base($width: 1, $height: 1) {
+@mixin pseudo-base() {
     content: "";
 
-    width: #{$width}em;
-    height: #{$height}em;
+    width: 0.5em;
+    height: 0.5em;
 
     background: currentColor;
 }

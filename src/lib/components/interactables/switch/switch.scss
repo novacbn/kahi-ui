@@ -25,24 +25,25 @@
         }
 
         &::before {
-            @include toggle.pseudo-base($width: 2);
+            @include toggle.pseudo-base();
 
-            clip-path: inset(0% 50% 0% 0% round #{variables.format-var("shapes.pill")});
+            border-radius: inherit;
 
-            @include transitions.push(clip-path, "movement");
+            transform: translateX(-50%);
 
+            @include transforms.transitions();
             @include transitions.build();
         }
 
         @include toggle.state-checked() {
             &::before {
-                clip-path: inset(0% 0% 0% 50% round #{variables.format-var("shapes.pill")});
+                transform: translateX(50%);
             }
         }
 
         @include toggle.state-active() {
             &::before {
-                clip-path: inset(0% 25% 0% 25% round #{variables.format-var("shapes.pill")});
+                transform: translateX(0%);
             }
         }
 

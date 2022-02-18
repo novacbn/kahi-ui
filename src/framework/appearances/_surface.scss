@@ -54,7 +54,7 @@
     @include colors.background(
         $namespace,
         if($is-inverse, "foreground", "background"),
-        $shade: "lightest"
+        $shade: "lighter"
     );
 }
 

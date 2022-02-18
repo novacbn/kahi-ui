@@ -16,14 +16,14 @@
                         "x": variables.format-var("spacings.block.small"),
                         "y": variables.format-var("spacings.block.small"),
                     ),
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.format-var("spacings.block.large"),
                     "size": (
                         "max-width": max-content,
                     ),
                 ),
                 "header": (
                     "font": (
-                        "size": variables.format-var("fonts.sizes.block.huge"),
+                        "size": variables.format-var("fonts.sizes.block.massive"),
                         "weight": bold,
                     ),
                     "margin.y": variables.format-var("spacings.block.medium"),
@@ -33,6 +33,7 @@
                 ),
                 "section": (
                     "font.size": variables.format-var("fonts.sizes.inline.large"),
+                    "margin.y": variables.format-var("spacings.block.small"),
                     "size": (
                         "max-width": variables.format-var("sizes.prose"),
                     ),

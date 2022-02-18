@@ -53,5 +53,9 @@
         @include intrinsics.size-max-width($namespace: "hero.section");
 
         @include fonts.size($namespace: "hero.section", $unit: rem);
+
+        &:not(:first-child) {
+            @include intrinsics.margin-top($namespace: "hero.section", $unit: rem);
+        }
     }
 }

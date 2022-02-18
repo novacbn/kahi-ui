@@ -15,11 +15,11 @@
 @include constants.define-constants(
     palettes.generate-darklight-palette(
         $dark-base: hsl(217, 15%, 15%),
-        $dark-dark-shading: 4%,
-        $dark-light-shading: 4%,
-        $light-base: hsl(0, 0%, 100%),
-        $light-dark-shading: 4%,
-        $light-light-shading: 4%
+        $dark-dark-shading: 3%,
+        $dark-light-shading: 3%,
+        $light-base: hsl(0, 0%, 99%),
+        $light-dark-shading: 3%,
+        $light-light-shading: 3%
     )
 );
 
@@ -28,16 +28,16 @@
         "palettes": (
             "accent":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(200, 25%, 45%),
-                    $light-base: hsl(200, 30%, 45%),
+                    $dark-base: hsl(200, 25%, 47.5%),
+                    $light-base: hsl(200, 30%, 47.5%),
                     $foreground: "light",
                     $dark-shading: 4%,
                     $light-shading: 4%
                 ),
             "neutral":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(195, 10%, 40%),
-                    $light-base: hsl(195, 5%, 40%),
+                    $dark-base: hsl(195, 5%, 35%),
+                    $light-base: hsl(195, 7.5%, 35%),
                     $foreground: "light",
                     $dark-shading: 4%,
                     $light-shading: 4%
@@ -56,7 +56,7 @@
             "alert":
                 palettes.generate-color-palette(
                     $dark-base: hsl(35, 45%, 50%),
-                    $light-base: hsl(35, 55%, 50%),
+                    $light-base: hsl(35, 50%, 50%),
                     $foreground: "light",
                     $dark-shading: 4%,
                     $light-shading: 4%
@@ -64,7 +64,7 @@
             "affirmative":
                 palettes.generate-color-palette(
                     $dark-base: hsl(145, 30%, 40%),
-                    $light-base: hsl(145, 40%, 40%),
+                    $light-base: hsl(145, 35%, 40%),
                     $foreground: "light",
                     $dark-shading: 4%,
                     $light-shading: 4%
@@ -72,7 +72,7 @@
             "informative":
                 palettes.generate-color-palette(
                     $dark-base: hsl(210, 30%, 50%),
-                    $light-base: hsl(210, 40%, 50%),
+                    $light-base: hsl(210, 35%, 50%),
                     $foreground: "light",
                     $dark-shading: 4%,
                     $light-shading: 4%
@@ -80,7 +80,7 @@
             "negative":
                 palettes.generate-color-palette(
                     $dark-base: hsl(10, 40%, 50%),
-                    $light-base: hsl(10, 50%, 50%),
+                    $light-base: hsl(10, 45%, 50%),
                     $foreground: "light",
                     $dark-shading: 4%,
                     $light-shading: 4%

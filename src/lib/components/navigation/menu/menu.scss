@@ -55,6 +55,8 @@
         @include button.base($namespace: "menu.item", $alignment-x: left, $alignment-y: center);
         @include button.variation-clear-base($namespace: "menu.item", $is-inverse: true);
 
+        @include fonts.line-height($namespace: "menu.item");
+
         .menu[data-palette] &,
         &[data-palette] {
             @include button.variation-clear-base($namespace: "menu.item");

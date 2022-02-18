@@ -31,7 +31,7 @@
     // "surface" convention so the dark / light palettes stand
     // out more when used else where as backgrounds
 
-    @include colors.background($namespace: "document", $face: "background", $shade: "lighter");
+    @include colors.background($namespace: "document", $face: "background", $shade: "light");
     @include surface.text($namespace: "document");
 
     @include fonts.family($namespace: "document");
@@ -53,13 +53,16 @@
 
     scrollbar-width: #{variables.format-var("document.scrollbar.standard.size")};
     scrollbar-color: hsla(
-            #{palettes.format-var($name: "auto", $face: "foreground", $shade: "light")},
+            #{palettes.format-var($name: "dark", $face: "background", $shade: "lightest")},
             #{variables.format-var("document.scrollbar.thumb.background.opacity")}
         )
         hsla(
-            #{palettes.format-var($name: "auto", $face: "background", $shade: "bolder")},
+            #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
             #{variables.format-var("document.scrollbar.track.background.opacity")}
         );
+
+    @include transitions.push(scrollbar-color, "visual");
+    @include transitions.build();
 }
 
 ::-webkit-scrollbar {
@@ -85,7 +88,7 @@
 
 ::-webkit-scrollbar-track {
     background-color: hsla(
-        #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
+        #{palettes.format-var($name: "dark", $face: "background", $shade: "lightest")},
         #{variables.format-var("document.scrollbar.track.background.opacity")}
     );
 }
@@ -94,7 +97,7 @@
     background-clip: padding-box;
 
     background-color: hsla(
-        #{palettes.format-var($name: "auto", $face: "foreground", $shade: "light")},
+        #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
         #{variables.format-var("document.scrollbar.thumb.background.opacity")}
     );
 }

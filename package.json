@@ -12,7 +12,9 @@
         "./package.json": "./package.json",
         ".": "./index.js",
         "./dist/kahi-ui.framework.css": "./dist/kahi-ui.framework.css",
-        "./dist/kahi-ui.framework.min.css": "./dist/kahi-ui.framework.min.css"
+        "./dist/kahi-ui.theme.default.css": "./dist/kahi-ui.theme.default.css",
+        "./dist/kahi-ui.framework.min.css": "./dist/kahi-ui.framework.min.css",
+        "./dist/kahi-ui.theme.default.min.css": "./dist/kahi-ui.theme.default.min.css"
     },
     "keywords": [
         "component-library",

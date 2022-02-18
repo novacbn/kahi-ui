@@ -167,7 +167,7 @@
                 </Tile.Section>
 
                 <Tile.Footer>
-                    <Button palette="negative" data-size="small">X</Button>
+                    <Button palette="negative" variation="clear" sizing="small">x</Button>
                 </Tile.Footer>
             </Tile.Container>
 
@@ -181,7 +181,7 @@
                 </Tile.Section>
 
                 <Tile.Footer>
-                    <Button palette="negative" data-size="small">X</Button>
+                    <Button palette="negative" variation="clear" sizing="small">x</Button>
                 </Tile.Footer>
             </Tile.Container>
         </Overlay.Section>

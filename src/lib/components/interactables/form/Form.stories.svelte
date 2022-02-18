@@ -59,19 +59,19 @@
 
     <Stack.Container orientation="horizontal" spacing="small" variation="wrap" margin_top="small">
         <Form.Group name="form-group-check" bind:logic_state={check_logic_state}>
-            <Check id="form-group-check-cheese" palette="accent" size="tiny" value="cheese">
+            <Check id="form-group-check-cheese" palette="accent" sizing="nano" value="cheese">
                 Cheese
             </Check>
 
-            <Check id="form-group-check-pepperoni" palette="accent" size="tiny" value="pepperoni">
+            <Check id="form-group-check-pepperoni" palette="accent" sizing="nano" value="pepperoni">
                 Pepperoni
             </Check>
 
-            <Check id="form-group-check-onion" palette="accent" size="tiny" value="onion">
+            <Check id="form-group-check-onion" palette="accent" sizing="nano" value="onion">
                 Onion
             </Check>
 
-            <Check id="form-group-check-pineapple" palette="accent" size="tiny" value="pineapple">
+            <Check id="form-group-check-pineapple" palette="accent" sizing="nano" value="pineapple">
                 Pineapple
             </Check>
         </Form.Group>
@@ -86,15 +86,15 @@
 
     <Stack.Container spacing="small" margin_top="small">
         <Form.Group logic_name="form-group-radio" bind:logic_state={radio_logic_state}>
-            <Radio id="form-group-radio-bubblegum" palette="accent" size="tiny" value="bubblegum">
+            <Radio id="form-group-radio-bubblegum" palette="accent" sizing="nano" value="bubblegum">
                 Bubblegum
             </Radio>
 
-            <Radio id="form-group-radio-chocolate" palette="accent" size="tiny" value="chocolate">
+            <Radio id="form-group-radio-chocolate" palette="accent" sizing="nano" value="chocolate">
                 Chocolate
             </Radio>
 
-            <Radio id="form-group-radio-vanilla" palette="accent" size="tiny" value="vanilla">
+            <Radio id="form-group-radio-vanilla" palette="accent" sizing="nano" value="vanilla">
                 Vanilla
             </Radio>
         </Form.Group>

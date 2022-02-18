@@ -3,6 +3,8 @@
 $cache: ();
 
 @function get($key, $default: null) {
+    $key: format-key($key);
+
     @if map.has-key($cache, $key) {
         @return map.get($cache, $key);
     }
@@ -11,10 +13,17 @@ $cache: ();
 }
 
 @function has($key) {
+    $key: format-key($key);
+
     @return map.has-key($cache, $key);
 }
 
+@function format-key($key) {
+    @return "#{&}:#{$key}";
+}
+
 @function set($key, $value) {
+    $key: format-key($key);
     $cache: map.set($cache, $key, $value) !global;
 
     @return $value;

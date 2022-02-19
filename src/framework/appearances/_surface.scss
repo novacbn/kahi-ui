@@ -3,31 +3,31 @@
 @use "../mixins/radius";
 
 @mixin borders-all($namespace) {
-    @include borders.all($namespace, $face: "foreground", $shade: "lightest");
+    @include borders.all($namespace, $face: "background", $shade: "bold");
 }
 
 @mixin borders-x($namespace) {
-    @include borders.x($namespace, $face: "foreground", $shade: "lightest");
+    @include borders.x($namespace, $face: "background", $shade: "bold");
 }
 
 @mixin borders-y($namespace) {
-    @include borders.y($namespace, $face: "foreground", $shade: "lightest");
+    @include borders.y($namespace, $face: "background", $shade: "bold");
 }
 
 @mixin borders-bottom($namespace) {
-    @include borders.bottom($namespace, $face: "foreground", $shade: "lightest");
+    @include borders.bottom($namespace, $face: "background", $shade: "bold");
 }
 
 @mixin borders-left($namespace) {
-    @include borders.left($namespace, $face: "foreground", $shade: "lightest");
+    @include borders.left($namespace, $face: "background", $shade: "bold");
 }
 
 @mixin borders-right($namespace) {
-    @include borders.right($namespace, $face: "foreground", $shade: "lightest");
+    @include borders.right($namespace, $face: "background", $shade: "bold");
 }
 
 @mixin borders-top($namespace) {
-    @include borders.top($namespace, $face: "foreground", $shade: "lightest");
+    @include borders.top($namespace, $face: "background", $shade: "bold");
 }
 
 @mixin radius-all() {

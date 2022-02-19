@@ -14,12 +14,16 @@
 
 @include constants.define-constants(
     palettes.generate-darklight-palette(
-        $dark-base: hsl(217, 15%, 15%),
-        $dark-dark-shading: 3%,
-        $dark-light-shading: 3%,
-        $light-base: hsl(0, 0%, 99%),
-        $light-dark-shading: 3%,
-        $light-light-shading: 3%
+        $dark: (
+            "base": hsl(217, 15%, 15%),
+            "dark.stepping": 3%,
+            "light.stepping": 3%,
+        ),
+        $light: (
+            "base": hsl(0, 0%, 99%),
+            "dark.stepping": 3%,
+            "light.stepping": 3%,
+        )
     )
 );
 
@@ -28,19 +32,25 @@
         "palettes": (
             "accent":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(200, 25%, 47.5%),
-                    $light-base: hsl(200, 30%, 47.5%),
-                    $foreground: "light",
-                    $dark-shading: 4%,
-                    $light-shading: 4%
+                    $dark: (
+                        "base": hsl(200, 25%, 47.5%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(200, 30%, 47.5%),
+                        "stepping": 4%,
+                    )
                 ),
             "neutral":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(195, 5%, 35%),
-                    $light-base: hsl(195, 7.5%, 35%),
-                    $foreground: "light",
-                    $dark-shading: 4%,
-                    $light-shading: 4%
+                    $dark: (
+                        "base": hsl(225, 5%, 37.5%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(225, 10%, 37.5%),
+                        "stepping": 4%,
+                    )
                 ),
         ),
     )
@@ -55,35 +65,47 @@
         "palettes": (
             "alert":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(35, 45%, 50%),
-                    $light-base: hsl(35, 50%, 50%),
-                    $foreground: "light",
-                    $dark-shading: 4%,
-                    $light-shading: 4%
+                    $dark: (
+                        "base": hsl(35, 45%, 50%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(35, 50%, 50%),
+                        "stepping": 4%,
+                    )
                 ),
             "affirmative":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(145, 30%, 40%),
-                    $light-base: hsl(145, 35%, 40%),
-                    $foreground: "light",
-                    $dark-shading: 4%,
-                    $light-shading: 4%
+                    $dark: (
+                        "base": hsl(145, 30%, 40%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(145, 35%, 40%),
+                        "stepping": 4%,
+                    )
                 ),
             "informative":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(210, 30%, 50%),
-                    $light-base: hsl(210, 35%, 50%),
-                    $foreground: "light",
-                    $dark-shading: 4%,
-                    $light-shading: 4%
+                    $dark: (
+                        "base": hsl(210, 30%, 50%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(210, 35%, 50%),
+                        "stepping": 4%,
+                    )
                 ),
             "negative":
                 palettes.generate-color-palette(
-                    $dark-base: hsl(10, 40%, 50%),
-                    $light-base: hsl(10, 45%, 50%),
-                    $foreground: "light",
-                    $dark-shading: 4%,
-                    $light-shading: 4%
+                    $dark: (
+                        "base": hsl(10, 40%, 50%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(10, 45%, 50%),
+                        "stepping": 4%,
+                    )
                 ),
         ),
     )

@@ -1,7 +1,17 @@
 @use "sass:color";
 
-@function shade($source-color, $shading-color, $stepping, $step) {
-    @return color.mix($shading-color, $source-color, $stepping * $step);
+@function contrast($color_a, $color_b) {
+    // HACK: Yeah yeah, "lightness" isn't the same as "luminance", but it
+    // works well enough for my purposes
+
+    $a_lightness: calc(color.lightness($color_a) / 100%);
+    $b_lightness: calc(color.lightness($color_b) / 100%);
+
+    @if $a_lightness > $b_lightness {
+        @return calc($a_lightness + 0.05 / $b_lightness + 0.05);
+    }
+
+    @return calc($b_lightness + 0.05 / $a_lightness + 0.05);
 }
 
 @function normalize-hsl($color, $is-raw: false) {

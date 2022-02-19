@@ -67,33 +67,33 @@
     // names when applicable. So we need to normalize them here
 
     --#{palettes.format-reference($background, "background", "lightest")}: #{colors.normalize-hsl(
-            palettes.get("#{$background}.palettes.#{$palette}.lightest"),
+            palettes.get("#{$background}.#{$palette}.lightest"),
             $is-raw: true
         )};
     --#{palettes.format-reference($background, "background", "lighter")}: #{colors.normalize-hsl(
-            palettes.get("#{$background}.palettes.#{$palette}.lighter"),
+            palettes.get("#{$background}.#{$palette}.lighter"),
             $is-raw: true
         )};
     --#{palettes.format-reference($background, "background", "light")}: #{colors.normalize-hsl(
-            palettes.get("#{$background}.palettes.#{$palette}.light"),
+            palettes.get("#{$background}.#{$palette}.light"),
             $is-raw: true
         )};
 
     --#{palettes.format-reference($background, "background", "normal")}: #{colors.normalize-hsl(
-            palettes.get("#{$background}.palettes.#{$palette}.normal"),
+            palettes.get("#{$background}.#{$palette}.normal"),
             $is-raw: true
         )};
 
     --#{palettes.format-reference($background, "background", "bold")}: #{colors.normalize-hsl(
-            palettes.get("#{$background}.palettes.#{$palette}.bold"),
+            palettes.get("#{$background}.#{$palette}.bold"),
             $is-raw: true
         )};
     --#{palettes.format-reference($background, "background", "bolder")}: #{colors.normalize-hsl(
-            palettes.get("#{$background}.palettes.#{$palette}.bolder"),
+            palettes.get("#{$background}.#{$palette}.bolder"),
             $is-raw: true
         )};
     --#{palettes.format-reference($background, "background", "boldest")}: #{colors.normalize-hsl(
-            palettes.get("#{$background}.palettes.#{$palette}.boldest"),
+            palettes.get("#{$background}.#{$palette}.boldest"),
             $is-raw: true
         )};
 
@@ -139,16 +139,16 @@
 }
 
 @include themes.query-theme-mode("light") {
-    @include palettes.each() using ($background, $foreground) {
-        @include palette-declarations($background, $foreground, "light");
+    @include palettes.each() using ($background, $dark-foreground, $light-foreground) {
+        @include palette-declarations($background, $light-foreground, "light");
     }
 
     @include palette-theme-mode-declarations("light");
 }
 
 @include themes.query-theme-mode("dark") {
-    @include palettes.each() using ($background, $foreground) {
-        @include palette-declarations($background, $foreground, "dark");
+    @include palettes.each() using ($background, $dark-foreground, $light-foreground) {
+        @include palette-declarations($background, $dark-foreground, "dark");
     }
 
     @include palette-theme-mode-declarations("dark");

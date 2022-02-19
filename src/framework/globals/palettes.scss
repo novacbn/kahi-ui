@@ -76,7 +76,7 @@
         --palette-foreground-boldest: inherit;
     }
 
-    @include palettes.each() using ($background, $foreground) {
+    @include palettes.each() using ($background, $dark-foreground, $light-foreground) {
         @include palette-declarations($background);
     }
 }

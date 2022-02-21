@@ -9,6 +9,7 @@
 
     @include intrinsics.gap-all($namespace: $namespace, $unit: em);
 
+    @include fonts.family($namespace: $namespace);
     @include fonts.size($namespace: $namespace, $unit: em);
     @include fonts.weight($namespace: $namespace);
     @include fonts.letter-spacing($namespace: $namespace, $unit: em);

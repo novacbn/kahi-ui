@@ -23,6 +23,7 @@
                 ),
                 "header": (
                     "font": (
+                        "family": variables.format-var("fonts.families.block"),
                         "size": variables.format-var("fonts.sizes.block.massive"),
                         "weight": bold,
                     ),

@@ -26,6 +26,7 @@
                 ),
                 "header": (
                     "font": (
+                        "family": variables.format-var("fonts.families.block"),
                         "size": variables.format-var("fonts.sizes.inline.medium"),
                         "weight": bold,
                     ),

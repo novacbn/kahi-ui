@@ -67,6 +67,7 @@
     .aside--header {
         @include intrinsics.padding-all($namespace: "aside.header", $unit: rem);
 
+        @include fonts.family($namespace: "aside.header");
         @include fonts.size($namespace: "aside.header", $unit: rem);
         @include fonts.letter-spacing($namespace: "aside.header", $unit: em);
         @include fonts.weight($namespace: "aside.header");

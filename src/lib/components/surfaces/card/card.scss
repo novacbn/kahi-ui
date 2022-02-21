@@ -97,6 +97,7 @@
 
         @include intrinsics.gap-all($namespace: "card.header", $unit: em);
 
+        @include fonts.family($namespace: "card.header");
         @include fonts.size($namespace: "card.header", $unit: em);
         @include fonts.weight($namespace: "card.header");
 

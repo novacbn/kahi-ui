@@ -45,6 +45,7 @@
     .hero--header {
         @include intrinsics.size-max-width($namespace: "hero.header");
 
+        @include fonts.family($namespace: "hero.header");
         @include fonts.size($namespace: "hero.header", $unit: rem);
         @include fonts.weight($namespace: "hero.header");
     }

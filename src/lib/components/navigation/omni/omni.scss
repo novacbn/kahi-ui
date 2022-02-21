@@ -60,6 +60,7 @@
 
         @include intrinsics.gap-all($namespace: "omni.header", $unit: rem);
 
+        @include fonts.family($namespace: "omni.header");
         @include fonts.size($namespace: "omni.header", $unit: rem);
         @include fonts.letter-spacing($namespace: "omni.header", $unit: em);
         @include fonts.weight($namespace: "omni.header");

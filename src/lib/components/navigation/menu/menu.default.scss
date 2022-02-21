@@ -42,6 +42,7 @@
                     "border.radius": variables.format-var("radius.tiny"),
                     "color.opacity": 1,
                     "font": (
+                        "family": variables.format-var("fonts.families.block"),
                         "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
                         "size": variables.format-var("fonts.sizes.inline.tiny"),
                         "weight": bold,

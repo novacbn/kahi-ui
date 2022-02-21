@@ -72,6 +72,7 @@
 
         @include intrinsics.gap-all($namespace: "tile.header", $unit: em);
 
+        @include fonts.family($namespace: "tile.header");
         @include fonts.size($namespace: "tile.header", $unit: em);
         @include fonts.weight($namespace: "tile.header");
     }

@@ -13,6 +13,7 @@
         @include transforms.var-reset-text();
 
         color: currentColor;
+        @include fonts.family($namespace: "heading");
 
         @include alignments.text();
         @include transforms.text();

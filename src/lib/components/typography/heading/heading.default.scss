@@ -4,6 +4,7 @@
     @include variables.define-variables(
         (
             "heading": (
+                "font.family": variables.format-var("fonts.families.block"),
                 "block": (
                     "h1": (
                         "font": (

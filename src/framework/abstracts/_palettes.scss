@@ -45,12 +45,10 @@
     // NOTE: The `dark` and `light` palettes need to be special-cased due to co-dependency
 
     $dark-base: map.get($dark, "base");
-    $dark-dark-stepping: map.get($dark, "dark.stepping");
-    $dark-light-stepping: map.get($dark, "light.stepping");
+    $dark-stepping: map.get($dark, "stepping");
 
     $light-base: map.get($light, "base");
-    $light-dark-stepping: map.get($light, "dark.stepping");
-    $light-light-stepping: map.get($light, "light.stepping");
+    $light-stepping: map.get($light, "stepping");
 
     @return (
         "palettes": (
@@ -59,22 +57,22 @@
                     "base": $dark-base,
                     "foreground": "light",
                     "lightest": $dark-base,
-                    "lighter": color.mix($light-base, $dark-base, $dark-dark-stepping * 1),
-                    "light": color.mix($light-base, $dark-base, $dark-dark-stepping * 2),
-                    "normal": color.mix($light-base, $dark-base, $dark-dark-stepping * 3),
-                    "bold": color.mix($light-base, $dark-base, $dark-dark-stepping * 4),
-                    "bolder": color.mix($light-base, $dark-base, $dark-dark-stepping * 5),
-                    "boldest": color.mix($light-base, $dark-base, $dark-dark-stepping * 6),
+                    "lighter": color.mix($light-base, $dark-base, $dark-stepping * 1),
+                    "light": color.mix($light-base, $dark-base, $dark-stepping * 2),
+                    "normal": color.mix($light-base, $dark-base, $dark-stepping * 3),
+                    "bold": color.mix($light-base, $dark-base, $dark-stepping * 4),
+                    "bolder": color.mix($light-base, $dark-base, $dark-stepping * 5),
+                    "boldest": color.mix($light-base, $dark-base, $dark-stepping * 6),
                 ),
                 "light": (
                     "base": $dark-base,
                     "foreground": "light",
-                    "lightest": color.mix($light-base, $dark-base, $dark-light-stepping * 6),
-                    "lighter": color.mix($light-base, $dark-base, $dark-light-stepping * 5),
-                    "light": color.mix($light-base, $dark-base, $dark-light-stepping * 4),
-                    "normal": color.mix($light-base, $dark-base, $dark-light-stepping * 3),
-                    "bold": color.mix($light-base, $dark-base, $dark-light-stepping * 2),
-                    "bolder": color.mix($light-base, $dark-base, $dark-light-stepping * 1),
+                    "lightest": color.mix($light-base, $dark-base, $dark-stepping * 6),
+                    "lighter": color.mix($light-base, $dark-base, $dark-stepping * 5),
+                    "light": color.mix($light-base, $dark-base, $dark-stepping * 4),
+                    "normal": color.mix($light-base, $dark-base, $dark-stepping * 3),
+                    "bold": color.mix($light-base, $dark-base, $dark-stepping * 2),
+                    "bolder": color.mix($light-base, $dark-base, $dark-stepping * 1),
                     "boldest": $dark-base,
                 ),
             ),
@@ -82,24 +80,24 @@
                 "dark": (
                     "base": $light-base,
                     "foreground": "dark",
-                    "lightest": color.mix($dark-base, $light-base, $light-dark-stepping * 6),
-                    "lighter": color.mix($dark-base, $light-base, $light-dark-stepping * 5),
-                    "light": color.mix($dark-base, $light-base, $light-dark-stepping * 4),
-                    "normal": color.mix($dark-base, $light-base, $light-dark-stepping * 3),
-                    "bold": color.mix($dark-base, $light-base, $light-dark-stepping * 2),
-                    "bolder": color.mix($dark-base, $light-base, $light-dark-stepping * 1),
+                    "lightest": color.mix($dark-base, $light-base, $light-stepping * 6),
+                    "lighter": color.mix($dark-base, $light-base, $light-stepping * 5),
+                    "light": color.mix($dark-base, $light-base, $light-stepping * 4),
+                    "normal": color.mix($dark-base, $light-base, $light-stepping * 3),
+                    "bold": color.mix($dark-base, $light-base, $light-stepping * 2),
+                    "bolder": color.mix($dark-base, $light-base, $light-stepping * 1),
                     "boldest": $light-base,
                 ),
                 "light": (
                     "base": $light-base,
                     "foreground": "dark",
                     "lightest": $light-base,
-                    "lighter": color.mix($dark-base, $light-base, $light-light-stepping * 1),
-                    "light": color.mix($dark-base, $light-base, $light-light-stepping * 2),
-                    "normal": color.mix($dark-base, $light-base, $light-light-stepping * 3),
-                    "bold": color.mix($dark-base, $light-base, $light-light-stepping * 4),
-                    "bolder": color.mix($dark-base, $light-base, $light-light-stepping * 5),
-                    "boldest": color.mix($dark-base, $light-base, $light-light-stepping * 6),
+                    "lighter": color.mix($dark-base, $light-base, $light-stepping * 1),
+                    "light": color.mix($dark-base, $light-base, $light-stepping * 2),
+                    "normal": color.mix($dark-base, $light-base, $light-stepping * 3),
+                    "bold": color.mix($dark-base, $light-base, $light-stepping * 4),
+                    "bolder": color.mix($dark-base, $light-base, $light-stepping * 5),
+                    "boldest": color.mix($dark-base, $light-base, $light-stepping * 6),
                 ),
             ),
         )

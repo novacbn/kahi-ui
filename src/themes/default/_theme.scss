@@ -5,24 +5,27 @@
 @use "../../framework/abstracts/variables";
 @use "../../framework/abstracts/viewports";
 
+/**********************************************\
+|               COLOR PALETTES                 |
+\**********************************************/
+
 /**
  * NOTE: The below colors are mandatory in ALL themes! They are statically
  * referenced in the main Framework and Component stylesheets
  */
 
+// NOTE: When using the generative color system, `dark` and `light` **ALWAYS** needs to come first
 // NOTE: The `dark` and `light` palettes need to be special-cased due to co-dependency
 
 @include constants.define-constants(
     palettes.generate-darklight-palette(
         $dark: (
             "base": hsl(217, 15%, 15%),
-            "dark.stepping": 3%,
-            "light.stepping": 3%,
+            "stepping": 3%,
         ),
         $light: (
             "base": hsl(0, 0%, 99%),
-            "dark.stepping": 3%,
-            "light.stepping": 3%,
+            "stepping": 3%,
         )
     )
 );
@@ -111,6 +114,10 @@
     )
 );
 
+/**********************************************\
+|                  VIEWPORTS                   |
+\**********************************************/
+
 /**
  * NOTE: The below viewports are mandatory in ALL themes! They are statically
  * referenced in the main Javascript codebase
@@ -127,8 +134,12 @@
     )
 );
 
+/**********************************************\
+|                FONT FAMILIES                 |
+\**********************************************/
+
 /**
- * NOTE: The below font familys are mandatory in ALL themes! They are statically
+ * NOTE: The below font families are mandatory in ALL themes! They are statically
  * referenced in the main Framework and Component stylesheets
  */
 
@@ -181,8 +192,12 @@
     )
 );
 
+/**********************************************\
+|                FONT SIZINGS                  |
+\**********************************************/
+
 /**
- * NOTE: The below font sizes / families are mandatory in ALL themes! They are statically
+ * NOTE: The below font sizes are mandatory in ALL themes! They are statically
  * referenced in the main Framework and Component stylesheets
  */
 
@@ -198,6 +213,10 @@
         ),
     )
 );
+
+/**********************************************\
+|                   SPACINGS                   |
+\**********************************************/
 
 /**
  * NOTE: The below spacings are mandatory in ALL themes! They are statically
@@ -224,6 +243,10 @@
         ),
     )
 );
+
+/**********************************************\
+|                   SIZINGS                    |
+\**********************************************/
 
 /**
  * NOTE: The below sizes are mandatory in ALL themes! They are statically
@@ -266,6 +289,10 @@
     )
 );
 
+/**********************************************\
+|                BORDER RADIUS                 |
+\**********************************************/
+
 /**
  * NOTE: The below radii can be renamed or otherwise added / removed as desired
  */
@@ -288,6 +315,10 @@
     )
 );
 
+/**********************************************\
+|                   EASINGS                    |
+\**********************************************/
+
 /**
  * NOTE: The below easings can be renamed or otherwise added / removed as desired
  *
@@ -302,6 +333,10 @@
         ),
     )
 );
+
+/**********************************************\
+|              ANIMATION TIERS                 |
+\**********************************************/
 
 /**
  * NOTE: The below animation tiers are mandatory in ALL themes! They are statically
@@ -330,6 +365,10 @@
     )
 );
 
+/**********************************************\
+|               Z-INDEX TIERS                  |
+\**********************************************/
+
 /**
  * NOTE: The below z level tiers are mandatory in ALL themes! They are statically
  * referenced in the main Framework and Component stylesheets
@@ -351,6 +390,10 @@
         ),
     )
 );
+
+/**********************************************\
+|               ELEVATION TIERS                |
+\**********************************************/
 
 /**
  * NOTE: The below elevation tiers can be renamed or otherwise added / removed as desired

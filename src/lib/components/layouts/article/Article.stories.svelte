@@ -55,7 +55,22 @@
     </Article>
 </Story>
 
-<Story name="Code">...</Story>
+<Story name="Code">
+    <Article>
+        <code>import * as Kahi from "@kahi-ui/framework";</code>
+
+        <br />
+        <br />
+
+        <!-- prettier-ignore -->
+        <pre>import math from "a-math-library";
+
+const result = math.add(1, 1);
+console.log("Our value is:", result);</pre>
+
+        <code>import * as Kahi from "@kahi-ui/framework";</code>
+    </Article>
+</Story>
 
 <Story name="Divider">
     <Article>
@@ -116,21 +131,21 @@
     </Article>
 </Story>
 
-<Story name="Table">...</Story>
-
 <Story name="Small">
     <Article>
         <small>I am small text!</small>
     </Article>
 </Story>
 
+<Story name="Table">...</Story>
+
 <Story name="Elements">
     <Stack.Container spacing="medium">
         {#each IS as [is, is_default] (is)}
             <Article is={is_default ? undefined : is}>
-                <Text is="strong">
+                <h1>
                     {`${is.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
-                </Text>
+                </h1>
             </Article>
         {/each}
     </Stack.Container>

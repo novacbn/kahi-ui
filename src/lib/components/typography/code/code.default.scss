@@ -12,7 +12,10 @@
                 ),
                 "padding": (
                     "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.small"),
+                    "y": variables.format-var("spacings.block.tiny"),
+                ),
+                "article": (
+                    "margin.y": variables.format-var("spacings.block.medium"),
                 ),
             ),
         )

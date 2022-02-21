@@ -1,30 +1,44 @@
-code,
-pre {
-    --palette-background-lightest: var(--code-palette-background-lightest);
+@use "../../../../framework/abstracts/transitions";
 
-    padding: var(--code-padding-y) var(--code-padding-x);
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
 
-    background: rgba(var(--palette-background-lightest), var(--code-background-opacity));
-    border-radius: var(--code-border-radius);
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_CODE") {
+    .code,
+    .article > code {
+        @include palettes.var-palette($palette: "neutral");
 
-    font-family: var(--code-font-family);
+        position: relative;
 
-    transition: background var(--animation-visual-duration) var(--animation-visual-function);
-}
+        @include intrinsics.padding-all($namespace: "code", $unit: em);
 
-code {
-    font-size: var(--code-font-size);
+        @include colors.background($namespace: "code", $face: "background", $shade: "bolder");
+        @include fonts.family($namespace: "code");
+        @include radius.all($namespace: "code", $unit: em);
 
-    overflow-wrap: break-word;
-}
+        @include borders.transitions();
+        @include colors.transitions-background();
 
-pre {
-    overflow-x: auto;
+        @include transitions.build();
+    }
 
-    & > code {
-        background: transparent;
-        padding: 0;
+    code.code,
+    .article > code {
+        @include fonts.size($namespace: "text.small", $unit: em);
 
-        white-space: pre;
+        overflow-wrap: break-word;
+    }
+
+    pre.code,
+    .article > pre {
+        overflow-x: auto;
+
+        & > code {
+            white-space: pre;
+        }
     }
 }

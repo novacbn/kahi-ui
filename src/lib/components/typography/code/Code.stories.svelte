@@ -32,14 +32,14 @@
 
 <Story name="Palette">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
                 <br />
-                <Code palette={palette === "default" ? undefined : palette}>
+                <Code palette={is_default ? undefined : palette}>
                     import * as Kahi from "@kahi-ui/framework";
                 </Code>
             </div>
@@ -57,9 +57,8 @@
 
                 <br />
                 <!-- prettier-ignore -->
-                <Code is="pre" palette={palette === "default" ? undefined : palette}>
-import math from "a-math-library";
-    
+                <Code is="pre" palette={palette === "default" ? undefined : palette}>import math from "a-math-library";
+
 const result = math.add(1, 1);
 console.log("Our value is:", result);</Code>
             </div>

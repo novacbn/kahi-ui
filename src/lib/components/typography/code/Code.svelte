@@ -35,7 +35,7 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let is: $$Props["is"] = "code";
+    export let is: $$Props["is"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 </script>

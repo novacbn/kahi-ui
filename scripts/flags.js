@@ -14,6 +14,9 @@ function make_flag_map(argv, ...flags) {
 
 export const BUILD_FLAGS = make_flag_map(
     argv,
+    "--disable-components-disclosure-accordion",
+    "--disable-components-disclosure-carousel",
+    "--disable-components-disclosure-tab",
     "--disable-components-display-badge",
     "--disable-components-display-kbd",
     "--disable-components-display-list",
@@ -42,8 +45,8 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-navigation-anchor",
     "--disable-components-navigation-aside",
     "--disable-components-navigation-breadcrumb",
-    "--disable-components-navigation-omni",
     "--disable-components-navigation-menu",
+    "--disable-components-navigation-omni",
     "--disable-components-overlays-backdrop",
     "--disable-components-overlays-clickable",
     "--disable-components-overlays-overlay",

@@ -18,7 +18,7 @@
                 "text": (
                     "font": (
                         "family": variables.format-var("fonts.families.block"),
-                        "letter-spacing": variables.format-var("fonts.letter-spacings.small"),
+                        "letter-spacing": variables.format-var("spacings.inline.small"),
                         "size": variables.format-var("fonts.sizes.inline.tiny"),
                         "weight": bold,
                     ),

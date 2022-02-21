@@ -18,7 +18,7 @@
 
 @mixin sizing-var-declarations($size, $prefix: "") {
     [data-sizing~="#{$prefix}#{$size}"] {
-        --sizing-font-letter-spacing: #{variables.format-var("fonts.letter-spacings.#{$size}")};
+        --sizing-font-letter-spacing: #{variables.format-var("spacings.inline.#{$size}")};
         --sizing-font-line-height: #{variables.format-var("fonts.line-heights.#{$size}")};
 
         @include variables.each("fonts.sizes.*.#{$size}") using ($tier, $_) {

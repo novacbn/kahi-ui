@@ -29,7 +29,7 @@
 
     outline: none !important; // TODO: Remove during accessibility pass
 
-    @include fonts.size($unit: rem, $sizing-tier: "inline");
+    @include fonts.size($unit: rem, $tier: "inline");
     @include fonts.weight($namespace);
 
     text-decoration: none !important;

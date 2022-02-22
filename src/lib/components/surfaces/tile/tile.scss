@@ -24,7 +24,7 @@
         @include intrinsics.gap-all($namespace: "tile", $unit: em);
         @include surface.radius-all();
 
-        @include fonts.size($unit: rem, $sizing-tier: "inline");
+        @include fonts.size($unit: rem, $tier: "inline");
 
         @include borders.transitions();
         @include backgrounds.transitions();

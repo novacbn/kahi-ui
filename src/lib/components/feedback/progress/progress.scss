@@ -16,7 +16,7 @@
 
         --value: 0;
 
-        @include fonts.size($sizing-tier: "inline", $unit: rem);
+        @include fonts.size($tier: "inline", $unit: rem);
 
         user-select: none;
 

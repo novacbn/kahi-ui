@@ -70,26 +70,26 @@
     font-family: #{variables.format-var("#{$namespace}.font.family")};
 }
 
-@mixin size($namespace: null, $unit: null, $sizing-tier: null) {
-    @if $sizing-tier {
+@mixin size($namespace: null, $unit: null, $tier: null) {
+    @if $tier {
         @if $namespace {
             @if $unit {
                 font-size: calc(
-                    var(--sizing-font-size-#{$sizing-tier}) *
+                    var(--sizing-font-size-#{$tier}) *
                         #{variables.format-var("#{$namespace}.font.size")} *
                         1#{$unit}
                 );
             } @else {
                 font-size: calc(
-                    var(--sizing-font-size-#{$sizing-tier}) *
+                    var(--sizing-font-size-#{$tier}) *
                         #{variables.format-var("#{$namespace}.font.size")}
                 );
             }
         } @else {
             @if $unit {
-                font-size: calc(var(--sizing-font-size-#{$sizing-tier}) * 1#{$unit});
+                font-size: calc(var(--sizing-font-size-#{$tier}) * 1#{$unit});
             } @else {
-                font-size: var(--sizing-font-size-#{$sizing-tier});
+                font-size: var(--sizing-font-size-#{$tier});
             }
         }
     } @else {

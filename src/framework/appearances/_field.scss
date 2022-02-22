@@ -25,7 +25,7 @@
     @include borders.style-all($namespace: $namespace);
     @include borders.width-all($namespace: $namespace);
 
-    @include fonts.size($unit: rem, $sizing-tier: "inline");
+    @include fonts.size($unit: rem, $tier: "inline");
 
     @include alignments.text();
     @include transforms.text();

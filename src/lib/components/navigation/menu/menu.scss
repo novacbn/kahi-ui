@@ -18,7 +18,7 @@
         @include flex.var-reset($direction: column, $namespace: "menu");
 
         @include flex.base($unit: em);
-        @include fonts.size($unit: rem, $sizing-tier: "inline");
+        @include fonts.size($unit: rem, $tier: "inline");
 
         user-select: none;
     }

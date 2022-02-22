@@ -23,7 +23,7 @@
 
         @include surface.radius-all();
 
-        @include fonts.size($unit: rem, $sizing-tier: "inline");
+        @include fonts.size($unit: rem, $tier: "inline");
 
         @include borders.transitions();
         @include backgrounds.transitions();
@@ -39,25 +39,17 @@
             @include elevations.shadow();
 
             & > :is(.card--footer, .card--header, .card--section) {
-                @include intrinsics.margin-x(
-                    $unit: rem,
-                    $namespace: "card",
-                    $sizing-tier: "inline"
-                );
+                @include intrinsics.margin-x($unit: rem, $namespace: "card", $tier: "inline");
 
                 &:first-child {
-                    @include intrinsics.margin-top(
-                        $unit: rem,
-                        $namespace: "card",
-                        $sizing-tier: "inline"
-                    );
+                    @include intrinsics.margin-top($unit: rem, $namespace: "card", $tier: "inline");
                 }
 
                 &:last-child {
                     @include intrinsics.margin-bottom(
                         $unit: rem,
                         $namespace: "card",
-                        $sizing-tier: "inline"
+                        $tier: "inline"
                     );
                 }
             }
@@ -82,11 +74,7 @@
         @include flex.base($unit: rem);
 
         &:not(:first-child) {
-            @include intrinsics.margin-top(
-                $unit: rem,
-                $namespace: "card.footer",
-                $sizing-tier: "inline"
-            );
+            @include intrinsics.margin-top($unit: rem, $namespace: "card.footer", $tier: "inline");
         }
     }
 
@@ -101,11 +89,7 @@
         @include fonts.weight($namespace: "card.header");
 
         &:not(:first-child) {
-            @include intrinsics.margin-top(
-                $unit: rem,
-                $namespace: "card.header",
-                $sizing-tier: "inline"
-            );
+            @include intrinsics.margin-top($unit: rem, $namespace: "card.header", $tier: "inline");
         }
     }
 
@@ -115,11 +99,7 @@
         }
 
         &:not(:first-child) {
-            @include intrinsics.margin-top(
-                $unit: rem,
-                $namespace: "card.section",
-                $sizing-tier: "inline"
-            );
+            @include intrinsics.margin-top($unit: rem, $namespace: "card.section", $tier: "inline");
         }
     }
 }

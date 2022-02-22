@@ -8,4 +8,13 @@ module.exports = {
     stories: ["../src/**/*.stories.svelte"],
     addons: ["@storybook/addon-essentials", "@storybook/addon-svelte-csf"],
     svelteOptions,
+
+    async viteFinal(config, {configType}) {
+        // HACK: This fixes Out-Of-Memory (OOM) errors that happen during
+        // due to Storybook's massive dependency graph. Sourcemaps aren't
+        // really needed during non-development /anyway/ so it should be fine
+        config.build.sourcemap = configType === "PRODUCTION" ? false : true;
+
+        return config;
+    },
 };

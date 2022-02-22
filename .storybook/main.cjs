@@ -5,7 +5,7 @@ module.exports = {
         builder: "storybook-builder-vite",
     },
 
-    stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx|svelte)"],
+    stories: ["../src/**/*.stories.svelte"],
     addons: ["@storybook/addon-essentials", "@storybook/addon-svelte-csf"],
     svelteOptions,
 };

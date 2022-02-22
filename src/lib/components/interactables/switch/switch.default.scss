@@ -4,7 +4,7 @@
     @include variables.define-variables(
         (
             "switch": (
-                "font.size": variables.format-var("fonts.sizes.inline.tiny"),
+                "font.size": variables.format-var("fonts.sizes.inline.small"),
                 "padding": (
                     "x": 0.6375,
                     "y": 0.425,

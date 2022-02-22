@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_DISPLAY_BADGE") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "badge": (
                 "background.opacity": 1,

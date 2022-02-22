@@ -17,7 +17,7 @@
 // NOTE: When using the generative color system, `dark` and `light` **ALWAYS** needs to come first
 // NOTE: The `dark` and `light` palettes need to be special-cased due to co-dependency
 
-@include constants.define-constants(
+@include constants.define(
     palettes.generate-darklight-palette(
         $dark: (
             "base": hsl(217, 15%, 15%),
@@ -30,7 +30,7 @@
     )
 );
 
-@include constants.define-constants(
+@include constants.define(
     (
         "palettes": (
             "accent":
@@ -63,7 +63,7 @@
  * NOTE: The below colors can be renamed or otherwise added / removed as desired
  */
 
-@include constants.define-constants(
+@include constants.define(
     (
         "palettes": (
             "alert":
@@ -123,7 +123,7 @@
  * referenced in the main Javascript codebase
  */
 
-@include constants.define-constants(
+@include constants.define(
     (
         "viewports": (
             "mobile": 640px,
@@ -143,7 +143,7 @@
  * referenced in the main Framework and Component stylesheets
  */
 
-@include variables.define-variables(
+@include variables.define(
     (
         "fonts.families": (
             "block": (
@@ -201,7 +201,7 @@
  * referenced in the main Framework and Component stylesheets
  */
 
-@include variables.define-variables(
+@include variables.define(
     (
         "fonts": (
             "line-heights": sizes.generate-scaling($base: 1, $ratio: 1.075),
@@ -222,7 +222,7 @@
  * referenced in the main Framework and Component stylesheets
  */
 
-@include variables.define-variables(
+@include variables.define(
     (
         "spacings": (
             "block": sizes.generate-scaling($base: 0.125, $ratio: 2),
@@ -235,7 +235,7 @@
  * NOTE: The below spacings can be renamed or otherwise added / removed as desired
  */
 
-@include constants.define-constants(
+@include constants.define(
     (
         "spacings": (
             "none": 0px,
@@ -253,7 +253,7 @@
  * referenced in the main Framework and Component stylesheets
  */
 
-@include variables.define-variables(
+@include variables.define(
     (
         "sizes": (
             "block": sizes.generate-scaling($base: 9.5, $ratio: 1.2),
@@ -271,7 +271,7 @@
  * size global attribute values also
  */
 
-@include constants.define-constants(
+@include constants.define(
     (
         "sizes": (
             "none": 0px,
@@ -297,7 +297,7 @@
  * NOTE: The below radii can be renamed or otherwise added / removed as desired
  */
 
-@include constants.define-constants(
+@include constants.define(
     (
         "radius": (
             "none": none,
@@ -305,7 +305,7 @@
     )
 );
 
-@include variables.define-variables(
+@include variables.define(
     (
         "radius": sizes.generate-scaling($base: 0.125, $ratio: 2),
         "shapes": (
@@ -325,7 +325,7 @@
  * SOURCE: https://easings.net
  */
 
-@include variables.define-variables(
+@include variables.define(
     (
         "easings": (
             "ease-out-quad": cubic-bezier(0.5, 1, 0.89, 1),
@@ -343,7 +343,7 @@
  * referenced in the main Framework and Component stylesheets
  */
 
-@include variables.define-variables(
+@include variables.define(
     (
         "animations": (
             "movement":
@@ -374,7 +374,7 @@
  * referenced in the main Framework and Component stylesheets
  */
 
-@include variables.define-variables(
+@include variables.define(
     (
         "z-index": (
             "inline": (
@@ -401,7 +401,7 @@
 
 // TODO: Create function that generates the tiers of elevations
 
-@include constants.define-constants(
+@include constants.define(
     (
         "elevations": (
             "none": none,
@@ -409,7 +409,7 @@
     )
 );
 
-@include variables.define-variables(
+@include variables.define(
     (
         "elevations": (
             "lowest": (

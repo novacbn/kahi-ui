@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_FEEDBACK_PROGRESS") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "progress": (
                 "border.radius": variables.format-var("radius.medium"),

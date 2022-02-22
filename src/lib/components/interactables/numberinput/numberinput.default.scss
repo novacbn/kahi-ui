@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_INTERACTABLES_NUMBER_INPUT") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "number-input": (
                 "border": (

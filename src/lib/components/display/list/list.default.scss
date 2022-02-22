@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_DISPLAY_LIST") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "list": (
                 "margin.x": variables.format-var("spacings.block.medium"),

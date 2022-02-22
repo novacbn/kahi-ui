@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_LAYOUTS_DIVIDER") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "divider": (
                 "border.radius": variables.format-var("radius.tiny"),

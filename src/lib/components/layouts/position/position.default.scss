@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_LAYOUTS_POSITION") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "position": (
                 "action": (

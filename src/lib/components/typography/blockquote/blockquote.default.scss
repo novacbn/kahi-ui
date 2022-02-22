@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_TYPOGRAPHY_BLOCKQUOTE") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "blockquote": (
                 "background.opacity": 0.1,

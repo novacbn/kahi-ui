@@ -1,6 +1,6 @@
 @use "../abstracts/variables";
 
-@include variables.define-variables(
+@include variables.define(
     (
         "document": (
             "background.opacity": 1,

@@ -1,7 +1,7 @@
 @use "../../../../framework/abstracts/variables";
 
 @if not env("DISABLE_COMPONENTS_INTERACTABLES_RADIO") {
-    @include variables.define-variables(
+    @include variables.define(
         (
             "radio": (
                 "font.size": variables.format-var("fonts.sizes.inline.tiny"),

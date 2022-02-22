@@ -3,15 +3,13 @@
 @use "./namespaces";
 @use "./strings";
 
-@mixin define-variable($key, $value) {
-    @include namespaces.define-namespace("variables.#{$key}", $value);
-}
-
-@mixin define-variables($maps...) {
-    @each $map in $maps {
+@mixin define($key, $value: null) {
+    @if type-of($key) == "string" {
+        @include namespaces.define-namespace("variables.#{$key}", $value);
+    } @else {
         @include namespaces.define-namespaces(
             (
-                "variables": $map,
+                "variables": $key,
             )
         );
     }

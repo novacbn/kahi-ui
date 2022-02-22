@@ -1,9 +1,8 @@
-@use "../abstracts/transitions";
-
 @use "../mixins/colors";
 @use "../mixins/fonts";
 @use "../mixins/intrinsics";
 @use "../mixins/transforms";
+@use "../mixins/transitions";
 
 @mixin base($namespace) {
     appearance: none;

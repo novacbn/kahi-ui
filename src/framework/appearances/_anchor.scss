@@ -1,4 +1,3 @@
-@use "../abstracts/transitions";
 @use "../abstracts/variables";
 
 @use "../mixins/borders";
@@ -7,6 +6,7 @@
 @use "../mixins/intrinsics";
 @use "../mixins/radius";
 @use "../mixins/sizings";
+@use "../mixins/transitions";
 
 @mixin base($namespace) {
     text-decoration: #{variables.format-var("#{$namespace}.text.decoration")};

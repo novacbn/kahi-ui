@@ -1,10 +1,9 @@
-@use "../../../../framework/abstracts/transitions";
-
 @use "../../../../framework/mixins/alignments";
 @use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/transforms";
+@use "../../../../framework/mixins/transitions";
 
 @if not env("DISABLE_COMPONENTS_TYPOGRAPHY_HEADING") {
     .heading,

@@ -1,9 +1,8 @@
-@use "../../../../framework/abstracts/transitions";
-
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/transitions";
 
 @if not env("DISABLE_COMPONENTS_INTERACTABLES_FILE_DROP_INPUT") {
     .file-drop-input {

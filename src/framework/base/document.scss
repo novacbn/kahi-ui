@@ -1,11 +1,11 @@
 @use "../abstracts/palettes";
-@use "../abstracts/transitions";
 @use "../abstracts/variables";
 
 @use "../appearances/surface";
 
 @use "../mixins/colors";
 @use "../mixins/fonts";
+@use "../mixins/transitions";
 
 :root {
     // HACK: Would use `palettes.var-palette()`, but then there would

@@ -1,5 +1,6 @@
-@use "../../framework/abstracts/transitions";
 @use "../../framework/abstracts/variables";
+
+@use "./transitions";
 
 @mixin scale($namespace) {
     transform: scale(

@@ -1,10 +1,10 @@
-@use "../../../../framework/abstracts/transitions";
 @use "../../../../framework/abstracts/variables";
 
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/radius";
 @use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/transitions";
 
 @if not env("DISABLE_COMPONENTS_FEEDBACK_PROGRESS") {
     .progress {

@@ -1,5 +1,6 @@
-@use "../abstracts/transitions";
 @use "../abstracts/variables";
+
+@use "./transitions";
 
 @mixin background($namespace, $face, $shade, $palette: null) {
     @include transitions-background();

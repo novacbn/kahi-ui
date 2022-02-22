@@ -1,8 +1,7 @@
-@use "../abstracts/transitions";
-
 @use "../mixins/colors";
 @use "../mixins/fonts";
 @use "../mixins/intrinsics";
+@use "../mixins/transitions";
 
 @mixin base($namespace, $support-opacity: false) {
     display: inline-flex;

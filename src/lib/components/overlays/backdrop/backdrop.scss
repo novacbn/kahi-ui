@@ -1,9 +1,8 @@
-@use "../../../../framework/abstracts/transitions";
-
 @use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/transitions";
 
 @if not env("DISABLE_COMPONENTS_OVERLAYS_BACKDROP") {
     .backdrop {

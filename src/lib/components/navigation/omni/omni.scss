@@ -1,5 +1,3 @@
-@use "../../../../framework/abstracts/transitions";
-
 @use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/borders";
@@ -7,6 +5,7 @@
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/planes";
+@use "../../../../framework/mixins/transitions";
 
 @if not env("DISABLE_COMPONENTS_NAVIGATION_OMNI") {
     .omni {

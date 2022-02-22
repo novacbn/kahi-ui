@@ -1,8 +1,8 @@
 @use "sass:list";
 @use "sass:map";
 
-@use "./contexts";
-@use "./variables";
+@use "../abstracts/contexts";
+@use "../abstracts/variables";
 
 @mixin build() {
     $formatted: ();

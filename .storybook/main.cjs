@@ -13,7 +13,7 @@ module.exports = {
         // HACK: This fixes Out-Of-Memory (OOM) errors that happen during
         // due to Storybook's massive dependency graph. Sourcemaps aren't
         // really needed during non-development /anyway/ so it should be fine
-        config.build.sourcemap = configType === "PRODUCTION" ? false : true;
+        if (configType === "PRODUCTION") config.build.sourcemap = false;
 
         return config;
     },

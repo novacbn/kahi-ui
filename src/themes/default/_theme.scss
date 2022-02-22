@@ -256,8 +256,8 @@
 @include variables.define-variables(
     (
         "sizes": (
-            "borders": sizes.generate-stepping($base: 1px, $stepping: 1px),
             "block": sizes.generate-scaling($base: 9.5, $ratio: 1.2),
+            "borders": sizes.generate-stepping($base: 1px, $stepping: 1px),
             "icon": sizes.generate-stepping($base: 16px, $stepping: 8px),
             "prose": 65ch,
         ),

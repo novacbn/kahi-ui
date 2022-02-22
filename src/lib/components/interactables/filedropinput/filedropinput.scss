@@ -1,5 +1,6 @@
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/transitions";
@@ -22,7 +23,7 @@
             $shade: "lightest"
         );
         @include borders.all($namespace: "file-drop-input", $face: "background", $shade: "bolder");
-        @include colors.text($namespace: "file-drop-input", $face: "background", $shade: "bolder");
+        @include fonts.color($namespace: "file-drop-input", $face: "background", $shade: "bolder");
         line-height: 1;
 
         text-align: center;

@@ -23,13 +23,13 @@
         @include fonts.line-height($support-sizing: true);
         @include fonts.size($sizing-tier: "inline", $unit: rem);
 
-        @include colors.transitions-text();
+        @include fonts.transitions();
         @include colors.transitions-opacity();
 
         @include transitions.build();
 
         &[data-palette] {
-            @include colors.text($namespace: "text", $face: "background", $shade: "boldest");
+            @include fonts.color($namespace: "text", $face: "background", $shade: "boldest");
         }
 
         &[data-variation~="block"] {

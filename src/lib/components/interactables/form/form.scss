@@ -50,12 +50,12 @@
     .form--legend {
         @include legend.base($namespace: "form.legend");
 
-        @include colors.text($namespace: "form.legend", $face: "foreground", $shade: "normal");
+        @include fonts.color($namespace: "form.legend", $face: "foreground", $shade: "normal");
 
         @include transitions.build();
 
         &[data-palette] {
-            @include colors.text($namespace: "form.legend", $face: "background", $shade: "normal");
+            @include fonts.color($namespace: "form.legend", $face: "background", $shade: "normal");
         }
     }
 }

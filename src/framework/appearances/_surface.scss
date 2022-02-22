@@ -1,5 +1,6 @@
 @use "../mixins/borders";
 @use "../mixins/colors";
+@use "../mixins/fonts";
 @use "../mixins/radius";
 
 @mixin borders-all($namespace) {
@@ -59,7 +60,7 @@
 }
 
 @mixin text($namespace, $is-inverse: false) {
-    @include colors.text(
+    @include fonts.color(
         $namespace,
         $face: if($is-inverse, "background", "foreground"),
         $shade: "normal"

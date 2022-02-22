@@ -28,7 +28,7 @@
 
         @include borders.transitions();
         @include colors.transitions-background();
-        @include colors.transitions-text();
+        @include fonts.transitions();
 
         @include transitions.build();
 

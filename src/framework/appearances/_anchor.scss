@@ -17,7 +17,7 @@
     /** TODO: Remove during ARIA pass */
     outline: none !important;
 
-    @include colors.transitions-text();
+    @include fonts.transitions();
     @include transitions.build();
 }
 
@@ -67,5 +67,5 @@
 }
 
 @mixin variation-palette($namespace) {
-    @include colors.text($namespace: $namespace, $face: "background", $shade: "boldest");
+    @include fonts.color($namespace: $namespace, $face: "background", $shade: "boldest");
 }

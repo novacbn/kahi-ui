@@ -12,9 +12,9 @@
                 "item": (
                     "background.opacity": 0,
                     "border.radius": variables.format-var("radius.small"),
-                    "color.opacity": 1,
                     "font": (
                         "line-height": variables.format-var("fonts.line-heights.massive"),
+                        "opacity": 1,
                         "size": variables.format-var("fonts.sizes.inline.small"),
                         "weight": normal,
                     ),
@@ -31,19 +31,19 @@
                     ),
                     "active": (
                         "background.opacity": 0.75,
-                        "color.opacity": 1,
+                        "font.opacity": 1,
                     ),
                     "focus": (
                         "background.opacity": 0.2,
-                        "color.opacity": 1,
+                        "font.opacity": 1,
                     ),
                 ),
                 "heading": (
                     "border.radius": variables.format-var("radius.tiny"),
-                    "color.opacity": 1,
                     "font": (
                         "family": variables.format-var("fonts.families.block"),
                         "letter-spacing": variables.format-var("spacings.inline.small"),
+                        "opacity": 1,
                         "size": variables.format-var("fonts.sizes.inline.tiny"),
                         "weight": bold,
                     ),

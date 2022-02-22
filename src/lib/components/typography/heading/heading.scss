@@ -1,5 +1,4 @@
 @use "../../../../framework/mixins/alignments";
-@use "../../../../framework/mixins/colors";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/transforms";
@@ -17,12 +16,12 @@
         @include alignments.text();
         @include transforms.text();
 
-        @include colors.transitions-text();
+        @include fonts.transitions();
 
         @include transitions.build();
 
         &[data-palette] {
-            @include colors.text($namespace: "text", $face: "background", $shade: "boldest");
+            @include fonts.color($namespace: "text", $face: "background", $shade: "boldest");
         }
 
         &[data-variation~="truncate"] {

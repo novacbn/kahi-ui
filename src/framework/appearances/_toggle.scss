@@ -29,7 +29,7 @@
 
     @include colors.transitions-background();
     @include colors.transitions-opacity();
-    @include colors.transitions-text();
+    @include fonts.transitions();
     @include transforms.transitions();
 
     @include transitions.build();
@@ -119,7 +119,7 @@
         $shade: "bolder"
     );
 
-    @include colors.text(
+    @include fonts.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}",
         $face: if($is-checked, "foreground", "background"),
         $shade: if($is-checked, "normal", "bolder")
@@ -133,7 +133,7 @@
         $shade: "bolder"
     );
 
-    @include colors.text(
+    @include fonts.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.active",
         $face: if($is-checked, "background", "foreground"),
         $shade: if($is-checked, "bolder", "normal")
@@ -147,7 +147,7 @@
         $shade: "bolder"
     );
 
-    @include colors.text(
+    @include fonts.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.focus",
         $face: if($is-checked, "foreground", "background"),
         $shade: if($is-checked, "normal", "bolder")
@@ -155,7 +155,7 @@
 }
 
 @mixin variation-flush-base($namespace, $is-checked: false) {
-    @include colors.text(
+    @include fonts.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}",
         $face: "background",
         $shade: "bolder"
@@ -163,7 +163,7 @@
 }
 
 @mixin variation-flush-active($namespace, $is-checked: false) {
-    @include colors.text(
+    @include fonts.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.active",
         $face: "background",
         $shade: "bolder"
@@ -171,7 +171,7 @@
 }
 
 @mixin variation-flush-focus($namespace, $is-checked: false) {
-    @include colors.text(
+    @include fonts.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.focus",
         $face: "background",
         $shade: "bolder"

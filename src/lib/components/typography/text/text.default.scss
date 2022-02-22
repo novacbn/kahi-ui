@@ -4,7 +4,7 @@
     @include variables.define(
         (
             "text": (
-                "color.opacity": 1,
+                "font.opacity": 1,
                 "small": (
                     "font.size": variables.format-var("fonts.sizes.inline.tiny"),
                     "opacity": 0.75,

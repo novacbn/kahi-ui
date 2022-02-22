@@ -1,5 +1,23 @@
 @use "../abstracts/variables";
 
+@use "./transitions";
+
+@mixin color($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.format-var("#{$namespace}.font.opacity")}
+        );
+    } @else {
+        color: hsla(
+            var(--palette-#{$face}-#{$shade}),
+            #{variables.format-var("#{$namespace}.font.opacity")}
+        );
+    }
+}
+
 @mixin letter-spacing($namespace: null, $unit: null, $support-sizing: false) {
     // NOTE: Pretty disgusting mega-mixin... but we need to support all these permutations...
 
@@ -85,4 +103,8 @@
 
 @mixin weight($namespace) {
     font-weight: #{variables.format-var("#{$namespace}.font.weight")};
+}
+
+@mixin transitions() {
+    @include transitions.push(color, "visual");
 }

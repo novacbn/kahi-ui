@@ -11,9 +11,9 @@
                     "style": ridge,
                     "width": variables.format-var("sizes.borders.large"),
                 ),
-                "color.opacity": 1,
                 "font": (
                     "family": variables.format-var("fonts.families.monospace"),
+                    "opacity": 1,
                     "size": variables.format-var("fonts.sizes.inline.nano"),
                     "weight": bolder,
                 ),

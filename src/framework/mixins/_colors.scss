@@ -31,23 +31,3 @@
 @mixin transitions-opacity() {
     @include transitions.push(opacity, "visual");
 }
-
-@mixin text($namespace, $face, $shade, $palette: null) {
-    @include transitions-text();
-
-    @if $palette {
-        color: hsla(
-            var(--palettes-#{$palette}-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.color.opacity")}
-        );
-    } @else {
-        color: hsla(
-            var(--palette-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.color.opacity")}
-        );
-    }
-}
-
-@mixin transitions-text() {
-    @include transitions.push(color, "visual");
-}

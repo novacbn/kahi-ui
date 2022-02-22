@@ -253,7 +253,7 @@
                     {#each SPACINGS as spacing}
                         <Box palette="negative">
                             <Box
-                                palette="alert"
+                                palette="neutral"
                                 {...{[`margin${direction ? "_" + direction : ""}`]: spacing}}
                             >
                                 {spacing.toUpperCase()}
@@ -279,10 +279,10 @@
                 >
                     {#each SPACINGS as spacing}
                         <Box
-                            palette="accent"
+                            palette="informative"
                             {...{[`padding${direction ? "_" + direction : ""}`]: spacing}}
                         >
-                            <Box palette="alert">
+                            <Box palette="neutral">
                                 {spacing.toUpperCase()}
                             </Box>
                         </Box>

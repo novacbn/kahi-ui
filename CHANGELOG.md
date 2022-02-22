@@ -24,7 +24,7 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
         -   `<* sizing>` — Added `nano` / `massive` size tiers to any Component that can scale.
         -   `<* size>` — Is now a shorthand property for expressing `width` + `height`.
 
-            -   e.g. `<* size="viewport-66>` is equivalent to `<* width="viewport-66" height="viewport-66">`
+            -   e.g. `<* size="viewport-66">` is equivalent to `<* width="viewport-66" height="viewport-66">`
 
         -   `<* width/height/size="nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}">` — Sets dimensions based on the current theme's block sizing variables.
 

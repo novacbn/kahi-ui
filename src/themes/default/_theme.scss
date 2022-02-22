@@ -1,9 +1,6 @@
-@use "../../framework/abstracts/animations";
 @use "../../framework/abstracts/constants";
-@use "../../framework/abstracts/palettes";
-@use "../../framework/abstracts/sizes";
+@use "../../framework/abstracts/generators";
 @use "../../framework/abstracts/variables";
-@use "../../framework/abstracts/viewports";
 
 /**********************************************\
 |               COLOR PALETTES                 |
@@ -15,10 +12,11 @@
  */
 
 // NOTE: When using the generative color system, `dark` and `light` **ALWAYS** needs to come first
+
 // NOTE: The `dark` and `light` palettes need to be special-cased due to co-dependency
 
 @include constants.define(
-    palettes.generate-darklight-palette(
+    generators.darklight(
         $dark: (
             "base": hsl(217, 15%, 15%),
             "stepping": 3%,
@@ -34,7 +32,7 @@
     (
         "palettes": (
             "accent":
-                palettes.generate-color-palette(
+                generators.palette(
                     $dark: (
                         "base": hsl(200, 25%, 47.5%),
                         "stepping": 4%,
@@ -45,7 +43,7 @@
                     )
                 ),
             "neutral":
-                palettes.generate-color-palette(
+                generators.palette(
                     $dark: (
                         "base": hsl(225, 2.5%, 40%),
                         "stepping": 4%,
@@ -67,7 +65,7 @@
     (
         "palettes": (
             "alert":
-                palettes.generate-color-palette(
+                generators.palette(
                     $dark: (
                         "base": hsl(35, 45%, 50%),
                         "stepping": 4%,
@@ -78,7 +76,7 @@
                     )
                 ),
             "affirmative":
-                palettes.generate-color-palette(
+                generators.palette(
                     $dark: (
                         "base": hsl(145, 30%, 40%),
                         "stepping": 4%,
@@ -89,7 +87,7 @@
                     )
                 ),
             "informative":
-                palettes.generate-color-palette(
+                generators.palette(
                     $dark: (
                         "base": hsl(210, 30%, 50%),
                         "stepping": 4%,
@@ -100,7 +98,7 @@
                     )
                 ),
             "negative":
-                palettes.generate-color-palette(
+                generators.palette(
                     $dark: (
                         "base": hsl(10, 40%, 50%),
                         "stepping": 4%,
@@ -204,10 +202,10 @@
 @include variables.define(
     (
         "fonts": (
-            "line-heights": sizes.generate-scaling($base: 1, $ratio: 1.075),
+            "line-heights": generators.modular($base: 1, $ratio: 1.075),
             "sizes": (
-                "block": sizes.generate-scaling($base: 1.541, $ratio: 1.155),
-                "inline": sizes.generate-scaling($base: 0.75, $ratio: 1.155),
+                "block": generators.modular($base: 1.541, $ratio: 1.155),
+                "inline": generators.modular($base: 0.75, $ratio: 1.155),
             ),
         ),
     )
@@ -225,8 +223,8 @@
 @include variables.define(
     (
         "spacings": (
-            "block": sizes.generate-scaling($base: 0.125, $ratio: 2),
-            "inline": sizes.generate-scaling($base: 0.025, $ratio: 2),
+            "block": generators.modular($base: 0.125, $ratio: 2),
+            "inline": generators.modular($base: 0.025, $ratio: 2),
         ),
     )
 );
@@ -256,9 +254,9 @@
 @include variables.define(
     (
         "sizes": (
-            "block": sizes.generate-scaling($base: 9.5, $ratio: 1.2),
-            "borders": sizes.generate-stepping($base: 1px, $stepping: 1px),
-            "icon": sizes.generate-stepping($base: 16px, $stepping: 8px),
+            "block": generators.modular($base: 9.5, $ratio: 1.2),
+            "borders": generators.stepping($base: 1px, $stepping: 1px),
+            "icon": generators.stepping($base: 16px, $stepping: 8px),
             "prose": 65ch,
         ),
     )
@@ -307,7 +305,7 @@
 
 @include variables.define(
     (
-        "radius": sizes.generate-scaling($base: 0.125, $ratio: 2),
+        "radius": generators.modular($base: 0.125, $ratio: 2),
         "shapes": (
             "circle": 100%,
             "pill": 9999px,
@@ -347,17 +345,17 @@
     (
         "animations": (
             "movement":
-                animations.generate-tier(
+                generators.animation(
                     $duration: 0.25s,
                     $function: variables.format-var("easings.ease-out-quad")
                 ),
             "reveal":
-                animations.generate-tier(
+                generators.animation(
                     $duration: 0.3s,
                     $function: variables.format-var("easings.ease-in-out-cubic")
                 ),
             "visual":
-                animations.generate-tier(
+                generators.animation(
                     $duration: 0.2s,
                     $function: variables.format-var("easings.ease-out-quad")
                 ),

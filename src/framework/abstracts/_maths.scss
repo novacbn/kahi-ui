@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@function scale($base, $ratio, $step) {
+@function modular($base, $ratio, $step) {
     @return $base * math.pow($ratio, $step);
 }
 

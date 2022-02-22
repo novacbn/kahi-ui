@@ -1,8 +1,6 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Text from "../../typography/text/Text.svelte";
-
     import * as Stack from "../stack";
 
     import Article from "./Article.svelte";

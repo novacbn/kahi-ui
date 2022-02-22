@@ -1,8 +1,9 @@
-@use "../mixins/colors";
+@use "../mixins/backgrounds";
 @use "../mixins/fonts";
 @use "../mixins/intrinsics";
 @use "../mixins/transforms";
 @use "../mixins/transitions";
+@use "../mixins/transparency";
 
 @mixin base($namespace) {
     appearance: none;
@@ -27,8 +28,8 @@
 
     @include variation-loud-base($namespace: $namespace);
 
-    @include colors.transitions-background();
-    @include colors.transitions-opacity();
+    @include backgrounds.transitions();
+    @include transparency.transitions();
     @include fonts.transitions();
     @include transforms.transitions();
 
@@ -37,7 +38,7 @@
 
 @mixin base-disabled($namespace) {
     cursor: not-allowed;
-    @include colors.opacity($namespace: "#{$namespace}.disabled");
+    @include transparency.opacity($namespace: "#{$namespace}.disabled");
 }
 
 @mixin pseudo-base() {
@@ -113,7 +114,7 @@
 }
 
 @mixin variation-block-base($namespace, $is-checked: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}",
         $face: "background",
         $shade: "bolder"
@@ -127,7 +128,7 @@
 }
 
 @mixin variation-block-active($namespace, $is-checked: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.active",
         $face: "background",
         $shade: "bolder"
@@ -141,7 +142,7 @@
 }
 
 @mixin variation-block-focus($namespace, $is-checked: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.#{if($is-checked, "checked", "unchecked")}.focus",
         $face: "background",
         $shade: "bolder"

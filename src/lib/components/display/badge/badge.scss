@@ -1,6 +1,6 @@
 @use "../../../../framework/appearances/anchor";
 
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/radius";
@@ -20,7 +20,7 @@
 
         @include radius.all($unit: em);
 
-        @include colors.background($namespace: "badge", $face: "foreground", $shade: "lightest");
+        @include backgrounds.color($namespace: "badge", $face: "foreground", $shade: "lightest");
         @include fonts.color($namespace: "badge", $face: "background", $shade: "normal");
         text-shadow: 0px 0px 0px currentColor;
 
@@ -30,7 +30,7 @@
         @include transitions.build();
 
         &[data-palette] {
-            @include colors.background(
+            @include backgrounds.color(
                 $namespace: "badge",
                 $face: "background",
                 $shade: "lightest"

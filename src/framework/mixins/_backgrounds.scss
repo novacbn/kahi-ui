@@ -2,8 +2,8 @@
 
 @use "./transitions";
 
-@mixin background($namespace, $face, $shade, $palette: null) {
-    @include transitions-background();
+@mixin color($namespace, $face, $shade, $palette: null) {
+    @include transitions();
 
     @if $palette {
         background-color: hsla(
@@ -18,16 +18,6 @@
     }
 }
 
-@mixin transitions-background() {
+@mixin transitions() {
     @include transitions.push(background-color, "visual");
-}
-
-@mixin opacity($namespace) {
-    @include transitions-opacity();
-
-    opacity: #{variables.format-var("#{$namespace}.opacity")};
-}
-
-@mixin transitions-opacity() {
-    @include transitions.push(opacity, "visual");
 }

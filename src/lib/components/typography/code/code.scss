@@ -1,5 +1,5 @@
 @use "../../../../framework/mixins/borders";
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
@@ -15,12 +15,12 @@
 
         @include intrinsics.padding-all($namespace: "code", $unit: em);
 
-        @include colors.background($namespace: "code", $face: "background", $shade: "bolder");
+        @include backgrounds.color($namespace: "code", $face: "background", $shade: "bolder");
         @include fonts.family($namespace: "code");
         @include radius.all($namespace: "code", $unit: em);
 
         @include borders.transitions();
-        @include colors.transitions-background();
+        @include backgrounds.transitions();
 
         @include transitions.build();
     }

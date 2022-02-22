@@ -2,7 +2,7 @@
 @use "../../../../framework/appearances/surface";
 
 @use "../../../../framework/mixins/borders";
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/elevations";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
@@ -27,7 +27,7 @@
         @include fonts.size($unit: rem, $sizing-tier: "inline");
 
         @include borders.transitions();
-        @include colors.transitions-background();
+        @include backgrounds.transitions();
         @include fonts.transitions();
 
         @include transitions.build();

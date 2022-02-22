@@ -1,12 +1,13 @@
 @use "../abstracts/variables";
 
 @use "../mixins/borders";
-@use "../mixins/colors";
+@use "../mixins/backgrounds";
 @use "../mixins/fonts";
 @use "../mixins/intrinsics";
 @use "../mixins/radius";
 @use "../mixins/sizings";
 @use "../mixins/transitions";
+@use "../mixins/transparency";
 
 @mixin base($namespace) {
     text-decoration: #{variables.format-var("#{$namespace}.text.decoration")};
@@ -23,7 +24,7 @@
 
 @mixin base-disabled($namespace) {
     cursor: not-allowed;
-    @include colors.opacity($namespace: "#{$namespace}.disabled");
+    @include transparency.opacity($namespace: "#{$namespace}.disabled");
 }
 
 @mixin base-focus($namespace) {

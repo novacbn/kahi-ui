@@ -1,13 +1,14 @@
 @use "../abstracts/variables";
 
 @use "../mixins/borders";
-@use "../mixins/colors";
+@use "../mixins/backgrounds";
 @use "../mixins/fonts";
 @use "../mixins/intrinsics";
 @use "../mixins/radius";
 @use "../mixins/sizings";
 @use "../mixins/transforms";
 @use "../mixins/transitions";
+@use "../mixins/transparency";
 
 @mixin base(
     $namespace,
@@ -39,8 +40,8 @@
     vertical-align: middle;
     white-space: nowrap;
 
-    @include colors.transitions-background();
-    @include colors.transitions-opacity();
+    @include backgrounds.transitions();
+    @include transparency.transitions();
     @include fonts.transitions();
 
     @if ($support-loud) {
@@ -66,7 +67,7 @@
 
 @mixin base-disabled($namespace) {
     cursor: not-allowed;
-    @include colors.opacity($namespace: "#{$namespace}.disabled");
+    @include transparency.opacity($namespace: "#{$namespace}.disabled");
 }
 
 @mixin state-active($is-inverse: false) {
@@ -114,7 +115,7 @@
 }
 
 @mixin variation-block-base($namespace, $is-inverse: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
         $shade: "bolder"
@@ -127,7 +128,7 @@
 }
 
 @mixin variation-block-active($namespace, $is-inverse: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.active",
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
@@ -140,7 +141,7 @@
 }
 
 @mixin variation-block-focus($namespace, $is-inverse: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.focus",
         $face: if($is-inverse, "foreground", "background"),
         $shade: "normal"
@@ -153,7 +154,7 @@
 }
 
 @mixin variation-clear-base($namespace, $is-inverse: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
@@ -166,7 +167,7 @@
 }
 
 @mixin variation-clear-active($namespace, $is-inverse: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.active",
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
@@ -179,7 +180,7 @@
 }
 
 @mixin variation-clear-focus($namespace, $is-inverse: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.focus",
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
@@ -197,7 +198,7 @@
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
     );
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: $namespace,
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
@@ -215,7 +216,7 @@
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
     );
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.active",
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
@@ -233,7 +234,7 @@
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"
     );
-    @include colors.background(
+    @include backgrounds.color(
         $namespace: "#{$namespace}.focus",
         $face: if($is-inverse, "foreground", "background"),
         $shade: "lightest"

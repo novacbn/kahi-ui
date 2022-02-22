@@ -1,5 +1,5 @@
 @use "../../../../framework/mixins/borders";
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
@@ -17,7 +17,7 @@
 
         @include intrinsics.padding-all($namespace: "file-drop-input", $unit: rem);
 
-        @include colors.background(
+        @include backgrounds.color(
             $namespace: "file-drop-input",
             $face: "background",
             $shade: "lightest"

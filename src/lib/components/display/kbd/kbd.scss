@@ -1,5 +1,5 @@
 @use "../../../../framework/mixins/borders";
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/radius";
@@ -9,7 +9,7 @@
     .kbd {
         @include intrinsics.padding-all($namespace: "kbd", $unit: em);
 
-        @include colors.background(
+        @include backgrounds.color(
             $namespace: "kbd",
             $palette: "auto",
             $face: "background",
@@ -36,7 +36,7 @@
         white-space: nowrap;
 
         @include borders.transitions();
-        @include colors.transitions-background();
+        @include backgrounds.transitions();
         @include fonts.transitions();
 
         @include transitions.build();

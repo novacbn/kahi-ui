@@ -1,4 +1,4 @@
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/radius";
 @use "../../../../framework/mixins/palettes";
@@ -10,7 +10,7 @@
 
         @include intrinsics.size-all($namespace: "dot");
 
-        @include colors.background($namespace: "dot", $face: "foreground", $shade: "normal");
+        @include backgrounds.color($namespace: "dot", $face: "foreground", $shade: "normal");
         @include radius.all($namespace: "dot");
 
         vertical-align: middle;
@@ -21,7 +21,7 @@
         @include transitions.build();
 
         &[data-palette] {
-            @include colors.background($namespace: "dot", $face: "background", $shade: "bolder");
+            @include backgrounds.color($namespace: "dot", $face: "background", $shade: "bolder");
         }
     }
 }

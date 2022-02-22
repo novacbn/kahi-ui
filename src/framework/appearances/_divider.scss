@@ -1,8 +1,9 @@
-@use "../mixins/colors";
+@use "../mixins/backgrounds";
 @use "../mixins/fonts";
 @use "../mixins/intrinsics";
 @use "../mixins/radius";
 @use "../mixins/transitions";
+@use "../mixins/transparency";
 
 @use "./legend";
 
@@ -10,7 +11,7 @@
     display: flex;
 
     @include fonts.color($namespace: $namespace, $face: "foreground", $shade: "normal");
-    @include colors.opacity($namespace: $namespace);
+    @include transparency.opacity($namespace: $namespace);
 
     pointer-events: none;
     user-select: none;

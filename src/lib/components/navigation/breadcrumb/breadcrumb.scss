@@ -2,8 +2,9 @@
 
 @use "../../../../framework/abstracts/variables";
 
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/transparency";
 
 @if not env("DISABLE_COMPONENTS_NAVIGATION_BREADCRUMB") {
     .breadcrumb {
@@ -15,14 +16,14 @@
     .breadcrumb--item {
         @include anchor.base($namespace: "breadcrumb.item");
 
-        @include colors.opacity("breadcrumb.item");
+        @include transparency.opacity("breadcrumb.item");
 
         @include anchor.state-focus() {
             @include anchor.base-focus($namespace: "breadcrumb.item");
         }
 
         @include anchor.state-active($is-inverse: true) {
-            @include colors.opacity("breadcrumb.item.active");
+            @include transparency.opacity("breadcrumb.item.active");
         }
 
         .breadcrumb[data-palette] &,
@@ -32,6 +33,6 @@
     }
 
     .breadcrumb--separator {
-        @include colors.opacity("breadcrumb.separator");
+        @include transparency.opacity("breadcrumb.separator");
     }
 }

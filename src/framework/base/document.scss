@@ -3,7 +3,7 @@
 
 @use "../appearances/surface";
 
-@use "../mixins/colors";
+@use "../mixins/backgrounds";
 @use "../mixins/fonts";
 @use "../mixins/transitions";
 
@@ -31,7 +31,7 @@
     // "surface" convention so the dark / light palettes stand
     // out more when used else where as backgrounds
 
-    @include colors.background($namespace: "document", $face: "background", $shade: "light");
+    @include backgrounds.color($namespace: "document", $face: "background", $shade: "light");
     @include surface.text($namespace: "document");
 
     @include fonts.family($namespace: "document");
@@ -82,7 +82,7 @@
     border: calc(variables.format-var("document.scrollbar.track.padding") * 1rem) solid
         rgba(255, 255, 255, 0);
 
-    @include colors.transitions-background();
+    @include backgrounds.transitions();
     @include transitions.build();
 }
 

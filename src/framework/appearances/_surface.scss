@@ -1,5 +1,5 @@
 @use "../mixins/borders";
-@use "../mixins/colors";
+@use "../mixins/backgrounds";
 @use "../mixins/fonts";
 @use "../mixins/radius";
 
@@ -52,7 +52,7 @@
 }
 
 @mixin background($namespace, $is-inverse: false) {
-    @include colors.background(
+    @include backgrounds.color(
         $namespace,
         if($is-inverse, "foreground", "background"),
         $shade: "lighter"

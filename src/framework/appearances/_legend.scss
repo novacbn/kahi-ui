@@ -1,7 +1,8 @@
-@use "../mixins/colors";
+@use "../mixins/backgrounds";
 @use "../mixins/fonts";
 @use "../mixins/intrinsics";
 @use "../mixins/transitions";
+@use "../mixins/transparency";
 
 @mixin base($namespace, $support-opacity: false) {
     display: inline-flex;
@@ -16,7 +17,7 @@
     text-transform: uppercase;
 
     @if $support-opacity {
-        @include colors.opacity($namespace: $namespace);
+        @include transparency.opacity($namespace: $namespace);
 
         @include transitions.build();
     }

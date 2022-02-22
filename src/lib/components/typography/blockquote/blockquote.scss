@@ -1,5 +1,5 @@
 @use "../../../../framework/mixins/borders";
-@use "../../../../framework/mixins/colors";
+@use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
 @use "../../../../framework/mixins/radius";
@@ -14,12 +14,12 @@
 
         @include intrinsics.padding-all($namespace: "blockquote", $unit: em);
 
-        @include colors.background($namespace: "blockquote", $face: "background", $shade: "bolder");
+        @include backgrounds.color($namespace: "blockquote", $face: "background", $shade: "bolder");
         @include borders.left($namespace: "blockquote", $face: "background", $shade: "bolder");
         @include radius.all($namespace: "blockquote", $unit: em);
 
         @include borders.transitions();
-        @include colors.transitions-background();
+        @include backgrounds.transitions();
 
         @include transitions.build();
     }

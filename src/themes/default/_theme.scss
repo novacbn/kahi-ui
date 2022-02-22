@@ -47,11 +47,11 @@
             "neutral":
                 palettes.generate-color-palette(
                     $dark: (
-                        "base": hsl(225, 5%, 37.5%),
+                        "base": hsl(225, 2.5%, 40%),
                         "stepping": 4%,
                     ),
                     $light: (
-                        "base": hsl(225, 10%, 37.5%),
+                        "base": hsl(225, 10%, 45%),
                         "stepping": 4%,
                     )
                 ),

@@ -22,8 +22,7 @@
         @include alignments.text();
         @include transforms.text();
 
-        @include fonts.line-height($support-sizing: true);
-        @include fonts.size($tier: "inline", $unit: rem);
+        @include fonts.size($tier: "inline", $unit: em);
 
         @include fonts.transitions();
         @include transparency.transitions();
@@ -35,7 +34,7 @@
         }
 
         &[data-variation~="block"] {
-            @include fonts.size($tier: "block", $unit: rem);
+            @include fonts.size($tier: "block", $unit: em);
         }
 
         &[data-variation~="truncate"] {

@@ -39,7 +39,6 @@
         cursor: pointer;
 
         @include fonts.size($unit: rem, $tier: "inline");
-        //@include fonts.line-height($namespace: "tab");
 
         user-select: none;
 

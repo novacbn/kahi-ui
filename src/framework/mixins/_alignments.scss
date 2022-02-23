@@ -34,7 +34,7 @@
     }
 }
 
-@mixin var-reset-text($alignment: inherit, $namespace: null) {
+@mixin var-reset-text($alignment: initial, $namespace: null) {
     @if $namespace {
         --alignment-text: #{variables.format-var("#{$namespace}.alignment.text")};
     } @else {

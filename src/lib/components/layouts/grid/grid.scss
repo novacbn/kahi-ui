@@ -1,5 +1,7 @@
 @use "../../../../framework/appearances/grid";
 
+@use "../../../../framework/mixins/intrinsics";
+
 @if not env("DISABLE_COMPONENTS_LAYOUTS_GRID") {
     .grid {
         @include grid.var-reset();
@@ -10,6 +12,10 @@
 
         grid-auto-flow: row dense;
         grid-template-columns: repeat(var(--points), 1fr);
+
+        &[data-variation~="relative"] {
+            @include intrinsics.gap-all($unit: em);
+        }
     }
 
     .grid--item {

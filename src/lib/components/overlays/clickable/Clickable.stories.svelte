@@ -64,7 +64,7 @@
 
             <Tile.Footer>
                 <Clickable.Label for="clickable-label">
-                    <Switch palette="affirmative" />
+                    <Switch palette="affirmative" sizing="medium" />
                 </Clickable.Label>
             </Tile.Footer>
         </Tile.Container>

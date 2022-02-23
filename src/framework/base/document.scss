@@ -5,27 +5,11 @@
 
 @use "../mixins/backgrounds";
 @use "../mixins/fonts";
+@use "../mixins/palettes" as palette-mixins;
 @use "../mixins/transitions";
 
 :root {
-    // HACK: Would use `palettes.var-palette()`, but then there would
-    // be an import naming conflict
-
-    --palette-background-lightest: var(--palettes-auto-background-lightest);
-    --palette-background-lighter: var(--palettes-auto-background-lighter);
-    --palette-background-light: var(--palettes-auto-background-light);
-    --palette-background-normal: var(--palettes-auto-background-normal);
-    --palette-background-bold: var(--palettes-auto-background-bold);
-    --palette-background-bolder: var(--palettes-auto-background-bolder);
-    --palette-background-boldest: var(--palettes-auto-background-boldest);
-
-    --palette-foreground-lightest: var(--palettes-auto-foreground-lightest);
-    --palette-foreground-lighter: var(--palettes-auto-foreground-lighter);
-    --palette-foreground-light: var(--palettes-auto-foreground-light);
-    --palette-foreground-normal: var(--palettes-auto-foreground-normal);
-    --palette-foreground-bold: var(--palettes-auto-foreground-bold);
-    --palette-foreground-bolder: var(--palettes-auto-foreground-bolder);
-    --palette-foreground-boldest: var(--palettes-auto-foreground-boldest);
+    @include palette-mixins.var-palette($palette: "auto");
 
     // NOTE: The base document background color diverges from
     // "surface" convention so the dark / light palettes stand

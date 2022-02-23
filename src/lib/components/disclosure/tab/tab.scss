@@ -87,7 +87,7 @@
         }
     }
 
-    .tab--state:checked + label:not([aria-disabled]),
+    .tab--state:checked + .tab--item:not([aria-disabled]),
     .tab--item:not([aria-disabled]):is(:active, [aria-current], [aria-pressed="true"]) {
         @include fonts.color($namespace: "tab.item.active", $face: "background", $shade: "bolder");
 

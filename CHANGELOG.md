@@ -237,7 +237,7 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   **(BREAKING)** `<Text is="kbd">` — Due to not acting strictly as a text modifier, it migrated to becoming its own `Kbd` Component.
 
-                . e.g. `<Text is="kbd">CTRL+C</Text>` -> `<Kbd>CTRL+C</Kbd>`
+                -   e.g. `<Text is="kbd">CTRL+C</Text>` -> `<Kbd>CTRL+C</Kbd>`
 
     -   Widgets
 

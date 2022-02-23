@@ -72,7 +72,7 @@
 
 ::-webkit-scrollbar-track {
     background-color: hsla(
-        #{palettes.format-var($name: "dark", $face: "background", $shade: "lightest")},
+        #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
         #{variables.format-var("document.scrollbar.track.background.opacity")}
     );
 }
@@ -81,7 +81,7 @@
     background-clip: padding-box;
 
     background-color: hsla(
-        #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
+        #{palettes.format-var($name: "dark", $face: "background", $shade: "lightest")},
         #{variables.format-var("document.scrollbar.thumb.background.opacity")}
     );
 }

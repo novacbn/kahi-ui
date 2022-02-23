@@ -10,8 +10,8 @@
 
 @mixin var-reset-all($display, $alignment-x: initial, $alignment-y: initial, $namespace: null) {
     @if $namespace {
-        --alignment-#{$display}-: #{variables.format-var("#{$namespace}.alignment.x")};
-        --alignment-#{$display}-: #{variables.format-var("#{$namespace}.alignment.y")};
+        --alignment-#{$display}-x: #{variables.format-var("#{$namespace}.alignment.x")};
+        --alignment-#{$display}-y: #{variables.format-var("#{$namespace}.alignment.y")};
     } @else {
         --alignment-#{$display}-x: #{$alignment-x};
         --alignment-#{$display}-y: #{$alignment-y};

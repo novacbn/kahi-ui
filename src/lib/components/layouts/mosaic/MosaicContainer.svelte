@@ -18,6 +18,7 @@
         IMarginProperties,
         IPaddingProperties,
     } from "../../../types/spacings";
+    import type {PROPERTY_VARIATION_GRID} from "../../../types/variations";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -31,6 +32,7 @@
         element?: HTMLDivElement;
 
         sizing?: PROPERTY_SIZING_BREAKPOINT;
+        variation?: PROPERTY_VARIATION_GRID;
 
         alignment?: PROPERTY_ALIGNMENT_BREAKPOINT;
         alignment_x?: PROPERTY_ALIGNMENT_X_BREAKPOINT;
@@ -56,6 +58,7 @@
     export {_class as class};
 
     export let sizing: $$Props["sizing"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 
     export let alignment: $$Props["alignment"] = undefined;
     export let alignment_x: $$Props["alignment_x"] = undefined;
@@ -78,6 +81,7 @@
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
+        variation,
     })}
     use:forward_actions={{actions}}
     on:click

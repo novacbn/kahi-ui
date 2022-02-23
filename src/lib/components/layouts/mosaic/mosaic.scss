@@ -13,6 +13,13 @@
             auto-fill,
             minmax(calc(var(--sizing-size-block) * 1rem), 1fr)
         );
+
+        &[data-variation~="relative"] {
+            grid-template-columns: repeat(
+                auto-fill,
+                minmax(calc(var(--sizing-size-block) * 1em), 1fr)
+            );
+        }
     }
 
     .mosaic--item {

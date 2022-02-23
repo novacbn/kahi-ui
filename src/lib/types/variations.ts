@@ -13,6 +13,8 @@ export enum TOKENS_VARIATION_ANIMATION {
  * Represents the tiers of flex variations tokens that can be applied to Framework Components
  */
 export enum TOKENS_VARIATION_FLEX {
+    relative = "relative",
+
     wrap = "wrap",
 }
 
@@ -29,6 +31,13 @@ export enum TOKENS_VARIATION_FILL {
     subtle = "subtle",
 
     outline = "outline",
+}
+
+/**
+ * Represents the tiers of grid variations tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_GRID {
+    relative = "relative",
 }
 
 /**
@@ -109,6 +118,8 @@ export type PROPERTY_VARIATION_BUTTON =
     | [`${TOKENS_VARIATION_FILL.subtle}`, LiteralObject<typeof TOKENS_VARIATION_BUTTON>];
 
 export type PROPERTY_VARIATION_FLEX = ArrayEnum<LiteralEnum<TOKENS_VARIATION_FLEX>>;
+
+export type PROPERTY_VARIATION_GRID = ArrayEnum<LiteralEnum<TOKENS_VARIATION_GRID>>;
 
 export type PROPERTY_VARIATION_INPUT = LiteralObject<typeof TOKENS_VARIATION_INPUT>;
 

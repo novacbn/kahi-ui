@@ -108,11 +108,15 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
         -   `Mosaic`
 
+            -   `<Mosaic.Container variation="relative">` — Adjusts spacing and sizing to be relative to inherited font size.
+
             -   `<Mosaic.Item>` — Adjusts the layout of a singular `Mosaic` item.
 
                 -   `<Mosaic.Item span={number} span_x={number} span_y={number}>` — Adjusts the column / row span of the item.
 
         -   `Stack`
+
+            -   `<Stack.Container variation="relative">` — Adjusts spacing to be relative to inherited font size.
 
             -   `<Stack.Item>` — Adjusts the layout of a singular `Stack` item.
 

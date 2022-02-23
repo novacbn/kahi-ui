@@ -4,7 +4,7 @@
     @include variables.define(
         (
             "code": (
-                "background.opacity": 0.15,
+                "background.opacity": 0.1,
                 "border.radius": variables.format-var("radius.tiny"),
                 "font": (
                     "family": variables.format-var("fonts.families.monospace"),

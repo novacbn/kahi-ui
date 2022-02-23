@@ -1,41 +1,45 @@
-.carousel {
-    --spacing-x: 0;
-    --spacing-y: 0;
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/spacings";
 
-    display: flex;
-    align-items: center;
+@if not env("DISABLE_COMPONENTS_DISCLOSURE_CAROUSEL") {
+    .carousel {
+        @include spacings.var-reset();
 
-    position: relative;
+        display: flex;
+        align-items: center;
 
-    gap: var(--spacing-y) var(--spacing-x);
+        position: relative;
 
-    scroll-behavior: smooth;
+        @include intrinsics.gap-all($unit: rem);
 
-    &:is([data-orientation="horizontal"], :not([data-orientation])) {
-        flex-direction: row;
+        scroll-behavior: smooth;
 
-        scroll-snap-type: x mandatory;
-        overflow: scroll hidden;
+        &:is([data-orientation="horizontal"], :not([data-orientation])) {
+            flex-direction: row;
+
+            scroll-snap-type: x mandatory;
+            overflow: scroll hidden;
+        }
+
+        &[data-orientation~="vertical"] {
+            flex-direction: column;
+
+            scroll-snap-type: y mandatory;
+            overflow: hidden scroll;
+        }
     }
 
-    &[data-orientation~="vertical"] {
-        flex-direction: column;
+    .carousel--section {
+        display: flex;
+        flex: none;
 
-        scroll-snap-type: y mandatory;
-        overflow: hidden scroll;
-    }
-}
+        width: 100%;
+        height: 100%;
 
-.carousel > section {
-    display: flex;
-    flex: none;
+        scroll-snap-align: start;
 
-    width: 100%;
-    height: 100%;
-
-    scroll-snap-align: start;
-
-    & > * {
-        flex-grow: 1;
+        & > * {
+            flex-grow: 1;
+        }
     }
 }

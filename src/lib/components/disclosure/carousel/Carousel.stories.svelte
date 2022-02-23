@@ -8,7 +8,7 @@
 
     import * as Carousel from "./index";
 
-    const SECTIONS = ["negative", "affirmative", "alert"];
+    const SECTIONS = ["negative", "informative", "affirmative", "alert"];
 
     const ORIENTATIONS = [
         ["horizontal", true],
@@ -17,11 +17,13 @@
 
     const SPACINGS = [
         ["none", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -55,13 +57,16 @@
 
 <Story name="Orientation">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each ORIENTATIONS as [orientation, is_default]}
+        {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <div>
                 <Text is="strong">
                     {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Carousel.Container {orientation} style="width:300px;height:200px;">
+                <Carousel.Container
+                    orientation={is_default ? undefined : orientation}
+                    style="width:300px;height:200px;"
+                >
                     {#each SECTIONS as palette}
                         <Carousel.Section>
                             <Box {palette}>
@@ -77,13 +82,16 @@
 
 <Story name="Spacing">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
-        {#each SPACINGS as [spacing, is_default]}
+        {#each SPACINGS as [spacing, is_default] (spacing)}
             <div>
                 <Text is="strong">
                     {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Carousel.Container {spacing} style="width:300px;height:200px;">
+                <Carousel.Container
+                    spacing={is_default ? undefined : spacing}
+                    style="width:300px;height:200px;"
+                >
                     {#each SECTIONS as palette}
                         <Carousel.Section>
                             <Box {palette}>

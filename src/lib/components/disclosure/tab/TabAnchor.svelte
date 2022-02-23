@@ -41,6 +41,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let active: $$Props["active"] = undefined;
     export let current: $$Props["current"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
@@ -55,7 +58,8 @@
 
 <a
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
+    class="tab--item {_class}"
     {...map_aria_attributes({pressed: active, current, disabled})}
     {...map_data_attributes({palette})}
     {download}

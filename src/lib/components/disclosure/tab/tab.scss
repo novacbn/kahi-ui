@@ -1,117 +1,130 @@
-.tab {
-    --palette-background-bold: var(--tab-item-palette-background-bold);
+@use "../../../../framework/abstracts/variables";
 
-    --flex-alignment-x: initial;
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/transitions";
+@use "../../../../framework/mixins/transparency";
 
-    --sizing-text-size: var(--tab-item-sizing-text-size);
-    --sizing-text-line-height: var(--tab-item-sizing-text-line-height);
+@if not env("DISABLE_COMPONENTS_DISCLOSURE_TAB") {
+    .tab {
+        @include palettes.var-palette($palette: "auto", $is-inverse: true);
+        @include sizings.var-reset-font($tier: "inline", $namespace: "tab");
 
-    display: flex;
-    flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
 
-    justify-content: var(--flex-alignment-x);
-}
-
-.tab > :is(a, label) {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    gap: var(--tab-item-gap);
-
-    padding: var(--tab-item-padding-y) var(--tab-item-padding-x);
-
-    color: currentColor;
-    cursor: pointer;
-
-    font-size: var(--sizing-text-size);
-    line-height: var(--sizing-text-line-height);
-
-    text-decoration: none !important;
-    user-select: none;
-
-    transition: color var(--animation-visual-duration) var(--animation-visual-function),
-        opacity var(--animation-visual-duration) var(--animation-visual-function);
-
-    &::before {
-        display: block;
-        position: absolute;
-
-        content: "";
-
-        bottom: calc(var(--tab-item-border-width) * -1);
-        left: 0;
-
-        width: 100%;
-        height: var(--tab-item-border-width);
-
-        background: transparent;
-
-        transition: background var(--animation-visual-duration) var(--animation-visual-function);
+        justify-content: var(--flex-alignment-x);
     }
 
-    &[aria-disabled="true"] {
-        pointer-events: none;
-        opacity: var(--tab-item-disabled-opacity);
-    }
-
-    &:not([aria-disabled]):is(:focus, :hover) {
-        color: rgba(var(--palette-background-bold), var(--tab-item-focus-color-opacity));
-
-        &::before {
-            background: rgba(var(--palette-background-bold), var(--tab-item-focus-color-opacity));
+    .tab[data-alignment-x="stretch"] {
+        & > .tab--item {
+            flex-grow: 1;
         }
     }
-}
 
-.tab > [role="presentation"]:checked + label:not([aria-disabled]),
-.tab > :is(a, label):not([aria-disabled]):is(:active, [aria-current], [aria-pressed="true"]) {
-    color: rgb(var(--palette-background-bold));
+    .tab--item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-    &::before {
-        background: rgb(var(--palette-background-bold));
+        position: relative;
+
+        @include intrinsics.gap-all($namespace: "tab.item", $unit: em);
+        @include intrinsics.padding-all($namespace: "tab.item", $unit: rem);
+
+        color: currentColor;
+        cursor: pointer;
+
+        @include fonts.size($unit: rem, $tier: "inline");
+        //@include fonts.line-height($namespace: "tab");
+
+        user-select: none;
+
+        @include fonts.transitions();
+        @include transparency.transitions();
+
+        @include transitions.build();
+
+        &[aria-disabled="true"] {
+            pointer-events: none;
+
+            @include transparency.opacity($namespace: "tab.item.disabled");
+        }
+
+        &::before {
+            display: block;
+            position: absolute;
+
+            content: "";
+
+            bottom: calc(#{variables.format-var("tab.border.width")} * -1);
+            left: 0;
+
+            width: 100%;
+            height: #{variables.format-var("tab.border.width")};
+
+            background: transparent;
+
+            @include backgrounds.transitions();
+
+            @include transitions.build();
+        }
+
+        &:not([aria-disabled]):is(:focus, :hover) {
+            @include fonts.color(
+                $namespace: "tab.item.focus",
+                $face: "background",
+                $shade: "bolder"
+            );
+
+            &::before {
+                background: currentColor;
+            }
+        }
     }
-}
 
-.tab[data-alignment-x="stretch"] {
-    & > :is(a, label) {
-        flex-grow: 1;
+    .tab--state:checked + label:not([aria-disabled]),
+    .tab--item:not([aria-disabled]):is(:active, [aria-current], [aria-pressed="true"]) {
+        @include fonts.color($namespace: "tab.item.active", $face: "background", $shade: "bolder");
+
+        &::before {
+            background: currentColor;
+        }
     }
-}
 
-.tab > section {
-    display: block;
-    position: relative;
-
-    order: 9999;
-
-    width: 100%;
-
-    &::before {
+    .tab--section {
         display: block;
-        position: absolute;
+        position: relative;
 
-        content: "";
-
-        top: 0;
-        left: 0;
+        order: 9999;
 
         width: 100%;
-        height: var(--tab-section-border-width);
 
-        background: currentColor;
-        opacity: var(--tab-section-border-opacity);
+        &::before {
+            display: block;
+            position: absolute;
 
-        z-index: -1;
+            content: "";
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: #{variables.format-var("tab.border.width")};
+
+            background: currentColor;
+            opacity: #{variables.format-var("tab.section.border.opacity")};
+
+            z-index: -1;
+        }
     }
-}
 
-.tab > [role="presentation"] {
-    display: none;
-}
-
-.tab > :is(a:not([aria-current]), [role="presentation"]:not(:checked) + label) + section {
-    display: none;
+    .tab--state,
+    :is(a.tab--item:not([aria-current]), .tab--state:not(:checked) + label.tab--item)
+        + .tab--section {
+        display: none;
+    }
 }

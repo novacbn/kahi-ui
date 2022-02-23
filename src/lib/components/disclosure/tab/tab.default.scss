@@ -1,20 +1,37 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --tab-item-palette-background-bold: var(--document-foreground);
-    --tab-item-sizing-text-size: var(--document-font-size);
-    --tab-item-sizing-text-line-height: var(--document-font-line-height);
-
-    --tab-item-border-width: 2px;
-    --tab-item-gap: var(--spacing-local-small);
-    --tab-item-padding-x: var(--spacing-local-small);
-    --tab-item-padding-y: var(--spacing-local-tiny);
-
-    --tab-item-disabled-opacity: 0.4;
-    --tab-item-focus-color-opacity: 0.5;
-
-    /** */
-
-    --tab-section-border-opacity: 0.4;
-    --tab-section-border-width: 2px;
+@if not env("DISABLE_COMPONENTS_DISCLOSURE_TAB") {
+    @include variables.define(
+        (
+            "tab": (
+                "border.width": variables.format-var("sizes.borders.tiny"),
+                "font": (
+                    "line-height": variables.format-var("fonts.line-heights.massive"),
+                    "size": variables.format-var("fonts.sizes.inline.small"),
+                ),
+                "item": (
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                    "padding": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.tiny"),
+                    ),
+                    "disabled": (
+                        "opacity": 0.5,
+                    ),
+                    "active": (
+                        "font.opacity": 1,
+                    ),
+                    "focus": (
+                        "font.opacity": 0.75,
+                    ),
+                ),
+                "section": (
+                    "border.opacity": 0.25,
+                ),
+            ),
+        )
+    );
 }

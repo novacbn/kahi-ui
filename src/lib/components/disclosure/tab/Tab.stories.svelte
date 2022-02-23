@@ -19,24 +19,26 @@
     ];
 
     const PALETTES = [
-        ["neutral", true],
-        ["accent", false],
+        ["inverse", true],
         ["auto", false],
-        ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     const TABS = ["One", "Two", "Three"];

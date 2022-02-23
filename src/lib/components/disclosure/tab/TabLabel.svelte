@@ -38,6 +38,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let tabindex: $$Props["tabindex"] = 0;
 
     export let active: $$Props["active"] = undefined;
@@ -89,6 +92,7 @@
 <input
     role="presentation"
     type="radio"
+    class="tab--state"
     id={$_tab_id}
     name={$_tab_name}
     checked={state}
@@ -99,8 +103,9 @@
 
 <label
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     role="button"
+    class="tab--item {_class}"
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
     for={$_tab_id}

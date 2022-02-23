@@ -6,6 +6,7 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
+    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import {TOKENS_SPACING} from "../../../types/spacings";
 
@@ -91,6 +92,8 @@
     }
 
     $: _halfves = get_year_halves(timestamp);
+
+    $: _sizing = sizing ?? TOKENS_SIZING.small;
 </script>
 
 <StackContainer
@@ -98,9 +101,15 @@
     {...$$restProps}
     class="year-picker {_class}"
     spacing={TOKENS_SPACING.small}
+    variation="relative"
+    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1em);"
 >
     {#each _halfves as _half, _half_index (_half_index)}
-        <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_half.length};">
+        <GridContainer
+            spacing={TOKENS_SPACING.small}
+            style="--points:{_half.length};"
+            variation="relative"
+        >
             {#each _half as _year, _year_index (_year)}
                 <Button
                     variation={includes_year(_year, highlight)
@@ -110,7 +119,7 @@
                     active={includes_year(_year, value)}
                     disabled={!is_year_in_range(_year, min, max, true) ||
                         (disabled instanceof Array ? includes_year(_year, disabled) : disabled)}
-                    {sizing}
+                    sizing={_sizing}
                     on:click={on_year_click.bind(null, _year)}
                 >
                     {format_year(_year, locale, {

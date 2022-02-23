@@ -115,9 +115,14 @@
     {...$$restProps}
     class="day-picker {_class}"
     spacing={TOKENS_SPACING.small}
-    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1rem);"
+    variation="relative"
+    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1em);"
 >
-    <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_weeks[0].length};">
+    <GridContainer
+        spacing={TOKENS_SPACING.small}
+        style="--points:{_weeks[0].length};"
+        variation="relative"
+    >
         {#each _weeks[0] as _day (_day)}
             <FormLegend is="span" style="justify-content:center;">
                 {format_day(_day, locale, {
@@ -128,7 +133,11 @@
     </GridContainer>
 
     {#each _weeks as _week, _week_index (_week_index)}
-        <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_week.length};">
+        <GridContainer
+            spacing={TOKENS_SPACING.small}
+            style="--points:{_week.length};"
+            variation="relative"
+        >
             {#each _week as _day, _day_index (_day)}
                 <Button
                     variation={includes_day(_day, highlight)

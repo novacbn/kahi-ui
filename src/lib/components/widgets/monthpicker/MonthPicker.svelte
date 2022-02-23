@@ -6,6 +6,7 @@
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
+    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import {TOKENS_SPACING} from "../../../types/spacings";
 
@@ -92,6 +93,8 @@
     }
 
     $: _quaters = get_month_quaters(timestamp);
+
+    $: _sizing = sizing ?? TOKENS_SIZING.small;
 </script>
 
 <StackContainer
@@ -99,9 +102,15 @@
     {...$$restProps}
     class="month-picker {_class}"
     spacing={TOKENS_SPACING.small}
+    variation="relative"
+    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1em);"
 >
     {#each _quaters as _quater, _quater_index (_quater_index)}
-        <GridContainer spacing={TOKENS_SPACING.small} style="--points:{_quater.length};">
+        <GridContainer
+            spacing={TOKENS_SPACING.small}
+            style="--points:{_quater.length};"
+            variation="relative"
+        >
             {#each _quater as _month, _month_index (_month)}
                 <Button
                     variation={includes_month(_month, highlight)
@@ -111,7 +120,7 @@
                     active={includes_month(_month, value)}
                     disabled={!is_month_in_range(_month, min, max, true) ||
                         (disabled instanceof Array ? includes_month(_month, disabled) : disabled)}
-                    {sizing}
+                    sizing={_sizing}
                     on:click={on_month_click.bind(null, _month)}
                 >
                     {format_month(_month, locale, {

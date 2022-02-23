@@ -176,10 +176,12 @@
     bind:element
     class="time-picker {_class}"
     spacing={TOKENS_SPACING.small}
+    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1em);"
+    variation="relative"
 >
     <StackContainer orientation="horizontal" alignment_x="stretch">
         <Scrollable bind:element={hour_column} height={_sizing}>
-            <StackContainer spacing={TOKENS_SPACING.small}>
+            <StackContainer spacing={TOKENS_SPACING.small} variation="relative">
                 {#each _hours as _hour, _hour_index (_hour)}
                     <Button
                         variation={includes_hour(_hour, highlight)
@@ -202,7 +204,7 @@
         </Scrollable>
 
         <Scrollable bind:element={minute_column} height={_sizing}>
-            <StackContainer spacing={TOKENS_SPACING.small}>
+            <StackContainer spacing={TOKENS_SPACING.small} variation="relative">
                 {#each _minutes as _minute, _minute_index (_minute)}
                     <Button
                         variation={includes_minute(_minute, highlight)
@@ -226,7 +228,7 @@
         </Scrollable>
 
         <Scrollable bind:element={second_column} height={_sizing}>
-            <StackContainer spacing={TOKENS_SPACING.small}>
+            <StackContainer spacing={TOKENS_SPACING.small} variation="relative">
                 {#each _seconds as _second, _second_index (_second)}
                     <Button
                         variation={includes_second(_second, highlight)
@@ -256,6 +258,7 @@
             orientation="horizontal"
             alignment_x="stretch"
             spacing={TOKENS_SPACING.small}
+            variation="relative"
         >
             {#if now}
                 <Button

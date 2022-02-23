@@ -102,6 +102,10 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   `<Container is="article">` — Renders as an `<article>` semantic element.
 
+        -   `Grid`
+
+            -   `<Grid.Container variation="relative">` — Adjusts spacing to be relative to inherited font size.
+
         -   `Group`
 
             -   `<Group variation="stacked" spacing="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" spacing_x spacing_y>` — Alters how close together the child elements are stacked on top of each other.

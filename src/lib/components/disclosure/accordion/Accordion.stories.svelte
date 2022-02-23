@@ -13,10 +13,10 @@
     const ACCORDIONS = ["One", "Two", "Three"];
 
     const PALETTES = [
-        ["neutral", true],
-        ["accent", false],
+        ["inverse", true],
         ["auto", false],
-        ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],

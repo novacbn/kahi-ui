@@ -1,14 +1,33 @@
-:root {
-    /** */
+@use "../../../../framework/abstracts/variables";
 
-    --accordion-item-palette-background-bold: var(--document-foreground);
-
-    --accordion-item-border-opacity: 0.4;
-    --accordion-item-border-width: 1px;
-    --accordion-item-gap: var(--spacing-root-small);
-    --accordion-item-padding-x: var(--spacing-root-small);
-    --accordion-item-padding-y: var(--spacing-root-tiny);
-
-    --accordion-item-disabled-opacity: 0.4;
-    --accordion-item-focus-color-opacity: 0.5;
+@if not env("DISABLE_COMPONENTS_DISCLOSURE_ACCORDION") {
+    @include variables.define(
+        (
+            "accordion": (
+                "item": (
+                    "border": (
+                        "opacity": 0.25,
+                        "width": variables.format-var("sizes.borders.tiny"),
+                    ),
+                    "gap": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.small"),
+                    ),
+                    "padding": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.tiny"),
+                    ),
+                    "disabled": (
+                        "opacity": 0.5,
+                    ),
+                    "active": (
+                        "font.opacity": 1,
+                    ),
+                    "focus": (
+                        "font.opacity": 0.75,
+                    ),
+                ),
+            ),
+        )
+    );
 }

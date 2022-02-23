@@ -47,6 +47,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let tabindex: $$Props["tabindex"] = 0;
 
     export let active: $$Props["active"] = undefined;
@@ -107,6 +110,7 @@
 
 <input
     role="presentation"
+    class="accordion--state"
     type={$_accordion_behavior === TOKENS_BEHAVIOR_TOGGLE.inclusive ? "checkbox" : "radio"}
     id={$_accordion_id}
     name={$_accordion_name}
@@ -118,8 +122,9 @@
 
 <label
     bind:this={element}
+    {...map_global_attributes($$restProps)}
     role="button"
-    {...map_global_attributes($$props)}
+    class="accordion--item {_class}"
     {...map_data_attributes({palette})}
     {...map_aria_attributes({disabled, pressed: active})}
     for={$_accordion_id}

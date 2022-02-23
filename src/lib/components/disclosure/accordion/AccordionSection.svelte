@@ -33,6 +33,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let loading: $$Props["loading"] = undefined;
 
     const _accordion_id = CONTEXT_ACCORDION_ID.get();
@@ -57,7 +60,8 @@
 
 <section
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
+    class="accordion--section {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

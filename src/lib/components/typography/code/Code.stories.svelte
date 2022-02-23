@@ -7,10 +7,10 @@
     import Code from "./Code.svelte";
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
+        ["inverse", true],
         ["auto", false],
-        ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],

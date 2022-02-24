@@ -44,6 +44,6 @@
     }
 
     :where(.article) > pre:not(:last-child) {
-        @include intrinsics.margin-bottom($namespace: "code.article", $unit: em);
+        @include intrinsics.margin-bottom($namespace: "code.article", $unit: rem);
     }
 }

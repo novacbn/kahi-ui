@@ -25,10 +25,10 @@
     }
 
     :where(.article) > blockquote:not(:last-child) {
-        @include intrinsics.margin-bottom($namespace: "blockquote.article", $unit: em);
+        @include intrinsics.margin-bottom($namespace: "blockquote.article", $unit: rem);
     }
 
     :where(.article) > blockquote > :not(:last-child) {
-        @include intrinsics.margin-bottom($namespace: "blockquote.article.children", $unit: em);
+        @include intrinsics.margin-bottom($namespace: "blockquote.article.children", $unit: rem);
     }
 }

@@ -24,6 +24,10 @@
     }
 
     .menu--heading {
+        &:not(:last-child) {
+            @include intrinsics.margin-bottom($namespace: "menu.heading", $unit: em);
+        }
+
         :is(.menu--item, .menu--section) + & {
             @include intrinsics.margin-top($namespace: "menu.heading", $unit: em);
         }

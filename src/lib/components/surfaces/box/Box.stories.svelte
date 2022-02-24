@@ -18,10 +18,11 @@
     ];
 
     const PALETTES = [
-        ["auto", true],
+        ["off", true],
+        ["auto", false],
         ["inverse", false],
-        ["neutral", false],
         ["accent", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],

@@ -28,7 +28,8 @@
     ];
 
     const PALETTES = [
-        ["auto", true],
+        ["off", true],
+        ["auto", false],
         ["inverse", false],
         ["accent", false],
         ["neutral", false],

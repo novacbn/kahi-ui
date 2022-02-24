@@ -43,7 +43,7 @@
 {#if is === "pre"}
     <pre
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="code {_class}"
         {...map_data_attributes({
             palette,
@@ -67,7 +67,7 @@
 {:else}
     <code
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="code {_class}"
         {...map_data_attributes({palette})}
         use:forward_actions={{actions}}

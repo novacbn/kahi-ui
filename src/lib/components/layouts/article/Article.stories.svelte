@@ -31,6 +31,12 @@
                 This has nested <a href="#">anchor tags</a>!
             </p>
         </blockquote>
+
+        <ul>
+            <li>
+                This has nested <a href="#">anchor tags</a>!
+            </li>
+        </ul>
     </Article>
 </Story>
 
@@ -87,6 +93,12 @@ console.log("Our value is:", result);</pre>
                 This has nested <code>code tags</code>!
             </p>
         </blockquote>
+
+        <ul>
+            <li>
+                This has nested <code>code tags</code>!
+            </li>
+        </ul>
     </Article>
 </Story>
 

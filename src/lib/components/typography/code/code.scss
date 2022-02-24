@@ -9,7 +9,7 @@
 @if not env("DISABLE_COMPONENTS_TYPOGRAPHY_CODE") {
     .code,
     :where(.article) > :is(code, pre),
-    :where(.article) > :is(blockquote, p) code {
+    :where(.article) > :is(blockquote, p, ol, ul) code {
         @include palettes.var-palette($palette: "auto", $is-inverse: true);
 
         position: relative;
@@ -26,7 +26,7 @@
 
     code.code,
     :where(.article) > code,
-    :where(.article) > :is(blockquote, p) code {
+    :where(.article) > :is(blockquote, p, ol, ul) code {
         @include intrinsics.padding-all($namespace: "code.code", $unit: em);
 
         @include fonts.size($namespace: "code", $unit: em);

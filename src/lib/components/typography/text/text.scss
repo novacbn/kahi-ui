@@ -12,7 +12,7 @@
 
 @if not env("DISABLE_COMPONENTS_TYPOGRAPHY_TEXT") {
     .text,
-    .article > p {
+    :where(.article) > p {
         @include alignments.var-reset-text();
         @include sizings.var-reset-font($tier: "inline");
         @include transforms.var-reset-text();
@@ -45,12 +45,12 @@
     }
 
     small.text,
-    .article > :is(small, p > small) {
+    :where(.article) > :is(small, p > small) {
         @include fonts.size($namespace: "text.small", $unit: em);
         @include transparency.opacity($namespace: "text.small");
     }
 
-    .article > p:not(:last-child) {
+    :where(.article) > p:not(:last-child) {
         @include intrinsics.margin-bottom($namespace: "text.article", $unit: em);
     }
 }

@@ -113,7 +113,7 @@
         @include intrinsics.margin-bottom($namespace: "heading.article", $unit: em);
     }
 
-    :where(.article) > :is(blockquote, p, pre) + :is(h1, h2, h3, h4, h5, h6) {
+    :where(.article) > :not(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
         @include intrinsics.margin-top($namespace: "heading.article", $unit: em);
     }
 }

@@ -92,6 +92,7 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   `<a>` — Renders similarly to `<Anchor>` along with a palette color configured by theme.
             -   `<blockquote>` / `<cite>` — Renders similarly to `<Blockquote.Container>` / `<Blockquote.Cite>`, with inner children spacing and bottom margin.
+            -   `<code>` / `<pre><code>` — Renders similarly to `<Code>`.
             -   `<hr>` — Renders similarly to `<Divider>`.
             -   `<h1>~<h6>` — Renders similarly to `<Heading is="{TAG}">` along with bottom margin.
             -   `<ol>` / `<ul>` — Renders similarly to `<List is="{TAG}">` along with bottom margin + paragraph spacing.

@@ -108,7 +108,7 @@
             direction="left"
             alignment_x="left"
         >
-            <Aside.Container palette="dark" max_width="content-max" height="viewport-100">
+            <Aside.Container palette="off" max_width="content-max" height="viewport-100">
                 <Aside.Header>
                     <Anchor href="#">Kahi UI</Anchor>
                     <Divider />

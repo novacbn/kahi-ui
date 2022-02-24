@@ -360,6 +360,12 @@ import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
             -   **(BREAKING)** `<MonthStepper step>` — Consolidated into `<MonthStepper steps>`.
 
+        -   `Pagination`
+
+            -   **(BREAKING)** `<Pagination href>` — Updated to require explicit `<Pagination is="a">` property to be more consistent with other Component API.
+
+                -   e.g. `<Pagination href="...">` -> `<Pagination is="a" href="...">`
+
         -   `TimePicker`
 
             -   **(BREAKING)** `<TimePicker disabled={string[]}>` — Was updated to accept `string[]` instead of `string`.

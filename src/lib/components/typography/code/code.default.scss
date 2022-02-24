@@ -10,9 +10,17 @@
                     "family": variables.format-var("fonts.families.monospace"),
                     "size": variables.format-var("fonts.sizes.inline.tiny"),
                 ),
-                "padding": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.tiny"),
+                "code": (
+                    "padding": (
+                        "x": variables.format-var("spacings.block.small"),
+                        "y": variables.format-var("spacings.block.tiny"),
+                    ),
+                ),
+                "pre": (
+                    "padding": (
+                        "x": variables.format-var("spacings.block.medium"),
+                        "y": variables.format-var("spacings.block.medium"),
+                    ),
                 ),
                 "article": (
                     "margin.y": variables.format-var("spacings.block.medium"),

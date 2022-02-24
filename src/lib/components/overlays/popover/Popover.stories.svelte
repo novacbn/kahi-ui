@@ -62,7 +62,7 @@
         <Popover.Button palette="accent">Open Menu</Popover.Button>
 
         <Popover.Section alignment_x="right" spacing="medium">
-            <Box elevation="medium" padding="medium" radius="small" variation="borders">
+            <Box elevation="medium" padding="medium" radius="tiny" variation="borders">
                 <Menu.Container>
                     <Menu.Button>
                         Copy
@@ -119,8 +119,8 @@
             >
                 <Popover.Button variation={["subtle", "clear"]}>+</Popover.Button>
 
-                <Popover.Section alignment_x="left" spacing="small">
-                    <Box elevation="medium" padding="medium" radius="small" variation="borders">
+                <Popover.Section alignment_x="left" spacing="tiny">
+                    <Box elevation="medium" padding="medium" radius="tiny" variation="borders">
                         <Menu.Container>
                             <Menu.Button variation="clear" active>Docs</Menu.Button>
                             <Menu.Button variation="clear">Playground</Menu.Button>
@@ -170,7 +170,7 @@
         <Popover.Button palette="accent">Open AUTO FOCUSED Popover</Popover.Button>
 
         <Popover.Section alignment_x="right" spacing="medium">
-            <Box elevation="low" padding="medium" radius="small" variation="borders">
+            <Box elevation="low" padding="medium" radius="tiny" variation="borders">
                 <Menu.Container>
                     <Menu.Button>
                         Copy
@@ -210,7 +210,7 @@
                 palette="inverse"
                 elevation="low"
                 padding="medium"
-                radius="small"
+                radius="tiny"
                 variation="borders"
             >
                 LAZY Popover
@@ -233,7 +233,7 @@
                 palette="inverse"
                 elevation="low"
                 padding="medium"
-                radius="small"
+                radius="tiny"
                 variation="borders"
             >
                 NON-DISMISSIBLE Popover
@@ -249,7 +249,7 @@
                 palette="inverse"
                 elevation="low"
                 padding="medium"
-                radius="small"
+                radius="tiny"
                 variation="borders"
             >
                 DISMISSIBLE Popover
@@ -271,7 +271,7 @@
                 palette="inverse"
                 elevation="low"
                 padding="medium"
-                radius="small"
+                radius="tiny"
                 variation="borders"
             >
                 NON-ONCE Popover
@@ -287,7 +287,7 @@
                 palette="inverse"
                 elevation="low"
                 padding="medium"
-                radius="small"
+                radius="tiny"
                 variation="borders"
             >
                 ONCE Popover
@@ -305,7 +305,7 @@
                 palette="inverse"
                 elevation="low"
                 padding="medium"
-                radius="small"
+                radius="tiny"
                 variation="borders"
             >
                 TOGGABLE Popover
@@ -329,7 +329,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {placement.toUpperCase()} Popover
@@ -353,7 +353,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {alignment_x.toUpperCase()} Popover
@@ -373,7 +373,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {alignment_y.toUpperCase()} Popover
@@ -397,7 +397,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {spacing.toUpperCase()} Popover
@@ -421,7 +421,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {placement.toUpperCase()} Popover
@@ -445,7 +445,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {placement.toUpperCase()} Popover
@@ -469,7 +469,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {placement.toUpperCase()} Popover
@@ -493,7 +493,7 @@
                         palette="inverse"
                         elevation="low"
                         padding="medium"
-                        radius="small"
+                        radius="tiny"
                         variation="borders"
                     >
                         {placement.toUpperCase()} Popover

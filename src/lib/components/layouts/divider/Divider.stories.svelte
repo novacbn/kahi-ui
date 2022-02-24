@@ -15,6 +15,7 @@
         ["inverse", false],
         ["accent", false],
         ["neutral", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],

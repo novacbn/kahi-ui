@@ -16,6 +16,7 @@
         ["inverse", false],
         ["accent", false],
         ["neutral", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -37,7 +38,7 @@
 </Template>
 
 <Story name="Preview">
-    <Aside.Container palette="light" max_width="content-max" height="viewport-100">
+    <Aside.Container palette="off" max_width="content-max" height="viewport-100">
         <Aside.Header>
             <Anchor href="#">Kahi UI</Anchor>
             <Divider />

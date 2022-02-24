@@ -14,6 +14,8 @@ export enum TOKENS_PALETTE {
 
     neutral = "neutral",
 
+    off = "off",
+
     dark = "dark",
 
     light = "light",

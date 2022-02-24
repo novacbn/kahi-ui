@@ -10,6 +10,7 @@
         ["auto", false],
         ["inverse", false],
         ["accent", false],
+        ["off", false],
         ["neutral", false],
         ["dark", false],
         ["light", false],

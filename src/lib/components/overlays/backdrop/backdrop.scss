@@ -7,7 +7,7 @@
 
 @if not env("DISABLE_COMPONENTS_OVERLAYS_BACKDROP") {
     .backdrop {
-        @include palettes.var-palette($palette: "auto", $is-inverse: true);
+        @include palettes.var-palette($palette: "neutral");
 
         --animation-visible: 1;
 

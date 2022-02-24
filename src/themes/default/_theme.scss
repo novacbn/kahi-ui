@@ -22,7 +22,7 @@
             "stepping": 3%,
         ),
         $light: (
-            "base": hsl(0, 0%, 99%),
+            "base": hsl(0, 0%, 100%),
             "stepping": 3%,
         )
     )
@@ -50,6 +50,17 @@
                     ),
                     $light: (
                         "base": hsl(225, 10%, 45%),
+                        "stepping": 4%,
+                    )
+                ),
+            "off":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(218, 10%, 30%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(218, 20%, 98%),
                         "stepping": 4%,
                     )
                 ),

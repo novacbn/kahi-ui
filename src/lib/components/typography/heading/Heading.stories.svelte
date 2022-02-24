@@ -28,6 +28,7 @@
         ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -58,9 +59,7 @@
 <Story name="Preview">
     <Heading>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-        Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-        iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus.
+        Curabitur a egestas turpis, vitae convallis sapien.
     </Heading>
 </Story>
 
@@ -74,9 +73,7 @@
 
                 <Heading palette={is_default ? undefined : palette}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
@@ -93,9 +90,7 @@
 
                 <Heading is={is_default ? undefined : element}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
@@ -112,9 +107,7 @@
 
                 <Heading is={is_default ? undefined : element} variation="block">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
@@ -131,9 +124,7 @@
 
                 <Heading alignment_x={is_default ? undefined : alignment_x}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
@@ -150,9 +141,7 @@
 
                 <Heading transform={is_default ? undefined : transform}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
@@ -169,9 +158,7 @@
 
                 <Heading variation={is_default ? undefined : variation}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}

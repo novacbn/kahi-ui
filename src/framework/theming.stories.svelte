@@ -15,6 +15,7 @@
     const PALETTES = [
         "accent",
         "neutral",
+        "off",
         "dark",
         "light",
         "alert",

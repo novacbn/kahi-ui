@@ -62,7 +62,7 @@
         <Popover.Button palette="accent">Open Menu</Popover.Button>
 
         <Popover.Section alignment_x="right" spacing="medium">
-            <Box elevation="low" padding="medium" radius="small" variation="borders">
+            <Box elevation="medium" padding="medium" radius="small" variation="borders">
                 <Menu.Container>
                     <Menu.Button>
                         Copy
@@ -120,13 +120,7 @@
                 <Popover.Button variation={["subtle", "clear"]}>+</Popover.Button>
 
                 <Popover.Section alignment_x="left" spacing="small">
-                    <Box
-                        palette="auto"
-                        elevation="low"
-                        padding="medium"
-                        radius="small"
-                        variation="borders"
-                    >
+                    <Box elevation="medium" padding="medium" radius="small" variation="borders">
                         <Menu.Container>
                             <Menu.Button variation="clear" active>Docs</Menu.Button>
                             <Menu.Button variation="clear">Playground</Menu.Button>

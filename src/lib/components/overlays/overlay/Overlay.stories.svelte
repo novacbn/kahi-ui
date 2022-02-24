@@ -75,8 +75,8 @@
         <Overlay.Backdrop />
 
         <Overlay.Section>
-            <Card.Container palette="auto" max_width="75">
-                <Card.Header>Are you sure?</Card.Header>
+            <Card.Container max_width="75">
+                <Card.Header>Delete File?</Card.Header>
 
                 <Card.Section>
                     <Text>
@@ -157,7 +157,7 @@
 <Story name="Preview - Tile Notifications">
     <Overlay.Container>
         <Overlay.Section alignment_x="right" alignment_y="bottom" spacing="medium" padding="medium">
-            <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="75">
+            <Tile.Container elevation="medium" width="content-max" max_width="75">
                 <Tile.Section>
                     <Tile.Header>File Deleted</Tile.Header>
 
@@ -171,7 +171,7 @@
                 </Tile.Footer>
             </Tile.Container>
 
-            <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="75">
+            <Tile.Container elevation="medium" width="content-max" max_width="75">
                 <Tile.Section>
                     <Tile.Header>File Deleted</Tile.Header>
 

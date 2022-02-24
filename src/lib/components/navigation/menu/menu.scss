@@ -23,6 +23,12 @@
         user-select: none;
     }
 
+    .menu--heading {
+        :is(.menu--item, .menu--section) + & {
+            @include intrinsics.margin-top($namespace: "menu.heading", $unit: em);
+        }
+    }
+
     p.menu--heading {
         @include legend.base($namespace: "menu.heading", $support-opacity: true);
     }

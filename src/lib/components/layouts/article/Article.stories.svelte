@@ -21,6 +21,16 @@
 <Story name="Anchor">
     <Article>
         <a href="https://google.com">Goto google.com</a>
+
+        <p>
+            This has nested <a href="#">anchor tags</a>!
+        </p>
+
+        <blockquote>
+            <p>
+                This has nested <a href="#">anchor tags</a>!
+            </p>
+        </blockquote>
     </Article>
 </Story>
 
@@ -67,6 +77,16 @@ const result = math.add(1, 1);
 console.log("Our value is:", result);</pre>
 
         <code>import * as Kahi from "@kahi-ui/framework";</code>
+
+        <p>
+            This has nested <code>code tags</code>!
+        </p>
+
+        <blockquote>
+            <p>
+                This has nested <code>code tags</code>!
+            </p>
+        </blockquote>
     </Article>
 </Story>
 

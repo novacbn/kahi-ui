@@ -23,6 +23,8 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        is?: "a" | "button";
+
         href?: string;
 
         pages: number | string;
@@ -50,6 +52,8 @@
     let _class = "";
     export {_class as class};
 
+    export let is: $$Props["is"] = undefined;
+
     export let href: $$Props["href"] = undefined;
 
     export let pages: $$Props["pages"];
@@ -60,7 +64,7 @@
     export let sizing: $$Props["sizing"] = undefined;
 
     function format_href(page: number): string | undefined {
-        return href ? format_tokens(href, {page}) : undefined;
+        return is === "a" && href ? format_tokens(href, {page}) : undefined;
     }
 
     function on_button_click(page: number, event: MouseEvent): void {
@@ -103,6 +107,7 @@
         href={format_href(_prev_value)}
         disabled={_value === _prev_value}
         variation={["subtle", "clear"]}
+        {is}
         {sizing}
         {palette}
         on:click={on_button_click.bind(null, _prev_value)}
@@ -116,6 +121,7 @@
         href={format_href(1)}
         disabled={value === 1}
         variation={["subtle", "clear"]}
+        {is}
         {sizing}
         {palette}
         on:click={on_button_click.bind(null, 1)}
@@ -132,6 +138,7 @@
             href={format_href(page)}
             disabled={value === page}
             variation={["subtle", "clear"]}
+            {is}
             {sizing}
             {palette}
             on:click={on_button_click.bind(null, page)}
@@ -149,6 +156,7 @@
             href={format_href(_pages)}
             disabled={_value === _pages}
             variation={["subtle", "clear"]}
+            {is}
             {sizing}
             {palette}
             on:click={on_button_click.bind(null, _pages)}
@@ -163,6 +171,7 @@
         href={format_href(_next_value)}
         disabled={_value === _next_value}
         variation={["subtle", "clear"]}
+        {is}
         {sizing}
         {palette}
         on:click={on_button_click.bind(null, _next_value)}

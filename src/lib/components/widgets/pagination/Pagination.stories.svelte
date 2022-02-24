@@ -55,7 +55,7 @@
 </Story>
 
 <Story name="Anchor">
-    <Pagination href={"/path/to/list?page=${page}"} pages={10} value={5} palette="accent" />
+    <Pagination is="a" href={"/path/to/list?page=${page}"} pages={10} value={5} palette="accent" />
 </Story>
 
 <Story name="Steps">

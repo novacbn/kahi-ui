@@ -181,27 +181,27 @@ console.log("Our value is:", result);</pre>
 
             <tbody>
                 <tr>
-                    <td><strong class="text ">mobile</strong></td>
-                    <td><code class="code ">0px</code></td>
-                    <td><code class="code ">640px</code></td>
+                    <td><strong>mobile</strong></td>
+                    <td><code>0px</code></td>
+                    <td><code>640px</code></td>
                 </tr>
 
                 <tr>
-                    <td><strong class="text ">tablet</strong></td>
-                    <td><code class="code ">641px</code></td>
-                    <td><code class="code ">768px</code></td>
+                    <td><strong>tablet</strong></td>
+                    <td><code>641px</code></td>
+                    <td><code>768px</code></td>
                 </tr>
 
                 <tr>
-                    <td><strong class="text ">desktop</strong></td>
-                    <td><code class="code ">769px</code></td>
-                    <td><code class="code ">1024px</code></td>
+                    <td><strong>desktop</strong></td>
+                    <td><code>769px</code></td>
+                    <td><code>1024px</code></td>
                 </tr>
 
                 <tr>
-                    <td><strong class="text ">widescreen</strong></td>
-                    <td><code class="code ">1025px</code></td>
-                    <td><code class="code ">∞</code></td>
+                    <td><strong>widescreen</strong></td>
+                    <td><code>1025px</code></td>
+                    <td><code>∞</code></td>
                 </tr>
             </tbody>
 
@@ -225,27 +225,27 @@ console.log("Our value is:", result);</pre>
 
             <tbody>
                 <tr>
-                    <td><strong class="text ">mobile</strong></td>
-                    <td><code class="code ">0px</code></td>
-                    <td><code class="code ">640px</code></td>
+                    <td><strong>mobile</strong></td>
+                    <td><code>0px</code></td>
+                    <td><code>640px</code></td>
                 </tr>
 
                 <tr>
-                    <td><strong class="text ">tablet</strong></td>
-                    <td><code class="code ">641px</code></td>
-                    <td><code class="code ">768px</code></td>
+                    <td><strong>tablet</strong></td>
+                    <td><code>641px</code></td>
+                    <td><code>768px</code></td>
                 </tr>
 
                 <tr>
-                    <td><strong class="text ">desktop</strong></td>
-                    <td><code class="code ">769px</code></td>
-                    <td><code class="code ">1024px</code></td>
+                    <td><strong>desktop</strong></td>
+                    <td><code>769px</code></td>
+                    <td><code>1024px</code></td>
                 </tr>
 
                 <tr>
-                    <td><strong class="text ">widescreen</strong></td>
-                    <td><code class="code ">1025px</code></td>
-                    <td><code class="code ">∞</code></td>
+                    <td><strong>widescreen</strong></td>
+                    <td><code>1025px</code></td>
+                    <td><code>∞</code></td>
                 </tr>
             </tbody>
 
@@ -270,27 +270,27 @@ console.log("Our value is:", result);</pre>
 
                 <tbody>
                     <tr>
-                        <td><strong class="text ">mobile</strong></td>
-                        <td><code class="code ">0px</code></td>
-                        <td><code class="code ">640px</code></td>
+                        <td><strong>mobile</strong></td>
+                        <td><code>0px</code></td>
+                        <td><code>640px</code></td>
                     </tr>
 
                     <tr>
-                        <td><strong class="text ">tablet</strong></td>
-                        <td><code class="code ">641px</code></td>
-                        <td><code class="code ">768px</code></td>
+                        <td><strong>tablet</strong></td>
+                        <td><code>641px</code></td>
+                        <td><code>768px</code></td>
                     </tr>
 
                     <tr>
-                        <td><strong class="text ">desktop</strong></td>
-                        <td><code class="code ">769px</code></td>
-                        <td><code class="code ">1024px</code></td>
+                        <td><strong>desktop</strong></td>
+                        <td><code>769px</code></td>
+                        <td><code>1024px</code></td>
                     </tr>
 
                     <tr>
-                        <td><strong class="text ">widescreen</strong></td>
-                        <td><code class="code ">1025px</code></td>
-                        <td><code class="code ">∞</code></td>
+                        <td><strong>widescreen</strong></td>
+                        <td><code>1025px</code></td>
+                        <td><code>∞</code></td>
                     </tr>
                 </tbody>
 
@@ -316,27 +316,27 @@ console.log("Our value is:", result);</pre>
 
                 <tbody>
                     <tr>
-                        <td><strong class="text ">mobile</strong></td>
-                        <td><code class="code ">0px</code></td>
-                        <td><code class="code ">640px</code></td>
+                        <td><strong>mobile</strong></td>
+                        <td><code>0px</code></td>
+                        <td><code>640px</code></td>
                     </tr>
 
                     <tr>
-                        <td><strong class="text ">tablet</strong></td>
-                        <td><code class="code ">641px</code></td>
-                        <td><code class="code ">768px</code></td>
+                        <td><strong>tablet</strong></td>
+                        <td><code>641px</code></td>
+                        <td><code>768px</code></td>
                     </tr>
 
                     <tr>
-                        <td><strong class="text ">desktop</strong></td>
-                        <td><code class="code ">769px</code></td>
-                        <td><code class="code ">1024px</code></td>
+                        <td><strong>desktop</strong></td>
+                        <td><code>769px</code></td>
+                        <td><code>1024px</code></td>
                     </tr>
 
                     <tr>
-                        <td><strong class="text ">widescreen</strong></td>
-                        <td><code class="code ">1025px</code></td>
-                        <td><code class="code ">∞</code></td>
+                        <td><strong>widescreen</strong></td>
+                        <td><code>1025px</code></td>
+                        <td><code>∞</code></td>
                     </tr>
                 </tbody>
 

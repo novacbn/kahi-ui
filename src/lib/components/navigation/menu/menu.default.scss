@@ -4,18 +4,16 @@
     @include variables.define(
         (
             "menu": (
-                "font.size": 1,
+                "font.size": variables.format-var("fonts.sizes.inline.small"),
                 "spacing": (
                     "x": variables.format-var("spacings.block.small"),
                     "y": variables.format-var("spacings.block.small"),
                 ),
                 "item": (
                     "background.opacity": 0,
-                    "border.radius": variables.format-var("radius.small"),
+                    "border.radius": variables.format-var("radius.tiny"),
                     "font": (
-                        "line-height": variables.format-var("fonts.line-heights.massive"),
                         "opacity": 1,
-                        "size": variables.format-var("fonts.sizes.inline.small"),
                         "weight": normal,
                     ),
                     "gap": (

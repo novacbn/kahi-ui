@@ -66,22 +66,22 @@
                 <Menu.Container>
                     <Menu.Button>
                         Copy
-                        <Spacer is="span" spacing="medium" />
-                        <Text is="kbd">CTRL+C</Text>
+                        <Spacer is="span" spacing_x="medium" />
+                        <Text is="small">CTRL+C</Text>
                     </Menu.Button>
 
                     <Menu.Button>
                         Cut
-                        <Spacer is="span" spacing="medium" />
-                        <Text is="kbd">CTRL+X</Text>
+                        <Spacer is="span" spacing_x="medium" />
+                        <Text is="small">CTRL+X</Text>
                     </Menu.Button>
 
                     <Menu.Heading />
 
                     <Menu.Button>
                         Delete
-                        <Spacer is="span" spacing="medium" />
-                        <Text is="kbd">DEL</Text>
+                        <Spacer is="span" spacing_x="medium" />
+                        <Text is="small">DEL</Text>
                     </Menu.Button>
                 </Menu.Container>
             </Box>

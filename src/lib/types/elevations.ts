@@ -5,6 +5,8 @@ import type {BreakpointEnum} from "./viewports";
  * Represents the tiers of elevation (box-shadow) tokens that can be applied to Framework Components
  */
 export enum TOKENS_ELEVATION {
+    none = "none",
+
     lowest = "lowest",
 
     lower = "lower",

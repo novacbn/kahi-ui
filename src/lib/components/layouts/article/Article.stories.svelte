@@ -1,6 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
+    import Scrollable from "../scrollable/Scrollable.svelte";
     import * as Stack from "../stack";
 
     import Article from "./Article.svelte";
@@ -167,7 +168,189 @@ console.log("Our value is:", result);</pre>
     </Article>
 </Story>
 
-<Story name="Table">...</Story>
+<Story name="Table">
+    <Article>
+        <table>
+            <thead>
+                <tr>
+                    <th />
+                    <th>Minimum</th>
+                    <th>Maximum</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><strong class="text ">mobile</strong></td>
+                    <td><code class="code ">0px</code></td>
+                    <td><code class="code ">640px</code></td>
+                </tr>
+
+                <tr>
+                    <td><strong class="text ">tablet</strong></td>
+                    <td><code class="code ">641px</code></td>
+                    <td><code class="code ">768px</code></td>
+                </tr>
+
+                <tr>
+                    <td><strong class="text ">desktop</strong></td>
+                    <td><code class="code ">769px</code></td>
+                    <td><code class="code ">1024px</code></td>
+                </tr>
+
+                <tr>
+                    <td><strong class="text ">widescreen</strong></td>
+                    <td><code class="code ">1025px</code></td>
+                    <td><code class="code ">∞</code></td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th />
+                    <th>Minimum</th>
+                    <th>Maximum</th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <table data-variation="borders stripes">
+            <thead>
+                <tr>
+                    <th />
+                    <th>Minimum</th>
+                    <th>Maximum</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><strong class="text ">mobile</strong></td>
+                    <td><code class="code ">0px</code></td>
+                    <td><code class="code ">640px</code></td>
+                </tr>
+
+                <tr>
+                    <td><strong class="text ">tablet</strong></td>
+                    <td><code class="code ">641px</code></td>
+                    <td><code class="code ">768px</code></td>
+                </tr>
+
+                <tr>
+                    <td><strong class="text ">desktop</strong></td>
+                    <td><code class="code ">769px</code></td>
+                    <td><code class="code ">1024px</code></td>
+                </tr>
+
+                <tr>
+                    <td><strong class="text ">widescreen</strong></td>
+                    <td><code class="code ">1025px</code></td>
+                    <td><code class="code ">∞</code></td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th />
+                    <th>Minimum</th>
+                    <th>Maximum</th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <Scrollable width="medium">
+            <table>
+                <thead>
+                    <tr>
+                        <th />
+                        <th>Minimum</th>
+                        <th>Maximum</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><strong class="text ">mobile</strong></td>
+                        <td><code class="code ">0px</code></td>
+                        <td><code class="code ">640px</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong class="text ">tablet</strong></td>
+                        <td><code class="code ">641px</code></td>
+                        <td><code class="code ">768px</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong class="text ">desktop</strong></td>
+                        <td><code class="code ">769px</code></td>
+                        <td><code class="code ">1024px</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong class="text ">widescreen</strong></td>
+                        <td><code class="code ">1025px</code></td>
+                        <td><code class="code ">∞</code></td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th />
+                        <th>Minimum</th>
+                        <th>Maximum</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </Scrollable>
+
+        <Scrollable width="medium">
+            <table data-variation="borders stripes">
+                <thead>
+                    <tr>
+                        <th />
+                        <th>Minimum</th>
+                        <th>Maximum</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><strong class="text ">mobile</strong></td>
+                        <td><code class="code ">0px</code></td>
+                        <td><code class="code ">640px</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong class="text ">tablet</strong></td>
+                        <td><code class="code ">641px</code></td>
+                        <td><code class="code ">768px</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong class="text ">desktop</strong></td>
+                        <td><code class="code ">769px</code></td>
+                        <td><code class="code ">1024px</code></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong class="text ">widescreen</strong></td>
+                        <td><code class="code ">1025px</code></td>
+                        <td><code class="code ">∞</code></td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th />
+                        <th>Minimum</th>
+                        <th>Maximum</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </Scrollable>
+    </Article>
+</Story>
 
 <Story name="Elements">
     <Stack.Container spacing="medium">

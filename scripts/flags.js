@@ -20,6 +20,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-display-badge",
     "--disable-components-display-kbd",
     "--disable-components-display-list",
+    "--disable-components-display-table",
     "--disable-components-embedded-figure",
     "--disable-components-feedback-dot",
     "--disable-components-feedback-ellipsis",

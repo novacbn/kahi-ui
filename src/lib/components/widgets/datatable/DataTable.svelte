@@ -222,7 +222,7 @@
     }
 </script>
 
-<Table.Container {...$$props} bind:element class="data-table {_class}" {sizing} {variation}>
+<Table.Container {...$$restProps} bind:element class="data-table {_class}" {sizing} {variation}>
     <Table.Header>
         <Table.Row>
             {#each columns as column (column.key)}

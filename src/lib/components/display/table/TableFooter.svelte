@@ -26,11 +26,15 @@
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 </script>
 
 <tfoot
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
+    class="table--footer {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

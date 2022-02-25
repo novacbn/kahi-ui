@@ -73,13 +73,13 @@
 
 @function modular($base, $ratio) {
     @return (
-        "nano": maths.modular($base, $ratio, 0),
-        "tiny": maths.modular($base, $ratio, 1),
-        "small": maths.modular($base, $ratio, 2),
-        "medium": maths.modular($base, $ratio, 3),
-        "large": maths.modular($base, $ratio, 4),
-        "huge": maths.modular($base, $ratio, 5),
-        "massive": maths.modular($base, $ratio, 6)
+        "nano": maths.modular($base, $ratio, 0, 1000),
+        "tiny": maths.modular($base, $ratio, 1, 1000),
+        "small": maths.modular($base, $ratio, 2, 1000),
+        "medium": maths.modular($base, $ratio, 3, 1000),
+        "large": maths.modular($base, $ratio, 4, 1000),
+        "huge": maths.modular($base, $ratio, 5, 1000),
+        "massive": maths.modular($base, $ratio, 6, 1000)
     );
 }
 

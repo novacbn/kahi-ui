@@ -19,19 +19,19 @@
     @return constants.has("palettes.#{$name}.dark.base");
 }
 
-@function format-reference($name, $face, $shade) {
+@function ref($name, $face, $shade) {
     // TODO: validate `$face`
     // TODO: validate `$shade`
 
     @if not has($name) and $name != "auto" {
-        @error "bad argument #1 to 'palettes.format-reference' (invalid name '#{$name}')";
+        @error "bad argument #1 to 'palettes.ref' (invalid name '#{$name}')";
     }
 
     @return strings.format-identifier("palettes.#{$name}.#{$face}.#{$shade}");
 }
 
-@function format-var($name, $face, $shade, $fallback: null) {
-    $name: format-reference($name, $face, $shade);
+@function use($name, $face, $shade, $fallback: null) {
+    $name: ref($name, $face, $shade);
 
     @if $fallback {
         @return var(#{$name}, #{$fallback});

@@ -5,10 +5,10 @@
         (
             "dot": (
                 "background.opacity": 1,
-                "border.radius": variables.format-var("shapes.circle"),
+                "border.radius": variables.use("shapes.circle"),
                 "size": (
-                    "height": variables.format-var("sizes.icon.nano"),
-                    "width": variables.format-var("sizes.icon.nano"),
+                    "height": variables.use("sizes.icon.nano"),
+                    "width": variables.use("sizes.icon.nano"),
                 ),
             ),
         )

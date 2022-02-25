@@ -16,8 +16,8 @@
             $formatted,
             (
                 $property
-                    variables.format-var("animations.#{$animation-tier}.duration")
-                    variables.format-var("animations.#{$animation-tier}.function")
+                    variables.use("animations.#{$animation-tier}.duration")
+                    variables.use("animations.#{$animation-tier}.function")
             )
         );
     }

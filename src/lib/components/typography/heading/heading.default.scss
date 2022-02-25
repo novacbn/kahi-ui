@@ -4,47 +4,47 @@
     @include variables.define(
         (
             "heading": (
-                "font.family": variables.format-var("fonts.families.block"),
+                "font.family": variables.use("fonts.families.block"),
                 "block": (
                     "h1": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.block.massive"),
+                            "size": variables.use("fonts.sizes.block.massive"),
                             "weight": bold,
                         ),
                     ),
                     "h2": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.block.huge"),
+                            "size": variables.use("fonts.sizes.block.huge"),
                             "weight": bold,
                         ),
                     ),
                     "h3": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.block.large"),
+                            "size": variables.use("fonts.sizes.block.large"),
                             "weight": bold,
                         ),
                     ),
                     "h4": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.block.medium"),
+                            "size": variables.use("fonts.sizes.block.medium"),
                             "weight": bold,
                         ),
                     ),
                     "h5": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.block.small"),
+                            "size": variables.use("fonts.sizes.block.small"),
                             "weight": bold,
                         ),
                     ),
                     "h6": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.block.tiny"),
+                            "size": variables.use("fonts.sizes.block.tiny"),
                             "weight": bold,
                         ),
                     ),
@@ -53,48 +53,48 @@
                     "h1": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.inline.massive"),
+                            "size": variables.use("fonts.sizes.inline.massive"),
                             "weight": bold,
                         ),
                     ),
                     "h2": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.inline.huge"),
+                            "size": variables.use("fonts.sizes.inline.huge"),
                             "weight": bold,
                         ),
                     ),
                     "h3": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.inline.large"),
+                            "size": variables.use("fonts.sizes.inline.large"),
                             "weight": bold,
                         ),
                     ),
                     "h4": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.inline.medium"),
+                            "size": variables.use("fonts.sizes.inline.medium"),
                             "weight": bold,
                         ),
                     ),
                     "h5": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.inline.small"),
+                            "size": variables.use("fonts.sizes.inline.small"),
                             "weight": bold,
                         ),
                     ),
                     "h6": (
                         "font": (
                             "line-height": 1,
-                            "size": variables.format-var("fonts.sizes.inline.tiny"),
+                            "size": variables.use("fonts.sizes.inline.tiny"),
                             "weight": bold,
                         ),
                     ),
                 ),
                 "article": (
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                 ),
             ),
         )

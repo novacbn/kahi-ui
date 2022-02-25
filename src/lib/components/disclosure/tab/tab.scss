@@ -61,11 +61,11 @@
 
             content: "";
 
-            bottom: calc(#{variables.format-var("tab.border.width")} * -1);
+            bottom: calc(#{variables.use("tab.border.width")} * -1);
             left: 0;
 
             width: 100%;
-            height: #{variables.format-var("tab.border.width")};
+            height: #{variables.use("tab.border.width")};
 
             background: transparent;
 
@@ -114,10 +114,10 @@
             left: 0;
 
             width: 100%;
-            height: #{variables.format-var("tab.border.width")};
+            height: #{variables.use("tab.border.width")};
 
             background: currentColor;
-            opacity: #{variables.format-var("tab.section.border.opacity")};
+            opacity: #{variables.use("tab.section.border.opacity")};
 
             z-index: -1;
         }

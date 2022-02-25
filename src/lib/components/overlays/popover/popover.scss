@@ -115,7 +115,7 @@
 
         &:is(:active, :hover, :focus-within) {
             & > .popover--section {
-                --animation-delay: #{variables.format-var("popover.tooltip.animation.delay")};
+                --animation-delay: #{variables.use("popover.tooltip.animation.delay")};
             }
         }
     }

@@ -6,38 +6,38 @@
             "card": (
                 "background.opacity": 1,
                 "border": (
-                    "radius": variables.format-var("radius.tiny"),
-                    "width": variables.format-var("sizes.borders.medium"),
+                    "radius": variables.use("radius.tiny"),
+                    "width": variables.use("sizes.borders.medium"),
                     "opacity": 1,
                     "style": solid,
                 ),
                 "font.opacity": 1,
-                "elevation": variables.format-var("elevations.lower"),
+                "elevation": variables.use("elevations.lower"),
                 "margin": (
-                    "x": variables.format-var("spacings.block.medium"),
-                    "y": variables.format-var("spacings.block.medium"),
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.medium"),
                 ),
                 "footer": (
                     "spacing": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                 ),
                 "header": (
                     "font": (
-                        "family": variables.format-var("fonts.families.block"),
-                        "size": variables.format-var("fonts.sizes.inline.medium"),
+                        "family": variables.use("fonts.families.block"),
+                        "size": variables.use("fonts.sizes.inline.medium"),
                         "weight": bold,
                     ),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                 ),
                 "section": (
-                    "margin.y": variables.format-var("spacings.block.small"),
+                    "margin.y": variables.use("spacings.block.small"),
                 ),
             ),
         )

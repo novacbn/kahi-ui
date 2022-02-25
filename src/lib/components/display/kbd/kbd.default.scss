@@ -7,19 +7,19 @@
                 "background.opacity": 0.75,
                 "border": (
                     "opacity": 1,
-                    "radius": variables.format-var("radius.small"),
+                    "radius": variables.use("radius.small"),
                     "style": ridge,
-                    "width": variables.format-var("sizes.borders.large"),
+                    "width": variables.use("sizes.borders.large"),
                 ),
                 "font": (
-                    "family": variables.format-var("fonts.families.monospace"),
+                    "family": variables.use("fonts.families.monospace"),
                     "opacity": 1,
-                    "size": variables.format-var("fonts.sizes.inline.nano"),
+                    "size": variables.use("fonts.sizes.inline.nano"),
                     "weight": bolder,
                 ),
                 "padding": (
-                    "x": variables.format-var("spacings.block.medium"),
-                    "y": variables.format-var("spacings.block.small"),
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.small"),
                 ),
             ),
         )

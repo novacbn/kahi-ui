@@ -10,6 +10,6 @@
         @include intrinsics.padding-x($namespace: "container", $unit: rem);
 
         width: 100%;
-        max-width: min(#{variables.format-var("sizes.prose")}, 100vw);
+        max-width: min(#{variables.use("sizes.prose")}, 100vw);
     }
 }

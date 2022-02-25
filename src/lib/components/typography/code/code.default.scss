@@ -5,25 +5,25 @@
         (
             "code": (
                 "background.opacity": 0.1,
-                "border.radius": variables.format-var("radius.tiny"),
+                "border.radius": variables.use("radius.tiny"),
                 "font": (
-                    "family": variables.format-var("fonts.families.monospace"),
-                    "size": variables.format-var("fonts.sizes.inline.nano"),
+                    "family": variables.use("fonts.families.monospace"),
+                    "size": variables.use("fonts.sizes.inline.nano"),
                 ),
                 "code": (
                     "padding": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.tiny"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.tiny"),
                     ),
                 ),
                 "pre": (
                     "padding": (
-                        "x": variables.format-var("spacings.block.medium"),
-                        "y": variables.format-var("spacings.block.medium"),
+                        "x": variables.use("spacings.block.medium"),
+                        "y": variables.use("spacings.block.medium"),
                     ),
                 ),
                 "article": (
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                 ),
             ),
         )

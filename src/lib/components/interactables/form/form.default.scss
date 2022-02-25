@@ -6,41 +6,41 @@
             "form": (
                 "control": (
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                 ),
                 "field-set": (
                     "border": (
-                        "width": variables.format-var("sizes.borders.nano"),
+                        "width": variables.use("sizes.borders.nano"),
                         "opacity": 0.5,
                         "style": solid,
                     ),
                     "padding": (
-                        "x": variables.format-var("spacings.block.medium"),
-                        "y": variables.format-var("spacings.block.medium"),
+                        "x": variables.use("spacings.block.medium"),
+                        "y": variables.use("spacings.block.medium"),
                     ),
                 ),
                 "help-text": (
-                    "font.size": variables.format-var("fonts.sizes.inline.tiny"),
+                    "font.size": variables.use("fonts.sizes.inline.tiny"),
                 ),
                 "label": (
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                 ),
                 "legend": (
                     "font": (
-                        "family": variables.format-var("fonts.families.block"),
-                        "letter-spacing": variables.format-var("spacings.inline.small"),
+                        "family": variables.use("fonts.families.block"),
+                        "letter-spacing": variables.use("spacings.inline.small"),
                         "opacity": 0.5,
-                        "size": variables.format-var("fonts.sizes.inline.nano"),
+                        "size": variables.use("fonts.sizes.inline.nano"),
                         "weight": bold,
                     ),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                 ),
             ),

@@ -7,18 +7,18 @@
                 "background.opacity": 0.1,
                 "border": (
                     "opacity": 1,
-                    "radius": variables.format-var("radius.tiny"),
+                    "radius": variables.use("radius.tiny"),
                     "style": solid,
-                    "width": variables.format-var("sizes.borders.huge"),
+                    "width": variables.use("sizes.borders.huge"),
                 ),
                 "padding": (
-                    "x": variables.format-var("spacings.block.large"),
-                    "y": variables.format-var("spacings.block.medium"),
+                    "x": variables.use("spacings.block.large"),
+                    "y": variables.use("spacings.block.medium"),
                 ),
                 "article": (
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                     "children": (
-                        "margin.y": variables.format-var("spacings.block.medium"),
+                        "margin.y": variables.use("spacings.block.medium"),
                     ),
                 ),
             ),

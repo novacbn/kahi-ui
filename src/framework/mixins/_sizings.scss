@@ -2,7 +2,7 @@
 
 @mixin var-reset-font($tier, $namespace: null) {
     @if $namespace {
-        --sizing-font-size-#{$tier}: #{variables.format-var("#{$namespace}.font.size")};
+        --sizing-font-size-#{$tier}: #{variables.use("#{$namespace}.font.size")};
     } @else {
         --sizing-font-size-#{$tier}: 1;
     }
@@ -10,7 +10,7 @@
 
 @mixin var-reset-letter-spacing($namespace: null) {
     @if $namespace {
-        --sizing-font-letter-spacing: #{variables.format-var("#{$namespace}.font.letter-spacing")};
+        --sizing-font-letter-spacing: #{variables.use("#{$namespace}.font.letter-spacing")};
     } @else {
         --sizing-font-letter-spacing: unset;
     }
@@ -18,7 +18,7 @@
 
 @mixin var-reset-line-height($namespace: null) {
     @if $namespace {
-        --sizing-font-line-height: #{variables.format-var("#{$namespace}.font.line-height")};
+        --sizing-font-line-height: #{variables.use("#{$namespace}.font.line-height")};
     } @else {
         --sizing-font-line-height: 1;
     }
@@ -26,7 +26,7 @@
 
 @mixin var-reset-size($tier, $namespace: null) {
     @if $namespace {
-        --sizing-size-#{$tier}: #{variables.format-var("#{$namespace}.size")};
+        --sizing-size-#{$tier}: #{variables.use("#{$namespace}.size")};
     } @else {
         --sizing-size-#{$tier}: 0px;
     }

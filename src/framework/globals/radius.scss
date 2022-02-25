@@ -20,7 +20,7 @@
     }
 
     @include variables.each("radius.") using ($name, $size) {
-        @include radius-declarations($name, variables.format-var("radius.#{$name}"), $prefix);
+        @include radius-declarations($name, variables.use("radius.#{$name}"), $prefix);
     }
 
     @include constants.each("shapes.") using ($name, $radius) {
@@ -28,7 +28,7 @@
     }
 
     @include variables.each("shapes.") using ($name, $radius) {
-        @include shape-declarations($name, variables.format-var("shapes.#{$name}"), $prefix);
+        @include shape-declarations($name, variables.use("shapes.#{$name}"), $prefix);
     }
 }
 

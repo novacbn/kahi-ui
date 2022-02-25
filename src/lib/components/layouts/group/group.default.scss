@@ -7,8 +7,8 @@
                 "item": (
                     "stacked": (
                         "spacing": (
-                            "x": variables.format-var("spacings.block.medium"),
-                            "y": variables.format-var("spacings.block.medium"),
+                            "x": variables.use("spacings.block.medium"),
+                            "y": variables.use("spacings.block.medium"),
                         ),
                     ),
                 ),

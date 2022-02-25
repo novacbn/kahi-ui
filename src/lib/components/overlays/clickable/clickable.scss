@@ -11,7 +11,7 @@
 
             & :not(.clickable--item):is(a[href], button, input, label[for]) {
                 position: relative;
-                z-index: #{variables.format-var("clickable.interactable.z-index")};
+                z-index: #{variables.use("clickable.interactable.z-index")};
             }
         }
     }
@@ -27,7 +27,7 @@
 
             inset: 0;
 
-            z-index: #{variables.format-var("clickable.item.z-index")};
+            z-index: #{variables.use("clickable.item.z-index")};
         }
     }
 }

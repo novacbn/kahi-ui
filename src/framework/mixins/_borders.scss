@@ -6,18 +6,18 @@
     @include transitions();
 
     @if $palette {
-        border: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palettes-#{$palette}-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     } @else {
-        border: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palette-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     }
 }
@@ -28,22 +28,22 @@
     @if $palette {
         border-color: hsla(
             var(--palettes-#{$palette}-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     } @else {
         border-color: hsla(
             var(--palette-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     }
 }
 
 @mixin style-all($namespace) {
-    border-style: #{variables.format-var("#{$namespace}.border.style")};
+    border-style: #{variables.use("#{$namespace}.border.style")};
 }
 
 @mixin width-all($namespace) {
-    border-width: #{variables.format-var("#{$namespace}.border.width")};
+    border-width: #{variables.use("#{$namespace}.border.width")};
 }
 
 @mixin x($namespace, $face, $shade, $palette: null) {
@@ -90,18 +90,18 @@
     @include transitions();
 
     @if $palette {
-        border-bottom: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-bottom: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palettes-#{$palette}-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     } @else {
-        border-bottom: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-bottom: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palette-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     }
 }
@@ -112,40 +112,40 @@
     @if $palette {
         border-bottom-color: hsla(
             var(--palettes-#{$palette}-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     } @else {
         border-bottom-color: hsla(
             var(--palette-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     }
 }
 
 @mixin style-bottom($namespace) {
-    border-bottom-style: #{variables.format-var("#{$namespace}.border.style")};
+    border-bottom-style: #{variables.use("#{$namespace}.border.style")};
 }
 
 @mixin width-bottom($namespace) {
-    border-bottom-width: #{variables.format-var("#{$namespace}.border.width")};
+    border-bottom-width: #{variables.use("#{$namespace}.border.width")};
 }
 
 @mixin left($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
     @if $palette {
-        border-left: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-left: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palettes-#{$palette}-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     } @else {
-        border-left: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-left: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palette-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     }
 }
@@ -156,40 +156,40 @@
     @if $palette {
         border-left-color: hsla(
             var(--palettes-#{$palette}-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     } @else {
         border-left-color: hsla(
             var(--palette-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     }
 }
 
 @mixin style-left($namespace) {
-    border-left-style: #{variables.format-var("#{$namespace}.border.style")};
+    border-left-style: #{variables.use("#{$namespace}.border.style")};
 }
 
 @mixin width-left($namespace) {
-    border-left-width: #{variables.format-var("#{$namespace}.border.width")};
+    border-left-width: #{variables.use("#{$namespace}.border.width")};
 }
 
 @mixin right($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
     @if $palette {
-        border-right: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-right: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palettes-#{$palette}-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     } @else {
-        border-right: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-right: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palette-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     }
 }
@@ -200,40 +200,40 @@
     @if $palette {
         border-right-color: hsla(
             var(--palettes-#{$palette}-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     } @else {
         border-right-color: hsla(
             var(--palette-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     }
 }
 
 @mixin style-right($namespace) {
-    border-right-style: #{variables.format-var("#{$namespace}.border.style")};
+    border-right-style: #{variables.use("#{$namespace}.border.style")};
 }
 
 @mixin width-right($namespace) {
-    border-right-width: #{variables.format-var("#{$namespace}.border.width")};
+    border-right-width: #{variables.use("#{$namespace}.border.width")};
 }
 
 @mixin top($namespace, $face, $shade, $palette: null) {
     @include transitions();
 
     @if $palette {
-        border-top: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-top: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palettes-#{$palette}-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     } @else {
-        border-top: #{variables.format-var("#{$namespace}.border.width")}
-            #{variables.format-var("#{$namespace}.border.style")}
+        border-top: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
             hsla(
                 var(--palette-#{$face}-#{$shade}),
-                #{variables.format-var("#{$namespace}.border.opacity")}
+                #{variables.use("#{$namespace}.border.opacity")}
             );
     }
 }
@@ -244,22 +244,22 @@
     @if $palette {
         border-top-color: hsla(
             var(--palettes-#{$palette}-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     } @else {
         border-top-color: hsla(
             var(--palette-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.border.opacity")}
+            #{variables.use("#{$namespace}.border.opacity")}
         );
     }
 }
 
 @mixin style-top($namespace) {
-    border-top-style: #{variables.format-var("#{$namespace}.border.style")};
+    border-top-style: #{variables.use("#{$namespace}.border.style")};
 }
 
 @mixin width-top($namespace) {
-    border-top-width: #{variables.format-var("#{$namespace}.border.width")};
+    border-top-width: #{variables.use("#{$namespace}.border.width")};
 }
 
 @mixin transitions() {

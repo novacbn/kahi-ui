@@ -6,11 +6,11 @@
             "text": (
                 "font.opacity": 1,
                 "small": (
-                    "font.size": variables.format-var("fonts.sizes.inline.tiny"),
+                    "font.size": variables.use("fonts.sizes.inline.tiny"),
                     "opacity": 0.75,
                 ),
                 "article": (
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                 ),
             ),
         )

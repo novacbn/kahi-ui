@@ -4,27 +4,27 @@
     @include variables.define(
         (
             "divider": (
-                "border.radius": variables.format-var("radius.tiny"),
+                "border.radius": variables.use("radius.tiny"),
                 "font.opacity": 1,
                 "margin": (
-                    "x": variables.format-var("spacings.block.medium"),
-                    "y": variables.format-var("spacings.block.medium"),
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.medium"),
                 ),
                 "opacity": 0.5,
                 "size": (
-                    "height": variables.format-var("sizes.borders.nano"),
-                    "width": variables.format-var("sizes.borders.nano"),
+                    "height": variables.use("sizes.borders.nano"),
+                    "width": variables.use("sizes.borders.nano"),
                 ),
                 "text": (
                     "font": (
-                        "family": variables.format-var("fonts.families.block"),
-                        "letter-spacing": variables.format-var("spacings.inline.small"),
-                        "size": variables.format-var("fonts.sizes.inline.tiny"),
+                        "family": variables.use("fonts.families.block"),
+                        "letter-spacing": variables.use("spacings.inline.small"),
+                        "size": variables.use("fonts.sizes.inline.tiny"),
                         "weight": bold,
                     ),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                 ),
             ),

@@ -5,10 +5,10 @@
         (
             "clickable": (
                 "interactable": (
-                    "z-index": variables.format-var("z-index.inline.content"),
+                    "z-index": variables.use("z-index.inline.content"),
                 ),
                 "item": (
-                    "z-index": variables.format-var("z-index.inline.base"),
+                    "z-index": variables.use("z-index.inline.base"),
                 ),
             ),
         )

@@ -49,7 +49,7 @@
             left: 0;
 
             width: 100%;
-            height: #{variables.format-var("accordion.item.border.width")};
+            height: #{variables.use("accordion.item.border.width")};
 
             background: currentColor;
             @include transparency.opacity($namespace: "accordion.item.border");

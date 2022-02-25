@@ -7,36 +7,36 @@
                 "background.opacity": 1,
                 "font.opacity": 1,
                 "padding": (
-                    "x": variables.format-var("spacings.block.medium"),
-                    "y": variables.format-var("spacings.block.large"),
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.large"),
                 ),
                 "footer": (
-                    "font.size": variables.format-var("fonts.sizes.inline.medium"),
+                    "font.size": variables.use("fonts.sizes.inline.medium"),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
-                    "margin.y": variables.format-var("spacings.block.large"),
+                    "margin.y": variables.use("spacings.block.large"),
                     "size": (
                         "max-width": max-content,
                     ),
                 ),
                 "header": (
                     "font": (
-                        "family": variables.format-var("fonts.families.block"),
-                        "size": variables.format-var("fonts.sizes.block.massive"),
+                        "family": variables.use("fonts.families.block"),
+                        "size": variables.use("fonts.sizes.block.massive"),
                         "weight": bold,
                     ),
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                     "size": (
-                        "max-width": calc(#{variables.format-var("sizes.prose")} * 0.5),
+                        "max-width": calc(#{variables.use("sizes.prose")} * 0.5),
                     ),
                 ),
                 "section": (
-                    "font.size": variables.format-var("fonts.sizes.inline.large"),
-                    "margin.y": variables.format-var("spacings.block.small"),
+                    "font.size": variables.use("fonts.sizes.inline.large"),
+                    "margin.y": variables.use("spacings.block.small"),
                     "size": (
-                        "max-width": variables.format-var("sizes.prose"),
+                        "max-width": variables.use("sizes.prose"),
                     ),
                 ),
             ),

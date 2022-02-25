@@ -6,7 +6,7 @@
 
 @mixin var-reset($namespace: null) {
     @if $namespace {
-        --elevation-shadow: #{variables.format-var("#{$namespace}.elevation")};
+        --elevation-shadow: #{variables.use("#{$namespace}.elevation")};
     } @else {
         --elevation-shadow: none;
     }

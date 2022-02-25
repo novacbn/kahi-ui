@@ -8,16 +8,16 @@
                 "border.radius": none,
                 "font": (
                     "opacity": 1,
-                    "size": variables.format-var("fonts.sizes.inline.nano"),
+                    "size": variables.use("fonts.sizes.inline.nano"),
                     "weight": bold,
                 ),
                 "gap": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.small"),
+                    "x": variables.use("spacings.block.small"),
+                    "y": variables.use("spacings.block.small"),
                 ),
                 "padding": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.nano"),
+                    "x": variables.use("spacings.block.small"),
+                    "y": variables.use("spacings.block.nano"),
                 ),
             ),
         )

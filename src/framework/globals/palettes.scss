@@ -3,21 +3,21 @@
 
 @mixin palette-declarations($name) {
     [data-palette="#{$name}"] {
-        --palette-background-lightest: #{palettes.format-var($name, "background", "lightest")} !important;
-        --palette-background-lighter: #{palettes.format-var($name, "background", "lighter")} !important;
-        --palette-background-light: #{palettes.format-var($name, "background", "light")} !important;
-        --palette-background-normal: #{palettes.format-var($name, "background", "normal")} !important;
-        --palette-background-bold: #{palettes.format-var($name, "background", "bold")} !important;
-        --palette-background-bolder: #{palettes.format-var($name, "background", "bolder")} !important;
-        --palette-background-boldest: #{palettes.format-var($name, "background", "boldest")} !important;
+        --palette-background-lightest: #{palettes.use($name, "background", "lightest")} !important;
+        --palette-background-lighter: #{palettes.use($name, "background", "lighter")} !important;
+        --palette-background-light: #{palettes.use($name, "background", "light")} !important;
+        --palette-background-normal: #{palettes.use($name, "background", "normal")} !important;
+        --palette-background-bold: #{palettes.use($name, "background", "bold")} !important;
+        --palette-background-bolder: #{palettes.use($name, "background", "bolder")} !important;
+        --palette-background-boldest: #{palettes.use($name, "background", "boldest")} !important;
 
-        --palette-foreground-lightest: #{palettes.format-var($name, "foreground", "lightest")} !important;
-        --palette-foreground-lighter: #{palettes.format-var($name, "foreground", "lighter")} !important;
-        --palette-foreground-light: #{palettes.format-var($name, "foreground", "light")} !important;
-        --palette-foreground-normal: #{palettes.format-var($name, "foreground", "normal")} !important;
-        --palette-foreground-bold: #{palettes.format-var($name, "foreground", "bold")} !important;
-        --palette-foreground-bolder: #{palettes.format-var($name, "foreground", "bolder")} !important;
-        --palette-foreground-boldest: #{palettes.format-var($name, "foreground", "boldest")} !important;
+        --palette-foreground-lightest: #{palettes.use($name, "foreground", "lightest")} !important;
+        --palette-foreground-lighter: #{palettes.use($name, "foreground", "lighter")} !important;
+        --palette-foreground-light: #{palettes.use($name, "foreground", "light")} !important;
+        --palette-foreground-normal: #{palettes.use($name, "foreground", "normal")} !important;
+        --palette-foreground-bold: #{palettes.use($name, "foreground", "bold")} !important;
+        --palette-foreground-bolder: #{palettes.use($name, "foreground", "bolder")} !important;
+        --palette-foreground-boldest: #{palettes.use($name, "foreground", "boldest")} !important;
     }
 }
 

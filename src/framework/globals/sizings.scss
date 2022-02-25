@@ -18,15 +18,15 @@
 
 @mixin sizing-var-declarations($size, $prefix: "") {
     [data-sizing~="#{$prefix}#{$size}"] {
-        --sizing-font-letter-spacing: #{variables.format-var("spacings.inline.#{$size}")};
-        --sizing-font-line-height: #{variables.format-var("fonts.line-heights.#{$size}")};
+        --sizing-font-letter-spacing: #{variables.use("spacings.inline.#{$size}")};
+        --sizing-font-line-height: #{variables.use("fonts.line-heights.#{$size}")};
 
         @include variables.each("fonts.sizes.*.#{$size}") using ($tier, $_) {
-            --sizing-font-size-#{$tier}: #{variables.format-var("fonts.sizes.#{$tier}.#{$size}")};
+            --sizing-font-size-#{$tier}: #{variables.use("fonts.sizes.#{$tier}.#{$size}")};
         }
 
         @include variables.each("sizes.*.#{$size}") using ($tier, $_) {
-            --sizing-size-#{$tier}: #{variables.format-var("sizes.#{$tier}.#{$size}")};
+            --sizing-size-#{$tier}: #{variables.use("sizes.#{$tier}.#{$size}")};
         }
     }
 }

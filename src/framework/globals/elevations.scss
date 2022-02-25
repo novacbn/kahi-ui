@@ -17,11 +17,7 @@
     }
 
     @include variables.each("elevations.") using ($name, $shadow) {
-        @include elevation-declarations(
-            $name,
-            variables.format-var("elevations.#{$name}"),
-            $prefix
-        );
+        @include elevation-declarations($name, variables.use("elevations.#{$name}"), $prefix);
     }
 }
 

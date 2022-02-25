@@ -5,8 +5,8 @@
         "document": (
             "background.opacity": 1,
             "font": (
-                "family": variables.format-var("fonts.families.inline"),
-                "line-height": variables.format-var("fonts.line-heights.huge"),
+                "family": variables.use("fonts.families.inline"),
+                "line-height": variables.use("fonts.line-heights.huge"),
                 "opacity": 1,
                 "size": 16px,
             ),
@@ -22,7 +22,7 @@
                 ),
                 "track": (
                     "background.opacity": 1,
-                    "padding": variables.format-var("spacings.block.tiny"),
+                    "padding": variables.use("spacings.block.tiny"),
                 ),
             ),
         ),

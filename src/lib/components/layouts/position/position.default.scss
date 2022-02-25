@@ -6,8 +6,8 @@
             "position": (
                 "action": (
                     "spacing": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                 ),
             ),

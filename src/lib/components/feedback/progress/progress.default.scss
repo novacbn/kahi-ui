@@ -4,8 +4,8 @@
     @include variables.define(
         (
             "progress": (
-                "border.radius": variables.format-var("radius.medium"),
-                "font.size": variables.format-var("fonts.sizes.inline.medium"),
+                "border.radius": variables.use("radius.medium"),
+                "font.size": variables.use("fonts.sizes.inline.medium"),
                 "indicator": (
                     "background.opacity": 1,
                 ),

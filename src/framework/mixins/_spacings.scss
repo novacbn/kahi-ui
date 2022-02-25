@@ -2,8 +2,8 @@
 
 @mixin var-reset($namespace: null) {
     @if $namespace {
-        --spacing-x: #{variables.format-var("#{$namespace}.spacing.x")};
-        --spacing-y: #{variables.format-var("#{$namespace}.spacing.y")};
+        --spacing-x: #{variables.use("#{$namespace}.spacing.x")};
+        --spacing-y: #{variables.use("#{$namespace}.spacing.y")};
     } @else {
         --spacing-x: 0;
         --spacing-y: 0;

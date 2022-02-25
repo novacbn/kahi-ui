@@ -150,14 +150,12 @@
 
         --animation-name: unset;
         --animation-duration: calc(
-            #{variables.format-var("animations.reveal.duration")} * var(--duration)
+            #{variables.use("animations.reveal.duration")} * var(--duration)
         );
-        --animation-delay: calc(
-            #{variables.format-var("animations.reveal.duration")} * var(--delay)
-        );
+        --animation-delay: calc(#{variables.use("animations.reveal.duration")} * var(--delay));
         --animation-enter: unset;
         --animation-exit: unset;
-        --animation-function: #{variables.format-var("animations.reveal.function")};
+        --animation-function: #{variables.use("animations.reveal.function")};
         --animation-visible: 1;
 
         &[data-variation~="enter"] {

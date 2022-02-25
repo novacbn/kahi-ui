@@ -30,12 +30,12 @@
                 to right,
                 hsla(
                         var(--palette-background-bolder),
-                        #{variables.format-var("progress.indicator.background.opacity")}
+                        #{variables.use("progress.indicator.background.opacity")}
                     )
                     50%,
                 hsla(
                         var(--palette-background-lightest),
-                        #{variables.format-var("progress.track.background.opacity")}
+                        #{variables.use("progress.track.background.opacity")}
                     )
                     50%
             );
@@ -77,14 +77,14 @@
             & circle:first-child {
                 stroke: hsla(
                     var(--palette-background-lightest),
-                    #{variables.format-var("progress.track.background.opacity")}
+                    #{variables.use("progress.track.background.opacity")}
                 );
             }
 
             & circle:last-child {
                 stroke: hsla(
                     var(--palette-background-bolder),
-                    #{variables.format-var("progress.indicator.background.opacity")}
+                    #{variables.use("progress.indicator.background.opacity")}
                 );
                 stroke-dasharray: 88px 88px;
                 stroke-dashoffset: calc(88px * (1 - var(--value)));

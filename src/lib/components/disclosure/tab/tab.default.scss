@@ -4,16 +4,16 @@
     @include variables.define(
         (
             "tab": (
-                "border.width": variables.format-var("sizes.borders.tiny"),
-                "font.size": variables.format-var("fonts.sizes.inline.small"),
+                "border.width": variables.use("sizes.borders.tiny"),
+                "font.size": variables.use("fonts.sizes.inline.small"),
                 "item": (
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                     "padding": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.tiny"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.tiny"),
                     ),
                     "disabled": (
                         "opacity": 0.5,

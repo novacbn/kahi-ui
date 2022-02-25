@@ -8,12 +8,12 @@
     @if $palette {
         background-color: hsla(
             var(--palettes-#{$palette}-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.background.opacity")}
+            #{variables.use("#{$namespace}.background.opacity")}
         );
     } @else {
         background-color: hsla(
             var(--palette-#{$face}-#{$shade}),
-            #{variables.format-var("#{$namespace}.background.opacity")}
+            #{variables.use("#{$namespace}.background.opacity")}
         );
     }
 }

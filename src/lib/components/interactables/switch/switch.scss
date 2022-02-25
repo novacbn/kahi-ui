@@ -14,7 +14,7 @@
         @include sizings.var-reset-font($tier: "inline", $namespace: "switch");
 
         @include toggle.base($namespace: "switch");
-        border-radius: #{variables.format-var("shapes.pill")};
+        border-radius: #{variables.use("shapes.pill")};
 
         @include toggle.state-disabled() {
             @include toggle.base-disabled($namespace: "switch");

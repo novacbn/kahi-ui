@@ -7,9 +7,9 @@
             // same themeing variables over multiple units without defining a set of
             // variables per unit
 
-            border-radius: calc(#{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit});
+            border-radius: calc(#{variables.use("#{$namespace}.border.radius")} * 1#{$unit});
         } @else {
-            border-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+            border-radius: calc(#{variables.use("#{$namespace}.border.radius")});
         }
     } @else {
         border-radius: calc(var(--shape-radius) * 1#{$unit});
@@ -20,16 +20,14 @@
     @if $namespace {
         @if $unit {
             border-bottom-left-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
             border-bottom-right-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
         } @else {
-            border-bottom-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
-            border-bottom-right-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")}
-            );
+            border-bottom-left-radius: calc(#{variables.use("#{$namespace}.border.radius")});
+            border-bottom-right-radius: calc(#{variables.use("#{$namespace}.border.radius")});
         }
     } @else {
         border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
@@ -41,14 +39,14 @@
     @if $namespace {
         @if $unit {
             border-bottom-left-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
             border-top-left-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
         } @else {
-            border-bottom-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
-            border-top-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+            border-bottom-left-radius: calc(#{variables.use("#{$namespace}.border.radius")});
+            border-top-left-radius: calc(#{variables.use("#{$namespace}.border.radius")});
         }
     } @else {
         border-bottom-left-radius: calc(var(--shape-radius) * 1#{$unit});
@@ -60,16 +58,14 @@
     @if $namespace {
         @if $unit {
             border-bottom-right-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
             border-top-right-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
         } @else {
-            border-bottom-right-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")}
-            );
-            border-top-right-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+            border-bottom-right-radius: calc(#{variables.use("#{$namespace}.border.radius")});
+            border-top-right-radius: calc(#{variables.use("#{$namespace}.border.radius")});
         }
     } @else {
         border-bottom-right-radius: calc(var(--shape-radius) * 1#{$unit});
@@ -81,14 +77,14 @@
     @if $namespace {
         @if $unit {
             border-top-left-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
             border-top-right-radius: calc(
-                #{variables.format-var("#{$namespace}.border.radius")} * 1#{$unit}
+                #{variables.use("#{$namespace}.border.radius")} * 1#{$unit}
             );
         } @else {
-            border-top-left-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
-            border-top-right-radius: calc(#{variables.format-var("#{$namespace}.border.radius")});
+            border-top-left-radius: calc(#{variables.use("#{$namespace}.border.radius")});
+            border-top-right-radius: calc(#{variables.use("#{$namespace}.border.radius")});
         }
     } @else {
         border-top-left-radius: calc(var(--shape-radius) * 1#{$unit});
@@ -98,7 +94,7 @@
 
 @mixin var-reset($namespace: null) {
     @if $namespace {
-        --shape-radius: #{variables.format-var("#{$namespace}.border.radius")};
+        --shape-radius: #{variables.use("#{$namespace}.border.radius")};
     } @else {
         --shape-radius: 0;
     }

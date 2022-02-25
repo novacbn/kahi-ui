@@ -194,22 +194,18 @@
     }
 
     @include variables.each("sizes.block.") using ($name, $size) {
-        @include size-root-declarations(
-            $name,
-            variables.format-var("sizes.block.#{$name}"),
-            $prefix
-        );
+        @include size-root-declarations($name, variables.use("sizes.block.#{$name}"), $prefix);
     }
 
     @include variables.each("sizes.icon.") using ($name, $size) {
         @include size-constant-declarations(
             "icon-#{$name}",
-            variables.format-var("sizes.icon.#{$name}"),
+            variables.use("sizes.icon.#{$name}"),
             $prefix
         );
     }
 
-    @include size-constant-declarations("prose", variables.format-var("sizes.prose"), $prefix);
+    @include size-constant-declarations("prose", variables.use("sizes.prose"), $prefix);
 
     @include viewports.each() using ($name, $width, $minimum-width, $maximum-width) {
         // HACK: Viewports are constants, not variables. So we need to manually format here
@@ -227,15 +223,11 @@
     }
 
     @include variables.each("spacings.block.") using ($name, $size) {
-        @include margin-root-declarations(
-            $name,
-            variables.format-var("spacings.block.#{$name}"),
-            $prefix
-        );
+        @include margin-root-declarations($name, variables.use("spacings.block.#{$name}"), $prefix);
 
         @include padding-root-declarations(
             $name,
-            variables.format-var("spacings.block.#{$name}"),
+            variables.use("spacings.block.#{$name}"),
             $prefix
         );
     }

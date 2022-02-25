@@ -33,16 +33,16 @@
     @return namespaces.keys("variables.#{$filter}");
 }
 
-@function format-reference($key) {
+@function ref($key) {
     @if not has($key) {
-        @error "bad argument #1 to 'variables.format-reference' (invalid key '#{$key}')";
+        @error "bad argument #1 to 'variables.ref' (invalid key '#{$key}')";
     }
 
     @return strings.format-identifier($key);
 }
 
-@function format-var($key, $fallback: null) {
-    $key: format-reference($key);
+@function use($key, $fallback: null) {
+    $key: ref($key);
 
     @if $fallback {
         @return var(#{$key}, #{$fallback});

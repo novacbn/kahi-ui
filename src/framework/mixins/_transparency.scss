@@ -5,7 +5,7 @@
 @mixin opacity($namespace) {
     @include transitions();
 
-    opacity: #{variables.format-var("#{$namespace}.opacity")};
+    opacity: #{variables.use("#{$namespace}.opacity")};
 }
 
 @mixin transitions() {

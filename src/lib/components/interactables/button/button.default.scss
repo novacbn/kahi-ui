@@ -5,21 +5,21 @@
         (
             "button": (
                 "border": (
-                    "radius": variables.format-var("radius.small"),
+                    "radius": variables.use("radius.small"),
                     "style": solid,
-                    "width": variables.format-var("sizes.borders.tiny"),
+                    "width": variables.use("sizes.borders.tiny"),
                 ),
                 "font": (
-                    "size": variables.format-var("fonts.sizes.inline.small"),
+                    "size": variables.use("fonts.sizes.inline.small"),
                     "weight": bold,
                 ),
                 "gap": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.small"),
+                    "x": variables.use("spacings.block.small"),
+                    "y": variables.use("spacings.block.small"),
                 ),
                 "padding": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.small"),
+                    "x": variables.use("spacings.block.small"),
+                    "y": variables.use("spacings.block.small"),
                 ),
                 "disabled": (
                     "opacity": 0.5,

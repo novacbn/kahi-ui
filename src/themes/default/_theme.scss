@@ -358,17 +358,17 @@
             "movement":
                 generators.animation(
                     $duration: 0.25s,
-                    $function: variables.format-var("easings.ease-out-quad")
+                    $function: variables.use("easings.ease-out-quad")
                 ),
             "reveal":
                 generators.animation(
                     $duration: 0.3s,
-                    $function: variables.format-var("easings.ease-in-out-cubic")
+                    $function: variables.use("easings.ease-in-out-cubic")
                 ),
             "visual":
                 generators.animation(
                     $duration: 0.2s,
-                    $function: variables.format-var("easings.ease-out-quad")
+                    $function: variables.use("easings.ease-out-quad")
                 ),
         ),
     )

@@ -10,7 +10,7 @@
 @use "../mixins/transparency";
 
 @mixin base($namespace) {
-    text-decoration: #{variables.format-var("#{$namespace}.text.decoration")};
+    text-decoration: #{variables.use("#{$namespace}.text.decoration")};
 
     color: currentColor;
     cursor: pointer;
@@ -28,7 +28,7 @@
 }
 
 @mixin base-focus($namespace) {
-    text-decoration: #{variables.format-var("#{$namespace}.focus.text.decoration")};
+    text-decoration: #{variables.use("#{$namespace}.focus.text.decoration")};
 }
 
 @mixin state-active($is-inverse: false) {

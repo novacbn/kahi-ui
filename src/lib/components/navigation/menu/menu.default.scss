@@ -4,25 +4,25 @@
     @include variables.define(
         (
             "menu": (
-                "font.size": variables.format-var("fonts.sizes.inline.small"),
+                "font.size": variables.use("fonts.sizes.inline.small"),
                 "spacing": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.small"),
+                    "x": variables.use("spacings.block.small"),
+                    "y": variables.use("spacings.block.small"),
                 ),
                 "item": (
                     "background.opacity": 0,
-                    "border.radius": variables.format-var("radius.tiny"),
+                    "border.radius": variables.use("radius.tiny"),
                     "font": (
                         "opacity": 1,
                         "weight": normal,
                     ),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                     "padding": (
-                        "x": variables.format-var("spacings.block.medium"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.medium"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                     "disabled": (
                         "opacity": 0.5,
@@ -37,27 +37,27 @@
                     ),
                 ),
                 "heading": (
-                    "border.radius": variables.format-var("radius.tiny"),
+                    "border.radius": variables.use("radius.tiny"),
                     "font": (
-                        "family": variables.format-var("fonts.families.block"),
-                        "letter-spacing": variables.format-var("spacings.inline.small"),
+                        "family": variables.use("fonts.families.block"),
+                        "letter-spacing": variables.use("spacings.inline.small"),
                         "opacity": 1,
-                        "size": variables.format-var("fonts.sizes.inline.tiny"),
+                        "size": variables.use("fonts.sizes.inline.tiny"),
                         "weight": bold,
                     ),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
-                    "margin.y": variables.format-var("spacings.block.small"),
+                    "margin.y": variables.use("spacings.block.small"),
                     "opacity": 0.5,
                     "size": (
-                        "height": variables.format-var("sizes.borders.nano"),
-                        "width": variables.format-var("sizes.borders.nano"),
+                        "height": variables.use("sizes.borders.nano"),
+                        "width": variables.use("sizes.borders.nano"),
                     ),
                 ),
                 "section": (
-                    "padding.x": variables.format-var("spacings.block.small"),
+                    "padding.x": variables.use("spacings.block.small"),
                 ),
             ),
         )

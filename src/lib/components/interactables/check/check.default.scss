@@ -4,8 +4,8 @@
     @include variables.define(
         (
             "check": (
-                "border.radius": variables.format-var("radius.tiny"),
-                "font.size": variables.format-var("fonts.sizes.inline.small"),
+                "border.radius": variables.use("radius.tiny"),
+                "font.size": variables.use("fonts.sizes.inline.small"),
                 "padding": (
                     "x": 0.425,
                     "y": 0.425,

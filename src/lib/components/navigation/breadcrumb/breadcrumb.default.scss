@@ -4,7 +4,7 @@
     @include variables.define(
         (
             "breadcrumb": (
-                "gap.x": variables.format-var("spacings.block.tiny"),
+                "gap.x": variables.use("spacings.block.tiny"),
                 "item": (
                     "opacity": 1,
                     "text.decoration": none,

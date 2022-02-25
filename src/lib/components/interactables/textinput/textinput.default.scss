@@ -5,14 +5,14 @@
         (
             "text-input": (
                 "border": (
-                    "radius": variables.format-var("radius.small"),
+                    "radius": variables.use("radius.small"),
                     "style": solid,
-                    "width": variables.format-var("sizes.borders.tiny"),
+                    "width": variables.use("sizes.borders.tiny"),
                 ),
-                "font.size": variables.format-var("fonts.sizes.inline.small"),
+                "font.size": variables.use("fonts.sizes.inline.small"),
                 "padding": (
-                    "x": variables.format-var("spacings.block.small"),
-                    "y": variables.format-var("spacings.block.tiny"),
+                    "x": variables.use("spacings.block.small"),
+                    "y": variables.use("spacings.block.tiny"),
                 ),
                 "disabled": (
                     "opacity": 0.5,

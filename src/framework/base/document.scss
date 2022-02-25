@@ -31,14 +31,14 @@
 
     -webkit-tap-highlight-color: transparent;
 
-    scrollbar-width: #{variables.format-var("document.scrollbar.standard.size")};
+    scrollbar-width: #{variables.use("document.scrollbar.standard.size")};
     scrollbar-color: hsla(
-            #{palettes.format-var($name: "dark", $face: "background", $shade: "lightest")},
-            #{variables.format-var("document.scrollbar.thumb.background.opacity")}
+            #{palettes.use($name: "dark", $face: "background", $shade: "lightest")},
+            #{variables.use("document.scrollbar.thumb.background.opacity")}
         )
         hsla(
-            #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
-            #{variables.format-var("document.scrollbar.track.background.opacity")}
+            #{palettes.use($name: "auto", $face: "background", $shade: "boldest")},
+            #{variables.use("document.scrollbar.track.background.opacity")}
         );
 
     @include transitions.push(scrollbar-color, "visual");
@@ -47,19 +47,19 @@
 
 ::-webkit-scrollbar {
     width: calc(
-        #{variables.format-var("document.scrollbar.webkit.size")} + (#{variables.format-var(
+        #{variables.use("document.scrollbar.webkit.size")} + (#{variables.use(
                         "document.scrollbar.track.padding"
                     )} * 1rem)
     );
     height: calc(
-        #{variables.format-var("document.scrollbar.webkit.size")} + (#{variables.format-var(
+        #{variables.use("document.scrollbar.webkit.size")} + (#{variables.use(
                         "document.scrollbar.track.padding"
                     )} * 1rem)
     );
 }
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
-    border: calc(variables.format-var("document.scrollbar.track.padding") * 1rem) solid
+    border: calc(variables.use("document.scrollbar.track.padding") * 1rem) solid
         rgba(255, 255, 255, 0);
 
     @include backgrounds.transitions();
@@ -68,8 +68,8 @@
 
 ::-webkit-scrollbar-track {
     background-color: hsla(
-        #{palettes.format-var($name: "auto", $face: "background", $shade: "boldest")},
-        #{variables.format-var("document.scrollbar.track.background.opacity")}
+        #{palettes.use($name: "auto", $face: "background", $shade: "boldest")},
+        #{variables.use("document.scrollbar.track.background.opacity")}
     );
 }
 
@@ -77,7 +77,7 @@
     background-clip: padding-box;
 
     background-color: hsla(
-        #{palettes.format-var($name: "dark", $face: "background", $shade: "lightest")},
-        #{variables.format-var("document.scrollbar.thumb.background.opacity")}
+        #{palettes.use($name: "dark", $face: "background", $shade: "lightest")},
+        #{variables.use("document.scrollbar.thumb.background.opacity")}
     );
 }

@@ -25,6 +25,6 @@
 
     :where(.article) > a,
     :where(.article) > :is(blockquote, p, ol, ul) a {
-        color: hsl(#{variables.format-var("anchor.article.font.color")});
+        color: hsl(#{variables.use("anchor.article.font.color")});
     }
 }

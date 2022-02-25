@@ -23,11 +23,7 @@
     }
 
     @include variables.each("spacings.block.") using ($name, $size) {
-        @include spacing-declarations(
-            $name,
-            variables.format-var("spacings.block.#{$name}"),
-            $prefix
-        );
+        @include spacing-declarations($name, variables.use("spacings.block.#{$name}"), $prefix);
     }
 }
 

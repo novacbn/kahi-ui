@@ -4,11 +4,11 @@
     @include variables.define(
         (
             "list": (
-                "margin.x": variables.format-var("spacings.block.medium"),
+                "margin.x": variables.use("spacings.block.medium"),
                 "article": (
-                    "margin.y": variables.format-var("spacings.block.medium"),
+                    "margin.y": variables.use("spacings.block.medium"),
                     "children": (
-                        "margin.y": variables.format-var("spacings.block.small"),
+                        "margin.y": variables.use("spacings.block.small"),
                     ),
                 ),
             ),

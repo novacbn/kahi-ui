@@ -7,15 +7,15 @@
                 "item": (
                     "border": (
                         "opacity": 0.25,
-                        "width": variables.format-var("sizes.borders.tiny"),
+                        "width": variables.use("sizes.borders.tiny"),
                     ),
                     "gap": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.small"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
                     ),
                     "padding": (
-                        "x": variables.format-var("spacings.block.small"),
-                        "y": variables.format-var("spacings.block.tiny"),
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.tiny"),
                     ),
                     "disabled": (
                         "opacity": 0.5,

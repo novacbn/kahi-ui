@@ -6,7 +6,7 @@
             "box": (
                 "background.opacity": 1,
                 "border": (
-                    "width": variables.format-var("sizes.borders.small"),
+                    "width": variables.use("sizes.borders.small"),
                     "opacity": 1,
                     "style": solid,
                 ),

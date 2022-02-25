@@ -33,6 +33,7 @@
         @include fonts.family($namespace: "kbd");
         @include fonts.weight($namespace: "kbd");
 
+        vertical-align: middle;
         white-space: nowrap;
 
         @include borders.transitions();

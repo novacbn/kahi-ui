@@ -27,6 +27,8 @@
         @include fonts.size($namespace: "badge", $unit: em);
         @include fonts.weight($namespace: "badge");
 
+        vertical-align: middle;
+
         @include transitions.build();
 
         &[data-palette] {

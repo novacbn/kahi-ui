@@ -18,6 +18,8 @@
         @include fonts.family($namespace: "code");
         @include radius.all($namespace: "code", $unit: em);
 
+        vertical-align: middle;
+
         @include borders.transitions();
         @include backgrounds.transitions();
 

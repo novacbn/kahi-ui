@@ -213,7 +213,7 @@
 @include variables.define(
     (
         "fonts": (
-            "line-heights": generators.modular($base: 1, $ratio: 1.075),
+            "line-heights": generators.modular($base: 1, $ratio: 1.1),
             "sizes": (
                 "block": generators.modular($base: 1.541, $ratio: 1.155),
                 "inline": generators.modular($base: 0.75, $ratio: 1.155),
@@ -268,7 +268,7 @@
             "block": generators.modular($base: 9.5, $ratio: 1.2),
             "borders": generators.stepping($base: 1px, $stepping: 1px),
             "icon": generators.stepping($base: 16px, $stepping: 8px),
-            "prose": 65ch,
+            "prose": 85ch,
         ),
     )
 );

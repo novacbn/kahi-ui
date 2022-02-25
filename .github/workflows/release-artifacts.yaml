@@ -41,4 +41,8 @@ jobs:
               with:
                   files: |
                       ./package/dist/kahi-ui.framework.css
+                      ./package/dist/kahi-ui.framework.css.map
                       ./package/dist/kahi-ui.framework.min.css
+                      ./package/dist/kahi-ui.theme.default.css
+                      ./package/dist/kahi-ui.theme.default.css.map
+                      ./package/dist/kahi-ui.theme.default.min.css

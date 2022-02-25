@@ -11,11 +11,7 @@
 :root {
     @include palette-mixins.var-palette($palette: "auto");
 
-    // NOTE: The base document background color diverges from
-    // "surface" convention so the dark / light palettes stand
-    // out more when used else where as backgrounds
-
-    @include backgrounds.color($namespace: "document", $face: "background", $shade: "light");
+    @include surface.background($namespace: "document");
     @include surface.text($namespace: "document");
 
     @include fonts.family($namespace: "document");

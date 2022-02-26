@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.6.1 - 2022/02/25
+
+- Fixed packaging file inclusion.
+
 ## v0.6.0 - 2022/02/25
 
 -   Reworked the internal stylesheet, which includes the final visual refresh before `v1`.

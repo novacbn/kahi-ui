@@ -23,7 +23,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Heading>Queries Enabled</Heading>
 
     <Text>sHD: <Code>{$standard_hd_store}</Code></Text>

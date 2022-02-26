@@ -1,0 +1,47 @@
+@import "../../framework/base/document.default.scss";
+
+@import "../../lib/components/disclosure/accordion/accordion.default.scss",
+    "../../lib/components/disclosure/tab/tab.default.scss";
+
+@import "../../lib/components/display/badge/badge.default.scss",
+    "../../lib/components/display/kbd/kbd.default.scss",
+    "../../lib/components/display/list/list.default.scss",
+    "../../lib/components/display/table/table.default.scss";
+
+@import "../../lib/components/feedback/dot/dot.default.scss",
+    "../../lib/components/feedback/progress/progress.default.scss";
+
+@import "../../lib/components/interactables/button/button.default.scss",
+    "../../lib/components/interactables/check/check.default.scss",
+    "../../lib/components/interactables/filedropinput/filedropinput.default.scss",
+    "../../lib/components/interactables/numberinput/numberinput.default.scss",
+    "../../lib/components/interactables/form/form.default.scss",
+    "../../lib/components/interactables/radio/radio.default.scss",
+    "../../lib/components/interactables/switch/switch.default.scss",
+    "../../lib/components/interactables/textinput/textinput.default.scss";
+
+@import "../../lib/components/layouts/container/container.default.scss",
+    "../../lib/components/layouts/divider/divider.default.scss",
+    "../../lib/components/layouts/group/group.default.scss",
+    "../../lib/components/layouts/position/position.default.scss";
+
+@import "../../lib/components/navigation/anchor/anchor.default.scss",
+    "../../lib/components/navigation/aside/aside.default.scss",
+    "../../lib/components/navigation/breadcrumb/breadcrumb.default.scss",
+    "../../lib/components/navigation/menu/menu.default.scss",
+    "../../lib/components/navigation/omni/omni.default.scss";
+
+@import "../../lib/components/overlays/backdrop/backdrop.default.scss",
+    "../../lib/components/overlays/clickable/clickable.default.scss",
+    "../../lib/components/overlays/overlay/overlay.default.scss",
+    "../../lib/components/overlays/popover/popover.default.scss";
+
+@import "../../lib/components/surfaces/box/box.default.scss",
+    "../../lib/components/surfaces/card/card.default.scss",
+    "../../lib/components/surfaces/hero/hero.default.scss",
+    "../../lib/components/surfaces/tile/tile.default.scss";
+
+@import "../../lib/components/typography/blockquote/blockquote.default.scss",
+    "../../lib/components/typography/code/code.default.scss",
+    "../../lib/components/typography/heading/heading.default.scss",
+    "../../lib/components/typography/text/text.default.scss";

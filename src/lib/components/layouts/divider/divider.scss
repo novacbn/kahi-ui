@@ -1,0 +1,54 @@
+@use "../../../../framework/appearances/divider";
+
+@if not env("DISABLE_COMPONENTS_LAYOUTS_DIVIDER") {
+    .divider,
+    :where(.article) > hr {
+        @include divider.base($namespace: "divider", $support-palette: true);
+
+        &:is(:not([data-orientation]), [data-orientation~="horizontal"]) {
+            @include divider.base-horizontal($namespace: "divider");
+        }
+
+        &[data-orientation~="vertical"] {
+            @include divider.base-vertical($namespace: "divider");
+        }
+    }
+
+    hr.divider,
+    :where(.article) > hr {
+        @include divider.variation-divider-base($namespace: "divider");
+
+        &:is(:not([data-orientation]), [data-orientation~="horizontal"]) {
+            @include divider.variation-divider-horizontal($namespace: "divider");
+        }
+
+        &[data-orientation="vertical"] {
+            @include divider.variation-divider-vertical($namespace: "divider");
+        }
+    }
+
+    p.divider {
+        @include divider.variation-text-base($namespace: "divider.text", $support-legend: true);
+
+        &::before,
+        &::after {
+            @include divider.variation-text-pseudo-base($namespace: "divider");
+        }
+
+        &:is(:not([data-orientation]), [data-orientation~="horizontal"]) {
+            &::before,
+            &::after {
+                @include divider.variation-text-pseudo-horizontal($namespace: "divider");
+            }
+        }
+
+        &[data-orientation="vertical"] {
+            @include divider.variation-text-vertical();
+
+            &::before,
+            &::after {
+                @include divider.variation-text-pseudo-vertical($namespace: "divider");
+            }
+        }
+    }
+}

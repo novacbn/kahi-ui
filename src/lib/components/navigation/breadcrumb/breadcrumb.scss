@@ -1,0 +1,38 @@
+@use "../../../../framework/appearances/anchor";
+
+@use "../../../../framework/abstracts/variables";
+
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/transparency";
+
+@if not env("DISABLE_COMPONENTS_NAVIGATION_BREADCRUMB") {
+    .breadcrumb {
+        display: inline-flex;
+
+        @include intrinsics.gap-x($namespace: "breadcrumb", $unit: em);
+    }
+
+    .breadcrumb--item {
+        @include anchor.base($namespace: "breadcrumb.item");
+
+        @include transparency.opacity("breadcrumb.item");
+
+        @include anchor.state-focus() {
+            @include anchor.base-focus($namespace: "breadcrumb.item");
+        }
+
+        @include anchor.state-active($is-inverse: true) {
+            @include transparency.opacity("breadcrumb.item.active");
+        }
+
+        .breadcrumb[data-palette] &,
+        &[data-palette] {
+            @include anchor.variation-palette($namespace: "breadcrumb.item.palette");
+        }
+    }
+
+    .breadcrumb--separator {
+        @include transparency.opacity("breadcrumb.separator");
+    }
+}

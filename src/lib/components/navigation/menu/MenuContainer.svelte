@@ -2,8 +2,9 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_ORIENTATION_Y_BREAKPOINT} from "../../../types/orientations";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
@@ -17,9 +18,10 @@
         actions?: IForwardedActions;
         element?: HTMLElement;
 
-        sizing?: PROPERTY_SIZING;
-
         orientation?: PROPERTY_ORIENTATION_Y_BREAKPOINT;
+
+        palette?: PROPERTY_PALETTE;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -36,16 +38,17 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let sizing: $$Props["sizing"] = undefined;
-
     export let orientation: $$Props["orientation"] = undefined;
+
+    export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 </script>
 
 <nav
-    class="menu {_class}"
     bind:this={element}
-    {...map_global_attributes($$props)}
-    {...map_data_attributes({orientation, sizing})}
+    {...map_global_attributes($$restProps)}
+    class="menu {_class}"
+    {...map_data_attributes({orientation, palette, sizing})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -62,7 +65,5 @@
     on:pointerout
     on:pointerup
 >
-    <ul>
-        <slot />
-    </ul>
+    <slot />
 </nav>

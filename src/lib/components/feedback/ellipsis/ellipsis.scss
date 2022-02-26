@@ -1,0 +1,5 @@
+@if not env("DISABLE_COMPONENTS_FEEDBACK_ELLIPSIS") {
+    .ellipsis {
+        white-space: nowrap;
+    }
+}

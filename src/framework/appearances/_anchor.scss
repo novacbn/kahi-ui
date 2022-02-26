@@ -1,0 +1,72 @@
+@use "../abstracts/variables";
+
+@use "../mixins/borders";
+@use "../mixins/backgrounds";
+@use "../mixins/fonts";
+@use "../mixins/intrinsics";
+@use "../mixins/radius";
+@use "../mixins/sizings";
+@use "../mixins/transitions";
+@use "../mixins/transparency";
+
+@mixin base($namespace) {
+    text-decoration: #{variables.use("#{$namespace}.text.decoration")};
+
+    color: currentColor;
+    cursor: pointer;
+
+    /** TODO: Remove during ARIA pass */
+    outline: none !important;
+
+    @include fonts.transitions();
+    @include transitions.build();
+}
+
+@mixin base-disabled($namespace) {
+    cursor: not-allowed;
+    @include transparency.opacity($namespace: "#{$namespace}.disabled");
+}
+
+@mixin base-focus($namespace) {
+    text-decoration: #{variables.use("#{$namespace}.focus.text.decoration")};
+}
+
+@mixin state-active($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:active, [aria-current], [aria-pressed="true"]) {
+            @content;
+        }
+    } @else {
+        &:is(:active, [aria-current], [aria-pressed="true"]) {
+            @content;
+        }
+    }
+}
+
+@mixin state-disabled($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:disabled, [aria-disabled="true"]) {
+            @content;
+        }
+    } @else {
+        &:is(:disabled, [aria-disabled="true"]) {
+            @content;
+        }
+    }
+}
+
+@mixin state-focus($is-inverse: false) {
+    @if $is-inverse {
+        &:not(:focus, :hover) {
+            @content;
+        }
+    } @else {
+        &:is(:focus, :hover) {
+            @content;
+        }
+    }
+}
+
+@mixin variation-palette($namespace) {
+    @include fonts.color($namespace: $namespace, $face: "background", $shade: "boldest");
+}

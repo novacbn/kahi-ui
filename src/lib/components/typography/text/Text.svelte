@@ -3,7 +3,7 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import type {
         PROPERTY_TEXT_ALIGNMENT,
@@ -20,11 +20,8 @@
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLElement | HTMLParagraphElement | HTMLPreElement | HTMLSpanElement;
+        element?: HTMLElement | HTMLParagraphElement | HTMLSpanElement;
 
-        /**
-         * @deprecated `<Text is="kbd">` is being elevated to a standalone `<Kbd>` Component in `v0.6.0`.
-         */
         is?:
             | "abbr"
             | "b"
@@ -32,10 +29,8 @@
             | "em"
             | "i"
             | "ins"
-            | "kbd"
             | "mark"
             | "p"
-            | "pre"
             | "s"
             | "samp"
             | "small"
@@ -45,17 +40,9 @@
             | "sup"
             | "u";
 
-        /**
-         * @deprecated Use `<Text alignment_x="...">` instead.
-         */
-        align?: PROPERTY_TEXT_ALIGNMENT;
         alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         transform?: PROPERTY_TEXT_TRANSFORM;
-        /**
-         * @deprecated Use `<Text sizing="...">` instead.
-         */
-        size?: PROPERTY_SIZING;
-        sizing?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
 
         palette?: PROPERTY_PALETTE;
         variation?: PROPERTY_TEXT_VARIATION;
@@ -75,21 +62,10 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    /**
-     * @deprecated `<Text is="kbd">` is being elevated to a standalone `<Kbd>` Component in `v0.6.0`.
-     */
     export let is: $$Props["is"] = "p";
 
-    /**
-     * @deprecated Use `<Text alignment_x="...">` instead.
-     */
-    export let align: $$Props["align"] = undefined;
     export let alignment_x: $$Props["alignment_x"] = undefined;
     export let transform: $$Props["transform"] = undefined;
-    /**
-     * @deprecated Use `<Text sizing="...">` instead.
-     */
-    export let size: $$Props["size"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
@@ -99,15 +75,9 @@
 {#if is === "abbr"}
     <abbr
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -129,15 +99,9 @@
 {:else if is === "b"}
     <b
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -159,15 +123,9 @@
 {:else if is === "del"}
     <del
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -189,15 +147,9 @@
 {:else if is === "em"}
     <em
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -219,15 +171,9 @@
 {:else if is === "i"}
     <i
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -249,15 +195,9 @@
 {:else if is === "ins"}
     <ins
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -276,42 +216,12 @@
     >
         <slot />
     </ins>
-{:else if is === "kbd"}
-    <kbd
-        bind:this={element}
-        {...map_global_attributes($$props)}
-        class="text {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
-        use:forward_actions={{actions}}
-        on:click
-        on:contextmenu
-        on:dblclick
-        on:focusin
-        on:focusout
-        on:keydown
-        on:keyup
-        on:pointercancel
-        on:pointerdown
-        on:pointerenter
-        on:pointerleave
-        on:pointermove
-        on:pointerout
-        on:pointerup
-    >
-        <slot />
-    </kbd>
 {:else if is === "mark"}
     <mark
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -330,46 +240,12 @@
     >
         <slot />
     </mark>
-{:else if is === "pre"}
-    <pre
-        bind:this={element}
-        {...map_global_attributes($$props)}
-        class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            transform,
-            variation,
-        })}
-        use:forward_actions={{actions}}
-        on:click
-        on:contextmenu
-        on:dblclick
-        on:focusin
-        on:focusout
-        on:keydown
-        on:keyup
-        on:pointercancel
-        on:pointerdown
-        on:pointerenter
-        on:pointerleave
-        on:pointermove
-        on:pointerout
-        on:pointerup>
-            <slot />
-    </pre>
 {:else if is === "s"}
     <s
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -391,15 +267,9 @@
 {:else if is === "samp"}
     <samp
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -421,9 +291,9 @@
 {:else if is === "small"}
     <small
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
+        {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -445,15 +315,9 @@
 {:else if is === "span"}
     <span
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -475,15 +339,9 @@
 {:else if is === "strong"}
     <strong
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -505,15 +363,9 @@
 {:else if is === "sub"}
     <sub
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -535,15 +387,9 @@
 {:else if is === "sup"}
     <sup
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -565,15 +411,9 @@
 {:else if is === "u"}
     <u
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -595,15 +435,9 @@
 {:else}
     <p
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="text {_class}"
-        {...map_data_attributes({
-            align: align ?? alignment_x,
-            palette,
-            size: size ?? sizing,
-            transform,
-            variation,
-        })}
+        {...map_data_attributes({alignment_x, palette, sizing, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu

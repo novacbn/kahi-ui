@@ -10,16 +10,15 @@
         map_global_attributes,
     } from "../../../util/attributes";
 
+    import {behavior_anchor} from "../../../actions/behavior_anchor";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
-
-    import MenuItem from "./MenuItem.svelte";
 
     type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLLIElement;
+        element?: HTMLAnchorElement;
 
         active?: boolean;
         disabled?: boolean;
@@ -41,6 +40,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
@@ -52,31 +54,32 @@
     export let palette: $$Props["palette"] = undefined;
 </script>
 
-<MenuItem bind:element {...$$props}>
-    <a
-        {...map_global_attributes($$props)}
-        {...map_aria_attributes({pressed: active, current: active ? "page" : undefined, disabled})}
-        {...map_data_attributes({palette})}
-        {download}
-        {href}
-        {rel}
-        {target}
-        use:forward_actions={{actions}}
-        on:click
-        on:contextmenu
-        on:dblclick
-        on:focusin
-        on:focusout
-        on:keydown
-        on:keyup
-        on:pointercancel
-        on:pointerdown
-        on:pointerenter
-        on:pointerleave
-        on:pointermove
-        on:pointerout
-        on:pointerup
-    >
-        <slot />
-    </a>
-</MenuItem>
+<a
+    bind:this={element}
+    {...map_global_attributes($$restProps)}
+    class="menu--item {_class}"
+    {...map_aria_attributes({current: active ? "page" : undefined, disabled})}
+    {...map_data_attributes({palette})}
+    {download}
+    {href}
+    {rel}
+    {target}
+    use:behavior_anchor={{enabled: true}}
+    use:forward_actions={{actions}}
+    on:click
+    on:contextmenu
+    on:dblclick
+    on:focusin
+    on:focusout
+    on:keydown
+    on:keyup
+    on:pointercancel
+    on:pointerdown
+    on:pointerenter
+    on:pointerleave
+    on:pointermove
+    on:pointerout
+    on:pointerup
+>
+    <slot />
+</a>

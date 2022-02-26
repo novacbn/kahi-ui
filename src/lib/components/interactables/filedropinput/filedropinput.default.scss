@@ -1,0 +1,21 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_FILE_DROP_INPUT") {
+    @include variables.define(
+        (
+            "file-drop-input": (
+                "background.opacity": 0.25,
+                "border": (
+                    "width": variables.use("sizes.borders.medium"),
+                    "opacity": 1,
+                    "style": dashed,
+                ),
+                "font.opacity": 1,
+                "padding": (
+                    "x": variables.use("spacings.block.large"),
+                    "y": variables.use("spacings.block.large"),
+                ),
+            ),
+        )
+    );
+}

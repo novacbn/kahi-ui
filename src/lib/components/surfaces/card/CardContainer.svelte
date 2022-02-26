@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type {PROPERTY_ELEVATION} from "../../../types/elevations";
+    import type {PROPERTY_ELEVATION_BREAKPOINT} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
     import type {PROPERTY_VARIATION_SURFACE} from "../../../types/variations";
 
@@ -19,9 +19,9 @@
         actions?: IForwardedActions;
         element?: HTMLDivElement;
 
-        elevation?: PROPERTY_ELEVATION;
+        elevation?: PROPERTY_ELEVATION_BREAKPOINT;
         palette?: PROPERTY_PALETTE;
-        sizing?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
         variation?: PROPERTY_VARIATION_SURFACE;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -47,7 +47,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="card {_class}"
     {...map_data_attributes({elevation, palette, sizing, variation})}
     use:forward_actions={{actions}}

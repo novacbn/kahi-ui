@@ -1,14 +1,11 @@
 <script lang="ts">
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {IPaddingProperties} from "../../../types/spacings";
 
-    import {behavior_button} from "../../../actions/behavior_button";
     import type {IForwardedActions} from "../../../actions/forward_actions";
-    import {forward_actions} from "../../../actions/forward_actions";
 
-    import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
-
-    import FormGroup from "../../interactables/form/FormGroup.svelte";
+    import FormLabel from "../../interactables/form/FormLabel.svelte";
 
     type $$Events = IHTML5Events;
 
@@ -21,7 +18,8 @@
 
         for?: string;
     } & IHTML5Properties &
-        IGlobalProperties;
+        IGlobalProperties &
+        IPaddingProperties;
 
     type $$Slots = {
         default: {};
@@ -31,7 +29,6 @@
     export let element: $$Props["element"] = undefined;
 
     let _class: $$Props["class"] = "";
-    export let tabindex: $$Props["tabindex"] = 0;
     export {_class as class};
 
     export let active: $$Props["active"] = undefined;
@@ -39,22 +36,16 @@
 
     let _for: $$Props["for"] = undefined;
     export {_for as for};
-
-    // HACK: Svelte has `tabindex` typed as `number | undefined` unless
-    // you pass a string literal into the markup
-    $: _tabindex = tabindex as number | undefined;
 </script>
 
-<label
-    bind:this={element}
-    {...map_global_attributes($$props)}
-    role="button"
-    class="clickable-item {_class}"
-    {...map_aria_attributes({disabled, pressed: active})}
+<FormLabel
+    bind:element
+    {...$$restProps}
+    class="clickable--item {_class}"
     for={_for}
-    tabindex={_tabindex}
-    use:behavior_button={{enabled: true}}
-    use:forward_actions={{actions}}
+    {actions}
+    {active}
+    {disabled}
     on:click
     on:contextmenu
     on:dblclick
@@ -70,7 +61,5 @@
     on:pointerout
     on:pointerup
 >
-    <FormGroup logic_id={_for}>
-        <slot />
-    </FormGroup>
-</label>
+    <slot />
+</FormLabel>

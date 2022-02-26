@@ -1,0 +1,18 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_FEEDBACK_PROGRESS") {
+    @include variables.define(
+        (
+            "progress": (
+                "border.radius": variables.use("radius.medium"),
+                "font.size": variables.use("fonts.sizes.inline.medium"),
+                "indicator": (
+                    "background.opacity": 1,
+                ),
+                "track": (
+                    "background.opacity": 0.5,
+                ),
+            ),
+        )
+    );
+}

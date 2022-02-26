@@ -1,46 +1,34 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
+    import {now_day} from "../../../util/datetime/days";
+    import {add_years, subtract_years} from "../../../util/datetime/years";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import YearPicker from "./YearPicker.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let calendar;
     let locale;
-    let timestamp;
+    let timestamp = now_day();
     let value;
 
-    let disabled = [
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 1}).toString(),
-    ];
-    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .add({years: 3})
-        .toString();
-    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .subtract({years: 3})
-        .toString();
-    let highlight = [
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 1}).toString(),
-
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 2}).toString(),
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toPlainYearMonth().add({years: 3}).toString(),
-    ];
+    let disabled = [add_years(timestamp, 1), subtract_years(timestamp, 1)];
+    let max = add_years(timestamp, 2);
+    let min = subtract_years(timestamp, 2);
+    let highlight = [timestamp, add_years(timestamp, 2), subtract_years(timestamp, 2)];
 </script>
 
 <Meta title="Widgets/YearPicker" />
@@ -49,7 +37,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <YearPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
@@ -129,7 +117,7 @@
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -139,5 +127,5 @@
                 <YearPicker palette="accent" width="content-max" {sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

@@ -1,0 +1,48 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_SWITCH") {
+    @include variables.define(
+        (
+            "switch": (
+                "font.size": variables.use("fonts.sizes.inline.small"),
+                "padding": (
+                    "x": 0.6375,
+                    "y": 0.425,
+                ),
+                "active": (
+                    "scale": (
+                        "x": 0.95,
+                        "y": 0.95,
+                    ),
+                ),
+                "disabled": (
+                    "opacity": 0.5,
+                ),
+                "checked": (
+                    "background.opacity": 1,
+                    "font.opacity": 1,
+                    "active": (
+                        "background.opacity": 0.5,
+                        "font.opacity": 1,
+                    ),
+                    "focus": (
+                        "background.opacity": 0.75,
+                        "font.opacity": 1,
+                    ),
+                ),
+                "unchecked": (
+                    "background.opacity": 0.35,
+                    "font.opacity": 1,
+                    "active": (
+                        "background.opacity": 0.75,
+                        "font.opacity": 1,
+                    ),
+                    "focus": (
+                        "background.opacity": 0.5,
+                        "font.opacity": 1,
+                    ),
+                ),
+            ),
+        )
+    );
+}

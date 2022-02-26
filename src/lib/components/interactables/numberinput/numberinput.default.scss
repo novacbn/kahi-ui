@@ -1,0 +1,50 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_NUMBER_INPUT") {
+    @include variables.define(
+        (
+            "number-input": (
+                "border": (
+                    "radius": variables.use("radius.small"),
+                    "style": solid,
+                    "width": variables.use("sizes.borders.tiny"),
+                ),
+                "font.size": variables.use("fonts.sizes.inline.small"),
+                "padding": (
+                    "x": variables.use("spacings.block.small"),
+                    "y": variables.use("spacings.block.tiny"),
+                ),
+                "disabled": (
+                    "opacity": 0.5,
+                ),
+                "block": (
+                    "background.opacity": 0.35,
+                    "border.opacity": 0,
+                    "active": (
+                        "background.opacity": 0,
+                        "border.opacity": 1,
+                    ),
+                    "hover": (
+                        "background.opacity": 0.5,
+                        "border.opacity": 0,
+                    ),
+                ),
+                "flush": (
+                    "font.opacity": 1,
+                ),
+                "outline": (
+                    "border.opacity": 0.5,
+                    "active": (
+                        "border.opacity": 1,
+                    ),
+                    "hover": (
+                        "border.opacity": 0.75,
+                    ),
+                ),
+                "placeholder": (
+                    "opacity": 0.5,
+                ),
+            ),
+        )
+    );
+}

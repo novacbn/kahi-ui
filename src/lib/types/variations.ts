@@ -1,9 +1,20 @@
-import type {ArrayEnum, LiteralEnum} from "./util";
+import type {ArrayEnum, LiteralEnum, LiteralObject} from "./util";
+
+/**
+ * Represents the tiers of animation variation tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_ANIMATION {
+    pause = "pause",
+
+    play = "play",
+}
 
 /**
  * Represents the tiers of flex variations tokens that can be applied to Framework Components
  */
 export enum TOKENS_VARIATION_FLEX {
+    relative = "relative",
+
     wrap = "wrap",
 }
 
@@ -23,17 +34,28 @@ export enum TOKENS_VARIATION_FILL {
 }
 
 /**
+ * Represents the tiers of grid variations tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_GRID {
+    relative = "relative",
+}
+
+/**
+ * Represents the `Popover`-centric variation tokens that can be applied to Framework Components
+ */
+export enum TOKENS_VARIATION_POPOVER {
+    popover = "popover",
+
+    tooltip = "tooltip",
+}
+
+/**
  * Represents the tiers of filling positional tokens that can be applied to Framework Components
  */
 export enum TOKENS_VARIATION_POSITIONAL {
     action = "action",
 
     container = "container",
-
-    /**
-     * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
-     */
-    floated = "floated",
 
     indicator = "indicator",
 
@@ -67,7 +89,6 @@ export const TOKENS_VARIATION_INTERACTIVE = {
 
 export const TOKENS_VARIATION_POSITION = {
     [TOKENS_VARIATION_POSITIONAL.action]: TOKENS_VARIATION_POSITIONAL.action,
-    [TOKENS_VARIATION_POSITIONAL.floated]: TOKENS_VARIATION_POSITIONAL.floated,
     [TOKENS_VARIATION_POSITIONAL.indicator]: TOKENS_VARIATION_POSITIONAL.indicator,
     [TOKENS_VARIATION_POSITIONAL.raised]: TOKENS_VARIATION_POSITIONAL.raised,
 } as const;
@@ -89,28 +110,34 @@ export const TOKENS_VARIATION_TOGGLE = {
     [TOKENS_VARIATION_FILL.flush]: TOKENS_VARIATION_FILL.flush,
 } as const;
 
+export type PROPERTY_VARIATION_ANIMATION = LiteralEnum<TOKENS_VARIATION_ANIMATION>;
+
 export type PROPERTY_VARIATION_BUTTON =
     | `${TOKENS_VARIATION_FILL.subtle}`
-    | LiteralEnum<keyof typeof TOKENS_VARIATION_BUTTON>
-    | [`${TOKENS_VARIATION_FILL.subtle}`, LiteralEnum<keyof typeof TOKENS_VARIATION_BUTTON>];
+    | LiteralObject<typeof TOKENS_VARIATION_BUTTON>
+    | [`${TOKENS_VARIATION_FILL.subtle}`, LiteralObject<typeof TOKENS_VARIATION_BUTTON>];
 
 export type PROPERTY_VARIATION_FLEX = ArrayEnum<LiteralEnum<TOKENS_VARIATION_FLEX>>;
 
-export type PROPERTY_VARIATION_INPUT = LiteralEnum<keyof typeof TOKENS_VARIATION_INPUT>;
+export type PROPERTY_VARIATION_GRID = ArrayEnum<LiteralEnum<TOKENS_VARIATION_GRID>>;
 
-export type PROPERTY_VARIATION_INTERACTIVE = LiteralEnum<keyof typeof TOKENS_VARIATION_INTERACTIVE>;
+export type PROPERTY_VARIATION_INPUT = LiteralObject<typeof TOKENS_VARIATION_INPUT>;
 
-export type PROPERTY_VARIATION_SURFACE = LiteralEnum<keyof typeof TOKENS_VARIATION_SURFACE>;
+export type PROPERTY_VARIATION_INTERACTIVE = LiteralObject<typeof TOKENS_VARIATION_INTERACTIVE>;
+
+export type PROPERTY_VARIATION_SURFACE = LiteralObject<typeof TOKENS_VARIATION_SURFACE>;
 
 export type PROPERTY_VARIATION_TABLE = ArrayEnum<LiteralEnum<TOKENS_VARIATION_TABLE>>;
 
-export type PROPERTY_VARIATION_POSITION = LiteralEnum<keyof typeof TOKENS_VARIATION_POSITION>;
+export type PROPERTY_VARIATION_POPOVER = LiteralEnum<TOKENS_VARIATION_POPOVER>;
+
+export type PROPERTY_VARIATION_POSITION = LiteralObject<typeof TOKENS_VARIATION_POSITION>;
 
 export type PROPERTY_VARIATION_POSITION_AUGMENT =
     | PROPERTY_VARIATION_POSITION
     | [`${TOKENS_VARIATION_POSITIONAL.container}`, PROPERTY_VARIATION_POSITION]
     | [`${TOKENS_VARIATION_POSITIONAL.viewport}`, PROPERTY_VARIATION_POSITION];
 
-export type PROPERTY_VARIATION_TRANSITION = LiteralEnum<keyof typeof TOKENS_VARIATION_TRANSITION>;
+export type PROPERTY_VARIATION_TRANSITION = LiteralEnum<TOKENS_VARIATION_TRANSITION>;
 
-export type PROPERTY_VARIATION_TOGGLE = LiteralEnum<keyof typeof TOKENS_VARIATION_TOGGLE>;
+export type PROPERTY_VARIATION_TOGGLE = LiteralObject<typeof TOKENS_VARIATION_TOGGLE>;

@@ -10,6 +10,7 @@
     import type {IMarginProperties} from "../../../types/spacings";
     import type {ISvelteKitAnchorProperties} from "../../../types/sveltekit";
 
+    import {behavior_anchor} from "../../../actions/behavior_anchor";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
@@ -25,7 +26,6 @@
         actions?: IForwardedActions;
         element?: HTMLAnchorElement;
 
-        active?: boolean;
         current?: PROPERTY_ARIA_CURRENT;
         disabled?: boolean;
 
@@ -47,7 +47,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
-    export let active: $$Props["active"] = undefined;
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let current: $$Props["current"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
@@ -61,13 +63,15 @@
 
 <a
     bind:this={element}
-    {...map_global_attributes($$props)}
-    {...map_aria_attributes({pressed: active, current, disabled})}
+    {...map_global_attributes($$restProps)}
+    class="anchor {_class}"
+    {...map_aria_attributes({current, disabled})}
     {...map_data_attributes({palette})}
     {download}
     {href}
     {rel}
     {target}
+    use:behavior_anchor={{enabled: true}}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

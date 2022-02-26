@@ -66,7 +66,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="intersection-render {_class}"
     use:intersection_observer={{
         on_intersect,

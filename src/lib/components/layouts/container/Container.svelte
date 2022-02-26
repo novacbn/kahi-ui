@@ -3,12 +3,11 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
-    import type {PROPERTY_VIEWPORT_BREAKPOINT} from "../../../types/viewports";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
-    import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
+    import {map_global_attributes} from "../../../util/attributes";
 
     type $$Events = IHTML5Events;
 
@@ -16,12 +15,7 @@
         actions?: IForwardedActions;
         element?: HTMLElement | HTMLDivElement;
 
-        is?: "div" | "main";
-
-        /**
-         * @deprecated Removed in `0.6.0` in favor of `viewport-` prefixed `width` / `max_width` globals
-         */
-        viewport?: PROPERTY_VIEWPORT_BREAKPOINT;
+        is?: "article" | "div" | "main";
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -39,16 +33,36 @@
     export {_class as class};
 
     export let is: $$Props["is"] = "div";
-
-    export let viewport: $$Props["viewport"] = undefined;
 </script>
 
-{#if is === "main"}
+{#if is === "article"}
+    <article
+        bind:this={element}
+        {...map_global_attributes($$restProps)}
+        class="container {_class}"
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
+    >
+        <slot />
+    </article>
+{:else if is === "main"}
     <main
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="container {_class}"
-        {...map_data_attributes({viewport})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -70,9 +84,8 @@
 {:else}
     <div
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="container {_class}"
-        {...map_data_attributes({viewport})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu

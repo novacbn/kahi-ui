@@ -1,30 +1,33 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Check from "./Check.svelte";
 
     const PALETTES = [
         ["neutral", true],
-        ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
-    const SIZES = [
-        ["default", true],
-        ["tiny", false],
-        ["small", false],
+    const SIZINGS = [
+        ["small", true],
+        ["nano", false],
+        ["tiny", true],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -34,7 +37,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Check />
 </Story>
 
@@ -44,7 +47,7 @@
 
 <Story name="State">
     <Text is="strong">DEFAULT</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Check id="check-state-block-default">DEFAULT</Check>
         <Check id="check-state-block-state" state>STATE</Check>
 
@@ -53,10 +56,10 @@
 
         <Check id="check-state-block-disabled-no-state" disabled>DISABLED NO-STATE</Check>
         <Check id="check-state-block-disabled-state" disabled state>DISABLED STATE</Check>
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">FLUSH</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Check id="check-state-flush-default" variation="flush">DEFAULT</Check>
         <Check id="check-state-flush-state" variation="flush" state>STATE</Check>
 
@@ -73,12 +76,12 @@
         <Check id="check-state-flush-disabled-state" variation="flush" disabled state>
             DISABLED STATE
         </Check>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text>
                     <Text is="strong">
@@ -86,15 +89,15 @@
                     </Text>
                 </Text>
 
-                <Check {palette} />
+                <Check palette={is_default ? undefined : palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Flush">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text>
                     <Text is="strong">
@@ -102,24 +105,24 @@
                     </Text>
                 </Text>
 
-                <Check variation="flush" {palette} />
+                <Check variation="flush" palette={is_default ? undefined : palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
-<Story name="Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
+<Story name="Sizing">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text>
                     <Text is="strong">
-                        {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                        {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                     </Text>
                 </Text>
 
-                <Check {size} />
+                <Check sizing={is_default ? undefined : sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

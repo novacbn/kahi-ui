@@ -1,0 +1,57 @@
+@use "../../../../framework/appearances/flex";
+
+@use "../../../../framework/mixins/planes";
+
+@if not env("DISABLE_COMPONENTS_OVERLAYS_OVERLAY") {
+    .overlay {
+        display: block;
+        position: fixed;
+
+        inset: 0;
+
+        @include planes.z-index($namespace: "overlay");
+    }
+
+    .overlay--backdrop {
+        pointer-events: auto;
+    }
+
+    .overlay--section {
+        @include flex.var-reset($direction: column, $alignment-x: center, $alignment-y: center);
+
+        @include flex.base($unit: rem);
+
+        position: absolute;
+
+        inset: 0;
+
+        & > * {
+            pointer-events: auto;
+        }
+    }
+
+    .overlay,
+    .overlay--section {
+        pointer-events: none;
+    }
+
+    .overlay--state {
+        display: none;
+
+        &:not(:checked) + .overlay {
+            & > :is(.overlay--backdrop, .overlay--section) {
+                /**
+                 * HACK: We're abusing `Backdrop` / `Transition` Component's internal state CSS vars to
+                 * make `Overlay` transitions SSR-able
+                 */
+
+                --animation-visible: 0;
+            }
+
+            & > .overlay--backdrop,
+            & > .overlay--section > * {
+                pointer-events: none;
+            }
+        }
+    }
+}

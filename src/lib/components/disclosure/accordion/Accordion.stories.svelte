@@ -13,10 +13,11 @@
     const ACCORDIONS = ["One", "Two", "Three"];
 
     const PALETTES = [
-        ["neutral", true],
-        ["accent", false],
+        ["inverse", true],
         ["auto", false],
-        ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
@@ -37,7 +38,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Accordion.Container logic_name="accordion-default">
         <Accordion.Group logic_id="accordion-default-1">
             <Accordion.Label palette="accent">Section One</Accordion.Label>

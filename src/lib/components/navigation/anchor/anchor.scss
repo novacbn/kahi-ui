@@ -1,0 +1,32 @@
+@use "../../../../framework/abstracts/variables";
+
+@use "../../../../framework/appearances/anchor";
+
+@if not env("DISABLE_COMPONENTS_NAVIGATION_ANCHOR") {
+    .anchor,
+    :where(.article) > a,
+    :where(.article) > :is(blockquote, p, ol, ul, table) a,
+    :where(.article) > .scrollable > table a {
+        @include anchor.base($namespace: "anchor");
+
+        @include anchor.state-disabled() {
+            @include anchor.base-disabled($namespace: "anchor");
+        }
+
+        @include anchor.state-disabled($is-inverse: true) {
+            @include anchor.state-focus() {
+                @include anchor.base-focus($namespace: "anchor");
+            }
+        }
+
+        &[data-palette] {
+            @include anchor.variation-palette($namespace: "anchor.palette");
+        }
+    }
+
+    :where(.article) > a,
+    :where(.article) > :is(blockquote, p, ol, ul, table) a,
+    :where(.article) > .scrollable > table a {
+        color: hsl(#{variables.use("anchor.article.font.color")});
+    }
+}

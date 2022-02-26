@@ -1,37 +1,33 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
+    import {add_days, now_day, subtract_days} from "../../../util/datetime/days";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import DayPicker from "./DayPicker.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let calendar;
     let locale;
-    let timestamp;
+    let timestamp = now_day();
     let value;
 
-    let disabled = [Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 2}).toString()];
-    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 3}).toString();
-    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR).subtract({days: 3}).toString();
-    let highlight = [
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).toString(),
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 1}).toString(),
-        Temporal.Now.plainDate(DEFAULT_CALENDAR).add({days: 2}).toString(),
-    ];
+    let disabled = [add_days(timestamp, 1), subtract_days(timestamp, 1)];
+    let max = add_days(timestamp, 2);
+    let min = subtract_days(timestamp, 2);
+    let highlight = [timestamp, add_days(timestamp, 2), subtract_days(timestamp, 2)];
 </script>
 
 <Meta title="Widgets/DayPicker" />
@@ -40,7 +36,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <DayPicker palette="accent" bind:calendar bind:locale bind:timestamp bind:value />
 
     <Code is="pre">
@@ -121,7 +117,7 @@
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -131,5 +127,5 @@
                 <DayPicker palette="accent" width="content-max" {sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

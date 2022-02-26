@@ -2,13 +2,13 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Center from "../../layouts/center/Center.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Carousel from "./index";
 
-    const SECTIONS = ["negative", "affirmative", "alert"];
+    const SECTIONS = ["negative", "informative", "affirmative", "alert"];
 
     const ORIENTATIONS = [
         ["horizontal", true],
@@ -17,11 +17,13 @@
 
     const SPACINGS = [
         ["none", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -31,7 +33,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Carousel.Container style="width:300px;height:200px;">
         <Carousel.Section>
             <Box palette="negative">
@@ -54,14 +56,17 @@
 </Story>
 
 <Story name="Orientation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each ORIENTATIONS as [orientation, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <div>
                 <Text is="strong">
                     {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Carousel.Container {orientation} style="width:300px;height:200px;">
+                <Carousel.Container
+                    orientation={is_default ? undefined : orientation}
+                    style="width:300px;height:200px;"
+                >
                     {#each SECTIONS as palette}
                         <Carousel.Section>
                             <Box {palette}>
@@ -72,18 +77,21 @@
                 </Carousel.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Spacing">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each SPACINGS as [spacing, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each SPACINGS as [spacing, is_default] (spacing)}
             <div>
                 <Text is="strong">
                     {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Carousel.Container {spacing} style="width:300px;height:200px;">
+                <Carousel.Container
+                    spacing={is_default ? undefined : spacing}
+                    style="width:300px;height:200px;"
+                >
                     {#each SECTIONS as palette}
                         <Carousel.Section>
                             <Box {palette}>
@@ -94,5 +102,5 @@
                 </Carousel.Container>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

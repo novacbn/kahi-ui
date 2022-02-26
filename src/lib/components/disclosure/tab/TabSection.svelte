@@ -33,6 +33,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let loading: $$Props["loading"] = undefined;
 
     const _tab_id = CONTEXT_TAB_ID.get();
@@ -41,13 +44,17 @@
     // TODO: `Transition` support for `loading=lazy`
 
     let state: boolean = true;
-    $: if (_tab_id && _tab_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy)
-        state = $_tab_state === $_tab_id;
+    $: {
+        if (_tab_id && _tab_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy) {
+            state = $_tab_state === $_tab_id;
+        }
+    }
 </script>
 
 <section
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
+    class="tab--section {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

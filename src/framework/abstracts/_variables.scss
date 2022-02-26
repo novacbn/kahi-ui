@@ -1,0 +1,52 @@
+@use "sass:string";
+
+@use "./namespaces";
+@use "./strings";
+
+@mixin define($key, $value: null) {
+    @if type-of($key) == "string" {
+        @include namespaces.define-namespace("variables.#{$key}", $value);
+    } @else {
+        @include namespaces.define-namespaces(
+            (
+                "variables": $key,
+            )
+        );
+    }
+}
+
+@mixin each($filter: "") {
+    @include namespaces.each("variables.#{$filter}") using ($key, $value) {
+        @content ($key, $value);
+    }
+}
+
+@function get($key) {
+    @return namespaces.get("variables.#{$key}");
+}
+
+@function has($key) {
+    @return namespaces.has("variables.#{$key}");
+}
+
+@function keys($filter: "") {
+    @return namespaces.keys("variables.#{$filter}");
+}
+
+@function ref($key) {
+    @if not has($key) {
+        @error "bad argument #1 to 'variables.ref' (invalid key '#{$key}')";
+    }
+
+    @return strings.format-identifier($key);
+}
+
+@function use($key, $fallback: null) {
+    $key: ref($key);
+
+    @if $fallback {
+        @return var(#{$key}, #{$fallback});
+    }
+
+    @return var(--#{$key});
+}

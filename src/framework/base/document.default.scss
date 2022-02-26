@@ -1,0 +1,30 @@
+@use "../abstracts/variables";
+
+@include variables.define(
+    (
+        "document": (
+            "background.opacity": 1,
+            "font": (
+                "family": variables.use("fonts.families.inline"),
+                "line-height": variables.use("fonts.line-heights.huge"),
+                "opacity": 1,
+                "size": 16px,
+            ),
+            "scrollbar": (
+                "standard": (
+                    "size": auto,
+                ),
+                "webkit": (
+                    "size": 0.6rem,
+                ),
+                "thumb": (
+                    "background.opacity": 1,
+                ),
+                "track": (
+                    "background.opacity": 1,
+                    "padding": variables.use("spacings.block.tiny"),
+                ),
+            ),
+        ),
+    )
+);

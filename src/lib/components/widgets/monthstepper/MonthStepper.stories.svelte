@@ -1,37 +1,31 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR} from "../../../util/locale";
+    import {add_months, now_month, subtract_months} from "../../../util/datetime/months";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import MonthStepper from "./MonthStepper.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let calendar;
     let locale;
-    let value;
+    let value = now_month();
 
-    let max = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .add({months: 5})
-        .toString();
-    let min = Temporal.Now.plainDate(DEFAULT_CALENDAR)
-        .toPlainYearMonth()
-        .subtract({months: 5})
-        .toString();
-    let step = 3;
+    let max = add_months(value, 5);
+    let min = subtract_months(value, 5);
+    let steps = 3;
 </script>
 
 <Meta title="Widgets/MonthStepper" />
@@ -40,7 +34,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <MonthStepper palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">
@@ -72,19 +66,19 @@
     </Code>
 </Story>
 
-<Story name="Step">
-    <MonthStepper palette="accent" {step} bind:calendar bind:locale bind:value />
+<Story name="Steps">
+    <MonthStepper palette="accent" {steps} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, value, step}, null, 4)}
+        {JSON.stringify({calendar, locale, value, steps}, null, 4)}
     </Code>
 </Story>
 
-<Story name="Step + Maximum + Minimum">
-    <MonthStepper palette="accent" {step} {max} {min} bind:calendar bind:locale bind:value />
+<Story name="Steps + Maximum + Minimum">
+    <MonthStepper palette="accent" {steps} {max} {min} bind:calendar bind:locale bind:value />
 
     <Code is="pre">
-        {JSON.stringify({calendar, locale, value, step, max, min}, null, 4)}
+        {JSON.stringify({calendar, locale, value, steps, max, min}, null, 4)}
     </Code>
 </Story>
 
@@ -104,7 +98,7 @@
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -114,5 +108,5 @@
                 <MonthStepper palette="accent" width="content-max" {sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

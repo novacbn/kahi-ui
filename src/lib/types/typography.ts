@@ -1,11 +1,5 @@
 import type {ArrayEnum, LiteralEnum} from "./util";
 
-export enum TOKENS_HEADING_VARIATION {
-    headline = "headline",
-
-    truncate = "truncate",
-}
-
 /**
  * Represents the tiers of text alignment tokens that can be applied to Framework Components
  */
@@ -28,10 +22,10 @@ export enum TOKENS_TEXT_TRANSFORM {
 }
 
 export enum TOKENS_TEXT_VARIATION {
+    block = "block",
+
     truncate = "truncate",
 }
-
-export type PROPERTY_HEADING_VARIATION = ArrayEnum<LiteralEnum<TOKENS_HEADING_VARIATION>>;
 
 export type PROPERTY_TEXT_ALIGNMENT = LiteralEnum<TOKENS_TEXT_ALIGNMENT>;
 

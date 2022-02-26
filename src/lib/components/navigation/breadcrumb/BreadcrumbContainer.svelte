@@ -3,13 +3,18 @@
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
+    import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
-    import {map_aria_attributes, map_global_attributes} from "../../../util/attributes";
+    import {
+        map_aria_attributes,
+        map_data_attributes,
+        map_global_attributes,
+    } from "../../../util/attributes";
 
     import BreadcrumbGroup from "./BreadcrumbGroup.svelte";
 
@@ -20,6 +25,8 @@
         element?: HTMLElement;
 
         separator?: string | typeof SvelteComponent;
+
+        palette?: PROPERTY_PALETTE;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -37,13 +44,16 @@
     export {_class as class};
 
     export let separator: $$Props["separator"] = "/";
+
+    export let palette: $$Props["palette"] = undefined;
 </script>
 
 <nav
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="breadcrumb {_class}"
     {...map_aria_attributes({label: "breadcrumb"})}
+    {...map_data_attributes({palette})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -60,9 +70,7 @@
     on:pointerout
     on:pointerup
 >
-    <ol>
-        <BreadcrumbGroup {separator}>
-            <slot />
-        </BreadcrumbGroup>
-    </ol>
+    <BreadcrumbGroup {separator}>
+        <slot />
+    </BreadcrumbGroup>
 </nav>

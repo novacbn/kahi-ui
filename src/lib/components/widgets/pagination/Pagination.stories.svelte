@@ -1,6 +1,7 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
-    import Stack from "../../layouts/stack/Stack.svelte";
+
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Pagination from "./Pagination.svelte";
@@ -14,23 +15,26 @@
 
     const PALETTES = [
         ["neutral", true],
-        ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let value = 5;
@@ -51,11 +55,11 @@
 </Story>
 
 <Story name="Anchor">
-    <Pagination href={"/path/to/list?page=${page}"} pages={10} value={5} palette="accent" />
+    <Pagination is="a" href={"/path/to/list?page=${page}"} pages={10} value={5} palette="accent" />
 </Story>
 
 <Story name="Steps">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each STEPS as [steps, is_default] (steps)}
             <div>
                 <Text is="strong">
@@ -65,11 +69,11 @@
                 <Pagination pages={10} value={5} palette="accent" {steps} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Palette">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
@@ -79,11 +83,11 @@
                 <Pagination pages={10} value={5} {palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Sizing">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -93,5 +97,5 @@
                 <Pagination pages={10} value={5} palette="accent" {sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

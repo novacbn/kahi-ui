@@ -22,11 +22,6 @@
         actions?: IForwardedActions;
         element?: HTMLElement;
 
-        /**
-         * @deprecated Use `variation="indicator"` instead of `variation="floated"`.
-         */
-        variation?: PROPERTY_VARIATION_POSITION_AUGMENT;
-
         placement?: PROPERTY_PLACEMENT;
 
         alignment_x?: PROPERTY_ALIGNMENT_X;
@@ -35,6 +30,8 @@
         spacing?: PROPERTY_SPACING_BREAKPOINT;
         spacing_x?: PROPERTY_SPACING_BREAKPOINT;
         spacing_y?: PROPERTY_SPACING_BREAKPOINT;
+
+        variation?: PROPERTY_VARIATION_POSITION_AUGMENT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -51,8 +48,6 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let variation: $$Props["variation"] = undefined;
-
     export let placement: $$Props["placement"] = undefined;
 
     export let alignment_x: $$Props["alignment_x"] = undefined;
@@ -61,11 +56,13 @@
     export let spacing: $$Props["spacing"] = undefined;
     export let spacing_x: $$Props["spacing_x"] = undefined;
     export let spacing_y: $$Props["spacing_y"] = undefined;
+
+    export let variation: $$Props["variation"] = undefined;
 </script>
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="position {_class}"
     {...map_data_attributes({
         "alignment-x": alignment_x,

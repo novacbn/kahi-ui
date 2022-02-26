@@ -1,22 +1,27 @@
 <script lang="ts">
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
+    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
-    import {clamp_day, get_daystamp, is_day_in_range} from "../../../util/datetime";
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+    import {
+        IDayFormatOptions,
+        clamp_day,
+        is_day_in_range,
+        now_day,
+        format_day,
+        add_days,
+    } from "../../../util/datetime/days";
 
+    import Button from "../../interactables/button/Button.svelte";
+    import FormLegend from "../../interactables/form/FormLegend.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
-    import WidgetHeader from "../widget/WidgetHeader.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -30,28 +35,20 @@
         disabled?: boolean;
         readonly?: boolean;
 
-        /**
-         * @deprecated Being removed in `v0.6.0` due to cross-calendar manipulation being removed.
-         */
-        calendar?: string;
         locale?: string;
 
-        day?: Intl.DateTimeFormatOptions["day"];
-        month?: Intl.DateTimeFormatOptions["month"];
-        weekday?: Intl.DateTimeFormatOptions["weekday"];
+        day?: IDayFormatOptions["day"];
+        month?: IDayFormatOptions["month"];
+        weekday?: IDayFormatOptions["weekday"];
 
         max?: string;
         min?: string;
-        /**
-         * @deprecated Use `<DayStepper steps="...">` instead.
-         */
-        step?: number | string;
         steps?: number | string;
 
         value?: string;
 
         palette?: PROPERTY_PALETTE;
-        sizing?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -72,10 +69,6 @@
     export let disabled: $$Props["disabled"] = undefined;
     export let readonly: $$Props["readonly"] = undefined;
 
-    /**
-     * @deprecated Being removed in `v0.6.0` due to cross-calendar manipulation being removed.
-     */
-    export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 
     export let day: $$Props["day"] = undefined;
@@ -84,63 +77,72 @@
 
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
-    /**
-     * @deprecated Use `<DayStepper steps="...">` instead.
-     */
-    export let step: $$Props["step"] = undefined;
     export let steps: $$Props["steps"] = undefined;
 
-    export let value: $$Props["value"] = undefined;
+    export let value: string = now_day();
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
     function on_day_select(difference: number, event: MouseEvent): void {
         if (readonly) return;
 
-        value = clamp_day(_day.add({days: difference}), min, max).toString({
-            calendarName: "always",
-        });
+        value = add_days(value, difference);
+        value = clamp_day(value, min, max);
 
         dispatch("change");
     }
 
-    const _daystamp = get_daystamp(calendar ?? DEFAULT_CALENDAR);
+    $: _steps = Math.abs((typeof steps === "string" ? parseInt(steps) : steps) ?? 1);
 
-    $: _day = Temporal.PlainDate.from(value ?? _daystamp);
-    $: _step = step ? (typeof step === "string" ? Math.abs(parseInt(step)) : Math.abs(step)) : 1;
-    $: _steps = steps
-        ? typeof steps === "string"
-            ? Math.abs(parseInt(steps))
-            : Math.abs(steps)
-        : undefined;
+    $: _sizing = sizing ?? TOKENS_SIZING.small;
 </script>
 
-<WidgetContainer {...$$props} bind:element class="day-stepper {_class}">
-    <Stack orientation="horizontal" alignment_y="center">
-        <WidgetHeader>
-            {_day.toLocaleString(locale ?? DEFAULT_LOCALE, {
-                day: day ?? "2-digit",
-                month: month ?? "long",
-                weekday: weekday ?? "long",
-            })}
-        </WidgetHeader>
+<!--
+    HACK: We want textual Components, e.g. `<Form.Legend>` to scale with the
+    non-textual, e.g. `<Button>` in a way that keeps the size difference intact.
 
-        <Spacer is="span" />
+    We could do mapping to the next lower tier, e.g. `<YearStepper sizing="medium">` maps
+    to `<Form.Legend sizing="small">`, but that wouldn't work in edge cases
+    like `<YearStepper sizing="nano">`. And since the datetime Widgets are JS-only, we can
+    ignore size considerations and just throw in a quick inline-style
+-->
 
-        <WidgetButton
-            disabled={disabled || !is_day_in_range(_day, undefined, min)}
-            {palette}
-            on:click={on_day_select.bind(null, (_steps ?? _step) * -1)}
-        >
-            <slot name="previous">&lt;</slot>
-        </WidgetButton>
+<StackContainer
+    bind:element
+    {...$$restProps}
+    class="day-stepper {_class}"
+    orientation="horizontal"
+    alignment_y="center"
+    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1rem);"
+>
+    <FormLegend is="span">
+        {format_day(value, locale, {
+            day: day ?? "2-digit",
+            month: month ?? "long",
+            weekday: weekday ?? "long",
+        })}
+    </FormLegend>
 
-        <WidgetButton
-            disabled={disabled || !is_day_in_range(_day, max)}
-            {palette}
-            on:click={on_day_select.bind(null, _steps ?? _step)}
-        >
-            <slot name="next">&gt;</slot>
-        </WidgetButton>
-    </Stack>
-</WidgetContainer>
+    <Spacer is="span" />
+
+    <Button
+        disabled={disabled || !is_day_in_range(value, min)}
+        variation={["subtle", "clear"]}
+        sizing={_sizing}
+        {palette}
+        on:click={on_day_select.bind(null, _steps * -1)}
+    >
+        <slot name="previous">&lt;</slot>
+    </Button>
+
+    <Button
+        disabled={disabled || !is_day_in_range(value, undefined, max)}
+        variation={["subtle", "clear"]}
+        sizing={_sizing}
+        {palette}
+        on:click={on_day_select.bind(null, _steps)}
+    >
+        <slot name="next">&gt;</slot>
+    </Button>
+</StackContainer>

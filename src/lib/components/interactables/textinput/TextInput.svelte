@@ -3,8 +3,12 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {PROPERTY_RESIZEABLE} from "../../../types/resizable";
+    import type {
+        PROPERTY_RADIUS_BREAKPOINT,
+        PROPERTY_SHAPE_BREAKPOINT,
+    } from "../../../types/shapes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_TEXT_ALIGNMENT, PROPERTY_TEXT_TRANSFORM} from "../../../types/typography";
     import type {PROPERTY_VARIATION_INPUT} from "../../../types/variations";
@@ -46,43 +50,21 @@
         value?: string;
 
         mask?: boolean;
-        max?: number | undefined;
-        /**
-         * @deprecated Use `<TextInput max="...">` instead.
-         */
-        max_length?: number | undefined;
-        min?: number | undefined;
-        /**
-         * @deprecated Use `<TextInput min="...">` instead.
-         */
-        min_length?: number | undefined;
+        max?: number | string;
+        min?: number | string;
         pattern?: RegExp | string;
 
-        /**
-         * @deprecated Use `<TextInput span_x="...">` instead.
-         */
-        characters?: number | string;
         span_x?: number | string;
-        /**
-         * @deprecated Use `<TextInput span_y="...">` instead.
-         */
-        lines?: number | string;
         span_y?: number | string;
 
         resizable?: PROPERTY_RESIZEABLE;
         spell_check?: boolean;
 
-        /**
-         * @deprecated Use `<TextInput alignment_x="...">` instead.
-         */
-        align?: PROPERTY_TEXT_ALIGNMENT;
         alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         palette?: PROPERTY_PALETTE;
-        /**
-         * @deprecated Use `<TextInput sizing="...">` instead.
-         */
-        size?: PROPERTY_SIZING;
-        sizing?: PROPERTY_SIZING;
+        radius?: PROPERTY_RADIUS_BREAKPOINT;
+        shape?: PROPERTY_SHAPE_BREAKPOINT;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
         transform?: PROPERTY_TEXT_TRANSFORM;
         variation?: PROPERTY_VARIATION_INPUT;
     } & IHTML5Properties &
@@ -94,6 +76,9 @@
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
 
     export let id: $$Props["id"] = "";
     export let name: $$Props["name"] = "";
@@ -110,42 +95,19 @@
 
     export let mask: $$Props["mask"] = undefined;
     export let max: $$Props["max"] = undefined;
-    /**
-     * @deprecated Use `<TextInput max="...">` instead.
-     */
-    export let max_length: $$Props["max_length"] = undefined;
     export let min: $$Props["min"] = undefined;
-    /**
-     * @deprecated Use `<TextInput min="...">` instead.
-     */
-    export let min_length: $$Props["min_length"] = undefined;
     export let pattern: $$Props["pattern"] = "";
 
-    /**
-     * @deprecated Use `<TextInput span_x="...">` instead.
-     */
-    export let characters: $$Props["characters"] = undefined;
     export let span_x: $$Props["span_x"] = undefined;
-
-    /**
-     * @deprecated Use `<TextInput span_y="...">` instead.
-     */
-    export let lines: $$Props["lines"] = undefined;
     export let span_y: $$Props["span_y"] = undefined;
 
     export let resizable: $$Props["resizable"] = undefined;
     export let spell_check: $$Props["spell_check"] = undefined;
 
-    /**
-     * @deprecated Use `<TextInput alignment_x="...">` instead.
-     */
-    export let align: $$Props["align"] = undefined;
     export let alignment_x: $$Props["alignment_x"] = undefined;
     export let palette: $$Props["palette"] = undefined;
-    /**
-     * @deprecated Use `<TextInput sizing="...">` instead.
-     */
-    export let size: $$Props["size"] = undefined;
+    export let radius: $$Props["radius"] = undefined;
+    export let shape: $$Props["shape"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
     export let transform: $$Props["transform"] = undefined;
     export let variation: $$Props["variation"] = undefined;
@@ -160,33 +122,39 @@
     $: _id = _form_id ? $_form_id : id;
     $: _name = _form_name ? $_form_name : name;
 
-    $: _pattern = typeof pattern === "string" ? pattern : (pattern as RegExp).source;
+    // NOTE: `RegExp.toString` returns the expression with the forward slash
+    // boundries (`/.../`), which is not compatible with the `<input pattern>`
+    // attribute. So we can use `RegExp.source` here which doesn't include them
+    $: _pattern = pattern instanceof RegExp ? pattern.source : pattern;
 </script>
 
 {#if is === "textarea"}
     <textarea
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
+        class="text-input {_class}"
         {...map_data_attributes({
-            align: align ?? alignment_x,
+            alignment_x,
             palette,
             resizable,
-            size: size ?? sizing,
+            radius,
+            shape,
+            sizing,
             transform,
             variation,
         })}
         {...map_attributes({
-            cols: characters ?? span_x,
+            cols: span_x,
             disabled,
             id: _id,
-            maxlength: max_length ?? max,
-            minlength: min_length ?? min,
+            maxlength: max,
+            minlength: min,
             name: _name,
             placeholder,
             readonly,
             required,
-            rows: lines ?? span_y,
-            spellcheck: spell_check === undefined ? undefined : spell_check.toString(),
+            rows: span_y,
+            spellcheck: spell_check,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
         bind:value
@@ -211,26 +179,29 @@
 {:else if type === "email"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="email"
+        class="text-input {_class}"
         {...map_data_attributes({
-            align: align ?? alignment_x,
+            alignment_x,
             palette,
-            size: size ?? sizing,
+            radius,
+            shape,
+            sizing,
             transform,
             variation,
         })}
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length ?? max,
-            minlength: min_length ?? min,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters ?? span_x,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -256,26 +227,29 @@
 {:else if type === "password"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="password"
+        class="text-input {_class}"
         {...map_data_attributes({
-            align: align ?? alignment_x,
+            alignment_x,
             palette,
-            size: size ?? sizing,
+            radius,
+            shape,
+            sizing,
             transform,
             variation,
         })}
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length ?? max,
-            minlength: min_length ?? min,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters ?? span_x,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -301,26 +275,29 @@
 {:else if type === "search"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="search"
+        class="text-input {_class}"
         {...map_data_attributes({
-            align: align ?? alignment_x,
+            alignment_x,
             palette,
-            size: size ?? sizing,
+            radius,
+            shape,
+            sizing,
             transform,
             variation,
         })}
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length ?? max,
-            minlength: min_length ?? min,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters ?? span_x,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -346,26 +323,29 @@
 {:else if type === "url"}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="url"
+        class="text-input {_class}"
         {...map_data_attributes({
-            align: align ?? alignment_x,
+            alignment_x,
             palette,
-            size: size ?? sizing,
+            radius,
+            shape,
+            sizing,
             transform,
             variation,
         })}
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length ?? max,
-            minlength: min_length ?? min,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters ?? span_x,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}
@@ -391,26 +371,29 @@
 {:else}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="text"
+        class="text-input {_class}"
         {...map_data_attributes({
-            align: align ?? alignment_x,
+            alignment_x,
             palette,
-            size: size ?? sizing,
+            radius,
+            shape,
+            sizing,
             transform,
             variation,
         })}
         {...map_attributes({
             disabled,
             id: _id,
-            maxlength: max_length ?? max,
-            minlength: min_length ?? min,
+            maxlength: max,
+            minlength: min,
             name: _name,
             pattern: _pattern,
             placeholder,
             readonly,
             required,
-            size: characters ?? span_x,
+            size: span_x,
             value,
         })}
         use:mask_input={{enabled: mask, on_mask, pattern}}

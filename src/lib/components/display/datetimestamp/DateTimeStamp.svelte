@@ -9,7 +9,13 @@
     import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_global_attributes} from "../../../util/attributes";
-    import {has_timezone} from "../../../util/datetime";
+    import type {IDayFormatOptions} from "../../../util/datetime/days";
+    import type {IHourFormatOptions} from "../../../util/datetime/hours";
+    import type {IMinuteFormatOptions} from "../../../util/datetime/minutes";
+    import type {IMonthFormatOptions} from "../../../util/datetime/months";
+    import type {IYearFormatOptions} from "../../../util/datetime/years";
+    import type {ISecondFormatOptions} from "../../../util/datetime/seconds";
+    import {has_timezone} from "../../../util/datetime/timezones";
     import {defaultopt} from "../../../util/functional";
     import {DEFAULT_CALENDAR, DEFAULT_FORMAT_DATETIME, DEFAULT_LOCALE} from "../../../util/locale";
 
@@ -22,15 +28,15 @@
         calendar?: string;
         locale?: string;
 
-        day?: Intl.DateTimeFormatOptions["day"];
-        month?: Intl.DateTimeFormatOptions["month"];
-        weekday?: Intl.DateTimeFormatOptions["weekday"];
-        year?: Intl.DateTimeFormatOptions["year"];
+        day?: IDayFormatOptions["day"];
+        month?: IMonthFormatOptions["month"];
+        weekday?: IDayFormatOptions["weekday"];
+        year?: IYearFormatOptions["year"];
 
-        hour?: Intl.DateTimeFormatOptions["hour"];
-        hour_12?: Intl.DateTimeFormatOptions["hour12"];
-        minute?: Intl.DateTimeFormatOptions["minute"];
-        second?: Intl.DateTimeFormatOptions["second"];
+        hour?: IHourFormatOptions["hour"];
+        hour_12?: IHourFormatOptions["hour_12"];
+        minute?: IMinuteFormatOptions["minute"];
+        second?: ISecondFormatOptions["second"];
 
         timestamp: string;
     } & IHTML5Properties &
@@ -72,9 +78,9 @@
 
 <time
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="date-time-stamp {_class}"
-    datetime={_datetime.toString({calendarName: "never"})}
+    datetime={_datetime.withCalendar("iso8601").toString({calendarName: "never"})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

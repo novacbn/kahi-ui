@@ -1,9 +1,0 @@
-.time-picker {
-    & > section:first-child {
-        height: 25ex;
-    }
-
-    & > section:not(:first-child):last-child {
-        height: max-content;
-    }
-}

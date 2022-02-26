@@ -1,0 +1,29 @@
+@use "../../../../framework/appearances/flex";
+
+@use "../../../../framework/mixins/intrinsics";
+
+@if not env("DISABLE_COMPONENTS_LAYOUTS_STACK") {
+    .stack {
+        @include flex.var-reset($direction: column);
+
+        @include flex.base($unit: rem);
+
+        &[data-variation~="relative"] {
+            @include intrinsics.gap-all($unit: em);
+        }
+
+        &[data-variation~="wrap"] {
+            flex-wrap: wrap;
+        }
+    }
+
+    .stack--item {
+        display: contents;
+
+        &[data-variation~="stretch"] {
+            & > * {
+                flex-grow: 1;
+            }
+        }
+    }
+}

@@ -34,6 +34,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let palette: $$Props["palette"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
@@ -41,7 +44,8 @@
 
 <table
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
+    class="table {_class}"
     {...map_data_attributes({palette, sizing, variation})}
     use:forward_actions={{actions}}
     on:click

@@ -14,12 +14,12 @@
     import {IS_BROWSER} from "../../../util/environment";
     import {debounce} from "../../../util/functional";
     import {navigate_up, navigate_down} from "../../../util/keybind";
-    import {clamp} from "../../../util/number";
+    import {clamp} from "../../../util/math";
 
     import * as Table from "../../display/table";
     import Button from "../../interactables/button/Button.svelte";
     import NumberInput from "../../interactables/numberinput/NumberInput.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import TextInput from "../../interactables/textinput/TextInput.svelte";
 
     type IDataTableRow = $$Generic<Record<string, any>>;
@@ -222,7 +222,7 @@
     }
 </script>
 
-<Table.Container {...$$props} bind:element class="data-table {_class}" {sizing} {variation}>
+<Table.Container {...$$restProps} bind:element class="data-table {_class}" {sizing} {variation}>
     <Table.Header>
         <Table.Row>
             {#each columns as column (column.key)}
@@ -233,7 +233,7 @@
                         <Button
                             disabled={!IS_BROWSER}
                             variation={["subtle", "clear"]}
-                            size={sizing}
+                            {sizing}
                             {palette}
                             on:click={on_sorting_click.bind(null, column.key)}
                         >
@@ -273,29 +273,29 @@
                 <Table.Column>
                     <slot name="search">
                         <TextInput
-                            characters="10"
-                            size={sizing}
+                            span_x="10"
                             value={searching}
                             {palette}
+                            {sizing}
                             on:input={debounce(on_searching_input, 250)}
                         />
                     </slot>
                 </Table.Column>
 
-                <Table.Column colspan={columns.length}>
+                <Table.Column span_x={columns.length}>
                     {#if paginate}
-                        <Stack
+                        <Stack.Container
                             orientation="horizontal"
                             alignment_x="right"
                             alignment_y="center"
                             spacing="small"
                         >
                             <NumberInput
-                                characters="1"
+                                span_x="1"
                                 value={_page}
-                                align="right"
+                                alignment_x="right"
                                 {palette}
-                                size={sizing}
+                                {sizing}
                                 actions={[
                                     [navigate_up, {on_bind: on_paging_step.bind(null, 1)}],
                                     [navigate_down, {on_bind: on_paging_step.bind(null, -1)}],
@@ -310,7 +310,7 @@
                             <Button
                                 disabled={_page === 1}
                                 variation={["subtle", "clear"]}
-                                size={sizing}
+                                {sizing}
                                 {palette}
                                 on:click={on_paging_step.bind(null, -1)}
                             >
@@ -320,13 +320,13 @@
                             <Button
                                 disabled={_page === _pages}
                                 variation={["subtle", "clear"]}
-                                size={sizing}
+                                {sizing}
                                 {palette}
                                 on:click={on_paging_step.bind(null, 1)}
                             >
                                 <slot name="next">&gt;</slot>
                             </Button>
-                        </Stack>
+                        </Stack.Container>
                     {/if}
                 </Table.Column>
             </Table.Row>

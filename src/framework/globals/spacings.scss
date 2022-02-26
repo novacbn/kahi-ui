@@ -1,0 +1,38 @@
+@use "../abstracts/constants";
+@use "../abstracts/variables";
+@use "../abstracts/viewports";
+
+@mixin spacing-declarations($name, $value, $prefix: "") {
+    [data-spacing~="#{$prefix + $name}"] {
+        --spacing-x: #{$value} !important;
+        --spacing-y: #{$value} !important;
+    }
+
+    [data-spacing-x~="#{$prefix + $name}"] {
+        --spacing-x: #{$value} !important;
+    }
+
+    [data-spacing-y~="#{$prefix + $name}"] {
+        --spacing-y: #{$value} !important;
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include constants.each("spacings.") using ($name, $size) {
+        @include spacing-declarations($name, $size, $prefix);
+    }
+
+    @include variables.each("spacings.block.") using ($name, $size) {
+        @include spacing-declarations($name, variables.use("spacings.block.#{$name}"), $prefix);
+    }
+}
+
+@if not env("DISABLE_GLOBALS_SPACINGS") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_SPACINGS_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

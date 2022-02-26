@@ -2,6 +2,387 @@
 
 ## UNRELEASED
 
+-   Reworked the internal stylesheet, which includes the final visual refresh before `v1`.
+-   Refined / Consolidated the public APIs of all the Actions / Components / Stores _(see below)_, which should all be considered semi-stable now for `v1`.
+-   **(BREAKING)** Themeing is now a separate stylesheet, which should be imported after your Framework import.
+
+```js
+import "@kahi-ui/framework/dist/kahi-ui.framework.css";
+import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
+```
+
+-   Added the following Components / Component Features
+
+    -   `*`
+
+        -   `<* elevation>` — Added `lower` / `higher` elevation tiers.
+        -   `<* palette>` — Added `neutral` / `informative` semantic palettes.
+
+            -   `neutral` — Typically used to represent a non-destructive action or a secondary action whenever another palette is used.
+            -   `informative` — Typically signals that the Component is related to the current content, but is otherwise out of context.
+
+        -   `<* sizing>` — Added `nano` / `massive` size tiers to any Component that can scale.
+        -   `<* size>` — Is now a shorthand property for expressing `width` + `height`.
+
+            -   e.g. `<* size="viewport-66">` is equivalent to `<* width="viewport-66" height="viewport-66">`
+
+        -   `<* width/height/size="nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}">` — Sets dimensions based on the current theme's block sizing variables.
+
+            -   You can also prefix any of the size tiers with `icon-` to access the theme's icon sizing variables instead.
+            -   e.g. `<* size="icon-small">`
+
+        -   `<* width/height/size="viewport-{mobile/tablet/desktop/widescreen}">` — Sets dimensions based on the current theme's Viewport breakpoints.
+
+    -   Disclosure
+
+        -   `Tab`
+
+            -   `<Tab.Anchor disabled={boolean}>` — Disables clicks.
+
+    -   Display
+
+        -   `Badge`
+
+            -   `<Badge is="a/button" href={string}>` — Alters the `Badge` to render an underline on hover.
+            -   `<Badge radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" shape="circle/pill/{VIEWPORT}:{SHAPE}">` — Alters the border radius rendered.
+
+        -   `Kbd` — Renders text in a manner that resembles a keycap from a keyboard, to represent a key binding. e.g. `CTRL+C` which typically means "Copy"
+
+    -   Embedded
+
+        -   `Figure`
+
+            -   `<Figure radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}">` — Alters the border radius rendered.
+
+    -   Feedback
+
+        -   `Ellipsis`
+
+            -   `<Ellipsis animation="bounce/pulse/ping">` — Alters the internal `<Animation animation>` used.
+            -   `<Ellipsis iterations={number}>` — Sets how many copies of the passed `default` slot is rendered to DOM. Defaults to `3`.
+
+        -   `Progress`
+
+            -   `<Progress radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}">` — Alters the border radius of the progress bar.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   `<Button radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" shape="circle/pill/{VIEWPORT}:{SHAPE}">` — Alters the border radius rendered.
+            -   `<Button is="a/label" disabled={boolean}>` — Disables clicks.
+
+        -   `Form`
+
+            -   `<Form.Legend is="legend/span">` — Renders a form heading.
+            -   `<Form.FieldSet>` — Renders the child content within a spaced border box.
+
+        -   `NumberInput`
+
+            -   `<NumberInput radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" shape="circle/pill/{VIEWPORT}:{SHAPE}">` — Alters the border radius rendered.
+            -   `<NumberInput max={number | string} min={number | string}>` — Masks the user input from entering numbers not within the specified range.
+
+        -   `TextInput`
+
+            -   `<TextInput radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" shape="circle/pill/{VIEWPORT}:{SHAPE}">` — Alters the border radius rendered.
+
+    -   Layouts
+
+        -   `Article` — Adds styling to classes HTML tags used to render typical Markdown output.
+
+            -   `<a>` — Renders similarly to `<Anchor>` along with a palette color configured by theme.
+            -   `<blockquote>` / `<cite>` — Renders similarly to `<Blockquote.Container>` / `<Blockquote.Cite>`, with inner children spacing and bottom margin.
+            -   `<code>` / `<pre><code>` — Renders similarly to `<Code>`.
+            -   `<hr>` — Renders similarly to `<Divider>`.
+            -   `<h1>~<h6>` — Renders similarly to `<Heading is="{TAG}">` along with bottom margin.
+            -   `<ol>` / `<ul>` — Renders similarly to `<List is="{TAG}">` along with bottom margin + paragraph spacing.
+            -   `<p>` — Renders similarly to `<Text>` along with bottom margin.
+            -   `<small>` — Renders similarly to `<Text is="small">`.
+
+        -   `Container`
+
+            -   `<Container is="article">` — Renders as an `<article>` semantic element.
+
+        -   `Grid`
+
+            -   `<Grid.Container variation="relative">` — Adjusts spacing to be relative to inherited font size.
+
+        -   `Group`
+
+            -   `<Group variation="stacked" spacing="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" spacing_x spacing_y>` — Alters how close together the child elements are stacked on top of each other.
+
+        -   `Mosaic`
+
+            -   `<Mosaic.Container variation="relative">` — Adjusts spacing and sizing to be relative to inherited font size.
+
+            -   `<Mosaic.Item>` — Adjusts the layout of a singular `Mosaic` item.
+
+                -   `<Mosaic.Item span={number} span_x={number} span_y={number}>` — Adjusts the column / row span of the item.
+
+        -   `Stack`
+
+            -   `<Stack.Container variation="relative">` — Adjusts spacing to be relative to inherited font size.
+
+            -   `<Stack.Item>` — Adjusts the layout of a singular `Stack` item.
+
+                -   `<Stack.Item variation="stretch">` — Grows the item to fill any unused space within the `<Stack.Container>`.
+
+    -   Navigation
+
+        -   `Anchor`
+
+            -   `<Anchor disabled={boolean}>` — Disables clicks and alters the appearance.
+
+        -   `Breadcrumb`
+
+            -   `<Breadcrumb.Button>` — Renders as the same appearance of `<Breadcrumb.Anchor>`, that does not navigate the Browser.
+            -   `<Breadcrumb.(Anchor/Button/Container) palette="auto/inverse/accent/dark/light/alert/affirmative/informative/negative">` — Alters the rendered color palette.
+
+        -   `Menu`
+
+            -   `<Menu.Container palette="auto/inverse/accent/dark/light/alert/affirmative/informative/negative">` — Alters the rendered color palette of all children.
+            -   `<Menu.Anchor disabled={boolean}>` — Disables clicks and alters the appearance.
+
+    -   Overlays
+
+        -   `Backdrop`
+
+            -   `<Backdrop palette="auto/inverse/accent/dark/light/alert/affirmative/informative/negative">` — Alters the rendered color palette.
+
+        -   `Clickable`
+
+            -   `<Clickable.Anchor disabled={boolean}>` — Disables clicks and alters the appearance.
+
+        -   `Popover`
+
+            -   `<Popover.Container variation="tooltip">` — Activates the `<Popover.Section>` content when sibling content is focused / hovered.
+
+    -   Surfaces
+
+        -   `Box`
+
+            -   `<Box radius="none/nano/tiny/small/medium/large/huge/massive/{VIEWPORT}:{SIZE}" shape="circle/pill/{VIEWPORT}:{SHAPE}">` — Alters the border radius rendered.
+
+    -   Utilities
+
+        -   `Animation` — Applies a repeating animation to the child elements.
+
+            -   `<Animation on:animationend={AnimationEvent} on:animationstart={AnimationEvent}>` — Passthrough of the Browser [`animationend`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationend_event) / [`animationstart`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/animationstart_event) events.
+            -   `<Animation is="div/span">` — Alters the rendered element.
+            -   `<Animation animation="bounce/ping/pulse">` — Alters which animation is rendered.
+            -   `<Animation delay={number | string}>` — Adjusts how long until the animation starts playing by a percentage multiplier of the base duration.
+            -   `<Animation duration={number | string}>` — Adjusts the duration of the animation by a percentage multiplier.
+            -   `<Animation iterations={number | string}>` — Alters how many times the animation loops before stopping.
+            -   `<Animation variation="pause/play">` — Controls whether the animation is playing or not.
+
+        -   `Transition`
+
+            -   `<Transition is="span">` — Renders as an inline `<span>` element.
+
+-   Added the following Stores / Store Features
+
+    -   `htmlmode`
+
+        `htmldark(): Readable<boolean>` / `htmllight(): Readable<boolean>` — Returns `true` if `<html data-mode="dark">` or `<html data-mode="light">` are valid respectively.
+
+    -   `thememode`
+
+        -   `lightmode(): Readable<boolean>` — Returns `true` if `(prefers-color-scheme: light)` is valid and `<html data-mode>` is not set, or, if `<html data-mode="light">` is valid.
+
+-   Fixed the following Components / Component Features
+
+    -   Widgets
+
+        -   `*Picker` / `*Stepper`
+
+            -   Fixed datetime Components not working on FireFox 96+.
+
+-   Removed the following Components / Component Features
+
+    -   Display
+
+        -   `Badge`
+
+            -   **(BREAKING)** `<Badge animation>` — Removed in favor of the new generalized `Animation` Component.
+
+    -   Embedded
+
+        -   `Figure`
+
+            -   **(BREAKING)** `<Figure size>` — Removed in favor of new global `width` / `height` / `size` properties.
+            -   **(BREAKING)** `<Figure size variation="icon">` - Removed in favor of the new global `width` / `height` / `size` properties with `icon-` prefix.
+
+    -   Feedback
+
+        -   `Dot`
+
+            -   **(BREAKING)** `<Dot animation>` — Removed in favor of the new generalized `Animation` Component.
+
+        -   `Spinner`
+
+            -   **(BREAKING)** `<Spinner>` — Removed in favor of `<Progress shape="circle">`'s new indeterminate appearance.
+
+        -   `Wave`
+
+            -   **(BREAKING)** `<Wave>` — Removed in favor of the updated `<Ellipsis>`, which can replicate the affect.
+
+                -   e.g. `<Ellipsis animation="bounce" iterations="5"><Dot></Ellipsis>`
+
+    -   Layouts
+
+        -   `Container`
+
+            -   **(BREAKING)** `<Container viewport>` — Removed in favor of new `<* width="viewport-{mobile/tablet/desktop/widescreen}">` global property.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   **(BREAKING)** `<svelte:fragment slot="sub-menu">` — With the new DOM structure, the `<Menu.Section>` Components can just be composed as sibling elements.
+
+    -   Typography
+
+        -   `Text`
+
+            -   **(BREAKING)** `<Text is="kbd">` — Due to not acting strictly as a text modifier, it migrated to becoming its own `Kbd` Component.
+
+                -   e.g. `<Text is="kbd">CTRL+C</Text>` -> `<Kbd>CTRL+C</Kbd>`
+
+    -   Widgets
+
+        -   `*Picker` / `*Stepper`
+
+            -   **(BREAKING)** `<* calendar>` — Due to breaking bug in the Temporal API polyfill, this property has been removed and will be revisited at a later time.
+            -   **(BREAKING)** `<* highlight timestamp value>` — Due to a breaking bug in the Temporal API polyfill and to align with Web Browsers, this property now _only_ accepts [ISO 8601](https://www.w3.org/TR/NOTE-datetime) timestamps which don't specify calendars. Working only with the ISO 8601 calendar.
+
+-   Updated the following Components / Component Features
+
+    -   `*`
+
+        -   **(BREAKING)** All Components now use CSS classes to apply stylings instead of selecting semantic elements, e.g `<Card.Footer>` is now selected via `.card--footer` instead of `.card > footer`.
+
+            -   **(IMPORTANT)** You should never be relying on element selectors or the built-in classes **regardless** for custom styling anyway, it's considered internal unstable API. Always use classes!
+            -   e.g. `<Card.Footer class="my-custom-footer">`
+
+    -   Feedback
+
+        -   `Progress`
+
+            -   `<Progress shape="circle" value={undefined}>` — Updated the indeterminate appearance to look unique from the progress bar's indeterminate's appearance and to also better serve as a generic spinner.
+            -   **(BREAKING)** `<Progress size>` — Consolidated into `<Progress sizing>`.
+
+    -   Interactables
+
+        -   `Button`
+
+            -   **(BREAKING)** `<Button href for value>` — Updated to require explicit `<Button is="a/label/input">` property to be more consistent with other Component API.
+
+                -   e.g. `<Button href="...">` -> `<Button is="a" href="...">`
+
+            -   **(BREAKING)** `<Button size>` — Consolidated into `<Button sizing>`.
+
+        -   `Check`
+
+            -   **(BREAKING)** `<Check size>` — Consolidated into `<Check sizing>`.
+
+        -   `Radio`
+
+            -   **(BREAKING)** `<Radio size>` — Consolidated into `<Radio sizing>`.
+
+        -   `NumberInput`
+
+            -   **(BREAKING)** `<NumberInput align>` — Consolidated into `<NumberInput alignment_x>`.
+            -   **(BREAKING)** `<NumberInput characters>` — Consolidated into `<NumberInput span_x>`.
+            -   **(BREAKING)** `<NumberInput size>` — Consolidated into `<NumberInput sizing>`.
+
+        -   `Switch`
+
+            -   **(BREAKING)** `<Switch size>` — Consolidated into `<Switch sizing>`.
+
+        -   `TextInput`
+
+            -   **(BREAKING)** `<TextInput align>` — Consolidated into `<TextInput alignment_x>`.
+            -   **(BREAKING)** `<TextInput characters lines>` — Consolidated into `<TextInput span_x span_y>`.
+            -   **(BREAKING)** `<TextInput max_length>` — Consolidated into `<TextInput max>`.
+            -   **(BREAKING)** `<TextInput min_length>` — Consolidated into `<TextInput min>`.
+            -   **(BREAKING)** `<TextInput size>` — Consolidated into `<TextInput sizing>`.
+
+    -   Layouts
+
+        -   `Mosaic`
+
+            -   **(BREAKING)** `<Mosaic>` — Renamed `<Mosaic>` Component to `<Mosaic.Container>` to facilitate `<Mosaic.Item>`.
+
+        -   `Stack`
+
+            -   **(BREAKING)** `<Stack>` — Renamed `<Stack>` Component to `<Stack.Container>` to facilitate `<Stack.Item>`.
+
+    -   Navigation
+
+        -   `Menu`
+
+            -   **(BREAKING)** Updated DOM structure to be made up of composable `<div>` elements internally, no longer using `<ul>` / `<li>` elements.
+            -   **(BREAKING)** `<Menu.Divider>` — Was merged into `<Menu.Heading>` due to being duplicate code.
+
+                -   `<Menu.Divider />` -> `<Menu.Heading />`
+                -   `<Menu.Divider>...</Menu.Divider>` -> `<Menu.Heading variation="divider">...</Menu.Heading>`
+
+            -   **(BREAKING)** `<Menu.SubMenu>` — Renamed `<Menu.SubMenu>` to `<Menu.Section>` to be more consistent with other Component API and new DOM structure for `Menu`.
+
+    -   Overlays
+
+        -   `Overlay`
+
+            -   **(BREAKING)** `<Overlay.Button size>` — Consolidated into `<Overlay.Button sizing>`.
+
+        -   `Popover`
+
+            -   **(BREAKING)** `<Popover.Button size>` — Consolidated into `<Popover.Button sizing>`.
+
+    -   Typography
+
+        -   `Heading`
+
+            -   **(BREAKING)** `<Heading align>` — Consolidated into `<Heading alignment_x>`.
+
+        -   `Text`
+
+            -   **(BREAKING)** `<Text align>` — Consolidated into `<Text alignment_x>`.
+            -   **(BREAKING)** `<Text size>` — Consolidated into `<Text sizing>`.
+
+    -   Widgets
+
+        -   `DayStepper`
+
+            -   **(BREAKING)** `<DayStepper step>` — Consolidated into `<DayStepper steps>`.
+
+        -   `MonthStepper`
+
+            -   **(BREAKING)** `<MonthStepper step>` — Consolidated into `<MonthStepper steps>`.
+
+        -   `Pagination`
+
+            -   **(BREAKING)** `<Pagination href>` — Updated to require explicit `<Pagination is="a">` property to be more consistent with other Component API.
+
+                -   e.g. `<Pagination href="...">` -> `<Pagination is="a" href="...">`
+
+        -   `TimePicker`
+
+            -   **(BREAKING)** `<TimePicker disabled={string[]}>` — Was updated to accept `string[]` instead of `string`.
+            -   **(BREAKING)** `<TimePicker highlight={string[]}>` — Was updated to accept `string[]` instead of `string`.
+
+        -   `YearStepper`
+
+            -   **(BREAKING)** `<YearStepper step>` — Consolidated into `<YearStepper steps>`.
+
+-   Updated the following Stores / Store Features
+
+    -   `htmlmode`
+
+        -   **(BREAKING)** `htmlpalette` — Renamed to `htmlmode` to reflect `<html data-palette>` attribute was renamed to `<html data-mode>`.
+
+## v0.5.7 - 2022/02/16
+
 -   Deprecated the following Components / Component Features
 
     -   Display
@@ -236,7 +617,7 @@
 
         -   `<* sveltekit:noscroll={boolean} sveltekit:prefetch={boolean}>` — Added missing typings.
 
-## v0.5.3 - 2022/01/08
+## 0.5.3 - 2022/01/08
 
 -   Added the following Actions / Action Features
 
@@ -311,7 +692,7 @@
 
             -   Fixed paging button generation not properly showing full step range on tailend of page count.
 
-## v0.5.2 - 2022/01/05
+## 0.5.2 - 2022/01/05
 
 -   Fixed the following Components / Component Features
 
@@ -325,7 +706,7 @@
 
             -   `<svelte:fragment slot="close/open">` — Updated to default to `<span>&blacktriangledown;/&blacktriangleright;</span>` respectively.
 
-## v0.5.1 - 2022/01/05
+## 0.5.1 - 2022/01/05
 
 -   Added the following Components / Component Features
 
@@ -374,7 +755,7 @@
 
             -   `<Button variation="outline">` — Updated background fill on click to be not as bold, matching `variation="clear"`.
 
-## v0.5.0 - 2022/01/02
+## 0.5.0 - 2022/01/02
 
 -   Migrated the following Components: `Aside`, `Omni`.
 

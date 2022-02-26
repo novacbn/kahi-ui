@@ -1,0 +1,41 @@
+@use "../abstracts/viewports";
+
+@mixin points-declarations($prefix: "") {
+    @for $point from 1 through 12 {
+        [data-points~="#{$prefix}#{$point}"] {
+            --points: #{$point};
+        }
+    }
+}
+
+@mixin span-declarations($prefix: "") {
+    @for $point from 1 through 12 {
+        [data-span~="#{$prefix}#{$point}"] {
+            --span-x: #{$point};
+            --span-y: #{$point};
+        }
+
+        [data-span-x~="#{$prefix}#{$point}"] {
+            --span-x: #{$point};
+        }
+
+        [data-span-y~="#{$prefix}#{$point}"] {
+            --span-y: #{$point};
+        }
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include points-declarations($prefix);
+    @include span-declarations($prefix);
+}
+
+@if not env("DISABLE_GLOBALS_GRID") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_GRID_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

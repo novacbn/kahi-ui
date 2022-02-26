@@ -1,6 +1,4 @@
 <script lang="ts">
-    // TODO: Stories (?)
-
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
@@ -14,7 +12,7 @@
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLElement;
+        element?: HTMLSpanElement;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -30,10 +28,10 @@
     export {_class as class};
 </script>
 
-<small
+<span
     bind:this={element}
-    {...map_global_attributes($$props)}
-    class="form-help-text {_class}"
+    {...map_global_attributes($$restProps)}
+    class="form--help-text {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu
@@ -51,4 +49,4 @@
     on:pointerup
 >
     <slot />
-</small>
+</span>

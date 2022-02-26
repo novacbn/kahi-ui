@@ -14,7 +14,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box bind:element palette="accent" padding="small">I am the new container element!</Box>
 
     <Portal target={element}>

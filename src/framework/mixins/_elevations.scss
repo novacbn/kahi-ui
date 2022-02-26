@@ -1,0 +1,13 @@
+@use "../abstracts/variables";
+
+@mixin shadow() {
+    box-shadow: var(--elevation-shadow);
+}
+
+@mixin var-reset($namespace: null) {
+    @if $namespace {
+        --elevation-shadow: #{variables.use("#{$namespace}.elevation")};
+    } @else {
+        --elevation-shadow: none;
+    }
+}

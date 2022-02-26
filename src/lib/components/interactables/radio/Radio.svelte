@@ -2,7 +2,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {PROPERTY_VARIATION_TOGGLE} from "../../../types/variations";
 
@@ -38,11 +38,7 @@
         value?: string;
 
         palette?: PROPERTY_PALETTE;
-        /**
-         * @deprecated Use `<Radio sizing="...">` instead.
-         */
-        size?: PROPERTY_SIZING;
-        sizing?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
         variation?: PROPERTY_VARIATION_TOGGLE;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -55,6 +51,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let id: $$Props["id"] = "";
     export let name: $$Props["name"] = "";
 
@@ -64,10 +63,6 @@
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;
-    /**
-     * @deprecated Use `<Radio sizing="...">` instead.
-     */
-    export let size: $$Props["size"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
@@ -95,9 +90,10 @@
         <FormLabel>
             <input
                 bind:this={element}
-                {...map_global_attributes($$props)}
+                {...map_global_attributes($$restProps)}
                 type="radio"
-                {...map_data_attributes({palette, size: size ?? sizing, variation})}
+                class="radio {_class}"
+                {...map_data_attributes({palette, sizing, variation})}
                 {...map_aria_attributes({pressed: active})}
                 {...map_attributes({
                     disabled,
@@ -132,9 +128,10 @@
 {:else}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         type="radio"
-        {...map_data_attributes({palette, size: size ?? sizing, variation})}
+        class="radio {_class}"
+        {...map_data_attributes({palette, sizing, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
             disabled,

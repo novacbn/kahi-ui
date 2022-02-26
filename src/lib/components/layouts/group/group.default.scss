@@ -1,0 +1,18 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_LAYOUTS_GROUP") {
+    @include variables.define(
+        (
+            "group": (
+                "item": (
+                    "stacked": (
+                        "spacing": (
+                            "x": variables.use("spacings.block.medium"),
+                            "y": variables.use("spacings.block.medium"),
+                        ),
+                    ),
+                ),
+            ),
+        )
+    );
+}

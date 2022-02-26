@@ -1,0 +1,27 @@
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_FEEDBACK_DOT") {
+    .dot {
+        display: inline-block;
+
+        @include intrinsics.size-all($namespace: "dot");
+
+        @include backgrounds.color($namespace: "dot", $face: "foreground", $shade: "normal");
+        @include radius.all($namespace: "dot");
+
+        vertical-align: middle;
+
+        pointer-events: none;
+        user-select: none;
+
+        @include transitions.build();
+
+        &[data-palette] {
+            @include backgrounds.color($namespace: "dot", $face: "background", $shade: "bolder");
+        }
+    }
+}

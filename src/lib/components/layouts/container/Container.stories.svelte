@@ -3,16 +3,14 @@
 
     import Text from "../../typography/text/Text.svelte";
 
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import Container from "./Container.svelte";
 
-    const VIEWPORTS = [
-        ["prose", true],
-        ["mobile", false],
-        ["tablet", false],
-        ["desktop", false],
-        ["widescreen", false],
+    const IS = [
+        ["div", true],
+        ["article", false],
+        ["main", false],
     ];
 </script>
 
@@ -22,7 +20,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Container>
         <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
@@ -33,12 +31,12 @@
     </Container>
 </Story>
 
-<Story name="Viewport">
-    <Stack spacing="medium">
-        {#each VIEWPORTS as [viewport, is_default] (viewport)}
-            <Container {viewport}>
+<Story name="Elements">
+    <Stack.Container spacing="medium">
+        {#each IS as [is, is_default] (is)}
+            <Container is={is_default ? undefined : is}>
                 <Text is="strong">
-                    {`${viewport.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    {`${is.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
                 <Text>
@@ -49,5 +47,5 @@
                 </Text>
             </Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

@@ -1,30 +1,33 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Radio from "./Radio.svelte";
 
     const PALETTES = [
         ["neutral", true],
-        ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
-    const SIZES = [
-        ["default", true],
+    const SIZINGS = [
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -34,7 +37,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Radio />
 </Story>
 
@@ -44,7 +47,7 @@
 
 <Story name="State">
     <Text is="strong">DEFAULT</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Radio id="radio-state-block-default">DEFAULT</Radio>
         <Radio id="radio-state-block-state" state>STATE</Radio>
 
@@ -53,10 +56,10 @@
 
         <Radio id="radio-state-block-disabled-no-state" disabled>DISABLED NO-STATE</Radio>
         <Radio id="radio-state-block-disabled-state" disabled state>DISABLED STATE</Radio>
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">FLUSH</Text>
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Radio id="radio-state-flush-default" variation="flush">DEFAULT</Radio>
         <Radio id="radio-state-flush-state" variation="flush" state>STATE</Radio>
 
@@ -73,12 +76,12 @@
         <Radio id="radio-state-flush-disabled-state" variation="flush" disabled state>
             DISABLED STATE
         </Radio>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text>
                     <Text is="strong">
@@ -86,15 +89,15 @@
                     </Text>
                 </Text>
 
-                <Radio name="radio-palette" {palette} />
+                <Radio name="radio-palette" palette={is_default ? undefined : palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Flush">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text>
                     <Text is="strong">
@@ -102,24 +105,28 @@
                     </Text>
                 </Text>
 
-                <Radio name="radio-flush" variation="flush" {palette} />
+                <Radio
+                    name="radio-flush"
+                    variation="flush"
+                    palette={is_default ? undefined : palette}
+                />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
-<Story name="Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
+<Story name="Sizing">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text>
                     <Text is="strong">
-                        {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                        {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                     </Text>
                 </Text>
 
-                <Radio name="radio-size" {size} />
+                <Radio name="radio-sizing" sizing={is_default ? undefined : sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

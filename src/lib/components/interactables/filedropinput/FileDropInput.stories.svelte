@@ -1,8 +1,8 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Mosaic from "../../layouts/mosaic";
+    import * as Stack from "../../layouts/stack";
     import Box from "../../surfaces/box/Box.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -10,13 +10,15 @@
 
     const PALETTES = [
         ["neutral", true],
-        ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
@@ -31,30 +33,30 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette="negative" margin_bottom="medium">
         Drop files into box and read output in devtools.
     </Box>
 
     <FileDropInput multiple on:change={on_change}>
-        <Stack spacing="medium">
-            <Text is="strong" style="font-size:3em;">&uparrow;</Text>
+        <Stack.Container spacing="medium">
+            <Text is="strong" variation="block" sizing="large">&uparrow;</Text>
             <Text>Drag-and-drop files here...</Text>
-        </Stack>
+        </Stack.Container>
     </FileDropInput>
 </Story>
 
 <Story name="Palette">
-    <Mosaic sizing="huge" spacing="medium">
-        {#each PALETTES as [palette, is_default]}
-            <FileDropInput {palette}>
-                <Stack spacing="medium">
-                    <Text is="strong" style="font-size:3em;">&uparrow;</Text>
+    <Mosaic.Container sizing="huge" spacing="medium">
+        {#each PALETTES as [palette, is_default] (palette)}
+            <FileDropInput palette={is_default ? undefined : palette}>
+                <Stack.Container spacing="medium">
+                    <Text is="strong" variation="block" sizing="large">&uparrow;</Text>
                     <Text>
                         {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                     </Text>
-                </Stack>
+                </Stack.Container>
             </FileDropInput>
         {/each}
-    </Mosaic>
+    </Mosaic.Container>
 </Story>

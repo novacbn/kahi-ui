@@ -1,0 +1,45 @@
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_DISPLAY_KBD") {
+    .kbd {
+        @include intrinsics.padding-all($namespace: "kbd", $unit: em);
+
+        @include backgrounds.color(
+            $namespace: "kbd",
+            $palette: "auto",
+            $face: "background",
+            $shade: "bolder"
+        );
+        @include fonts.color(
+            $namespace: "kbd",
+            $palette: "auto",
+            $face: "foreground",
+            $shade: "normal"
+        );
+        @include borders.bottom(
+            $namespace: "kbd",
+            $palette: "neutral",
+            $face: "background",
+            $shade: "bolder"
+        );
+        @include radius.all($namespace: "kbd", $unit: em);
+
+        @include fonts.size($namespace: "kbd", $unit: em);
+        @include fonts.family($namespace: "kbd");
+        @include fonts.weight($namespace: "kbd");
+
+        vertical-align: middle;
+        white-space: nowrap;
+
+        @include borders.transitions();
+        @include backgrounds.transitions();
+        @include fonts.transitions();
+
+        @include transitions.build();
+    }
+}

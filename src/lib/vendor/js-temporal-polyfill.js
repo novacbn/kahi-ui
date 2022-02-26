@@ -14612,4 +14612,3 @@ function bigIntIfAvailable(wrapper) {
 }
 
 export { intl as Intl, temporal as Temporal, toTemporalInstant };
-

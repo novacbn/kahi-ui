@@ -1,0 +1,27 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_DISPLAY_KBD") {
+    @include variables.define(
+        (
+            "kbd": (
+                "background.opacity": 0.75,
+                "border": (
+                    "opacity": 1,
+                    "radius": variables.use("radius.small"),
+                    "style": ridge,
+                    "width": variables.use("sizes.borders.large"),
+                ),
+                "font": (
+                    "family": variables.use("fonts.families.monospace"),
+                    "opacity": 1,
+                    "size": variables.use("fonts.sizes.inline.nano"),
+                    "weight": bolder,
+                ),
+                "padding": (
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.small"),
+                ),
+            ),
+        )
+    );
+}

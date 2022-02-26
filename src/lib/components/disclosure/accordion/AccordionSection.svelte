@@ -33,6 +33,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let loading: $$Props["loading"] = undefined;
 
     const _accordion_id = CONTEXT_ACCORDION_ID.get();
@@ -42,15 +45,23 @@
 
     let state: boolean = true;
     $: {
-        if (_accordion_id && _accordion_state && loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy) {
-            state = $_accordion_state.includes($_accordion_id);
+        if (
+            _accordion_id &&
+            _accordion_state &&
+            $_accordion_state &&
+            loading === TOKENS_BEHAVIOR_LOADING_LAZY.lazy
+        ) {
+            // HACK: If the "CONTEXT_ACCORDION_ID" store was made that means `<Accordion.Group>` was
+            // initialized with a valid `logic_id` value. So this should /always/ be a string
+            state = $_accordion_state.includes($_accordion_id as string);
         }
     }
 </script>
 
 <section
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
+    class="accordion--section {_class}"
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

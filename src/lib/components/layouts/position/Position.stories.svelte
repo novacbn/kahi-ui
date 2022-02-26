@@ -5,7 +5,7 @@
     import Button from "../../interactables/button/Button.svelte";
     import Text from "../../typography/text/Text.svelte";
 
-    import Stack from "../stack/Stack.svelte";
+    import * as Stack from "../stack";
 
     import Position from "./Position.svelte";
 
@@ -48,7 +48,7 @@
 </Story>
 
 <Story name="Indicator">
-    <Stack
+    <Stack.Container
         orientation="horizontal"
         alignment="center"
         spacing="medium"
@@ -71,11 +71,11 @@
                 </Button>
             {/each}
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Raised">
-    <Stack
+    <Stack.Container
         orientation="horizontal"
         alignment="center"
         spacing="medium"
@@ -110,5 +110,5 @@
                 <Badge palette="accent" shape="pill">+99</Badge>
             </Position>
         </Text>
-    </Stack>
+    </Stack.Container>
 </Story>

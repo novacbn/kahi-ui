@@ -1,20 +1,22 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../text/Text.svelte";
 
     import * as Blockquote from "./";
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
+        ["neutral", true],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 </script>
@@ -25,7 +27,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Blockquote.Container max_width="prose" margin_x="auto" margin_y="medium">
         <Text margin_bottom="medium">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta, urna vel
@@ -52,12 +54,9 @@
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
-            <Blockquote.Container
-                max_width="prose"
-                palette={palette === "default" ? undefined : palette}
-            >
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
+            <Blockquote.Container max_width="prose" palette={is_default ? undefined : palette}>
                 <Text margin_bottom="medium">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta, urna vel
                     tristique varius, ipsum erat auctor odio, id imperdiet mauris velit eget quam.
@@ -76,5 +75,5 @@
                 </Blockquote.Cite>
             </Blockquote.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

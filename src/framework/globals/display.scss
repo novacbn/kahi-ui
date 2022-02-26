@@ -1,0 +1,29 @@
+@use "../abstracts/viewports";
+
+// TODO: Make these use keys instead of hard coding
+
+[data-contents]:not([data-contents~="mobile"], [data-contents~="tablet"], [data-contents~="desktop"], [data-contents~="widescreen"]) {
+    display: contents !important;
+
+    & > * {
+        pointer-events: auto !important;
+    }
+}
+
+[data-hidden]:not([data-hidden~="mobile"], [data-hidden~="tablet"], [data-hidden~="desktop"], [data-hidden~="widescreen"]) {
+    display: none !important;
+}
+
+@include viewports.query-all() using ($name) {
+    [data-contents~="#{$name}"] {
+        display: contents !important;
+
+        & > * {
+            pointer-events: auto !important;
+        }
+    }
+
+    [data-hidden~="#{$name}"] {
+        display: none !important;
+    }
+}

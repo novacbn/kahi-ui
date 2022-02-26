@@ -1,0 +1,267 @@
+@use "../abstracts/variables";
+
+@use "./transitions";
+
+@mixin all($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-all($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-color: hsla(
+            var(--palette-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    }
+}
+
+@mixin style-all($namespace) {
+    border-style: #{variables.use("#{$namespace}.border.style")};
+}
+
+@mixin width-all($namespace) {
+    border-width: #{variables.use("#{$namespace}.border.width")};
+}
+
+@mixin x($namespace, $face, $shade, $palette: null) {
+    @include left($namespace, $face, $shade, $palette);
+    @include right($namespace, $face, $shade, $palette);
+}
+
+@mixin color-x($namespace, $face, $shade, $palette: null) {
+    @include color-left($namespace, $face, $shade, $palette);
+    @include color-right($namespace, $face, $shade, $palette);
+}
+
+@mixin style-x($namespace) {
+    @include style-left($namespace);
+    @include style-right($namespace);
+}
+
+@mixin width-x($namespace) {
+    @include width-left($namespace);
+    @include width-right($namespace);
+}
+
+@mixin y($namespace, $face, $shade, $palette: null) {
+    @include bottom($namespace, $face, $shade, $palette);
+    @include top($namespace, $face, $shade, $palette);
+}
+
+@mixin color-y($namespace, $face, $shade, $palette: null) {
+    @include color-bottom($namespace, $face, $shade, $palette);
+    @include color-top($namespace, $face, $shade, $palette);
+}
+
+@mixin style-y($namespace) {
+    @include style-bottom($namespace);
+    @include style-top($namespace);
+}
+
+@mixin width-y($namespace) {
+    @include width-bottom($namespace);
+    @include width-top($namespace);
+}
+
+@mixin bottom($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-bottom: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-bottom: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-bottom($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-bottom-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-bottom-color: hsla(
+            var(--palette-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    }
+}
+
+@mixin style-bottom($namespace) {
+    border-bottom-style: #{variables.use("#{$namespace}.border.style")};
+}
+
+@mixin width-bottom($namespace) {
+    border-bottom-width: #{variables.use("#{$namespace}.border.width")};
+}
+
+@mixin left($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-left: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-left: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-left($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-left-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-left-color: hsla(
+            var(--palette-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    }
+}
+
+@mixin style-left($namespace) {
+    border-left-style: #{variables.use("#{$namespace}.border.style")};
+}
+
+@mixin width-left($namespace) {
+    border-left-width: #{variables.use("#{$namespace}.border.width")};
+}
+
+@mixin right($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-right: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-right: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-right($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-right-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-right-color: hsla(
+            var(--palette-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    }
+}
+
+@mixin style-right($namespace) {
+    border-right-style: #{variables.use("#{$namespace}.border.style")};
+}
+
+@mixin width-right($namespace) {
+    border-right-width: #{variables.use("#{$namespace}.border.width")};
+}
+
+@mixin top($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-top: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palettes-#{$palette}-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    } @else {
+        border-top: #{variables.use("#{$namespace}.border.width")}
+            #{variables.use("#{$namespace}.border.style")}
+            hsla(
+                var(--palette-#{$face}-#{$shade}),
+                #{variables.use("#{$namespace}.border.opacity")}
+            );
+    }
+}
+
+@mixin color-top($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        border-top-color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    } @else {
+        border-top-color: hsla(
+            var(--palette-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.border.opacity")}
+        );
+    }
+}
+
+@mixin style-top($namespace) {
+    border-top-style: #{variables.use("#{$namespace}.border.style")};
+}
+
+@mixin width-top($namespace) {
+    border-top-width: #{variables.use("#{$namespace}.border.width")};
+}
+
+@mixin transitions() {
+    @include transitions.push(border-color, "visual");
+}

@@ -1,0 +1,29 @@
+@use "../../../../framework/appearances/surface";
+
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/elevations";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_SURFACES_BOX") {
+    .box {
+        @include elevations.var-reset();
+        @include palettes.var-palette($palette: "off");
+        @include radius.var-reset();
+
+        @include surface.background($namespace: "box");
+        @include surface.text($namespace: "box");
+
+        @include elevations.shadow();
+        @include surface.radius-all();
+
+        @include borders.transitions();
+        @include transitions.build();
+
+        &[data-variation~="borders"] {
+            @include surface.borders-all($namespace: "box");
+        }
+    }
+}

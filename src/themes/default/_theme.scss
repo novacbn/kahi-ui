@@ -1,0 +1,459 @@
+@use "../../framework/abstracts/constants";
+@use "../../framework/abstracts/generators";
+@use "../../framework/abstracts/variables";
+
+/**********************************************\
+|               COLOR PALETTES                 |
+\**********************************************/
+
+/**
+ * NOTE: The below colors are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+// NOTE: When using the generative color system, `dark` and `light` **ALWAYS** needs to come first
+
+// NOTE: The `dark` and `light` palettes need to be special-cased due to co-dependency
+
+@include constants.define(
+    generators.darklight(
+        $dark: (
+            "base": hsl(217, 15%, 15%),
+            "stepping": 3%,
+        ),
+        $light: (
+            "base": hsl(0, 0%, 100%),
+            "stepping": 3%,
+        )
+    )
+);
+
+@include constants.define(
+    (
+        "palettes": (
+            "accent":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(200, 25%, 47.5%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(200, 30%, 47.5%),
+                        "stepping": 4%,
+                    )
+                ),
+            "neutral":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(225, 2.5%, 40%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(225, 10%, 45%),
+                        "stepping": 4%,
+                    )
+                ),
+            "off":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(225, 10%, 25%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(225, 5%, 93%),
+                        "stepping": 4%,
+                    )
+                ),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below colors can be renamed or otherwise added / removed as desired
+ */
+
+@include constants.define(
+    (
+        "palettes": (
+            "alert":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(35, 45%, 50%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(35, 50%, 50%),
+                        "stepping": 4%,
+                    )
+                ),
+            "affirmative":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(145, 30%, 40%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(145, 35%, 40%),
+                        "stepping": 4%,
+                    )
+                ),
+            "informative":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(210, 30%, 50%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(210, 35%, 50%),
+                        "stepping": 4%,
+                    )
+                ),
+            "negative":
+                generators.palette(
+                    $dark: (
+                        "base": hsl(10, 40%, 50%),
+                        "stepping": 4%,
+                    ),
+                    $light: (
+                        "base": hsl(10, 45%, 50%),
+                        "stepping": 4%,
+                    )
+                ),
+        ),
+    )
+);
+
+/**********************************************\
+|                  VIEWPORTS                   |
+\**********************************************/
+
+/**
+ * NOTE: The below viewports are mandatory in ALL themes! They are statically
+ * referenced in the main Javascript codebase
+ */
+
+@include constants.define(
+    (
+        "viewports": (
+            "mobile": 640px,
+            "tablet": 768px,
+            "desktop": 1024px,
+            "widescreen": 1280px,
+        ),
+    )
+);
+
+/**********************************************\
+|                FONT FAMILIES                 |
+\**********************************************/
+
+/**
+ * NOTE: The below font families are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define(
+    (
+        "fonts.families": (
+            "block": (
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Helvetica Neue",
+                Arial,
+                "Noto Sans",
+                sans-serif,
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Segoe UI Symbol",
+                "Noto Color Emoji",
+            ),
+            "inline": (
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Helvetica Neue",
+                Arial,
+                "Noto Sans",
+                sans-serif,
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Segoe UI Symbol",
+                "Noto Color Emoji",
+            ),
+            "monospace": (
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                "Liberation Mono",
+                "Courier New",
+                monospace,
+            ),
+        ),
+    )
+);
+
+/**********************************************\
+|                FONT SIZINGS                  |
+\**********************************************/
+
+/**
+ * NOTE: The below font sizes are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define(
+    (
+        "fonts": (
+            "line-heights": generators.modular($base: 1, $ratio: 1.1),
+            "sizes": (
+                "block": generators.modular($base: 1.541, $ratio: 1.155),
+                "inline": generators.modular($base: 0.75, $ratio: 1.155),
+            ),
+        ),
+    )
+);
+
+/**********************************************\
+|                   SPACINGS                   |
+\**********************************************/
+
+/**
+ * NOTE: The below spacings are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define(
+    (
+        "spacings": (
+            "block": generators.modular($base: 0.125, $ratio: 2),
+            "inline": generators.modular($base: 0.025, $ratio: 2),
+        ),
+    )
+);
+
+/**
+ * NOTE: The below spacings can be renamed or otherwise added / removed as desired
+ */
+
+@include constants.define(
+    (
+        "spacings": (
+            "none": 0px,
+            "auto": auto,
+        ),
+    )
+);
+
+/**********************************************\
+|                   SIZINGS                    |
+\**********************************************/
+
+/**
+ * NOTE: The below sizes are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define(
+    (
+        "sizes": (
+            "block": generators.modular($base: 9.5, $ratio: 1.2),
+            "borders": generators.stepping($base: 1px, $stepping: 1px),
+            "icon": generators.stepping($base: 16px, $stepping: 8px),
+            "prose": 85ch,
+        ),
+    )
+);
+
+/**
+ * NOTE: The below sizes can be renamed or otherwise added / removed as desired
+ *
+ * NOTE: `%` suffixed units are special cased to be used for `viewport-`
+ * size global attribute values also
+ */
+
+@include constants.define(
+    (
+        "sizes": (
+            "none": 0px,
+            "auto": auto,
+            "25": 25%,
+            "33": 33%,
+            "50": 50%,
+            "66": 66%,
+            "75": 75%,
+            "100": 100%,
+            "content-fit": fit-content,
+            "content-max": max-content,
+            "content-min": min-content,
+        ),
+    )
+);
+
+/**********************************************\
+|                BORDER RADIUS                 |
+\**********************************************/
+
+/**
+ * NOTE: The below radii can be renamed or otherwise added / removed as desired
+ */
+
+@include constants.define(
+    (
+        "radius": (
+            "none": none,
+        ),
+    )
+);
+
+@include variables.define(
+    (
+        "radius": generators.modular($base: 0.125, $ratio: 2),
+        "shapes": (
+            "circle": 100%,
+            "pill": 9999px,
+        ),
+    )
+);
+
+/**********************************************\
+|                   EASINGS                    |
+\**********************************************/
+
+/**
+ * NOTE: The below easings can be renamed or otherwise added / removed as desired
+ *
+ * SOURCE: https://easings.net
+ */
+
+@include variables.define(
+    (
+        "easings": (
+            "ease-out-quad": cubic-bezier(0.5, 1, 0.89, 1),
+            "ease-in-out-cubic": cubic-bezier(0.65, 0, 0.35, 1),
+        ),
+    )
+);
+
+/**********************************************\
+|              ANIMATION TIERS                 |
+\**********************************************/
+
+/**
+ * NOTE: The below animation tiers are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define(
+    (
+        "animations": (
+            "movement":
+                generators.animation(
+                    $duration: 0.25s,
+                    $function: variables.use("easings.ease-out-quad")
+                ),
+            "reveal":
+                generators.animation(
+                    $duration: 0.3s,
+                    $function: variables.use("easings.ease-in-out-cubic")
+                ),
+            "visual":
+                generators.animation(
+                    $duration: 0.2s,
+                    $function: variables.use("easings.ease-out-quad")
+                ),
+        ),
+    )
+);
+
+/**********************************************\
+|               Z-INDEX TIERS                  |
+\**********************************************/
+
+/**
+ * NOTE: The below z level tiers are mandatory in ALL themes! They are statically
+ * referenced in the main Framework and Component stylesheets
+ */
+
+@include variables.define(
+    (
+        "z-index": (
+            "inline": (
+                "base": 10,
+                "content": 11,
+                "popover": 19,
+            ),
+            "block": (
+                "base": 20,
+                "float": 21,
+                "overlay": 29,
+            ),
+        ),
+    )
+);
+
+/**********************************************\
+|               ELEVATION TIERS                |
+\**********************************************/
+
+/**
+ * NOTE: The below elevation tiers can be renamed or otherwise added / removed as desired
+ */
+
+// TODO: Create function that generates the tiers of elevations
+
+@include constants.define(
+    (
+        "elevations": (
+            "none": none,
+        ),
+    )
+);
+
+@include variables.define(
+    (
+        "elevations": (
+            "lowest": (
+                0 1px 2px 0 rgba(0, 0, 0, 0.1),
+            ),
+            "lower": (
+                0 1px 2px 0px rgba(0, 0, 0, 0.075),
+                0 2px 3px 0px rgba(0, 0, 0, 0.075),
+            ),
+            "low": (
+                0 2px 4px 0 rgba(0, 0, 0, 0.075),
+                0 3px 5px 0 rgba(0, 0, 0, 0.075),
+            ),
+            "medium": (
+                0 2px 4px 0 rgba(0, 0, 0, 0.05),
+                0 3px 5px 0 rgba(0, 0, 0, 0.05),
+                0 4px 6px 0 rgba(0, 0, 0, 0.05),
+            ),
+            "high": (
+                0 4px 8px 0 rgba(0, 0, 0, 0.05),
+                0 5px 9px 0 rgba(0, 0, 0, 0.05),
+                0 6px 10px 0 rgba(0, 0, 0, 0.05),
+            ),
+            "higher": (
+                0 4px 8px 0 rgba(0, 0, 0, 0.0375),
+                0 5px 9px 0 rgba(0, 0, 0, 0.0375),
+                0 6px 10px 0 rgba(0, 0, 0, 0.0375),
+                0 7px 11px 0 rgba(0, 0, 0, 0.0375),
+            ),
+            "highest": (
+                0 8px 16px 0 rgba(0, 0, 0, 0.0375),
+                0 9px 17px 0 rgba(0, 0, 0, 0.0375),
+                0 10px 18px 0 rgba(0, 0, 0, 0.0375),
+                0 11px 19px 0 rgba(0, 0, 0, 0.0375),
+            ),
+        ),
+    )
+);

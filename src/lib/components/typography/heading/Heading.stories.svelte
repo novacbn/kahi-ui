@@ -1,32 +1,20 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../text/Text.svelte";
 
     import Heading from "./Heading.svelte";
 
-    const ALIGNMENTS = [
-        ["default", true],
+    const ALIGNMENTS_X = [
+        ["inherit", true],
         ["center", false],
         ["justify", false],
         ["left", false],
         ["right", false],
     ];
 
-    const PALETTES = [
-        ["default", true],
-        ["accent", false],
-        ["auto", false],
-        ["inverse", false],
-        ["dark", false],
-        ["light", false],
-        ["alert", false],
-        ["affirmative", false],
-        ["negative", false],
-    ];
-
-    const SIZES = [
+    const ELEMENTS = [
         ["h1", true],
         ["h2", false],
         ["h3", false],
@@ -35,15 +23,29 @@
         ["h6", false],
     ];
 
-    const TRANSFORMS = [
+    const PALETTES = [
         ["default", true],
+        ["accent", false],
+        ["auto", false],
+        ["inverse", false],
+        ["off", false],
+        ["dark", false],
+        ["light", false],
+        ["alert", false],
+        ["affirmative", false],
+        ["informative", false],
+        ["negative", false],
+    ];
+
+    const TRANSFORMS = [
+        ["inherit", true],
         ["capitalize", false],
         ["lowercase", false],
         ["uppercase", false],
     ];
 
     const VARIATIONS = [
-        ["default", true],
+        ["none", true],
         ["truncate", false],
     ];
 </script>
@@ -54,125 +56,111 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Heading>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur orci.
-        Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque rutrum tellus, in
-        iaculis dolor tincidunt non. Orci varius natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus.
+        Curabitur a egestas turpis, vitae convallis sapien.
     </Heading>
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
             <div style="max-width:40ch;">
                 <Text is="strong">
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Heading palette={palette === "default" ? undefined : palette}>
+                <Heading palette={is_default ? undefined : palette}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
-<Story name="Size">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
+<Story name="Elements - Inline">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each ELEMENTS as [element, is_default] (element)}
             <div style="max-width:40ch;">
                 <Text is="strong">
-                    {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    {`${element.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Heading is={size}>
+                <Heading is={is_default ? undefined : element}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
-<Story name="Headline">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
+<Story name="Elements - Block">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each ELEMENTS as [element, is_default] (element)}
             <div style="max-width:40ch;">
                 <Text is="strong">
-                    {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    {`${element.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Heading is={size} variation="headline">
+                <Heading is={is_default ? undefined : element} variation="block">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
-<Story name="Align">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each ALIGNMENTS as [align, is_default]}
+<Story name="Alignments">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each ALIGNMENTS_X as [alignment_x, is_default] (alignment_x)}
             <div style="max-width:40ch;">
                 <Text is="strong">
-                    {`${align.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    {`${alignment_x.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Heading align={align === "default" ? undefined : align}>
+                <Heading alignment_x={is_default ? undefined : alignment_x}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Transform">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each TRANSFORMS as [transform, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each TRANSFORMS as [transform, is_default] (transform)}
             <div style="max-width:40ch;">
                 <Text is="strong">
                     {`${transform.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Heading transform={transform === "default" ? undefined : transform}>
+                <Heading transform={is_default ? undefined : transform}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Variation">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each VARIATIONS as [variation, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each VARIATIONS as [variation, is_default] (variation)}
             <div style="max-width:40ch;">
                 <Text is="strong">
                     {`${variation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Heading variation={variation === "default" ? undefined : variation}>
+                <Heading variation={is_default ? undefined : variation}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et consectetur
-                    orci. Curabitur a egestas turpis, vitae convallis sapien. Sed pellentesque
-                    rutrum tellus, in iaculis dolor tincidunt non. Orci varius natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
+                    orci. Curabitur a egestas turpis, vitae convallis sapien.
                 </Heading>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

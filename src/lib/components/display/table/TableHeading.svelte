@@ -15,15 +15,7 @@
         actions?: IForwardedActions;
         element?: HTMLTableCellElement;
 
-        /**
-         * @deprecated Use `<Table.Heading span_x="...">` instead.
-         */
-        colspan?: number | string;
         span_x?: number | string;
-        /**
-         * @deprecated Use `<Table.Heading span_y="...">` instead.
-         */
-        rowspan?: number | string;
         span_y?: number | string;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -38,22 +30,18 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
-    /**
-     * @deprecated Use `<Table.Heading span_x="...">` instead.
-     */
-    export let colspan: $$Props["colspan"] = undefined;
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let span_x: $$Props["span_x"] = undefined;
-    /**
-     * @deprecated Use `<Table.Heading span_y="...">` instead.
-     */
-    export let rowspan: $$Props["rowspan"] = undefined;
     export let span_y: $$Props["span_y"] = undefined;
 </script>
 
 <th
     bind:this={element}
-    {...map_global_attributes($$props)}
-    {...map_attributes({colspan: colspan ?? span_x, rowspan: rowspan ?? span_y})}
+    {...map_global_attributes($$restProps)}
+    class="table--heading {_class}"
+    {...map_attributes({colspan: span_x, rowspan: span_y})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

@@ -25,8 +25,6 @@
         actions?: IForwardedActions;
         element?: HTMLDivElement;
 
-        disabled?: boolean;
-
         accept?: string;
         multiple?: boolean;
 
@@ -50,8 +48,6 @@
     export let id: $$Props["id"] = undefined;
     export let name: $$Props["name"] = undefined;
 
-    export let disabled: $$Props["disabled"] = undefined;
-
     export let accept: $$Props["accept"] = undefined;
     export let multiple: $$Props["multiple"] = undefined;
 
@@ -66,7 +62,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="file-drop-input {_class}"
     {...map_data_attributes({palette})}
     use:forward_actions={{actions}}
@@ -89,9 +85,9 @@
 
     <input
         type="file"
+        class="file-drop-input--input"
         {...map_attributes({
             accept,
-            disabled,
             id: _id,
             multiple,
             name: _name,

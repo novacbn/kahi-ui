@@ -1,0 +1,24 @@
+@use "../mixins/backgrounds";
+@use "../mixins/fonts";
+@use "../mixins/intrinsics";
+@use "../mixins/transitions";
+@use "../mixins/transparency";
+
+@mixin base($namespace, $support-opacity: false) {
+    display: inline-flex;
+
+    @include intrinsics.gap-all($namespace: $namespace, $unit: em);
+
+    @include fonts.family($namespace: $namespace);
+    @include fonts.size($namespace: $namespace, $unit: em);
+    @include fonts.weight($namespace: $namespace);
+    @include fonts.letter-spacing($namespace: $namespace, $unit: em);
+
+    text-transform: uppercase;
+
+    @if $support-opacity {
+        @include transparency.opacity($namespace: $namespace);
+
+        @include transitions.build();
+    }
+}

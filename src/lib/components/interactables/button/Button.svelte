@@ -2,7 +2,11 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {
+        PROPERTY_RADIUS_BREAKPOINT,
+        PROPERTY_SHAPE_BREAKPOINT,
+    } from "../../../types/shapes";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
     import type {ISvelteKitAnchorProperties} from "../../../types/sveltekit";
     import type {PROPERTY_VARIATION_BUTTON} from "../../../types/variations";
@@ -24,36 +28,25 @@
         actions?: IForwardedActions;
         element?: HTMLAnchorElement | HTMLButtonElement | HTMLInputElement | HTMLLabelElement;
 
-        is?: "a" | "button" | "label" | "input";
+        is?: "a" | "button" | "input" | "label";
 
         active?: boolean;
         disabled?: boolean;
 
         type?: "reset" | "submit";
-        /**
-         * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="input">`.
-         */
         value?: string;
 
         download?: string;
-        /**
-         * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="a">`.
-         */
         href?: string;
         rel?: string;
         target?: string;
 
-        /**
-         * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="label">`.
-         */
         for?: string;
 
         palette?: PROPERTY_PALETTE;
-        /**
-         * @deprecated Use `<Button sizing="...">` instead.
-         */
-        size?: PROPERTY_SIZING;
-        sizing?: PROPERTY_SIZING;
+        radius?: PROPERTY_RADIUS_BREAKPOINT;
+        shape?: PROPERTY_SHAPE_BREAKPOINT;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
         variation?: PROPERTY_VARIATION_BUTTON;
     } & IHTML5Properties &
         IGlobalProperties &
@@ -67,40 +60,29 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
-    export let is: $$Props["is"] = undefined;
-
     let _class: $$Props["class"] = "";
     export let tabindex: $$Props["tabindex"] = 0;
     export {_class as class};
+
+    export let is: $$Props["is"] = undefined;
 
     export let active: $$Props["active"] = undefined;
     export let disabled: $$Props["disabled"] = undefined;
 
     export let type: $$Props["type"] = undefined;
-    /**
-     * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="input">`.
-     */
     export let value: $$Props["value"] = "";
 
     export let download: $$Props["download"] = undefined;
-    /**
-     * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="href">`.
-     */
     export let href: $$Props["href"] = undefined;
     export let rel: $$Props["rel"] = undefined;
     export let target: $$Props["target"] = undefined;
 
-    /**
-     * @deprecated Being updated in `v0.6.0` to require explicit `<Button is="label">`.
-     */
     let _for: $$Props["for"] = undefined;
     export {_for as for};
 
     export let palette: $$Props["palette"] = undefined;
-    /**
-     * @deprecated Use `<Button sizing="...">` instead.
-     */
-    export let size: $$Props["size"] = undefined;
+    export let radius: $$Props["radius"] = undefined;
+    export let shape: $$Props["shape"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
@@ -109,13 +91,13 @@
     $: _tabindex = tabindex as number | undefined;
 </script>
 
-{#if href || is === "a"}
+{#if is === "a"}
     <a
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="button"
         class="button {_class}"
-        {...map_data_attributes({palette, size: size ?? sizing, variation})}
+        {...map_data_attributes({palette, radius, shape, sizing, variation})}
         {...map_aria_attributes({active, disabled})}
         {download}
         {href}
@@ -139,15 +121,15 @@
     >
         <slot />
     </a>
-{:else if _for || is === "label"}
+{:else if is === "label"}
     <label
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         role="button"
         class="button {_class}"
         for={_for}
         tabindex={_tabindex}
-        {...map_data_attributes({palette, size: size ?? sizing, variation})}
+        {...map_data_attributes({palette, radius, shape, sizing, variation})}
         {...map_aria_attributes({disabled, pressed: active})}
         use:behavior_button={{enabled: true}}
         use:forward_actions={{actions}}
@@ -168,13 +150,14 @@
     >
         <slot />
     </label>
-{:else if value || is === "input"}
+{:else if is === "input"}
     {#if type === "reset"}
         <input
             bind:this={element}
-            {...map_global_attributes($$props)}
+            {...map_global_attributes($$restProps)}
+            class="button {_class}"
             type="reset"
-            {...map_data_attributes({palette, size: size ?? sizing, variation})}
+            {...map_data_attributes({palette, radius, shape, sizing, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             use:forward_actions={{actions}}
@@ -196,9 +179,10 @@
     {:else if type === "submit"}
         <input
             bind:this={element}
-            {...map_global_attributes($$props)}
+            {...map_global_attributes($$restProps)}
+            class="button {_class}"
             type="submit"
-            {...map_data_attributes({palette, size: size ?? sizing, variation})}
+            {...map_data_attributes({palette, radius, shape, sizing, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             use:forward_actions={{actions}}
@@ -220,9 +204,10 @@
     {:else}
         <input
             bind:this={element}
-            {...map_global_attributes($$props)}
+            {...map_global_attributes($$restProps)}
+            class="button {_class}"
             type="button"
-            {...map_data_attributes({palette, size: size ?? sizing, variation})}
+            {...map_data_attributes({palette, radius, shape, sizing, variation})}
             {...map_aria_attributes({pressed: active})}
             {...map_attributes({disabled, value})}
             use:forward_actions={{actions}}
@@ -245,8 +230,9 @@
 {:else}
     <button
         bind:this={element}
-        {...map_global_attributes($$props)}
-        {...map_data_attributes({palette, size: size ?? sizing, variation})}
+        {...map_global_attributes($$restProps)}
+        class="button {_class}"
+        {...map_data_attributes({palette, radius, shape, sizing, variation})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({disabled})}
         use:forward_actions={{actions}}

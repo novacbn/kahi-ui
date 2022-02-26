@@ -53,7 +53,7 @@
     $: if (_tab_name) $_tab_name = logic_name as string;
 
     $: if (logic_state !== undefined) on_state_property_update(logic_state);
-    $: if (_tab_state) on_state_store_update($_tab_state);
+    $: if (_tab_state) on_state_store_update($_tab_state ?? (logic_state as string));
 </script>
 
 <slot />

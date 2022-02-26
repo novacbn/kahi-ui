@@ -1,0 +1,83 @@
+@use "../abstracts/palettes";
+@use "../abstracts/variables";
+
+@use "../appearances/surface";
+
+@use "../mixins/backgrounds";
+@use "../mixins/fonts";
+@use "../mixins/palettes" as palette-mixins;
+@use "../mixins/transitions";
+
+:root {
+    @include palette-mixins.var-palette($palette: "auto");
+
+    @include surface.background($namespace: "document");
+    @include surface.text($namespace: "document");
+
+    @include fonts.family($namespace: "document");
+    @include fonts.line-height($namespace: "document");
+    @include fonts.size($namespace: "document");
+
+    @include transitions.build();
+}
+
+::selection {
+    @include surface.background($namespace: "document", $is-inverse: true);
+    @include surface.text($namespace: "document", $is-inverse: true);
+}
+
+* {
+    // TODO: Remove after adding ARIA / Accessibility support
+
+    -webkit-tap-highlight-color: transparent;
+
+    scrollbar-width: #{variables.use("document.scrollbar.standard.size")};
+    scrollbar-color: hsla(
+            #{palettes.use($name: "dark", $face: "background", $shade: "lightest")},
+            #{variables.use("document.scrollbar.thumb.background.opacity")}
+        )
+        hsla(
+            #{palettes.use($name: "auto", $face: "background", $shade: "boldest")},
+            #{variables.use("document.scrollbar.track.background.opacity")}
+        );
+
+    @include transitions.push(scrollbar-color, "visual");
+    @include transitions.build();
+}
+
+::-webkit-scrollbar {
+    width: calc(
+        #{variables.use("document.scrollbar.webkit.size")} + (#{variables.use(
+                        "document.scrollbar.track.padding"
+                    )} * 1rem)
+    );
+    height: calc(
+        #{variables.use("document.scrollbar.webkit.size")} + (#{variables.use(
+                        "document.scrollbar.track.padding"
+                    )} * 1rem)
+    );
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    border: calc(variables.use("document.scrollbar.track.padding") * 1rem) solid
+        rgba(255, 255, 255, 0);
+
+    @include backgrounds.transitions();
+    @include transitions.build();
+}
+
+::-webkit-scrollbar-track {
+    background-color: hsla(
+        #{palettes.use($name: "auto", $face: "background", $shade: "boldest")},
+        #{variables.use("document.scrollbar.track.background.opacity")}
+    );
+}
+
+::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+
+    background-color: hsla(
+        #{palettes.use($name: "dark", $face: "background", $shade: "lightest")},
+        #{variables.use("document.scrollbar.thumb.background.opacity")}
+    );
+}

@@ -5,6 +5,10 @@ import type {BreakpointEnum} from "./viewports";
  * Represents the tiers of sizing tokens that can be applied to Framework Components
  */
 export enum TOKENS_SIZING {
+    inherit = "inherit",
+
+    nano = "nano",
+
     tiny = "tiny",
 
     small = "small",
@@ -14,6 +18,8 @@ export enum TOKENS_SIZING {
     large = "large",
 
     huge = "huge",
+
+    massive = "massive",
 }
 
 export type PROPERTY_SIZING = LiteralEnum<TOKENS_SIZING>;

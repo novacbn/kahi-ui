@@ -1,0 +1,16 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_OVERLAYS_CLICKABLE") {
+    @include variables.define(
+        (
+            "clickable": (
+                "interactable": (
+                    "z-index": variables.use("z-index.inline.content"),
+                ),
+                "item": (
+                    "z-index": variables.use("z-index.inline.base"),
+                ),
+            ),
+        )
+    );
+}

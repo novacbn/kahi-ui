@@ -1,0 +1,31 @@
+@use "./namespaces";
+
+@mixin define($key, $value: null) {
+    @if type-of($key) == "string" {
+        @include namespaces.define-namespace("constants.#{$key}", $value);
+    } @else {
+        @include namespaces.define-namespaces(
+            (
+                "constants": $key,
+            )
+        );
+    }
+}
+
+@mixin each($filter: "") {
+    @include namespaces.each("constants.#{$filter}") using ($key, $value) {
+        @content ($key, $value);
+    }
+}
+
+@function get($key) {
+    @return namespaces.get("constants.#{$key}");
+}
+
+@function has($key) {
+    @return namespaces.has("constants.#{$key}");
+}
+
+@function keys($filter: "") {
+    @return namespaces.keys("constants.#{$filter}");
+}

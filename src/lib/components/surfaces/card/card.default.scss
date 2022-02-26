@@ -1,0 +1,45 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_SURFACES_CARD") {
+    @include variables.define(
+        (
+            "card": (
+                "background.opacity": 1,
+                "border": (
+                    "radius": variables.use("radius.tiny"),
+                    "width": variables.use("sizes.borders.medium"),
+                    "opacity": 1,
+                    "style": solid,
+                ),
+                "font.opacity": 1,
+                "elevation": variables.use("elevations.lower"),
+                "margin": (
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.medium"),
+                ),
+                "footer": (
+                    "spacing": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                    "margin.y": variables.use("spacings.block.medium"),
+                ),
+                "header": (
+                    "font": (
+                        "family": variables.use("fonts.families.block"),
+                        "size": variables.use("fonts.sizes.inline.medium"),
+                        "weight": bold,
+                    ),
+                    "gap": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                    "margin.y": variables.use("spacings.block.medium"),
+                ),
+                "section": (
+                    "margin.y": variables.use("spacings.block.small"),
+                ),
+            ),
+        )
+    );
+}

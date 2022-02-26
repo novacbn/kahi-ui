@@ -1,0 +1,32 @@
+@use "../abstracts/constants";
+@use "../abstracts/strings";
+@use "../abstracts/variables";
+@use "../abstracts/viewports";
+
+@mixin elevation-declarations($name, $value, $prefix: "") {
+    $name: strings.format-identifier($name);
+
+    [data-elevation="#{$name}"] {
+        --elevation-shadow: #{$value};
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include constants.each("elevations.") using ($name, $shadow) {
+        @include elevation-declarations($name, $shadow, $prefix);
+    }
+
+    @include variables.each("elevations.") using ($name, $shadow) {
+        @include elevation-declarations($name, variables.use("elevations.#{$name}"), $prefix);
+    }
+}
+
+@if not env("DISABLE_GLOBALS_ELEVATIONS") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_ELEVATIONS_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

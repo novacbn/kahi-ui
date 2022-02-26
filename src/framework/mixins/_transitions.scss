@@ -1,0 +1,53 @@
+@use "sass:list";
+@use "sass:map";
+
+@use "../abstracts/contexts";
+@use "../abstracts/variables";
+
+@mixin build() {
+    $formatted: ();
+    $transitions: get();
+
+    @each $transition in $transitions {
+        $animation-tier: map.get($transition, "animation-tier");
+        $property: map.get($transition, "property");
+
+        $formatted: list.append(
+            $formatted,
+            (
+                $property
+                    variables.use("animations.#{$animation-tier}.duration")
+                    variables.use("animations.#{$animation-tier}.function")
+            )
+        );
+    }
+
+    transition: list.zip($formatted);
+}
+
+@function get() {
+    $map: contexts.get("transitions");
+
+    @return map.values($map);
+}
+
+@mixin push($property, $animation-tier) {
+    @if not
+        variables.has("animations.#{$animation-tier}.duration") or not
+        variables.has("animations.#{$animation-tier}.function")
+    {
+        @error "bad argument #2 to 'transitions.push' (invalid animation tier '#{$animation-tier}')";
+    }
+
+    $map: contexts.get("transitions", ());
+    $map: map.set(
+        $map,
+        $property,
+        (
+            "animation-tier": $animation-tier,
+            "property": $property,
+        )
+    );
+
+    $_: contexts.set("transitions", $map);
+}

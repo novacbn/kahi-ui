@@ -3,7 +3,11 @@
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_ORIENTATION_X_BREAKPOINT} from "../../../types/orientations";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import type {
+        IMarginProperties,
+        IPaddingProperties,
+        PROPERTY_SPACING_BREAKPOINT,
+    } from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -18,6 +22,10 @@
 
         orientation?: PROPERTY_ORIENTATION_X_BREAKPOINT;
         variation?: "stacked";
+
+        spacing?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_x?: PROPERTY_SPACING_BREAKPOINT;
+        spacing_y?: PROPERTY_SPACING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -31,15 +39,29 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let orientation: $$Props["orientation"] = undefined;
     export let variation: $$Props["variation"] = undefined;
+
+    export let spacing: $$Props["spacing"] = undefined;
+    export let spacing_x: $$Props["spacing_x"] = undefined;
+    export let spacing_y: $$Props["spacing_y"] = undefined;
 </script>
 
 <div
     bind:this={element}
     role="group"
-    {...map_global_attributes($$props)}
-    {...map_data_attributes({orientation, variation})}
+    {...map_global_attributes($$restProps)}
+    class="group {_class}"
+    {...map_data_attributes({
+        orientation,
+        spacing,
+        "spacing-x": spacing_x,
+        "spacing-y": spacing_y,
+        variation,
+    })}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

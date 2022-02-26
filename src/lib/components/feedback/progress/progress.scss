@@ -1,0 +1,143 @@
+@use "../../../../framework/abstracts/variables";
+
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_FEEDBACK_PROGRESS") {
+    .progress {
+        @include palettes.var-palette($palette: "neutral");
+        @include radius.var-reset($namespace: "progress");
+        @include sizings.var-reset-font($namespace: "progress", $tier: "inline");
+
+        display: inline-block;
+
+        --value: 0;
+
+        @include fonts.size($tier: "inline", $unit: rem);
+
+        user-select: none;
+
+        &:empty {
+            width: 100%;
+            height: 0.5em;
+
+            @include radius.all($unit: rem);
+
+            background-image: linear-gradient(
+                to right,
+                hsla(
+                        var(--palette-background-bolder),
+                        #{variables.use("progress.indicator.background.opacity")}
+                    )
+                    50%,
+                hsla(
+                        var(--palette-background-lightest),
+                        #{variables.use("progress.track.background.opacity")}
+                    )
+                    50%
+            );
+            background-position: calc(100% - var(--value) * 100%) 0%;
+            background-size: 200% 100%;
+
+            @include transitions.push($property: background-image, $animation-tier: "visual");
+            @include transitions.push($property: background-position, $animation-tier: "movement");
+
+            @include transitions.build();
+
+            &:not([aria-valuenow]) {
+                animation: progress-bar-indeterminate 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+        }
+
+        &:not(:empty) {
+            & svg {
+                width: 1.75em;
+                height: 1.75em;
+            }
+
+            & circle {
+                fill: transparent;
+                stroke-width: 4px;
+
+                transform: rotate(-90deg);
+                transform-origin: 50% 50%;
+
+                @include transitions.push($property: stroke, $animation-tier: "visual");
+                @include transitions.push(
+                    $property: stroke-dashoffset,
+                    $animation-tier: "movement"
+                );
+
+                @include transitions.build();
+            }
+
+            & circle:first-child {
+                stroke: hsla(
+                    var(--palette-background-lightest),
+                    #{variables.use("progress.track.background.opacity")}
+                );
+            }
+
+            & circle:last-child {
+                stroke: hsla(
+                    var(--palette-background-bolder),
+                    #{variables.use("progress.indicator.background.opacity")}
+                );
+                stroke-dasharray: 88px 88px;
+                stroke-dashoffset: calc(88px * (1 - var(--value)));
+            }
+
+            &:not([aria-valuenow]) {
+                & circle:first-child {
+                    stroke: transparent;
+                }
+
+                & circle:last-child {
+                    animation: progress-circle-indeterminate
+                        2s
+                        cubic-bezier(0.4, 0, 0.6, 1)
+                        infinite;
+                }
+            }
+        }
+    }
+
+    @keyframes progress-bar-indeterminate {
+        0% {
+            background-position: 100% 0%;
+        }
+
+        75% {
+            background-position: -100% 0%;
+        }
+
+        100% {
+            background-position: -100% 0%;
+        }
+    }
+
+    @keyframes progress-circle-indeterminate {
+        0% {
+            stroke-dashoffset: 88px;
+
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(360deg);
+        }
+
+        75% {
+            stroke-dashoffset: -88px;
+        }
+
+        100% {
+            stroke-dashoffset: -88px;
+
+            transform: rotate(720deg);
+        }
+    }
+}

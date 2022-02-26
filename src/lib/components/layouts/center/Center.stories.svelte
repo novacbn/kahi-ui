@@ -13,7 +13,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette="inverse">
         <Center>
             <Text style="max-width:25ch;">

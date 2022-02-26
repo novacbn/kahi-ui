@@ -1,0 +1,17 @@
+@mixin query-theme-mode($mode) {
+    @if $mode == "dark" {
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-mode]) {
+                @content;
+            }
+        }
+
+        :root[data-mode="dark"] {
+            @content;
+        }
+    } @else {
+        :root:is(:not([data-mode]), [data-mode="light"]) {
+            @content;
+        }
+    }
+}

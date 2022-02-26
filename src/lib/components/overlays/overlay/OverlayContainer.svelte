@@ -84,6 +84,7 @@
 {#if logic_id}
     <input
         role="presentation"
+        class="overlay--state"
         id={logic_id}
         type="checkbox"
         bind:checked={logic_state}
@@ -93,7 +94,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="overlay {_class}"
     use:forward_actions={{actions}}
     on:click

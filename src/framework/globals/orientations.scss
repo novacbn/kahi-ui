@@ -1,0 +1,35 @@
+@use "../abstracts/viewports";
+
+@mixin orientation-declarations($prefix: "") {
+    [data-orientation~="#{$prefix}horizontal"] {
+        --orientation-direction: row !important;
+        --orientation-spacing: 0 0 0 var(--spacing-x) !important;
+
+        --orientation-align: var(--alignment-flex-y) !important;
+        --orientation-justify: var(--alignment-flex-x) !important;
+        --orientation-grow: var(--alignment-flex-x-grow) !important;
+    }
+
+    [data-orientation~="#{$prefix}vertical"] {
+        --orientation-direction: column !important;
+        --orientation-spacing: var(--spacing-y) 0 0 0 !important;
+
+        --orientation-align: var(--alignment-flex-x) !important;
+        --orientation-justify: var(--alignment-flex-y) !important;
+        --orientation-grow: var(--alignment-flex-y-grow) !important;
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include orientation-declarations($prefix);
+}
+
+@if not env("DISABLE_GLOBALS_ORIENTATIONS") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_ORIENTATIONS_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

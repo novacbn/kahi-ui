@@ -1,18 +1,22 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
 
     import Anchor from "./Anchor.svelte";
 
     const PALETTES = [
-        ["accent", true],
+        ["subtle", true],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
+        ["neutral", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 </script>
@@ -23,18 +27,33 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
         Goto google.com
     </Anchor>
 </Story>
 
+<Story name="State">
+    <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer">
+        Goto google.com (DEFAULT)
+    </Anchor>
+
+    <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer" disabled>
+        Goto google.com (DISABLED)
+    </Anchor>
+</Story>
+
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Anchor href="https://google.com" target="_blank" rel="noopener noreferrer" {palette}>
+            <Anchor
+                href="https://google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                palette={is_default ? undefined : palette}
+            >
                 Goto google.com ({`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`})
             </Anchor>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

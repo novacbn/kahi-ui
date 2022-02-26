@@ -35,7 +35,7 @@
     let _class: $$Props["class"] = "";
     export {_class as class};
 
-    export let is: $$Props["is"] = "code";
+    export let is: $$Props["is"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
 </script>
@@ -43,7 +43,7 @@
 {#if is === "pre"}
     <pre
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="code {_class}"
         {...map_data_attributes({
             palette,
@@ -67,7 +67,7 @@
 {:else}
     <code
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="code {_class}"
         {...map_data_attributes({palette})}
         use:forward_actions={{actions}}

@@ -24,7 +24,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Box palette={captured ? "affirmative" : "negative"} padding="small">
         {captured
             ? "shift focus to another element or switch tabs / minimize Browser"

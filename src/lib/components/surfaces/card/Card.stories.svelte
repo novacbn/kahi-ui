@@ -5,19 +5,20 @@
 
     import Badge from "../../display/badge/Badge.svelte";
     import Button from "../../interactables/button/Button.svelte";
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import * as Card from "./index";
 
     const ELEVATIONS = [
-        ["lowest", true],
+        ["lower", true],
         ["none", false],
+        ["lowest", false],
         ["low", false],
         ["medium", false],
         ["high", false],
+        ["higher", false],
         ["highest", false],
     ];
 
@@ -27,24 +28,38 @@
     ];
 
     const PALETTES = [
-        ["neutral", true],
-        ["accent", false],
-        ["auto", false],
+        ["auto", true],
         ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
+    ];
+
+    const SPACINGS = [
+        ["small", true],
+        ["none", false],
+        ["nano", false],
+        ["tiny", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -54,8 +69,8 @@
     <slot />
 </Template>
 
-<Story name="Default">
-    <Card.Container style="max-width:25rem;">
+<Story name="Preview">
+    <Card.Container width="huge">
         <Card.Figure>
             <img src={IMAGE_BACKGROUND} />
         </Card.Figure>
@@ -82,7 +97,7 @@
 </Story>
 
 <Story name="Flush">
-    <Card.Container variation="flush" style="max-width:25rem;">
+    <Card.Container variation="flush" width="huge">
         <Card.Figure>
             <img src={IMAGE_BACKGROUND} />
         </Card.Figure>
@@ -109,9 +124,9 @@
 </Story>
 
 <Story name="Palette">
-    <Mosaic sizing="huge" spacing="medium">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each PALETTES as [palette, is_default] (palette)}
-            <Card.Container {palette}>
+            <Card.Container palette={is_default ? undefined : palette} width="huge">
                 <Card.Figure>
                     <img src={IMAGE_BACKGROUND} />
                 </Card.Figure>
@@ -130,17 +145,13 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Mosaic>
+    </Stack.Container>
 </Story>
 
 <Story name="Elevation">
-    <Mosaic sizing="huge" spacing="medium">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ELEVATIONS as [elevation, is_default] (elevation)}
-            <Card.Container {elevation}>
-                <Card.Figure>
-                    <img src={IMAGE_BACKGROUND} />
-                </Card.Figure>
-
+            <Card.Container elevation={is_default ? undefined : elevation} width="huge">
                 <Card.Header>
                     {`${elevation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
@@ -155,13 +166,13 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Mosaic>
+    </Stack.Container>
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
-            <Card.Container style="max-width:25rem;" {sizing}>
+            <Card.Container sizing={is_default ? undefined : sizing} width="huge">
                 <Card.Header>
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
@@ -176,17 +187,13 @@
                 </Card.Section>
             </Card.Container>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
-<Story name="Footer Orientation">
-    <Mosaic sizing="huge" spacing="medium">
+<Story name="Footer - Orientation">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
-            <Card.Container>
-                <Card.Figure>
-                    <img src={IMAGE_BACKGROUND} />
-                </Card.Figure>
-
+            <Card.Container width="huge">
                 <Card.Header>
                     {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
@@ -200,11 +207,37 @@
                     </Text>
                 </Card.Section>
 
-                <Card.Footer {orientation}>
+                <Card.Footer orientation={is_default ? undefined : orientation}>
                     <Button variation="clear">Cancel</Button>
                     <Button palette="accent">Confirm</Button>
                 </Card.Footer>
             </Card.Container>
         {/each}
-    </Mosaic>
+    </Stack.Container>
+</Story>
+
+<Story name="Footer - Spacing">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each SPACINGS as [spacing, is_default] (spacing)}
+            <Card.Container width="huge">
+                <Card.Header>
+                    {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Card.Header>
+
+                <Card.Section>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Card.Section>
+
+                <Card.Footer spacing={is_default ? undefined : spacing}>
+                    <Button variation="clear">Cancel</Button>
+                    <Button palette="accent">Confirm</Button>
+                </Card.Footer>
+            </Card.Container>
+        {/each}
+    </Stack.Container>
 </Story>

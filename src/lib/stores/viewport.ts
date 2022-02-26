@@ -34,8 +34,8 @@ function get_viewport_variables(viewport: keyof typeof VIEWPORT_NAMES): IViewpor
         max:
             viewport === "widescreen"
                 ? `${Number.MAX_SAFE_INTEGER}px`
-                : computed.getPropertyValue(`--viewport-${viewport}-max`),
-        min: computed.getPropertyValue(`--viewport-${viewport}-min`),
+                : computed.getPropertyValue(`--viewports-${viewport}-maximum`),
+        min: computed.getPropertyValue(`--viewports-${viewport}-minimum`),
     };
 }
 

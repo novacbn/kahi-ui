@@ -6,6 +6,9 @@
     import type {IMarginProperties} from "../../../types/spacings";
 
     import {map_global_attributes} from "../../../util/attributes";
+    import type {IHourFormatOptions} from "../../../util/datetime/hours";
+    import type {IMinuteFormatOptions} from "../../../util/datetime/minutes";
+    import type {ISecondFormatOptions} from "../../../util/datetime/seconds";
     import {defaultopt} from "../../../util/functional";
     import {DEFAULT_FORMAT_TIME, DEFAULT_LOCALE} from "../../../util/locale";
 
@@ -20,10 +23,10 @@
 
         locale?: string;
 
-        hour?: Intl.DateTimeFormatOptions["hour"];
-        hour_12?: Intl.DateTimeFormatOptions["hour12"];
-        minute?: Intl.DateTimeFormatOptions["minute"];
-        second?: Intl.DateTimeFormatOptions["second"];
+        hour?: IHourFormatOptions["hour"];
+        hour_12?: IHourFormatOptions["hour_12"];
+        minute?: IMinuteFormatOptions["minute"];
+        second?: ISecondFormatOptions["second"];
 
         timestamp: string;
     } & IHTML5Properties &
@@ -51,7 +54,7 @@
 
 <time
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="time-stamp {_class}"
     datetime={_time.toString()}
     use:forward_actions={{actions}}

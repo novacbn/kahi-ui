@@ -20,7 +20,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Text is="strong">Anchor</Text>
 
     <Clickable.Container>
@@ -64,7 +64,7 @@
 
             <Tile.Footer>
                 <Clickable.Label for="clickable-label">
-                    <Switch palette="affirmative" />
+                    <Switch palette="affirmative" sizing="medium" />
                 </Clickable.Label>
             </Tile.Footer>
         </Tile.Container>

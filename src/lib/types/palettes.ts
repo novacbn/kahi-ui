@@ -12,6 +12,10 @@ export enum TOKENS_PALETTE {
 
     accent = "accent",
 
+    neutral = "neutral",
+
+    off = "off",
+
     dark = "dark",
 
     light = "light",
@@ -19,6 +23,8 @@ export enum TOKENS_PALETTE {
     alert = "alert",
 
     affirmative = "affirmative",
+
+    informative = "informative",
 
     negative = "negative",
 }

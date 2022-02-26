@@ -1,0 +1,51 @@
+@use "./colors";
+@use "./constants";
+@use "./strings";
+
+@mixin each() {
+    @include constants.each("palettes.*.dark.base") using ($name, $base) {
+        $dark-foreground: get("#{$name}.dark.foreground");
+        $light-foreground: get("#{$name}.light.foreground");
+
+        @content ($name, $dark-foreground, $light-foreground);
+    }
+}
+
+@function get($name) {
+    @return constants.get("palettes.#{$name}");
+}
+
+@function has($name) {
+    @return constants.has("palettes.#{$name}.dark.base");
+}
+
+@function ref($name, $face, $shade) {
+    // TODO: validate `$face`
+    // TODO: validate `$shade`
+
+    @if not has($name) and $name != "auto" {
+        @error "bad argument #1 to 'palettes.ref' (invalid name '#{$name}')";
+    }
+
+    @return strings.format-identifier("palettes.#{$name}.#{$face}.#{$shade}");
+}
+
+@function use($name, $face, $shade, $fallback: null) {
+    $name: ref($name, $face, $shade);
+
+    @if $fallback {
+        @return var(#{$name}, #{$fallback});
+    }
+
+    @return var(--#{$name});
+}
+
+@function select-foreground($base) {
+    $base-dark: get("dark.dark.base");
+    $base-light: get("light.light.base");
+
+    $contrast-dark: colors.contrast($base, $base-dark);
+    $contrast-light: colors.contrast($base, $base-light);
+
+    @return if($contrast-dark > $contrast-light, "dark", "light");
+}

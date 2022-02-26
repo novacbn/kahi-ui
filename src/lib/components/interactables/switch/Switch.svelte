@@ -2,7 +2,7 @@
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties} from "../../../types/spacings";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
@@ -36,12 +36,8 @@
         state?: boolean;
         value?: string;
 
-        palette?: PROPERTY_PALETTE
-        /**
-         * @deprecated Use `<Switch sizing="...">` instead.
-         */;
-        size?: PROPERTY_SIZING;
-        sizing?: PROPERTY_SIZING;
+        palette?: PROPERTY_PALETTE;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;
@@ -53,6 +49,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let id: $$Props["id"] = "";
     export let name: $$Props["name"] = "";
 
@@ -62,10 +61,6 @@
     export let value: $$Props["value"] = "";
 
     export let palette: $$Props["palette"] = undefined;
-    /**
-     * @deprecated Use `<Switch sizing="...">` instead.
-     */
-    export let size: $$Props["size"] = undefined;
     export let sizing: $$Props["sizing"] = undefined;
 
     const _form_id = CONTEXT_FORM_ID.get();
@@ -84,7 +79,7 @@
         else _form_state.remove(value);
     }
 
-    $: if (_form_state && value) state = $_form_state.includes(value);
+    $: if (_form_state && $_form_state && value) state = $_form_state.includes(value);
 </script>
 
 {#if $$slots["default"]}
@@ -92,10 +87,11 @@
         <FormLabel>
             <input
                 bind:this={element}
-                {...map_global_attributes($$props)}
-                type="checkbox"
+                {...map_global_attributes($$restProps)}
                 role="switch"
-                {...map_data_attributes({palette, size: size ?? sizing})}
+                type="checkbox"
+                class="switch {_class}"
+                {...map_data_attributes({palette, sizing})}
                 {...map_aria_attributes({pressed: active})}
                 {...map_attributes({
                     disabled,
@@ -130,10 +126,11 @@
 {:else}
     <input
         bind:this={element}
-        {...map_global_attributes($$props)}
-        type="checkbox"
+        {...map_global_attributes($$restProps)}
         role="switch"
-        {...map_data_attributes({palette, size: size ?? sizing})}
+        type="checkbox"
+        class="switch {_class}"
+        {...map_data_attributes({palette, sizing})}
         {...map_aria_attributes({pressed: active})}
         {...map_attributes({
             disabled,

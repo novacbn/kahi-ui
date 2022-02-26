@@ -1,0 +1,13 @@
+@use "../abstracts/variables";
+
+@use "./transitions";
+
+@mixin opacity($namespace) {
+    @include transitions();
+
+    opacity: #{variables.use("#{$namespace}.opacity")};
+}
+
+@mixin transitions() {
+    @include transitions.push(opacity, "visual");
+}

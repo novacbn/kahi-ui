@@ -1,0 +1,23 @@
+@use "sass:color";
+
+@function contrast($color_a, $color_b) {
+    // HACK: Yeah yeah, "lightness" isn't the same as "luminance", but it
+    // works well enough for my purposes
+
+    $a_lightness: calc(color.lightness($color_a) / 100%);
+    $b_lightness: calc(color.lightness($color_b) / 100%);
+
+    @if $a_lightness > $b_lightness {
+        @return calc($a_lightness + 0.05 / $b_lightness + 0.05);
+    }
+
+    @return calc($b_lightness + 0.05 / $a_lightness + 0.05);
+}
+
+@function normalize-hsl($color, $is-raw: false) {
+    @if $is-raw {
+        @return color.hue($color) + ", " + color.saturation($color) + ", " + color.lightness($color);
+    }
+
+    @return hsl(color.hue($color), color.saturation($color), color.lightness($color));
+}

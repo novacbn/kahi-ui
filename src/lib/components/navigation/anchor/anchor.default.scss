@@ -1,0 +1,23 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_NAVIGATION_ANCHOR") {
+    @include variables.define(
+        (
+            "anchor": (
+                "text.decoration": none,
+                "disabled": (
+                    "opacity": 0.5,
+                ),
+                "focus": (
+                    "text.decoration": underline,
+                ),
+                "palette": (
+                    "font.opacity": 1,
+                ),
+                "article": (
+                    "font.color": var(--palettes-informative-background-boldest),
+                ),
+            ),
+        )
+    );
+}

@@ -1,0 +1,45 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_SURFACES_HERO") {
+    @include variables.define(
+        (
+            "hero": (
+                "background.opacity": 1,
+                "font.opacity": 1,
+                "padding": (
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.large"),
+                ),
+                "footer": (
+                    "font.size": variables.use("fonts.sizes.inline.medium"),
+                    "gap": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                    "margin.y": variables.use("spacings.block.large"),
+                    "size": (
+                        "max-width": max-content,
+                    ),
+                ),
+                "header": (
+                    "font": (
+                        "family": variables.use("fonts.families.block"),
+                        "size": variables.use("fonts.sizes.block.massive"),
+                        "weight": bold,
+                    ),
+                    "margin.y": variables.use("spacings.block.medium"),
+                    "size": (
+                        "max-width": calc(#{variables.use("sizes.prose")} * 0.5),
+                    ),
+                ),
+                "section": (
+                    "font.size": variables.use("fonts.sizes.inline.large"),
+                    "margin.y": variables.use("spacings.block.small"),
+                    "size": (
+                        "max-width": variables.use("sizes.prose"),
+                    ),
+                ),
+            ),
+        )
+    );
+}

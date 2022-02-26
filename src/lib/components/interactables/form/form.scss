@@ -1,0 +1,61 @@
+@use "../../../../framework/appearances/legend";
+
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_FORM") {
+    .form--control {
+        display: flex;
+        flex-direction: column;
+
+        @include intrinsics.gap-all($namespace: "form.control", $unit: em);
+
+        width: 100%;
+    }
+
+    .form--field-set {
+        @include intrinsics.padding-all($namespace: "form.field-set", $unit: rem);
+
+        @include borders.all($namespace: "form.field-set", $face: "foreground", $shade: "normal");
+
+        @include transitions.build();
+
+        &[data-palette] {
+            @include borders.color-all(
+                $namespace: "form.field-set",
+                $face: "background",
+                $shade: "bolder"
+            );
+        }
+    }
+
+    .form--help-text {
+        @include fonts.size($namespace: "form.help-text", $unit: em);
+    }
+
+    .form--label {
+        display: inline-flex;
+        align-items: center;
+
+        @include intrinsics.gap-all($namespace: "form.label", $unit: em);
+
+        &[for] {
+            cursor: pointer;
+        }
+    }
+
+    .form--legend {
+        @include legend.base($namespace: "form.legend");
+
+        @include fonts.color($namespace: "form.legend", $face: "foreground", $shade: "normal");
+
+        @include transitions.build();
+
+        &[data-palette] {
+            @include fonts.color($namespace: "form.legend", $face: "background", $shade: "normal");
+        }
+    }
+}

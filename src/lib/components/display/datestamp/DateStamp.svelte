@@ -9,6 +9,9 @@
     import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_global_attributes} from "../../../util/attributes";
+    import type {IDayFormatOptions} from "../../../util/datetime/days";
+    import type {IMonthFormatOptions} from "../../../util/datetime/months";
+    import type {IYearFormatOptions} from "../../../util/datetime/years";
     import {defaultopt} from "../../../util/functional";
     import {DEFAULT_CALENDAR, DEFAULT_FORMAT_DATE, DEFAULT_LOCALE} from "../../../util/locale";
 
@@ -21,10 +24,10 @@
         calendar?: string;
         locale?: string;
 
-        day?: Intl.DateTimeFormatOptions["day"];
-        month?: Intl.DateTimeFormatOptions["month"];
-        weekday?: Intl.DateTimeFormatOptions["weekday"];
-        year?: Intl.DateTimeFormatOptions["year"];
+        day?: IDayFormatOptions["day"];
+        month?: IMonthFormatOptions["month"];
+        weekday?: IDayFormatOptions["weekday"];
+        year?: IYearFormatOptions["year"];
 
         timestamp: string;
     } & IHTML5Properties &
@@ -56,9 +59,9 @@
 
 <time
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="date-stamp {_class}"
-    datetime={_date.toString({calendarName: "never"})}
+    datetime={_date.withCalendar("iso8601").toString({calendarName: "never"})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

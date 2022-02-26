@@ -5,16 +5,16 @@
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
     import {range} from "../../../util/functional";
-    import {clamp} from "../../../util/number";
+    import {clamp} from "../../../util/math";
     import {format_tokens} from "../../../util/string";
 
     import Button from "../../interactables/button/Button.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
 
     type $$Events = {
         select: CustomEvent<{page: number}>;
@@ -23,6 +23,8 @@
     type $$Props = {
         element?: HTMLDivElement;
 
+        is?: "a" | "button";
+
         href?: string;
 
         pages: number | string;
@@ -30,7 +32,7 @@
         value: number | string;
 
         palette?: PROPERTY_PALETTE;
-        sizing?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -50,6 +52,8 @@
     let _class = "";
     export {_class as class};
 
+    export let is: $$Props["is"] = undefined;
+
     export let href: $$Props["href"] = undefined;
 
     export let pages: $$Props["pages"];
@@ -60,7 +64,7 @@
     export let sizing: $$Props["sizing"] = undefined;
 
     function format_href(page: number): string | undefined {
-        return href ? format_tokens(href, {page}) : undefined;
+        return is === "a" && href ? format_tokens(href, {page}) : undefined;
     }
 
     function on_button_click(page: number, event: MouseEvent): void {
@@ -91,8 +95,8 @@
     }
 </script>
 
-<Stack
-    {...$$props}
+<StackContainer
+    {...$$restProps}
     bind:element
     class="pagination {_class}"
     orientation="horizontal"
@@ -103,7 +107,8 @@
         href={format_href(_prev_value)}
         disabled={_value === _prev_value}
         variation={["subtle", "clear"]}
-        size={sizing}
+        {is}
+        {sizing}
         {palette}
         on:click={on_button_click.bind(null, _prev_value)}
     >
@@ -116,7 +121,8 @@
         href={format_href(1)}
         disabled={value === 1}
         variation={["subtle", "clear"]}
-        size={sizing}
+        {is}
+        {sizing}
         {palette}
         on:click={on_button_click.bind(null, 1)}
     >
@@ -132,7 +138,8 @@
             href={format_href(page)}
             disabled={value === page}
             variation={["subtle", "clear"]}
-            size={sizing}
+            {is}
+            {sizing}
             {palette}
             on:click={on_button_click.bind(null, page)}
         >
@@ -149,7 +156,8 @@
             href={format_href(_pages)}
             disabled={_value === _pages}
             variation={["subtle", "clear"]}
-            size={sizing}
+            {is}
+            {sizing}
             {palette}
             on:click={on_button_click.bind(null, _pages)}
         >
@@ -163,10 +171,11 @@
         href={format_href(_next_value)}
         disabled={_value === _next_value}
         variation={["subtle", "clear"]}
-        size={sizing}
+        {is}
+        {sizing}
         {palette}
         on:click={on_button_click.bind(null, _next_value)}
     >
         <slot name="next">&gt;</slot>
     </Button>
-</Stack>
+</StackContainer>

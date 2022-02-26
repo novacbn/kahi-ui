@@ -1,0 +1,95 @@
+@use "../../../../framework/appearances/surface";
+
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/planes";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_NAVIGATION_ASIDE") {
+    .aside {
+        @include palettes.var-palette($palette: "auto");
+
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+
+        @include surface.background($namespace: "aside");
+        @include borders.transitions();
+        @include borders.style-all($namespace: "aside");
+        @include surface.text($namespace: "aside");
+
+        @include transitions.build();
+
+        &:is(:not([data-placement]), [data-placement~="left"]) {
+            @include surface.borders-right($namespace: "aside");
+            @include borders.width-right($namespace: "aside");
+        }
+
+        &[data-placement~="right"] {
+            @include surface.borders-left($namespace: "aside");
+            @include borders.width-left($namespace: "aside");
+        }
+
+        &[data-variation~="sticky"] {
+            position: sticky;
+            top: 0;
+
+            @include planes.z-index($namespace: "aside.sticky");
+
+            &:is(:not([data-placement]), [data-placement~="left"]) {
+                left: 0;
+            }
+
+            &[data-placement~="right"] {
+                left: 100%;
+            }
+        }
+    }
+
+    .aside--footer {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        @include intrinsics.gap-all($namespace: "aside.footer", $unit: rem);
+
+        margin-top: auto;
+
+        @include intrinsics.padding-x($namespace: "aside.footer", $unit: rem);
+        @include intrinsics.padding-bottom($namespace: "aside.footer", $unit: rem);
+    }
+
+    .aside--header {
+        @include intrinsics.padding-all($namespace: "aside.header", $unit: rem);
+
+        @include fonts.family($namespace: "aside.header");
+        @include fonts.size($namespace: "aside.header", $unit: rem);
+        @include fonts.letter-spacing($namespace: "aside.header", $unit: em);
+        @include fonts.weight($namespace: "aside.header");
+
+        text-align: center;
+
+        user-select: none;
+        white-space: nowrap;
+    }
+
+    .aside--section {
+        @include intrinsics.margin-bottom($namespace: "aside.section", $unit: rem);
+        @include intrinsics.padding-all($namespace: "aside.section", $unit: rem);
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        &:not(:last-of-type) {
+            flex-shrink: 0;
+        }
+
+        &:last-of-type {
+            flex-shrink: 1;
+        }
+    }
+}

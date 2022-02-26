@@ -1,0 +1,14 @@
+@use "sass:math";
+
+@function modular($base, $ratio, $step, $precision: null) {
+    $result: $base * math.pow($ratio, $step);
+    @if $precision {
+        @return calc(math.floor(calc($result * $precision)) / $precision);
+    }
+
+    @return $result;
+}
+
+@function step($base, $stepping, $step) {
+    @return $base + ($stepping * $step);
+}

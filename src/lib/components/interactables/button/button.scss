@@ -1,0 +1,137 @@
+@use "../../../../framework/appearances/button";
+
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/radius";
+
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_BUTTON") {
+    .button {
+        @include palettes.var-palette($palette: "neutral");
+        @include radius.var-reset($namespace: "button");
+        @include sizings.var-reset-font($tier: "inline", $namespace: "button");
+
+        @include button.base(
+            $namespace: "button",
+            $support-loud: true,
+            $support-radius: true,
+            $support-outline: true
+        );
+
+        @include button.state-disabled() {
+            @include button.base-disabled($namespace: "button");
+        }
+
+        &:not([data-variation~="subtle"]) {
+            @include button.variation-loud-base($namespace: "button.loud");
+
+            @include button.state-disabled($is-inverse: true) {
+                @include button.state-active() {
+                    @include button.variation-loud-active($namespace: "button.loud");
+                }
+            }
+        }
+
+        &[data-variation~="subtle"]:not([data-palette]) {
+            @include palettes.var-inherit();
+        }
+
+        &:not([data-variation~="clear"], [data-variation~="outline"]) {
+            @include button.variation-block-base($namespace: "button.block");
+
+            &[data-variation~="subtle"]:not([data-palette]) {
+                @include button.variation-block-base($namespace: "button.block", $is-inverse: true);
+            }
+
+            @include button.state-disabled($is-inverse: true) {
+                @include button.state-focus() {
+                    @include button.variation-block-focus($namespace: "button.block");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-block-focus(
+                            $namespace: "button.block",
+                            $is-inverse: true
+                        );
+                    }
+                }
+
+                @include button.state-active() {
+                    @include button.variation-block-active($namespace: "button.block");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-block-active(
+                            $namespace: "button.block",
+                            $is-inverse: true
+                        );
+                    }
+                }
+            }
+        }
+
+        &[data-variation~="clear"] {
+            @include button.variation-clear-base($namespace: "button.clear");
+
+            &[data-variation~="subtle"]:not([data-palette]) {
+                @include button.variation-clear-base($namespace: "button.clear", $is-inverse: true);
+            }
+
+            @include button.state-disabled($is-inverse: true) {
+                @include button.state-focus() {
+                    @include button.variation-clear-focus($namespace: "button.clear");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-clear-focus(
+                            $namespace: "button.clear",
+                            $is-inverse: true
+                        );
+                    }
+                }
+
+                @include button.state-active() {
+                    @include button.variation-clear-active($namespace: "button.clear");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-clear-active(
+                            $namespace: "button.clear",
+                            $is-inverse: true
+                        );
+                    }
+                }
+            }
+        }
+
+        &[data-variation~="outline"] {
+            @include button.variation-outline-base($namespace: "button.outline");
+
+            &[data-variation~="subtle"]:not([data-palette]) {
+                @include button.variation-outline-base(
+                    $namespace: "button.outline",
+                    $is-inverse: true
+                );
+            }
+
+            @include button.state-disabled($is-inverse: true) {
+                @include button.state-focus() {
+                    @include button.variation-outline-focus($namespace: "button.outline");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-outline-focus(
+                            $namespace: "button.outline",
+                            $is-inverse: true
+                        );
+                    }
+                }
+
+                @include button.state-active() {
+                    @include button.variation-outline-active($namespace: "button.outline");
+
+                    &[data-variation~="subtle"]:not([data-palette]) {
+                        @include button.variation-outline-active(
+                            $namespace: "button.outline",
+                            $is-inverse: true
+                        );
+                    }
+                }
+            }
+        }
+    }
+}

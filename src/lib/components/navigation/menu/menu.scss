@@ -1,0 +1,108 @@
+@use "../../../../framework/appearances/button";
+@use "../../../../framework/appearances/divider";
+@use "../../../../framework/appearances/flex";
+@use "../../../../framework/appearances/legend";
+
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+
+@if not env("DISABLE_COMPONENTS_NAVIGATION_MENU") {
+    .menu {
+        @include sizings.var-reset-font($tier: "inline", $namespace: "menu");
+
+        @include flex.var-reset($direction: column, $namespace: "menu");
+
+        @include flex.base($unit: em);
+        @include fonts.size($unit: rem, $tier: "inline");
+
+        user-select: none;
+    }
+
+    .menu--heading {
+        &:not(:last-child) {
+            @include intrinsics.margin-bottom($namespace: "menu.heading", $unit: em);
+        }
+
+        :is(.menu--item, .menu--section) + & {
+            @include intrinsics.margin-top($namespace: "menu.heading", $unit: em);
+        }
+    }
+
+    p.menu--heading {
+        @include legend.base($namespace: "menu.heading", $support-opacity: true);
+    }
+
+    hr.menu--heading,
+    p.menu--heading[data-variation~="divider"] {
+        @include divider.base($namespace: "menu.heading");
+    }
+
+    hr.menu--heading {
+        @include divider.variation-divider-base($namespace: "menu.heading");
+        @include divider.variation-divider-horizontal($namespace: "menu.heading");
+    }
+
+    p.menu--heading[data-variation~="divider"] {
+        @include divider.variation-text-base($namespace: "menu.heading");
+
+        &::before,
+        &::after {
+            @include divider.variation-text-pseudo-base($namespace: "menu.heading");
+            @include divider.variation-text-pseudo-horizontal($namespace: "menu.heading");
+        }
+
+        &::before {
+            max-width: 1ch;
+        }
+    }
+
+    .menu--item {
+        @include button.base($namespace: "menu.item", $alignment-x: left, $alignment-y: center);
+        @include button.variation-clear-base($namespace: "menu.item", $is-inverse: true);
+
+        .menu[data-palette] &,
+        &[data-palette] {
+            @include button.variation-clear-base($namespace: "menu.item");
+        }
+
+        @include button.state-disabled() {
+            @include button.base-disabled($namespace: "menu.item");
+        }
+
+        @include button.state-disabled($is-inverse: true) {
+            @include button.state-focus() {
+                @include button.variation-clear-focus($namespace: "menu.item", $is-inverse: true);
+
+                .menu[data-palette] &,
+                &[data-palette] {
+                    @include button.variation-clear-focus($namespace: "menu.item");
+                }
+            }
+
+            @include button.state-active() {
+                @include button.variation-clear-active($namespace: "menu.item", $is-inverse: true);
+
+                .menu[data-palette] &,
+                &[data-palette] {
+                    @include button.variation-clear-active($namespace: "menu.item");
+                }
+            }
+        }
+    }
+
+    .menu--section {
+        display: flex;
+        flex-direction: inherit;
+
+        align-items: inherit;
+        justify-content: inherit;
+
+        gap: inherit;
+
+        @include intrinsics.padding-left($namespace: "menu.section", $unit: em);
+    }
+}

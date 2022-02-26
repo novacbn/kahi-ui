@@ -2,7 +2,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Divider from "../../layouts/divider/Divider.svelte";
-    import Mosaic from "../../layouts/mosaic/Mosaic.svelte";
+    import * as Mosaic from "../../layouts/mosaic";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
     import Text from "../../typography/text/Text.svelte";
 
@@ -12,14 +12,16 @@
     import * as Aside from "./";
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
-        ["auto", false],
+        ["auto", true],
         ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
@@ -35,8 +37,8 @@
     <slot />
 </Template>
 
-<Story name="Preview - Basic">
-    <Aside.Container palette="dark" max_width="content-max" height="viewport-100">
+<Story name="Preview">
+    <Aside.Container palette="off" max_width="content-max" height="viewport-100">
         <Aside.Header>
             <Anchor href="#">Kahi UI</Anchor>
             <Divider />
@@ -77,7 +79,7 @@
 </Story>
 
 <Story name="Palette">
-    <Mosaic sizing="medium" spacing="medium">
+    <Mosaic.Container sizing="medium" spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <Aside.Container palette={palette === "default" ? undefined : palette}>
                 <Aside.Header>
@@ -108,7 +110,7 @@
                 </Aside.Footer>
             </Aside.Container>
         {/each}
-    </Mosaic>
+    </Mosaic.Container>
 </Story>
 
 <Story name="Sticky">

@@ -1,0 +1,68 @@
+@use "../mixins/borders";
+@use "../mixins/backgrounds";
+@use "../mixins/fonts";
+@use "../mixins/radius";
+
+@mixin borders-all($namespace) {
+    @include borders.all($namespace, $face: "background", $shade: "bold");
+}
+
+@mixin borders-x($namespace) {
+    @include borders.x($namespace, $face: "background", $shade: "bold");
+}
+
+@mixin borders-y($namespace) {
+    @include borders.y($namespace, $face: "background", $shade: "bold");
+}
+
+@mixin borders-bottom($namespace) {
+    @include borders.bottom($namespace, $face: "background", $shade: "bold");
+}
+
+@mixin borders-left($namespace) {
+    @include borders.left($namespace, $face: "background", $shade: "bold");
+}
+
+@mixin borders-right($namespace) {
+    @include borders.right($namespace, $face: "background", $shade: "bold");
+}
+
+@mixin borders-top($namespace) {
+    @include borders.top($namespace, $face: "background", $shade: "bold");
+}
+
+@mixin radius-all() {
+    @include radius.all($unit: rem);
+}
+
+@mixin radius-bottom() {
+    @include radius.bottom($unit: rem);
+}
+
+@mixin radius-left() {
+    @include radius.left($unit: rem);
+}
+
+@mixin radius-right() {
+    @include radius.right($unit: rem);
+}
+
+@mixin radius-top() {
+    @include radius.top($unit: rem);
+}
+
+@mixin background($namespace, $is-inverse: false) {
+    @include backgrounds.color(
+        $namespace,
+        if($is-inverse, "foreground", "background"),
+        $shade: "lighter"
+    );
+}
+
+@mixin text($namespace, $is-inverse: false) {
+    @include fonts.color(
+        $namespace,
+        $face: if($is-inverse, "background", "foreground"),
+        $shade: "normal"
+    );
+}

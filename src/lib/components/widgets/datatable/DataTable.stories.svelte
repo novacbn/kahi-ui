@@ -2,7 +2,7 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import TextInput from "../../interactables/textinput/TextInput.svelte";
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import DataTable from "./DataTable.svelte";
@@ -31,13 +31,15 @@
 
     const PALETTES = [
         ["neutral", true],
-        ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
@@ -104,7 +106,7 @@
 </Story>
 
 <Story name="Palette">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
@@ -119,11 +121,11 @@
                 />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Sizing">
-    <Stack spacing="medium">
+    <Stack.Container spacing="medium">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
@@ -133,5 +135,5 @@
                 <DataTable columns={COLUMNS} rows={ROWS} palette="accent" {sizing} paginate />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

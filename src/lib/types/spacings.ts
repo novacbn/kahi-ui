@@ -9,6 +9,8 @@ export enum TOKENS_SPACING {
 
     auto = "auto",
 
+    nano = "nano",
+
     tiny = "tiny",
 
     small = "small",
@@ -18,6 +20,8 @@ export enum TOKENS_SPACING {
     large = "large",
 
     huge = "huge",
+
+    massive = "massive",
 }
 
 export type PROPERTY_SPACING = LiteralEnum<TOKENS_SPACING>;

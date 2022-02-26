@@ -1,0 +1,86 @@
+@use "../abstracts/palettes";
+@use "../abstracts/strings";
+
+@mixin palette-declarations($name) {
+    [data-palette="#{$name}"] {
+        --palette-background-lightest: #{palettes.use($name, "background", "lightest")} !important;
+        --palette-background-lighter: #{palettes.use($name, "background", "lighter")} !important;
+        --palette-background-light: #{palettes.use($name, "background", "light")} !important;
+        --palette-background-normal: #{palettes.use($name, "background", "normal")} !important;
+        --palette-background-bold: #{palettes.use($name, "background", "bold")} !important;
+        --palette-background-bolder: #{palettes.use($name, "background", "bolder")} !important;
+        --palette-background-boldest: #{palettes.use($name, "background", "boldest")} !important;
+
+        --palette-foreground-lightest: #{palettes.use($name, "foreground", "lightest")} !important;
+        --palette-foreground-lighter: #{palettes.use($name, "foreground", "lighter")} !important;
+        --palette-foreground-light: #{palettes.use($name, "foreground", "light")} !important;
+        --palette-foreground-normal: #{palettes.use($name, "foreground", "normal")} !important;
+        --palette-foreground-bold: #{palettes.use($name, "foreground", "bold")} !important;
+        --palette-foreground-bolder: #{palettes.use($name, "foreground", "bolder")} !important;
+        --palette-foreground-boldest: #{palettes.use($name, "foreground", "boldest")} !important;
+    }
+}
+
+@mixin declarations() {
+    [data-palette="auto"] {
+        --palette-background-lightest: var(--palettes-auto-background-lightest) !important;
+        --palette-background-lighter: var(--palettes-auto-background-lighter) !important;
+        --palette-background-light: var(--palettes-auto-background-light) !important;
+        --palette-background-normal: var(--palettes-auto-background-normal) !important;
+        --palette-background-bold: var(--palettes-auto-background-bold) !important;
+        --palette-background-bolder: var(--palettes-auto-background-bolder) !important;
+        --palette-background-boldest: var(--palettes-auto-background-boldest) !important;
+
+        --palette-foreground-lightest: var(--palettes-auto-foreground-lightest) !important;
+        --palette-foreground-lighter: var(--palettes-auto-foreground-lighter) !important;
+        --palette-foreground-light: var(--palettes-auto-foreground-light) !important;
+        --palette-foreground-normal: var(--palettes-auto-foreground-normal) !important;
+        --palette-foreground-bold: var(--palettes-auto-foreground-bold) !important;
+        --palette-foreground-bolder: var(--palettes-auto-foreground-bolder) !important;
+        --palette-foreground-boldest: var(--palettes-auto-foreground-boldest) !important;
+    }
+
+    [data-palette="inverse"] {
+        --palette-background-lightest: var(--palettes-auto-foreground-lightest) !important;
+        --palette-background-lighter: var(--palettes-auto-foreground-lighter) !important;
+        --palette-background-light: var(--palettes-auto-foreground-light) !important;
+        --palette-background-normal: var(--palettes-auto-foreground-normal) !important;
+        --palette-background-bold: var(--palettes-auto-foreground-bold) !important;
+        --palette-background-bolder: var(--palettes-auto-foreground-bolder) !important;
+        --palette-background-boldest: var(--palettes-auto-foreground-boldest) !important;
+
+        --palette-foreground-lightest: var(--palettes-auto-background-lightest) !important;
+        --palette-foreground-lighter: var(--palettes-auto-background-lighter) !important;
+        --palette-foreground-light: var(--palettes-auto-background-light) !important;
+        --palette-foreground-normal: var(--palettes-auto-background-normal) !important;
+        --palette-foreground-bold: var(--palettes-auto-background-bold) !important;
+        --palette-foreground-bolder: var(--palettes-auto-background-bolder) !important;
+        --palette-foreground-boldest: var(--palettes-auto-background-boldest) !important;
+    }
+
+    [data-palette="inherit"] {
+        --palette-background-lightest: inherit !important;
+        --palette-background-lighter: inherit !important;
+        --palette-background-light: inherit !important;
+        --palette-background-normal: inherit !important;
+        --palette-background-bold: inherit !important;
+        --palette-background-bolder: inherit !important;
+        --palette-background-boldest: inherit !important;
+
+        --palette-foreground-lightest: inherit !important;
+        --palette-foreground-lighter: inherit !important;
+        --palette-foreground-light: inherit !important;
+        --palette-foreground-normal: inherit !important;
+        --palette-foreground-bold: inherit !important;
+        --palette-foreground-bolder: inherit !important;
+        --palette-foreground-boldest: inherit !important;
+    }
+
+    @include palettes.each() using ($background, $dark-foreground, $light-foreground) {
+        @include palette-declarations($background);
+    }
+}
+
+@if not env("DISABLE_GLOBALS_PALETTES") {
+    @include declarations();
+}

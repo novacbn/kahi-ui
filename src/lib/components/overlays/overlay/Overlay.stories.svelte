@@ -42,11 +42,13 @@
 
     const SPACINGS = [
         ["none", true],
+        ["nano", false],
         ["tiny", false],
         ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let first_element;
@@ -67,14 +69,14 @@
 </Template>
 
 <Story name="Preview - Modal">
-    <Button for="overlay-preview-modal" palette="accent">Open MODAL</Button>
+    <Button is="label" for="overlay-preview-modal" palette="accent">Open MODAL</Button>
 
     <Overlay.Container logic_id="overlay-preview-modal" dismissible>
         <Overlay.Backdrop />
 
         <Overlay.Section>
-            <Card.Container palette="auto" max_width="75">
-                <Card.Header>Are you sure?</Card.Header>
+            <Card.Container max_width="75">
+                <Card.Header>Delete File?</Card.Header>
 
                 <Card.Section>
                     <Text>
@@ -94,7 +96,7 @@
 
 <Story name="Preview - Aside Drawer">
     <Position variation="action" alignment_x="left" hidden={["desktop", "widescreen"]}>
-        <Button for="overlay-preview-aside-drawer">+</Button>
+        <Button is="label" for="overlay-preview-aside-drawer">+</Button>
     </Position>
 
     <Overlay.Container logic_id="overlay-preview-aside-drawer" dismissible>
@@ -106,7 +108,7 @@
             direction="left"
             alignment_x="left"
         >
-            <Aside.Container palette="dark" max_width="content-max" height="viewport-100">
+            <Aside.Container palette="off" max_width="content-max" height="viewport-100">
                 <Aside.Header>
                     <Anchor href="#">Kahi UI</Anchor>
                     <Divider />
@@ -155,7 +157,7 @@
 <Story name="Preview - Tile Notifications">
     <Overlay.Container>
         <Overlay.Section alignment_x="right" alignment_y="bottom" spacing="medium" padding="medium">
-            <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="75">
+            <Tile.Container elevation="medium" width="content-max" max_width="75">
                 <Tile.Section>
                     <Tile.Header>File Deleted</Tile.Header>
 
@@ -165,11 +167,11 @@
                 </Tile.Section>
 
                 <Tile.Footer>
-                    <Button palette="negative" data-size="small">X</Button>
+                    <Button palette="negative" variation="clear" sizing="small">x</Button>
                 </Tile.Footer>
             </Tile.Container>
 
-            <Tile.Container palette="auto" elevation="medium" width="content-max" max_width="75">
+            <Tile.Container elevation="medium" width="content-max" max_width="75">
                 <Tile.Section>
                     <Tile.Header>File Deleted</Tile.Header>
 
@@ -179,7 +181,7 @@
                 </Tile.Section>
 
                 <Tile.Footer>
-                    <Button palette="negative" data-size="small">X</Button>
+                    <Button palette="negative" variation="clear" sizing="small">x</Button>
                 </Tile.Footer>
             </Tile.Container>
         </Overlay.Section>
@@ -187,7 +189,7 @@
 </Story>
 
 <Story name="Auto Focus - Focus Target">
-    <Button for="overlay-auto-focus">Open AUTO FOCUSED Overlay</Button>
+    <Button is="label" for="overlay-auto-focus">Open AUTO FOCUSED Overlay</Button>
 
     <Overlay.Container logic_id="overlay-auto-focus" focus_target={target_element}>
         <Overlay.Section>
@@ -211,7 +213,7 @@
 </Story>
 
 <Story name="Focus Trapping - First + Last">
-    <Button for="overlay-focus-trapping">Open FOCUS TRAPPED Overlay</Button>
+    <Button is="label" for="overlay-focus-trapping">Open FOCUS TRAPPED Overlay</Button>
 
     <Overlay.Container
         logic_id="overlay-focus-trapping"
@@ -263,7 +265,7 @@
         To view this property in action, open devtools and watch the <Code>section</Code> elements' contents.
     </Box>
 
-    <Button for="overlay-lazy">Open LAZY Overlay</Button>
+    <Button is="label" for="overlay-lazy">Open LAZY Overlay</Button>
 
     <Overlay.Container logic_id="overlay-lazy" loading="lazy">
         <Overlay.Section>
@@ -279,8 +281,8 @@
 </Story>
 
 <Story name="Backdrop">
-    <Button for="overlay-backdrop-disabled">Open NON-BACKDROP Overlay</Button>
-    <Button for="overlay-backdrop-enabled">Open BACKDROP Overlay</Button>
+    <Button is="label" for="overlay-backdrop-disabled">Open NON-BACKDROP Overlay</Button>
+    <Button is="label" for="overlay-backdrop-enabled">Open BACKDROP Overlay</Button>
 
     <Overlay.Container logic_id="overlay-backdrop-disabled">
         <Overlay.Section>
@@ -314,8 +316,8 @@
         Press <Text is="kbd">ESC</Text> or click <Code>Backdrop</Code> to dismiss.
     </Box>
 
-    <Button for="overlay-dismissible-disabled">Open NON-DISMISSIBLE Overlay</Button>
-    <Button for="overlay-dismissible-enabled">Open DISMISSIBLE Overlay</Button>
+    <Button is="label" for="overlay-dismissible-disabled">Open NON-DISMISSIBLE Overlay</Button>
+    <Button is="label" for="overlay-dismissible-enabled">Open DISMISSIBLE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-dismissible-disabled">
         <Overlay.Backdrop />
@@ -351,8 +353,8 @@
         Click anywhere on the Modal to dismiss.
     </Box>
 
-    <Button for="overlay-once-disabled">Open NON-ONCE Overlay</Button>
-    <Button for="overlay-once-enabled">Open ONCE Overlay</Button>
+    <Button is="label" for="overlay-once-disabled">Open NON-ONCE Overlay</Button>
+    <Button is="label" for="overlay-once-enabled">Open ONCE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-once-disabled">
         <Overlay.Backdrop />
@@ -401,7 +403,7 @@
 
 <Story name="Orientation">
     {#each ORIENTATIONS as [orientation, is_default] (orientation)}
-        <Button for="overlay-orientation-{orientation}">
+        <Button is="label" for="overlay-orientation-{orientation}">
             Open {`${orientation.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
         </Button>
     {/each}
@@ -433,13 +435,13 @@
 
 <Story name="Alignment">
     {#each ALIGNMENTS_X as [alignment_x, is_default] (alignment_x)}
-        <Button for="overlay-alignment-x-{alignment_x}">
+        <Button is="label" for="overlay-alignment-x-{alignment_x}">
             Open {`${alignment_x.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} X Overlay
         </Button>
     {/each}
 
     {#each ALIGNMENTS_Y as [alignment_y, is_default] (alignment_y)}
-        <Button for="overlay-alignment-y-{alignment_y}">
+        <Button is="label" for="overlay-alignment-y-{alignment_y}">
             Open {`${alignment_y.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Y Overlay
         </Button>
     {/each}
@@ -479,7 +481,7 @@
 
 <Story name="Spacing">
     {#each SPACINGS as [spacing, is_default] (spacing)}
-        <Button for="overlay-spacing-{spacing}">
+        <Button is="label" for="overlay-spacing-{spacing}">
             Open {`${spacing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
         </Button>
     {/each}
@@ -511,7 +513,7 @@
 
 <Story name="Transition - Clip">
     {#each DIRECTIONS as [direction, is_default] (direction)}
-        <Button for="overlay-transition-clip-{direction}">
+        <Button is="label" for="overlay-transition-clip-{direction}">
             Open CLIP {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
         </Button>
     {/each}
@@ -534,7 +536,7 @@
 </Story>
 
 <Story name="Transition - Fade">
-    <Button for="overlay-transition-fade">Open FADE Overlay</Button>
+    <Button is="label" for="overlay-transition-fade">Open FADE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-transition-fade" dismissible>
         <Overlay.Backdrop />
@@ -552,7 +554,7 @@
 </Story>
 
 <Story name="Transition - Scale">
-    <Button for="overlay-transition-scale">Open SCALE Overlay</Button>
+    <Button is="label" for="overlay-transition-scale">Open SCALE Overlay</Button>
 
     <Overlay.Container logic_id="overlay-transition-scale" dismissible>
         <Overlay.Backdrop />
@@ -571,7 +573,7 @@
 
 <Story name="Transition - Slide">
     {#each DIRECTIONS as [direction, is_default] (direction)}
-        <Button for="overlay-transition-slide-{direction}">
+        <Button is="label" for="overlay-transition-slide-{direction}">
             Open SLIDE {`${direction.toUpperCase()}${is_default ? " / DEFAULT" : ""}`} Overlay
         </Button>
     {/each}

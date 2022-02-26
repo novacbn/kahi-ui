@@ -1,0 +1,152 @@
+@use "../../../../framework/abstracts/variables";
+
+@use "../../../../framework/appearances/surface";
+
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/transparency";
+
+@if not env("DISABLE_COMPONENTS_DISPLAY_TABLE") {
+    // TODO: greatly simplify selectors
+
+    // NOTE: Selector `:where(.article) > :is(.scrollable > table, table)` didn't
+    // work, maybe another way to simplify?
+
+    .table,
+    :where(.article) > table,
+    :where(.article) > .scrollable > table {
+        @include palettes.var-palette($palette: "auto", $is-inverse: true);
+        @include sizings.var-reset-font($tier: "inline", $namespace: "table");
+
+        width: 100%;
+
+        @include fonts.size($tier: "inline", $unit: rem);
+    }
+
+    /**
+     * TODO: Repeat declarations could probably be condensed a bit
+     */
+
+    .table[data-variation~="borders"],
+    :where(.article) > table[data-variation~="borders"],
+    :where(.article) > .scrollable > table[data-variation~="borders"] {
+        & :is(td, th):not(:last-child)::after {
+            display: block;
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+            top: 0;
+
+            width: #{variables.use("table.border.width")};
+            height: 100%;
+
+            background: currentColor;
+
+            @include transparency.opacity($namespace: "table.border");
+        }
+
+        & > :is(tfoot, thead, tbody):first-child :is(td, th):not(:last-child)::after {
+            @include radius.top($namespace: "table", $unit: em);
+        }
+
+        & > :is(tfoot, thead, tbody):last-child :is(td, th):not(:last-child)::after {
+            @include radius.bottom($namespace: "table", $unit: em);
+        }
+    }
+
+    .table[data-variation~="stripes"],
+    :where(.article) > table[data-variation~="stripes"],
+    :where(.article) > .scrollable > table[data-variation~="stripes"] {
+        & > tbody > tr:nth-child(2n + 1) {
+            @include surface.background($namespace: "table.stripes");
+        }
+    }
+
+    .table--heading,
+    :where(.article) > table th,
+    :where(.article) > .scrollable > table th {
+        @include fonts.family($namespace: "table.heading");
+        @include fonts.size($namespace: "table.heading", $unit: em);
+        @include fonts.weight($namespace: "table.heading");
+    }
+
+    .table--column,
+    .table--header,
+    .table--heading,
+    .table--footer,
+    .table--row,
+    :where(.article) > table :is(td, tfoot, th, thead, tr),
+    :where(.article) > .scrollable > table :is(td, tfoot, th, thead, tr) {
+        position: relative;
+    }
+
+    .table--heading,
+    .table--column,
+    :where(.article) > table :is(td, th),
+    :where(.article) > .scrollable > table :is(td, th) {
+        @include intrinsics.padding-all($namespace: "table.column", $unit: em);
+
+        text-align: left;
+
+        & > * {
+            vertical-align: middle;
+        }
+    }
+
+    :is(.table--footer, .table--header) :is(.table--column, .table--heading),
+    :where(.article) > table :is(tfoot, thead) :is(td, th),
+    :where(.article) > .scrollable > table :is(tfoot, thead) :is(td, th),
+    .table[data-variation~="borders"]
+        > .table--section
+        > :not(:last-child)
+        > :is(.table--column, .table--heading),
+    :where(.article) > table[data-variation~="borders"] > tbody > :not(:last-child) > :is(td, th),
+    :where(.article)
+        > .scrollable
+        > table[data-variation~="borders"]
+        > tbody
+        > :not(:last-child)
+        > :is(td, th) {
+        &::before {
+            display: block;
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+            right: 0;
+
+            width: 100%;
+            height: #{variables.use("table.border.width")};
+
+            background: currentColor;
+
+            @include transparency.opacity($namespace: "table.border");
+        }
+
+        &:first-child {
+            &::before {
+                @include radius.left($namespace: "table", $unit: em);
+            }
+        }
+
+        &:last-child {
+            &::before {
+                @include radius.right($namespace: "table", $unit: em);
+            }
+        }
+    }
+
+    .table--footer :is(.table--column, .table--heading),
+    :where(.article) > table > tfoot :is(td, th),
+    :where(.article) > .scrollable > table > tfoot :is(td, th) {
+        &::before {
+            top: 0;
+        }
+    }
+}

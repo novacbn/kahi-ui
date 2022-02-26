@@ -1,27 +1,30 @@
 <script lang="ts">
-    import type {Temporal} from "@js-temporal/polyfill";
     import {createEventDispatcher} from "svelte";
 
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
     import type {ISizeProperties} from "../../../types/sizes";
-    import type {PROPERTY_SIZING} from "../../../types/sizings";
+    import type {PROPERTY_SIZING_BREAKPOINT} from "../../../types/sizings";
+    import {TOKENS_SIZING} from "../../../types/sizings";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
+    import {TOKENS_SPACING} from "../../../types/spacings";
 
+    import {get_week_days} from "../../../util/datetime/calendars";
+    import type {IDayFormatOptions} from "../../../util/datetime/days";
     import {
-        get_calendar_weeks,
-        get_daystamp,
-        get_monthstamp,
-        has_day,
+        format_day,
+        includes_day,
+        is_day,
         is_day_in_range,
-    } from "../../../util/datetime";
-    import {DEFAULT_CALENDAR, DEFAULT_LOCALE} from "../../../util/locale";
+        now_day,
+    } from "../../../util/datetime/days";
+    import {now_month} from "../../../util/datetime/months";
 
-    import WidgetButton from "../widget/WidgetButton.svelte";
-    import WidgetContainer from "../widget/WidgetContainer.svelte";
-    import WidgetHeader from "../widget/WidgetHeader.svelte";
-    import WidgetSection from "../widget/WidgetSection.svelte";
+    import Button from "../../interactables/button/Button.svelte";
+    import FormLegend from "../../interactables/form/FormLegend.svelte";
+    import GridContainer from "../../layouts/grid/GridContainer.svelte";
+    import StackContainer from "../../layouts/stack/StackContainer.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -36,14 +39,10 @@
         once?: boolean;
         readonly?: boolean;
 
-        /**
-         * @deprecated Being removed in `v0.6.0` due to cross-calendar manipulation being removed.
-         */
-        calendar?: string;
         locale?: string;
 
-        day?: Intl.DateTimeFormatOptions["day"];
-        weekday?: Intl.DateTimeFormatOptions["weekday"];
+        day?: IDayFormatOptions["day"];
+        weekday?: IDayFormatOptions["weekday"];
 
         disabled?: boolean | readonly string[];
         max?: string;
@@ -54,7 +53,7 @@
         value?: readonly string[];
 
         palette?: PROPERTY_PALETTE;
-        sizing?: PROPERTY_SIZING;
+        sizing?: PROPERTY_SIZING_BREAKPOINT;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -70,10 +69,6 @@
     export let once: $$Props["once"] = undefined;
     export let readonly: $$Props["readonly"] = undefined;
 
-    /**
-     * @deprecated Being removed in `v0.6.0` due to cross-calendar manipulation being removed.
-     */
-    export let calendar: $$Props["calendar"] = undefined;
     export let locale: $$Props["locale"] = undefined;
 
     export let day: $$Props["day"] = undefined;
@@ -83,61 +78,85 @@
     export let max: $$Props["max"] = undefined;
     export let min: $$Props["min"] = undefined;
 
-    export let highlight: $$Props["highlight"] = undefined;
-    export let timestamp: $$Props["timestamp"] = undefined;
-    export let value: $$Props["value"] = undefined;
+    export let highlight: readonly string[] = [now_day()];
+    export let timestamp: string = now_month();
+    export let value: readonly string[] = [];
 
     export let palette: $$Props["palette"] = undefined;
+    export let sizing: $$Props["sizing"] = undefined;
 
-    function on_day_click(day: Temporal.PlainDate, event: MouseEvent): void {
+    function on_day_click(day: string, event: MouseEvent): void {
         if (readonly) return;
 
-        if (!once && has_day(_value, day)) {
-            value = multiple ? _value.filter((entry) => !day.equals(entry)) : [];
+        if (!once && includes_day(day, value)) {
+            value = multiple ? value.filter((entry) => !is_day(day, entry)) : [];
+        } else value = multiple ? [...value, day] : [day];
 
-            dispatch("change");
-        } else {
-            value = multiple
-                ? [..._value, day.toString({calendarName: "always"})]
-                : [day.toString({calendarName: "always"})];
-
-            dispatch("change");
-        }
+        dispatch("change");
     }
 
-    const _daystamp = get_daystamp(calendar ?? DEFAULT_CALENDAR);
-    const _monthstamp = get_monthstamp(calendar ?? DEFAULT_CALENDAR);
+    $: _weeks = get_week_days(timestamp);
 
-    $: _highlight = highlight ?? [_daystamp];
-    $: _weeks = get_calendar_weeks(timestamp ?? _monthstamp);
-    $: _value = value ?? [];
+    $: _sizing = sizing ?? TOKENS_SIZING.small;
 </script>
 
-<WidgetContainer {...$$props} bind:element class="day-picker {_class}">
-    <WidgetSection>
-        {#each _weeks[0] as _day (_day.dayOfWeek)}
-            <WidgetHeader>
-                {_day
-                    .toLocaleString(locale ?? DEFAULT_LOCALE, {weekday: weekday ?? "short"})
-                    .toLocaleUpperCase(locale ?? DEFAULT_LOCALE)}
-            </WidgetHeader>
+<!--
+    HACK: We want textual Components, e.g. `<Form.Legend>` to scale with the
+    non-textual, e.g. `<Button>` in a way that keeps the size difference intact.
+
+    We could do mapping to the next lower tier, e.g. `<YearStepper sizing="medium">` maps
+    to `<Form.Legend sizing="small">`, but that wouldn't work in edge cases
+    like `<YearStepper sizing="nano">`. And since the datetime Widgets are JS-only, we can
+    ignore size considerations and just throw in a quick inline-style
+-->
+
+<StackContainer
+    bind:element
+    {...$$restProps}
+    class="day-picker {_class}"
+    spacing={TOKENS_SPACING.small}
+    variation="relative"
+    style="font-size:calc(var(--fonts-sizes-inline-{_sizing}) * 1em);"
+>
+    <GridContainer
+        spacing={TOKENS_SPACING.small}
+        style="--points:{_weeks[0].length};"
+        variation="relative"
+    >
+        {#each _weeks[0] as _day (_day)}
+            <FormLegend is="span" style="justify-content:center;">
+                {format_day(_day, locale, {
+                    weekday: weekday ?? "short",
+                })}
+            </FormLegend>
         {/each}
-    </WidgetSection>
+    </GridContainer>
 
     {#each _weeks as _week, _week_index (_week_index)}
-        <WidgetSection>
-            {#each _week as _day (`${_day.month}${_day.day}`)}
-                <WidgetButton
-                    variation={has_day(_highlight, _day) ? "outline" : undefined}
-                    palette={_day.dayOfWeek > 5 ? undefined : palette}
-                    active={has_day(_value, _day)}
-                    disabled={!is_day_in_range(_day, max, min, true) ||
-                        (disabled instanceof Array ? has_day(disabled, _day) : disabled)}
+        <GridContainer
+            spacing={TOKENS_SPACING.small}
+            style="--points:{_week.length};"
+            variation="relative"
+        >
+            {#each _week as _day, _day_index (_day)}
+                <Button
+                    variation={includes_day(_day, highlight)
+                        ? ["subtle", "outline"]
+                        : ["subtle", "clear"]}
+                    palette={_day_index === 0 || _day_index === _week.length - 1
+                        ? undefined
+                        : palette}
+                    active={includes_day(_day, value)}
+                    disabled={!is_day_in_range(_day, min, max, true) ||
+                        (disabled instanceof Array ? includes_day(_day, disabled) : disabled)}
+                    sizing={_sizing}
                     on:click={on_day_click.bind(null, _day)}
                 >
-                    {_day.toLocaleString(locale, {day: day ?? "2-digit"})}
-                </WidgetButton>
+                    {format_day(_day, locale, {
+                        day: day ?? "2-digit",
+                    })}
+                </Button>
             {/each}
-        </WidgetSection>
+        </GridContainer>
     {/each}
-</WidgetContainer>
+</StackContainer>

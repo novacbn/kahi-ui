@@ -1,0 +1,244 @@
+@use "sass:string";
+
+@use "../abstracts/constants";
+@use "../abstracts/strings";
+@use "../abstracts/variables";
+@use "../abstracts/viewports";
+
+@mixin margin-constant-declarations($name, $value, $prefix: "") {
+    $name: strings.format-identifier($name);
+
+    [data-margin~="#{$prefix + $name}"] {
+        margin: #{$value} !important;
+    }
+
+    [data-margin-x~="#{$prefix + $name}"] {
+        margin-left: #{$value} !important;
+        margin-right: #{$value} !important;
+    }
+
+    [data-margin-y~="#{$prefix + $name}"] {
+        margin-bottom: #{$value} !important;
+        margin-top: #{$value} !important;
+    }
+
+    [data-margin-bottom~="#{$prefix + $name}"] {
+        margin-bottom: #{$value} !important;
+    }
+
+    [data-margin-left~="#{$prefix + $name}"] {
+        margin-left: #{$value} !important;
+    }
+
+    [data-margin-right~="#{$prefix + $name}"] {
+        margin-right: #{$value} !important;
+    }
+
+    [data-margin-top~="#{$prefix + $name}"] {
+        margin-top: #{$value} !important;
+    }
+}
+
+@mixin margin-root-declarations($name, $value, $prefix: "") {
+    /**
+     * NOTE: Unitless values need to be special cased to be calculated using
+     * the root font size. It's to support having a single set of size themeing
+     * variables, without having to define multiple sets of the same values with
+     * differing units
+     */
+
+    @include margin-constant-declarations($name, calc(#{$value} * 1rem), $prefix);
+}
+
+@mixin padding-constant-declarations($name, $value, $prefix: "") {
+    $name: strings.format-identifier($name);
+
+    [data-padding~="#{$prefix + $name}"] {
+        padding: #{$value} !important;
+    }
+
+    [data-padding-x~="#{$prefix + $name}"] {
+        padding-left: #{$value} !important;
+        padding-right: #{$value} !important;
+    }
+
+    [data-padding-y~="#{$prefix + $name}"] {
+        padding-bottom: #{$value} !important;
+        padding-top: #{$value} !important;
+    }
+
+    [data-padding-bottom~="#{$prefix + $name}"] {
+        padding-bottom: #{$value} !important;
+    }
+
+    [data-padding-left~="#{$prefix + $name}"] {
+        padding-left: #{$value} !important;
+    }
+
+    [data-padding-right~="#{$prefix + $name}"] {
+        padding-right: #{$value} !important;
+    }
+
+    [data-padding-top~="#{$prefix + $name}"] {
+        padding-top: #{$value} !important;
+    }
+}
+
+@mixin padding-root-declarations($name, $value, $prefix: "") {
+    @include padding-constant-declarations($name, calc(#{$value} * 1rem), $prefix);
+}
+
+@mixin size-constant-declarations($name, $value, $prefix: "") {
+    $name: strings.format-identifier($name);
+
+    [data-width~="#{$prefix + $name}"] {
+        width: #{$value} !important;
+    }
+
+    [data-max-width~="#{$prefix + $name}"] {
+        max-width: #{$value} !important;
+    }
+
+    [data-min-width~="#{$prefix + $name}"] {
+        min-width: #{$value} !important;
+    }
+
+    [data-height~="#{$prefix + $name}"] {
+        height: #{$value} !important;
+    }
+
+    [data-max-height~="#{$prefix + $name}"] {
+        max-height: #{$value} !important;
+    }
+
+    [data-min-height~="#{$prefix + $name}"] {
+        min-height: #{$value} !important;
+    }
+
+    [data-size~="#{$prefix + $name}"] {
+        width: #{$value} !important;
+        height: #{$value} !important;
+    }
+
+    [data-max-size~="#{$prefix + $name}"] {
+        max-width: #{$value} !important;
+        max-height: #{$value} !important;
+    }
+
+    [data-min-size~="#{$prefix + $name}"] {
+        min-width: #{$value} !important;
+        min-height: #{$value} !important;
+    }
+}
+
+@mixin size-root-declarations($name, $value, $prefix: "") {
+    @include size-constant-declarations($name, calc(#{$value} * 1rem), $prefix);
+}
+
+@mixin size-viewport-declaration($name, $value, $prefix: "") {
+    /**
+     * NOTE: The `viewport-` global attributes need to be special cased since the
+     * dimensions being altered, correspond to their viewport axis (e.g. width uses `vw` units)
+     */
+
+    $name: strings.format-identifier($name);
+
+    [data-width~="#{$prefix}viewport-#{$name}"] {
+        width: #{$value + "vw"} !important;
+    }
+
+    [data-max-width~="#{$prefix}viewport-#{$name}"] {
+        max-width: #{$value + "vw"} !important;
+    }
+
+    [data-min-width~="#{$prefix}viewport-#{$name}"] {
+        min-width: #{$value + "vw"} !important;
+    }
+
+    [data-height~="#{$prefix}viewport-#{$name}"] {
+        height: #{$value + "vh"} !important;
+    }
+
+    [data-max-height~="#{$prefix}viewport-#{$name}"] {
+        max-height: #{$value + "vh"} !important;
+    }
+
+    [data-min-height~="#{$prefix}viewport-#{$name}"] {
+        min-height: #{$value + "vh"} !important;
+    }
+
+    [data-size~="#{$prefix}viewport-#{$name}"] {
+        width: #{$value + "vw"} !important;
+        height: #{$value + "vh"} !important;
+    }
+
+    [data-max-size~="#{$prefix}viewport-#{$name}"] {
+        max-width: #{$value + "vw"} !important;
+        max-height: #{$value + "vh"} !important;
+    }
+
+    [data-min-size~="#{$prefix}viewport-#{$name}"] {
+        min-width: #{$value + "vw"} !important;
+        min-height: #{$value + "vh"} !important;
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include constants.each("sizes.") using ($name, $size) {
+        @include size-constant-declarations($name, $size, $prefix);
+
+        $size: "#{$size}";
+        @if str-endswith($size, "%") {
+            @include size-viewport-declaration($name, string.slice($size, 1, -2), $prefix);
+        }
+    }
+
+    @include variables.each("sizes.block.") using ($name, $size) {
+        @include size-root-declarations($name, variables.use("sizes.block.#{$name}"), $prefix);
+    }
+
+    @include variables.each("sizes.icon.") using ($name, $size) {
+        @include size-constant-declarations(
+            "icon-#{$name}",
+            variables.use("sizes.icon.#{$name}"),
+            $prefix
+        );
+    }
+
+    @include size-constant-declarations("prose", variables.use("sizes.prose"), $prefix);
+
+    @include viewports.each() using ($name, $width, $minimum-width, $maximum-width) {
+        // HACK: Viewports are constants, not variables. So we need to manually format here
+
+        @include size-constant-declarations(
+            $name,
+            "var(--#{strings.format-identifier('viewports.#{$name}.base')})",
+            $prefix
+        );
+    }
+
+    @include constants.each("spacings.") using ($name, $size) {
+        @include margin-constant-declarations($name, $size, $prefix);
+        @include padding-constant-declarations($name, $size, $prefix);
+    }
+
+    @include variables.each("spacings.block.") using ($name, $size) {
+        @include margin-root-declarations($name, variables.use("spacings.block.#{$name}"), $prefix);
+
+        @include padding-root-declarations(
+            $name,
+            variables.use("spacings.block.#{$name}"),
+            $prefix
+        );
+    }
+}
+
+@if not env("DISABLE_GLOBALS_INTRINSICS") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_INTRINSICS_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

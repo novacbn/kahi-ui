@@ -1,0 +1,45 @@
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/spacings";
+
+@if not env("DISABLE_COMPONENTS_DISCLOSURE_CAROUSEL") {
+    .carousel {
+        @include spacings.var-reset();
+
+        display: flex;
+        align-items: center;
+
+        position: relative;
+
+        @include intrinsics.gap-all($unit: rem);
+
+        scroll-behavior: smooth;
+
+        &:is([data-orientation="horizontal"], :not([data-orientation])) {
+            flex-direction: row;
+
+            scroll-snap-type: x mandatory;
+            overflow: scroll hidden;
+        }
+
+        &[data-orientation~="vertical"] {
+            flex-direction: column;
+
+            scroll-snap-type: y mandatory;
+            overflow: hidden scroll;
+        }
+    }
+
+    .carousel--section {
+        display: flex;
+        flex: none;
+
+        width: 100%;
+        height: 100%;
+
+        scroll-snap-align: start;
+
+        & > * {
+            flex-grow: 1;
+        }
+    }
+}

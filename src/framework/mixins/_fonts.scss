@@ -1,0 +1,106 @@
+@use "../abstracts/variables";
+
+@use "./transitions";
+
+@mixin color($namespace, $face, $shade, $palette: null) {
+    @include transitions();
+
+    @if $palette {
+        color: hsla(
+            var(--palettes-#{$palette}-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.font.opacity")}
+        );
+    } @else {
+        color: hsla(
+            var(--palette-#{$face}-#{$shade}),
+            #{variables.use("#{$namespace}.font.opacity")}
+        );
+    }
+}
+
+@mixin letter-spacing($namespace: null, $unit: null, $support-sizing: false) {
+    // NOTE: Pretty disgusting mega-mixin... but we need to support all these permutations...
+
+    @if $support-sizing {
+        @if $namespace {
+            @if $unit {
+                letter-spacing: calc(
+                    var(--sizing-font-letter-spacing) *
+                        #{variables.use("#{$namespace}.font.letter-spacing")} *
+                        1#{$unit}
+                );
+            } @else {
+                letter-spacing: calc(
+                    var(--sizing-font-letter-spacing) *
+                        #{variables.use("#{$namespace}.font.letter-spacing")}
+                );
+            }
+        } @else {
+            @if $unit {
+                letter-spacing: calc(var(--sizing-font-letter-spacing) * 1#{$unit});
+            } @else {
+                letter-spacing: var(--sizing-font-letter-spacing);
+            }
+        }
+    } @else {
+        @if $unit {
+            letter-spacing: calc(#{variables.use("#{$namespace}.font.letter-spacing")} * 1#{$unit});
+        } @else {
+            letter-spacing: #{variables.use("#{$namespace}.font.letter-spacing")};
+        }
+    }
+}
+
+@mixin line-height($namespace: null, $support-sizing: false) {
+    @if $namespace and $support-sizing {
+        line-height: calc(
+            var(--sizing-font-line-height) * #{variables.use("#{$namespace}.font.line-height")}
+        );
+    } @else if $support-sizing {
+        line-height: var(--sizing-font-line-height);
+    } @else {
+        line-height: #{variables.use("#{$namespace}.font.line-height")};
+    }
+}
+
+@mixin family($namespace) {
+    font-family: #{variables.use("#{$namespace}.font.family")};
+}
+
+@mixin size($namespace: null, $unit: null, $tier: null) {
+    @if $tier {
+        @if $namespace {
+            @if $unit {
+                font-size: calc(
+                    var(--sizing-font-size-#{$tier}) *
+                        #{variables.use("#{$namespace}.font.size")} *
+                        1#{$unit}
+                );
+            } @else {
+                font-size: calc(
+                    var(--sizing-font-size-#{$tier}) * #{variables.use("#{$namespace}.font.size")}
+                );
+            }
+        } @else {
+            @if $unit {
+                font-size: calc(var(--sizing-font-size-#{$tier}) * 1#{$unit});
+            } @else {
+                font-size: var(--sizing-font-size-#{$tier});
+            }
+        }
+    } @else {
+        @if $unit {
+            font-size: calc(#{variables.use("#{$namespace}.font.size")} * 1#{$unit});
+        } @else {
+            font-size: #{variables.use("#{$namespace}.font.size")};
+        }
+    }
+}
+
+@mixin weight($namespace) {
+    font-weight: #{variables.use("#{$namespace}.font.weight")};
+}
+
+@mixin transitions() {
+    @include transitions.push(color, "visual");
+}

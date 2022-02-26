@@ -1,0 +1,17 @@
+@use "../../../../framework/mixins/fit";
+@use "../../../../framework/mixins/radius";
+
+@if not env("DISABLE_COMPONENTS_EMBEDDED_FIGURE") {
+    .figure {
+        @include fit.var-reset-object();
+        @include radius.var-reset();
+
+        @include fit.object();
+        @include radius.all($unit: rem);
+
+        & > * {
+            border-radius: inherit;
+            object-fit: inherit;
+        }
+    }
+}

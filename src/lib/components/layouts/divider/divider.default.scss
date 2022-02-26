@@ -1,0 +1,33 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_LAYOUTS_DIVIDER") {
+    @include variables.define(
+        (
+            "divider": (
+                "border.radius": variables.use("radius.tiny"),
+                "font.opacity": 1,
+                "margin": (
+                    "x": variables.use("spacings.block.medium"),
+                    "y": variables.use("spacings.block.medium"),
+                ),
+                "opacity": 0.5,
+                "size": (
+                    "height": variables.use("sizes.borders.nano"),
+                    "width": variables.use("sizes.borders.nano"),
+                ),
+                "text": (
+                    "font": (
+                        "family": variables.use("fonts.families.block"),
+                        "letter-spacing": variables.use("spacings.inline.small"),
+                        "size": variables.use("fonts.sizes.inline.tiny"),
+                        "weight": bold,
+                    ),
+                    "gap": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                ),
+            ),
+        )
+    );
+}

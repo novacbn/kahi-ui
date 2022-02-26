@@ -33,7 +33,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="clickable {_class}"
     use:forward_actions={{actions}}
     on:click

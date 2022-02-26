@@ -1,0 +1,167 @@
+@use "sass:map";
+
+@use "../abstracts/colors";
+@use "../abstracts/palettes";
+@use "../abstracts/variables";
+@use "../abstracts/viewports";
+@use "../abstracts/themes";
+
+/**
+ * HACK: Really lame to have to duplicate dark mode variables
+ */
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-palette]) {
+        /** */
+
+        --scrollbar-background: var(--palette-off-dark-boldest);
+        --scrollbar-foreground: var(--palette-dark-normal);
+    }
+}
+
+:root[data-palette="dark"] {
+    /** */
+
+    --scrollbar-background: var(--palette-off-dark-boldest);
+    --scrollbar-foreground: var(--palette-dark-normal);
+}
+
+@mixin palette-theme-mode-declarations($background) {
+    /** */
+
+    --palettes-auto-background-lightest: #{palettes.use($background, "background", "lightest")};
+    --palettes-auto-background-lighter: #{palettes.use($background, "background", "lighter")};
+    --palettes-auto-background-light: #{palettes.use($background, "background", "light")};
+
+    --palettes-auto-background-normal: #{palettes.use($background, "background", "normal")};
+
+    --palettes-auto-background-bold: #{palettes.use($background, "background", "bold")};
+    --palettes-auto-background-bolder: #{palettes.use($background, "background", "bolder")};
+    --palettes-auto-background-boldest: #{palettes.use($background, "background", "boldest")};
+
+    /** */
+
+    --palettes-auto-foreground-lightest: #{palettes.use($background, "foreground", "lightest")};
+    --palettes-auto-foreground-lighter: #{palettes.use($background, "foreground", "lighter")};
+    --palettes-auto-foreground-light: #{palettes.use($background, "foreground", "light")};
+
+    --palettes-auto-foreground-normal: #{palettes.use($background, "foreground", "normal")};
+
+    --palettes-auto-foreground-bold: #{palettes.use($background, "foreground", "bold")};
+    --palettes-auto-foreground-bolder: #{palettes.use($background, "foreground", "bolder")};
+    --palettes-auto-foreground-boldest: #{palettes.use($background, "foreground", "boldest")};
+}
+
+@mixin palette-declarations($background, $foreground, $palette) {
+    /* */
+
+    // HACK: SASS unfortunately reduces colors down to built-in CSS color
+    // names when applicable. So we need to normalize them here
+
+    --#{palettes.ref($background, "background", "lightest")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.#{$palette}.lightest"),
+            $is-raw: true
+        )};
+    --#{palettes.ref($background, "background", "lighter")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.#{$palette}.lighter"),
+            $is-raw: true
+        )};
+    --#{palettes.ref($background, "background", "light")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.#{$palette}.light"),
+            $is-raw: true
+        )};
+
+    --#{palettes.ref($background, "background", "normal")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.#{$palette}.normal"),
+            $is-raw: true
+        )};
+
+    --#{palettes.ref($background, "background", "bold")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.#{$palette}.bold"),
+            $is-raw: true
+        )};
+    --#{palettes.ref($background, "background", "bolder")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.#{$palette}.bolder"),
+            $is-raw: true
+        )};
+    --#{palettes.ref($background, "background", "boldest")}: #{colors.normalize-hsl(
+            palettes.get("#{$background}.#{$palette}.boldest"),
+            $is-raw: true
+        )};
+
+    /** */
+
+    --#{palettes.ref($background, "foreground", "lightest")}: #{palettes.use(
+            $foreground,
+            "background",
+            "lightest"
+        )};
+    --#{palettes.ref($background, "foreground", "lighter")}: #{palettes.use(
+            $foreground,
+            "background",
+            "lighter"
+        )};
+    --#{palettes.ref($background, "foreground", "light")}: #{palettes.use(
+            $foreground,
+            "background",
+            "light"
+        )};
+
+    --#{palettes.ref($background, "foreground", "normal")}: #{palettes.use(
+            $foreground,
+            "background",
+            "normal"
+        )};
+
+    --#{palettes.ref($background, "foreground", "bold")}: #{palettes.use(
+            $foreground,
+            "background",
+            "bold"
+        )};
+    --#{palettes.ref($background, "foreground", "bolder")}: #{palettes.use(
+            $foreground,
+            "background",
+            "bolder"
+        )};
+    --#{palettes.ref($background, "foreground", "boldest")}: #{palettes.use(
+            $foreground,
+            "background",
+            "boldest"
+        )};
+}
+
+@include themes.query-theme-mode("light") {
+    @include palettes.each() using ($background, $dark-foreground, $light-foreground) {
+        @include palette-declarations($background, $light-foreground, "light");
+    }
+
+    @include palette-theme-mode-declarations("light");
+}
+
+@include themes.query-theme-mode("dark") {
+    @include palettes.each() using ($background, $dark-foreground, $light-foreground) {
+        @include palette-declarations($background, $dark-foreground, "dark");
+    }
+
+    @include palette-theme-mode-declarations("dark");
+}
+
+:root,
+::before,
+::after {
+    /**
+     *   NOTE: The Viewport variables below don't /actually/ do anything in
+     *   the Framework. And are instead here to provide the Javascript side
+     *   of things constants to reference
+     */
+
+    @include viewports.each() using ($name, $width, $minimum-width, $maximum-width) {
+        --viewports-#{$name}-base: #{$width};
+        --viewports-#{$name}-minimum: #{$minimum-width};
+        --viewports-#{$name}-maximum: #{$maximum-width};
+    }
+
+    @include variables.each() using ($key, $value) {
+        --#{variables.ref($key)}: #{$value};
+    }
+}

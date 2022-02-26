@@ -1,0 +1,115 @@
+@use "sass:list";
+@use "sass:map";
+
+@use "./constants";
+
+$maximum-size: 99999999px;
+$minimum-size: 0px;
+
+@mixin each() {
+    @include constants.each("viewports.") using ($name, $width) {
+        $range: get-range($name);
+
+        $maximum-width: map.get($range, "maximum");
+        $minimum-width: map.get($range, "minimum");
+
+        @content ($name, $width, $minimum-width, $maximum-width);
+    }
+}
+
+@function get-closest($name) {
+    $closest-width: null;
+    $width: constants.get("viewports.#{$name}");
+
+    $viewports: constants.keys("viewports.");
+
+    @each $target-name in $viewports {
+        $target-width: constants.get("viewports.#{$target-name}");
+
+        @if $target-width < $width and (not $closest-width or $target-width > $closest-width) {
+            $closest-width: $target-width;
+        }
+    }
+
+    @return $closest-width;
+}
+
+@function get-maximum() {
+    $maximum-width: null;
+    $viewports: constants.keys("viewports.");
+
+    @each $name in $viewports {
+        $width: constants.get("viewports.#{$name}");
+        @if not $maximum-width or $width > $maximum-width {
+            $maximum-width: $width;
+        }
+    }
+
+    @return $maximum-width;
+}
+
+@function get-minimum() {
+    $minimum-width: null;
+    $viewports: constants.keys("viewports.");
+
+    @each $name in $viewports {
+        $width: constants.get("viewports.#{$name}");
+        @if not $minimum-width or $width < $minimum-width {
+            $minimum-width: $width;
+        }
+    }
+
+    @return $minimum-width;
+}
+
+@function get-range($name) {
+    $maximum-width: get-maximum();
+    $minimum-width: get-minimum();
+
+    $width: constants.get("viewports.#{$name}");
+
+    @if $width == $minimum-width {
+        @return ("maximum": $width, "minimum": $minimum-size);
+    }
+
+    $closest-width: get-closest($name);
+
+    @if $width == $maximum-width {
+        @return ("maximum": $maximum-size, "minimum": $closest-width + 1px);
+    }
+
+    @return ("maximum": $width, "minimum": $closest-width + 1px);
+}
+
+@mixin query($name) {
+    $range: get-range($name);
+
+    $maximum-width: map.get($range, "maximum");
+    $minimum-width: map.get($range, "minimum");
+
+    @if $minimum-width == $minimum-size {
+        @media (max-width: #{$maximum-width}) {
+            @content ($name);
+        }
+    } @else if $maximum-width == $maximum-size {
+        @media (min-width: #{$minimum-width}) {
+            @content ($name);
+        }
+    } @else {
+        @media (min-width: #{$minimum-width}) and (max-width: #{$maximum-width}) {
+            @content ($name);
+        }
+    }
+}
+
+@mixin query-all($names...) {
+    @if list.length($names) < 1 {
+        $names: constants.keys("viewports.");
+    }
+
+    @each $name, $index in $names {
+        @include query($name) using ($name) {
+            @content ($name);
+        }
+    }
+}

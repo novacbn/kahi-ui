@@ -5,31 +5,38 @@
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
 
-    import MenuItem from "./MenuItem.svelte";
+    import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
 
     type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLLIElement;
+        element?: HTMLHRElement | HTMLParagraphElement;
+
+        variation?: "divider";
     } & IHTML5Properties &
         IGlobalProperties;
 
     type $$Slots = {
         default: {};
-
-        /**
-         * @deprecated `Menu` DOM structure is being updated in `0.6.0`, removing need for `sub-menu` slot.
-         */
-        "sub-menu": {};
     };
 
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
+
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
+    export let variation: $$Props["variation"] = undefined;
 </script>
 
-<MenuItem bind:element {...$$props}>
-    <small
+{#if $$slots["default"]}
+    <p
+        bind:this={element}
+        {...map_global_attributes($$restProps)}
+        role="separator"
+        class="menu--heading {_class}"
+        {...map_data_attributes({variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -47,7 +54,26 @@
         on:pointerup
     >
         <slot />
-    </small>
-
-    <slot name="sub-menu" />
-</MenuItem>
+    </p>
+{:else}
+    <hr
+        bind:this={element}
+        {...map_global_attributes($$restProps)}
+        class="menu--heading {_class}"
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
+    />
+{/if}

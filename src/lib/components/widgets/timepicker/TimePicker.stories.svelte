@@ -1,32 +1,38 @@
 <script>
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import {add_hours, subtract_hours} from "../../../util/datetime/hours";
+    import {add_minutes, subtract_minutes} from "../../../util/datetime/minutes";
+    import {add_seconds, now_second, subtract_seconds} from "../../../util/datetime/seconds";
+
+    import * as Stack from "../../layouts/stack";
     import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import TimePicker from "./TimePicker.svelte";
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 
     let calendar;
     let locale;
     let value;
 
-    let now = Temporal.Now.plainTimeISO().toString();
-    let max = Temporal.Now.plainTimeISO().add({hours: 2, minutes: 10, seconds: 30}).toString();
-    let min = Temporal.Now.plainTimeISO().subtract({hours: 2, minutes: 10, seconds: 30}).toString();
-    let highlight = Temporal.Now.plainTimeISO()
-        .add({hours: 1, minutes: 15, seconds: 30})
-        .toString();
+    let now = now_second();
+    let max = add_hours(add_minutes(add_seconds(now, 30), 10), 2);
+    let min = subtract_hours(subtract_minutes(subtract_seconds(now, 30), 10), 2);
+    let highlight = [
+        now,
+        subtract_hours(subtract_minutes(subtract_seconds(now, 30), 15), 1),
+        add_hours(add_minutes(add_seconds(now, 30), 15), 1),
+    ];
 </script>
 
 <Meta title="Widgets/TimePicker" />
@@ -35,7 +41,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <TimePicker palette="accent" bind:calendar bind:locale bind:value />
 
     <Code is="pre">
@@ -62,6 +68,14 @@
 <!-- HACK: Story names cannot start with number literals -->
 <Story name="Twelve (12) Hour">
     <TimePicker palette="accent" hour_12 bind:calendar bind:locale bind:value={now} />
+
+    <Code is="pre">
+        {JSON.stringify({calendar, locale, value: now}, null, 4)}
+    </Code>
+</Story>
+
+<Story name="Twenty-Four (24) Hour">
+    <TimePicker palette="accent" hour_12={false} bind:calendar bind:locale bind:value={now} />
 
     <Code is="pre">
         {JSON.stringify({calendar, locale, value: now}, null, 4)}
@@ -118,15 +132,19 @@
 </Story>
 
 <Story name="Sizing">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text is="strong">
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <TimePicker palette="accent" width="content-max" {sizing} />
+                <TimePicker
+                    palette="accent"
+                    width="content-max"
+                    sizing={is_default ? undefined : sizing}
+                />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

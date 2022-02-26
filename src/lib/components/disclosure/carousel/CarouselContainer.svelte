@@ -50,7 +50,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="carousel {_class}"
     {...map_data_attributes({orientation, spacing, "spacing-x": spacing_x, "spacing-y": spacing_y})}
     use:forward_actions={{actions}}

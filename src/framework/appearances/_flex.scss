@@ -1,0 +1,46 @@
+@use "../mixins/intrinsics";
+@use "../mixins/spacings";
+
+@mixin base($unit) {
+    display: flex;
+    flex-direction: var(--orientation-direction);
+
+    align-items: var(--orientation-align);
+    justify-content: var(--orientation-justify);
+
+    @include intrinsics.gap-all($unit: $unit);
+
+    & > * {
+        flex-grow: var(--orientation-grow);
+
+        margin: 0;
+    }
+}
+
+@mixin var-reset(
+    $direction,
+    $alignment-x: initial,
+    $alignment-x-grow: initial,
+    $alignment-y: initial,
+    $alignment-y-grow: initial,
+    $namespace: null
+) {
+    --orientation-direction: #{$direction};
+
+    @if $direction == "column" {
+        --orientation-align: var(--alignment-flex-x);
+        --orientation-justify: var(--alignment-flex-y);
+        --orientation-grow: var(--alignment-flex-y-grow);
+    } @else {
+        --orientation-align: var(--alignment-flex-y);
+        --orientation-justify: var(--alignment-flex-x);
+        --orientation-grow: var(--alignment-flex-x-grow);
+    }
+
+    --alignment-flex-x: #{$alignment-x};
+    --alignment-flex-x-grow: #{$alignment-x-grow};
+    --alignment-flex-y: #{$alignment-y};
+    --alignment-flex-y-grow: #{$alignment-y-grow};
+
+    @include spacings.var-reset($namespace: $namespace);
+}

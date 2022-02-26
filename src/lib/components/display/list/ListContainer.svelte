@@ -29,13 +29,17 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let is: $$Props["is"] = "ul";
 </script>
 
 {#if is === "ol"}
     <ol
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
+        class="list {_class}"
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -57,7 +61,8 @@
 {:else}
     <ul
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
+        class="list {_class}"
         use:forward_actions={{actions}}
         on:click
         on:contextmenu

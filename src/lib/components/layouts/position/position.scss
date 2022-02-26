@@ -1,0 +1,89 @@
+@use "../../../../framework/mixins/spacings";
+
+@if not env("DISABLE_COMPONENTS_LAYOUTS_POSITION") {
+    .position {
+        display: inline-block;
+
+        &[data-variation~="action"] {
+            @include spacings.var-reset($namespace: "position.action");
+
+            position: fixed;
+
+            &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
+                right: calc(var(--spacing-x) * 1rem);
+            }
+
+            &[data-alignment-x="left"] {
+                left: calc(var(--spacing-x) * 1rem);
+            }
+
+            &:is(:not([data-alignment-y]), [data-alignment-y="bottom"]) {
+                bottom: calc(var(--spacing-y) * 1rem);
+            }
+
+            &[data-alignment-y="top"] {
+                top: calc(var(--spacing-y) * 1rem);
+            }
+        }
+
+        &[data-variation~="indicator"] {
+            position: absolute;
+
+            &:is(:not([data-alignment-y]), [data-alignment-y="top"]) {
+                top: 0;
+
+                &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
+                    right: 0;
+                    transform: translate(50%, -50%);
+                }
+
+                &[data-alignment-x="left"] {
+                    left: 0;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            &[data-alignment-y="bottom"] {
+                bottom: 0;
+
+                &:is(:not([data-alignment-x]), [data-alignment-x="right"]) {
+                    right: 0;
+                    transform: translate(50%, 50%);
+                }
+
+                &[data-alignment-x="left"] {
+                    left: 0;
+                    transform: translate(-50%, 50%);
+                }
+            }
+        }
+
+        &[data-variation~="raised"] {
+            position: relative;
+
+            &:is(:not([data-placement]), [data-placement="top"]) {
+                transform: translateY(-50%);
+            }
+
+            &[data-placement="bottom"] {
+                transform: translateY(50%);
+            }
+
+            &[data-placement="left"] {
+                transform: translateX(-50%);
+            }
+
+            &[data-placement="right"] {
+                transform: translateX(50%);
+            }
+        }
+
+        &[data-variation~="container"] {
+            position: absolute;
+        }
+
+        &[data-variation~="viewport"] {
+            position: fixed;
+        }
+    }
+}

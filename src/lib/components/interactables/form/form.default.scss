@@ -1,0 +1,49 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_FORM") {
+    @include variables.define(
+        (
+            "form": (
+                "control": (
+                    "gap": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                ),
+                "field-set": (
+                    "border": (
+                        "width": variables.use("sizes.borders.nano"),
+                        "opacity": 0.5,
+                        "style": solid,
+                    ),
+                    "padding": (
+                        "x": variables.use("spacings.block.medium"),
+                        "y": variables.use("spacings.block.medium"),
+                    ),
+                ),
+                "help-text": (
+                    "font.size": variables.use("fonts.sizes.inline.tiny"),
+                ),
+                "label": (
+                    "gap": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                ),
+                "legend": (
+                    "font": (
+                        "family": variables.use("fonts.families.block"),
+                        "letter-spacing": variables.use("spacings.inline.small"),
+                        "opacity": 0.5,
+                        "size": variables.use("fonts.sizes.inline.nano"),
+                        "weight": bold,
+                    ),
+                    "gap": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                ),
+            ),
+        )
+    );
+}

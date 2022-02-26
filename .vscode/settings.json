@@ -26,6 +26,10 @@
         "editor.formatOnSave": true
     },
 
+    "[scss]": {
+        "editor.formatOnSave": true
+    },
+
     "[svelte]": {
         "editor.formatOnSave": true
     },

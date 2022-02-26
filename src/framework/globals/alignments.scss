@@ -1,0 +1,94 @@
+@use "../abstracts/viewports";
+
+@mixin layout-declarations($prefix: "") {
+    /**
+     * TODO: condense `--alignment-flex` / `--alignment-grid` -> `--alignment` when
+     * Browser support is good enough for flexbox supporting `end` / `start` values
+     */
+
+    [data-alignment~="#{$prefix}center"] {
+        --alignment-flex-x: center !important;
+        --alignment-flex-y: center !important;
+
+        --alignment-grid-x: center !important;
+        --alignment-grid-y: center !important;
+
+        --alignment-text: center !important;
+    }
+
+    [data-alignment~="#{$prefix}stretch"] {
+        --alignment-flex-x: stretch !important;
+        --alignment-flex-x-grow: 1 !important;
+        --alignment-flex-y: stretch !important;
+        --alignment-flex-y-grow: 1 !important;
+
+        --alignment-grid-x: stretch !important;
+        --alignment-grid-y: stretch !important;
+    }
+
+    [data-alignment-x~="#{$prefix}center"] {
+        --alignment-flex-x: center !important;
+        --alignment-grid-x: center !important;
+
+        --alignment-text: center !important;
+    }
+
+    [data-alignment-x~="#{$prefix}justify"] {
+        --alignment-text: justify !important;
+    }
+
+    [data-alignment-x~="#{$prefix}stretch"] {
+        --alignment-flex-x: stretch !important;
+        --alignment-flex-x-grow: 1 !important;
+        --alignment-grid-x: stretch !important;
+    }
+
+    [data-alignment-x~="#{$prefix}left"] {
+        --alignment-flex-x: flex-start !important;
+        --alignment-grid-x: start !important;
+
+        --alignment-text: left !important;
+    }
+
+    [data-alignment-x~="#{$prefix}right"] {
+        --alignment-flex-x: flex-end !important;
+        --alignment-grid-x: end !important;
+
+        --alignment-text: right !important;
+    }
+
+    [data-alignment-y~="#{$prefix}center"] {
+        --alignment-flex-y: center !important;
+        --alignment-grid-y: center !important;
+    }
+
+    [data-alignment-y~="#{$prefix}stretch"] {
+        --alignment-flex-y: stretch !important;
+        --alignment-flex-y-grow: 1 !important;
+        --alignment-grid-y: stretch !important;
+    }
+
+    [data-alignment-y~="#{$prefix}top"] {
+        --alignment-flex-y: flex-start !important;
+        --alignment-grid-y: start !important;
+    }
+
+    [data-alignment-y~="#{$prefix}bottom"] {
+        --alignment-flex-y: flex-end !important;
+        --alignment-grid-y: end !important;
+    }
+}
+
+@mixin declarations($prefix: "") {
+    @include layout-declarations($prefix);
+}
+
+@if not env("DISABLE_GLOBALS_ALIGNMENTS") {
+    @include declarations();
+
+    @if not env("DISABLE_GLOBALS_ALIGNMENTS_RESPONSITIVITY") {
+        @include viewports.query-all() using ($name) {
+            @include declarations($name + ":");
+        }
+    }
+}

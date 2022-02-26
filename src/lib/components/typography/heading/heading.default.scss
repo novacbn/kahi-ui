@@ -1,0 +1,102 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_HEADING") {
+    @include variables.define(
+        (
+            "heading": (
+                "font.family": variables.use("fonts.families.block"),
+                "block": (
+                    "h1": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.block.massive"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h2": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.block.huge"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h3": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.block.large"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h4": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.block.medium"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h5": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.block.small"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h6": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.block.tiny"),
+                            "weight": bold,
+                        ),
+                    ),
+                ),
+                "inline": (
+                    "h1": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.inline.massive"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h2": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.inline.huge"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h3": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.inline.large"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h4": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.inline.medium"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h5": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.inline.small"),
+                            "weight": bold,
+                        ),
+                    ),
+                    "h6": (
+                        "font": (
+                            "line-height": 1,
+                            "size": variables.use("fonts.sizes.inline.tiny"),
+                            "weight": bold,
+                        ),
+                    ),
+                ),
+                "article": (
+                    "margin.y": variables.use("spacings.block.medium"),
+                ),
+            ),
+        )
+    );
+}

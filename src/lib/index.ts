@@ -30,6 +30,7 @@ export {Tab};
 export * from "./components/display/badge";
 export * from "./components/display/datestamp";
 export * from "./components/display/datetimestamp";
+export * from "./components/display/kbd";
 import * as List from "./components/display/list";
 export {List};
 import * as Table from "./components/display/table";
@@ -39,8 +40,6 @@ export * from "./components/display/timestamp";
 export * from "./components/feedback/ellipsis";
 export * from "./components/feedback/dot";
 export * from "./components/feedback/progress";
-export * from "./components/feedback/spinner";
-export * from "./components/feedback/wave";
 
 export * from "./components/embedded/figure";
 
@@ -55,17 +54,20 @@ export * from "./components/interactables/radio";
 export * from "./components/interactables/switch";
 export * from "./components/interactables/textinput";
 
+export * from "./components/layouts/article";
 export * from "./components/layouts/center";
 export * from "./components/layouts/container";
 export * from "./components/layouts/divider";
 import * as Grid from "./components/layouts/grid";
 export {Grid};
 export * from "./components/layouts/group";
-export * from "./components/layouts/mosaic";
+import * as Mosaic from "./components/layouts/mosaic";
+export {Mosaic};
 export * from "./components/layouts/position";
 export * from "./components/layouts/scrollable";
 export * from "./components/layouts/spacer";
-export * from "./components/layouts/stack";
+import * as Stack from "./components/layouts/stack";
+export {Stack};
 
 export * from "./components/navigation/anchor";
 import * as Aside from "./components/navigation/aside";
@@ -99,6 +101,7 @@ export * from "./components/typography/code";
 export * from "./components/typography/heading";
 export * from "./components/typography/text";
 
+export * from "./components/utilities/animation";
 export * from "./components/utilities/browserrender";
 export * from "./components/utilities/intersectionrender";
 export * from "./components/utilities/mediaqueryrender";
@@ -114,12 +117,11 @@ export * from "./components/widgets/monthpicker";
 export * from "./components/widgets/monthstepper";
 export * from "./components/widgets/pagination";
 export * from "./components/widgets/timepicker";
-import * as Widget from "./components/widgets/widget";
-export {Widget};
 export * from "./components/widgets/yearpicker";
 export * from "./components/widgets/yearstepper";
 
 export * from "./actions/auto_focus";
+export * from "./actions/behavior_anchor";
 export * from "./actions/behavior_button";
 export * from "./actions/click_inside";
 export * from "./actions/click_outside";
@@ -131,11 +133,11 @@ export * from "./actions/mutation_observer";
 export * from "./actions/overflow_clipping";
 export * from "./actions/trap_focus";
 
-export * from "./stores/darkmode";
-export * from "./stores/htmlpalette";
+export * from "./stores/htmlmode";
 export * from "./stores/mediaquery";
 export * from "./stores/prefersscheme";
 export * from "./stores/scrolllock";
+export * from "./stores/thememode";
 export * from "./stores/viewport";
 
 export * from "./util/environment";

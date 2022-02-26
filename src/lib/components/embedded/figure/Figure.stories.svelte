@@ -4,7 +4,8 @@
     import IMAGE_AVATAR from "../../../../../.storybook/assets/avatar.webp";
     import IMAGE_BACKGROUND from "../../../../../.storybook/assets/background.webp";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
+    import * as Mosaic from "../../layouts/mosaic";
     import Text from "../../typography/text/Text.svelte";
 
     import Figure from "./Figure.svelte";
@@ -17,13 +18,41 @@
         ["scale-down", false],
     ];
 
-    const SHAPES = [
+    const RADIUS = [
         ["none", true],
-        ["pill", false],
-        ["rounded", false],
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
     ];
 
-    const SIZES = ["tiny", "small", "medium", "large", "huge"];
+    const SHAPES = [
+        ["circle", false],
+        ["pill", false],
+    ];
+
+    const SIZES_BLOCK = [
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
+
+    const SIZES_ICON = [
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
 </script>
 
 <Meta title="Embedded/Figure" />
@@ -32,71 +61,89 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Figure max_width="viewport-33">
         <img src={IMAGE_BACKGROUND} />
     </Figure>
 </Story>
 
 <Story name="Fit">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
         {#each FITS as [fit, is_default]}
             <div>
                 <Text is="strong">
                     {`${fit.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure {fit}>
+                <Figure fit={is_default ? undefined : fit}>
                     <!-- NOTE: Using custom sizing to show how fit plays w/ non-box aspect ratios -->
-                    <img src={IMAGE_BACKGROUND} style="width:12rem;height:18rem;" />
+                    <img src={IMAGE_BACKGROUND} data-width="tiny" data-height="medium" />
                 </Figure>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
+</Story>
+
+<Story name="Radius">
+    <Mosaic.Container sizing="tiny" spacing="medium">
+        {#each RADIUS as [radius, is_default]}
+            <div>
+                <Text is="strong">
+                    {`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <Figure radius={is_default ? undefined : radius}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Figure>
+            </div>
+        {/each}
+    </Mosaic.Container>
 </Story>
 
 <Story name="Shape">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+    <Mosaic.Container sizing="tiny" spacing="medium">
         {#each SHAPES as [shape, is_default]}
             <div>
                 <Text is="strong">
                     {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure variation="icon" size="huge" {shape}>
+                <Figure shape={is_default ? undefined : shape}>
                     <img src={IMAGE_BACKGROUND} />
                 </Figure>
             </div>
         {/each}
-    </Stack>
+    </Mosaic.Container>
 </Story>
 
-<Story name="Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as size}
+<Story name="Block Size">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        {#each SIZES_BLOCK as [size, is_default]}
             <div>
                 <Text is="strong">
-                    {size.toUpperCase()} / ICON
+                    {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
-                <Figure variation="icon" {size}>
+                <Figure width={is_default ? undefined : size}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Figure>
+            </div>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Icon Size">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        {#each SIZES_ICON as [size, is_default]}
+            <div>
+                <Text is="strong">
+                    {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <Figure size={is_default ? undefined : `icon-${size}`}>
                     <img src={IMAGE_AVATAR} />
                 </Figure>
             </div>
         {/each}
-    </Stack>
-
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as size}
-            <div>
-                <Text is="strong">
-                    {size.toUpperCase()}
-                </Text>
-
-                <Figure {size}>
-                    <img src={IMAGE_BACKGROUND} />
-                </Figure>
-            </div>
-        {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

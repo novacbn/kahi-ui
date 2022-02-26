@@ -1,0 +1,30 @@
+@use "../../framework/abstracts/variables";
+
+@use "./transitions";
+
+@mixin scale($namespace) {
+    transform: scale(
+        #{variables.use("#{$namespace}.scale.x")},
+        #{variables.use("#{$namespace}.scale.y")}
+    );
+}
+
+@mixin text($namespace: null) {
+    @if $namespace {
+        text-transform: #{variables.use("#{$namespace}.transform.text")};
+    } @else {
+        text-transform: var(--transform-text);
+    }
+}
+
+@mixin transitions() {
+    @include transitions.push(transform, "movement");
+}
+
+@mixin var-reset-text($transform: inherit, $namespace: null) {
+    @if $namespace {
+        --transform-text: #{variables.use("#{$namespace}.transform.text")};
+    } @else {
+        --transform-text: #{$transform};
+    }
+}

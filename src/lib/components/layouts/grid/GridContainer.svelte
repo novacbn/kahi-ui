@@ -13,6 +13,7 @@
         IMarginProperties,
         IPaddingProperties,
     } from "../../../types/spacings";
+    import type {PROPERTY_VARIATION_GRID} from "../../../types/variations";
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
@@ -26,6 +27,7 @@
         element?: HTMLDivElement;
 
         points?: PROPERTY_POINTS_BREAKPOINT;
+        variation?: PROPERTY_VARIATION_GRID;
 
         alignment?: PROPERTY_ALIGNMENT_BREAKPOINT;
         alignment_x?: PROPERTY_ALIGNMENT_X_BREAKPOINT;
@@ -51,6 +53,7 @@
     export {_class as class};
 
     export let points: $$Props["points"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 
     export let alignment: $$Props["alignment"] = undefined;
     export let alignment_x: $$Props["alignment_x"] = undefined;
@@ -63,7 +66,7 @@
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="grid {_class}"
     {...map_data_attributes({
         alignment,
@@ -73,6 +76,7 @@
         spacing,
         "spacing-x": spacing_x,
         "spacing-y": spacing_y,
+        variation,
     })}
     use:forward_actions={{actions}}
     on:click

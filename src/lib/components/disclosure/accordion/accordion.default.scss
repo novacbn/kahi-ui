@@ -1,0 +1,33 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_DISCLOSURE_ACCORDION") {
+    @include variables.define(
+        (
+            "accordion": (
+                "item": (
+                    "border": (
+                        "opacity": 0.25,
+                        "width": variables.use("sizes.borders.tiny"),
+                    ),
+                    "gap": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                    "padding": (
+                        "x": variables.use("spacings.block.small"),
+                        "y": variables.use("spacings.block.tiny"),
+                    ),
+                    "disabled": (
+                        "opacity": 0.5,
+                    ),
+                    "active": (
+                        "font.opacity": 1,
+                    ),
+                    "focus": (
+                        "font.opacity": 0.75,
+                    ),
+                ),
+            ),
+        )
+    );
+}

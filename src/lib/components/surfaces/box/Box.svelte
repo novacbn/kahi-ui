@@ -1,9 +1,12 @@
 <script lang="ts">
-    import type {PROPERTY_ELEVATION} from "../../../types/elevations";
+    import type {PROPERTY_ELEVATION_BREAKPOINT} from "../../../types/elevations";
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {PROPERTY_PALETTE} from "../../../types/palettes";
-    import type {PROPERTY_SHAPE} from "../../../types/shapes";
+    import type {
+        PROPERTY_RADIUS_BREAKPOINT,
+        PROPERTY_SHAPE_BREAKPOINT,
+    } from "../../../types/shapes";
     import type {ISizeProperties} from "../../../types/sizes";
     import type {IMarginProperties, IPaddingProperties} from "../../../types/spacings";
 
@@ -18,9 +21,11 @@
         actions?: IForwardedActions;
         element?: HTMLDivElement;
 
-        elevation?: PROPERTY_ELEVATION;
+        elevation?: PROPERTY_ELEVATION_BREAKPOINT;
         palette?: PROPERTY_PALETTE;
-        shape?: PROPERTY_SHAPE;
+        radius?: PROPERTY_RADIUS_BREAKPOINT;
+        shape?: PROPERTY_SHAPE_BREAKPOINT;
+        variation?: "borders";
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties &
@@ -39,14 +44,16 @@
 
     export let elevation: $$Props["elevation"] = undefined;
     export let palette: $$Props["palette"] = undefined;
+    export let radius: $$Props["radius"] = undefined;
     export let shape: $$Props["shape"] = undefined;
+    export let variation: $$Props["variation"] = undefined;
 </script>
 
 <div
     bind:this={element}
-    {...map_global_attributes($$props)}
+    {...map_global_attributes($$restProps)}
     class="box {_class}"
-    {...map_data_attributes({elevation, palette, shape})}
+    {...map_data_attributes({elevation, palette, radius, shape, variation})}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

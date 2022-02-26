@@ -2,9 +2,9 @@
     import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_CALENDAR, DEFAULT_TIMEZONE} from "../../../util/locale";
+    import {DEFAULT_TIMEZONE} from "../../../util/locale";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import DateTimeStamp from "./DateTimeStamp.svelte";
@@ -23,7 +23,7 @@
 
     const FORMATS_SECOND = ["2-digit", "numeric"];
 
-    const now = Temporal.Now.zonedDateTime(DEFAULT_CALENDAR, DEFAULT_TIMEZONE).toString();
+    const now = Temporal.Now.zonedDateTimeISO(DEFAULT_TIMEZONE).toString();
 </script>
 
 <Meta title="Display/DateTimeStamp" />
@@ -32,12 +32,12 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <DateTimeStamp timestamp={now} />
 </Story>
 
 <Story name="Twelve (12) / Twenty-Four (24) Hour">
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         <div>
             <Text>
                 <Text is="strong">12 HOUR</Text>
@@ -65,13 +65,13 @@
                 second="2-digit"
             />
         </div>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Custom Format">
     <Text is="strong">DAY</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_DAY as format (format)}
             <div>
                 <Text>
@@ -83,11 +83,11 @@
                 <DateTimeStamp timestamp={now} day={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">MONTH</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_MONTH as format (format)}
             <div>
                 <Text>
@@ -99,11 +99,11 @@
                 <DateTimeStamp timestamp={now} month={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">WEEKDAY</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_WEEKDAY as format (format)}
             <div>
                 <Text>
@@ -115,11 +115,11 @@
                 <DateTimeStamp timestamp={now} weekday={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">YEAR</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_YEAR as format (format)}
             <div>
                 <Text>
@@ -131,11 +131,11 @@
                 <DateTimeStamp timestamp={now} year={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">HOUR</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_HOUR as format (format)}
             <div>
                 <Text>
@@ -153,11 +153,11 @@
                 />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">MINUTE</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_MINUTE as format (format)}
             <div>
                 <Text>
@@ -175,11 +175,11 @@
                 />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 
     <Text is="strong">SECOND</Text>
 
-    <Stack orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each FORMATS_SECOND as format (format)}
             <div>
                 <Text>
@@ -191,5 +191,5 @@
                 <DateTimeStamp timestamp={now} hour="2-digit" minute="2-digit" second={format} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

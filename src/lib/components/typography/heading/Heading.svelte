@@ -23,10 +23,6 @@
 
         is?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-        /**
-         * @deprecated Use `<Heading alignment_x="...">` instead.
-         */
-        align?: PROPERTY_TEXT_ALIGNMENT;
         alignment_x?: PROPERTY_TEXT_ALIGNMENT;
         transform?: PROPERTY_TEXT_TRANSFORM;
 
@@ -50,10 +46,6 @@
 
     export let is: $$Props["is"] = "h1";
 
-    /**
-     * @deprecated Use `<Heading alignment_x="...">` instead.
-     */
-    export let align: $$Props["align"] = undefined;
     export let alignment_x: $$Props["alignment_x"] = undefined;
     export let transform: $$Props["transform"] = undefined;
 
@@ -64,9 +56,9 @@
 {#if is === "h6"}
     <h6
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
+        {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -88,9 +80,9 @@
 {:else if is === "h5"}
     <h5
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
+        {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -112,9 +104,9 @@
 {:else if is === "h4"}
     <h4
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
+        {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -136,9 +128,9 @@
 {:else if is === "h3"}
     <h3
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
+        {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -160,9 +152,9 @@
 {:else if is === "h2"}
     <h2
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
+        {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu
@@ -184,9 +176,9 @@
 {:else}
     <h1
         bind:this={element}
-        {...map_global_attributes($$props)}
+        {...map_global_attributes($$restProps)}
         class="heading {_class}"
-        {...map_data_attributes({align: align ?? alignment_x, palette, transform, variation})}
+        {...map_data_attributes({alignment_x, palette, transform, variation})}
         use:forward_actions={{actions}}
         on:click
         on:contextmenu

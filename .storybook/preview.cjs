@@ -1,3 +1,4 @@
+import "../package/dist/kahi-ui.theme.default.css";
 import "../package/dist/kahi-ui.framework.css";
 
 export const parameters = {
@@ -11,7 +12,7 @@ export const parameters = {
     },
     viewport: {
         viewports: {
-            // NOTE: The viewports have to be slightly less than the actual breakpoints. Storybook
+            // HACK: The viewports have to be slightly less than the actual breakpoints. Storybook
             // adds slightly more to the iframe dimensions (???)
             mobile: {
                 name: "Mobile",

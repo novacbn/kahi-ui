@@ -27,7 +27,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <input
         type="text"
         placeholder="Click inside of me for focus, and press CTRL+ENTER to activate bind."

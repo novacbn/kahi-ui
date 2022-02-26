@@ -1,0 +1,27 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_NAVIGATION_BREADCRUMB") {
+    @include variables.define(
+        (
+            "breadcrumb": (
+                "gap.x": variables.use("spacings.block.tiny"),
+                "item": (
+                    "opacity": 1,
+                    "text.decoration": none,
+                    "active": (
+                        "opacity": 0.75,
+                    ),
+                    "focus": (
+                        "text.decoration": underline,
+                    ),
+                    "palette": (
+                        "font.opacity": 1,
+                    ),
+                ),
+                "separator": (
+                    "opacity": 0.5,
+                ),
+            ),
+        )
+    );
+}

@@ -1,0 +1,43 @@
+@use "../abstracts/variables";
+
+@mixin text($namespace: null) {
+    @if $namespace {
+        text-align: #{variables.use("#{$namespace}.alignment.text")};
+    } @else {
+        text-align: var(--alignment-text);
+    }
+}
+
+@mixin var-reset-all($display, $alignment-x: initial, $alignment-y: initial, $namespace: null) {
+    @if $namespace {
+        --alignment-#{$display}-x: #{variables.use("#{$namespace}.alignment.x")};
+        --alignment-#{$display}-y: #{variables.use("#{$namespace}.alignment.y")};
+    } @else {
+        --alignment-#{$display}-x: #{$alignment-x};
+        --alignment-#{$display}-y: #{$alignment-y};
+    }
+}
+
+@mixin var-reset-x($display, $alignment-x: initial, $namespace: null) {
+    @if $namespace {
+        --alignment-#{$display}-x: #{variables.use("#{$namespace}.alignment.x")};
+    } @else {
+        --alignment-#{$display}-x: #{$alignment-x};
+    }
+}
+
+@mixin var-reset-y($display, $alignment-y: initial, $namespace: null) {
+    @if $namespace {
+        --alignment-#{$display}-y: #{variables.use("#{$namespace}.alignment.y")};
+    } @else {
+        --alignment-#{$display}-y: #{$alignment-y};
+    }
+}
+
+@mixin var-reset-text($alignment: initial, $namespace: null) {
+    @if $namespace {
+        --alignment-text: #{variables.use("#{$namespace}.alignment.text")};
+    } @else {
+        --alignment-text: #{$alignment};
+    }
+}

@@ -1,0 +1,32 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_DISPLAY_TABLE") {
+    @include variables.define(
+        (
+            "table": (
+                "border": (
+                    "radius": variables.use("radius.tiny"),
+                    "width": variables.use("sizes.borders.nano"),
+                    "opacity": 0.5,
+                ),
+                "font.size": variables.use("fonts.sizes.inline.small"),
+                "stripes": (
+                    "background.opacity": 0.1,
+                ),
+                "column": (
+                    "padding": (
+                        "x": variables.use("spacings.block.medium"),
+                        "y": variables.use("spacings.block.small"),
+                    ),
+                ),
+                "heading": (
+                    "font": (
+                        "family": variables.use("fonts.families.block"),
+                        "size": variables.use("fonts.sizes.inline.medium"),
+                        "weight": bold,
+                    ),
+                ),
+            ),
+        )
+    );
+}

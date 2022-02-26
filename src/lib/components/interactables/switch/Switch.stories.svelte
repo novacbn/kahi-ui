@@ -1,30 +1,33 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../../typography/text/Text.svelte";
 
     import Switch from "./Switch.svelte";
 
     const PALETTES = [
         ["neutral", true],
-        ["accent", false],
         ["auto", false],
         ["inverse", false],
+        ["accent", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 
-    const SIZES = [
-        ["default", true],
+    const SIZINGS = [
+        ["small", true],
+        ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
+        ["massive", false],
     ];
 </script>
 
@@ -34,7 +37,7 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Switch />
 </Story>
 
@@ -43,7 +46,7 @@
 </Story>
 
 <Story name="State">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         <Switch id="switch-state-default">DEFAULT</Switch>
         <Switch id="switch-state-state" state>STATE</Switch>
 
@@ -52,12 +55,12 @@
 
         <Switch id="switch-state-disabled-no-state" disabled>DISABLED NO-STATE</Switch>
         <Switch id="switch-state-disabled-state" disabled state>DISABLED STATE</Switch>
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text>
                     <Text is="strong">
@@ -65,24 +68,24 @@
                     </Text>
                 </Text>
 
-                <Switch {palette} />
+                <Switch palette={is_default ? undefined : palette} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
-<Story name="Size">
-    <Stack orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
-        {#each SIZES as [size, is_default]}
+<Story name="Sizing">
+    <Stack.Container orientation="horizontal" alignment_y="top" spacing="medium" variation="wrap">
+        {#each SIZINGS as [sizing, is_default] (sizing)}
             <div>
                 <Text>
                     <Text is="strong">
-                        {`${size.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                        {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                     </Text>
                 </Text>
 
-                <Switch {size} />
+                <Switch sizing={is_default ? undefined : sizing} />
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

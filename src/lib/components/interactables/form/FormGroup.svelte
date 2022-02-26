@@ -41,20 +41,25 @@
     const _form_name = CONTEXT_FORM_NAME.create(logic_name);
     const _form_state = CONTEXT_FORM_STATE.create(logic_state);
 
-    if (_form_state) {
-        afterUpdate(() => {
-            $_form_state = logic_state ?? "";
-        });
+    function on_state_property_update(state: IStateValue): void {
+        if (_form_state && state !== $_form_state) {
+            $_form_state = state;
+            dispatch("change");
+        }
     }
 
-    $: if (_form_id) $_form_id = logic_id ?? "";
-    $: if (_form_name) $_form_name = logic_name ?? "";
-
-    $: if (_form_state && logic_state !== $_form_state) {
-        logic_state = $_form_state;
-
-        dispatch("change");
+    function on_state_store_update(state: IStateValue): void {
+        if (state !== logic_state) {
+            logic_state = state;
+            dispatch("change");
+        }
     }
+
+    $: if (_form_id) $_form_id = logic_id as string;
+    $: if (_form_name) $_form_name = logic_name as string;
+
+    $: if (logic_state !== undefined) on_state_property_update(logic_state);
+    $: if (_form_state) on_state_store_update($_form_state ?? (logic_state as IStateValue));
 </script>
 
 <slot />

@@ -1,6 +1,2 @@
-import _Stack from "./Stack.svelte";
-
-/**
- * @deprecated Updated into a multi-part `<Stack.Container>` Component in `0.6.0`.
- */
-export const Stack = _Stack;
+export {default as Container} from "./StackContainer.svelte";
+export {default as Item} from "./StackItem.svelte";

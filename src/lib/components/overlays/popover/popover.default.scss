@@ -1,0 +1,14 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_OVERLAYS_POPOVER") {
+    @include variables.define(
+        (
+            "popover": (
+                "z-index": variables.use("z-index.inline.popover"),
+                "tooltip": (
+                    "animation.delay": 0.375s,
+                ),
+            ),
+        )
+    );
+}

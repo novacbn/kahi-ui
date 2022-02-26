@@ -1,20 +1,22 @@
 <script>
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import Stack from "../../layouts/stack/Stack.svelte";
+    import * as Stack from "../../layouts/stack";
     import Text from "../text/Text.svelte";
 
     import Code from "./Code.svelte";
 
     const PALETTES = [
-        ["default", true],
-        ["accent", false],
+        ["inverse", true],
         ["auto", false],
-        ["inverse", false],
+        ["accent", false],
+        ["neutral", false],
+        ["off", false],
         ["dark", false],
         ["light", false],
         ["alert", false],
         ["affirmative", false],
+        ["informative", false],
         ["negative", false],
     ];
 </script>
@@ -25,29 +27,29 @@
     <slot />
 </Template>
 
-<Story name="Default">
+<Story name="Preview">
     <Code>import * as Kahi from "@kahi-ui/framework";</Code>
 </Story>
 
 <Story name="Palette">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
-        {#each PALETTES as [palette, is_default]}
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
             <div>
                 <Text is="strong">
                     {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Text>
 
                 <br />
-                <Code palette={palette === "default" ? undefined : palette}>
+                <Code palette={is_default ? undefined : palette}>
                     import * as Kahi from "@kahi-ui/framework";
                 </Code>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>
 
 <Story name="Pre">
-    <Stack orientation="horizontal" spacing="medium" variation="wrap">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
         {#each PALETTES as [palette, is_default]}
             <div>
                 <Text is="strong">
@@ -56,12 +58,11 @@
 
                 <br />
                 <!-- prettier-ignore -->
-                <Code is="pre" palette={palette === "default" ? undefined : palette}>
-import math from "a-math-library";
-    
+                <Code is="pre" palette={palette === "default" ? undefined : palette}>import math from "a-math-library";
+
 const result = math.add(1, 1);
 console.log("Our value is:", result);</Code>
             </div>
         {/each}
-    </Stack>
+    </Stack.Container>
 </Story>

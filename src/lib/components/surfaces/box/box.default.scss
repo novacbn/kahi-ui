@@ -1,0 +1,17 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_SURFACES_BOX") {
+    @include variables.define(
+        (
+            "box": (
+                "background.opacity": 1,
+                "border": (
+                    "width": variables.use("sizes.borders.small"),
+                    "opacity": 1,
+                    "style": solid,
+                ),
+                "font.opacity": 1,
+            ),
+        )
+    );
+}

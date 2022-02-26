@@ -1,0 +1,15 @@
+@use "../../../../framework/abstracts/variables";
+
+@use "../../../../framework/mixins/intrinsics";
+
+@if not env("DISABLE_COMPONENTS_LAYOUTS_CONTAINER") {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+
+        @include intrinsics.padding-x($namespace: "container", $unit: rem);
+
+        width: 100%;
+        max-width: min(#{variables.use("sizes.prose")}, 100vw);
+    }
+}

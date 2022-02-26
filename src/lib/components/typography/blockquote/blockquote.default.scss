@@ -1,0 +1,27 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_BLOCKQUOTE") {
+    @include variables.define(
+        (
+            "blockquote": (
+                "background.opacity": 0.1,
+                "border": (
+                    "opacity": 1,
+                    "radius": variables.use("radius.tiny"),
+                    "style": solid,
+                    "width": variables.use("sizes.borders.huge"),
+                ),
+                "padding": (
+                    "x": variables.use("spacings.block.large"),
+                    "y": variables.use("spacings.block.medium"),
+                ),
+                "article": (
+                    "margin.y": variables.use("spacings.block.medium"),
+                    "children": (
+                        "margin.y": variables.use("spacings.block.medium"),
+                    ),
+                ),
+            ),
+        )
+    );
+}

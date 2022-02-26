@@ -1,0 +1,34 @@
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_BLOCKQUOTE") {
+    .blockquote,
+    :where(.article) > blockquote {
+        @include palettes.var-palette($palette: "neutral");
+
+        position: relative;
+
+        @include intrinsics.padding-all($namespace: "blockquote", $unit: em);
+
+        @include backgrounds.color($namespace: "blockquote", $face: "background", $shade: "bolder");
+        @include borders.left($namespace: "blockquote", $face: "background", $shade: "bolder");
+        @include radius.all($namespace: "blockquote", $unit: em);
+
+        @include borders.transitions();
+        @include backgrounds.transitions();
+
+        @include transitions.build();
+    }
+
+    :where(.article) > blockquote:not(:last-child) {
+        @include intrinsics.margin-bottom($namespace: "blockquote.article", $unit: rem);
+    }
+
+    :where(.article) > blockquote > :not(:last-child) {
+        @include intrinsics.margin-bottom($namespace: "blockquote.article.children", $unit: rem);
+    }
+}

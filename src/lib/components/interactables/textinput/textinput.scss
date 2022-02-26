@@ -1,0 +1,81 @@
+@use "../../../../framework/appearances/field";
+
+@use "../../../../framework/mixins/alignments";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/transforms";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_INTERACTABLES_TEXT_INPUT") {
+    .text-input {
+        @include alignments.var-reset-text();
+        @include palettes.var-palette($palette: "neutral");
+        @include radius.var-reset($namespace: "text-input");
+        @include sizings.var-reset-font($tier: "inline", $namespace: "text-input");
+        @include transforms.var-reset-text();
+
+        @include field.base($namespace: "text-input");
+
+        @include field.state-disabled() {
+            @include field.base-disabled($namespace: "text-input");
+        }
+
+        &::placeholder {
+            @include field.pseudo-placeholder-base($namespace: "text-input");
+        }
+
+        &:not([data-variation]) {
+            @include field.variation-outline-base($namespace: "text-input.outline");
+
+            @include field.state-disabled($is-inverse: true) {
+                @include field.state-hover() {
+                    @include field.variation-outline-hover($namespace: "text-input.outline");
+                }
+
+                @include field.state-active() {
+                    @include field.variation-outline-active($namespace: "text-input.outline");
+                }
+            }
+        }
+
+        &[data-variation="block"] {
+            @include field.variation-block-base($namespace: "text-input.block");
+
+            @include field.state-disabled($is-inverse: true) {
+                @include field.state-hover() {
+                    @include field.variation-block-hover($namespace: "text-input.block");
+                }
+
+                @include field.state-active() {
+                    @include field.variation-block-active($namespace: "text-input.block");
+                }
+            }
+        }
+
+        &[data-variation="flush"] {
+            @include field.variation-flush-base();
+
+            &[data-palette] {
+                @include field.variation-flush-palette($namespace: "text-input.flush");
+            }
+
+            @include field.state-disabled($is-inverse: true) {
+                @include field.state-flush-active() {
+                    @include field.variation-flush-active();
+                }
+            }
+        }
+
+        &:not([cols], [size]) {
+            width: 100%;
+        }
+    }
+
+    textarea.text-input {
+        max-width: 100%;
+        max-height: 100%;
+
+        resize: none;
+    }
+}

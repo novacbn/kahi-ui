@@ -1,0 +1,89 @@
+@use "../../../../framework/appearances/flex";
+@use "../../../../framework/appearances/surface";
+
+@use "../../../../framework/mixins/borders";
+@use "../../../../framework/mixins/backgrounds";
+@use "../../../../framework/mixins/elevations";
+@use "../../../../framework/mixins/fonts";
+@use "../../../../framework/mixins/intrinsics";
+@use "../../../../framework/mixins/palettes";
+@use "../../../../framework/mixins/sizings";
+@use "../../../../framework/mixins/radius";
+@use "../../../../framework/mixins/transitions";
+
+@if not env("DISABLE_COMPONENTS_SURFACES_TILE") {
+    .tile {
+        @include elevations.var-reset($namespace: "tile");
+        @include palettes.var-palette($palette: "auto");
+        @include radius.var-reset($namespace: "tile");
+        @include sizings.var-reset-font($tier: "inline");
+
+        display: flex;
+        align-items: center;
+
+        @include intrinsics.gap-all($namespace: "tile", $unit: em);
+        @include surface.radius-all();
+
+        @include fonts.size($unit: rem, $tier: "inline");
+
+        @include borders.transitions();
+        @include backgrounds.transitions();
+        @include fonts.transitions();
+
+        @include transitions.build();
+
+        &:not([data-variation~="flush"]) {
+            @include intrinsics.padding-all($namespace: "tile", $unit: em);
+
+            @include surface.background($namespace: "tile");
+            @include surface.borders-all($namespace: "tile");
+            @include surface.text($namespace: "tile");
+
+            @include elevations.shadow();
+        }
+    }
+
+    .tile--figure {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        @include intrinsics.size-all($namespace: "tile.figure");
+    }
+
+    .tile--footer {
+        @include flex.var-reset(
+            $namespace: "tile.footer",
+            $direction: row,
+            $alignment-x: center,
+            $alignment-y: center
+        );
+
+        @include flex.base($unit: em);
+
+        margin-left: auto;
+    }
+
+    .tile--header {
+        display: flex;
+        align-items: center;
+
+        @include intrinsics.gap-all($namespace: "tile.header", $unit: em);
+
+        @include fonts.family($namespace: "tile.header");
+        @include fonts.size($namespace: "tile.header", $unit: em);
+        @include fonts.weight($namespace: "tile.header");
+    }
+
+    .tile--section {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+
+        &:last-of-type {
+            flex-grow: 1;
+        }
+    }
+}

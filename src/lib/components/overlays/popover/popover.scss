@@ -1,0 +1,122 @@
+@use "../../../../framework/abstracts/variables";
+
+@use "../../../../framework/mixins/planes";
+@use "../../../../framework/mixins/spacings";
+
+@if not env("DISABLE_COMPONENTS_OVERLAYS_POPOVER") {
+    .popover {
+        @include spacings.var-reset();
+
+        display: inline-block;
+        position: relative;
+
+        white-space: nowrap;
+    }
+
+    .popover--section {
+        position: absolute;
+
+        @include planes.z-index($namespace: "popover");
+
+        &:is(:not([data-placement]), [data-placement="bottom"]) {
+            &:is(:not([data-alignment-x]), [data-alignment-x="center"]) {
+                inset: auto 50% calc(var(--spacing-y) * -1rem) auto;
+                transform: translate(50%, 100%);
+            }
+
+            &[data-alignment-x="left"] {
+                inset: auto 0% calc(var(--spacing-y) * -1rem) auto;
+                transform: translate(0%, 100%);
+            }
+
+            &[data-alignment-x="right"] {
+                inset: auto 100% calc(var(--spacing-y) * -1rem) auto;
+                transform: translate(100%, 100%);
+            }
+        }
+
+        &[data-placement="top"] {
+            &:is(:not([data-alignment-x]), [data-alignment-x="center"]) {
+                inset: calc(var(--spacing-y) * -1rem) 50% auto auto;
+                transform: translate(50%, -100%);
+            }
+
+            &[data-alignment-x="left"] {
+                inset: calc(var(--spacing-y) * -1rem) 0% auto auto;
+                transform: translate(0%, -100%);
+            }
+
+            &[data-alignment-x="right"] {
+                inset: calc(var(--spacing-y) * -1rem) 100% auto auto;
+                transform: translate(100%, -100%);
+            }
+        }
+
+        &[data-placement="left"] {
+            &:is(:not([data-alignment-y]), [data-alignment-y="center"]) {
+                inset: 50% auto auto calc(var(--spacing-x) * -1rem);
+                transform: translate(-100%, -50%);
+            }
+
+            &[data-alignment-y="top"] {
+                inset: 100% auto auto calc(var(--spacing-x) * -1rem);
+                transform: translate(-100%, -100%);
+            }
+
+            &[data-alignment-y="bottom"] {
+                inset: 0% auto auto calc(var(--spacing-x) * -1rem);
+                transform: translate(-100%, 0%);
+            }
+        }
+
+        &[data-placement="right"] {
+            &:is(:not([data-alignment-y]), [data-alignment-y="center"]) {
+                inset: 50% calc(var(--spacing-x) * -1rem) auto auto;
+                transform: translate(100%, -50%);
+            }
+
+            &[data-alignment-y="top"] {
+                inset: 100% calc(var(--spacing-x) * -1rem) auto auto;
+                transform: translate(100%, -100%);
+            }
+
+            &[data-alignment-y="bottom"] {
+                inset: 0% calc(var(--spacing-x) * -1rem) auto auto;
+                transform: translate(100%, 0%);
+            }
+        }
+    }
+
+    .popover--state {
+        display: none;
+
+        &:not(:checked) + .popover:is(:not([data-variation]), [data-variation~="popover"]) {
+            & > .popover--section {
+                /**
+                 * HACK: We're abusing `Transition` Component's internal state CSS vars to
+                 * make `Overlay` transitions SSR-able
+                 */
+
+                --animation-visible: 0;
+
+                pointer-events: none;
+            }
+        }
+    }
+
+    .popover[data-variation~="tooltip"] {
+        &:not(:active, :hover, :focus-within) {
+            & > .popover--section {
+                --animation-visible: 0;
+
+                pointer-events: none;
+            }
+        }
+
+        &:is(:active, :hover, :focus-within) {
+            & > .popover--section {
+                --animation-delay: #{variables.use("popover.tooltip.animation.delay")};
+            }
+        }
+    }
+}

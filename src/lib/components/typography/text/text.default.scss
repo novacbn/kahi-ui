@@ -1,0 +1,18 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_TYPOGRAPHY_TEXT") {
+    @include variables.define(
+        (
+            "text": (
+                "font.opacity": 1,
+                "small": (
+                    "font.size": variables.use("fonts.sizes.inline.tiny"),
+                    "opacity": 0.75,
+                ),
+                "article": (
+                    "margin.y": variables.use("spacings.block.medium"),
+                ),
+            ),
+        )
+    );
+}

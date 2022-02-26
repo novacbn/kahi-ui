@@ -1,0 +1,13 @@
+@use "sass:list";
+@use "sass:string";
+
+@function format-identifier($key) {
+    $key: string.to-lower-case("#{$key}");
+
+    $key: str-replaceall($key, "_", "-");
+    $key: str-replaceall($key, " ", "-");
+    $key: str-replaceall($key, ".", "-");
+    $key: str-replaceall($key, ",", "-");
+
+    @return str-replaceall($key, "--", "-");
+}

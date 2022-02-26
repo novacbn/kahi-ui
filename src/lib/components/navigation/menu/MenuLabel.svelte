@@ -15,13 +15,11 @@
 
     import FormGroup from "../../interactables/form/FormGroup.svelte";
 
-    import MenuItem from "./MenuItem.svelte";
-
     type $$Events = IHTML5Events;
 
     type $$Props = {
         actions?: IForwardedActions;
-        element?: HTMLLIElement;
+        element?: HTMLLabelElement;
 
         active?: boolean;
         disabled?: boolean;
@@ -39,6 +37,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let tabindex: $$Props["tabindex"] = 0;
 
     export let active: $$Props["active"] = undefined;
@@ -54,33 +55,33 @@
     $: _tabindex = tabindex as number | undefined;
 </script>
 
-<MenuItem bind:element {...$$props}>
-    <FormGroup logic_id={_for}>
-        <label
-            {...map_global_attributes($$props)}
-            role="button"
-            {...map_data_attributes({palette})}
-            {...map_aria_attributes({disabled, pressed: active})}
-            for={_for}
-            tabindex={_tabindex}
-            use:behavior_button={{enabled: true}}
-            use:forward_actions={{actions}}
-            on:click
-            on:contextmenu
-            on:dblclick
-            on:focusin
-            on:focusout
-            on:keydown
-            on:keyup
-            on:pointercancel
-            on:pointerdown
-            on:pointerenter
-            on:pointerleave
-            on:pointermove
-            on:pointerout
-            on:pointerup
-        >
-            <slot />
-        </label>
-    </FormGroup>
-</MenuItem>
+<FormGroup logic_id={_for}>
+    <label
+        bind:this={element}
+        {...map_global_attributes($$restProps)}
+        role="button"
+        class="menu--item {_class}"
+        {...map_data_attributes({palette})}
+        {...map_aria_attributes({disabled, pressed: active})}
+        for={_for}
+        tabindex={_tabindex}
+        use:behavior_button={{enabled: true}}
+        use:forward_actions={{actions}}
+        on:click
+        on:contextmenu
+        on:dblclick
+        on:focusin
+        on:focusout
+        on:keydown
+        on:keyup
+        on:pointercancel
+        on:pointerdown
+        on:pointerenter
+        on:pointerleave
+        on:pointermove
+        on:pointerout
+        on:pointerup
+    >
+        <slot />
+    </label>
+</FormGroup>

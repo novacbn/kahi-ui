@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.6.0 - 2022/02/25
 
 -   Reworked the internal stylesheet, which includes the final visual refresh before `v1`.
 -   Refined / Consolidated the public APIs of all the Actions / Components / Stores _(see below)_, which should all be considered semi-stable now for `v1`.

@@ -45,7 +45,9 @@
     }
 
     small.text,
-    :where(.article) > :is(small, p > small) {
+    :where(.article) > small,
+    :where(.article) > :is(blockquote, p, ol, ul, table) small,
+    :where(.article) > .scrollable > table small {
         @include fonts.size($namespace: "text.small", $unit: em);
         @include transparency.opacity($namespace: "text.small");
     }

@@ -38,6 +38,22 @@
                 This has nested <a href="#">anchor tags</a>!
             </li>
         </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Anchors Table!</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        This has nested <a href="#">anchor tags</a>!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </Article>
 </Story>
 
@@ -100,6 +116,22 @@ console.log("Our value is:", result);</pre>
                 This has nested <code>code tags</code>!
             </li>
         </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Code Table!</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        This has nested <code>code tags</code>!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </Article>
 </Story>
 
@@ -165,6 +197,38 @@ console.log("Our value is:", result);</pre>
 <Story name="Small">
     <Article>
         <small>I am small text!</small>
+
+        <p>
+            This has nested <small>small tags</small>!
+        </p>
+
+        <blockquote>
+            <p>
+                This has nested <small>small tags</small>!
+            </p>
+        </blockquote>
+
+        <ul>
+            <li>
+                This has nested <small>small tags</small>!
+            </li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Small Table!</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        This has nested <small>small tags</small>!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </Article>
 </Story>
 

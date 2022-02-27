@@ -2,7 +2,7 @@
 
 ## v0.6.1 - 2022/02/25
 
-- Fixed packaging file inclusion.
+-   Fixed packaging file inclusion.
 
 ## v0.6.0 - 2022/02/25
 

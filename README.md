@@ -1,4 +1,8 @@
-![Kahi UI](./.assets/logo.png)
+<p align="center">
+  <a href="https://kahi-ui.nbn.dev">
+    <img src="https://raw.githubusercontent.com/novacbn/kahi-ui/main/.assets/profile.png" alt="Kahi UI Logo" width="256" />
+  </a>
+</p>
 
 <h1 align="center">Straight-forward Svelte UI for the Web</h1>
 

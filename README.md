@@ -1,10 +1,30 @@
 <p align="center">
-  <a href="https://kahi-ui.nbn.dev">
-    <img src="https://raw.githubusercontent.com/novacbn/kahi-ui/main/.assets/profile.png" alt="Kahi UI Logo" width="256" />
-  </a>
+    <a href="https://kahi-ui.nbn.dev">
+        <img src="https://raw.githubusercontent.com/novacbn/kahi-ui/main/.assets/profile.png" alt="Kahi UI Logo" width="256" />
+    </a>
 </p>
 
 <h1 align="center">Straight-forward Svelte UI for the Web</h1>
+
+<br>
+
+<p align="center">
+    <a href="https://github.com/novacbn/kahi-ui/releases/latest">
+        <img alt="Latest Release" src="https://img.shields.io/github/v/tag/novacbn/kahi-ui?style=social&display_name=tag&logo=github&label=Release"/>
+    </a>
+    <a href="https://www.npmjs.com/package/@kahi-ui/framework">
+        <img alt="NPM Package" src="https://img.shields.io/npm/dm/@kahi-ui/framework.svg?style=social&logo=npm"/>
+    </a>
+    <a href="https://github.com/novacbn/kahi-ui/blob/main/LICENSE">
+        <img alt="MIT License" src="https://img.shields.io/github/license/novacbn/kahi-ui?style=social"/>
+    </a>
+    <a href="https://github.com/novacbn/kahi-ui/stargazers">
+        <img alt="Github Stars" src="https://img.shields.io/github/stars/novacbn/kahi-ui?style=social&logo=github" />
+    </a>
+    <a href="https://kahi-ui.nbn.dev/chat">
+        <img alt="Chat" src="https://img.shields.io/discord/883717132532191255.svg?style=social&logo=discord" />
+    </a>
+</p>
 
 <br />
 

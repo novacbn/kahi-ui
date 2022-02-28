@@ -65,9 +65,11 @@ First if your toolchain supports it, import the required CSS files from `@kahi-u
 ```javascript
 // For non-minified:
 import "@kahi-ui/framework/dist/kahi-ui.framework.css";
+import "@kahi-ui/framework/dist/kahi-ui.theme.default.css";
 
 // For minified:
 import "@kahi-ui/framework/dist/kahi-ui.framework.min.css";
+import "@kahi-ui/framework/dist/kahi-ui.theme.default.min.css";
 ```
 
 Otherwise download the required CSS files from [Releases](https://github.com/novacbn/kahi-ui/releases/latest) and use `<link rel="stylesheet">`:
@@ -77,9 +79,12 @@ Otherwise download the required CSS files from [Releases](https://github.com/nov
     <head>
         <!-- For non-minified: -->
         <link rel="stylesheet" href="/path/to/kahi-ui.framework.css" />
+        <link rel="stylesheet" href="/path/to/kahi-ui.theme.default.css" />
 
         <!-- For minified: -->
+
         <link rel="stylesheet" href="/path/to/kahi-ui.framework.min.css" />
+        <link rel="stylesheet" href="/path/to/kahi-ui.theme.default.min.css" />
     </head>
 </html>
 ```

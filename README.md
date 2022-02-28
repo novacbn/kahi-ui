@@ -33,11 +33,11 @@
 ## Features
 
 -   **Svelte-first**: All Components are API designed to work well with Svelte as a first-class citizen.
+-   **Typescript Native**: Kahi UI tries to be fully typed by using TypeScript as its base language, so you get a complete IDE experience.
 -   **Progressive Enhancements**: Where possible, most logic is codified via CSS / HTML directly. With Javascript-enabled UX enhancements enabled for compatible clients.
--   **Composable**: While 30+ prebuilt Components are available, Kahi UI also provides primitives to design your Application's UI without touching CSS.
+-   **Composable**: While 30+ prebuilt Components are available, Kahi UI also provides primitives to design your Web Application's UI without touching CSS.
 -   **Dark Mode**: Components in Kahi UI change colors when a compatible Browser views w/ Dark Mode.
 -   **Framework Independent**: Even though Svelte-first, there is no hard toolchain dependencies required. You can just take the built CSS files and use with React or in a traditional SSR environment.
--   **Typescript Native**: Kahi UI tries to be fully typed by using TypeScript as its base language, so you get a complete IDE experience.
 
 ## Documentation
 
@@ -80,7 +80,7 @@ npm install @kahi-ui/framework
 
 ## Usage
 
-First if your toolchain supports it, import the required CSS files from `@kahi-ui/framework/dist`:
+**Step 1** — First if your toolchain supports it, import the required CSS files from `@kahi-ui/framework/dist`:
 
 ```javascript
 // For non-minified:
@@ -109,7 +109,7 @@ Otherwise download the required CSS files from [Releases](https://github.com/nov
 </html>
 ```
 
-Next, import Components by their variable name from `@kahi-ui/framework`:
+**Step 2** — Next, import Components by their variable name from `@kahi-ui/framework`:
 
 <!-- prettier-ignore -->
 ```html

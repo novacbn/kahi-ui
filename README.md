@@ -51,7 +51,7 @@ Want to just mess around and share Kahi UI creations? Visit the playground at [k
 
 ## F.A.Q.
 
-Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/framework/faq](https://kahi-ui.nbn.dev/docs/framework/faq).
+Visit the F.A.Q (frequently asked questions) at [kahi-ui.nbn.dev/docs/resources/faq](https://kahi-ui.nbn.dev/docs/resources/faq).
 
 ## Need Help?
 

@@ -159,6 +159,10 @@ Some Components are multi-part patterns, so you'll need to import their namespac
 </Card.Container>
 ```
 
+## Resources
+
+If looking for resources like templates and community projects, visit the resources list at [kahi-ui.nbn.dev/docs/resources/official](https://kahi-ui.nbn.dev/docs/resources/official).
+
 ## License
 
 Kahi UI is licensed under the [MIT license](./LICENSE).

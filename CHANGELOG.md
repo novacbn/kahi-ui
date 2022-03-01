@@ -1,5 +1,44 @@
 # CHANGELOG
 
+## v0.6.2 - 2022/03/01
+
+-   `DataSelect`
+
+    -   Added new Component! Similar to `DataTable`, allows you to provide a list of data structures to create a dropdown of selectable options.
+
+    -   `<svelte:fragment slot="default" let:item={IDataSelectItem}>` — Allows for overriding of the default display option text.
+    -   `<svelte:fragment slot="activator">` — Allows for overriding the default inner `TextInput` Component for custom a custom activator.
+
+    -   `<DataSelect items={IDataSelectItem[]}>` — Sets the options displayed to the user.
+
+        -   `IDataSelectItem.disabled: boolean` — Controls if the specific option is disabled.
+        -   `IDataSelectItem.id: string` — Controls the element ID assigned to the option's `<input />` element.
+        -   `IDataSelectItem.palette: "auto" | "inverse" | "accent" | "dark" | "light" | "alert" | "affirmative" | "informative" | "negative"` — Alters the color palette.
+        -   `IDataSelectItem.text: string` — Controls the text displayed to the user for the option.
+        -   `IDataSelectItem.value: string` — Controls the form value associated with the option. If unset, `IDataSelectItem.id` will be used.
+
+    -   `<DataSelect multiple={boolean}>` — Controls whether multiple options can be selected by the user.
+
+        -   `<DataSelect max={number}>` — Controls how many multiple choices a user can select when enabled.
+
+    -   `<DataSelect logic_id={string}>` — Controls the element ID assigned to the inner `Popover` Component.
+    -   `<DataSelect logic_name={string}>` — Controls the form name that prefixes all options.
+    -   `<DataSelect logic_state={string | string[]}>` — Controls which options are selected.
+
+    -   `<DataSelect searching_algorithm={(item: IDataSelectItem, searching?: string) => boolean}>` — Allows implementing of custom search filtering.
+
+    -   `<DataSelect placeholder={string}>` — Alters displayed text while closed or if no options are selected.
+
+    -   `<DataSelect palette={"auto" | "inverse" | "accent" | "dark" | "light" | "alert" | "affirmative" | "informative" | "negative"}>` — Alters the color palette of the inner `TextInput` Component.
+    -   `<DataSelect sizing={"nano", "tiny", "small", "medium", "large", "huge", "massive", `${VIEWPORT}:${SIZE}`}>` — Alters the sizing of the inner `TextInput` Component.
+    -   `<DataSelect variation={"flush"}>` — Alters to render the choices inline instead of a `Popover`.
+
+-   `DataTable`
+
+    -   `<DataTable searching_algorithm>` — Updated to provide `<DataTable searching>` instead of needing to bind to retrieve value.
+
+        -   `<DataTable searching_algorithm={(item: IDataSelectItem) => boolean}>` -> `<DataTable searching_algorithm={(item: IDataSelectItem, searching?: string) => boolean}>`
+
 ## v0.6.1 - 2022/02/25
 
 -   Fixed packaging file inclusion.

@@ -8,10 +8,14 @@
     import type {PROPERTY_VARIATION_POPOVER} from "../../../types/variations";
     import {TOKENS_VARIATION_POPOVER} from "../../../types/variations";
 
+    import {click_inside} from "../../../actions/click_inside";
+    import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {lost_focus} from "../../../actions/lost_focus";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
+    import {can_focus} from "../../../util/element";
     import {action_exit} from "../../../util/keybind";
 
     import PopoverGroup from "./PopoverGroup.svelte";
@@ -66,6 +70,26 @@
 
     export let variation: $$Props["variation"] = undefined;
 
+    function on_click_inside(event: MouseEvent): void {
+        if (once) logic_state = false;
+        else if (_is_editable) {
+            const {target} = event;
+            if (target && !can_focus(target as Element)) logic_state = false;
+        }
+    }
+
+    function on_dismiss(): void {
+        if (!logic_state) return;
+
+        if (_is_editable || (_is_popover && dismissible)) logic_state = false;
+    }
+
+    function on_focus_in(event: FocusEvent): void {
+        if (logic_state || !_is_editable) return;
+
+        logic_state = true;
+    }
+
     function on_group_change(event: CustomEvent<void>): void {
         dispatch(logic_state ? "active" : "dismiss");
     }
@@ -74,14 +98,15 @@
         logic_state = (event.target as HTMLInputElement).checked;
     }
 
-    function on_dismiss(): void {
-        if (dismissible && logic_state) logic_state = false;
-    }
+    $: _is_editable = variation === TOKENS_VARIATION_POPOVER.editable;
+    $: _is_popover = !variation || variation === TOKENS_VARIATION_POPOVER.popover;
+
+    $: _label = logic_id ? `label[for="${logic_id}"]` : undefined;
 </script>
 
-<svelte:window use:action_exit={{on_bind: on_dismiss}} />
+<svelte:window use:action_exit={{on_bind: () => on_dismiss}} />
 
-{#if variation !== TOKENS_VARIATION_POPOVER.tooltip && logic_id}
+{#if _is_popover && logic_id}
     <input
         role="presentation"
         class="popover--state"
@@ -98,6 +123,20 @@
     class="popover {_class}"
     {...map_data_attributes({variation})}
     use:forward_actions={{actions}}
+    use:click_inside={{
+        ignore: _label,
+        on_click_inside: on_click_inside,
+    }}
+    use:click_outside={{
+        ignore: _label,
+        on_click_outside: on_dismiss,
+    }}
+    use:lost_focus={{
+        enabled: _is_editable || _is_popover,
+        ignore: _label,
+        on_lost_focus: on_dismiss,
+    }}
+    on:focusin={on_focus_in}
     on:click
     on:contextmenu
     on:dblclick
@@ -115,11 +154,9 @@
 >
     <PopoverGroup
         variation={variation ?? TOKENS_VARIATION_POPOVER.popover}
-        {logic_id}
         {focus_target}
-        {dismissible}
         {loading}
-        {once}
+        {logic_id}
         bind:logic_state
         on:change={on_group_change}
     >

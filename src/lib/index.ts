@@ -113,6 +113,8 @@ export * from "./components/utilities/viewportrender";
 export * from "./components/widgets/datatable";
 export * from "./components/widgets/daypicker";
 export * from "./components/widgets/daystepper";
+export * from "./components/widgets/dropdown";
+export * from "./components/widgets/inlay";
 export * from "./components/widgets/monthpicker";
 export * from "./components/widgets/monthstepper";
 export * from "./components/widgets/pagination";

@@ -177,16 +177,12 @@
     $: _page = typeof page === "string" ? parseInt(page) : page ?? 1;
     $: _paging = typeof paging === "string" ? parseInt(paging) : paging ?? 5;
 
-    let _filtered_view: IDataTableRow[];
-    $: {
-        _filtered_view = [...rows];
-
-        if (searching) {
-            _filtered_view = _filtered_view.filter((row, index) => {
-                return searching_algorithm ? searching_algorithm(row) : default_search(row);
-            });
-        }
-    }
+    $: _filtered_view = searching
+        ? rows.filter((row, index) => {
+              return searching_algorithm ? searching_algorithm(row) : default_search(row);
+          })
+        : // NOTE: Even if filtering, we need to clone here so later sorting doesn't modify in place
+          [...rows];
 
     $: _pages = Math.ceil(_filtered_view.length / _paging);
 

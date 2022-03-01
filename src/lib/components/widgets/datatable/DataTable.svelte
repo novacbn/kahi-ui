@@ -53,7 +53,7 @@
         sorting_mode?: PROPERTY_SORTING_MODE;
 
         searching?: string;
-        searching_algorithm?: (row: IDataTableRow) => boolean;
+        searching_algorithm?: (row: IDataTableRow, searching?: string) => boolean;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;
@@ -100,10 +100,8 @@
     export let sizing: $$Props["sizing"] = undefined;
     export let variation: $$Props["variation"] = undefined;
 
-    function default_search(row: IDataTableRow): boolean {
-        // HACK: TypeScript can't obviously know this is only called whenever
-        // the `searching` property DOES have a string
-        const _searching = (searching as string).toLowerCase();
+    function default_search(row: IDataTableRow, searching: string): boolean {
+        const _searching = searching.toLowerCase();
 
         for (const key in row) {
             const value = row[key].toLowerCase();
@@ -178,9 +176,10 @@
     $: _paging = typeof paging === "string" ? parseInt(paging) : paging ?? 5;
 
     $: _filtered_view = searching
-        ? rows.filter((row, index) => {
-              return searching_algorithm ? searching_algorithm(row) : default_search(row);
-          })
+        ? // HACK: TypeScript can't infer `searching` from upper enclosure here
+          rows.filter((row, index) =>
+              (searching_algorithm ?? default_search)(row, searching as string)
+          )
         : // NOTE: Even if filtering, we need to clone here so later sorting doesn't modify in place
           [...rows];
 

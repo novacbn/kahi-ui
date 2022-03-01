@@ -42,9 +42,10 @@
         logic_id: string;
         logic_name: string;
         logic_state?: string | string[];
+
         placeholder?: string;
 
-        searching_algorithm?: (item: IDataSelectItem) => boolean;
+        searching_algorithm?: (item: IDataSelectItem, searching?: string) => boolean;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING_BREAKPOINT;
@@ -71,6 +72,7 @@
     export let logic_id: $$Props["logic_id"];
     export let logic_name: $$Props["logic_name"];
     export let logic_state: $$Props["logic_state"] = "";
+
     export let placeholder: $$Props["placeholder"] = undefined;
 
     export let searching_algorithm: $$Props["searching_algorithm"] = undefined;
@@ -83,9 +85,7 @@
     let search_element: HTMLInputElement | undefined;
     let searching: string = "";
 
-    function default_search(item: IDataSelectItem): boolean {
-        // HACK: TypeScript can't obviously know this is only called whenever
-        // the `searching` property DOES have a string
+    function default_search(item: IDataSelectItem, searching: string): boolean {
         const _searching = searching.toLowerCase();
 
         return item.text.toLowerCase().includes(_searching);
@@ -136,7 +136,7 @@
 
     $: _filtered_view =
         IS_BROWSER && is_active && searching
-            ? items.filter((item) => (default_search ?? searching_algorithm)(item))
+            ? items.filter((item) => (default_search ?? searching_algorithm)(item, searching))
             : items;
 
     $: _selected =

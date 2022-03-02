@@ -20,6 +20,10 @@
     import Dropdown from "../dropdown/Dropdown.svelte";
     import Inlay from "../inlay/Inlay.svelte";
 
+    type IDataSelectAlgorithm =
+        | ((item: IDataSelectItem) => boolean)
+        | ((item: IDataSelectItem, searching: string) => boolean);
+
     type IDataSelectItem = $$Generic<{
         disabled?: boolean;
 
@@ -45,7 +49,7 @@
 
         placeholder?: string;
 
-        searching_algorithm?: (item: IDataSelectItem, searching?: string) => boolean;
+        searching_algorithm?: IDataSelectAlgorithm;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING_BREAKPOINT;
@@ -136,7 +140,10 @@
 
     $: _filtered_view =
         IS_BROWSER && is_active && searching
-            ? items.filter((item) => (default_search ?? searching_algorithm)(item, searching))
+            ? // HACK: TypeScript can't infer `searching` from upper enclosure here
+              items.filter((item) =>
+                  (default_search ?? searching_algorithm)(item, searching as string)
+              )
             : items;
 
     $: _selected =

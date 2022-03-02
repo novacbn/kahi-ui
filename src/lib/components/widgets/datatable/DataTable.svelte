@@ -26,6 +26,10 @@
 
     type IDataTableKey = keyof IDataTableRow;
 
+    type IDataTableAlgorithm =
+        | ((item: IDataTableRow) => boolean)
+        | ((item: IDataTableRow, searching: string) => boolean);
+
     interface IDataTableColumn {
         key: IDataTableKey;
 
@@ -53,7 +57,7 @@
         sorting_mode?: PROPERTY_SORTING_MODE;
 
         searching?: string;
-        searching_algorithm?: (row: IDataTableRow, searching?: string) => boolean;
+        searching_algorithm?: IDataTableAlgorithm;
 
         palette?: PROPERTY_PALETTE;
         sizing?: PROPERTY_SIZING;

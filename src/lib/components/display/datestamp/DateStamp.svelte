@@ -1,6 +1,4 @@
 <script lang="ts">
-    import {Temporal} from "../../../vendor/js-temporal-polyfill";
-
     import type {IGlobalProperties} from "../../../types/global";
     import type {IHTML5Events, IHTML5Properties} from "../../../types/html5";
     import type {IMarginProperties} from "../../../types/spacings";
@@ -9,6 +7,7 @@
     import {forward_actions} from "../../../actions/forward_actions";
 
     import {map_global_attributes} from "../../../util/attributes";
+    import {from_datestamp, to_datestamp} from "../../../util/datetime/datestamps";
     import type {IDayFormatOptions} from "../../../util/datetime/days";
     import type {IMonthFormatOptions} from "../../../util/datetime/months";
     import type {IYearFormatOptions} from "../../../util/datetime/years";
@@ -53,7 +52,7 @@
     // TODO: Can you convert between calendars? If so, should always convert
     // to a Gregorian Calendar since `<time>` only supports that
 
-    $: _date = Temporal.PlainDate.from(timestamp);
+    $: _date = from_datestamp(timestamp);
     $: _options = defaultopt({day, month, weekday, year}, DEFAULT_FORMAT_DATE);
 </script>
 
@@ -61,7 +60,7 @@
     bind:this={element}
     {...map_global_attributes($$restProps)}
     class="date-stamp {_class}"
-    datetime={_date.withCalendar("iso8601").toString({calendarName: "never"})}
+    datetime={to_datestamp(_date)}
     use:forward_actions={{actions}}
     on:click
     on:contextmenu

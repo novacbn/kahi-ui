@@ -2,6 +2,11 @@
 
 ## UNRELEASED
 
+-   `DateTimeStamp`
+
+    -   `<DateTimeStamp timestamp={number}>` — Added support to handle UNIX Epoch number timestamps, e.g. `1646210184506`
+    -   `<DateTimeStamp timestamp={string}>` — Added support to handle UTC Instant string timestamps, e.g. `2022-03-02T08:28:58.891Z` / `2020-01-23T17:04:36.491865121-08:00`
+
 -   `DataSelect`
 
     -   Added new Component! Similar to `DataTable`, allows you to provide a list of data structures to create a dropdown of selectable options.

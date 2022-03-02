@@ -2,9 +2,8 @@
     import {Temporal} from "../../../vendor/js-temporal-polyfill";
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
-    import {DEFAULT_TIMEZONE} from "../../../util/locale";
-
     import * as Stack from "../../layouts/stack";
+    import Code from "../../typography/code/Code.svelte";
     import Text from "../../typography/text/Text.svelte";
 
     import DateTimeStamp from "./DateTimeStamp.svelte";
@@ -23,7 +22,10 @@
 
     const FORMATS_SECOND = ["2-digit", "numeric"];
 
-    const now = Temporal.Now.zonedDateTimeISO(DEFAULT_TIMEZONE).toString();
+    const now_instant = Temporal.Now.instant().toString();
+    const now_plain = Temporal.Now.plainDateTimeISO().toString();
+    const now_unix = Date.now();
+    const now_zoned = Temporal.Now.zonedDateTimeISO().toString();
 </script>
 
 <Meta title="Display/DateTimeStamp" />
@@ -33,7 +35,7 @@
 </Template>
 
 <Story name="Preview">
-    <DateTimeStamp timestamp={now} />
+    <DateTimeStamp timestamp={now_zoned} />
 </Story>
 
 <Story name="Twelve (12) / Twenty-Four (24) Hour">
@@ -44,7 +46,7 @@
             </Text>
 
             <DateTimeStamp
-                timestamp={now}
+                timestamp={now_zoned}
                 hour="2-digit"
                 hour_12={true}
                 minute="2-digit"
@@ -58,9 +60,59 @@
             </Text>
 
             <DateTimeStamp
-                timestamp={now}
+                timestamp={now_zoned}
                 hour="2-digit"
                 hour_12={false}
+                minute="2-digit"
+                second="2-digit"
+            />
+        </div>
+    </Stack.Container>
+</Story>
+
+<Story name="Types">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        <div>
+            <Text>
+                <Text is="strong">Instant</Text>
+                <br />
+                <Code>{now_instant}</Code>
+            </Text>
+
+            <DateTimeStamp timestamp={now_instant} />
+        </div>
+
+        <div>
+            <Text>
+                <Text is="strong">Plain</Text>
+                <br />
+                <Code>{now_plain}</Code>
+            </Text>
+
+            <DateTimeStamp timestamp={now_plain} />
+        </div>
+
+        <div>
+            <Text>
+                <Text is="strong">UNIX Epoch</Text>
+                <br />
+                <Code>{now_unix}</Code>
+            </Text>
+
+            <DateTimeStamp timestamp={now_unix} />
+        </div>
+
+        <div>
+            <Text>
+                <Text is="strong">Zoned</Text>
+                <br />
+                <Code>{now_zoned}</Code>
+            </Text>
+
+            <DateTimeStamp
+                timestamp={now_zoned}
+                hour="2-digit"
+                hour_12={true}
                 minute="2-digit"
                 second="2-digit"
             />
@@ -80,7 +132,7 @@
                     </Text>
                 </Text>
 
-                <DateTimeStamp timestamp={now} day={format} />
+                <DateTimeStamp timestamp={now_zoned} day={format} />
             </div>
         {/each}
     </Stack.Container>
@@ -96,7 +148,7 @@
                     </Text>
                 </Text>
 
-                <DateTimeStamp timestamp={now} month={format} />
+                <DateTimeStamp timestamp={now_zoned} month={format} />
             </div>
         {/each}
     </Stack.Container>
@@ -112,7 +164,7 @@
                     </Text>
                 </Text>
 
-                <DateTimeStamp timestamp={now} weekday={format} />
+                <DateTimeStamp timestamp={now_zoned} weekday={format} />
             </div>
         {/each}
     </Stack.Container>
@@ -128,7 +180,7 @@
                     </Text>
                 </Text>
 
-                <DateTimeStamp timestamp={now} year={format} />
+                <DateTimeStamp timestamp={now_zoned} year={format} />
             </div>
         {/each}
     </Stack.Container>
@@ -145,7 +197,7 @@
                 </Text>
 
                 <DateTimeStamp
-                    timestamp={now}
+                    timestamp={now_zoned}
                     hour={format}
                     minute="2-digit"
                     second="2-digit"
@@ -167,7 +219,7 @@
                 </Text>
 
                 <DateTimeStamp
-                    timestamp={now}
+                    timestamp={now_zoned}
                     hour="2-digit"
                     minute={format}
                     second="2-digit"
@@ -188,7 +240,12 @@
                     </Text>
                 </Text>
 
-                <DateTimeStamp timestamp={now} hour="2-digit" minute="2-digit" second={format} />
+                <DateTimeStamp
+                    timestamp={now_zoned}
+                    hour="2-digit"
+                    minute="2-digit"
+                    second={format}
+                />
             </div>
         {/each}
     </Stack.Container>

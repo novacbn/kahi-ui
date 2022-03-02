@@ -94,7 +94,13 @@
         return item.text.toLowerCase().includes(_searching);
     }
 
-    function has_item(logic_state: string | string[] | undefined, item: IDataSelectItem): boolean {
+    function is_hidden(item: IDataSelectItem, searching?: string): boolean {
+        if (!IS_BROWSER || !searching) return false;
+
+        return !(default_search ?? searching_algorithm)(item, searching);
+    }
+
+    function has_item(item: IDataSelectItem, logic_state: string | string[] | undefined): boolean {
         const value = item.value ?? item.id;
 
         return logic_state instanceof Array ? logic_state.includes(value) : logic_state === value;
@@ -136,22 +142,14 @@
         ""
     ).length;
 
-    $: _filtered_view =
-        IS_BROWSER && is_active && searching
-            ? // HACK: TypeScript can't infer `searching` from upper enclosure here
-              items.filter((item) =>
-                  (default_search ?? searching_algorithm)(item, searching as string)
-              )
-            : items;
-
     $: _selected =
         IS_BROWSER && logic_state
             ? (multiple
                   ? items
-                        .filter((item) => has_item(logic_state, item))
+                        .filter((item) => has_item(item, logic_state))
                         .map((item) => item.text)
                         .join(", ")
-                  : items.find((item) => has_item(logic_state, item))?.text) ?? ""
+                  : items.find((item) => has_item(item, logic_state))?.text) ?? ""
             : "";
 </script>
 
@@ -159,11 +157,12 @@
     <Inlay bind:element {...$$restProps} class="data-select {_class}">
         <Form.Group {logic_name} bind:logic_state>
             <Menu.Container sizing="tiny">
-                {#each _filtered_view as item (item.id)}
+                {#each items as item (item.id)}
                     <Menu.Label
                         for="{logic_name}--{item.id}"
                         disabled={item.disabled ||
                             (multiple && is_multiple_disabled(logic_state, item))}
+                        hidden={is_hidden(item, searching)}
                     >
                         <slot {item}>
                             {item.text}
@@ -217,11 +216,12 @@
                 sizing="tiny"
                 style="width:calc({_longest_text}ch + (var(--spacings-block-small) * {_longest_text}ch));"
             >
-                {#each _filtered_view as item (item.id)}
+                {#each items as item (item.id)}
                     <Menu.Label
                         for="{logic_name}--{item.id}"
                         disabled={item.disabled ||
                             (multiple && is_multiple_disabled(logic_state, item))}
+                        hidden={is_hidden(item, searching)}
                     >
                         <slot {item}>
                             {item.text}

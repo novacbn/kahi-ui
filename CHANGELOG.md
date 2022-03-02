@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   `DateTimeStamp`
+
+    -   `<DateTimeStamp>` — Updated to handle UTC Instant timestamps, e.g. `2022-03-02T08:28:58.891Z` / `2020-01-23T17:04:36.491865121-08:00`
+
 ## v0.6.1 - 2022/02/25
 
 -   Fixed packaging file inclusion.

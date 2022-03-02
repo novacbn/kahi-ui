@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.6.2 - 2022/03/01
+## UNRELEASED
 
 -   `DataSelect`
 

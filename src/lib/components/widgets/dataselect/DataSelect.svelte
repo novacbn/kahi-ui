@@ -195,7 +195,7 @@
         bind:element
         {...$$restProps}
         class="data-select {_class}"
-        variation="editable"
+        variation="control"
         on:active={on_active}
         on:dismiss={on_dismiss}
     >

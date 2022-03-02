@@ -104,7 +104,7 @@
         }
     }
 
-    .popover[data-variation~="editable"]:not(:focus-within),
+    .popover[data-variation~="control"]:not(:focus-within),
     .popover[data-variation~="tooltip"]:not(:active, :hover, :focus-within) {
         & > .popover--section {
             --animation-visible: 0;

@@ -136,28 +136,28 @@
     </Omni.Container>
 </Story>
 
-<Story name="Preview - Editable">
-    <Popover.Container variation="editable">
+<Story name="Preview - Control">
+    <Popover.Container variation="control">
         <TextInput placeholder="...filter options" />
 
         <Popover.Section alignment_x="right" spacing="small">
-            <Box elevation="medium" variation="borders" radius="tiny">
+            <Box elevation="medium" padding="medium" variation="borders" radius="tiny">
                 <Menu.Container sizing="tiny">
                     <Menu.Heading>Filter</Menu.Heading>
 
-                    <Menu.Label for="popover-preview-editable-cpus">
+                    <Menu.Label for="popover-preview-control-cpus">
                         CPUs
                         <Spacer />
                         <Check value="cpus" palette="accent" variation="flush" />
                     </Menu.Label>
 
-                    <Menu.Label for="popover-preview-editable-hard-drives">
+                    <Menu.Label for="popover-preview-control-hard-drives">
                         Hard Drives
                         <Spacer />
                         <Check value="hard-drives" palette="accent" variation="flush" state />
                     </Menu.Label>
 
-                    <Menu.Label for="popover-preview-editable-solid-state-drives">
+                    <Menu.Label for="popover-preview-control-solid-state-drives">
                         Solid State Drives
                         <Spacer />
                         <Check value="solid-state-drives" palette="accent" variation="flush" />

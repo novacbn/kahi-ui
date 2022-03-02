@@ -105,7 +105,7 @@
         _popover_variation &&
         $_popover_variation === TOKENS_VARIATION_POPOVER.popover;
 
-    // TODO: support auto focus in `variation=editable`
+    // TODO: support auto focus in `variation=control`
 </script>
 
 <section

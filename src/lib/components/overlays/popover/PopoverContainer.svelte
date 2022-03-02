@@ -72,7 +72,7 @@
 
     function on_click_inside(event: MouseEvent): void {
         if (once) logic_state = false;
-        else if (_is_editable) {
+        else if (_is_control) {
             const {target} = event;
             if (target && !can_focus(target as Element)) logic_state = false;
         }
@@ -81,11 +81,11 @@
     function on_dismiss(): void {
         if (!logic_state) return;
 
-        if (_is_editable || (_is_popover && dismissible)) logic_state = false;
+        if (_is_control || (_is_popover && dismissible)) logic_state = false;
     }
 
     function on_focus_in(event: FocusEvent): void {
-        if (logic_state || !_is_editable) return;
+        if (logic_state || !_is_control) return;
 
         logic_state = true;
     }
@@ -98,7 +98,7 @@
         logic_state = (event.target as HTMLInputElement).checked;
     }
 
-    $: _is_editable = variation === TOKENS_VARIATION_POPOVER.editable;
+    $: _is_control = variation === TOKENS_VARIATION_POPOVER.control;
     $: _is_popover = !variation || variation === TOKENS_VARIATION_POPOVER.popover;
 
     $: _label = logic_id ? `label[for="${logic_id}"]` : undefined;
@@ -132,7 +132,7 @@
         on_click_outside: on_dismiss,
     }}
     use:lost_focus={{
-        enabled: _is_editable || _is_popover,
+        enabled: _is_control || _is_popover,
         ignore: _label,
         on_lost_focus: on_dismiss,
     }}

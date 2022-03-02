@@ -25,12 +25,14 @@
     -   `<DataSelect logic_name={string}>` — Controls the form name that prefixes all options.
     -   `<DataSelect logic_state={string | string[]}>` — Controls which options are selected.
 
-    -   `<DataSelect searching_algorithm={(item: IDataSelectItem, searching?: string) => boolean}>` — Allows implementing of custom search filtering.
+    -   `<DataSelect searching={string}>` — Controls the current searching filter in the inner `TextInput` value.
+
+        -   `<DataSelect searching_algorithm={(item: IDataSelectItem, searching?: string) => boolean}>` — Allows implementing of custom search filtering.
 
     -   `<DataSelect placeholder={string}>` — Alters displayed text while closed or if no options are selected.
 
     -   `<DataSelect palette={"auto" | "inverse" | "accent" | "dark" | "light" | "alert" | "affirmative" | "informative" | "negative"}>` — Alters the color palette of the inner `TextInput` Component.
-    -   `<DataSelect sizing={"nano", "tiny", "small", "medium", "large", "huge", "massive", `${VIEWPORT}:${SIZE}`}>` — Alters the sizing of the inner `TextInput` Component.
+    -   `<DataSelect sizing={"nano", "tiny", "small", "medium", "large", "huge", "massive", "${VIEWPORT}:${SIZE}"}>`— Alters the sizing of the inner`TextInput` Component.
     -   `<DataSelect variation={"flush"}>` — Alters to render the choices inline instead of a `Popover`.
 
 -   `DataTable`

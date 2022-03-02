@@ -49,6 +49,7 @@
 
         placeholder?: string;
 
+        searching?: string;
         searching_algorithm?: IDataSelectAlgorithm;
 
         palette?: PROPERTY_PALETTE;
@@ -79,6 +80,7 @@
 
     export let placeholder: $$Props["placeholder"] = undefined;
 
+    export let searching: $$Props["searching"] = undefined;
     export let searching_algorithm: $$Props["searching_algorithm"] = undefined;
 
     export let palette: $$Props["palette"] = undefined;
@@ -87,7 +89,6 @@
 
     let is_active: boolean = false;
     let search_element: HTMLInputElement | undefined;
-    let searching: string = "";
 
     function default_search(item: IDataSelectItem, searching: string): boolean {
         const _searching = searching.toLowerCase();
@@ -120,7 +121,6 @@
     }
 
     function on_dismiss(): void {
-        searching = "";
         is_active = false;
     }
 

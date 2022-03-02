@@ -13,7 +13,7 @@
 
         -   `IDataSelectItem.disabled: boolean` — Controls if the specific option is disabled.
         -   `IDataSelectItem.id: string` — Controls the element ID assigned to the option's `<input />` element.
-        -   `IDataSelectItem.palette: "auto" | "inverse" | "accent" | "dark" | "light" | "alert" | "affirmative" | "informative" | "negative"` — Alters the color palette.
+        -   `IDataSelectItem.palette: "auto" | "inverse" | "accent" | "dark" | "light" | "alert" | "affirmative" | "informative" | "negative"` — Alters the color palette of the inner `<Check>` or `<Radio>` Component.
         -   `IDataSelectItem.text: string` — Controls the text displayed to the user for the option.
         -   `IDataSelectItem.value: string` — Controls the form value associated with the option. If unset, `IDataSelectItem.id` will be used.
 
@@ -42,7 +42,7 @@
 
 -   `Popover`
 
-    -   `<Popover.Container variation="control">` — Activates the `<Popover.Section>` content when sibling content is focused / hovered.
+    -   `<Popover.Container variation="control">` — Activates the `<Popover.Section>` content when sibling content is focused.
 
 ## v0.6.1 - 2022/02/25
 

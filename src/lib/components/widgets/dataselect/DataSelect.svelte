@@ -43,7 +43,6 @@
         max?: number | string;
         multiple?: boolean;
 
-        logic_id: string;
         logic_name: string;
         logic_state?: string | string[];
 
@@ -74,7 +73,6 @@
     export let max: $$Props["max"] = undefined;
     export let multiple: $$Props["multiple"] = undefined;
 
-    export let logic_id: $$Props["logic_id"];
     export let logic_name: $$Props["logic_name"];
     export let logic_state: $$Props["logic_state"] = "";
 
@@ -198,7 +196,6 @@
         {...$$restProps}
         class="data-select {_class}"
         variation="editable"
-        {logic_id}
         on:active={on_active}
         on:dismiss={on_dismiss}
     >

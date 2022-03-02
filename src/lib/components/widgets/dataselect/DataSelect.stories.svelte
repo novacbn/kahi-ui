@@ -94,7 +94,6 @@
 <Story name="Preview">
     <DataSelect
         items={ITEMS}
-        logic_id="dataselect-preview"
         logic_name="dataselect-preview"
         logic_state="florida"
         placeholder="Select a US State..."
@@ -102,10 +101,9 @@
     />
 </Story>
 
-<Story name="Multiple - Preview">
+<Story name="Multiple">
     <DataSelect
         items={ITEMS}
-        logic_id="dataselect-multiple"
         logic_name="dataselect-multiple"
         logic_state={["delaware", "florida"]}
         placeholder="Select multiple US States..."
@@ -113,10 +111,11 @@
     />
 </Story>
 
-<Story name="Multiple - Max">
+<Story name="Disabled">...</Story>
+
+<Story name="Max">
     <DataSelect
         items={ITEMS}
-        logic_id="dataselect-multiple-max-one"
         logic_name="dataselect-multiple-max-one"
         logic_state="delaware"
         placeholder="Select one (1) US State..."
@@ -126,7 +125,6 @@
 
     <DataSelect
         items={ITEMS}
-        logic_id="dataselect-multiple-max-five"
         logic_name="dataselect-multiple-max-five"
         logic_state={["californa", "delaware", "florida", "oregon", "utah"]}
         placeholder="Select five (5) US States..."
@@ -142,7 +140,6 @@
 
             <DataSelect
                 items={ITEMS}
-                logic_id="dataselect-flush-singular"
                 logic_name="dataselect-flush-singular"
                 logic_state="delaware"
                 variation="flush"
@@ -156,7 +153,6 @@
 
             <DataSelect
                 items={ITEMS}
-                logic_id="dataselect-flush-multiple"
                 logic_name="dataselect-flush-multiple"
                 logic_state={["californa", "delaware", "florida", "oregon", "utah"]}
                 variation="flush"

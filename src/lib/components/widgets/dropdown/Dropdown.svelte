@@ -19,7 +19,7 @@
     type $$Props = {
         element?: HTMLDivElement;
 
-        logic_id: string;
+        logic_id?: string;
         logic_state?: boolean;
 
         palette?: PROPERTY_PALETTE;
@@ -41,7 +41,7 @@
     let _class = "";
     export {_class as class};
 
-    export let logic_id: $$Props["logic_id"];
+    export let logic_id: $$Props["logic_id"] = undefined;
     export let logic_state: $$Props["logic_state"] = false;
 
     export let palette: $$Props["palette"] = undefined;

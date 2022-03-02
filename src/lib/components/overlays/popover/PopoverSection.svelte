@@ -98,7 +98,7 @@
 
     $: _can_animate =
         (_popover_id && $_popover_id) ||
-        (_popover_variation && $_popover_variation === TOKENS_VARIATION_POPOVER.tooltip);
+        (_popover_variation && $_popover_variation !== TOKENS_VARIATION_POPOVER.popover);
     $: _can_auto_focus =
         _popover_state &&
         $_popover_state &&

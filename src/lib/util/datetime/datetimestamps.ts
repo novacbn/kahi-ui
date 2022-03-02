@@ -7,10 +7,12 @@ const EXPRESSION_OFFSET = /[\+\-]\d\d:\d\d$/;
 const EXPRESSION_TIMEZONE = /\[[\w/]+\]$/;
 
 export function from_datetimestamp(
-    datetimestamp: string,
+    datetimestamp: number | string,
     modify?: Temporal.PlainDateTimeLike
 ): Temporal.PlainDateTime | Temporal.Instant | Temporal.ZonedDateTime {
-    if (EXPRESSION_OFFSET.test(datetimestamp) || EXPRESSION_INSTANT.test(datetimestamp)) {
+    if (typeof datetimestamp === "number") {
+        return Temporal.Instant.fromEpochMilliseconds(datetimestamp);
+    } else if (EXPRESSION_OFFSET.test(datetimestamp) || EXPRESSION_INSTANT.test(datetimestamp)) {
         return Temporal.Instant.from(datetimestamp);
     } else if (EXPRESSION_TIMEZONE.test(datetimestamp)) {
         return modify

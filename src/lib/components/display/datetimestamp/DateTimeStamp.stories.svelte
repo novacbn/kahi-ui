@@ -24,6 +24,7 @@
 
     const now_instant = Temporal.Now.instant().toString();
     const now_plain = Temporal.Now.plainDateTimeISO().toString();
+    const now_unix = Date.now();
     const now_zoned = Temporal.Now.zonedDateTimeISO().toString();
 </script>
 
@@ -78,13 +79,7 @@
                 <Code>{now_instant}</Code>
             </Text>
 
-            <DateTimeStamp
-                timestamp={now_instant}
-                hour="2-digit"
-                hour_12={true}
-                minute="2-digit"
-                second="2-digit"
-            />
+            <DateTimeStamp timestamp={now_instant} />
         </div>
 
         <div>
@@ -94,13 +89,17 @@
                 <Code>{now_plain}</Code>
             </Text>
 
-            <DateTimeStamp
-                timestamp={now_plain}
-                hour="2-digit"
-                hour_12={true}
-                minute="2-digit"
-                second="2-digit"
-            />
+            <DateTimeStamp timestamp={now_plain} />
+        </div>
+
+        <div>
+            <Text>
+                <Text is="strong">UNIX Epoch</Text>
+                <br />
+                <Code>{now_unix}</Code>
+            </Text>
+
+            <DateTimeStamp timestamp={now_unix} />
         </div>
 
         <div>

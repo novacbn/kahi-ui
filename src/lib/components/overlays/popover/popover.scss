@@ -104,19 +104,18 @@
         }
     }
 
-    .popover[data-variation~="tooltip"] {
-        &:not(:active, :hover, :focus-within) {
-            & > .popover--section {
-                --animation-visible: 0;
+    .popover[data-variation~="control"]:not(:focus-within),
+    .popover[data-variation~="tooltip"]:not(:active, :hover, :focus-within) {
+        & > .popover--section {
+            --animation-visible: 0;
 
-                pointer-events: none;
-            }
+            pointer-events: none;
         }
+    }
 
-        &:is(:active, :hover, :focus-within) {
-            & > .popover--section {
-                --animation-delay: #{variables.use("popover.tooltip.animation.delay")};
-            }
+    .popover[data-variation~="tooltip"]:is(:active, :hover, :focus-within) {
+        & > .popover--section {
+            --animation-delay: #{variables.use("popover.tooltip.animation.delay")};
         }
     }
 }

@@ -2,6 +2,8 @@
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
     import Button from "../../interactables/button/Button.svelte";
+    import Check from "../../interactables/check/Check.svelte";
+    import TextInput from "../../interactables/textinput/TextInput.svelte";
     import Center from "../../layouts/center/Center.svelte";
     import Divider from "../../layouts/divider/Divider.svelte";
     import Spacer from "../../layouts/spacer/Spacer.svelte";
@@ -45,6 +47,7 @@
     let target_element;
 
     let logic_state = false;
+    let searching = "";
 
     function on_toggle_click(event) {
         logic_state = !logic_state;
@@ -132,6 +135,48 @@
             </Popover.Container>
         </Omni.Footer>
     </Omni.Container>
+</Story>
+
+<Story name="Preview - Control">
+    <Popover.Container variation="control">
+        <TextInput placeholder="...filter options" bind:value={searching} />
+
+        <Popover.Section alignment_x="right" spacing="small">
+            <Box elevation="medium" padding="medium" variation="borders" radius="tiny">
+                <Menu.Container sizing="tiny">
+                    <Menu.Heading>Filter</Menu.Heading>
+
+                    <Menu.Label
+                        for="popover-preview-control-cpus"
+                        hidden={searching && !"cpus".includes(searching.toLowerCase())}
+                    >
+                        CPUs
+                        <Spacer />
+                        <Check value="cpus" palette="accent" variation="flush" />
+                    </Menu.Label>
+
+                    <Menu.Label
+                        for="popover-preview-control-hard-drives"
+                        hidden={searching && !"hard drives".includes(searching.toLowerCase())}
+                    >
+                        Hard Drives
+                        <Spacer />
+                        <Check value="hard-drives" palette="accent" variation="flush" state />
+                    </Menu.Label>
+
+                    <Menu.Label
+                        for="popover-preview-control-solid-state-drives"
+                        hidden={searching &&
+                            !"solid state drives".includes(searching.toLowerCase())}
+                    >
+                        Solid State Drives
+                        <Spacer />
+                        <Check value="solid-state-drives" palette="accent" variation="flush" />
+                    </Menu.Label>
+                </Menu.Container>
+            </Box>
+        </Popover.Section>
+    </Popover.Container>
 </Story>
 
 <Story name="Preview - Tooltip">

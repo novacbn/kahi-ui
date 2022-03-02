@@ -15,7 +15,7 @@
 </script>
 
 <script lang="ts">
-    import {afterUpdate, createEventDispatcher} from "svelte";
+    import {createEventDispatcher} from "svelte";
 
     type $$Events = {
         change: CustomEvent<void>;

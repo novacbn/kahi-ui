@@ -44,6 +44,8 @@ export enum TOKENS_VARIATION_GRID {
  * Represents the `Popover`-centric variation tokens that can be applied to Framework Components
  */
 export enum TOKENS_VARIATION_POPOVER {
+    control = "control",
+
     popover = "popover",
 
     tooltip = "tooltip",

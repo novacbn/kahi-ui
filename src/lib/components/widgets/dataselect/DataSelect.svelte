@@ -100,12 +100,6 @@
         return !(default_search ?? searching_algorithm)(item, searching);
     }
 
-    function has_item(item: IDataSelectItem, logic_state: string | string[] | undefined): boolean {
-        const value = item.value ?? item.id;
-
-        return logic_state instanceof Array ? logic_state.includes(value) : logic_state === value;
-    }
-
     function is_multiple_disabled(
         logic_state: string | string[] | undefined,
         item: IDataSelectItem
@@ -142,14 +136,13 @@
         ""
     ).length;
 
+    $: _texts = Object.fromEntries(items.map((item) => [item.value ?? item.id, item.text]));
+
     $: _selected =
         IS_BROWSER && logic_state
-            ? (multiple
-                  ? items
-                        .filter((item) => has_item(item, logic_state))
-                        .map((item) => item.text)
-                        .join(", ")
-                  : items.find((item) => has_item(item, logic_state))?.text) ?? ""
+            ? logic_state instanceof Array
+                ? logic_state.map((value) => _texts[value]).join(", ")
+                : _texts[logic_state] ?? ""
             : "";
 </script>
 

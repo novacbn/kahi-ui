@@ -77,7 +77,7 @@
 
     <Popover.Section alignment_x="right" spacing="small">
         <Box elevation="medium" variation="borders" radius="tiny" {palette}>
-            <Scrollable padding="medium" max_height="viewport-50">
+            <Scrollable padding="medium">
                 <slot />
             </Scrollable>
         </Box>

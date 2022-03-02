@@ -1,0 +1,9 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_WIDGETS_DATASELECT") {
+    .data-select.popover {
+        & .scrollable {
+            max-height: min(calc(#{variables.use("dataselect.size.max-height")} * 1rem), 50vh);
+        }
+    }
+}

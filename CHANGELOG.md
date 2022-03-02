@@ -21,7 +21,6 @@
 
         -   `<DataSelect max={number}>` — Controls how many multiple choices a user can select when enabled.
 
-    -   `<DataSelect logic_id={string}>` — Controls the element ID assigned to the inner `Popover` Component.
     -   `<DataSelect logic_name={string}>` — Controls the form name that prefixes all options.
     -   `<DataSelect logic_state={string | string[]}>` — Controls which options are selected.
 
@@ -40,6 +39,10 @@
     -   `<DataTable searching_algorithm>` — Updated to provide `<DataTable searching>` instead of needing to bind to retrieve value.
 
         -   `<DataTable searching_algorithm={(item: IDataSelectItem) => boolean}>` -> `<DataTable searching_algorithm={(item: IDataSelectItem, searching?: string) => boolean}>`
+
+-   `Popover`
+
+    -   `<Popover.Container variation="control">` — Activates the `<Popover.Section>` content when sibling content is focused / hovered.
 
 ## v0.6.1 - 2022/02/25
 

@@ -36,7 +36,7 @@
         minute?: IMinuteFormatOptions["minute"];
         second?: ISecondFormatOptions["second"];
 
-        timestamp: string;
+        timestamp: number | string;
     } & IHTML5Properties &
         IGlobalProperties &
         IMarginProperties;

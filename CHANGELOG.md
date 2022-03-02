@@ -6,8 +6,7 @@
 
     -   Added new Component! Similar to `DataTable`, allows you to provide a list of data structures to create a dropdown of selectable options.
 
-    -   `<svelte:fragment slot="default" let:item={IDataSelectItem}>` — Allows for overriding of the default display option text.
-    -   `<svelte:fragment slot="activator">` — Allows for overriding the default inner `TextInput` Component for custom a custom activator.
+    -   `<svelte:fragment slot="default" let:index={number} let:item={IDataSelectItem}>` — Allows for overriding of the default display option text.
 
     -   `<DataSelect items={IDataSelectItem[]}>` — Sets the options displayed to the user.
 

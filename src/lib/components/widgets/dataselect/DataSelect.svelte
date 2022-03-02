@@ -101,8 +101,8 @@
     }
 
     function is_multiple_disabled(
-        logic_state: string | string[] | undefined,
-        item: IDataSelectItem
+        item: IDataSelectItem,
+        logic_state: string | string[] | undefined
     ): boolean {
         if (!logic_state || !_max || _max < 1) return false;
 
@@ -111,7 +111,7 @@
             return logic_state.length >= _max ? !logic_state.includes(value) : false;
         }
 
-        return logic_state !== value;
+        return _max === 1 && logic_state !== value;
     }
 
     function on_active(): void {
@@ -154,7 +154,7 @@
                     <Menu.Label
                         for="{logic_name}--{item.id}"
                         disabled={item.disabled ||
-                            (multiple && is_multiple_disabled(logic_state, item))}
+                            (multiple && is_multiple_disabled(item, logic_state))}
                         hidden={is_hidden(item, searching)}
                     >
                         <slot {item}>
@@ -167,7 +167,7 @@
                                 value={item.value ?? item.id}
                                 variation="flush"
                                 palette={item.palette}
-                                disabled={item.disabled || is_multiple_disabled(logic_state, item)}
+                                disabled={item.disabled || is_multiple_disabled(item, logic_state)}
                             />
                         {:else}
                             <Radio
@@ -213,7 +213,7 @@
                     <Menu.Label
                         for="{logic_name}--{item.id}"
                         disabled={item.disabled ||
-                            (multiple && is_multiple_disabled(logic_state, item))}
+                            (multiple && is_multiple_disabled(item, logic_state))}
                         hidden={is_hidden(item, searching)}
                     >
                         <slot {item}>
@@ -226,7 +226,7 @@
                                 value={item.value ?? item.id}
                                 variation="flush"
                                 palette={item.palette}
-                                disabled={item.disabled || is_multiple_disabled(logic_state, item)}
+                                disabled={item.disabled || is_multiple_disabled(item, logic_state)}
                             />
                         {:else}
                             <Radio

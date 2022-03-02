@@ -1,0 +1,11 @@
+@use "../../../../framework/abstracts/variables";
+
+@if not env("DISABLE_COMPONENTS_WIDGETS_DATASELECT") {
+    @include variables.define(
+        (
+            "dataselect": (
+                "size.max-height": variables.use("sizes.block.medium"),
+            ),
+        )
+    );
+}

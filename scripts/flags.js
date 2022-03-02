@@ -63,6 +63,7 @@ export const BUILD_FLAGS = make_flag_map(
     "--disable-components-utilities-animation",
     "--disable-components-utilities-portal",
     "--disable-components-utilities-transition",
+    "--disable-components-widgets-dataselect",
     "--disable-globals-alignments",
     "--disable-globals-alignments-responsitivity",
     "--disable-globals-elevations",

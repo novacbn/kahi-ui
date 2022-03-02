@@ -4,7 +4,8 @@
 
 -   `DateTimeStamp`
 
-    -   `<DateTimeStamp>` — Updated to handle UTC Instant timestamps, e.g. `2022-03-02T08:28:58.891Z` / `2020-01-23T17:04:36.491865121-08:00`
+    -   `<DateTimeStamp timestamp={number}>` — Added support to handle UNIX Epoch number timestamps, e.g. `1646210184506`
+    -   `<DateTimeStamp timestamp={string}>` — Added support to handle UTC Instant string timestamps, e.g. `2022-03-02T08:28:58.891Z` / `2020-01-23T17:04:36.491865121-08:00`
 
 ## v0.6.1 - 2022/02/25
 

@@ -74,10 +74,9 @@
     ];
 
     const SIZINGS = [
-        ["default", true],
+        ["small", true],
         ["nano", false],
         ["tiny", false],
-        ["small", false],
         ["medium", false],
         ["large", false],
         ["huge", false],
@@ -95,7 +94,6 @@
     <DataSelect
         items={ITEMS}
         logic_name="dataselect-preview"
-        logic_state="florida"
         placeholder="Select a US State..."
         palette="accent"
     />
@@ -105,19 +103,16 @@
     <DataSelect
         items={ITEMS}
         logic_name="dataselect-multiple"
-        logic_state={["delaware", "florida"]}
         placeholder="Select multiple US States..."
+        palette="accent"
         multiple
     />
 </Story>
-
-<Story name="Disabled">...</Story>
 
 <Story name="Max">
     <DataSelect
         items={ITEMS}
         logic_name="dataselect-multiple-max-one"
-        logic_state="delaware"
         placeholder="Select one (1) US State..."
         max={1}
         multiple
@@ -126,12 +121,13 @@
     <DataSelect
         items={ITEMS}
         logic_name="dataselect-multiple-max-five"
-        logic_state={["californa", "delaware", "florida", "oregon", "utah"]}
         placeholder="Select five (5) US States..."
         max={5}
         multiple
     />
 </Story>
+
+<Story name="Slot">...</Story>
 
 <Story name="Flush">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
@@ -141,7 +137,6 @@
             <DataSelect
                 items={ITEMS}
                 logic_name="dataselect-flush-singular"
-                logic_state="delaware"
                 variation="flush"
                 width="small"
                 height="medium"
@@ -154,12 +149,71 @@
             <DataSelect
                 items={ITEMS}
                 logic_name="dataselect-flush-multiple"
-                logic_state={["californa", "delaware", "florida", "oregon", "utah"]}
                 variation="flush"
                 width="small"
                 height="medium"
                 multiple
             />
         </div>
+    </Stack.Container>
+</Story>
+
+<Story name="Item - Disabled">
+    <DataSelect
+        items={ITEMS.map((item, index) => {
+            return {...item, disabled: index % 5 === 0};
+        })}
+        logic_name="dataselect-disabled"
+        placeholder="Select a US State..."
+    />
+</Story>
+
+<Story name="Item - Palette">
+    <DataSelect
+        items={ITEMS.map((item, index) => {
+            return {...item, palette: index % 5 === 0 ? "negative" : item.palette};
+        })}
+        logic_name="dataselect-palette"
+        placeholder="Select a US State..."
+    />
+</Story>
+
+<Story name="Palette">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each PALETTES as [palette, is_default] (palette)}
+            <div>
+                <Text is="strong">
+                    {`${palette.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <br />
+                <DataSelect
+                    items={ITEMS}
+                    logic_name="dataselect-palette-{palette}}"
+                    placeholder="Select a US State..."
+                    palette={is_default ? undefined : palette}
+                />
+            </div>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Sizing">
+    <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">
+        {#each SIZINGS as [sizing, is_default] (sizing)}
+            <div>
+                <Text is="strong">
+                    {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Text>
+
+                <br />
+                <DataSelect
+                    items={ITEMS}
+                    logic_name="dataselect-sizing-{sizing}}"
+                    placeholder="Select a US State..."
+                    sizing={is_default ? undefined : sizing}
+                />
+            </div>
+        {/each}
     </Stack.Container>
 </Story>

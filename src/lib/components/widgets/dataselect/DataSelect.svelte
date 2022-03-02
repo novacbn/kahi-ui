@@ -165,16 +165,16 @@
                         {#if multiple}
                             <Check
                                 value={item.value ?? item.id}
+                                disabled={item.disabled || is_multiple_disabled(item, logic_state)}
                                 variation="flush"
                                 palette={item.palette}
-                                disabled={item.disabled || is_multiple_disabled(item, logic_state)}
                             />
                         {:else}
                             <Radio
                                 value={item.value ?? item.id}
+                                disabled={item.disabled}
                                 variation="flush"
                                 palette={item.palette}
-                                disabled={item.disabled}
                             />
                         {/if}
                     </Menu.Label>
@@ -224,16 +224,16 @@
                         {#if multiple}
                             <Check
                                 value={item.value ?? item.id}
+                                disabled={item.disabled || is_multiple_disabled(item, logic_state)}
                                 variation="flush"
                                 palette={item.palette}
-                                disabled={item.disabled || is_multiple_disabled(item, logic_state)}
                             />
                         {:else}
                             <Radio
                                 value={item.value ?? item.id}
+                                disabled={item.disabled}
                                 variation="flush"
                                 palette={item.palette}
-                                disabled={item.disabled}
                             />
                         {/if}
                     </Menu.Label>

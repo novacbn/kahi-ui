@@ -61,7 +61,7 @@
         ISizeProperties;
 
     type $$Slots = {
-        default: {item: IDataSelectItem};
+        default: {index: number; item: IDataSelectItem};
     };
 
     export let element: $$Props["element"] = undefined;
@@ -150,14 +150,14 @@
     <Inlay bind:element {...$$restProps} class="data-select {_class}">
         <Form.Group {logic_name} bind:logic_state>
             <Menu.Container sizing="tiny">
-                {#each items as item (item.id)}
+                {#each items as item, index (item.id)}
                     <Menu.Label
                         for="{logic_name}--{item.id}"
                         disabled={item.disabled ||
                             (multiple && is_multiple_disabled(item, logic_state))}
                         hidden={is_hidden(item, searching)}
                     >
-                        <slot {item}>
+                        <slot {index} {item}>
                             {item.text}
                         </slot>
 
@@ -209,14 +209,14 @@
                 sizing="tiny"
                 style="width:calc({_longest_text}ch + (var(--spacings-block-small) * {_longest_text}ch));"
             >
-                {#each items as item (item.id)}
+                {#each items as item, index (item.id)}
                     <Menu.Label
                         for="{logic_name}--{item.id}"
                         disabled={item.disabled ||
                             (multiple && is_multiple_disabled(item, logic_state))}
                         hidden={is_hidden(item, searching)}
                     >
-                        <slot {item}>
+                        <slot {index} {item}>
                             {item.text}
                         </slot>
 

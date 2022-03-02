@@ -127,7 +127,23 @@
     />
 </Story>
 
-<Story name="Slot">...</Story>
+<Story name="Slot">
+    <DataSelect
+        items={ITEMS}
+        logic_name="dataselect-disabled"
+        placeholder="Select a US State..."
+        let:index
+        let:item
+    >
+        {#if index % 5 === 0}
+            <Text is="span">
+                <Text is="strong">{item.text.slice(0, 1)}</Text>{item.text.slice(1)}
+            </Text>
+        {:else}
+            {item.text}
+        {/if}
+    </DataSelect>
+</Story>
 
 <Story name="Flush">
     <Stack.Container orientation="horizontal" spacing="medium" variation="wrap">

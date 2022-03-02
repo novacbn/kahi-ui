@@ -179,7 +179,7 @@
         items={ITEMS.map((item, index) => {
             return {...item, disabled: index % 5 === 0};
         })}
-        logic_name="dataselect-disabled"
+        logic_name="dataselect-item-disabled"
         placeholder="Select a US State..."
     />
 </Story>
@@ -189,7 +189,7 @@
         items={ITEMS.map((item, index) => {
             return {...item, palette: index % 5 === 0 ? "negative" : item.palette};
         })}
-        logic_name="dataselect-palette"
+        logic_name="dataselect-item-palette"
         placeholder="Select a US State..."
     />
 </Story>
@@ -205,7 +205,7 @@
                 <br />
                 <DataSelect
                     items={ITEMS}
-                    logic_name="dataselect-palette-{palette}}"
+                    logic_name="dataselect-palette-{palette}"
                     placeholder="Select a US State..."
                     palette={is_default ? undefined : palette}
                 />
@@ -225,7 +225,7 @@
                 <br />
                 <DataSelect
                     items={ITEMS}
-                    logic_name="dataselect-sizing-{sizing}}"
+                    logic_name="dataselect-sizing-{sizing}"
                     placeholder="Select a US State..."
                     sizing={is_default ? undefined : sizing}
                 />

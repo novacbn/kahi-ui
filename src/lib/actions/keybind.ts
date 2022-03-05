@@ -7,6 +7,14 @@ import type {IAction, IActionHandle} from "./actions";
 export type IKeybindAction = IAction<Document | Element, IKeybindOptions, IKeybindHandle>;
 
 /**
+ * Represents an already predefined shortcut keybind
+ */
+export type IKeybindShortcutAction = (
+    element: Document | HTMLElement,
+    {on_bind}: {on_bind: IKeybindCallback}
+) => IKeybindHandle;
+
+/**
  * Represents the Svelte Action handle returned by [[keybind]]
  */
 export type IKeybindHandle = Required<IActionHandle<IKeybindOptions>>;
@@ -262,3 +270,102 @@ export const keybind: IKeybindAction = (element, options) => {
         },
     };
 };
+
+/**
+ * Returns a `keybind`-like factory with preconfigured options
+ * @param factory_options
+ * @returns
+ */
+function make_keybind_shortcut(
+    factory_options: Omit<IKeybindOptions, "on_bind">
+): IKeybindShortcutAction {
+    return (element, {on_bind}) => {
+        const {destroy, update} = keybind(element, {...factory_options, on_bind});
+
+        return {
+            destroy,
+
+            update({on_bind}) {
+                update({...factory_options, on_bind});
+            },
+        };
+    };
+}
+
+/**
+ * Represents a keybind used for activating the currently focused element
+ * @param element
+ * @param options
+ * @returns
+ */
+export const action_activate = make_keybind_shortcut({
+    binds: ["enter", " "],
+});
+
+/**
+ * Represents a keybind used for closing / exiting the currently active Component
+ * @param element
+ * @param options
+ * @returns
+ */
+export const action_exit = make_keybind_shortcut({
+    binds: ["escape"],
+});
+
+/**
+ * Represents a keybind used for submitting the currently focused element
+ * @param element
+ * @param options
+ * @returns
+ */
+export const action_submit = make_keybind_shortcut({
+    binds: ["enter"],
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option downwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_down = make_keybind_shortcut({
+    binds: ["arrowdown"],
+    repeat: true,
+    repeat_throttle: 250,
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option leftwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_left = make_keybind_shortcut({
+    binds: ["arrowleft"],
+    repeat: true,
+    repeat_throttle: 250,
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option rightwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_right = make_keybind_shortcut({
+    binds: ["arrowright"],
+    repeat: true,
+    repeat_throttle: 250,
+});
+
+/**
+ * Represents a keybind used for navigating to the next available navigation option upwards
+ * @param element
+ * @param options
+ * @returns
+ */
+export const navigate_up = make_keybind_shortcut({
+    binds: ["arrowup"],
+    repeat: true,
+    repeat_throttle: 250,
+});

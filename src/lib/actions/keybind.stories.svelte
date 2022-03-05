@@ -29,6 +29,7 @@
 
 <Story name="Preview">
     <input
+        class="text-input"
         type="text"
         placeholder="Click inside of me for focus, and press CTRL+ENTER to activate bind."
         data-palette={is_active ? "affirmative" : "negative"}

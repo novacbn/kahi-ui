@@ -4,6 +4,7 @@
 
 -   `keybind`
 
+    -   Added `make_keybind_shortcut({binds: string, repeat?: boolean, repeat_throttle?: number, throttle_cancel?: boolean}): (element: Document | Element, {on_bind}) => IKeybindHandle` — Useful for developers defining their own shortcut functions.
     -   Fixed ignoring keybinds that use `+` (plus) key, e.g. `keybind({binds: "control++"})`
 
 ## v0.6.2 - 2022/03/02

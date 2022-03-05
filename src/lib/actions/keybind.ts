@@ -136,7 +136,7 @@ function parse_binds(binds: string | string[]): IParsedBinds {
     if (typeof binds === "string") binds = [binds];
 
     const bind_map = binds.map((bind, index) => {
-        const keys = bind.split("+").map((key, index) => key.toLowerCase());
+        const keys = split_keys(bind);
 
         return {
             bind: bind.toLowerCase(),
@@ -150,6 +150,20 @@ function parse_binds(binds: string | string[]): IParsedBinds {
         binds: bind_map,
         keys: key_lookup,
     };
+}
+
+/**
+ *
+ * @internal
+ *
+ * @param bind
+ * @returns
+ */
+function split_keys(bind: string): string[] {
+    return bind
+        .split(/(\w+|\+)\+/)
+        .filter((key) => !!key)
+        .map((key) => key.toLowerCase());
 }
 
 /**

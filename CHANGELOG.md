@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   `keybind`
+
+    -   Fixed ignoring keybinds that use `+` (plus) key, e.g. `keybind({binds: "control++"})`
+
 ## v0.6.2 - 2022/03/02
 
 -   `DataSelect`

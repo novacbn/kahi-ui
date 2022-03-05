@@ -1,6 +1,6 @@
-import {action_activate} from "../util/keybind";
 import type {IAction, IActionHandle} from "./actions";
 import type {IKeybindEvent, IKeybindHandle} from "./keybind";
+import {action_activate} from "./keybind";
 
 /**
  * Represents the Svelte Action initializer signature for [[behavior_button]]

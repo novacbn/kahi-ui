@@ -31,6 +31,9 @@
     export let actions: $$Props["actions"] = undefined;
     export let element: $$Props["element"] = undefined;
 
+    let _class: $$Props["class"] = "";
+    export {_class as class};
+
     export let palette: $$Props["palette"] = undefined;
     export let orientation: $$Props["orientation"] = undefined;
 </script>
@@ -40,8 +43,9 @@
         bind:this={element}
         {...map_global_attributes($$restProps)}
         role="separator"
-        class="divider"
+        class="divider {_class}"
         {...map_data_attributes({orientation, palette})}
+        use:forward_actions={{actions}}
         on:click
         on:contextmenu
         on:dblclick
@@ -63,7 +67,7 @@
     <hr
         bind:this={element}
         {...map_global_attributes($$restProps)}
-        class="divider"
+        class="divider {_class}"
         {...map_data_attributes({orientation, palette})}
         use:forward_actions={{actions}}
         on:click

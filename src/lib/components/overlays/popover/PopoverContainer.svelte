@@ -12,11 +12,11 @@
     import {click_outside} from "../../../actions/click_outside";
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {action_exit} from "../../../actions/keybind";
     import {lost_focus} from "../../../actions/lost_focus";
 
     import {map_data_attributes, map_global_attributes} from "../../../util/attributes";
     import {can_focus} from "../../../util/element";
-    import {action_exit} from "../../../util/keybind";
 
     import PopoverGroup from "./PopoverGroup.svelte";
 

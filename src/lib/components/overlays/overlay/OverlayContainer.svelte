@@ -9,9 +9,9 @@
 
     import type {IForwardedActions} from "../../../actions/forward_actions";
     import {forward_actions} from "../../../actions/forward_actions";
+    import {action_exit} from "../../../actions/keybind";
 
     import {map_global_attributes} from "../../../util/attributes";
-    import {action_exit} from "../../../util/keybind";
 
     import OverlayGroup from "./OverlayGroup.svelte";
 

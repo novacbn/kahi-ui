@@ -11,6 +11,11 @@
     -   `<Divider actions>` — Fixed property not applying actions to element when using text divider.
     -   `<Divider class>` — Fixed property not applying class to element.
 
+-   `keybind`
+
+    -   Added `make_keybind_shortcut({binds: string, repeat?: boolean, repeat_throttle?: number, throttle_cancel?: boolean}): (element: Document | Element, {on_bind}) => IKeybindHandle` — Useful for developers defining their own shortcut functions.
+    -   Fixed ignoring keybinds that use `+` (plus) key, e.g. `keybind({binds: "control++"})`
+
 -   `Omni`
 
     -   `<Omni.Container actions>` — Fixed property not applying actions to element.

@@ -144,4 +144,3 @@ export * from "./stores/thememode";
 export * from "./stores/viewport";
 
 export * from "./util/environment";
-export * from "./util/keybind";

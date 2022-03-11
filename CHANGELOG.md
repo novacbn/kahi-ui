@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   `Aside`
+
+    -   `<Aside.Container actions>` — Fixed property not applying actions to element.
+
+-   `Divider`
+
+    -   `<Divider actions>` — Fixed property not applying actions to element when using text divider.
+    -   `<Divider class>` — Fixed property not applying class to element.
+
+-   `Omni`
+
+    -   `<Omni.Container actions>` — Fixed property not applying actions to element.
+
 ## v0.6.2 - 2022/03/02
 
 -   `DataSelect`

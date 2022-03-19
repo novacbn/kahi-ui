@@ -4,7 +4,7 @@
 
 -   `Card`
 
-    -   Fixed missing `<Card.Footer fit radius shape>` support, to match `<Figure>` Property API.
+    -   Fixed missing `<Card.Figure fit radius shape>` support, to match `<Figure>` Property API.
 
 -   `keybind`
 
@@ -13,7 +13,7 @@
 
 -   `Tile`
 
-    -   Fixed missing `<Tile.Footer fit radius shape>` support, to match `<Figure>` Property API.
+    -   Fixed missing `<Tile.Figure fit radius shape>` support, to match `<Figure>` Property API.
 
 ## v0.6.3 - 2022/03/11
 

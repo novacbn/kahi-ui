@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   `Card`
+
+    -   Fixed missing `<Card.Footer fit radius shape>` support, to match `<Figure>` Property API.
+
+-   `Tile`
+
+    -   Fixed missing `<Tile.Footer fit radius shape>` support, to match `<Figure>` Property API.
+
 ## v0.6.3 - 2022/03/11
 
 -   `Aside`

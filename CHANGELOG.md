@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## v0.6.4 - 2022/03/19
 
 -   `Card`
 

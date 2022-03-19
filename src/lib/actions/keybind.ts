@@ -290,17 +290,17 @@ export const keybind: IKeybindAction = (element, options) => {
  * @param factory_options
  * @returns
  */
-function make_keybind_shortcut(
+export function make_keybind_shortcut(
     factory_options: Omit<IKeybindOptions, "on_bind">
 ): IKeybindShortcutAction {
-    return (element, {on_bind}) => {
-        const {destroy, update} = keybind(element, {...factory_options, on_bind});
+    return (element, options) => {
+        const {destroy, update} = keybind(element, {...factory_options, ...options});
 
         return {
             destroy,
 
-            update({on_bind}) {
-                update({...factory_options, on_bind});
+            update(options) {
+                update({...factory_options, ...options});
             },
         };
     };

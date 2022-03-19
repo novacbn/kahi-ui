@@ -22,6 +22,14 @@
         ["highest", false],
     ];
 
+    const FITS = [
+        ["fill", true],
+        ["contain", false],
+        ["cover", false],
+        ["none", false],
+        ["scale-down", false],
+    ];
+
     const ORIENTATIONS = [
         ["horizontal", true],
         ["vertical", false],
@@ -39,6 +47,22 @@
         ["affirmative", false],
         ["informative", false],
         ["negative", false],
+    ];
+
+    const RADIUS = [
+        ["none", true],
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
+
+    const SHAPES = [
+        ["circle", false],
+        ["pill", false],
     ];
 
     const SIZINGS = [
@@ -175,6 +199,81 @@
             <Card.Container sizing={is_default ? undefined : sizing} width="huge">
                 <Card.Header>
                     {`${sizing.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Card.Header>
+
+                <Card.Section>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Card.Section>
+            </Card.Container>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Figure - Fit">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each FITS as [fit, is_default] (fit)}
+            <Card.Container width="huge">
+                <Card.Figure fit={is_default ? undefined : fit}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Card.Figure>
+
+                <Card.Header>
+                    {`${fit.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Card.Header>
+
+                <Card.Section>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Card.Section>
+            </Card.Container>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Figure - Radius">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each RADIUS as [radius, is_default] (radius)}
+            <Card.Container width="huge">
+                <Card.Figure radius={is_default ? undefined : radius}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Card.Figure>
+
+                <Card.Header>
+                    {`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                </Card.Header>
+
+                <Card.Section>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+                        consectetur orci. Curabitur a egestas turpis, vitae convallis sapien. Sed
+                        pellentesque rutrum tellus, in iaculis dolor tincidunt non. Orci varius
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                    </Text>
+                </Card.Section>
+            </Card.Container>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Figure - Shape">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each SHAPES as [shape, is_default] (shape)}
+            <Card.Container width="huge">
+                <Card.Figure shape={is_default ? undefined : shape}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Card.Figure>
+
+                <Card.Header>
+                    {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
                 </Card.Header>
 
                 <Card.Section>

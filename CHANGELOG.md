@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## UNRELEASED
+
+-   `keybind`
+
+    -   Fixed `make_keybind_shortcut` missing as a package export.
+    -   Updated `make_keybind_shortcut` action to allow override of preset options aside from `IKeybindOptions.on_bind`.
+
 ## v0.6.3 - 2022/03/11
 
 -   `Aside`

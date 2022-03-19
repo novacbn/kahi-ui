@@ -1,5 +1,6 @@
 <script>
     import IMAGE_AVATAR from "../../../../../.storybook/assets/avatar.webp";
+    import IMAGE_BACKGROUND from "../../../../../.storybook/assets/background.webp";
 
     import {Meta, Story, Template} from "@storybook/addon-svelte-csf";
 
@@ -20,6 +21,14 @@
         ["highest", false],
     ];
 
+    const FITS = [
+        ["fill", true],
+        ["contain", false],
+        ["cover", false],
+        ["none", false],
+        ["scale-down", false],
+    ];
+
     const ORIENTATIONS = [
         ["horizontal", true],
         ["vertical", false],
@@ -37,6 +46,22 @@
         ["affirmative", false],
         ["informative", false],
         ["negative", false],
+    ];
+
+    const RADIUS = [
+        ["none", true],
+        ["nano", false],
+        ["tiny", false],
+        ["small", false],
+        ["medium", false],
+        ["large", false],
+        ["huge", false],
+        ["massive", false],
+    ];
+
+    const SHAPES = [
+        ["circle", false],
+        ["pill", false],
     ];
 
     const SIZINGS = [
@@ -177,7 +202,79 @@
     </Stack.Container>
 </Story>
 
-<Story name="Footer Orientation">
+<Story name="Figure - Fit">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each FITS as [fit, is_default] (fit)}
+            <Tile.Container width="content-max">
+                <Tile.Figure fit={is_default ? undefined : fit}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Tile.Figure>
+
+                <Tile.Section>
+                    <Tile.Header>
+                        {`${fit.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Tile.Header>
+
+                    <Text>
+                        <Text is="small">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </Text>
+                    </Text>
+                </Tile.Section>
+            </Tile.Container>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Figure - Radius">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each RADIUS as [radius, is_default] (radius)}
+            <Tile.Container width="content-max">
+                <Tile.Figure radius={is_default ? undefined : radius}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Tile.Figure>
+
+                <Tile.Section>
+                    <Tile.Header>
+                        {`${radius.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Tile.Header>
+
+                    <Text>
+                        <Text is="small">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </Text>
+                    </Text>
+                </Tile.Section>
+            </Tile.Container>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Figure - Shape">
+    <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
+        {#each SHAPES as [shape, is_default] (shape)}
+            <Tile.Container width="content-max">
+                <Tile.Figure shape={is_default ? undefined : shape}>
+                    <img src={IMAGE_BACKGROUND} />
+                </Tile.Figure>
+
+                <Tile.Section>
+                    <Tile.Header>
+                        {`${shape.toUpperCase()}${is_default ? " / DEFAULT" : ""}`}
+                    </Tile.Header>
+
+                    <Text>
+                        <Text is="small">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </Text>
+                    </Text>
+                </Tile.Section>
+            </Tile.Container>
+        {/each}
+    </Stack.Container>
+</Story>
+
+<Story name="Footer - Orientation">
     <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each ORIENTATIONS as [orientation, is_default] (orientation)}
             <Tile.Container width="content-max">
@@ -202,7 +299,7 @@
     </Stack.Container>
 </Story>
 
-<Story name="Footer Spacing">
+<Story name="Footer - Spacing">
     <Stack.Container orientation="horizontal" spacing="medium" alignment_y="top" variation="wrap">
         {#each SPACINGS as [spacing, is_default] (spacing)}
             <Tile.Container width="content-max">

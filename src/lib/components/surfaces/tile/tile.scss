@@ -4,6 +4,7 @@
 @use "../../../../framework/mixins/borders";
 @use "../../../../framework/mixins/backgrounds";
 @use "../../../../framework/mixins/elevations";
+@use "../../../../framework/mixins/fit";
 @use "../../../../framework/mixins/fonts";
 @use "../../../../framework/mixins/intrinsics";
 @use "../../../../framework/mixins/palettes";
@@ -50,6 +51,19 @@
         justify-content: center;
 
         @include intrinsics.size-all($namespace: "tile.figure");
+
+        @include fit.var-reset-object();
+        @include radius.var-reset();
+
+        @include fit.object();
+        @include radius.all($unit: rem);
+
+        & > * {
+            border-radius: inherit;
+            object-fit: inherit;
+
+            height: 100%;
+        }
     }
 
     .tile--footer {

@@ -1,3 +1,7 @@
+> **NOTICE**: The development Kahi UI is currently on indefinite hiatus due to lack of time.
+> 
+> Please seek alternatives if you don't want to use a currently unsupported library!
+
 <p align="center">
     <a href="https://kahi-ui.nbn.dev">
         <img src="https://raw.githubusercontent.com/novacbn/kahi-ui/main/.assets/profile.png" alt="Kahi UI Logo" width="256" />
